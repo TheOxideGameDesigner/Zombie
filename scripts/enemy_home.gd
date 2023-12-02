@@ -21,9 +21,10 @@ func _ready():
 
 func _process(delta):
 	time_left -= delta
-	if time_left > 0:
-		time_left_label.text = str(ceil(time_left))
-	else:
-		time_left_label.text = ""
+	if int(time_left) != int(time_left + delta):
+		if time_left > 0:
+			time_left_label.text = str(ceil(time_left))
+		else:
+			time_left_label.text = ""
 	time += delta
 	cross.position.y = init_height + BOB_AMPLITUDE * sin(time * BOB_FREQ)

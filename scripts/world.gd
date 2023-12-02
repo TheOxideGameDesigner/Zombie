@@ -16,6 +16,3 @@ func _ready():
 	if config_file.get_value("video", "disable_particles"):
 		for j in get_tree().get_nodes_in_group("particles"):
 			j.queue_free()
-	#for i in get_tree().get_nodes_in_group("enemy"):
-		#if not i.is_in_group("lightweight"):
-			#i.queue_free()
