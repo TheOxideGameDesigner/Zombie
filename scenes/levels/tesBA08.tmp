@@ -1,0 +1,57 @@
+[gd_scene load_steps=10 format=3 uid="uid://ckgvirwloravq"]
+
+[ext_resource type="Script" path="res://scripts/world.gd" id="1_fd2vk"]
+[ext_resource type="PackedScene" uid="uid://b0rrl8iqrcsq6" path="res://scenes/props/enemies/bosses/statue.tscn" id="3_hgu78"]
+[ext_resource type="PackedScene" uid="uid://4px2n2dg363l" path="res://scenes/props/misc_props/player.tscn" id="3_x3ufi"]
+[ext_resource type="PackedScene" uid="uid://cdshg7bk5i645" path="res://scenes/props/misc_props/garlic.tscn" id="4_0rmjg"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_tbypb"]
+vertices = PackedVector3Array(-18.5, 0.4325, -24.5, -24.5, 0.4325, -24.5, -24.5, 0.4325, -18.5, -24.5, 0.4325, 18.25, -24.5, 0.4325, 24.5, -18.5, 0.4325, 24.5, 24.5, 0.4325, -18.5, 24.5, 0.4325, -24.5, 18.25, 0.4325, -24.5, 18.25, 0.4325, 24.5, 24.5, 0.4325, 24.5, 24.5, 0.4325, 18.25, -24.5, 0.4325, 12.25, -24.5, 0.4325, 18.25, -18.5, 0.4325, 24.5, -12.25, 0.4325, 24.5, 24.5, 0.4325, -18.5, 18.25, 0.4325, -24.5, 12.25, 0.4325, -24.5, 24.5, 0.4325, -12.25, -12.25, 0.4325, -24.5, -18.5, 0.4325, -24.5, -24.5, 0.4325, -18.5, -24.5, 0.4325, -12.25, 12.25, 0.4325, 24.5, 18.25, 0.4325, 24.5, 24.5, 0.4325, 18.25, 6, 0.4325, 24.5, 24.5, 0.4325, 12.25, 24.5, 0.4325, 6, 0, 0.4325, 24.5, 12.25, 0.4325, 24.5, 24.5, 0.4325, 18.25, 24.5, 0.4325, 12.25, 6, 0.4325, 24.5, 0, 0.4325, -24.5, -6.25, 0.4325, -24.5, -24.5, 0.4325, -6.25, -24.5, 0.4325, 0, 24.5, 0.4325, 0, 0, 0.4325, -24.5, -24.5, 0.4325, 0, -6.25, 0.4325, 24.5, 0, 0.4325, 24.5, 24.5, 0.4325, 6, -24.5, 0.4325, 12.25, -12.25, 0.4325, 24.5, -6.25, 0.4325, 24.5, -24.5, 0.4325, 6, 24.5, 0.4325, -6.25, 24.5, 0.4325, -12.25, 12.25, 0.4325, -24.5, 6, 0.4325, -24.5, -6.25, 0.4325, -24.5, -12.25, 0.4325, -24.5, -24.5, 0.4325, -12.25, -24.5, 0.4325, -6.25, -24.5, 0.4325, 0, -24.5, 0.4325, 6, -6.25, 0.4325, 24.5, 24.5, 0.4325, -6.25, 6, 0.4325, -24.5, 0, 0.4325, -24.5, 24.5, 0.4325, 0)
+polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(5, 4, 3), PackedInt32Array(8, 7, 6), PackedInt32Array(11, 10, 9), PackedInt32Array(13, 12, 14), PackedInt32Array(14, 12, 15), PackedInt32Array(17, 16, 18), PackedInt32Array(18, 16, 19), PackedInt32Array(21, 20, 22), PackedInt32Array(22, 20, 23), PackedInt32Array(26, 25, 24), PackedInt32Array(28, 27, 29), PackedInt32Array(29, 27, 30), PackedInt32Array(32, 31, 33), PackedInt32Array(33, 31, 34), PackedInt32Array(36, 35, 37), PackedInt32Array(37, 35, 38), PackedInt32Array(44, 43, 39), PackedInt32Array(39, 43, 42), PackedInt32Array(39, 42, 41), PackedInt32Array(39, 41, 40), PackedInt32Array(46, 45, 47), PackedInt32Array(47, 45, 48), PackedInt32Array(50, 49, 51), PackedInt32Array(51, 49, 52), PackedInt32Array(54, 53, 55), PackedInt32Array(55, 53, 56), PackedInt32Array(59, 58, 57), PackedInt32Array(61, 60, 62), PackedInt32Array(62, 60, 63)]
+
+[sub_resource type="BoxMesh" id="BoxMesh_5ukhb"]
+size = Vector3(50, 0.135, 50)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wvkfs"]
+albedo_color = Color(0, 0.407843, 1, 1)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_3fyc5"]
+data = PackedVector3Array(-25, 0.0675, 25, 25, 0.0675, 25, -25, -0.0675, 25, 25, 0.0675, 25, 25, -0.0675, 25, -25, -0.0675, 25, 25, 0.0675, -25, -25, 0.0675, -25, 25, -0.0675, -25, -25, 0.0675, -25, -25, -0.0675, -25, 25, -0.0675, -25, 25, 0.0675, 25, 25, 0.0675, -25, 25, -0.0675, 25, 25, 0.0675, -25, 25, -0.0675, -25, 25, -0.0675, 25, -25, 0.0675, -25, -25, 0.0675, 25, -25, -0.0675, -25, -25, 0.0675, 25, -25, -0.0675, 25, -25, -0.0675, -25, 25, 0.0675, 25, -25, 0.0675, 25, 25, 0.0675, -25, -25, 0.0675, 25, -25, 0.0675, -25, 25, 0.0675, -25, -25, -0.0675, 25, 25, -0.0675, 25, -25, -0.0675, -25, 25, -0.0675, 25, 25, -0.0675, -25, -25, -0.0675, -25)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_1egsc"]
+height = 18.1311
+radius = 39.9501
+
+[node name="test_level2" type="Node3D"]
+script = ExtResource("1_fd2vk")
+
+[node name="navigation" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_tbypb")
+
+[node name="floor" type="MeshInstance3D" parent="navigation"]
+mesh = SubResource("BoxMesh_5ukhb")
+surface_material_override/0 = SubResource("StandardMaterial3D_wvkfs")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="navigation/floor"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="navigation/floor/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_3fyc5")
+
+[node name="player" parent="." instance=ExtResource("3_x3ufi")]
+transform = Transform3D(-0.788548, 0, -0.614974, 0, 1, 0, 0.614974, 0, -0.788548, -7.53461, 0.0675011, 1.32833)
+
+[node name="light" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.331066, -0.797983, 0.503605, 0.0441503, 0.546217, 0.836479, -0.942574, -0.254696, 0.216065, -5.61625, 95.3511, 13.1586)
+light_bake_mode = 0
+shadow_enabled = true
+shadow_bias = 0.01
+directional_shadow_blend_splits = true
+
+[node name="statue" parent="." instance=ExtResource("3_hgu78")]
+
+[node name="Area3D" type="Area3D" parent="statue" groups=["boss_active_zone"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="statue/Area3D"]
+shape = SubResource("CylinderShape3D_1egsc")
+
+[node name="garlic" parent="statue" groups=["drop"] instance=ExtResource("4_0rmjg")]

@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bjx5p62pyuchx"
+path="res://.godot/imported/torso.obj-da31376745b7626a65aa3a4f7242d335.mesh"
+
+[deps]
+
+files=["res://.godot/imported/torso.obj-da31376745b7626a65aa3a4f7242d335.mesh"]
+
+source_file="res://models/gibs/statue/torso.obj"
+dest_files=["res://.godot/imported/torso.obj-da31376745b7626a65aa3a4f7242d335.mesh", "res://.godot/imported/torso.obj-da31376745b7626a65aa3a4f7242d335.mesh"]
+
+[params]
+
+generate_tangents=false
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

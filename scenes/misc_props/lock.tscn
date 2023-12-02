@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://cyw7f2nh4dtoc"]
+
+[ext_resource type="ArrayMesh" uid="uid://ch5b5w6qx30qy" path="res://models/static_props/lock.obj" id="1_q548d"]
+[ext_resource type="Material" uid="uid://dvp6e2ggh4mvk" path="res://resources/materials/lock_mat.tres" id="2_paskd"]
+[ext_resource type="Script" path="res://scripts/lock.gd" id="3_fyvcc"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_mit3v"]
+top_radius = 0.565
+bottom_radius = 0.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_l4bos"]
+size = Vector3(1.15563, 1, 0.317404)
+
+[node name="lock" type="MeshInstance3D"]
+mesh = ExtResource("1_q548d")
+surface_material_override/0 = ExtResource("2_paskd")
+script = ExtResource("3_fyvcc")
+
+[node name="arrow" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.365, 3.19093e-08, 0, 1.3948e-15, 1.59547e-08, -0.365, -3.19093e-08, -0.365, -1.59547e-08, 0, 0, 0.537061)
+mesh = SubResource("CylinderMesh_mit3v")
+
+[node name="collision" type="StaticBody3D" parent="."]
+
+[node name="hitbox" type="CollisionShape3D" parent="collision"]
+shape = SubResource("BoxShape3D_l4bos")

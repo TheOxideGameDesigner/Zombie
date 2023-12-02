@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://qxcphntjdaj2"]
+
+[ext_resource type="Shader" path="res://resources/materials/opengl/enemy_mat_opengl.gdshader" id="1_55ki4"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_55ki4")

@@ -1,0 +1,71 @@
+[gd_scene load_steps=9 format=3 uid="uid://cwmleqppbtf2m"]
+
+[ext_resource type="Script" path="res://scripts/cannonbomb.gd" id="1_84ab5"]
+[ext_resource type="Script" path="res://scripts/physics_lerp.gd" id="1_s3cnu"]
+[ext_resource type="Material" uid="uid://co2wjrjt4acdv" path="res://resources/materials/cannonbomb_mat.tres" id="2_nxs8n"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_8i2er"]
+radius = 0.35
+
+[sub_resource type="SphereMesh" id="SphereMesh_pd6h7"]
+material = ExtResource("2_nxs8n")
+radius = 0.35
+height = 0.7
+radial_segments = 8
+rings = 4
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_wj6s3"]
+material = ExtResource("2_nxs8n")
+top_radius = 0.07
+bottom_radius = 0.08
+height = 0.15
+radial_segments = 4
+rings = 1
+cap_bottom = false
+
+[sub_resource type="SphereMesh" id="SphereMesh_fmtj4"]
+radius = 1.0
+height = 2.0
+radial_segments = 16
+rings = 8
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_y3tma"]
+radius = 0.474268
+
+[node name="cannonbomb" type="RigidBody3D" groups=["enemy"]]
+top_level = true
+collision_layer = 0
+script = ExtResource("1_84ab5")
+
+[node name="hitbox" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_8i2er")
+
+[node name="bomb_sphere" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_pd6h7")
+script = ExtResource("1_s3cnu")
+enable_rot = true
+global = true
+of_parent = true
+
+[node name="bomb_cylinder" type="MeshInstance3D" parent="bomb_sphere"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.387383, 0)
+mesh = SubResource("CylinderMesh_wj6s3")
+
+[node name="explosion" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("SphereMesh_fmtj4")
+
+[node name="area" type="Area3D" parent="."]
+collision_mask = 3
+
+[node name="hitbox" type="CollisionShape3D" parent="area"]
+shape = SubResource("SphereShape3D_y3tma")
+
+[node name="raycast_hitbox" type="CharacterBody3D" parent="." groups=["enemy_raycast_collision"]]
+collision_layer = 4
+collision_mask = 0
+
+[node name="hitbox" type="CollisionShape3D" parent="raycast_hitbox"]
+shape = SubResource("SphereShape3D_8i2er")
+
+[connection signal="body_entered" from="area" to="." method="_on_area_body_entered"]

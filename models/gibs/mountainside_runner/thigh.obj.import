@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b2cqmdnhycr61"
+path="res://.godot/imported/thigh.obj-9a2fde9931cf203795ca0e97f8eb6758.mesh"
+
+[deps]
+
+files=["res://.godot/imported/thigh.obj-9a2fde9931cf203795ca0e97f8eb6758.mesh"]
+
+source_file="res://models/gibs/mountainside_runner/thigh.obj"
+dest_files=["res://.godot/imported/thigh.obj-9a2fde9931cf203795ca0e97f8eb6758.mesh", "res://.godot/imported/thigh.obj-9a2fde9931cf203795ca0e97f8eb6758.mesh"]
+
+[params]
+
+generate_tangents=false
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

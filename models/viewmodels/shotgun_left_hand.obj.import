@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dg870m75a2l54"
+path="res://.godot/imported/shotgun_left_hand.obj-acc5c4f8567a13bc731817122828ff9d.mesh"
+
+[deps]
+
+files=["res://.godot/imported/shotgun_left_hand.obj-acc5c4f8567a13bc731817122828ff9d.mesh"]
+
+source_file="res://models/viewmodels/shotgun_left_hand.obj"
+dest_files=["res://.godot/imported/shotgun_left_hand.obj-acc5c4f8567a13bc731817122828ff9d.mesh", "res://.godot/imported/shotgun_left_hand.obj-acc5c4f8567a13bc731817122828ff9d.mesh"]
+
+[params]
+
+generate_tangents=false
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

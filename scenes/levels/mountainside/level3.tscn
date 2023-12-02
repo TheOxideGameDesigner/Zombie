@@ -1,0 +1,484 @@
+[gd_scene load_steps=21 format=3 uid="uid://bkyl1xxf5d2dp"]
+
+[ext_resource type="Script" path="res://scripts/world.gd" id="1_ca74o"]
+[ext_resource type="Material" uid="uid://uxn8fucitgfr" path="res://resources/materials/level_mat.tres" id="2_b6ery"]
+[ext_resource type="ArrayMesh" uid="uid://dviqe63dr67mo" path="res://models/levels/mountainside/level3/level3_visual.obj" id="3_76jhp"]
+[ext_resource type="ArrayMesh" uid="uid://bhf7gd2pchkwj" path="res://models/levels/mountainside/level3/level3_visual_no_shadow.obj" id="4_6lcjp"]
+[ext_resource type="PackedScene" uid="uid://4px2n2dg363l" path="res://scenes/misc_props/player.tscn" id="4_w2mdp"]
+[ext_resource type="ArrayMesh" uid="uid://ksippj0dxqco" path="res://models/levels/mountainside/level3/level3_collision.obj" id="5_bj7pg"]
+[ext_resource type="ArrayMesh" uid="uid://2asvu6fjk0no" path="res://models/static_props/mountainside/mountainside_fence_unit_tall.obj" id="6_1xguo"]
+[ext_resource type="Script" path="res://scripts/create_static_body_child.gd" id="6_kc7up"]
+[ext_resource type="PackedScene" uid="uid://cyw7f2nh4dtoc" path="res://scenes/misc_props/lock.tscn" id="7_18wm8"]
+[ext_resource type="Script" path="res://scripts/triggers/trigger_area.gd" id="8_c4vft"]
+[ext_resource type="PackedScene" uid="uid://bfwjae77m2xmb" path="res://scenes/props/triggers/move_trigger.tscn" id="9_kjd8o"]
+[ext_resource type="PackedScene" uid="uid://bq1itwbnkbvp4" path="res://scenes/misc_props/key.tscn" id="10_5cvph"]
+[ext_resource type="PackedScene" uid="uid://cdshg7bk5i645" path="res://scenes/misc_props/garlic.tscn" id="12_fakrp"]
+[ext_resource type="PackedScene" uid="uid://ct4dtw3ijmehk" path="res://scenes/props/enemies/runner.tscn" id="13_blmba"]
+[ext_resource type="PackedScene" uid="uid://csmucdgy7vpql" path="res://scenes/misc_props/exit.tscn" id="13_qjap5"]
+[ext_resource type="PackedScene" uid="uid://bfuck1d2dtogj" path="res://scenes/props/enemies/gunner.tscn" id="14_wypjr"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5d6o2"]
+size = Vector3(42.2173, 8.92717, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4g8se"]
+size = Vector3(51.1491, 34.9467, 29.3663)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_owyvm"]
+size = Vector3(19.3999, 6.74582, 0.851857)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_s76vf"]
+size = Vector3(21.4907, 16.4116, 20.9609)
+
+[node name="level3" type="Node3D"]
+script = ExtResource("1_ca74o")
+
+[node name="level_visual" type="MeshInstance3D" parent="."]
+material_override = ExtResource("2_b6ery")
+mesh = ExtResource("3_76jhp")
+metadata/_edit_lock_ = true
+
+[node name="level_visual_no_shadow" type="MeshInstance3D" parent="."]
+material_override = ExtResource("2_b6ery")
+cast_shadow = 0
+mesh = ExtResource("4_6lcjp")
+metadata/_edit_lock_ = true
+
+[node name="level_collision" type="MeshInstance3D" parent="."]
+material_override = ExtResource("2_b6ery")
+cast_shadow = 0
+mesh = ExtResource("5_bj7pg")
+script = ExtResource("6_kc7up")
+metadata/_edit_lock_ = true
+
+[node name="light" type="DirectionalLight3D" parent="." groups=["light"]]
+transform = Transform3D(-0.270371, 0.958996, -0.0850087, -0.539281, -0.0777098, 0.838533, 0.797543, 0.272559, 0.538179, 34.4022, 23.7255, -146.613)
+light_bake_mode = 0
+shadow_enabled = true
+shadow_bias = 0.01
+shadow_opacity = 0.7
+directional_shadow_blend_splits = true
+
+[node name="player" parent="." instance=ExtResource("4_w2mdp")]
+transform = Transform3D(-0.717385, 0, 0.696677, 0, 1, 0, -0.696677, 0, -0.717385, 62.8275, -0.19122, -201.342)
+
+[node name="exit" parent="." instance=ExtResource("13_qjap5")]
+transform = Transform3D(1.89654, 0, -1.80763, 0, 2.62, 0, 1.80763, 0, 1.89654, 66.1199, 0.354117, -204.005)
+level = 3
+
+[node name="blue_key" parent="." instance=ExtResource("10_5cvph")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -176.395, 29.3071, 127.919)
+key_index = 1
+
+[node name="red_key" parent="." instance=ExtResource("10_5cvph")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86.1195, 22.5316, 143.022)
+key_color = Color(1, 0, 0, 1)
+key_name = "red"
+key_index = 2
+
+[node name="garlic" parent="." instance=ExtResource("12_fakrp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 186.675, 79.2888, -146.985)
+
+[node name="props" type="Node3D" parent="."]
+
+[node name="fence1" type="StaticBody3D" parent="props" groups=["1"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.4768, 42.4792, -60.4665)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="props/fence1"]
+transform = Transform3D(0.639748, 0, -0.768585, 0, 1, 0, 0.768585, 0, 0.639748, -23.6582, -8.54697, -0.780216)
+material_override = ExtResource("2_b6ery")
+mesh = ExtResource("6_1xguo")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="props/fence1"]
+transform = Transform3D(0.639748, 0, -0.768585, 0, 1, 0, 0.768585, 0, 0.639748, -21.7423, -8.54697, 1.52227)
+material_override = ExtResource("2_b6ery")
+mesh = ExtResource("6_1xguo")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="props/fence1"]
+transform = Transform3D(0.639748, 0, -0.768585, 0, 1, 0, 0.768585, 0, 0.639748, -19.8187, -8.54697, 3.82925)
+material_override = ExtResource("2_b6ery")
+mesh = ExtResource("6_1xguo")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="props/fence1"]
+transform = Transform3D(0.639748, 0, -0.768585, 0, 1, 0, 0.768585, 0, 0.639748, -17.9028, -8.54697, 6.13174)
+material_override = ExtResource("2_b6ery")
+mesh = ExtResource("6_1xguo")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="props/fence1"]
+transform = Transform3D(0.639748, 0, -0.768585, 0, 1, 0, 0.768585, 0, 0.639748, -15.9844, -8.54697, 8.43472)
+material_override = ExtResource("2_b6ery")
+mesh = ExtResource("6_1xguo")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="props/fence1"]
+transform = Transform3D(0.639748, 0, -0.768585, 0, 1, 0, 0.768585, 0, 0.639748, -14.0685, -8.54697, 10.7372)
+material_override = ExtResource("2_b6ery")
+mesh = ExtResource("6_1xguo")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="props/fence1"]
+transform = Transform3D(0.639748, 0, -0.768585, 0, 1, 0, 0.768585, 0, 0.639748, -12.145, -8.54697, 13.0442)
+material_override = ExtResource("2_b6ery")
+mesh = ExtResource("6_1xguo")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="props/fence1"]
+transform = Transform3D(0.639748, 0, -0.768585, 0, 1, 0, 0.768585, 0, 0.639748, -10.229, -8.54697, 15.3467)
+material_override = ExtResource("2_b6ery")
+mesh = ExtResource("6_1xguo")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="props/fence1"]
+transform = Transform3D(0.639748, 0, -0.768585, 0, 1, 0, 0.768585, 0, 0.639748, -8.32033, -8.54697, 17.6617)
+material_override = ExtResource("2_b6ery")
+mesh = ExtResource("6_1xguo")
+
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="props/fence1"]
+transform = Transform3D(0.639748, 0, -0.768585, 0, 1, 0, 0.768585, 0, 0.639748, -6.40439, -8.54697, 19.9642)
+material_override = ExtResource("2_b6ery")
+mesh = ExtResource("6_1xguo")
+
+[node name="MeshInstance3D11" type="MeshInstance3D" parent="props/fence1"]
+transform = Transform3D(0.639748, 0, -0.768585, 0, 1, 0, 0.768585, 0, 0.639748, -4.48086, -8.54697, 22.2711)
+material_override = ExtResource("2_b6ery")
+mesh = ExtResource("6_1xguo")
+
+[node name="MeshInstance3D12" type="MeshInstance3D" parent="props/fence1"]
+transform = Transform3D(0.639748, 0, -0.768585, 0, 1, 0, 0.768585, 0, 0.639748, -2.56493, -8.54697, 24.5736)
+material_override = ExtResource("2_b6ery")
+mesh = ExtResource("6_1xguo")
+
+[node name="MeshInstance3D13" type="MeshInstance3D" parent="props/fence1"]
+transform = Transform3D(0.639748, 0, -0.768585, 0, 1, 0, 0.768585, 0, 0.639748, -0.659363, -8.54697, 26.8585)
+material_override = ExtResource("2_b6ery")
+mesh = ExtResource("6_1xguo")
+
+[node name="MeshInstance3D14" type="MeshInstance3D" parent="props/fence1"]
+transform = Transform3D(-0.639748, 5.59285e-08, -0.768585, -8.74228e-08, -1, 0, -0.768585, 6.71918e-08, 0.639748, -23.6582, -8.85212, -0.780216)
+material_override = ExtResource("2_b6ery")
+mesh = ExtResource("6_1xguo")
+
+[node name="MeshInstance3D15" type="MeshInstance3D" parent="props/fence1"]
+transform = Transform3D(-0.639748, 5.59285e-08, -0.768585, -8.74228e-08, -1, 0, -0.768585, 6.71918e-08, 0.639748, -21.7423, -8.85212, 1.52227)
+material_override = ExtResource("2_b6ery")
+mesh = ExtResource("6_1xguo")
+
+[node name="MeshInstance3D16" type="MeshInstance3D" parent="props/fence1"]
+transform = Transform3D(-0.639748, 5.59285e-08, -0.768585, -8.74228e-08, -1, 0, -0.768585, 6.71918e-08, 0.639748, -19.8187, -8.85212, 3.82925)
+material_override = ExtResource("2_b6ery")
+mesh = ExtResource("6_1xguo")
+
+[node name="MeshInstance3D17" type="MeshInstance3D" parent="props/fence1"]
+transform = Transform3D(-0.639748, 5.59285e-08, -0.768585, -8.74228e-08, -1, 0, -0.768585, 6.71918e-08, 0.639748, -17.9028, -8.85212, 6.13174)
+material_override = ExtResource("2_b6ery")
+mesh = ExtResource("6_1xguo")
+
+[node name="MeshInstance3D18" type="MeshInstance3D" parent="props/fence1"]
+transform = Transform3D(-0.639748, 5.59285e-08, -0.768585, -8.74228e-08, -1, 0, -0.768585, 6.71918e-08, 0.639748, -15.9844, -8.85212, 8.43472)
+material_override = ExtResource("2_b6ery")
+mesh = ExtResource("6_1xguo")
+
+[node name="MeshInstance3D19" type="MeshInstance3D" parent="props/fence1"]
+transform = Transform3D(-0.639748, 5.59285e-08, -0.768585, -8.74228e-08, -1, 0, -0.768585, 6.71918e-08, 0.639748, -14.0685, -8.85212, 10.7372)
+material_override = ExtResource("2_b6ery")
+mesh = ExtResource("6_1xguo")
+
+[node name="MeshInstance3D20" type="MeshInstance3D" parent="props/fence1"]
+transform = Transform3D(-0.639748, 5.59285e-08, -0.768585, -8.74228e-08, -1, 0, -0.768585, 6.71918e-08, 0.639748, -12.145, -8.85212, 13.0442)
+material_override = ExtResource("2_b6ery")
+mesh = ExtResource("6_1xguo")
+
+[node name="MeshInstance3D21" type="MeshInstance3D" parent="props/fence1"]
+transform = Transform3D(-0.639748, 5.59285e-08, -0.768585, -8.74228e-08, -1, 0, -0.768585, 6.71918e-08, 0.639748, -10.229, -8.85212, 15.3467)
+material_override = ExtResource("2_b6ery")
+mesh = ExtResource("6_1xguo")
+
+[node name="MeshInstance3D22" type="MeshInstance3D" parent="props/fence1"]
+transform = Transform3D(-0.639748, 5.59285e-08, -0.768585, -8.74228e-08, -1, 0, -0.768585, 6.71918e-08, 0.639748, -8.32033, -8.85212, 17.6617)
+material_override = ExtResource("2_b6ery")
+mesh = ExtResource("6_1xguo")
+
+[node name="MeshInstance3D23" type="MeshInstance3D" parent="props/fence1"]
+transform = Transform3D(-0.639748, 5.59285e-08, -0.768585, -8.74228e-08, -1, 0, -0.768585, 6.71918e-08, 0.639748, -6.40439, -8.85212, 19.9642)
+material_override = ExtResource("2_b6ery")
+mesh = ExtResource("6_1xguo")
+
+[node name="MeshInstance3D24" type="MeshInstance3D" parent="props/fence1"]
+transform = Transform3D(-0.639748, 5.59285e-08, -0.768585, -8.74228e-08, -1, 0, -0.768585, 6.71918e-08, 0.639748, -4.48086, -8.85212, 22.2711)
+material_override = ExtResource("2_b6ery")
+mesh = ExtResource("6_1xguo")
+
+[node name="MeshInstance3D25" type="MeshInstance3D" parent="props/fence1"]
+transform = Transform3D(-0.639748, 5.59285e-08, -0.768585, -8.74228e-08, -1, 0, -0.768585, 6.71918e-08, 0.639748, -2.56493, -8.85212, 24.5736)
+material_override = ExtResource("2_b6ery")
+mesh = ExtResource("6_1xguo")
+
+[node name="MeshInstance3D26" type="MeshInstance3D" parent="props/fence1"]
+transform = Transform3D(-0.639748, 5.59285e-08, -0.768585, -8.74228e-08, -1, 0, -0.768585, 6.71918e-08, 0.639748, -0.659363, -8.85212, 26.8585)
+material_override = ExtResource("2_b6ery")
+mesh = ExtResource("6_1xguo")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="props/fence1"]
+transform = Transform3D(0.640431, 0, -0.768015, 0, 1, 0, 0.768015, 0, 0.640431, -12.8683, -7.69894, 12.1879)
+shape = SubResource("BoxShape3D_5d6o2")
+
+[node name="lock" parent="props/fence1" instance=ExtResource("7_18wm8")]
+transform = Transform3D(0.634016, 0, -0.77332, 0, 1, 0, 0.77332, 0, 0.634016, -12.5213, -6.12929, 13.0126)
+skeleton = NodePath("../../..")
+one_sided = false
+
+[node name="Area3D" type="Area3D" parent="props/fence1"]
+script = ExtResource("8_c4vft")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="props/fence1/Area3D"]
+transform = Transform3D(0.651768, 0, -0.758419, 0, 1, 0, 0.758419, 0, 0.651768, -12.3683, -6.28631, 12.8112)
+shape = SubResource("BoxShape3D_4g8se")
+
+[node name="move_trigger" parent="props/fence1/Area3D" instance=ExtResource("9_kjd8o")]
+group = 1
+target = Vector3(0, -10, 0)
+time = 1.3
+keys_required = Array[int]([1])
+
+[node name="fence2" type="StaticBody3D" parent="props" groups=["2"]]
+transform = Transform3D(0.884858, 0, -0.465862, 0, 1, 0, 0.465862, 0, 0.884858, 92.1789, 59.8607, -92.0604)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="props/fence2"]
+transform = Transform3D(0.998157, 0, -0.0606827, 0, 1, 0, 0.0606827, 0, 0.998157, 0.147781, -1.82855, -0.531891)
+mesh = ExtResource("6_1xguo")
+surface_material_override/0 = ExtResource("2_b6ery")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="props/fence2"]
+transform = Transform3D(0.998157, 0, -0.0606827, 0, 1, 0, 0.0606827, 0, 0.998157, 3.127, -1.82855, -0.351746)
+mesh = ExtResource("6_1xguo")
+surface_material_override/0 = ExtResource("2_b6ery")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="props/fence2"]
+transform = Transform3D(0.998157, 0, -0.0606827, 0, 1, 0, 0.0606827, 0, 0.998157, 6.11458, -1.82855, -0.174599)
+mesh = ExtResource("6_1xguo")
+surface_material_override/0 = ExtResource("2_b6ery")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="props/fence2"]
+transform = Transform3D(0.998157, 0, -0.0606827, 0, 1, 0, 0.0606827, 0, 0.998157, 9.0964, -1.82855, 0.0173187)
+mesh = ExtResource("6_1xguo")
+surface_material_override/0 = ExtResource("2_b6ery")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="props/fence2"]
+transform = Transform3D(0.998157, 0, -0.0606827, 0, 1, 0, 0.0606827, 0, 0.998157, 12.082, -1.82855, 0.207993)
+mesh = ExtResource("6_1xguo")
+surface_material_override/0 = ExtResource("2_b6ery")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="props/fence2"]
+transform = Transform3D(0.998157, 0, -0.0606827, 0, 1, 0, 0.0606827, 0, 0.998157, 15.0615, -1.82855, 0.385323)
+mesh = ExtResource("6_1xguo")
+surface_material_override/0 = ExtResource("2_b6ery")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="props/fence2"]
+transform = Transform3D(0.998157, 0, -0.0606827, 0, 1, 0, 0.0606827, 0, 0.998157, 18.0337, -1.84002, 0.562752)
+mesh = ExtResource("6_1xguo")
+surface_material_override/0 = ExtResource("2_b6ery")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="props/fence2"]
+transform = Transform3D(0.997511, 0, -0.0705051, 0, 1, 0, 0.0705051, 0, 0.997511, 9.07463, 0, 0.0106812)
+shape = SubResource("BoxShape3D_owyvm")
+
+[node name="lock" parent="props/fence2" instance=ExtResource("7_18wm8")]
+transform = Transform3D(0.997244, 0, -0.0741955, 0, 1, 0, 0.0741955, 0, 0.997244, 8.92415, 1.0006, 0.288025)
+skeleton = NodePath("../..")
+color = Color(1, 0, 0, 1)
+one_sided = false
+
+[node name="Area3D" type="Area3D" parent="props/fence2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.8866, 0, 0.011261)
+script = ExtResource("8_c4vft")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="props/fence2/Area3D"]
+transform = Transform3D(0.99629, 0, -0.0860603, 0, 1, 0, 0.0860603, 0, 0.99629, 0.00680542, 0.798874, 0.0128784)
+shape = SubResource("BoxShape3D_s76vf")
+
+[node name="move_trigger" parent="props/fence2/Area3D" instance=ExtResource("9_kjd8o")]
+group = 2
+target = Vector3(0, -6, 0)
+time = 1.0
+keys_required = Array[int]([2])
+
+[node name="enemies" type="Node3D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="runner4" parent="enemies" instance=ExtResource("13_blmba")]
+transform = Transform3D(-0.980925, 0, -0.194389, 0, 1, 0, 0.194389, 0, -0.980925, 34.4969, -3.54907, -159.75)
+
+[node name="runner5" parent="enemies" instance=ExtResource("13_blmba")]
+transform = Transform3D(-0.963139, 0, -0.269004, 0, 1, 0, 0.269004, 0, -0.963139, 35.6015, -4.44989, -129.159)
+
+[node name="gunner" parent="enemies" instance=ExtResource("14_wypjr")]
+transform = Transform3D(-0.999328, 0, -0.0366615, 0, 1, 0, 0.0366615, 0, -0.999328, 20.116, -4.23681, -136.963)
+
+[node name="runner3" parent="enemies" instance=ExtResource("13_blmba")]
+transform = Transform3D(-0.97639, 0, -0.216014, 0, 1, 0, 0.216014, 0, -0.97639, 9.86468, -4.3726, -145.832)
+
+[node name="runner11" parent="enemies" instance=ExtResource("13_blmba")]
+transform = Transform3D(-0.97639, 0, -0.216014, 0, 1, 0, 0.216014, 0, -0.97639, 10.4378, -4.3726, -117.861)
+
+[node name="runner8" parent="enemies" instance=ExtResource("13_blmba")]
+transform = Transform3D(-0.995819, 0, -0.0913453, 0, 1, 0, 0.0913453, 0, -0.995819, -0.0308988, -3.36261, -96.4744)
+
+[node name="runner14" parent="enemies" instance=ExtResource("13_blmba")]
+transform = Transform3D(-0.843851, 0, -0.536578, 0, 1, 0, 0.536578, 0, -0.843851, 24.2671, 9.11854, -1.06534)
+
+[node name="runner19" parent="enemies" instance=ExtResource("13_blmba")]
+transform = Transform3D(-0.843851, 0, -0.536578, 0, 1, 0, 0.536578, 0, -0.843851, 2.27306, 10.616, -4.36846)
+
+[node name="gunner4" parent="enemies" instance=ExtResource("14_wypjr")]
+transform = Transform3D(-0.669182, 0, 0.743098, 0, 1, 0, -0.743098, 0, -0.669182, 4.17974, 13.8106, 12.7897)
+
+[node name="runner15" parent="enemies" instance=ExtResource("13_blmba")]
+transform = Transform3D(-0.950179, 0, -0.311705, 0, 1, 0, 0.311705, 0, -0.950179, 7.78134, 18.9351, 39.5598)
+
+[node name="runner16" parent="enemies" instance=ExtResource("13_blmba")]
+transform = Transform3D(-0.600253, 0, 0.79981, 0, 1, 0, -0.79981, 0, -0.600253, -15.9539, 20.4707, 34.6112)
+
+[node name="runner17" parent="enemies" instance=ExtResource("13_blmba")]
+transform = Transform3D(-0.375399, 0, 0.926863, 0, 1, 0, -0.926863, 0, -0.375399, -40.9432, 23.4141, 42.3584)
+
+[node name="runner18" parent="enemies" instance=ExtResource("13_blmba")]
+transform = Transform3D(-0.375399, 0, 0.926863, 0, 1, 0, -0.926863, 0, -0.375399, -41.8892, 23.4141, 16.0146)
+
+[node name="runner24" parent="enemies" instance=ExtResource("13_blmba")]
+transform = Transform3D(-0.600323, 0, 0.799758, 0, 1, 0, -0.799758, 0, -0.600323, -86.2446, 30.0368, 48.7346)
+
+[node name="gunner7" parent="enemies" instance=ExtResource("14_wypjr")]
+transform = Transform3D(0.646563, 0, 0.76286, 0, 1, 0, -0.76286, 0, 0.646563, -72.1838, 28.3431, -0.508862)
+
+[node name="runner22" parent="enemies" instance=ExtResource("13_blmba")]
+transform = Transform3D(-0.66143, 0, 0.750007, 0, 1, 0, -0.750007, 0, -0.66143, -97.3841, 30.8393, 70.2039)
+
+[node name="runner25" parent="enemies" instance=ExtResource("13_blmba")]
+transform = Transform3D(-0.464193, 0, 0.885734, 0, 1, 0, -0.885734, 0, -0.464193, -131.508, 31.6142, 80.7657)
+
+[node name="runner26" parent="enemies" instance=ExtResource("13_blmba")]
+transform = Transform3D(-0.464193, 0, 0.885734, 0, 1, 0, -0.885734, 0, -0.464193, -125.058, 31.6142, 88.4209)
+
+[node name="gunner10" parent="enemies" instance=ExtResource("14_wypjr")]
+transform = Transform3D(-0.572947, 0, -0.819592, 0, 1, 0, 0.819592, 0, -0.572947, -156.273, 27.5949, 128.071)
+
+[node name="runner30" parent="enemies" instance=ExtResource("13_blmba")]
+transform = Transform3D(-0.957993, 0, -0.286792, 0, 1, 0, 0.286792, 0, -0.957993, -150.477, 32.1124, 102.699)
+
+[node name="runner31" parent="enemies" instance=ExtResource("13_blmba")]
+transform = Transform3D(-0.863528, 0, -0.504302, 0, 1, 0, 0.504302, 0, -0.863528, -164.461, 26.9079, 134.948)
+
+[node name="runner32" parent="enemies" instance=ExtResource("13_blmba")]
+transform = Transform3D(-0.781117, 0, 0.624384, 0, 1, 0, -0.624384, 0, -0.781117, -172.363, 29.0476, 115.403)
+
+[node name="runner33" parent="enemies" instance=ExtResource("13_blmba")]
+transform = Transform3D(-0.30724, 0, 0.951632, 0, 1, 0, -0.951632, 0, -0.30724, -191.695, 28.6134, 126.949)
+
+[node name="runner34" parent="enemies" instance=ExtResource("13_blmba")]
+transform = Transform3D(0.906175, 0, 0.422903, 0, 1, 0, -0.422903, 0, 0.906175, -85.9538, 30.1495, -17.2247)
+
+[node name="gunner13" parent="enemies" instance=ExtResource("14_wypjr")]
+transform = Transform3D(0.0901807, 0, -0.995925, 0, 1, 0, 0.995925, 0, 0.0901807, 4.79531, 44.2391, -76.5981)
+
+[node name="runner36" parent="enemies" instance=ExtResource("13_blmba")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.0577, 37.4745, -72.95)
+
+[node name="runner38" parent="enemies" instance=ExtResource("13_blmba")]
+transform = Transform3D(0.589831, 0, -0.807527, 0, 1, 0, 0.807527, 0, 0.589831, -10.0257, 41.7722, -83.7127)
+
+[node name="runner39" parent="enemies" instance=ExtResource("13_blmba")]
+transform = Transform3D(-0.0551593, 0, -0.998478, 0, 1, 0, 0.998478, 0, -0.0551593, 14.7912, 45.8474, -69.9001)
+
+[node name="runner40" parent="enemies" instance=ExtResource("13_blmba")]
+transform = Transform3D(0.283296, 0, -0.959033, 0, 1, 0, 0.959033, 0, 0.283296, 35.8044, 50.0268, -85.6577)
+
+[node name="runner43" parent="enemies" instance=ExtResource("13_blmba")]
+transform = Transform3D(-0.597919, 0, -0.801557, 0, 1, 0, 0.801557, 0, -0.597919, 68.5063, 54.4841, -70.3007)
+
+[node name="runner44" parent="enemies" instance=ExtResource("13_blmba")]
+transform = Transform3D(-0.597919, 0, -0.801557, 0, 1, 0, 0.801557, 0, -0.597919, 115.6, 58.6787, -64.3341)
+
+[node name="runner45" parent="enemies" instance=ExtResource("13_blmba")]
+transform = Transform3D(-0.597919, 0, -0.801557, 0, 1, 0, 0.801557, 0, -0.597919, 129.615, 58.6787, -68.4952)
+
+[node name="runner46" parent="enemies" instance=ExtResource("13_blmba")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 123.069, 66.6672, -124.442)
+
+[node name="gunner14" parent="enemies" instance=ExtResource("14_wypjr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 151.106, 72.2672, -155.58)
+
+[node name="gunner16" parent="enemies" instance=ExtResource("14_wypjr")]
+transform = Transform3D(-0.419579, 0, -0.907719, 0, 1, 0, 0.907719, 0, -0.419579, 189.597, 75.5226, -133.523)
+
+[node name="runner49" parent="enemies" instance=ExtResource("13_blmba")]
+transform = Transform3D(0.787699, 0, -0.61606, 0, 1, 0, 0.61606, 0, 0.787699, 165.145, 73.3482, -145.531)
+
+[node name="runner51" parent="enemies" instance=ExtResource("13_blmba")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 162.296, 74.3736, -170.438)
+
+[node name="runner52" parent="enemies" instance=ExtResource("13_blmba")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 196.026, 76.0147, -157.527)
+
+[node name="runner54" parent="enemies" instance=ExtResource("13_blmba")]
+transform = Transform3D(0.0991461, 0, -0.995073, 0, 1, 0, 0.995073, 0, 0.0991461, 208.654, 40.3915, -45.7801)
+
+[node name="runner57" parent="enemies" instance=ExtResource("13_blmba")]
+transform = Transform3D(-0.95982, 0, 0.280617, 0, 1, 0, -0.280617, 0, -0.95982, 226.994, 31.3838, 23.1418)
+
+[node name="gunner17" parent="enemies" instance=ExtResource("14_wypjr")]
+transform = Transform3D(-0.769244, 0, -0.638956, 0, 1, 0, 0.638956, 0, -0.769244, 220.719, 40.784, -21.5049)
+
+[node name="runner58" parent="enemies" instance=ExtResource("13_blmba")]
+transform = Transform3D(-0.918564, 0, 0.395273, 0, 1, 0, -0.395273, 0, -0.918564, 175.291, 28.7496, 71.0971)
+
+[node name="runner59" parent="enemies" instance=ExtResource("13_blmba")]
+transform = Transform3D(-0.918564, 0, 0.395273, 0, 1, 0, -0.395273, 0, -0.918564, 189.41, 28.7496, 55.3826)
+
+[node name="runner60" parent="enemies" instance=ExtResource("13_blmba")]
+transform = Transform3D(-0.769778, 0, 0.638311, 0, 1, 0, -0.638311, 0, -0.769778, 215.313, 30.4192, 38.5593)
+
+[node name="gunner18" parent="enemies" instance=ExtResource("14_wypjr")]
+transform = Transform3D(-0.103348, 0, 0.994645, 0, 1, 0, -0.994645, 0, -0.103348, 203.671, 34.0175, 17.7741)
+
+[node name="gunner21" parent="enemies" instance=ExtResource("14_wypjr")]
+transform = Transform3D(-0.540666, 0, -0.841237, 0, 1, 0, 0.841237, 0, -0.540666, 196.768, 27.511, 73.444)
+
+[node name="runner62" parent="enemies" instance=ExtResource("13_blmba")]
+transform = Transform3D(-0.6809, 0, -0.732376, 0, 1, 0, 0.732376, 0, -0.6809, 157.82, 24.759, 115.146)
+
+[node name="runner69" parent="enemies" instance=ExtResource("13_blmba")]
+transform = Transform3D(-0.6809, 0, -0.732376, 0, 1, 0, 0.732376, 0, -0.6809, 138.436, 29.4093, 76.0755)
+
+[node name="runner67" parent="enemies" instance=ExtResource("13_blmba")]
+transform = Transform3D(-0.6809, 0, -0.732376, 0, 1, 0, 0.732376, 0, -0.6809, 123.096, 23.8398, 131.836)
+
+[node name="runner68" parent="enemies" instance=ExtResource("13_blmba")]
+transform = Transform3D(-0.6809, 0, -0.732376, 0, 1, 0, 0.732376, 0, -0.6809, 89.3311, 27.3048, 137.242)
+
+[node name="runner63" parent="enemies" instance=ExtResource("13_blmba")]
+transform = Transform3D(0.925752, 0, 0.378132, 0, 1, 0, -0.378132, 0, 0.925752, 114.554, 24.5963, 94.9261)
+
+[node name="runner65" parent="enemies" instance=ExtResource("13_blmba")]
+transform = Transform3D(-0.352038, 0, 0.935986, 0, 1, 0, -0.935986, 0, -0.352038, 142.17, 29.5627, 76.6641)
+
+[node name="runner66" parent="enemies" instance=ExtResource("13_blmba")]
+transform = Transform3D(-0.352038, 0, 0.935986, 0, 1, 0, -0.935986, 0, -0.352038, 180.994, 27.0443, 88.8306)
+
+[node name="gunner22" parent="enemies" instance=ExtResource("14_wypjr")]
+transform = Transform3D(-0.169728, 0, 0.985491, 0, 1, 0, -0.985491, 0, -0.169728, 115.998, 23.0634, 114.751)
+
+[node name="runner" parent="enemies" instance=ExtResource("13_blmba")]
+transform = Transform3D(-0.692622, 0, -0.721301, 0, 1, 0, 0.721301, 0, -0.692622, 192.439, 40.1939, -41.6249)
+
+[node name="runner6" parent="enemies" instance=ExtResource("13_blmba")]
+transform = Transform3D(-0.692622, 0, -0.721301, 0, 1, 0, 0.721301, 0, -0.692622, 171.547, 46.5151, -58.0915)
+
+[node name="runner2" parent="enemies" instance=ExtResource("13_blmba")]
+transform = Transform3D(-0.00462511, 0, 0.999989, 0, 1, 0, -0.999989, 0, -0.00462511, 181.61, 30.6974, 33.4589)
+
+[node name="runner7" parent="enemies" instance=ExtResource("13_blmba")]
+transform = Transform3D(-0.995297, 0, -0.0968708, 0, 1, 0, 0.0968708, 0, -0.995297, 8.16622, -1.75173, -79.8174)
+
+[node name="runner12" parent="enemies" instance=ExtResource("13_blmba")]
+transform = Transform3D(-0.995297, 0, -0.0968708, 0, 1, 0, 0.0968708, 0, -0.995297, 13.4159, 0.306021, -64.5417)
+
+[node name="runner10" parent="enemies" instance=ExtResource("13_blmba")]
+transform = Transform3D(-0.999875, 0, -0.0157945, 0, 1, 0, 0.0157945, 0, -0.999875, 11.7733, 5.1826, -29.76)
+
+[node name="gunner" parent="." instance=ExtResource("14_wypjr")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -80.4078, 28.4919, 25.0862)

@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://2asvu6fjk0no"
+path="res://.godot/imported/mountainside_fence_unit_tall.obj-ba378e5933e2b1ccfbc67bb360596cf4.mesh"
+
+[deps]
+
+files=["res://.godot/imported/mountainside_fence_unit_tall.obj-ba378e5933e2b1ccfbc67bb360596cf4.mesh"]
+
+source_file="res://models/static_props/mountainside/mountainside_fence_unit_tall.obj"
+dest_files=["res://.godot/imported/mountainside_fence_unit_tall.obj-ba378e5933e2b1ccfbc67bb360596cf4.mesh", "res://.godot/imported/mountainside_fence_unit_tall.obj-ba378e5933e2b1ccfbc67bb360596cf4.mesh"]
+
+[params]
+
+generate_tangents=false
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

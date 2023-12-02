@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://iwqartxjaqwo"
+path="res://.godot/imported/level6_collision.obj-7ec51baaa4b8e7581d83b25f66f83a4d.mesh"
+
+[deps]
+
+files=["res://.godot/imported/level6_collision.obj-7ec51baaa4b8e7581d83b25f66f83a4d.mesh"]
+
+source_file="res://models/levels/ancient_desert/level6/level6_collision.obj"
+dest_files=["res://.godot/imported/level6_collision.obj-7ec51baaa4b8e7581d83b25f66f83a4d.mesh", "res://.godot/imported/level6_collision.obj-7ec51baaa4b8e7581d83b25f66f83a4d.mesh"]
+
+[params]
+
+generate_tangents=false
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

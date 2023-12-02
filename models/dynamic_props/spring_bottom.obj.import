@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://ce46ganrnq573"
+path="res://.godot/imported/spring_bottom.obj-f84ac5ad01cce035df93c5d53c2e627d.mesh"
+
+[deps]
+
+files=["res://.godot/imported/spring_bottom.obj-f84ac5ad01cce035df93c5d53c2e627d.mesh"]
+
+source_file="res://models/dynamic_props/spring_bottom.obj"
+dest_files=["res://.godot/imported/spring_bottom.obj-f84ac5ad01cce035df93c5d53c2e627d.mesh", "res://.godot/imported/spring_bottom.obj-f84ac5ad01cce035df93c5d53c2e627d.mesh"]
+
+[params]
+
+generate_tangents=false
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

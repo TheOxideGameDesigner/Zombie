@@ -1,0 +1,66 @@
+[gd_scene load_steps=10 format=3 uid="uid://csmucdgy7vpql"]
+
+[ext_resource type="Script" path="res://scripts/exit.gd" id="1_6une0"]
+[ext_resource type="PackedScene" uid="uid://bjdwa6rfqcwaf" path="res://scenes/props/triggers/text_trigger.tscn" id="3_7qe6n"]
+[ext_resource type="Script" path="res://scripts/triggers/trigger_area.gd" id="3_trb3b"]
+[ext_resource type="FontVariation" uid="uid://cr4vqwh16ob78" path="res://resources/default_font.tres" id="4_vc8pv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bynm0"]
+size = Vector3(2.95558, 8.04483, 1.71939)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3ayf5"]
+size = Vector3(2.70737, 6.29779, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_poj77"]
+size = Vector3(3.89807, 7.82149, 2.30577)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_wsn1s"]
+size = Vector2(1, 0.345)
+center_offset = Vector3(0, 0, -0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tj0tx"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(1, 0, 0, 0.168627)
+
+[node name="exit" type="Area3D" groups=["enemy_area"]]
+collision_mask = 256
+script = ExtResource("1_6une0")
+
+[node name="hitbox" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.63853, 0)
+shape = SubResource("BoxShape3D_bynm0")
+
+[node name="block" type="StaticBody3D" parent="."]
+
+[node name="block_hitbox" type="CollisionShape3D" parent="block"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.02015, 0)
+shape = SubResource("BoxShape3D_3ayf5")
+
+[node name="warning" type="Area3D" parent="."]
+script = ExtResource("3_trb3b")
+
+[node name="warning_hitbox" type="CollisionShape3D" parent="warning"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.49918, 0)
+shape = SubResource("BoxShape3D_poj77")
+
+[node name="text_trigger" parent="warning" instance=ExtResource("3_7qe6n")]
+text = "You need to get the garlic first!"
+time_on_screen = 2.0
+low_priority = true
+
+[node name="exit_label" type="Label3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.5, 0.0150611)
+pixel_size = 0.004
+texture_filter = 0
+text = "exit"
+font = ExtResource("4_vc8pv")
+font_size = 64
+
+[node name="exit_background" type="MeshInstance3D" parent="exit_label"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.5, -0.00722528)
+mesh = SubResource("PlaneMesh_wsn1s")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_tj0tx")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

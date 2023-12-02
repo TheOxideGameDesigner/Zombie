@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bnfnis4uswgp8"]
+
+[resource]
+specular_mode = 2
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+emission = Color(0.419608, 0.419608, 0.419608, 1)
+disable_receive_shadows = true

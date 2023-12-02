@@ -1,0 +1,64 @@
+[gd_scene load_steps=9 format=3 uid="uid://jgtvaprj6pq"]
+
+[ext_resource type="Script" path="res://scripts/cannonball.gd" id="1_iuoqa"]
+[ext_resource type="Material" uid="uid://b3ojfy0a3q3a8" path="res://resources/materials/plasma_bright.tres" id="2_a4pws"]
+[ext_resource type="Material" uid="uid://s24jgd6hcbb0" path="res://resources/materials/plasma_dark.tres" id="4_skc25"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_3pqkk"]
+radius = 0.203612
+
+[sub_resource type="SphereMesh" id="SphereMesh_12w6v"]
+radius = 1.0
+height = 2.0
+radial_segments = 16
+rings = 8
+
+[sub_resource type="SphereMesh" id="SphereMesh_4csdo"]
+material = ExtResource("4_skc25")
+flip_faces = true
+radius = 0.35
+height = 0.7
+radial_segments = 10
+rings = 5
+
+[sub_resource type="SphereMesh" id="SphereMesh_e7sdo"]
+material = ExtResource("2_a4pws")
+radius = 0.3
+height = 0.6
+radial_segments = 10
+rings = 5
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_hbhjq"]
+radius = 0.375313
+
+[node name="cannonball" type="StaticBody3D" groups=["cannonball"]]
+top_level = true
+collision_layer = 0
+collision_mask = 3
+collision_priority = 3.0
+script = ExtResource("1_iuoqa")
+
+[node name="hitbox" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_3pqkk")
+
+[node name="explosion" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("SphereMesh_12w6v")
+
+[node name="sprite" type="MeshInstance3D" parent="."]
+cast_shadow = 0
+mesh = SubResource("SphereMesh_4csdo")
+
+[node name="sprite_interior" type="MeshInstance3D" parent="sprite"]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
+cast_shadow = 0
+mesh = SubResource("SphereMesh_e7sdo")
+skeleton = NodePath("../..")
+
+[node name="area" type="Area3D" parent="."]
+collision_mask = 3
+
+[node name="hitbox" type="CollisionShape3D" parent="area"]
+shape = SubResource("SphereShape3D_hbhjq")
+
+[connection signal="body_entered" from="area" to="." method="_on_area_body_entered"]

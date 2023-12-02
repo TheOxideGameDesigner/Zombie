@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bphn2of0galkj"
+path="res://.godot/imported/mountainside_fence_unit.obj-48f6a30723832156f14b733fdfbe95d8.mesh"
+
+[deps]
+
+files=["res://.godot/imported/mountainside_fence_unit.obj-48f6a30723832156f14b733fdfbe95d8.mesh"]
+
+source_file="res://models/static_props/mountainside/mountainside_fence_unit.obj"
+dest_files=["res://.godot/imported/mountainside_fence_unit.obj-48f6a30723832156f14b733fdfbe95d8.mesh", "res://.godot/imported/mountainside_fence_unit.obj-48f6a30723832156f14b733fdfbe95d8.mesh"]
+
+[params]
+
+generate_tangents=false
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

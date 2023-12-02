@@ -1,0 +1,50 @@
+[gd_scene load_steps=10 format=3 uid="uid://ddiw8ybfcdmjb"]
+
+[ext_resource type="Script" path="res://scripts/spring.gd" id="1_448m2"]
+[ext_resource type="ArrayMesh" uid="uid://ce46ganrnq573" path="res://models/dynamic_props/spring_bottom.obj" id="1_fydkr"]
+[ext_resource type="ArrayMesh" uid="uid://c23dthfjk7cvw" path="res://models/dynamic_props/spring_spring.obj" id="2_qim2p"]
+[ext_resource type="ArrayMesh" uid="uid://dn1b8d6o5p5tm" path="res://models/dynamic_props/spring_platform.obj" id="3_xck8o"]
+[ext_resource type="Texture2D" uid="uid://bgnwuldwrn5ld" path="res://textures/spring_texture.png" id="4_pprbo"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l346e"]
+albedo_color = Color(0.262745, 0.168627, 0, 1)
+metallic_specular = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vx65r"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uhm2g"]
+albedo_texture = ExtResource("4_pprbo")
+metallic_specular = 0.0
+texture_filter = 1
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_14joc"]
+height = 1.28552
+radius = 0.722409
+
+[node name="spring" type="Area3D"]
+collision_mask = 256
+script = ExtResource("1_448m2")
+
+[node name="spring_bottom" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1597, 0)
+material_override = SubResource("StandardMaterial3D_l346e")
+cast_shadow = 0
+mesh = ExtResource("1_fydkr")
+
+[node name="spring_spring" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.320025, 0)
+material_override = SubResource("StandardMaterial3D_vx65r")
+cast_shadow = 0
+mesh = ExtResource("2_qim2p")
+
+[node name="spring_platform" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.951057, 0, 0.309017, 0, 1, 0, -0.309017, 0, 0.951057, 0, 1.01682, 0)
+cast_shadow = 0
+mesh = ExtResource("3_xck8o")
+surface_material_override/0 = SubResource("StandardMaterial3D_uhm2g")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.574117, 0)
+shape = SubResource("CylinderShape3D_14joc")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

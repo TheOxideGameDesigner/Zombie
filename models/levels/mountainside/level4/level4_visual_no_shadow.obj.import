@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://buygfpqt6o7x4"
+path="res://.godot/imported/level4_visual_no_shadow.obj-f102c4c2c6f8c50015a05f72e15f5d91.mesh"
+
+[deps]
+
+files=["res://.godot/imported/level4_visual_no_shadow.obj-f102c4c2c6f8c50015a05f72e15f5d91.mesh"]
+
+source_file="res://models/levels/mountainside/level4/level4_visual_no_shadow.obj"
+dest_files=["res://.godot/imported/level4_visual_no_shadow.obj-f102c4c2c6f8c50015a05f72e15f5d91.mesh", "res://.godot/imported/level4_visual_no_shadow.obj-f102c4c2c6f8c50015a05f72e15f5d91.mesh"]
+
+[params]
+
+generate_tangents=false
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

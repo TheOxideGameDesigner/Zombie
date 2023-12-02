@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dwx4ilgs8jfbv"
+path="res://.godot/imported/level3_visual.obj-c3e9133fe45f8b25d1363cb7e8796ae1.mesh"
+
+[deps]
+
+files=["res://.godot/imported/level3_visual.obj-c3e9133fe45f8b25d1363cb7e8796ae1.mesh"]
+
+source_file="res://models/levels/ancient_desert/level3/level3_visual.obj"
+dest_files=["res://.godot/imported/level3_visual.obj-c3e9133fe45f8b25d1363cb7e8796ae1.mesh", "res://.godot/imported/level3_visual.obj-c3e9133fe45f8b25d1363cb7e8796ae1.mesh"]
+
+[params]
+
+generate_tangents=false
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

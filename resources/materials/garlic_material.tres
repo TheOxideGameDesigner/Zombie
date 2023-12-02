@@ -1,0 +1,42 @@
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://dl11jh6iufuvh"]
+
+[ext_resource type="Shader" uid="uid://36k46aijhxv6" path="res://resources/outline_shader.tres" id="1_a34dd"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ad2bp"]
+render_priority = 0
+shader = ExtResource("1_a34dd")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/thickness = 0.01
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yli8n"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_ad2bp")
+shader = ExtResource("1_a34dd")
+shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/thickness = 0.005
+
+[sub_resource type="Shader" id="Shader_rubj3"]
+code = "shader_type spatial;
+
+uniform vec3 color : source_color;
+uniform float ambient = 0.5f;
+
+void fragment() {
+	ALBEDO = color;
+}
+
+void light() {
+	float ang = dot(LIGHT, NORMAL);
+	if (ang < 0.0)
+		DIFFUSE_LIGHT = vec3(ambient, ambient, ambient);
+	else
+		DIFFUSE_LIGHT = vec3(1, 1, 1);
+}
+"
+
+[resource]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_yli8n")
+shader = SubResource("Shader_rubj3")
+shader_parameter/color = Color(0.996078, 0.776471, 0.639216, 1)
+shader_parameter/ambient = 0.5

@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cp3dcmm427m7c"
+path="res://.godot/imported/eye_of_anubis_orb.obj-a729c16213ff1bf0821cc73da1633927.mesh"
+
+[deps]
+
+files=["res://.godot/imported/eye_of_anubis_orb.obj-a729c16213ff1bf0821cc73da1633927.mesh"]
+
+source_file="res://models/dynamic_props/enemies/eye_of_anubis_orb.obj"
+dest_files=["res://.godot/imported/eye_of_anubis_orb.obj-a729c16213ff1bf0821cc73da1633927.mesh", "res://.godot/imported/eye_of_anubis_orb.obj-a729c16213ff1bf0821cc73da1633927.mesh"]
+
+[params]
+
+generate_tangents=false
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://p1mhl2fg8b56"
+path="res://.godot/imported/level1_visual.obj-55fb7940db093e51a2d2bea51fa71b5c.mesh"
+
+[deps]
+
+files=["res://.godot/imported/level1_visual.obj-55fb7940db093e51a2d2bea51fa71b5c.mesh"]
+
+source_file="res://models/levels/mountainside/level1/level1_visual.obj"
+dest_files=["res://.godot/imported/level1_visual.obj-55fb7940db093e51a2d2bea51fa71b5c.mesh", "res://.godot/imported/level1_visual.obj-55fb7940db093e51a2d2bea51fa71b5c.mesh"]
+
+[params]
+
+generate_tangents=false
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

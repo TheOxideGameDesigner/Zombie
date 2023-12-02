@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://fqap4w5us62l"
+path="res://.godot/imported/forearm.obj-1f4a8da2685864495e8ac67366832386.mesh"
+
+[deps]
+
+files=["res://.godot/imported/forearm.obj-1f4a8da2685864495e8ac67366832386.mesh"]
+
+source_file="res://models/gibs/mountainside_runner/forearm.obj"
+dest_files=["res://.godot/imported/forearm.obj-1f4a8da2685864495e8ac67366832386.mesh", "res://.godot/imported/forearm.obj-1f4a8da2685864495e8ac67366832386.mesh"]
+
+[params]
+
+generate_tangents=false
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

@@ -1,0 +1,55 @@
+[gd_scene load_steps=10 format=3 uid="uid://2ukt3tqlkh71"]
+
+[ext_resource type="ArrayMesh" uid="uid://bvsksfpwem353" path="res://models/dynamic_props/enemies/eye_of_anubis_pedestal.obj" id="1_nyixf"]
+[ext_resource type="Script" path="res://scripts/enemies/eye_of_anubis.gd" id="1_tcjb3"]
+[ext_resource type="Material" uid="uid://uxn8fucitgfr" path="res://resources/materials/level_mat.tres" id="2_osr26"]
+[ext_resource type="Material" uid="uid://71wrnh23pt12" path="res://resources/materials/specific_mats/eye_of_anubis_orb_mat.tres" id="3_j3amu"]
+[ext_resource type="ArrayMesh" uid="uid://cp3dcmm427m7c" path="res://models/dynamic_props/enemies/eye_of_anubis_orb.obj" id="4_l4vss"]
+[ext_resource type="Material" uid="uid://b42lbiqqrap82" path="res://resources/materials/specific_mats/death_ray_mat.tres" id="6_tgmdu"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_iebyc"]
+data = PackedVector3Array(0.5, 1, 0.5, -0.5, 1, -0.5, 0.5, 1, -0.5, -1, 0, 1, 0.5, 1, 0.5, 1, 0, 1, -1, 0, -1, -0.5, 1, 0.5, -1, 0, 1, 1, 0, 1, 0.5, 1, -0.5, 1, 0, -1, 1, 0, -1, -0.5, 1, -0.5, -1, 0, -1, -0.5, 1, 0.5, -0.5, 1, -0.5, 0.5, 1, 0.5, -0.5, 1, 0.5, 0.5, 1, 0.5, -1, 0, 1, -0.5, 1, -0.5, -0.5, 1, 0.5, -1, 0, -1, 0.5, 1, 0.5, 0.5, 1, -0.5, 1, 0, 1, 0.5, 1, -0.5, -0.5, 1, -0.5, 1, 0, -1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_6odb5"]
+material = ExtResource("6_tgmdu")
+top_radius = 0.075
+bottom_radius = 0.075
+height = 1.0
+radial_segments = 4
+rings = 1
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_cf3x8"]
+data = PackedVector3Array(0, -0.5993, -0.5993, 0, -0.8475, 0, 0.4238, -0.5993, -0.4238, 0.5993, 0, -0.5993, 0, 0.5993, -0.5993, 0, 0, -0.8475, 0.4238, -0.5993, -0.4238, 0, 0, -0.8475, 0, -0.5993, -0.5993, 0, 0.8475, 0, 0, 0.5993, -0.5993, 0.4238, 0.5993, -0.4238, 0.4238, -0.5993, -0.4238, 0, -0.8475, 0, 0.5993, -0.5993, 0, 0.8475, 0, 0, 0.4238, 0.5993, -0.4238, 0.5993, 0, -0.5993, 0.5993, -0.5993, 0, 0.5993, 0, -0.5993, 0.4238, -0.5993, -0.4238, 0, 0.8475, 0, 0.4238, 0.5993, -0.4238, 0.5993, 0.5993, 0, 0.5993, -0.5993, 0, 0, -0.8475, 0, 0.4238, -0.5993, 0.4238, 0.5993, 0, 0.5993, 0.5993, 0.5993, 0, 0.8475, 0, 0, 0.4238, -0.5993, 0.4238, 0.8475, 0, 0, 0.5993, -0.5993, 0, 0, 0.8475, 0, 0.5993, 0.5993, 0, 0.4238, 0.5993, 0.4238, 0.4238, -0.5993, 0.4238, 0, -0.8475, 0, 0, -0.5993, 0.5993, 0, 0, 0.8475, 0.4238, 0.5993, 0.4238, 0.5993, 0, 0.5993, 0, 0, 0.8475, 0.4238, -0.5993, 0.4238, 0, -0.5993, 0.5993, 0, 0.8475, 0, 0.4238, 0.5993, 0.4238, 0, 0.5993, 0.5993, 0, -0.5993, 0.5993, 0, -0.8475, 0, -0.4238, -0.5993, 0.4238, -0.5993, 0, 0.5993, 0, 0.5993, 0.5993, 0, 0, 0.8475, -0.4238, -0.5993, 0.4238, 0, 0, 0.8475, 0, -0.5993, 0.5993, 0, 0.8475, 0, 0, 0.5993, 0.5993, -0.4238, 0.5993, 0.4238, 0, 0.8475, 0, -0.4238, 0.5993, 0.4238, -0.5993, 0.5993, 0, -0.4238, -0.5993, 0.4238, 0, -0.8475, 0, -0.5993, -0.5993, 0, -0.8475, 0, 0, -0.4238, 0.5993, 0.4238, -0.5993, 0, 0.5993, -0.5993, -0.5993, 0, -0.5993, 0, 0.5993, -0.4238, -0.5993, 0.4238, -0.4238, -0.5993, -0.4238, -0.8475, 0, 0, -0.5993, -0.5993, 0, 0, 0.8475, 0, -0.5993, 0.5993, 0, -0.4238, 0.5993, -0.4238, -0.5993, -0.5993, 0, 0, -0.8475, 0, -0.4238, -0.5993, -0.4238, -0.5993, 0, -0.5993, -0.5993, 0.5993, 0, -0.8475, 0, 0, 0, -0.5993, -0.5993, -0.5993, 0, -0.5993, -0.4238, -0.5993, -0.4238, 0, 0.8475, 0, -0.4238, 0.5993, -0.4238, 0, 0.5993, -0.5993, -0.4238, -0.5993, -0.4238, 0, -0.8475, 0, 0, -0.5993, -0.5993, 0, 0, -0.8475, -0.4238, 0.5993, -0.4238, -0.5993, 0, -0.5993, 0.4238, 0.5993, -0.4238, 0, 0.5993, -0.5993, 0.5993, 0, -0.5993, 0.5993, 0, -0.5993, 0, 0, -0.8475, 0.4238, -0.5993, -0.4238, 0.5993, 0.5993, 0, 0.4238, 0.5993, -0.4238, 0.8475, 0, 0, 0.8475, 0, 0, 0.5993, 0, -0.5993, 0.5993, -0.5993, 0, 0.4238, 0.5993, 0.4238, 0.5993, 0.5993, 0, 0.5993, 0, 0.5993, 0.5993, 0, 0.5993, 0.8475, 0, 0, 0.4238, -0.5993, 0.4238, 0, 0.5993, 0.5993, 0.4238, 0.5993, 0.4238, 0, 0, 0.8475, 0.5993, 0, 0.5993, 0.4238, -0.5993, 0.4238, 0, 0, 0.8475, -0.4238, 0.5993, 0.4238, 0, 0.5993, 0.5993, -0.5993, 0, 0.5993, -0.5993, 0, 0.5993, 0, 0, 0.8475, -0.4238, -0.5993, 0.4238, -0.5993, 0.5993, 0, -0.4238, 0.5993, 0.4238, -0.8475, 0, 0, -0.8475, 0, 0, -0.5993, 0, 0.5993, -0.5993, -0.5993, 0, -0.5993, 0, -0.5993, -0.8475, 0, 0, -0.4238, -0.5993, -0.4238, -0.4238, 0.5993, -0.4238, -0.5993, 0.5993, 0, -0.5993, 0, -0.5993, 0, 0, -0.8475, -0.5993, 0, -0.5993, 0, -0.5993, -0.5993, 0, 0.5993, -0.5993, -0.4238, 0.5993, -0.4238, 0, 0, -0.8475)
+
+[node name="eye_of_anubis" type="StaticBody3D"]
+script = ExtResource("1_tcjb3")
+
+[node name="hitbox" type="CollisionShape3D" parent="."]
+shape = SubResource("ConcavePolygonShape3D_iebyc")
+
+[node name="pedestal" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_nyixf")
+surface_material_override/0 = ExtResource("2_osr26")
+
+[node name="death_ray" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.052, 0)
+metadata/_edit_group_ = true
+
+[node name="death_ray_mesh" type="MeshInstance3D" parent="death_ray"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0.5, 0, 0)
+mesh = SubResource("CylinderMesh_6odb5")
+skeleton = NodePath("../..")
+
+[node name="orb" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.94169, 0)
+shape = SubResource("ConcavePolygonShape3D_cf3x8")
+
+[node name="orb" type="MeshInstance3D" parent="orb"]
+material_override = ExtResource("3_j3amu")
+mesh = ExtResource("4_l4vss")
+skeleton = NodePath("../..")
+
+[node name="ray" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.01666, 0)
+enabled = false
+collision_mask = 257

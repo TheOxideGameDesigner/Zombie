@@ -1,0 +1,105 @@
+[gd_scene load_steps=14 format=3 uid="uid://ct4dtw3ijmehk"]
+
+[ext_resource type="Script" path="res://scripts/enemies/runner.gd" id="1_161no"]
+[ext_resource type="PackedScene" uid="uid://drygiqwrpy1uk" path="res://scenes/environment/gibs/runner.tscn" id="2_hqbvn"]
+[ext_resource type="PackedScene" uid="uid://d4k7qjsc8bglc" path="res://scenes/enemy_home.tscn" id="3_oc55d"]
+[ext_resource type="Script" path="res://scripts/physics_lerp.gd" id="4_1f14b"]
+[ext_resource type="Texture2D" uid="uid://dsi7k27hhox0v" path="res://textures/alerted.png" id="5_nm2sq"]
+[ext_resource type="Material" uid="uid://c0vwp18rc74ju" path="res://resources/materials/aura_mat.tres" id="6_syeth"]
+[ext_resource type="FontVariation" uid="uid://cr4vqwh16ob78" path="res://resources/default_font.tres" id="7_iyfbf"]
+[ext_resource type="PackedScene" uid="uid://cqfms0sjvpite" path="res://models/dynamic_props/enemies/mountainside_runner.glb" id="8_qjcrv"]
+[ext_resource type="Script" path="res://scripts/enemies/anim.gd" id="9_rysfu"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_k038f"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_54mrs"]
+radius = 0.829037
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_dm706"]
+height = 2.38921
+radius = 1.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_xuhii"]
+material = ExtResource("6_syeth")
+radius = 1.03
+height = 5.915
+radial_segments = 10
+rings = 10
+
+[node name="runner" type="CharacterBody3D" groups=["activatable", "enemy", "lightweight"]]
+top_level = true
+collision_layer = 2
+collision_mask = 257
+floor_snap_length = 0.5
+script = ExtResource("1_161no")
+gibs = ExtResource("2_hqbvn")
+respawn_time = 10.0
+
+[node name="hitbox" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CylinderShape3D_k038f")
+
+[node name="collision_area" type="Area3D" parent="." groups=["enemy_area"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="collision_area_hitbox" type="CollisionShape3D" parent="collision_area"]
+shape = SubResource("CylinderShape3D_54mrs")
+
+[node name="home" parent="." instance=ExtResource("3_oc55d")]
+color = Color(0.286275, 0.431373, 1, 0.858824)
+
+[node name="respawn" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[node name="ray" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+enabled = false
+collision_mask = 257
+
+[node name="raycast_collision" type="CharacterBody3D" parent="." groups=["enemy_raycast_collision"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05309, 0)
+collision_layer = 4
+collision_mask = 0
+
+[node name="raycast_hitbox" type="CollisionShape3D" parent="raycast_collision"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.025442, 0)
+shape = SubResource("CylinderShape3D_dm706")
+
+[node name="is_visible" type="VisibleOnScreenNotifier3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.03491, 0)
+aabb = AABB(-0.346727, -1.03405, -0.331776, 0.693449, 2.0681, 0.663553)
+
+[node name="mesh" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+script = ExtResource("4_1f14b")
+enable_rot = true
+
+[node name="alerted" type="Sprite3D" parent="mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.855, 0)
+visible = false
+modulate = Color(1, 0.227451, 0.243137, 0.709804)
+pixel_size = 0.0195
+billboard = 1
+texture_filter = 0
+texture = ExtResource("5_nm2sq")
+
+[node name="aura" type="MeshInstance3D" parent="mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.00643, 0)
+visible = false
+mesh = SubResource("SphereMesh_xuhii")
+
+[node name="health" type="Label3D" parent="mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.17772, 0)
+visible = false
+billboard = 1
+texture_filter = 0
+text = "100"
+font = ExtResource("7_iyfbf")
+font_size = 64
+
+[node name="mountainside_runner" parent="mesh" instance=ExtResource("8_qjcrv")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+script = ExtResource("9_rysfu")
+
+[connection signal="timeout" from="respawn" to="." method="_on_respawn_timeout"]

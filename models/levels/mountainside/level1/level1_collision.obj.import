@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://0edd217bv0cs"
+path="res://.godot/imported/level1_collision.obj-c195c1034535b3e922a5fac30f24b870.mesh"
+
+[deps]
+
+files=["res://.godot/imported/level1_collision.obj-c195c1034535b3e922a5fac30f24b870.mesh"]
+
+source_file="res://models/levels/mountainside/level1/level1_collision.obj"
+dest_files=["res://.godot/imported/level1_collision.obj-c195c1034535b3e922a5fac30f24b870.mesh", "res://.godot/imported/level1_collision.obj-c195c1034535b3e922a5fac30f24b870.mesh"]
+
+[params]
+
+generate_tangents=false
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

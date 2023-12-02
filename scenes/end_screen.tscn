@@ -1,0 +1,88 @@
+[gd_scene load_steps=3 format=3 uid="uid://pa26npv3un6v"]
+
+[ext_resource type="Theme" uid="uid://3b0iarraglqs" path="res://resources/ui_theme.tres" id="1_4m872"]
+[ext_resource type="Script" path="res://scripts/end_screen.gd" id="2_bfqjw"]
+
+[node name="end_screen" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_4m872")
+script = ExtResource("2_bfqjw")
+
+[node name="color_rect" type="ColorRect" parent="."]
+z_index = 20
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0862745, 0.133333, 0.290196, 1)
+
+[node name="Label" type="Label" parent="."]
+z_index = 20
+layout_mode = 0
+offset_left = 325.0
+offset_top = 47.0
+offset_right = 1124.0
+offset_bottom = 114.0
+scale = Vector2(1.58887, 1.58887)
+text = "congratulations!"
+
+[node name="Label2" type="Label" parent="."]
+z_index = 20
+layout_mode = 0
+offset_left = 348.0
+offset_top = 173.0
+offset_right = 1539.0
+offset_bottom = 240.0
+text = "you extracted the garlic"
+
+[node name="Label3" type="Label" parent="."]
+z_index = 20
+layout_mode = 0
+offset_left = 206.0
+offset_top = 266.0
+offset_right = 1691.0
+offset_bottom = 333.0
+text = "there may still be hope for us"
+
+[node name="instructions" type="Label" parent="."]
+z_index = 20
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -170.0
+offset_bottom = -103.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "press r to go to the next location
+
+press escape to restart"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="damage_taken" type="Label" parent="."]
+z_index = 20
+layout_mode = 0
+offset_left = 213.0
+offset_top = 433.0
+offset_right = 816.0
+offset_bottom = 500.0
+text = "damage taken   123"
+
+[node name="time" type="Label" parent="."]
+z_index = 20
+layout_mode = 0
+offset_left = 215.0
+offset_top = 563.0
+offset_right = 818.0
+offset_bottom = 630.0
+text = "time           4[55"

@@ -1,0 +1,7 @@
+[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://cr4vqwh16ob78"]
+
+[ext_resource type="FontFile" uid="uid://dmxg0cy7whijk" path="res://textures/ui/font_transparent.png" id="1_7mkkf"]
+
+[resource]
+base_font = ExtResource("1_7mkkf")
+spacing_glyph = -15

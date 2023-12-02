@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://bq1itwbnkbvp4"]
+
+[ext_resource type="Script" path="res://scripts/key.gd" id="1_dmr35"]
+[ext_resource type="ArrayMesh" uid="uid://x7dyli6xc2ex" path="res://models/dynamic_props/key.obj" id="1_oupli"]
+[ext_resource type="Texture2D" uid="uid://sdkcaa63w6xs" path="res://textures/garlic_light.png" id="2_uk8sb"]
+[ext_resource type="PackedScene" uid="uid://bjdwa6rfqcwaf" path="res://scenes/props/triggers/text_trigger.tscn" id="4_tilh6"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_vbcyc"]
+radius = 3.13272
+
+[node name="key" type="Area3D" groups=["drop"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05773, 0)
+collision_mask = 256
+script = ExtResource("1_dmr35")
+
+[node name="hitbox" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.462404, 0)
+shape = SubResource("SphereShape3D_vbcyc")
+
+[node name="text_trigger" parent="." instance=ExtResource("4_tilh6")]
+time_on_screen = 1.0
+
+[node name="visual" type="Node3D" parent="."]
+
+[node name="mesh" type="MeshInstance3D" parent="visual"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.679055, 0.486, 0)
+cast_shadow = 0
+mesh = ExtResource("1_oupli")
+skeleton = NodePath("../..")
+
+[node name="light" type="Sprite3D" parent="visual"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0222598, 0.44, 0)
+modulate = Color(1, 1, 1, 0.0352941)
+pixel_size = 0.006
+texture = ExtResource("2_uk8sb")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

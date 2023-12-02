@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bmw07a0u040q3"
+path="res://.godot/imported/upper_arm.obj-495e0e7f26ca7325248ca6adcf29124f.mesh"
+
+[deps]
+
+files=["res://.godot/imported/upper_arm.obj-495e0e7f26ca7325248ca6adcf29124f.mesh"]
+
+source_file="res://models/gibs/mountainside_hitscanner/upper_arm.obj"
+dest_files=["res://.godot/imported/upper_arm.obj-495e0e7f26ca7325248ca6adcf29124f.mesh", "res://.godot/imported/upper_arm.obj-495e0e7f26ca7325248ca6adcf29124f.mesh"]
+
+[params]
+
+generate_tangents=false
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

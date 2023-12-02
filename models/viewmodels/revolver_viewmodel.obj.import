@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://ppcmkttyghki"
+path="res://.godot/imported/revolver_viewmodel.obj-34d4edc7d37d157e4153411309e87e87.mesh"
+
+[deps]
+
+files=["res://.godot/imported/revolver_viewmodel.obj-34d4edc7d37d157e4153411309e87e87.mesh"]
+
+source_file="res://models/viewmodels/revolver_viewmodel.obj"
+dest_files=["res://.godot/imported/revolver_viewmodel.obj-34d4edc7d37d157e4153411309e87e87.mesh", "res://.godot/imported/revolver_viewmodel.obj-34d4edc7d37d157e4153411309e87e87.mesh"]
+
+[params]
+
+generate_tangents=false
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dqdnw6j2q16vj"
+path="res://.godot/imported/garlic.obj-cfeda1cfece4bd69762569ee8205308c.mesh"
+
+[deps]
+
+files=["res://.godot/imported/garlic.obj-cfeda1cfece4bd69762569ee8205308c.mesh"]
+
+source_file="res://models/dynamic_props/garlic.obj"
+dest_files=["res://.godot/imported/garlic.obj-cfeda1cfece4bd69762569ee8205308c.mesh", "res://.godot/imported/garlic.obj-cfeda1cfece4bd69762569ee8205308c.mesh"]
+
+[params]
+
+generate_tangents=false
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

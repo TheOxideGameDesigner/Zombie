@@ -1,0 +1,390 @@
+[gd_scene load_steps=31 format=3 uid="uid://cgb4acwljildg"]
+
+[ext_resource type="Script" path="res://scripts/world.gd" id="1_kg0rf"]
+[ext_resource type="Material" uid="uid://uxn8fucitgfr" path="res://resources/materials/level_mat.tres" id="2_qying"]
+[ext_resource type="ArrayMesh" uid="uid://xov8d8vecff5" path="res://models/levels/mountainside/level5/level5_visual.obj" id="3_xig51"]
+[ext_resource type="ArrayMesh" uid="uid://dh8u5dwpbpi8h" path="res://models/levels/mountainside/level5/level5_visual_no_shadow.obj" id="4_sbkg5"]
+[ext_resource type="Material" uid="uid://bv0gimb8j4e6d" path="res://resources/materials/specific_mats/window_mat.tres" id="5_6ckbs"]
+[ext_resource type="PackedScene" uid="uid://4px2n2dg363l" path="res://scenes/misc_props/player.tscn" id="5_841f1"]
+[ext_resource type="Material" uid="uid://cpjj475f3yych" path="res://resources/materials/level_no_shadow_mat.tres" id="5_uvvgb"]
+[ext_resource type="PackedScene" uid="uid://csmucdgy7vpql" path="res://scenes/misc_props/exit.tscn" id="6_3n3tw"]
+[ext_resource type="ArrayMesh" uid="uid://diyovjtlbhaf4" path="res://models/levels/mountainside/level5/level5_windows.obj" id="6_7goe0"]
+[ext_resource type="ArrayMesh" uid="uid://ccri71g2s0sqr" path="res://models/levels/mountainside/level5/level5_visual_no_receive_shadow.obj" id="6_qb7b8"]
+[ext_resource type="PackedScene" uid="uid://bq1itwbnkbvp4" path="res://scenes/misc_props/key.tscn" id="7_lx2jd"]
+[ext_resource type="PackedScene" uid="uid://cdshg7bk5i645" path="res://scenes/misc_props/garlic.tscn" id="8_m67yw"]
+[ext_resource type="PackedScene" uid="uid://bfwjae77m2xmb" path="res://scenes/props/triggers/move_trigger.tscn" id="9_1v7jc"]
+[ext_resource type="ArrayMesh" uid="uid://b7egvt31ekbkt" path="res://models/levels/mountainside/level5/level5_collision.obj" id="9_5y5iu"]
+[ext_resource type="Script" path="res://scripts/create_static_body_child.gd" id="10_f6rpl"]
+[ext_resource type="ArrayMesh" uid="uid://2asvu6fjk0no" path="res://models/static_props/mountainside/mountainside_fence_unit_tall.obj" id="10_nubcv"]
+[ext_resource type="ArrayMesh" uid="uid://bphn2of0galkj" path="res://models/static_props/mountainside/mountainside_fence_unit.obj" id="11_viqfe"]
+[ext_resource type="Script" path="res://scripts/triggers/trigger_area.gd" id="12_3icqg"]
+[ext_resource type="PackedScene" uid="uid://cyw7f2nh4dtoc" path="res://scenes/misc_props/lock.tscn" id="13_kuuqx"]
+[ext_resource type="PackedScene" uid="uid://ct4dtw3ijmehk" path="res://scenes/props/enemies/runner.tscn" id="14_petng"]
+[ext_resource type="PackedScene" uid="uid://bfuck1d2dtogj" path="res://scenes/props/enemies/gunner.tscn" id="15_1edj7"]
+[ext_resource type="PackedScene" uid="uid://d2ya5fu74vom0" path="res://scenes/props/enemies/hitscanner.tscn" id="16_snc65"]
+[ext_resource type="PackedScene" uid="uid://cjg4wjt43xbks" path="res://scenes/misc_props/torch.tscn" id="17_re2tm"]
+[ext_resource type="PackedScene" uid="uid://cq4mvdbpk0wiq" path="res://scenes/props/enemies/statue.tscn" id="17_yw7ys"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0p2ik"]
+size = Vector3(37.1404, 21.6386, 36.2883)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7byos"]
+size = Vector3(4.24839, 5.82636, 0.515816)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fkqg7"]
+size = Vector3(0.667015, 5.44044, 10.329)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jgk47"]
+size = Vector3(29.4097, 22.0891, 27.3684)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4ep2i"]
+size = Vector3(45.2245, 4.05517, 1.7058)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ijw5v"]
+size = Vector3(48.6993, 17.3946, 41.9827)
+
+[node name="level4" type="Node3D"]
+script = ExtResource("1_kg0rf")
+
+[node name="level_visual" type="MeshInstance3D" parent="."]
+material_override = ExtResource("2_qying")
+mesh = ExtResource("3_xig51")
+metadata/_edit_lock_ = true
+
+[node name="level_visual_no_shadow" type="MeshInstance3D" parent="."]
+material_override = ExtResource("2_qying")
+cast_shadow = 0
+mesh = ExtResource("4_sbkg5")
+metadata/_edit_lock_ = true
+
+[node name="level_visual_no_shadow2" type="MeshInstance3D" parent="."]
+material_override = ExtResource("5_uvvgb")
+cast_shadow = 0
+mesh = ExtResource("6_qb7b8")
+metadata/_edit_lock_ = true
+
+[node name="level_visual_windows" type="MeshInstance3D" parent="."]
+material_override = ExtResource("5_6ckbs")
+cast_shadow = 0
+mesh = ExtResource("6_7goe0")
+metadata/_edit_lock_ = true
+
+[node name="level_collision" type="MeshInstance3D" parent="."]
+visible = false
+material_override = ExtResource("5_6ckbs")
+cast_shadow = 0
+mesh = ExtResource("9_5y5iu")
+script = ExtResource("10_f6rpl")
+metadata/_edit_lock_ = true
+
+[node name="light" type="DirectionalLight3D" parent="." groups=["light"]]
+transform = Transform3D(-0.270371, 0.958996, -0.0850089, -0.69729, -0.134172, 0.70412, 0.663842, 0.249649, 0.704974, 34.4022, 23.7255, -146.613)
+light_bake_mode = 0
+shadow_enabled = true
+shadow_bias = 0.01
+shadow_opacity = 0.7
+directional_shadow_blend_splits = true
+
+[node name="omnilight1" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -165.301, -13.0135, -1.38956)
+light_color = Color(1, 0.945098, 0.905882, 1)
+light_energy = 0.364
+omni_range = 17.5466
+omni_attenuation = 0.00592077
+
+[node name="omnilight2" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -150.005, -12.9348, -1.38956)
+light_color = Color(1, 0.945098, 0.905882, 1)
+light_energy = 0.364
+omni_range = 17.5466
+omni_attenuation = 0.00592077
+
+[node name="omnilight3" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -165.301, -13.0135, -19.0889)
+light_color = Color(1, 0.945098, 0.905882, 1)
+light_energy = 0.364
+omni_range = 17.5466
+omni_attenuation = 0.00592077
+
+[node name="omnilight4" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -150.005, -12.6248, -19.0889)
+light_color = Color(1, 0.945098, 0.905882, 1)
+light_energy = 0.364
+omni_range = 17.5466
+omni_attenuation = 0.00592077
+
+[node name="player" parent="." instance=ExtResource("5_841f1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 116.23, -6.76585, 114.132)
+
+[node name="exit" parent="." instance=ExtResource("6_3n3tw")]
+transform = Transform3D(-1.51495, 0, -0.01174, 0, 1.515, 0, 0.01174, 0, -1.51495, 116.862, -5.94248, 131.09)
+chapter = 1
+
+[node name="blue_key" parent="." instance=ExtResource("7_lx2jd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 129.745, -6.9842, -42.9601)
+key_index = 1
+
+[node name="red_key" parent="." instance=ExtResource("7_lx2jd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75.3375, -3.29764, 182.747)
+key_color = Color(1, 0, 0, 1)
+key_name = "red"
+key_index = 2
+
+[node name="areas" type="Node3D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="Area3D" type="Area3D" parent="areas"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -157.894, -13.7269, -9.99661)
+script = ExtResource("12_3icqg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="areas/Area3D"]
+shape = SubResource("BoxShape3D_0p2ik")
+
+[node name="move_trigger" parent="areas/Area3D" instance=ExtResource("9_1v7jc")]
+group = 2
+target = Vector3(0, 4, 0)
+time = 0.5
+
+[node name="move_trigger2" parent="areas/Area3D" instance=ExtResource("9_1v7jc")]
+group = 3
+target = Vector3(0, 50, 0)
+
+[node name="props" type="Node3D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="exit_fence" type="StaticBody3D" parent="props"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 116.996, -6.43252, 131.877)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="props/exit_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.01904, -0.737529, -0.754898)
+material_override = ExtResource("2_qying")
+mesh = ExtResource("10_nubcv")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="props/exit_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.06537, -0.737529, -0.754898)
+material_override = ExtResource("2_qying")
+mesh = ExtResource("10_nubcv")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="props/exit_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.05102, -0.737529, -0.754898)
+material_override = ExtResource("2_qying")
+mesh = ExtResource("10_nubcv")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="props/exit_fence"]
+transform = Transform3D(0.231391, 0, -0.972861, 0, 1, 0, 0.972861, 0, 0.231391, 1.24553, -0.737529, -2.17155)
+material_override = ExtResource("2_qying")
+mesh = ExtResource("10_nubcv")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="props/exit_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.00539, -0.737529, -0.754898)
+material_override = ExtResource("2_qying")
+mesh = ExtResource("10_nubcv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="props/exit_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.64416, 1.63288, -0.776688)
+shape = SubResource("BoxShape3D_7byos")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="props/exit_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.77943, 1.63288, -0.776688)
+shape = SubResource("BoxShape3D_7byos")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="props/exit_fence"]
+transform = Transform3D(0.250752, 0, -0.968052, 0, 1, 0, 0.968052, 0, 0.250752, 1.36626, 1.63288, -1.60497)
+shape = SubResource("BoxShape3D_7byos")
+
+[node name="church_fence" type="StaticBody3D" parent="props" groups=["1"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.21268, -5.0172, 40.6573)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="props/church_fence"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, -1.59646, 3.92689)
+material_override = ExtResource("2_qying")
+mesh = ExtResource("10_nubcv")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="props/church_fence"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, -1.59646, 0.95937)
+material_override = ExtResource("2_qying")
+mesh = ExtResource("10_nubcv")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="props/church_fence"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, -1.59646, -2.00383)
+material_override = ExtResource("2_qying")
+mesh = ExtResource("10_nubcv")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="props/church_fence"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, -1.59646, -4.98136)
+material_override = ExtResource("2_qying")
+mesh = ExtResource("10_nubcv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="props/church_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.962469, -0.320541)
+shape = SubResource("BoxShape3D_fkqg7")
+
+[node name="lock" parent="props/church_fence" instance=ExtResource("13_kuuqx")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.299709, 0.710988, 1.00503)
+skeleton = NodePath("../../..")
+color = Color(0, 0.501961, 1, 1)
+one_sided = false
+
+[node name="lock2" parent="props/church_fence" instance=ExtResource("13_kuuqx")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.299709, 0.710988, -1.47815)
+skeleton = NodePath("../../..")
+color = Color(1, 0, 0, 1)
+one_sided = false
+
+[node name="Area3D" type="Area3D" parent="props/church_fence"]
+script = ExtResource("12_3icqg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="props/church_fence/Area3D"]
+shape = SubResource("BoxShape3D_jgk47")
+
+[node name="move_trigger" parent="props/church_fence/Area3D" instance=ExtResource("9_1v7jc")]
+group = 1
+target = Vector3(0, -6, 0)
+time = 1.0
+keys_required = Array[int]([1, 2])
+
+[node name="basement_fence" type="StaticBody3D" parent="props" groups=["2"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -158.123, -17.8547, 10.6643)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="props/basement_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.53206, -2.06679, 0.0646)
+material_override = ExtResource("2_qying")
+mesh = ExtResource("11_viqfe")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="props/basement_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.42128, -2.06679, 0.0646)
+material_override = ExtResource("2_qying")
+mesh = ExtResource("11_viqfe")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="props/basement_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.06595, 0)
+shape = SubResource("BoxShape3D_4ep2i")
+
+[node name="torch" parent="props" instance=ExtResource("17_re2tm")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -135.966, -13.5164, -0.975403)
+
+[node name="torch2" parent="props" instance=ExtResource("17_re2tm")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -135.966, -13.5164, -20.6089)
+
+[node name="torch3" parent="props" instance=ExtResource("17_re2tm")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -180.084, -13.5164, -20.6089)
+
+[node name="torch4" parent="props" instance=ExtResource("17_re2tm")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -180.084, -13.5164, -0.975403)
+
+[node name="enemies" type="Node3D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="statue" parent="enemies" instance=ExtResource("17_yw7ys")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -157.842, -16.3967, -10.0009)
+spawns = Array[PackedVector3Array]([PackedVector3Array(2, 0, 5, 1, 45, 12, 1, 112.5, 12, 1, 247.5, 12, 1, 315, 12), PackedVector3Array(2, 90, 15, 2, 270, 15, 1, 90, 10, 1, 180, 10, 1, 270, 10)])
+
+[node name="Area3D" type="Area3D" parent="enemies/statue" groups=["3", "boss_active_zone"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -50, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="enemies/statue/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.04751, 0)
+shape = SubResource("BoxShape3D_ijw5v")
+
+[node name="garlic" parent="enemies/statue" instance=ExtResource("8_m67yw")]
+
+[node name="move_trigger" parent="enemies/statue/garlic" instance=ExtResource("9_1v7jc")]
+group = 2
+target = Vector3(0, -4, 0)
+time = 1.0
+
+[node name="runner" parent="enemies" instance=ExtResource("14_petng")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 105.736, -5.73912, 75.5411)
+
+[node name="runner3" parent="enemies" instance=ExtResource("14_petng")]
+transform = Transform3D(0.00146611, 0, 0.999999, 0, 1, 0, -0.999999, 0, 0.00146611, 85.6819, -7.42756, 54.6118)
+
+[node name="runner4" parent="enemies" instance=ExtResource("14_petng")]
+transform = Transform3D(0.619916, 0, 0.784668, 0, 1, 0, -0.784668, 0, 0.619916, 102.782, -6.54739, 60.8606)
+
+[node name="runner5" parent="enemies" instance=ExtResource("14_petng")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59.5414, -5.33424, 32.0997)
+
+[node name="hitscanner" parent="enemies" instance=ExtResource("16_snc65")]
+transform = Transform3D(0.0549502, 0, 0.998489, 0, 1, 0, -0.998489, 0, 0.0549502, 34.7533, -4.26505, 37.1929)
+
+[node name="runner6" parent="enemies" instance=ExtResource("14_petng")]
+transform = Transform3D(0.240719, 0, 0.970595, 0, 1, 0, -0.970595, 0, 0.240719, 30.8186, -5.46947, 66.4648)
+
+[node name="runner7" parent="enemies" instance=ExtResource("14_petng")]
+transform = Transform3D(-0.355156, 0, 0.934807, 0, 1, 0, -0.934807, 0, -0.355156, 53.5963, -5.66711, 61.3621)
+
+[node name="runner8" parent="enemies" instance=ExtResource("14_petng")]
+transform = Transform3D(0.114157, 0, 0.993463, 0, 1, 0, -0.993463, 0, 0.114157, 25.8033, -5.45859, 30.6612)
+
+[node name="hitscanner3" parent="enemies" instance=ExtResource("16_snc65")]
+transform = Transform3D(-0.584689, 0, -0.811258, 0, 1, 0, 0.811258, 0, -0.584689, 48.4539, -8.16574, 133.986)
+
+[node name="hitscanner4" parent="enemies" instance=ExtResource("16_snc65")]
+transform = Transform3D(-0.99922, 0, -0.0394865, 0, 1, 0, 0.0394865, 0, -0.99922, 44.7035, -6.53273, 152.075)
+
+[node name="hitscanner5" parent="enemies" instance=ExtResource("16_snc65")]
+transform = Transform3D(-0.821209, 0, -0.570628, 0, 1, 0, 0.570628, 0, -0.821209, 64.6873, -5.61894, 164.35)
+
+[node name="runner13" parent="enemies" instance=ExtResource("14_petng")]
+transform = Transform3D(-0.296458, 0, -0.955046, 0, 1, 0, 0.955046, 0, -0.296458, 74.9985, -5.43589, 171.487)
+
+[node name="runner14" parent="enemies" instance=ExtResource("14_petng")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.8287, -6.37029, -21.351)
+
+[node name="runner15" parent="enemies" instance=ExtResource("14_petng")]
+transform = Transform3D(0.318562, 0, -0.947902, 0, 1, 0, 0.947902, 0, 0.318562, 61.2703, -6.57451, -22.9549)
+
+[node name="runner17" parent="enemies" instance=ExtResource("14_petng")]
+transform = Transform3D(0.318562, 0, -0.947902, 0, 1, 0, 0.947902, 0, 0.318562, 69.1752, -6.57451, -32.3862)
+
+[node name="gunner2" parent="enemies" instance=ExtResource("15_1edj7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 92.811, -7.18639, -44.4114)
+
+[node name="gunner3" parent="enemies" instance=ExtResource("15_1edj7")]
+transform = Transform3D(-0.981557, 0, -0.191169, 0, 1, 0, 0.191169, 0, -0.981557, 88.0266, -7.1862, -24.7034)
+
+[node name="gunner4" parent="enemies" instance=ExtResource("15_1edj7")]
+transform = Transform3D(0.671643, 0, -0.740875, 0, 1, 0, 0.740875, 0, 0.671643, 104.125, -7.5617, -45.7648)
+
+[node name="runner18" parent="enemies" instance=ExtResource("14_petng")]
+transform = Transform3D(0.18275, 0, -0.983159, 0, 1, 0, 0.983159, 0, 0.18275, 108.025, -7.47303, -26.3008)
+
+[node name="runner19" parent="enemies" instance=ExtResource("14_petng")]
+transform = Transform3D(0.18275, 0, -0.983159, 0, 1, 0, 0.983159, 0, 0.18275, 121.045, -8.20507, -38.4533)
+
+[node name="runner16" parent="enemies" instance=ExtResource("14_petng")]
+transform = Transform3D(-0.0531203, 0, 0.998588, 0, 1, 0, -0.998588, 0, -0.0531203, -24.1185, -5.15038, 43.697)
+
+[node name="runner20" parent="enemies" instance=ExtResource("14_petng")]
+transform = Transform3D(0.210881, 0, 0.977512, 0, 1, 0, -0.977512, 0, 0.210881, -42.5381, -1.73356, 28.3507)
+
+[node name="runner21" parent="enemies" instance=ExtResource("14_petng")]
+transform = Transform3D(0.153727, 0, 0.988113, 0, 1, 0, -0.988113, 0, 0.153727, -54.9873, -0.397043, 43.2549)
+
+[node name="gunner5" parent="enemies" instance=ExtResource("15_1edj7")]
+transform = Transform3D(0.123342, 0, 0.992364, 0, 1, 0, -0.992364, 0, 0.123342, -118.261, 1.18835, 34.4778)
+
+[node name="hitscanner6" parent="enemies" instance=ExtResource("16_snc65")]
+transform = Transform3D(0.0763362, 0, 0.997082, 0, 1, 0, -0.997082, 0, 0.0763362, -101.016, 1.1869, 34.1417)
+
+[node name="hitscanner7" parent="enemies" instance=ExtResource("16_snc65")]
+transform = Transform3D(0.00528829, 0, 0.999986, 0, 1, 0, -0.999986, 0, 0.00528829, -127.922, 1.19143, 47.9363)
+
+[node name="hitscanner8" parent="enemies" instance=ExtResource("16_snc65")]
+transform = Transform3D(0.328108, 0, 0.94464, 0, 1, 0, -0.94464, 0, 0.328108, -127.31, 1.19228, 21.626)
+
+[node name="runner9" parent="enemies" instance=ExtResource("14_petng")]
+transform = Transform3D(-0.942595, 0, 0.333938, 0, 1, 0, -0.333938, 0, -0.942595, 35.5157, -7.86481, 126.86)
+
+[node name="runner2" parent="enemies" instance=ExtResource("14_petng")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -109.943, 1.18631, 0.504829)
+
+[node name="runner11" parent="enemies" instance=ExtResource("14_petng")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -109.943, 1.18631, 16.1594)
+
+[node name="runner10" parent="enemies" instance=ExtResource("14_petng")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -109.943, 1.18631, 65.9273)
+
+[node name="runner12" parent="enemies" instance=ExtResource("14_petng")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -109.943, 1.18631, 55.3441)

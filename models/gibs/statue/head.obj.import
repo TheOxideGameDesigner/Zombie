@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bw68unoqmivnf"
+path="res://.godot/imported/head.obj-965c453e36bceed4f14c8e92326b2242.mesh"
+
+[deps]
+
+files=["res://.godot/imported/head.obj-965c453e36bceed4f14c8e92326b2242.mesh"]
+
+source_file="res://models/gibs/statue/head.obj"
+dest_files=["res://.godot/imported/head.obj-965c453e36bceed4f14c8e92326b2242.mesh", "res://.godot/imported/head.obj-965c453e36bceed4f14c8e92326b2242.mesh"]
+
+[params]
+
+generate_tangents=false
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dq8ka54kwjqe5"
+path="res://.godot/imported/torso.obj-542b7504b899c4b2e25b7379feb6398a.mesh"
+
+[deps]
+
+files=["res://.godot/imported/torso.obj-542b7504b899c4b2e25b7379feb6398a.mesh"]
+
+source_file="res://models/gibs/mountainside_hitscanner/torso.obj"
+dest_files=["res://.godot/imported/torso.obj-542b7504b899c4b2e25b7379feb6398a.mesh", "res://.godot/imported/torso.obj-542b7504b899c4b2e25b7379feb6398a.mesh"]
+
+[params]
+
+generate_tangents=false
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

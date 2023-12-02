@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://dwtxubw5k3pgc"]
+
+[sub_resource type="Gradient" id="Gradient_jg88e"]
+colors = PackedColorArray(0.996078, 0.133333, 0, 1, 1, 1, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_l2jlm"]
+gradient = SubResource("Gradient_jg88e")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_kbe3c"]
+direction = Vector3(0, 1, 0)
+spread = 20.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 0.5
+initial_velocity_max = 1.0
+color_ramp = SubResource("GradientTexture1D_l2jlm")
+turbulence_noise_scale = 0.02
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jcrs1"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_107m2"]
+material = SubResource("StandardMaterial3D_jcrs1")
+size = Vector3(0.05, 0.05, 0.05)
+
+[node name="light_particles" type="GPUParticles3D" groups=["particles"]]
+visibility_range_end = 45.0
+visibility_range_end_margin = 5.0
+visibility_aabb = AABB(-0.453, -0.1327, -0.351, 0.907, 1.07692, 0.702)
+process_material = SubResource("ParticleProcessMaterial_kbe3c")
+draw_pass_1 = SubResource("BoxMesh_107m2")

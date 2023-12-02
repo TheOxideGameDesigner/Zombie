@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bjnpdiv1c7k4e"
+path="res://.godot/imported/level4_visual_no_receive_shadow.obj-e490ddd9bce61bcd0fe6d43bfa147a1d.mesh"
+
+[deps]
+
+files=["res://.godot/imported/level4_visual_no_receive_shadow.obj-e490ddd9bce61bcd0fe6d43bfa147a1d.mesh"]
+
+source_file="res://models/levels/ancient_desert/level4/level4_visual_no_receive_shadow.obj"
+dest_files=["res://.godot/imported/level4_visual_no_receive_shadow.obj-e490ddd9bce61bcd0fe6d43bfa147a1d.mesh", "res://.godot/imported/level4_visual_no_receive_shadow.obj-e490ddd9bce61bcd0fe6d43bfa147a1d.mesh"]
+
+[params]
+
+generate_tangents=false
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

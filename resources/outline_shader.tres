@@ -1,0 +1,19 @@
+[gd_resource type="Shader" format=3 uid="uid://36k46aijhxv6"]
+
+[resource]
+code = "shader_type spatial;
+render_mode unshaded, cull_front;
+
+const float MAX_DEPTH = 15.0f;
+
+uniform vec3 color : source_color;
+uniform float thickness;
+
+void vertex() { 
+	VERTEX += NORMAL * thickness * min(-vec4(MODELVIEW_MATRIX * vec4(VERTEX, 1)).z, MAX_DEPTH);
+}
+
+void fragment() {
+	ALBEDO = color;
+}
+"

@@ -1,0 +1,104 @@
+[gd_scene load_steps=14 format=3 uid="uid://bfuck1d2dtogj"]
+
+[ext_resource type="Script" path="res://scripts/enemies/gunner.gd" id="1_v3qu8"]
+[ext_resource type="PackedScene" uid="uid://c5jx8yw6wwwds" path="res://scenes/environment/gibs/gunner.tscn" id="2_d5sbe"]
+[ext_resource type="Script" path="res://scripts/physics_lerp.gd" id="3_dwrji"]
+[ext_resource type="Texture2D" uid="uid://dsi7k27hhox0v" path="res://textures/alerted.png" id="4_spgsi"]
+[ext_resource type="Texture2D" uid="uid://vu75j7stwa2m" path="res://textures/key.png" id="5_00ef8"]
+[ext_resource type="Material" uid="uid://c0vwp18rc74ju" path="res://resources/materials/aura_mat.tres" id="6_3e31f"]
+[ext_resource type="FontVariation" uid="uid://cr4vqwh16ob78" path="res://resources/default_font.tres" id="7_pk2ys"]
+[ext_resource type="PackedScene" uid="uid://b0gqcw8cbkf4u" path="res://models/dynamic_props/enemies/mountainside_gunner.glb" id="8_5opxq"]
+[ext_resource type="Script" path="res://scripts/enemies/anim.gd" id="9_2o3ua"]
+[ext_resource type="PackedScene" uid="uid://d4k7qjsc8bglc" path="res://scenes/enemy_home.tscn" id="10_73ty8"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_qmw2e"]
+material = ExtResource("6_3e31f")
+radius = 1.74
+height = 6.37
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_3gd1o"]
+height = 2.5
+radius = 0.8
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ttbnl"]
+height = 3.7148
+radius = 1.75
+
+[node name="gunner" type="CharacterBody3D" groups=["activatable", "enemy", "see_through"]]
+top_level = true
+collision_layer = 2
+script = ExtResource("1_v3qu8")
+gibs = ExtResource("2_d5sbe")
+
+[node name="mesh" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+script = ExtResource("3_dwrji")
+enable_rot = true
+
+[node name="alerted" type="Sprite3D" parent="mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.862, 0)
+visible = false
+modulate = Color(1, 0.227451, 0.243137, 0.709804)
+pixel_size = 0.0195
+billboard = 1
+texture_filter = 0
+texture = ExtResource("4_spgsi")
+
+[node name="key" type="Sprite3D" parent="mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.554, 0)
+visible = false
+modulate = Color(1, 1, 0, 1)
+pixel_size = 0.0195
+billboard = 1
+texture_filter = 0
+texture = ExtResource("5_00ef8")
+
+[node name="aura" type="MeshInstance3D" parent="mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+visible = false
+mesh = SubResource("SphereMesh_qmw2e")
+
+[node name="health" type="Label3D" parent="mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.199, 0)
+visible = false
+billboard = 1
+texture_filter = 0
+text = "100"
+font = ExtResource("7_pk2ys")
+font_size = 64
+
+[node name="mountainside_gunner" parent="mesh" instance=ExtResource("8_5opxq")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+script = ExtResource("9_2o3ua")
+
+[node name="hitbox" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0)
+shape = SubResource("CylinderShape3D_3gd1o")
+
+[node name="home" parent="." instance=ExtResource("10_73ty8")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+color = Color(0.564706, 0.294118, 1, 0.858824)
+
+[node name="respawn" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="ray" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.68889, 0)
+enabled = false
+collision_mask = 257
+
+[node name="raycast_collision" type="CharacterBody3D" parent="." groups=["enemy_raycast_collision"]]
+collision_layer = 4
+collision_mask = 0
+
+[node name="raycast_hitbox" type="CollisionShape3D" parent="raycast_collision"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.79109, 0)
+shape = SubResource("CylinderShape3D_ttbnl")
+
+[node name="hit_timer" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+
+[connection signal="timeout" from="respawn" to="." method="_on_respawn_timeout"]
+[connection signal="timeout" from="hit_timer" to="." method="_on_hit_timer_timeout"]

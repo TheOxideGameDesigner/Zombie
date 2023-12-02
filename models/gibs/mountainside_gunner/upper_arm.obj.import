@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://crup1lqnwewqo"
+path="res://.godot/imported/upper_arm.obj-4540e7bf3645dd32ec99d7fbd5def097.mesh"
+
+[deps]
+
+files=["res://.godot/imported/upper_arm.obj-4540e7bf3645dd32ec99d7fbd5def097.mesh"]
+
+source_file="res://models/gibs/mountainside_gunner/upper_arm.obj"
+dest_files=["res://.godot/imported/upper_arm.obj-4540e7bf3645dd32ec99d7fbd5def097.mesh", "res://.godot/imported/upper_arm.obj-4540e7bf3645dd32ec99d7fbd5def097.mesh"]
+
+[params]
+
+generate_tangents=false
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

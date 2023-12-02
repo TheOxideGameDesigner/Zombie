@@ -1,0 +1,640 @@
+[gd_scene load_steps=7 format=3 uid="uid://dil0bdyjbjdis"]
+
+[ext_resource type="Theme" uid="uid://3b0iarraglqs" path="res://resources/ui_theme.tres" id="1_bve56"]
+[ext_resource type="Script" path="res://scripts/ui/main_menu.gd" id="2_koak8"]
+[ext_resource type="Texture2D" uid="uid://c2152hanreobo" path="res://textures/ui/title_screen.png" id="3_7mqgj"]
+[ext_resource type="Script" path="res://scripts/ui/options_control.gd" id="4_r6bbb"]
+[ext_resource type="Script" path="res://scripts/ui/input_button.gd" id="5_8msgh"]
+[ext_resource type="Script" path="res://scripts/ui/level_select_control.gd" id="6_yn434"]
+
+[node name="main_menu" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("1_bve56")
+script = ExtResource("2_koak8")
+
+[node name="panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="panel"]
+self_modulate = Color(0.576471, 0.713726, 1, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_7mqgj")
+
+[node name="buttons" type="VBoxContainer" parent="panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -195.0
+offset_top = -198.0
+offset_right = 195.0
+offset_bottom = 198.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="play_button" type="Button" parent="panel/buttons"]
+layout_mode = 2
+text = "play"
+
+[node name="options_button" type="Button" parent="panel/buttons"]
+layout_mode = 2
+text = "options"
+
+[node name="credits_button" type="Button" parent="panel/buttons"]
+layout_mode = 2
+text = "CREDITS"
+
+[node name="exit_button" type="Button" parent="panel/buttons"]
+layout_mode = 2
+text = "EXIT"
+
+[node name="title" type="Label" parent="panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -350.5
+offset_right = 350.5
+offset_bottom = 67.0
+grow_horizontal = 2
+scale = Vector2(2, 2)
+pivot_offset = Vector2(350, 0)
+text = "get the garlic"
+
+[node name="credits" type="VSplitContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -909.0
+offset_top = -535.0
+offset_right = 926.0
+offset_bottom = 522.0
+grow_horizontal = 2
+grow_vertical = 2
+split_offset = 1190
+dragger_visibility = 2
+
+[node name="credits_panel" type="Panel" parent="credits"]
+self_modulate = Color(0.6, 0.6, 0.6, 1)
+layout_mode = 2
+
+[node name="credits_text" type="RichTextLabel" parent="credits/credits_panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = 38.0
+offset_right = 493.0
+offset_bottom = 285.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.76, 0.76)
+text = "godot engine license - godotengine.org/license"
+
+[node name="close_credits_button" type="Button" parent="credits"]
+layout_mode = 2
+text = "CLOSE"
+
+[node name="options_control" type="VSplitContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -877.0
+offset_right = 877.0
+offset_bottom = 969.0
+grow_horizontal = 2
+split_offset = 8400
+dragger_visibility = 2
+script = ExtResource("4_r6bbb")
+
+[node name="options" type="TabContainer" parent="options_control"]
+layout_mode = 2
+tab_alignment = 1
+
+[node name="gameplay" type="Panel" parent="options_control/options"]
+layout_mode = 2
+
+[node name="difficulty" type="HSlider" parent="options_control/options/gameplay"]
+layout_mode = 0
+offset_left = 546.0
+offset_top = 60.0
+offset_right = 1258.0
+offset_bottom = 104.0
+max_value = 4.0
+rounded = true
+
+[node name="difficulty_label" type="Label" parent="options_control/options/gameplay/difficulty"]
+layout_mode = 0
+offset_left = 761.0
+offset_top = -8.0
+offset_right = 1070.0
+offset_bottom = 59.0
+text = "normal"
+
+[node name="Label2" type="Label" parent="options_control/options/gameplay/difficulty"]
+layout_mode = 0
+offset_left = -539.0
+offset_top = -10.0
+offset_right = -34.0
+offset_bottom = 57.0
+text = "difficulty"
+
+[node name="god_mode" type="CheckBox" parent="options_control/options/gameplay"]
+layout_mode = 0
+offset_left = 43.0
+offset_top = 181.0
+offset_right = 526.0
+offset_bottom = 277.0
+text = "god mode"
+flat = true
+
+[node name="controls" type="ScrollContainer" parent="options_control/options"]
+visible = false
+layout_mode = 2
+
+[node name="controls_panel" type="Panel" parent="options_control/options/controls"]
+custom_minimum_size = Vector2(0, 2700)
+layout_mode = 2
+
+[node name="sensitivity" type="HSlider" parent="options_control/options/controls/controls_panel"]
+layout_mode = 2
+offset_left = 23.0
+offset_top = 34.0
+offset_right = 851.0
+offset_bottom = 78.0
+min_value = 0.1
+max_value = 20.0
+step = 0.01
+value = 0.1
+
+[node name="sensitivity_label" type="Label" parent="options_control/options/controls/controls_panel/sensitivity"]
+layout_mode = 0
+offset_left = 842.0
+offset_top = -5.0
+offset_right = 1494.0
+offset_bottom = 62.0
+text = "sensitivity 5"
+
+[node name="g_forward" type="Button" parent="options_control/options/controls/controls_panel"]
+layout_mode = 2
+offset_left = 140.0
+offset_top = 167.0
+offset_right = 236.0
+offset_bottom = 263.0
+text = "W"
+script = ExtResource("5_8msgh")
+default_value = 87
+
+[node name="Label" type="Label" parent="options_control/options/controls/controls_panel/g_forward"]
+layout_mode = 0
+offset_left = 1174.0
+offset_top = 2.0
+offset_right = 1532.0
+offset_bottom = 69.0
+text = "forward"
+
+[node name="g_left" type="Button" parent="options_control/options/controls/controls_panel"]
+layout_mode = 2
+offset_left = 140.0
+offset_top = 324.0
+offset_right = 236.0
+offset_bottom = 420.0
+text = "A"
+script = ExtResource("5_8msgh")
+default_value = 65
+
+[node name="Label" type="Label" parent="options_control/options/controls/controls_panel/g_left"]
+layout_mode = 0
+offset_left = 1320.0
+offset_top = -12.0
+offset_right = 1678.0
+offset_bottom = 55.0
+text = "left"
+
+[node name="g_backward" type="Button" parent="options_control/options/controls/controls_panel"]
+layout_mode = 2
+offset_left = 138.0
+offset_top = 477.0
+offset_right = 234.0
+offset_bottom = 573.0
+text = "S"
+script = ExtResource("5_8msgh")
+default_value = 83
+
+[node name="Label" type="Label" parent="options_control/options/controls/controls_panel/g_backward"]
+layout_mode = 0
+offset_left = 1129.0
+offset_top = -1.0
+offset_right = 1536.0
+offset_bottom = 66.0
+text = "backward"
+
+[node name="g_right" type="Button" parent="options_control/options/controls/controls_panel"]
+layout_mode = 2
+offset_left = 140.0
+offset_top = 623.0
+offset_right = 236.0
+offset_bottom = 719.0
+text = "D"
+script = ExtResource("5_8msgh")
+default_value = 68
+
+[node name="Label" type="Label" parent="options_control/options/controls/controls_panel/g_right"]
+layout_mode = 0
+offset_left = 1277.0
+offset_top = 17.0
+offset_right = 1635.0
+offset_bottom = 84.0
+text = "right"
+
+[node name="g_jump" type="Button" parent="options_control/options/controls/controls_panel"]
+layout_mode = 2
+offset_left = 143.0
+offset_top = 801.0
+offset_right = 239.0
+offset_bottom = 897.0
+text = "SPACE"
+script = ExtResource("5_8msgh")
+default_value = 32
+
+[node name="Label" type="Label" parent="options_control/options/controls/controls_panel/g_jump"]
+layout_mode = 0
+offset_left = 1319.0
+offset_top = -3.0
+offset_right = 1760.0
+offset_bottom = 64.0
+text = "jump
+"
+
+[node name="g_attack" type="Button" parent="options_control/options/controls/controls_panel"]
+layout_mode = 2
+offset_left = 143.0
+offset_top = 975.0
+offset_right = 435.0
+offset_bottom = 1071.0
+text = "LEFT MOUSE BUTTON"
+script = ExtResource("5_8msgh")
+default_value = -1
+
+[node name="Label" type="Label" parent="options_control/options/controls/controls_panel/g_attack"]
+layout_mode = 0
+offset_left = 1333.0
+offset_top = 13.0
+offset_right = 1774.0
+offset_bottom = 80.0
+text = "fire
+"
+
+[node name="g_attack2" type="Button" parent="options_control/options/controls/controls_panel"]
+layout_mode = 2
+offset_left = 139.0
+offset_top = 1091.0
+offset_right = 1019.0
+offset_bottom = 1187.0
+text = "RIGHT MOUSE BUTTON"
+script = ExtResource("5_8msgh")
+default_value = -2
+
+[node name="Label" type="Label" parent="options_control/options/controls/controls_panel/g_attack2"]
+layout_mode = 0
+offset_left = 1141.0
+offset_top = 13.0
+offset_right = 1582.0
+offset_bottom = 80.0
+text = "alt fire
+"
+
+[node name="g_respawn" type="Button" parent="options_control/options/controls/controls_panel"]
+layout_mode = 2
+offset_left = 144.0
+offset_top = 1281.0
+offset_right = 252.0
+offset_bottom = 1377.0
+text = "R"
+script = ExtResource("5_8msgh")
+default_value = 82
+
+[node name="Label" type="Label" parent="options_control/options/controls/controls_panel/g_respawn"]
+layout_mode = 0
+offset_left = 1196.0
+offset_top = -5.0
+offset_right = 1637.0
+offset_bottom = 62.0
+text = "respawn"
+
+[node name="g_switch" type="Button" parent="options_control/options/controls/controls_panel"]
+layout_mode = 2
+offset_left = 144.0
+offset_top = 1476.0
+offset_right = 338.0
+offset_bottom = 1572.0
+text = "TAB"
+script = ExtResource("5_8msgh")
+default_value = 4194306
+
+[node name="Label" type="Label" parent="options_control/options/controls/controls_panel/g_switch"]
+layout_mode = 0
+offset_left = 892.0
+offset_top = 14.0
+offset_right = 1544.0
+offset_bottom = 81.0
+text = "SWITCH WEAPON"
+
+[node name="g_next" type="Button" parent="options_control/options/controls/controls_panel"]
+layout_mode = 2
+offset_left = 139.0
+offset_top = 1608.0
+offset_right = 872.0
+offset_bottom = 1704.0
+text = "MOUSE WHEEL UP"
+script = ExtResource("5_8msgh")
+default_value = -4
+
+[node name="Label" type="Label" parent="options_control/options/controls/controls_panel/g_next"]
+layout_mode = 0
+offset_left = 998.0
+offset_top = 20.0
+offset_right = 1650.0
+offset_bottom = 87.0
+text = "NEXT WEAPON"
+
+[node name="g_prev" type="Button" parent="options_control/options/controls/controls_panel"]
+layout_mode = 2
+offset_left = 136.0
+offset_top = 1745.0
+offset_right = 967.0
+offset_bottom = 1841.0
+text = "MOUSE WHEEL DOWN"
+script = ExtResource("5_8msgh")
+default_value = -5
+
+[node name="Label" type="Label" parent="options_control/options/controls/controls_panel/g_prev"]
+layout_mode = 0
+offset_left = 998.0
+offset_top = 20.0
+offset_right = 1650.0
+offset_bottom = 87.0
+text = "PREV WEAPON"
+
+[node name="g_wpn1" type="Button" parent="options_control/options/controls/controls_panel"]
+layout_mode = 2
+offset_left = 142.0
+offset_top = 1940.0
+offset_right = 244.0
+offset_bottom = 2036.0
+text = "1"
+script = ExtResource("5_8msgh")
+default_value = 49
+
+[node name="Label" type="Label" parent="options_control/options/controls/controls_panel/g_wpn1"]
+layout_mode = 0
+offset_left = 1132.0
+offset_top = 20.0
+offset_right = 1784.0
+offset_bottom = 87.0
+text = "WEAPON 1"
+
+[node name="g_wpn2" type="Button" parent="options_control/options/controls/controls_panel"]
+layout_mode = 2
+offset_left = 142.0
+offset_top = 2087.0
+offset_right = 244.0
+offset_bottom = 2183.0
+text = "2"
+script = ExtResource("5_8msgh")
+default_value = 50
+
+[node name="Label" type="Label" parent="options_control/options/controls/controls_panel/g_wpn2"]
+layout_mode = 0
+offset_left = 1132.0
+offset_top = 20.0
+offset_right = 1784.0
+offset_bottom = 87.0
+text = "WEAPON 2"
+
+[node name="g_wpn3" type="Button" parent="options_control/options/controls/controls_panel"]
+layout_mode = 2
+offset_left = 142.0
+offset_top = 2236.0
+offset_right = 244.0
+offset_bottom = 2332.0
+text = "3"
+script = ExtResource("5_8msgh")
+default_value = 51
+
+[node name="Label" type="Label" parent="options_control/options/controls/controls_panel/g_wpn3"]
+layout_mode = 0
+offset_left = 1132.0
+offset_top = 20.0
+offset_right = 1784.0
+offset_bottom = 87.0
+text = "WEAPON 3"
+
+[node name="g_wpn4" type="Button" parent="options_control/options/controls/controls_panel"]
+layout_mode = 2
+offset_left = 142.0
+offset_top = 2393.0
+offset_right = 244.0
+offset_bottom = 2489.0
+text = "4"
+script = ExtResource("5_8msgh")
+default_value = 52
+
+[node name="Label" type="Label" parent="options_control/options/controls/controls_panel/g_wpn4"]
+layout_mode = 0
+offset_left = 1132.0
+offset_top = 20.0
+offset_right = 1784.0
+offset_bottom = 87.0
+text = "WEAPON 4"
+
+[node name="g_pause" type="Button" parent="options_control/options/controls/controls_panel"]
+layout_mode = 2
+offset_left = 145.0
+offset_top = 2554.0
+offset_right = 388.0
+offset_bottom = 2650.0
+text = "esc"
+script = ExtResource("5_8msgh")
+default_value = 4194305
+
+[node name="Label" type="Label" parent="options_control/options/controls/controls_panel/g_pause"]
+layout_mode = 0
+offset_left = 1267.0
+offset_top = 15.0
+offset_right = 2213.0
+offset_bottom = 82.0
+text = "pause"
+
+[node name="video" type="Panel" parent="options_control/options"]
+visible = false
+layout_mode = 2
+
+[node name="fov" type="HSlider" parent="options_control/options/video"]
+layout_mode = 0
+offset_left = 462.0
+offset_top = 152.0
+offset_right = 1189.0
+offset_bottom = 266.0
+min_value = 70.0
+max_value = 110.0
+step = 0.0
+value = 70.0
+rounded = true
+
+[node name="fov_label" type="Label" parent="options_control/options/video/fov"]
+layout_mode = 0
+offset_left = 751.0
+offset_top = 24.0
+offset_right = 1060.0
+offset_bottom = 91.0
+text = "90"
+
+[node name="name" type="Label" parent="options_control/options/video/fov"]
+layout_mode = 0
+offset_left = -368.0
+offset_top = 24.0
+offset_right = -10.0
+offset_bottom = 91.0
+text = "fov"
+
+[node name="dynamic_fov" type="CheckBox" parent="options_control/options/video"]
+layout_mode = 0
+offset_left = 92.0
+offset_top = 285.0
+offset_right = 722.0
+offset_bottom = 381.0
+text = "dynamic fov"
+flat = true
+
+[node name="disable_shake" type="CheckBox" parent="options_control/options/video"]
+layout_mode = 0
+offset_left = 97.0
+offset_top = 404.0
+offset_right = 727.0
+offset_bottom = 500.0
+text = "disable shake"
+flat = true
+
+[node name="disable_particles" type="CheckBox" parent="options_control/options/video"]
+layout_mode = 0
+offset_left = 98.0
+offset_top = 530.0
+offset_right = 1022.0
+offset_bottom = 626.0
+text = "disable particles"
+flat = true
+
+[node name="disable_gibs" type="CheckBox" parent="options_control/options/video"]
+layout_mode = 0
+offset_left = 98.0
+offset_top = 651.0
+offset_right = 1022.0
+offset_bottom = 747.0
+text = "disable gibs"
+flat = true
+
+[node name="shadows" type="CheckBox" parent="options_control/options/video"]
+layout_mode = 0
+offset_left = 89.0
+offset_top = 40.0
+offset_right = 165.0
+offset_bottom = 116.0
+text = "shadows"
+flat = true
+
+[node name="audio" type="Panel" parent="options_control/options"]
+visible = false
+layout_mode = 2
+
+[node name="close_options_button" type="Button" parent="options_control"]
+layout_mode = 2
+text = "save and close"
+metadata/_edit_lock_ = true
+
+[node name="level_select_control" type="VSplitContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -914.0
+offset_right = 914.0
+offset_bottom = 1045.0
+grow_horizontal = 2
+split_offset = 1575
+dragger_visibility = 2
+script = ExtResource("6_yn434")
+
+[node name="level_select_container" type="ScrollContainer" parent="level_select_control"]
+layout_mode = 2
+
+[node name="level_select" type="Panel" parent="level_select_control/level_select_container"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="exit_level_select" type="Button" parent="level_select_control"]
+layout_mode = 2
+text = "cancel"
+
+[connection signal="pressed" from="panel/buttons/play_button" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="panel/buttons/options_button" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="panel/buttons/credits_button" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="panel/buttons/exit_button" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="credits/close_credits_button" to="." method="_on_close_credits_button_pressed"]
+[connection signal="value_changed" from="options_control/options/gameplay/difficulty" to="options_control" method="_on_difficulty_value_changed"]
+[connection signal="toggled" from="options_control/options/gameplay/god_mode" to="options_control" method="_on_god_mode_toggled"]
+[connection signal="value_changed" from="options_control/options/controls/controls_panel/sensitivity" to="options_control" method="_on_sensitivity_value_changed"]
+[connection signal="pressed" from="options_control/options/controls/controls_panel/g_forward" to="options_control/options/controls/controls_panel/g_forward" method="_on_pressed"]
+[connection signal="pressed" from="options_control/options/controls/controls_panel/g_left" to="options_control/options/controls/controls_panel/g_left" method="_on_pressed"]
+[connection signal="pressed" from="options_control/options/controls/controls_panel/g_backward" to="options_control/options/controls/controls_panel/g_backward" method="_on_pressed"]
+[connection signal="pressed" from="options_control/options/controls/controls_panel/g_right" to="options_control/options/controls/controls_panel/g_right" method="_on_pressed"]
+[connection signal="pressed" from="options_control/options/controls/controls_panel/g_jump" to="options_control/options/controls/controls_panel/g_jump" method="_on_pressed"]
+[connection signal="pressed" from="options_control/options/controls/controls_panel/g_attack" to="options_control/options/controls/controls_panel/g_attack" method="_on_pressed"]
+[connection signal="pressed" from="options_control/options/controls/controls_panel/g_attack2" to="options_control/options/controls/controls_panel/g_attack2" method="_on_pressed"]
+[connection signal="pressed" from="options_control/options/controls/controls_panel/g_respawn" to="options_control/options/controls/controls_panel/g_respawn" method="_on_pressed"]
+[connection signal="pressed" from="options_control/options/controls/controls_panel/g_switch" to="options_control/options/controls/controls_panel/g_switch" method="_on_pressed"]
+[connection signal="pressed" from="options_control/options/controls/controls_panel/g_next" to="options_control/options/controls/controls_panel/g_next" method="_on_pressed"]
+[connection signal="pressed" from="options_control/options/controls/controls_panel/g_prev" to="options_control/options/controls/controls_panel/g_prev" method="_on_pressed"]
+[connection signal="pressed" from="options_control/options/controls/controls_panel/g_wpn1" to="options_control/options/controls/controls_panel/g_wpn1" method="_on_pressed"]
+[connection signal="pressed" from="options_control/options/controls/controls_panel/g_wpn2" to="options_control/options/controls/controls_panel/g_wpn2" method="_on_pressed"]
+[connection signal="pressed" from="options_control/options/controls/controls_panel/g_wpn3" to="options_control/options/controls/controls_panel/g_wpn3" method="_on_pressed"]
+[connection signal="pressed" from="options_control/options/controls/controls_panel/g_wpn4" to="options_control/options/controls/controls_panel/g_wpn4" method="_on_pressed"]
+[connection signal="pressed" from="options_control/options/controls/controls_panel/g_pause" to="options_control/options/controls/controls_panel/g_pause" method="_on_pressed"]
+[connection signal="value_changed" from="options_control/options/video/fov" to="options_control" method="_on_fov_value_changed"]
+[connection signal="toggled" from="options_control/options/video/dynamic_fov" to="options_control" method="_on_dynamic_fov_toggled"]
+[connection signal="toggled" from="options_control/options/video/disable_shake" to="options_control" method="_on_disable_shake_toggled"]
+[connection signal="toggled" from="options_control/options/video/disable_particles" to="options_control" method="_on_disable_particles_toggled"]
+[connection signal="toggled" from="options_control/options/video/disable_gibs" to="options_control" method="_on_disable_gibs_toggled"]
+[connection signal="toggled" from="options_control/options/video/shadows" to="options_control" method="_on_shadows_toggled"]
+[connection signal="pressed" from="options_control/close_options_button" to="." method="_on_close_options_button_pressed"]
+[connection signal="pressed" from="options_control/close_options_button" to="options_control" method="_on_close_options_button_pressed"]
+[connection signal="pressed" from="level_select_control/exit_level_select" to="." method="_on_exit_level_select_pressed"]

@@ -1,0 +1,57 @@
+[gd_scene load_steps=8 format=3 uid="uid://cjg4wjt43xbks"]
+
+[ext_resource type="PackedScene" uid="uid://dwtxubw5k3pgc" path="res://scenes/misc_props/light_particles.tscn" id="1_vnmr0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5s3mg"]
+albedo_color = Color(0.392157, 0.25098, 0, 1)
+disable_receive_shadows = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_xox4b"]
+material = SubResource("StandardMaterial3D_5s3mg")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7houa"]
+shading_mode = 0
+albedo_color = Color(0.835294, 0.584314, 0, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_c2v71"]
+material = SubResource("StandardMaterial3D_7houa")
+flip_faces = true
+top_radius = 0.0
+bottom_radius = 1.205
+height = 0.41
+radial_segments = 4
+rings = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hrnwv"]
+shading_mode = 0
+albedo_color = Color(0.988235, 0.780392, 0, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_wfsrj"]
+material = SubResource("StandardMaterial3D_hrnwv")
+top_radius = 0.0
+bottom_radius = 1.205
+height = 0.41
+radial_segments = 4
+rings = 1
+
+[node name="torch" type="Node3D"]
+
+[node name="handle" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0965058, 0, -0.0965058, 0.0468871, 0.694111, 0.0468871, 0.0843503, -0.38583, 0.0843503, 0, 0.225554, 0.146088)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_xox4b")
+
+[node name="light" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.13648, 0, 0, 0, 0.694111, 0.0663083, 0, -0.38583, 0.119289, 0, 0.692667, -0.113562)
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_c2v71")
+
+[node name="light_inner" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0923253, 0, 0, 0, 0.469549, 0.044856, 0, -0.261004, 0.0806964, 0, 0.647026, -0.0874911)
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_wfsrj")
+
+[node name="light_particles" parent="." instance=ExtResource("1_vnmr0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.030827, 0.704352, -0.114533)
+visibility_range_end = 30.0
+visibility_range_fade_mode = 1

@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://btvu4i1mprrsu"
+path="res://.godot/imported/head.obj-719c04016da2084c003216cf31a55414.mesh"
+
+[deps]
+
+files=["res://.godot/imported/head.obj-719c04016da2084c003216cf31a55414.mesh"]
+
+source_file="res://models/gibs/mountainside_hitscanner/head.obj"
+dest_files=["res://.godot/imported/head.obj-719c04016da2084c003216cf31a55414.mesh", "res://.godot/imported/head.obj-719c04016da2084c003216cf31a55414.mesh"]
+
+[params]
+
+generate_tangents=false
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

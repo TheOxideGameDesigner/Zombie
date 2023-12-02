@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dn1b8d6o5p5tm"
+path="res://.godot/imported/spring_platform.obj-3f09f4b487b9db82e04f1fddbca2a597.mesh"
+
+[deps]
+
+files=["res://.godot/imported/spring_platform.obj-3f09f4b487b9db82e04f1fddbca2a597.mesh"]
+
+source_file="res://models/dynamic_props/spring_platform.obj"
+dest_files=["res://.godot/imported/spring_platform.obj-3f09f4b487b9db82e04f1fddbca2a597.mesh", "res://.godot/imported/spring_platform.obj-3f09f4b487b9db82e04f1fddbca2a597.mesh"]
+
+[params]
+
+generate_tangents=false
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

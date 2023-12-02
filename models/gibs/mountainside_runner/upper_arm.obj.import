@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dy14m45o2oha5"
+path="res://.godot/imported/upper_arm.obj-e3dfdab9574d19028409b7c1f0ae6b75.mesh"
+
+[deps]
+
+files=["res://.godot/imported/upper_arm.obj-e3dfdab9574d19028409b7c1f0ae6b75.mesh"]
+
+source_file="res://models/gibs/mountainside_runner/upper_arm.obj"
+dest_files=["res://.godot/imported/upper_arm.obj-e3dfdab9574d19028409b7c1f0ae6b75.mesh", "res://.godot/imported/upper_arm.obj-e3dfdab9574d19028409b7c1f0ae6b75.mesh"]
+
+[params]
+
+generate_tangents=false
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

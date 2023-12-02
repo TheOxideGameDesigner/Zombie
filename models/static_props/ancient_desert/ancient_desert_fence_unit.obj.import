@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bd4uck1pwnm0m"
+path="res://.godot/imported/ancient_desert_fence_unit.obj-0f08cf4855f284d651908c5eb72891fb.mesh"
+
+[deps]
+
+files=["res://.godot/imported/ancient_desert_fence_unit.obj-0f08cf4855f284d651908c5eb72891fb.mesh"]
+
+source_file="res://models/static_props/ancient_desert/ancient_desert_fence_unit.obj"
+dest_files=["res://.godot/imported/ancient_desert_fence_unit.obj-0f08cf4855f284d651908c5eb72891fb.mesh", "res://.godot/imported/ancient_desert_fence_unit.obj-0f08cf4855f284d651908c5eb72891fb.mesh"]
+
+[params]
+
+generate_tangents=false
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

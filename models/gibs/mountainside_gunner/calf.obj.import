@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://vxgc1v65h1b"
+path="res://.godot/imported/calf.obj-24b13d946b984a26dba324ef7d0f5689.mesh"
+
+[deps]
+
+files=["res://.godot/imported/calf.obj-24b13d946b984a26dba324ef7d0f5689.mesh"]
+
+source_file="res://models/gibs/mountainside_gunner/calf.obj"
+dest_files=["res://.godot/imported/calf.obj-24b13d946b984a26dba324ef7d0f5689.mesh", "res://.godot/imported/calf.obj-24b13d946b984a26dba324ef7d0f5689.mesh"]
+
+[params]
+
+generate_tangents=false
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

@@ -1,0 +1,115 @@
+[gd_scene load_steps=15 format=3 uid="uid://d2ya5fu74vom0"]
+
+[ext_resource type="Script" path="res://scripts/enemies/hitscanner.gd" id="1_t2xa8"]
+[ext_resource type="PackedScene" uid="uid://b1tai2e1cohl5" path="res://scenes/environment/gibs/hitscanner.tscn" id="2_ohb4a"]
+[ext_resource type="PackedScene" uid="uid://d4k7qjsc8bglc" path="res://scenes/enemy_home.tscn" id="3_qs300"]
+[ext_resource type="Script" path="res://scripts/physics_lerp.gd" id="4_swmcv"]
+[ext_resource type="Texture2D" uid="uid://dsi7k27hhox0v" path="res://textures/alerted.png" id="5_oinvm"]
+[ext_resource type="Material" uid="uid://c0vwp18rc74ju" path="res://resources/materials/aura_mat.tres" id="6_7ytpk"]
+[ext_resource type="FontVariation" uid="uid://cr4vqwh16ob78" path="res://resources/default_font.tres" id="7_87fxp"]
+[ext_resource type="PackedScene" uid="uid://blcmd2hy1r51r" path="res://models/dynamic_props/enemies/mountainside_hitscanner.glb" id="8_vs43q"]
+[ext_resource type="Script" path="res://scripts/enemies/anim.gd" id="9_dp0pp"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_2lsg5"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_qg53b"]
+radius = 0.829037
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_dm706"]
+height = 2.60716
+radius = 1.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_irllb"]
+material = ExtResource("6_7ytpk")
+radius = 1.03
+height = 5.915
+radial_segments = 10
+rings = 10
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_8aeiy"]
+top_radius = 0.05
+bottom_radius = 0.05
+height = 1.0
+radial_segments = 4
+rings = 1
+
+[node name="hitscanner" type="CharacterBody3D" groups=["activatable", "enemy", "lightweight"]]
+top_level = true
+collision_layer = 2
+collision_mask = 257
+script = ExtResource("1_t2xa8")
+gibs = ExtResource("2_ohb4a")
+respawn_time = 10.0
+
+[node name="hitbox" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CylinderShape3D_2lsg5")
+
+[node name="collision_area" type="Area3D" parent="." groups=["enemy_area"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="collision_area_hitbox" type="CollisionShape3D" parent="collision_area"]
+shape = SubResource("CylinderShape3D_qg53b")
+
+[node name="home" parent="." instance=ExtResource("3_qs300")]
+color = Color(0.0156863, 0.733333, 0.870588, 0.858824)
+
+[node name="ray" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+enabled = false
+collision_mask = 257
+
+[node name="raycast_collision" type="CharacterBody3D" parent="." groups=["enemy_raycast_collision"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05309, 0)
+collision_layer = 4
+collision_mask = 0
+
+[node name="raycast_hitbox" type="CollisionShape3D" parent="raycast_collision"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0563563, 0)
+shape = SubResource("CylinderShape3D_dm706")
+
+[node name="mesh" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+script = ExtResource("4_swmcv")
+enable_rot = true
+
+[node name="alerted" type="Sprite3D" parent="mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.855, 0)
+visible = false
+modulate = Color(1, 0.227451, 0.243137, 0.709804)
+pixel_size = 0.0195
+billboard = 1
+texture_filter = 0
+texture = ExtResource("5_oinvm")
+
+[node name="aura" type="MeshInstance3D" parent="mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.00643, 0)
+visible = false
+mesh = SubResource("SphereMesh_irllb")
+
+[node name="health" type="Label3D" parent="mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.17772, 0)
+visible = false
+billboard = 1
+texture_filter = 0
+text = "100"
+font = ExtResource("7_87fxp")
+font_size = 64
+
+[node name="ribbon" type="Node3D" parent="mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.113851, 0.403979, 0.83278)
+
+[node name="ribbon_mesh" type="MeshInstance3D" parent="mesh/ribbon"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0.5)
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_8aeiy")
+
+[node name="mountainside_hitscanner" parent="mesh" instance=ExtResource("8_vs43q")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+script = ExtResource("9_dp0pp")
+
+[node name="respawn" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="timeout" from="respawn" to="." method="_on_respawn_timeout"]

@@ -1,0 +1,506 @@
+[gd_scene load_steps=27 format=3 uid="uid://4px2n2dg363l"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_p5l8k"]
+[ext_resource type="Script" path="res://scripts/physics_lerp.gd" id="2_21672"]
+[ext_resource type="Script" path="res://scripts/camera.gd" id="3_3kmoi"]
+[ext_resource type="ArrayMesh" uid="uid://ppcmkttyghki" path="res://models/viewmodels/revolver_viewmodel.obj" id="3_5qgrc"]
+[ext_resource type="Material" uid="uid://bnfnis4uswgp8" path="res://resources/materials/viewmodel_mat.tres" id="4_vy1hd"]
+[ext_resource type="Material" uid="uid://s24jgd6hcbb0" path="res://resources/materials/plasma_dark.tres" id="5_gpip3"]
+[ext_resource type="Material" uid="uid://b3ojfy0a3q3a8" path="res://resources/materials/plasma_bright.tres" id="6_prp7k"]
+[ext_resource type="ArrayMesh" uid="uid://dtwtdvsosy57b" path="res://models/viewmodels/revolver_cylinder.obj" id="8_d566w"]
+[ext_resource type="ArrayMesh" uid="uid://dcxqa2njv6fcb" path="res://models/viewmodels/shotgun_viewmodel.obj" id="9_1tk0r"]
+[ext_resource type="ArrayMesh" uid="uid://dg870m75a2l54" path="res://models/viewmodels/shotgun_left_hand.obj" id="10_i1brf"]
+[ext_resource type="Texture2D" uid="uid://4nlk2rxaovw3" path="res://textures/ui/crosshair.png" id="15_xhimj"]
+[ext_resource type="Texture2D" uid="uid://ctxqma1bunmio" path="res://textures/ui/health_outline.png" id="19_q01t5"]
+[ext_resource type="Texture2D" uid="uid://caulkv7fkkwgb" path="res://textures/ui/charge.png" id="19_t0p4e"]
+[ext_resource type="Texture2D" uid="uid://bl7mrxo6ch0f0" path="res://textures/ui/blood.png" id="19_u01oi"]
+[ext_resource type="Texture2D" uid="uid://cnspjfwwl8a76" path="res://textures/ui/health_fill.png" id="20_cnb0c"]
+[ext_resource type="Texture2D" uid="uid://kbl17hc73d27" path="res://textures/ui/eye_of_anubis.png" id="20_iuo0h"]
+[ext_resource type="FontVariation" uid="uid://cr4vqwh16ob78" path="res://resources/default_font.tres" id="22_be58p"]
+[ext_resource type="Texture2D" uid="uid://djgvvwcp47wmi" path="res://textures/ui/garlic.png" id="24_xt1wq"]
+[ext_resource type="Theme" uid="uid://3b0iarraglqs" path="res://resources/ui_theme.tres" id="26_g80bx"]
+[ext_resource type="Script" path="res://scripts/pause.gd" id="27_56fgp"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_wtg6y"]
+height = 1.7
+radius = 0.475
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_wsw6g"]
+material = ExtResource("5_gpip3")
+flip_faces = true
+top_radius = 0.0
+bottom_radius = 0.35
+height = 1.0
+radial_segments = 12
+rings = 1
+cap_top = false
+cap_bottom = false
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ichw5"]
+material = ExtResource("6_prp7k")
+top_radius = 0.0
+bottom_radius = 0.35
+height = 1.0
+radial_segments = 12
+rings = 1
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_iqnu7"]
+top_radius = 0.1
+bottom_radius = 0.1
+height = 1.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_s6exb"]
+size = Vector3(0.145, 0.32, 0.935)
+
+[sub_resource type="LabelSettings" id="LabelSettings_0q5dt"]
+font = ExtResource("22_be58p")
+font_size = 64
+
+[node name="player" type="CharacterBody3D" groups=["player"]]
+collision_layer = 256
+collision_mask = 3
+floor_snap_length = 0.2
+platform_on_leave = 2
+script = ExtResource("1_p5l8k")
+
+[node name="hitbox" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.85, 0)
+shape = SubResource("CylinderShape3D_wtg6y")
+
+[node name="cam" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
+script = ExtResource("2_21672")
+
+[node name="camera" type="Camera3D" parent="cam"]
+cull_mask = 1048543
+fov = 90.0
+script = ExtResource("3_3kmoi")
+
+[node name="raycast" type="RayCast3D" parent="cam/camera"]
+enabled = false
+exclude_parent = false
+target_position = Vector3(0, 0, -1)
+collision_mask = 5
+hit_from_inside = true
+
+[node name="vp_cont" type="SubViewportContainer" parent="cam/camera"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="vp" type="SubViewport" parent="cam/camera/vp_cont"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1920, 1080)
+render_target_update_mode = 4
+
+[node name="gun_cam" type="Camera3D" parent="cam/camera/vp_cont/vp"]
+top_level = true
+cull_mask = 32
+fov = 90.0
+near = 0.01
+far = 100.0
+script = ExtResource("2_21672")
+enable_rot = true
+global = true
+
+[node name="viewmodel" type="Node3D" parent="cam/camera/vp_cont/vp/gun_cam"]
+script = ExtResource("2_21672")
+enable_rot = true
+global = true
+
+[node name="revolver_viewmodel" type="MeshInstance3D" parent="cam/camera/vp_cont/vp/gun_cam/viewmodel"]
+transform = Transform3D(-0.25, 0, -3.7749e-08, 0, 0.25, 0, 3.7749e-08, 0, -0.25, 0.683767, -0.382463, -0.578)
+layers = 32
+material_override = ExtResource("4_vy1hd")
+cast_shadow = 0
+mesh = ExtResource("3_5qgrc")
+
+[node name="revolver_mf" type="MeshInstance3D" parent="cam/camera/vp_cont/vp/gun_cam/viewmodel/revolver_viewmodel"]
+transform = Transform3D(0.249, 6.39488e-14, -2.5411e-21, 0, -1.63043e-08, -0.342, -4.26326e-14, 0.373, -1.49493e-08, 0.152559, 0.608522, 2.11548)
+layers = 32
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_wsw6g")
+
+[node name="revolver_mf2" type="MeshInstance3D" parent="cam/camera/vp_cont/vp/gun_cam/viewmodel/revolver_viewmodel/revolver_mf"]
+transform = Transform3D(0.6, 2.13163e-14, -1.27055e-21, -2.4869e-14, 0.6, 1.95399e-14, 1.48231e-21, -2.4869e-14, 0.6, 0, 0, 0)
+layers = 32
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_ichw5")
+
+[node name="revolver_cylinder" type="MeshInstance3D" parent="cam/camera/vp_cont/vp/gun_cam/viewmodel/revolver_viewmodel"]
+transform = Transform3D(0.680848, 0, 0, 0, 0.680848, 0, 0, 0, 0.990664, 0.138955, 0.50704, 0.74691)
+layers = 32
+mesh = ExtResource("8_d566w")
+
+[node name="shotgun_viewmodel" type="MeshInstance3D" parent="cam/camera/vp_cont/vp/gun_cam/viewmodel"]
+transform = Transform3D(-0.25, 0, -3.7749e-08, 0, 0.25, 0, 3.7749e-08, 0, -0.25, 0.683384, -0.395841, -0.58316)
+visible = false
+layers = 32
+material_override = ExtResource("4_vy1hd")
+cast_shadow = 0
+mesh = ExtResource("9_1tk0r")
+skeleton = NodePath("../revolver_viewmodel")
+
+[node name="shotgun_mf" type="Node3D" parent="cam/camera/vp_cont/vp/gun_cam/viewmodel/shotgun_viewmodel"]
+transform = Transform3D(1, 0, 5.68434e-14, 0, 1, 0, -5.68434e-14, 0, 1, -0.0204172, 2.03999, 2.85881)
+visible = false
+
+[node name="revolver_mf1" type="MeshInstance3D" parent="cam/camera/vp_cont/vp/gun_cam/viewmodel/shotgun_viewmodel/shotgun_mf"]
+transform = Transform3D(0.266, 8.89931e-14, -3.16856e-21, 0, -1.74408e-08, -0.325, -5.93287e-14, 0.399, -1.42062e-08, 0.150956, -1.42867, 0.418)
+layers = 32
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_wsw6g")
+
+[node name="revolver_mf12" type="MeshInstance3D" parent="cam/camera/vp_cont/vp/gun_cam/viewmodel/shotgun_viewmodel/shotgun_mf/revolver_mf1"]
+transform = Transform3D(0.6, 2.13163e-14, -1.27055e-21, -2.4869e-14, 0.6, 1.95399e-14, 1.48231e-21, -2.4869e-14, 0.6, 0, 0, 0)
+layers = 32
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_ichw5")
+
+[node name="revolver_mf2" type="MeshInstance3D" parent="cam/camera/vp_cont/vp/gun_cam/viewmodel/shotgun_viewmodel/shotgun_mf"]
+transform = Transform3D(0.266, 9.23706e-14, -3.17637e-21, 0, -1.74408e-08, -0.325, -6.03961e-14, 0.399, -1.42062e-08, 0.150955, -1.64329, 0.418)
+layers = 32
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_wsw6g")
+
+[node name="revolver_mf12" type="MeshInstance3D" parent="cam/camera/vp_cont/vp/gun_cam/viewmodel/shotgun_viewmodel/shotgun_mf/revolver_mf2"]
+transform = Transform3D(0.6, 2.13163e-14, -1.27055e-21, -2.4869e-14, 0.6, 1.95399e-14, 1.48231e-21, -2.4869e-14, 0.6, 0, 0, 0)
+layers = 32
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_ichw5")
+
+[node name="left_hand" type="MeshInstance3D" parent="cam/camera/vp_cont/vp/gun_cam/viewmodel/shotgun_viewmodel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.187236)
+layers = 32
+material_override = ExtResource("4_vy1hd")
+mesh = ExtResource("10_i1brf")
+
+[node name="cannon_viewmodel" type="MeshInstance3D" parent="cam/camera/vp_cont/vp/gun_cam/viewmodel"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.6167, -0.30835, -0.495835)
+visible = false
+layers = 32
+mesh = SubResource("CylinderMesh_iqnu7")
+
+[node name="blaster_viewmodel" type="MeshInstance3D" parent="cam/camera/vp_cont/vp/gun_cam/viewmodel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.615999, -0.243835, -0.533424)
+visible = false
+layers = 32
+mesh = SubResource("BoxMesh_s6exb")
+
+[node name="opengl_viewmodels" type="Node3D" parent="cam/camera"]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+
+[node name="revolver_viewmodel" type="MeshInstance3D" parent="cam/camera/opengl_viewmodels"]
+transform = Transform3D(-0.25, 0, -3.7749e-08, 0, 0.25, 0, 3.7749e-08, 0, -0.25, 0.683767, -0.382463, -0.578)
+material_override = ExtResource("4_vy1hd")
+cast_shadow = 0
+mesh = ExtResource("3_5qgrc")
+
+[node name="revolver_mf" type="MeshInstance3D" parent="cam/camera/opengl_viewmodels/revolver_viewmodel"]
+transform = Transform3D(0.249, 6.39488e-14, -2.5411e-21, 0, -1.63043e-08, -0.342, -4.26326e-14, 0.373, -1.49493e-08, 0.152559, 0.608522, 2.11548)
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_wsw6g")
+
+[node name="revolver_mf2" type="MeshInstance3D" parent="cam/camera/opengl_viewmodels/revolver_viewmodel/revolver_mf"]
+transform = Transform3D(0.6, 2.13163e-14, -1.27055e-21, -2.4869e-14, 0.6, 1.95399e-14, 1.48231e-21, -2.4869e-14, 0.6, 0, 0, 0)
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_ichw5")
+
+[node name="revolver_cylinder" type="MeshInstance3D" parent="cam/camera/opengl_viewmodels/revolver_viewmodel"]
+transform = Transform3D(0.680848, 0, 0, 0, 0.680848, 0, 0, 0, 0.990664, 0.138955, 0.50704, 0.74691)
+mesh = ExtResource("8_d566w")
+
+[node name="shotgun_viewmodel" type="MeshInstance3D" parent="cam/camera/opengl_viewmodels"]
+transform = Transform3D(-0.25, 0, -3.7749e-08, 0, 0.25, 0, 3.7749e-08, 0, -0.25, 0.683384, -0.395841, -0.58316)
+visible = false
+material_override = ExtResource("4_vy1hd")
+cast_shadow = 0
+mesh = ExtResource("9_1tk0r")
+skeleton = NodePath("../revolver_viewmodel")
+
+[node name="shotgun_mf" type="Node3D" parent="cam/camera/opengl_viewmodels/shotgun_viewmodel"]
+transform = Transform3D(1, 0, 5.68434e-14, 0, 1, 0, -5.68434e-14, 0, 1, -0.0204172, 2.03999, 2.85881)
+visible = false
+
+[node name="revolver_mf1" type="MeshInstance3D" parent="cam/camera/opengl_viewmodels/shotgun_viewmodel/shotgun_mf"]
+transform = Transform3D(0.266, 8.89931e-14, -3.16856e-21, 0, -1.74408e-08, -0.325, -5.93287e-14, 0.399, -1.42062e-08, 0.150956, -1.42867, 0.418)
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_wsw6g")
+
+[node name="revolver_mf12" type="MeshInstance3D" parent="cam/camera/opengl_viewmodels/shotgun_viewmodel/shotgun_mf/revolver_mf1"]
+transform = Transform3D(0.6, 2.13163e-14, -1.27055e-21, -2.4869e-14, 0.6, 1.95399e-14, 1.48231e-21, -2.4869e-14, 0.6, 0, 0, 0)
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_ichw5")
+
+[node name="revolver_mf2" type="MeshInstance3D" parent="cam/camera/opengl_viewmodels/shotgun_viewmodel/shotgun_mf"]
+transform = Transform3D(0.266, 9.23706e-14, -3.17637e-21, 0, -1.74408e-08, -0.325, -6.03961e-14, 0.399, -1.42062e-08, 0.150955, -1.64329, 0.418)
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_wsw6g")
+
+[node name="revolver_mf12" type="MeshInstance3D" parent="cam/camera/opengl_viewmodels/shotgun_viewmodel/shotgun_mf/revolver_mf2"]
+transform = Transform3D(0.6, 2.13163e-14, -1.27055e-21, -2.4869e-14, 0.6, 1.95399e-14, 1.48231e-21, -2.4869e-14, 0.6, 0, 0, 0)
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_ichw5")
+
+[node name="left_hand" type="MeshInstance3D" parent="cam/camera/opengl_viewmodels/shotgun_viewmodel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.187236)
+material_override = ExtResource("4_vy1hd")
+mesh = ExtResource("10_i1brf")
+
+[node name="cannon_viewmodel" type="MeshInstance3D" parent="cam/camera/opengl_viewmodels"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.6167, -0.30835, -0.495835)
+visible = false
+mesh = SubResource("CylinderMesh_iqnu7")
+
+[node name="blaster_viewmodel" type="MeshInstance3D" parent="cam/camera/opengl_viewmodels"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.615999, -0.243835, -0.533424)
+visible = false
+mesh = SubResource("BoxMesh_s6exb")
+
+[node name="blood" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+texture = ExtResource("19_u01oi")
+centered = false
+
+[node name="crosshair" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(960, 540)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("15_xhimj")
+
+[node name="healthbar" type="Control" parent="."]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 0
+offset_left = 167.0
+offset_top = 921.0
+offset_right = 686.0
+offset_bottom = 1015.0
+metadata/_edit_use_anchors_ = true
+
+[node name="white_outline" type="ColorRect" parent="healthbar"]
+layout_mode = 0
+offset_right = 466.0
+offset_bottom = 85.0
+metadata/_edit_use_anchors_ = true
+
+[node name="black_outline" type="ColorRect" parent="healthbar"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 463.0
+offset_bottom = 82.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="health" type="ColorRect" parent="healthbar" groups=["player"]]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 460.0
+offset_bottom = 79.0
+color = Color(0, 1, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="health_icon_outline" type="Sprite2D" parent="healthbar"]
+texture_filter = 1
+position = Vector2(-47.5, 42.5)
+texture = ExtResource("19_q01t5")
+
+[node name="health_icon_fill" type="Sprite2D" parent="healthbar"]
+modulate = Color(0, 1, 0, 1)
+texture_filter = 1
+position = Vector2(-47.5, 42.5)
+texture = ExtResource("20_cnb0c")
+
+[node name="health_text" type="Label" parent="healthbar"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.00848747
+anchor_top = 0.00356406
+anchor_right = -0.00848747
+anchor_bottom = 0.00356406
+offset_left = 168.405
+offset_top = 19.665
+offset_right = 360.405
+offset_bottom = 86.665
+scale = Vector2(0.7, 0.7)
+text = "100"
+label_settings = SubResource("LabelSettings_0q5dt")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="garlic" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(121, 863)
+scale = Vector2(0.28, 0.28)
+texture = ExtResource("24_xt1wq")
+
+[node name="fps_label" type="Label" parent="."]
+offset_left = 12.0
+offset_right = 107.0
+offset_bottom = 23.0
+metadata/_edit_use_anchors_ = true
+
+[node name="warning" type="Label" parent="."]
+modulate = Color(1, 0.839216, 0, 0)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -255.0
+offset_top = -295.0
+offset_right = 250.001
+offset_bottom = -228.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("26_g80bx")
+text = "behind you"
+metadata/_edit_use_anchors_ = true
+
+[node name="pause_handler" type="Node" parent="."]
+process_mode = 3
+script = ExtResource("27_56fgp")
+
+[node name="pause_panel" type="Panel" parent="pause_handler"]
+visible = false
+self_modulate = Color(1, 1, 1, 0.282353)
+texture_filter = 1
+offset_left = -234.0
+offset_top = -81.0
+offset_right = 2090.0
+offset_bottom = 1152.0
+theme = ExtResource("26_g80bx")
+
+[node name="continue" type="Button" parent="pause_handler/pause_panel"]
+layout_mode = 0
+offset_left = 973.0
+offset_top = 575.0
+offset_right = 1412.0
+offset_bottom = 671.0
+text = "continue"
+
+[node name="restart" type="Button" parent="pause_handler/pause_panel"]
+layout_mode = 0
+offset_left = 973.0
+offset_top = 715.0
+offset_right = 1412.0
+offset_bottom = 811.0
+text = "restart"
+
+[node name="back" type="Button" parent="pause_handler/pause_panel"]
+layout_mode = 0
+offset_left = 881.0
+offset_top = 859.0
+offset_right = 1516.0
+offset_bottom = 955.0
+text = "back to menu"
+
+[node name="Label" type="Label" parent="pause_handler/pause_panel"]
+layout_mode = 0
+offset_left = 787.0
+offset_top = 309.0
+offset_right = 1096.0
+offset_bottom = 376.0
+scale = Vector2(2.5, 2.5)
+text = "paused"
+
+[node name="death_screen" type="Control" parent="."]
+visible = false
+z_index = 8
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("26_g80bx")
+
+[node name="ColorRect" type="ColorRect" parent="death_screen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.596078, 0, 0, 1)
+
+[node name="Label" type="Label" parent="death_screen"]
+layout_mode = 0
+offset_left = 421.0
+offset_top = 43.0
+offset_right = 1024.0
+offset_bottom = 110.0
+scale = Vector2(1.84, 1.84)
+text = "you are dead"
+
+[node name="Label2" type="Label" parent="death_screen"]
+layout_mode = 0
+offset_left = 514.0
+offset_top = 202.0
+offset_right = 1396.0
+offset_bottom = 269.0
+text = "humanity is doomed
+"
+
+[node name="respawn_guide" type="Label" parent="death_screen"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -958.0
+offset_top = -275.0
+offset_right = 498.0
+offset_bottom = -97.9999
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(1.32, 1.32)
+text = "press r to try again"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="charge" type="Sprite2D" parent="."]
+position = Vector2(792, 958)
+texture = ExtResource("19_t0p4e")
+
+[node name="charge_rect_outline_2" type="ColorRect" parent="charge"]
+offset_left = 63.0
+offset_top = -47.0
+offset_right = 105.0
+offset_bottom = 55.0
+
+[node name="charge_rect_outline_1" type="ColorRect" parent="charge"]
+offset_left = 66.0
+offset_top = -44.0
+offset_right = 102.0
+offset_bottom = 52.0
+color = Color(0, 0, 0, 1)
+
+[node name="charge_rect" type="ColorRect" parent="charge"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 69.0
+offset_top = -169.0
+offset_right = 99.0
+offset_bottom = -79.0001
+grow_vertical = 0
+pivot_offset = Vector2(0, 90)
+color = Color(0, 0.470588, 1, 1)
+
+[node name="eye_of_anubis" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+texture = ExtResource("20_iuo0h")
+centered = false
+
+[connection signal="pressed" from="pause_handler/pause_panel/continue" to="pause_handler" method="_on_continue_pressed"]
+[connection signal="pressed" from="pause_handler/pause_panel/restart" to="pause_handler" method="_on_restart_pressed"]
+[connection signal="pressed" from="pause_handler/pause_panel/back" to="pause_handler" method="_on_back_pressed"]

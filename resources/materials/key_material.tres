@@ -1,0 +1,75 @@
+[gd_resource type="ShaderMaterial" load_steps=6 format=3 uid="uid://svfv05wljf8a"]
+
+[sub_resource type="Shader" id="Shader_y3fjn"]
+code = "shader_type spatial;
+render_mode unshaded, cull_front;
+
+const float MAX_DEPTH = 15.0f;
+
+uniform vec3 color : source_color;
+uniform float thickness;
+
+void vertex() { 
+	VERTEX += NORMAL * thickness * min(-vec4(MODELVIEW_MATRIX * vec4(VERTEX, 1)).z, MAX_DEPTH);
+}
+
+void fragment() {
+	ALBEDO = color;
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sjvf7"]
+render_priority = 0
+shader = SubResource("Shader_y3fjn")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/thickness = 0.01
+
+[sub_resource type="Shader" id="Shader_0b23a"]
+code = "shader_type spatial;
+render_mode unshaded, cull_front;
+
+const float MAX_DEPTH = 15.0f;
+
+uniform vec3 color : source_color;
+uniform float thickness;
+
+void vertex() { 
+	VERTEX += NORMAL * thickness * min(-vec4(MODELVIEW_MATRIX * vec4(VERTEX, 1)).z, MAX_DEPTH);
+}
+
+void fragment() {
+	ALBEDO = color;
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x5bn4"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_sjvf7")
+shader = SubResource("Shader_0b23a")
+shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/thickness = 0.005
+
+[sub_resource type="Shader" id="Shader_o5yh0"]
+code = "shader_type spatial;
+
+instance uniform vec3 color : source_color;
+uniform float ambient = 0.5f;
+
+void fragment() {
+	ALBEDO = color;
+}
+
+void light() {
+	float ang = dot(LIGHT, NORMAL);
+	if (ang < 0.0)
+		DIFFUSE_LIGHT = vec3(ambient, ambient, ambient);
+	else
+		DIFFUSE_LIGHT = vec3(1, 1, 1);
+}
+"
+
+[resource]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_x5bn4")
+shader = SubResource("Shader_o5yh0")
+shader_parameter/ambient = 0.5

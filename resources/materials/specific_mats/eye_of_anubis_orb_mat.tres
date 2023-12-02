@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://71wrnh23pt12"]
+
+[ext_resource type="Texture2D" uid="uid://blnwcemfv5gt" path="res://textures/eye_of_anubis_texture.png" id="1_x3efu"]
+
+[resource]
+shading_mode = 0
+albedo_texture = ExtResource("1_x3efu")
+texture_filter = 1

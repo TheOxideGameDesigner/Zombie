@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://t80putu31pte"]
+
+[ext_resource type="Script" path="res://scripts/ui/ui_level.gd" id="1_r2p38"]
+[ext_resource type="Texture2D" uid="uid://b8vlacu068jbi" path="res://textures/icons/unknown.png" id="2_a02l6"]
+[ext_resource type="Theme" uid="uid://3b0iarraglqs" path="res://resources/ui_theme.tres" id="2_g68io"]
+
+[node name="level" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_r2p38")
+metadata/_edit_group_ = true
+
+[node name="icon" type="Sprite2D" parent="."]
+texture = ExtResource("2_a02l6")
+
+[node name="play_button" type="Button" parent="."]
+layout_mode = 0
+offset_left = -104.0
+offset_top = 93.0
+offset_right = 385.0
+offset_bottom = 189.0
+scale = Vector2(0.425, 0.425)
+theme = ExtResource("2_g68io")
+text = "play"
+
+[connection signal="pressed" from="play_button" to="." method="_on_play_button_pressed"]
