@@ -1,0 +1,27 @@
+temporary tutorial:
+random info:
+	you can use the jump button to perform a jump, and use it in the air to perform a double jump
+	you can jump on lightweight zombies to instantly kill them
+	you can also reverse-stomp zombies to instantly kill them, by allowing them to jump on you
+enemies:
+	1. the runner:
+		he can run and jump. performs melee attacks
+	2. the gunner:
+		he has a lot of health, however he can not move. he fires a deadly projectile that can be dodged
+	3. the hitscanner:
+		he shoots directly at you, however his attacks can be dodged by moving around him, as he turns around very slowly
+weapons:
+	1. revolver:
+		long range, 0 damage falloff, shooting enemies restores some of your health
+	2. shotgun:
+		short range, damage quickly becomes low at longer ranges, 100 damage at close range
+		zombies turn red when they are in 100-damage range
+		when shooting a zombie in 100-damage range, you receive a small speed boost in the opposite direction
+	3. cannon:
+		primary fire (3 sec recharge): shoots a ball of plasma that deals a small amount of splash damage, but a lot of knockback
+		secondary fire (5 sec recharge): fires a devastating bomb that deals 150 splash damage, but can also hurt you if you are close to it when it explodes
+		you can shoot your bomb to make it explode
+	4. blaster
+		medium range, has some damage falloff, high dps, does damage to you when fired
+		primary fire: you take one damage per bullet
+		secondary fire: higher firing speed, but you take 2 damage per bullet
