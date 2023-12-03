@@ -60,7 +60,7 @@ font_size = 64
 collision_layer = 256
 collision_mask = 3
 floor_snap_length = 0.2
-platform_on_leave = 1
+platform_on_leave = 2
 script = ExtResource("1_p5l8k")
 
 [node name="hitbox" type="CollisionShape3D" parent="."]
