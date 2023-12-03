@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://bxguakgn55464"]
+
+[ext_resource type="Material" uid="uid://bxshyklg53mb7" path="res://resources/materials/specific_mats/booster_mat.tres" id="1_be8fc"]
+[ext_resource type="Script" path="res://scripts/booster.gd" id="1_dxixv"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_b13hh"]
+
+[node name="booster" type="Node3D"]
+script = ExtResource("1_dxixv")
+
+[node name="visual" type="MeshInstance3D" parent="."]
+material_override = ExtResource("1_be8fc")
+cast_shadow = 0
+mesh = SubResource("PlaneMesh_b13hh")
+
+[node name="area" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 256
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="area"]
+
+[node name="collision" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="collision"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+
+[connection signal="body_entered" from="area" to="." method="_on_area_body_entered"]
+[connection signal="body_exited" from="area" to="." method="_on_area_body_exited"]

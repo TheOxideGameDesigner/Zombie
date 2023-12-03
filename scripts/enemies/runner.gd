@@ -129,6 +129,7 @@ func _ready():
 			respawn_time = 1
 	
 	health = HP
+	update_healthbar()
 	
 	#determine at what height to put the enemy home
 	ray.target_position = Vector3(0, -10, 0)
@@ -218,15 +219,6 @@ func pain(dmg):
 
 
 func update_healthbar():
-	const FADE_START = 40.0
-	const FADE_END = 45.0
-	if dist_from_player > FADE_END:
-		health_label.visible = 0
-		return
-	elif dist_from_player > FADE_START:
-		health_label.modulate.a = (FADE_END - dist_from_player) / (FADE_END - FADE_START)
-	else:
-		health_label.modulate.a = 1
 	health_label.text = str(max(0, health))
 
 
@@ -444,7 +436,9 @@ func _physics_process(delta):
 		
 		rot = -atan2(nextpos.z, nextpos.x) + PI / 2
 		var vel_dir = Vector3.MODEL_FRONT.rotated(Vector3.UP, mesh.rotation.y)
-		velocity = SPEED * vel_dir + push_vel * 5
+		if dist_from_player < 0.2:
+			vel_dir = Vector3.ZERO
+		velocity = SPEED * (vel_dir + push_vel).normalized()
 		
 		if climbing:
 			y_vel = CLIMB_SPEED
@@ -480,10 +474,6 @@ func _physics_process(delta):
 		prev_on_floor = is_on_floor()
 		
 		velocity.y = y_vel
-		
-		if dist_from_player < 0.2:
-			velocity.x = 0
-			velocity.z = 0
 		
 		move_and_slide()
 	#end of zombie movement

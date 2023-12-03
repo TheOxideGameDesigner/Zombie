@@ -95,6 +95,7 @@ func _ready():
 			ROCKET_SPEED = 40
 	
 	health = HP
+	update_healthbar()
 	
 	#determine at what height to put the enemy home
 	ray.target_position = Vector3(0, -10, 0)
@@ -184,15 +185,6 @@ func pain(dmg):
 
 
 func update_healthbar():
-	const FADE_START = 40.0
-	const FADE_END = 45.0
-	if dist_from_player > FADE_END:
-		health_label.visible = 0
-		return
-	elif dist_from_player > FADE_START:
-		health_label.modulate.a = (FADE_END - dist_from_player) / (FADE_END - FADE_START)
-	else:
-		health_label.modulate.a = 1
 	health_label.text = str(max(0, health))
 
 

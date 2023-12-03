@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://nsho7y78wo24"
-path="res://.godot/imported/stained_glass.png-f88dccb9a2045dea2c4070db4d5e51e4.ctex"
+uid="uid://dec3n8dplshht"
+path="res://.godot/imported/booster_texture.png-94dbee9a6e7b60152afeeec57724d5e7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/stained_glass.png"
-dest_files=["res://.godot/imported/stained_glass.png-f88dccb9a2045dea2c4070db4d5e51e4.ctex"]
+source_file="res://textures/booster_texture.png"
+dest_files=["res://.godot/imported/booster_texture.png-94dbee9a6e7b60152afeeec57724d5e7.ctex"]
 
 [params]
 

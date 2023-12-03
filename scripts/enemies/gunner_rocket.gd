@@ -68,9 +68,7 @@ func _on_body_entered(body):
 	$explosion.queue_free()
 	$death_timer.queue_free()
 	player.pain(DAMAGE)
-	var recoil_dir = (player.position - position)
-	recoil_dir.y = 0
-	player.knockback(recoil_dir.normalized() * 10 + Vector3(0, 0.2, 0))
+	player.knockback(vel.normalized() * 10 + Vector3(0, 0.2, 0))
 
 
 

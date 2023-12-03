@@ -190,6 +190,8 @@ func _ready():
 			key.visible = 1
 			drops.push_back(c)
 			remove_child(c)
+	
+	health_label.text = str(health)
 
 
 func _process(delta):

@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://bajqqqjylfrys"]
+[gd_scene load_steps=10 format=3 uid="uid://bajqqqjylfrys"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_n6eeb"]
 [ext_resource type="PackedScene" uid="uid://4px2n2dg363l" path="res://scenes/misc_props/player.tscn" id="2_26vq5"]
 [ext_resource type="PackedScene" uid="uid://ddiw8ybfcdmjb" path="res://scenes/misc_props/spring.tscn" id="3_0v1iu"]
 [ext_resource type="PackedScene" uid="uid://cdshg7bk5i645" path="res://scenes/misc_props/garlic.tscn" id="5_hamsc"]
+[ext_resource type="PackedScene" uid="uid://bxguakgn55464" path="res://scenes/misc_props/booster.tscn" id="6_dmeo8"]
 [ext_resource type="PackedScene" uid="uid://ct4dtw3ijmehk" path="res://scenes/props/enemies/runner.tscn" id="6_ycpa4"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_47luo"]
@@ -64,5 +65,14 @@ directional_shadow_blend_splits = true
 [node name="garlic" parent="." instance=ExtResource("5_hamsc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.3583, 0.200001, 20.4772)
 
+[node name="booster" parent="." instance=ExtResource("6_dmeo8")]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 11, 2.32595, 0.213042, 15.7882)
+
+[node name="booster3" parent="." instance=ExtResource("6_dmeo8")]
+transform = Transform3D(-0.254995, 0, -10.9102, 0, 1, 0, 1.98368, 0, -1.40247, 39.8624, 0.213042, 16.8423)
+
+[node name="booster2" parent="." instance=ExtResource("6_dmeo8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 3, 10.4388, 0.208759, 15.7882)
+
 [node name="runner" parent="." instance=ExtResource("6_ycpa4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.2891, 0.2, 2.54267)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.2998, 0.200003, -25.2448)

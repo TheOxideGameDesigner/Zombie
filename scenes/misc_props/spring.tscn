@@ -7,12 +7,15 @@
 [ext_resource type="Texture2D" uid="uid://bgnwuldwrn5ld" path="res://textures/spring_texture.png" id="4_pprbo"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l346e"]
+specular_mode = 2
 albedo_color = Color(0.262745, 0.168627, 0, 1)
 metallic_specular = 0.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vx65r"]
+specular_mode = 2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uhm2g"]
+specular_mode = 2
 albedo_texture = ExtResource("4_pprbo")
 metallic_specular = 0.0
 texture_filter = 1

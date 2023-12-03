@@ -61,6 +61,8 @@ mesh = SubResource("SphereMesh_qmw2e")
 [node name="health" type="Label3D" parent="mesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.199, 0)
 visible = false
+visibility_range_end = 42.0
+visibility_range_end_margin = 0.1
 billboard = 1
 texture_filter = 0
 text = "100"

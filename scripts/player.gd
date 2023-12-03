@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-@export var spectator = 0
+@export var spectator : bool = 0
 
 var sens = 5
 var fov_min : float = 90
@@ -16,7 +16,7 @@ const BRAKE_FACTOR = 1.5
 const AIR_BRAKE_FACTOR = 3
 const FRICTION = 36
 const AIR_FRICTION = 12
-const BOOST_LOSS = 10
+const BOOST_LOSS = 8
 const AIR_BOOST_LOSS = 6
 const AIR_ACCEL = 17
 const JUMP_SPEED = 4
@@ -66,7 +66,6 @@ var wpn : int = 1
 var prev_wpn = 2
 var wpn_vis = wpn
 
-var lose_control = false
 var god_mode : bool = false
 var max_health : int = 100
 var health : int = max_health
@@ -384,15 +383,12 @@ func movement(wishdir, delta):
 	
 	if spectator:
 		position += SPEED * 5 * Vector3(wishdir.x, 0, wishdir.y) * delta
-		if Input.is_action_pressed("g_load_checkpoint"):
+		if Input.is_action_pressed("g_attack"):
 			position.y -= SPEED * delta
-		if Input.is_action_pressed("g_create_checkpoint"):
+		if Input.is_action_pressed("g_attack2"):
 			position.y += SPEED * delta
 		return
 	
-	if lose_control:
-		move_and_slide()
-		return
 	var incr
 	if can_jump:
 		if is_on_floor():
