@@ -2,7 +2,7 @@ temporary tutorial:
 random info:
 	you can use the jump button to perform a jump, and use it in the air to perform a double jump
 	you can jump on lightweight zombies to instantly kill them
-	you can also reverse-stomp zombies to instantly kill them, by allowing them to jump on you
+	you can also reverse-stomp zombies to instantly kill them by allowing them to jump on you
 enemies:
 	1. the runner:
 		he can run and jump. performs melee attacks
@@ -10,6 +10,8 @@ enemies:
 		he has a lot of health, however he can not move. he fires a deadly projectile that can be dodged
 	3. the hitscanner:
 		he shoots directly at you, however his attacks can be dodged by moving around him, as he turns around very slowly
+	4. the statue:
+		it spawns multiple zombies. kill all of the zombies that have an aura around them and it will spawn the next wave. repeat until you reach the last wave
 weapons:
 	1. revolver:
 		long range, 0 damage falloff, shooting enemies restores some of your health
