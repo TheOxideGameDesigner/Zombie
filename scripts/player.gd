@@ -52,6 +52,8 @@ const BLASTER_PB_RANGE = 4
 const BLASTER_FALLOFF = 0.1
 const DEATH_FADE_TIME = 1.0
 
+var damage_mul = 1.0
+
 const MIN_HIT_DOT_PROD = 0.2
 
 var can_jump = 1
@@ -191,7 +193,7 @@ func update_wpn():
 func hurt(collider):
 	match wpn:
 		1:
-			collider.pain(REVOLVER_DAMAGE)
+			collider.pain(REVOLVER_DAMAGE * damage_mul)
 		2:
 			var dmg
 			var dist = Vector2(position.x, position.z).distance_to(Vector2(collider.position.x, collider.position.z))
@@ -199,7 +201,7 @@ func hurt(collider):
 				dmg = SHOTGUN_DAMAGE
 			else:
 				dmg = min(SHOTGUN_DAMAGE / (SHOTGUN_FALLOFF * (dist - SHOTGUN_PB_RANGE) + 1), SHOTGUN_DAMAGE - 1)
-			collider.pain(dmg)
+			collider.pain(dmg * damage_mul)
 		3:
 			pass
 		4:
@@ -209,7 +211,7 @@ func hurt(collider):
 				dmg = BLASTER_DAMAGE
 			else:
 				dmg = BLASTER_DAMAGE / (BLASTER_FALLOFF * (dist - BLASTER_PB_RANGE) + 1)
-			collider.pain(dmg)
+			collider.pain(dmg * damage_mul)
 
 
 func shoot():
@@ -294,6 +296,7 @@ func shoot():
 			else:
 				cannonball_pos = Vector3(0, 0, -1)
 			new_ball.initial_pos = cam.to_global(cannonball_pos)
+			new_ball.damage_mul = damage_mul
 			cam.add_child(new_ball)
 		4:
 			camera.add_tilt(0.5, Vector3(1, 0, 0), 2)
@@ -336,6 +339,7 @@ func shoot_alt():
 		else:
 			cannonbomb_pos = Vector3(0, 0, -1)
 		new_bomb.position = cannonbomb_pos
+		new_bomb.damage_mul = damage_mul
 		cam.add_child(new_bomb)
 		new_bomb.apply_impulse((-cam.transform.basis.z + Vector3(0, 0.2, 0)) * CANNONBOMB_FORCE)
 	elif wpn == 4:

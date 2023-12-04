@@ -22,6 +22,8 @@ const SPLASH_RADIUS = 6
 const SELF_DAMAGE_RADIUS = 5
 var time = 0.0
 
+var damage_mul = 1.0
+
 var rising = 0
 
 func explode(body):
@@ -38,7 +40,7 @@ func explode(body):
 					var expl_dir = (obj.global_position - position).normalized()
 					expl_dir.y = 0
 					obj.add_vel = expl_dir.normalized() * 10
-				obj.pain(lerp(0.0, DAMAGE, sqrt(1.0 - dist / SPLASH_RADIUS)))
+				obj.pain(lerp(0.0, DAMAGE, sqrt(1.0 - dist / SPLASH_RADIUS)) * damage_mul)
 	var dist = (player.position + Vector3(0, 0.85, 0)).distance_to(position)
 	if dist < SELF_DAMAGE_RADIUS:
 		player.knockback((player.cam.global_position - position) * 12 / (dist * dist))
@@ -50,7 +52,7 @@ func explode(body):
 	if body == null or body == self:
 		return
 	if body.is_in_group("enemy"):
-		body.pain(DAMAGE)
+		body.pain(DAMAGE * damage_mul)
 		if body.is_in_group("lightweight"):
 			var expl_dir = (body.global_position - position).normalized()
 			expl_dir.y = 0

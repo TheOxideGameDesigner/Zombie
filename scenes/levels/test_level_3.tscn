@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bajqqqjylfrys"]
+[gd_scene load_steps=11 format=3 uid="uid://bajqqqjylfrys"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_n6eeb"]
 [ext_resource type="PackedScene" uid="uid://4px2n2dg363l" path="res://scenes/misc_props/player.tscn" id="2_26vq5"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cdshg7bk5i645" path="res://scenes/misc_props/garlic.tscn" id="5_hamsc"]
 [ext_resource type="PackedScene" uid="uid://bxguakgn55464" path="res://scenes/misc_props/booster.tscn" id="6_dmeo8"]
 [ext_resource type="PackedScene" uid="uid://ct4dtw3ijmehk" path="res://scenes/props/enemies/runner.tscn" id="6_ycpa4"]
+[ext_resource type="PackedScene" uid="uid://cian3gl8fgeb7" path="res://scenes/misc_props/double_damage.tscn" id="7_acmly"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_47luo"]
 data = PackedVector3Array(-28.3425, 0.2, 28.1325, 28.3425, 0.2, 28.1325, -28.3425, -0.2, 28.1325, 28.3425, 0.2, 28.1325, 28.3425, -0.2, 28.1325, -28.3425, -0.2, 28.1325, 28.3425, 0.2, -28.1325, -28.3425, 0.2, -28.1325, 28.3425, -0.2, -28.1325, -28.3425, 0.2, -28.1325, -28.3425, -0.2, -28.1325, 28.3425, -0.2, -28.1325, 28.3425, 0.2, 28.1325, 28.3425, 0.2, -28.1325, 28.3425, -0.2, 28.1325, 28.3425, 0.2, -28.1325, 28.3425, -0.2, -28.1325, 28.3425, -0.2, 28.1325, -28.3425, 0.2, -28.1325, -28.3425, 0.2, 28.1325, -28.3425, -0.2, -28.1325, -28.3425, 0.2, 28.1325, -28.3425, -0.2, 28.1325, -28.3425, -0.2, -28.1325, 28.3425, 0.2, 28.1325, -28.3425, 0.2, 28.1325, 28.3425, 0.2, -28.1325, -28.3425, 0.2, 28.1325, -28.3425, 0.2, -28.1325, 28.3425, 0.2, -28.1325, -28.3425, -0.2, 28.1325, 28.3425, -0.2, 28.1325, -28.3425, -0.2, -28.1325, 28.3425, -0.2, 28.1325, 28.3425, -0.2, -28.1325, -28.3425, -0.2, -28.1325)
@@ -76,3 +77,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 3, 10.4388, 0.208759, 15.7882)
 
 [node name="runner" parent="." instance=ExtResource("6_ycpa4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.2998, 0.200003, -25.2448)
+
+[node name="runner3" parent="." instance=ExtResource("6_ycpa4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.2336, 0.200003, -20.6156)
+
+[node name="runner4" parent="." instance=ExtResource("6_ycpa4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.0029, 0.200003, -19.3878)
+
+[node name="runner5" parent="." instance=ExtResource("6_ycpa4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.3266, 0.200003, -23.2518)
+
+[node name="double_damage" parent="." instance=ExtResource("7_acmly")]
+transform = Transform3D(0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, 0.258819, -5.88918, 2.2, 7.39651)
+
+[node name="double_damage2" parent="." instance=ExtResource("7_acmly")]
+transform = Transform3D(-0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, -0.258819, -20.4703, 2.2, 2.88777)

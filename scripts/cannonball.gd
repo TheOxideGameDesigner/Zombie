@@ -14,6 +14,8 @@ var exploding = 0
 var explosion_timer = 0.0
 var explosion_time = 0.5
 
+var damage_mul = 1.0
+
 var explosion_material = preload("res://resources/materials/plasma_bright.tres").duplicate()
 @onready var explosion = $explosion
 @onready var player = get_tree().get_first_node_in_group("player")
@@ -31,7 +33,7 @@ func explode(body):
 					var expl_dir = (obj.global_position - position).normalized() + dir
 					expl_dir.y = 0
 					obj.add_vel = expl_dir.normalized() * 10
-				obj.pain(lerp(0.0, DAMAGE, 1.0 - dist / SPLASH_RADIUS))
+				obj.pain(lerp(0.0, DAMAGE, 1.0 - dist / SPLASH_RADIUS) * damage_mul)
 	var dist = (player.position + Vector3(0, 0.85, 0)).distance_to(position)
 	if dist < SPLASH_RADIUS:
 		var knockback_dir = (player.cam.global_position - position) * 3 / (dist * dist)
@@ -41,7 +43,7 @@ func explode(body):
 	if body == null:
 		return
 	if body.is_in_group("enemy"):
-		body.pain(DAMAGE)
+		body.pain(DAMAGE * damage_mul)
 		if body.is_in_group("lightweight"):
 			var expl_dir = (body.global_position - position).normalized() + dir
 			expl_dir.y = 0
