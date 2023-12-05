@@ -53,6 +53,7 @@ const BLASTER_FALLOFF = 0.1
 const DEATH_FADE_TIME = 1.0
 
 var damage_mul = 1.0
+var speed_mul = 1.0
 
 const MIN_HIT_DOT_PROD = 0.2
 
@@ -410,7 +411,7 @@ func movement(wishdir, delta):
 		can_jump = 1
 	var moving_on_floor = is_on_floor() and (not can_jump or not Input.is_action_pressed("g_jump"))
 	
-	if Vector2(velocity.x, velocity.z).length() > SPEED:
+	if Vector2(velocity.x, velocity.z).length() > SPEED * speed_mul:
 		var boost_loss
 		if moving_on_floor:
 			boost_loss = BOOST_LOSS
@@ -420,12 +421,12 @@ func movement(wishdir, delta):
 	
 	var friction
 	if moving_on_floor:
-		friction = FRICTION
-		incr = ACCEL * delta
+		friction = FRICTION * speed_mul
+		incr = ACCEL * delta * speed_mul
 	else:
-		friction = AIR_FRICTION
+		friction = AIR_FRICTION * speed_mul
 		velocity.y = max(-TERMINAL_VEL, velocity.y - GR_ACCEL * delta)
-		incr = AIR_ACCEL * delta
+		incr = AIR_ACCEL * delta * speed_mul
 	if wishdir == Vector2.ZERO:
 		if Vector2(velocity.x, velocity.z).length() >= friction * delta:
 			velocity -= Vector3(velocity.x, 0, velocity.z).normalized() * friction * delta
@@ -439,10 +440,10 @@ func movement(wishdir, delta):
 		var wdt = wishdir.project(vel2d)
 		var wdn = wishdir.project(Vector2(-vel2d.y, vel2d.x))
 		if wdt.x * vel2d.x > 0 or wdt.y * vel2d.y > 0:
-			if vel2d.length() <= SPEED - wdt.length() * incr:
+			if vel2d.length() <= SPEED * speed_mul - wdt.length() * incr:
 				vel2d += wdt * incr
-			elif vel2d.length() < SPEED:
-				vel2d = vel2d.normalized() * SPEED
+			elif vel2d.length() < SPEED * speed_mul:
+				vel2d = vel2d.normalized() * SPEED * speed_mul
 		else:
 			if vel2d.length() >= wdt.length() * incr:
 				var brake_factor
@@ -455,9 +456,9 @@ func movement(wishdir, delta):
 				vel2d = Vector2.ZERO
 		var turn_control
 		if is_on_floor():
-			turn_control = TURN_CONTROL
+			turn_control = TURN_CONTROL * speed_mul
 		else:
-			turn_control = AIR_TURN_CONTROL
+			turn_control = AIR_TURN_CONTROL * speed_mul
 		vel2d = Vector2(vel2d + wdn * turn_control * delta).normalized() * vel2d.length()
 	
 	velocity = Vector3(vel2d.x, velocity.y, vel2d.y)
@@ -611,7 +612,7 @@ func _process(delta):
 		return
 	
 	var fov = lerp(fov_min, fov_max,
-			 clamp((Vector2(velocity.x, velocity.z).length() - SPEED) / (SPEED * (fov_max_spd - 1)), 0, 1))
+			 clamp((Vector2(velocity.x, velocity.z).length() - SPEED * speed_mul) / (SPEED * speed_mul * (fov_max_spd - 1)), 0, 1))
 	camera.fov = lerp(camera.fov, fov, delta * 15)
 	if not holstering and cooldown_timers[wpn - 1] == 0:
 		if Input.is_action_pressed("g_attack"):

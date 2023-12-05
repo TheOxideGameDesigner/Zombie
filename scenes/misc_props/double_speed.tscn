@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://chc7prysjaa7j"]
+
+[ext_resource type="Script" path="res://scripts/powerup.gd" id="1_6r4iv"]
+[ext_resource type="Texture2D" uid="uid://nfab023g20u" path="res://textures/2x_speed.png" id="2_k6btm"]
+[ext_resource type="Texture2D" uid="uid://capixq7p5v3q6" path="res://textures/2x_speed_over.png" id="3_v807o"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_a8ksv"]
+size = Vector3(4, 4, 1)
+
+[node name="double_damage" type="Node3D"]
+script = ExtResource("1_6r4iv")
+powerup_type = 1
+
+[node name="good_side" type="Sprite3D" parent="."]
+pixel_size = 0.008
+double_sided = false
+texture_filter = 0
+texture = ExtResource("2_k6btm")
+
+[node name="bad_side" type="Sprite3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+pixel_size = 0.008
+double_sided = false
+texture_filter = 0
+texture = ExtResource("3_v807o")
+
+[node name="area" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 256
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="area"]
+shape = SubResource("BoxShape3D_a8ksv")
+
+[connection signal="body_entered" from="area" to="." method="_on_area_body_entered"]
+[connection signal="body_exited" from="area" to="." method="_on_area_body_exited"]

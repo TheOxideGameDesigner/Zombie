@@ -114,7 +114,9 @@ offset_bottom = 285.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.76, 0.76)
-text = "godot engine license - godotengine.org/license"
+text = "godot engine license - godotengine.org/license
+godot jolt license - github.com/godot-jolt/godot-jolt/blob/master/LICENSE.txt
+godot jolt thirdparty licenses - https://github.com/godot-jolt/godot-jolt/blob/master/THIRDPARTY.txt"
 
 [node name="close_credits_button" type="Button" parent="credits"]
 layout_mode = 2

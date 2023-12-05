@@ -1,0 +1,3 @@
+godot engine license - godotengine.org/license
+godot jolt license - github.com/godot-jolt/godot-jolt/blob/master/LICENSE.txt
+godot jolt thirdparty licenses - https://github.com/godot-jolt/godot-jolt/blob/master/THIRDPARTY.txt

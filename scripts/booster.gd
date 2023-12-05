@@ -3,7 +3,7 @@ extends Node3D
 var player_inside : bool = false
 @onready var player = get_tree().get_first_node_in_group("player")
 @onready var boost_dir = -transform.basis.z
-@export var boost = 20.0
+@export var boost = 10.0
 
 func _ready():
 	$visual.set_instance_shader_parameter("texture_scale", Vector2(scale.x, scale.z))
@@ -18,15 +18,15 @@ func _ready():
 
 
 func _physics_process(delta):
-	if player_inside:
+	if player_inside and player.is_on_floor():
 		var vn = player.velocity.project(boost_dir)
 		var opposed : bool = vn.dot(boost_dir) < 0
-		if not opposed and vn.length() > boost:
+		if not opposed and vn.length() > (boost + player.SPEED * player.speed_mul):
 			return
 		player.velocity -= vn
 		if opposed:
 			vn = -vn
-		player.velocity += vn.normalized() * boost
+		player.velocity += vn.normalized() * (boost + player.SPEED * player.speed_mul)
 
 
 func _on_area_body_entered(body):

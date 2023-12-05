@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dyg3nvjddkl0a"
-path.s3tc="res://.godot/imported/2x_damage_over.png-05d7dc9b84b09fef4f199d016eb66e62.s3tc.ctex"
+uid="uid://capixq7p5v3q6"
+path.s3tc="res://.godot/imported/2x_speed_over.png-3e202e62694d711ee88b145ef672f7d0.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://textures/2x_damage_over.png"
-dest_files=["res://.godot/imported/2x_damage_over.png-05d7dc9b84b09fef4f199d016eb66e62.s3tc.ctex"]
+source_file="res://textures/2x_speed_over.png"
+dest_files=["res://.godot/imported/2x_speed_over.png-3e202e62694d711ee88b145ef672f7d0.s3tc.ctex"]
 
 [params]
 

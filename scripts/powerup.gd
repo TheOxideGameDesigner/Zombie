@@ -8,15 +8,20 @@ var player_inside : bool = false
 @onready var player = get_tree().get_first_node_in_group("player")
 
 
-func _process(delta):
-	if not player_inside:
-		return
-	
+func handle_powerup(good : bool):
+	match powerup_type:
+		0:
+			player.damage_mul = 1.0 + 1.0 * int(good)
+		1:
+			player.speed_mul = 1.0 + 1.0 * int(good)
 
 
 func _on_area_body_entered(body):
 	if body.is_in_group("player"):
 		player_inside = true
+	
+	var good : bool = good_dir.dot(player.position - position) > 0
+	handle_powerup(good)
 
 
 func _on_area_body_exited(body):
@@ -25,6 +30,4 @@ func _on_area_body_exited(body):
 	player_inside = false
 	
 	var good : bool = good_dir.dot(player.position - position) < 0
-	match powerup_type:
-		0:
-			player.damage_mul = 1.0 + 1.0 * int(good)
+	handle_powerup(good)
