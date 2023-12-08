@@ -16,3 +16,7 @@ func _ready():
 	if config_file.get_value("video", "disable_particles"):
 		for j in get_tree().get_nodes_in_group("particles"):
 			j.queue_free()
+	if ProjectSettings.get_setting("rendering/renderer/rendering_method") == "gl_compatibility":
+		for i in get_children():
+			if i is MeshInstance3D:
+				i.material_override = preload("res://resources/materials/opengl/level_mat_opengl.tres")

@@ -14,12 +14,15 @@ func _ready():
 	$visual.scale = scale
 	scale = Vector3.ONE
 	boost_dir.y = 0
-	boost_dir = boost_dir.normalized() * boost
+	boost_dir = boost_dir.normalized()
 
 
 func _physics_process(delta):
 	if player_inside and player.is_on_floor():
 		var vn = player.velocity.project(boost_dir)
+		if vn.is_zero_approx():
+			player.velocity = boost_dir * (boost + player.SPEED * player.speed_mul)
+			return
 		var opposed : bool = vn.dot(boost_dir) < 0
 		if not opposed and vn.length() > (boost + player.SPEED * player.speed_mul):
 			return

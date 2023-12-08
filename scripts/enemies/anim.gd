@@ -8,6 +8,9 @@ extends Node3D
 @onready var left_th = skel.find_bone("left_thigh")
 @onready var left_cf = skel.find_bone("left_calf")
 
+@onready var init_right_thigh_rot = skel.get_bone_pose_rotation(right_th).get_euler().x
+@onready var init_left_thigh_rot = skel.get_bone_pose_rotation(left_th).get_euler().x
+
 var anim_timer = 0.0
 var anim_speed = 0.0
 var anim_amplitude = PI / 6
@@ -48,12 +51,12 @@ func _process(delta):
 	if not actually_legs_playing:
 		position.y = 0.0
 		ang = 0.0
-	skel.set_bone_pose_rotation(right_th, Quaternion.from_euler(Vector3(PI / 2, ang, 0)))
-	skel.set_bone_pose_rotation(left_th, Quaternion.from_euler(Vector3(-PI / 2, ang, 0)))
+	skel.set_bone_pose_rotation(right_th, Quaternion.from_euler(Vector3(init_right_thigh_rot, 0, ang)))
+	skel.set_bone_pose_rotation(left_th, Quaternion.from_euler(Vector3(init_left_thigh_rot, 0, -ang)))
 	if is_zero_approx(ang):
 		skel.set_bone_pose_rotation(right_cf, Quaternion.from_euler(Vector3(0, 0, 0)))
 		skel.set_bone_pose_rotation(left_cf, Quaternion.from_euler(Vector3(0, 0, 0)))
-	elif ang < 0:
-		skel.set_bone_pose_rotation(right_cf, Quaternion.from_euler(Vector3(0, 0, -ang)))
 	elif ang > 0:
-		skel.set_bone_pose_rotation(left_cf, Quaternion.from_euler(Vector3(0, 0, ang)))
+		skel.set_bone_pose_rotation(right_cf, Quaternion.from_euler(Vector3(0, 0, ang)))
+	else:
+		skel.set_bone_pose_rotation(left_cf, Quaternion.from_euler(Vector3(0, 0, -ang)))

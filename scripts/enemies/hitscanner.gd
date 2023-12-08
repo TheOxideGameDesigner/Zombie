@@ -399,7 +399,7 @@ func _physics_process(delta):
 			if aim_timer <= 0.0:
 				hit_timer -= delta
 				if hit_timer <= 0.2 and not mesh_body.is_playing():
-					mesh_body.play("hitting", 4)
+					mesh_body.play("hitting", 2.5)
 					fire()
 					hit_timer = HIT_TIME
 			else:

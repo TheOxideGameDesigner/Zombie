@@ -14,6 +14,8 @@ func handle_powerup(good : bool):
 			player.damage_mul = 1.0 + 1.0 * int(good)
 		1:
 			player.speed_mul = 1.0 + 1.0 * int(good)
+			if not good:
+				player.velocity = player.velocity.normalized() * max(player.SPEED, player.velocity.length() - player.SPEED)
 
 
 func _on_area_body_entered(body):

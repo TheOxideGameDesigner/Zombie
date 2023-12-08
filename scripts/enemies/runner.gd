@@ -427,7 +427,7 @@ func _physics_process(delta):
 				player.warning.modulate.a = 1.0
 			hit_timer -= delta
 			if hit_timer <= 0.35 and not mesh_body.is_playing():
-				mesh_body.play("hitting", 10)
+				mesh_body.play("hitting", 4)
 			if hit_timer <= 0:
 				player.pain(HIT_DAMAGE)
 				hit_timer = HIT_TIME
@@ -438,7 +438,7 @@ func _physics_process(delta):
 		var vel_dir = Vector3.MODEL_FRONT.rotated(Vector3.UP, mesh.rotation.y)
 		if dist_from_player < 0.2:
 			vel_dir = Vector3.ZERO
-		velocity = SPEED * (vel_dir + push_vel).normalized()
+		velocity = SPEED * vel_dir.normalized() + push_vel
 		
 		if climbing:
 			y_vel = CLIMB_SPEED

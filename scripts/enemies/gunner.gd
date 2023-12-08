@@ -152,7 +152,7 @@ func add_particles(edmg):
 		new_blood.spread = 180
 	new_blood.speed = clamp(edmg / 10, 1, 10)
 	add_child(new_blood)
-	new_blood.position = position + Vector3(0, 1.5, 0) + new_blood.dir.normalized() * 0.5
+	new_blood.position = position + Vector3(0, 1.5, 0) + new_blood.dir.normalized() * 0.35
 	new_blood.amount = clamp(edmg / 2, 5, 50)
 
 
@@ -284,13 +284,13 @@ func _physics_process(delta):
 
 
 func _on_hit_timer_timeout():
-	mesh_body.play("shooting", 3.5)
+	mesh_body.play("shooting", 1.5)
 	var new_rocket = rocket.instantiate()
 	new_rocket.player = player
 	add_child(new_rocket)
 	new_rocket.SPEED = ROCKET_SPEED
 	new_rocket.set_vel(player.position - position)
-	new_rocket.position = mesh.to_global(Vector3(0.151, 1.398, 1.613))
+	new_rocket.position = mesh.to_global(Vector3(0.1,1.156,1.474))
 	new_rocket.top_level = 1
 
 

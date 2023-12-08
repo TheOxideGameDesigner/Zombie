@@ -23,7 +23,7 @@ const JUMP_SPEED = 4
 const GR_ACCEL = 9.8
 const TERMINAL_VEL = 30
 
-const SWAY = 0.002
+const SWAY = 0.001
 const SWAY_MAX = 2
 const SWAY_VERICAL = 0.7
 const SWAY_RETURN = 3
@@ -40,7 +40,7 @@ const SHOTGUN_FALLOFF = 0.25
 const SHOTGUN_COOLDOWN = 1.8
 const CANNONBOMB_FORCE = 15
 const CANNONBALL_CHARGE_TIME = 3
-const CANNONBOMB_CHARGE_TIME = 5
+const CANNONBOMB_CHARGE_TIME = 6
 const BLASTER_DAMAGE = 20
 const BLASTER_SELF_DAMAGE_LOW = 1
 const BLASTER_SELF_DAMAGE_HIGH = 2
@@ -58,6 +58,7 @@ var speed_mul = 1.0
 const MIN_HIT_DOT_PROD = 0.2
 
 var can_jump = 1
+var ramp_vel = 0.0
 
 var holstering = 0
 var cooldown_timers = [0, 0, 0, 0]
@@ -103,7 +104,6 @@ var particles_scene = preload("res://scenes/environment/blood_particles.tscn")
 @onready var shotgun_mf = $cam/camera/vp_cont/vp/gun_cam/viewmodel/shotgun_viewmodel/shotgun_mf
 
 @onready var viewmodel_pos = Vector3.ZERO
-@onready var viewmodel_rot = Vector3.ZERO
 
 @onready var enemies = get_tree().get_nodes_in_group("enemy")
 
@@ -129,6 +129,10 @@ var revolver_anim_timer = 0.0
 @onready var revolver_cylinder = $cam/camera/vp_cont/vp/gun_cam/viewmodel/revolver_viewmodel/revolver_cylinder
 var shotgun_anim_timer = 0.0
 @onready var left_hand = $cam/camera/vp_cont/vp/gun_cam/viewmodel/shotgun_viewmodel/left_hand
+var viewmodel_offset = 0.0
+var viewmodel_offset_sign = 1
+var viewmodel_y_bump = 0.0
+var viewmodel_y_bump_lerped = 0.0
 
 
 var time = 0
@@ -398,10 +402,12 @@ func movement(wishdir, delta):
 	if can_jump:
 		if is_on_floor():
 			if Input.is_action_pressed("g_jump"):
-				velocity.y = JUMP_SPEED
+				velocity.y = JUMP_SPEED + clamp(0.0, ramp_vel, 2.0)
+				viewmodel_y_bump = 1.0
 		elif Input.is_action_just_pressed("g_jump"):
 			can_jump = 0
 			velocity.y = max(velocity.y, JUMP_SPEED)
+			viewmodel_y_bump = 1.0
 			if wishdir != Vector2.ZERO:
 				var vel_length = Vector2(velocity.x, velocity.z).length()
 				velocity.x = wishdir.x * vel_length
@@ -650,8 +656,7 @@ func _physics_process(delta):
 			holstering = 0
 			update_wpn()
 	
-	viewmodel.position = viewmodel_pos
-	viewmodel.rotation = viewmodel_rot
+	viewmodel.position = viewmodel_pos + 0.05 * Vector3(cos(viewmodel_offset + PI / 2), 1 - sin(viewmodel_offset + PI / 2) - viewmodel_y_bump_lerped, 0)
 	
 	gun_cam.position = position
 	gun_cam.rotation = cam.global_rotation
@@ -670,5 +675,26 @@ func _physics_process(delta):
 		wishdir += Vector2(1, 0)
 	wishdir = wishdir.normalized().rotated(-cam.rotation.y)
 	
+	var prev_h = position.y
+	var prev_y_vel = velocity.y
+	var prev_on_floor = is_on_floor()
 	movement(wishdir, delta)
+	if not prev_on_floor and is_on_floor() and prev_y_vel < -20:
+		camera.shake(0.4, 0.75, 0.025)
+	ramp_vel = (position.y - prev_h) / delta
+	
+	var bobbing = is_on_floor() and wishdir != Vector2.ZERO
+	if abs(viewmodel_offset) > 0.1 or bobbing:
+		var mul = 1.0
+		if not bobbing:
+			mul = min(1.0, abs(viewmodel_offset))
+			if viewmodel_offset * viewmodel_offset_sign > 0:
+				viewmodel_offset_sign = -viewmodel_offset_sign
+		viewmodel_offset += delta * viewmodel_offset_sign * 4 * mul * speed_mul
+	if viewmodel_offset > 1 or viewmodel_offset < -1:
+		viewmodel_offset_sign = -viewmodel_offset_sign
+	viewmodel_y_bump_lerped = lerp(viewmodel_y_bump_lerped, viewmodel_y_bump * 1.5, min(delta * 15, 0.1))
+	if viewmodel_y_bump > 0.0:
+		viewmodel_y_bump -= delta * 3
+	
 	cam.position = global_position + Vector3(0, 1.2, 0)

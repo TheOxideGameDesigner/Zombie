@@ -28,7 +28,7 @@ rings = 10
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_8aeiy"]
 top_radius = 0.05
-bottom_radius = 0.05
+bottom_radius = 0.03
 height = 1.0
 radial_segments = 4
 rings = 1
@@ -102,7 +102,7 @@ font_size = 64
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.113851, 0.403979, 0.83278)
 
 [node name="ribbon_mesh" type="MeshInstance3D" parent="mesh/ribbon"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0.5)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.0310309, 0.239662, 0.5)
 cast_shadow = 0
 mesh = SubResource("CylinderMesh_8aeiy")
 

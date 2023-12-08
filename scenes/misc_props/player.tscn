@@ -211,6 +211,7 @@ mesh = SubResource("CylinderMesh_ichw5")
 
 [node name="revolver_cylinder" type="MeshInstance3D" parent="cam/camera/opengl_viewmodels/revolver_viewmodel"]
 transform = Transform3D(0.680848, 0, 0, 0, 0.680848, 0, 0, 0, 0.990664, 0.138955, 0.50704, 0.74691)
+cast_shadow = 0
 mesh = ExtResource("8_d566w")
 
 [node name="shotgun_viewmodel" type="MeshInstance3D" parent="cam/camera/opengl_viewmodels"]
@@ -248,16 +249,19 @@ mesh = SubResource("CylinderMesh_ichw5")
 [node name="left_hand" type="MeshInstance3D" parent="cam/camera/opengl_viewmodels/shotgun_viewmodel"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.187236)
 material_override = ExtResource("4_vy1hd")
+cast_shadow = 0
 mesh = ExtResource("10_i1brf")
 
 [node name="cannon_viewmodel" type="MeshInstance3D" parent="cam/camera/opengl_viewmodels"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.6167, -0.30835, -0.495835)
 visible = false
+cast_shadow = 0
 mesh = SubResource("CylinderMesh_iqnu7")
 
 [node name="blaster_viewmodel" type="MeshInstance3D" parent="cam/camera/opengl_viewmodels"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.615999, -0.243835, -0.533424)
 visible = false
+cast_shadow = 0
 mesh = SubResource("BoxMesh_s6exb")
 
 [node name="blood" type="Sprite2D" parent="."]
@@ -370,6 +374,7 @@ script = ExtResource("27_56fgp")
 [node name="pause_panel" type="Panel" parent="pause_handler"]
 visible = false
 self_modulate = Color(1, 1, 1, 0.282353)
+z_index = 2
 texture_filter = 1
 offset_left = -234.0
 offset_top = -81.0
@@ -495,6 +500,7 @@ offset_bottom = -79.0001
 grow_vertical = 0
 pivot_offset = Vector2(0, 90)
 color = Color(0, 0.470588, 1, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="eye_of_anubis" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0)

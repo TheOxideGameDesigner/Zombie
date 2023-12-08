@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://uhxutwa1l0tt"]
+
+[ext_resource type="Shader" path="res://resources/materials/opengl/level_mat_opengl.gdshader" id="1_ipbs8"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_ipbs8")
