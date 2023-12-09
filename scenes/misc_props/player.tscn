@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://4px2n2dg363l"]
+[gd_scene load_steps=28 format=3 uid="uid://4px2n2dg363l"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_p5l8k"]
 [ext_resource type="Script" path="res://scripts/physics_lerp.gd" id="2_21672"]
@@ -24,6 +24,10 @@
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_wtg6y"]
 height = 1.7
 radius = 0.475
+
+[sub_resource type="Environment" id="Environment_uym8g"]
+background_mode = 1
+background_color = Color(0.6, 0.6, 0.6, 1)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_wsw6g"]
 material = ExtResource("5_gpip3")
@@ -99,6 +103,7 @@ render_target_update_mode = 4
 [node name="gun_cam" type="Camera3D" parent="cam/camera/vp_cont/vp"]
 top_level = true
 cull_mask = 32
+environment = SubResource("Environment_uym8g")
 fov = 90.0
 near = 0.01
 far = 100.0
@@ -188,80 +193,6 @@ mesh = SubResource("CylinderMesh_iqnu7")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.615999, -0.243835, -0.533424)
 visible = false
 layers = 32
-mesh = SubResource("BoxMesh_s6exb")
-
-[node name="opengl_viewmodels" type="Node3D" parent="cam/camera"]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
-
-[node name="revolver_viewmodel" type="MeshInstance3D" parent="cam/camera/opengl_viewmodels"]
-transform = Transform3D(-0.25, 0, -3.7749e-08, 0, 0.25, 0, 3.7749e-08, 0, -0.25, 0.683767, -0.382463, -0.578)
-material_override = ExtResource("4_vy1hd")
-cast_shadow = 0
-mesh = ExtResource("3_5qgrc")
-
-[node name="revolver_mf" type="MeshInstance3D" parent="cam/camera/opengl_viewmodels/revolver_viewmodel"]
-transform = Transform3D(0.249, 6.39488e-14, -2.5411e-21, 0, -1.63043e-08, -0.342, -4.26326e-14, 0.373, -1.49493e-08, 0.152559, 0.608522, 2.11548)
-cast_shadow = 0
-mesh = SubResource("CylinderMesh_wsw6g")
-
-[node name="revolver_mf2" type="MeshInstance3D" parent="cam/camera/opengl_viewmodels/revolver_viewmodel/revolver_mf"]
-transform = Transform3D(0.6, 2.13163e-14, -1.27055e-21, -2.4869e-14, 0.6, 1.95399e-14, 1.48231e-21, -2.4869e-14, 0.6, 0, 0, 0)
-cast_shadow = 0
-mesh = SubResource("CylinderMesh_ichw5")
-
-[node name="revolver_cylinder" type="MeshInstance3D" parent="cam/camera/opengl_viewmodels/revolver_viewmodel"]
-transform = Transform3D(0.680848, 0, 0, 0, 0.680848, 0, 0, 0, 0.990664, 0.138955, 0.50704, 0.74691)
-cast_shadow = 0
-mesh = ExtResource("8_d566w")
-
-[node name="shotgun_viewmodel" type="MeshInstance3D" parent="cam/camera/opengl_viewmodels"]
-transform = Transform3D(-0.25, 0, -3.7749e-08, 0, 0.25, 0, 3.7749e-08, 0, -0.25, 0.683384, -0.395841, -0.58316)
-visible = false
-material_override = ExtResource("4_vy1hd")
-cast_shadow = 0
-mesh = ExtResource("9_1tk0r")
-skeleton = NodePath("../revolver_viewmodel")
-
-[node name="shotgun_mf" type="Node3D" parent="cam/camera/opengl_viewmodels/shotgun_viewmodel"]
-transform = Transform3D(1, 0, 5.68434e-14, 0, 1, 0, -5.68434e-14, 0, 1, -0.0204172, 2.03999, 2.85881)
-visible = false
-
-[node name="revolver_mf1" type="MeshInstance3D" parent="cam/camera/opengl_viewmodels/shotgun_viewmodel/shotgun_mf"]
-transform = Transform3D(0.266, 8.89931e-14, -3.16856e-21, 0, -1.74408e-08, -0.325, -5.93287e-14, 0.399, -1.42062e-08, 0.150956, -1.42867, 0.418)
-cast_shadow = 0
-mesh = SubResource("CylinderMesh_wsw6g")
-
-[node name="revolver_mf12" type="MeshInstance3D" parent="cam/camera/opengl_viewmodels/shotgun_viewmodel/shotgun_mf/revolver_mf1"]
-transform = Transform3D(0.6, 2.13163e-14, -1.27055e-21, -2.4869e-14, 0.6, 1.95399e-14, 1.48231e-21, -2.4869e-14, 0.6, 0, 0, 0)
-cast_shadow = 0
-mesh = SubResource("CylinderMesh_ichw5")
-
-[node name="revolver_mf2" type="MeshInstance3D" parent="cam/camera/opengl_viewmodels/shotgun_viewmodel/shotgun_mf"]
-transform = Transform3D(0.266, 9.23706e-14, -3.17637e-21, 0, -1.74408e-08, -0.325, -6.03961e-14, 0.399, -1.42062e-08, 0.150955, -1.64329, 0.418)
-cast_shadow = 0
-mesh = SubResource("CylinderMesh_wsw6g")
-
-[node name="revolver_mf12" type="MeshInstance3D" parent="cam/camera/opengl_viewmodels/shotgun_viewmodel/shotgun_mf/revolver_mf2"]
-transform = Transform3D(0.6, 2.13163e-14, -1.27055e-21, -2.4869e-14, 0.6, 1.95399e-14, 1.48231e-21, -2.4869e-14, 0.6, 0, 0, 0)
-cast_shadow = 0
-mesh = SubResource("CylinderMesh_ichw5")
-
-[node name="left_hand" type="MeshInstance3D" parent="cam/camera/opengl_viewmodels/shotgun_viewmodel"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.187236)
-material_override = ExtResource("4_vy1hd")
-cast_shadow = 0
-mesh = ExtResource("10_i1brf")
-
-[node name="cannon_viewmodel" type="MeshInstance3D" parent="cam/camera/opengl_viewmodels"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.6167, -0.30835, -0.495835)
-visible = false
-cast_shadow = 0
-mesh = SubResource("CylinderMesh_iqnu7")
-
-[node name="blaster_viewmodel" type="MeshInstance3D" parent="cam/camera/opengl_viewmodels"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.615999, -0.243835, -0.533424)
-visible = false
-cast_shadow = 0
 mesh = SubResource("BoxMesh_s6exb")
 
 [node name="blood" type="Sprite2D" parent="."]

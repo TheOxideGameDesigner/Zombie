@@ -141,8 +141,6 @@ var damage_taken : int = 0
 @onready var charge_rect = $charge/charge_rect
 var charge_rect_time = 5
 
-var is_opengl
-
 
 func get_garlic():
 	has_garlic = 1
@@ -473,12 +471,6 @@ func movement(wishdir, delta):
 
 
 func _ready():
-	is_opengl = ProjectSettings.get_setting("rendering/renderer/rendering_method") == "gl_compatibility"
-	if is_opengl:
-		$cam/camera/vp_cont.visible = 0
-	else:
-		$cam/camera/opengl_viewmodels.queue_free()
-	
 	if environment != null:
 		camera.environment = environment
 	
@@ -630,11 +622,6 @@ func _process(delta):
 	shotgun_mf_timer = max(0, shotgun_mf_timer - delta)
 	revolver_mf.visible = (revolver_mf_timer != 0 and not holstering)
 	shotgun_mf.visible = (shotgun_mf_timer != 0 and not holstering)
-	if is_opengl:
-		$cam/camera/opengl_viewmodels/revolver_viewmodel.visible = (wpn == 1)
-		$cam/camera/opengl_viewmodels/shotgun_viewmodel.visible = (wpn == 2)
-		$cam/camera/opengl_viewmodels/cannon_viewmodel.visible = (wpn == 3)
-		$cam/camera/opengl_viewmodels/blaster_viewmodel.visible = (wpn == 4)
 
 
 func viewmodel_rot_func(t, dt, g):
