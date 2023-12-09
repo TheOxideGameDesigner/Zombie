@@ -397,7 +397,7 @@ func _physics_process(delta):
 	
 	var on_screen
 	if is_opengl:
-		on_screen = dir2player2D.dot(Vector2(0, -1).rotated(player.cam.rotation.y)) > 0
+		on_screen = dir2player2D.dot(player_dir2D) > 0
 	else:
 		on_screen = is_visible.is_on_screen()
 	

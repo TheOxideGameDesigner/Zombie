@@ -18,5 +18,10 @@ func _ready():
 			j.queue_free()
 	if ProjectSettings.get_setting("rendering/renderer/rendering_method") == "gl_compatibility":
 		for i in get_children():
-			if i is MeshInstance3D:
-				i.material_override = preload("res://resources/materials/opengl/level_mat_opengl.tres")
+			if not i is MeshInstance3D:
+				continue
+			if not i.material_override is StandardMaterial3D:
+				continue
+			if i.material_override.shading_mode == StandardMaterial3D.SHADING_MODE_UNSHADED:
+				continue
+			i.material_override = preload("res://resources/materials/opengl/level_mat_opengl.tres")
