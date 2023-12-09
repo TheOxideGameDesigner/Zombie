@@ -33,7 +33,7 @@ size = Vector3(7.32524, 8.28931, 11.9476)
 [sub_resource type="BoxShape3D" id="BoxShape3D_41p50"]
 size = Vector3(46.0343, 12.1328, 35.744)
 
-[node name="level1" type="Node3D"]
+[node name="level2" type="Node3D"]
 script = ExtResource("1_g6ng6")
 
 [node name="level_visual" type="MeshInstance3D" parent="."]
@@ -65,7 +65,7 @@ mesh = ExtResource("8_8bjm1")
 script = ExtResource("9_h43kp")
 
 [node name="light" type="DirectionalLight3D" parent="." groups=["light"]]
-transform = Transform3D(0.194271, 0.790926, -0.580254, -0.0895922, 0.603358, 0.792422, 0.976848, -0.101958, 0.188076, 12.5, 42.9725, -8.34864)
+transform = Transform3D(-0.549704, 0.804719, -0.22417, 0.114268, 0.338265, 0.934088, 0.827507, 0.487856, -0.277899, 12.5, 42.9725, -8.34864)
 light_bake_mode = 0
 shadow_enabled = true
 shadow_bias = 0.01

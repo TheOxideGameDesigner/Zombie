@@ -1,14 +1,10 @@
 shader_type spatial;
 render_mode specular_disabled;
 
-float srgb2lin(float s)
-{
-	if (s <= 0.0404482362771082)
-		return s / 12.92;
-	return pow(((s + 0.055) / 1.055), 2.4);
+void fragment() {
+	ALBEDO = COLOR.rgb;
 }
 
-void fragment() {
-	float a = 0.72f;
-	ALBEDO = COLOR.rgb * a;
+void light() {
+	DIFFUSE_LIGHT += clamp(dot(NORMAL, LIGHT), 0.0, 1.0) * ATTENUATION * LIGHT_COLOR * 0.1f;
 }
