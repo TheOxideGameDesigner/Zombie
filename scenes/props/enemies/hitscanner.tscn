@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://d2ya5fu74vom0"]
+[gd_scene load_steps=16 format=3 uid="uid://d2ya5fu74vom0"]
 
 [ext_resource type="Script" path="res://scripts/enemies/hitscanner.gd" id="1_t2xa8"]
 [ext_resource type="PackedScene" uid="uid://b1tai2e1cohl5" path="res://scenes/environment/gibs/hitscanner.tscn" id="2_ohb4a"]
+[ext_resource type="PackedScene" uid="uid://y4rowxxduukc" path="res://scenes/environment/gibs/hitscanner_standing.tscn" id="3_npsvl"]
 [ext_resource type="PackedScene" uid="uid://d4k7qjsc8bglc" path="res://scenes/enemy_home.tscn" id="3_qs300"]
 [ext_resource type="Script" path="res://scripts/physics_lerp.gd" id="4_swmcv"]
 [ext_resource type="Texture2D" uid="uid://dsi7k27hhox0v" path="res://textures/alerted.png" id="5_oinvm"]
@@ -39,6 +40,7 @@ collision_layer = 2
 collision_mask = 257
 script = ExtResource("1_t2xa8")
 gibs = ExtResource("2_ohb4a")
+gibs_standing = ExtResource("3_npsvl")
 respawn_time = 10.0
 
 [node name="hitbox" type="CollisionShape3D" parent="."]

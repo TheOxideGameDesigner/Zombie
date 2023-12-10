@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cda2ifoxwyvwh"
+path="res://.godot/imported/pistol.obj-58e176e86c31abd2b94b70655b0d258d.mesh"
+
+[deps]
+
+files=["res://.godot/imported/pistol.obj-58e176e86c31abd2b94b70655b0d258d.mesh"]
+
+source_file="res://models/gibs/mountainside_hitscanner/pistol.obj"
+dest_files=["res://.godot/imported/pistol.obj-58e176e86c31abd2b94b70655b0d258d.mesh", "res://.godot/imported/pistol.obj-58e176e86c31abd2b94b70655b0d258d.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

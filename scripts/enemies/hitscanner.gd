@@ -66,6 +66,7 @@ var bump_timers : Array[float] = []
 var mesh_material = preload("res://resources/materials/enemy_mat.tres")
 var blood = preload("res://scenes/environment/blood_particles.tscn")
 @export var gibs : PackedScene
+@export var gibs_standing : PackedScene
 @onready var body = $mesh/mountainside_hitscanner/Armature/Skeleton3D/runner_body
 
 @onready var init_mesh_pos = $mesh.global_position - position
@@ -194,7 +195,11 @@ func add_particles(edmg):
 func add_gibs(dmg):
 	if disable_gibs or get_tree().current_scene == null:
 		return
-	var new_gibs = gibs.instantiate()
+	var new_gibs
+	if dist_from_player3d < HIT_RANGE:
+		new_gibs = gibs.instantiate()
+	else:
+		new_gibs = gibs_standing.instantiate()
 	new_gibs.position = position
 	new_gibs.rotation.y = mesh.rotation.y
 	get_tree().current_scene.add_child(new_gibs)

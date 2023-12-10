@@ -1,20 +1,21 @@
-[gd_scene load_steps=18 format=3 uid="uid://drygiqwrpy1uk"]
+[gd_scene load_steps=20 format=3 uid="uid://y4rowxxduukc"]
 
-[ext_resource type="Script" path="res://scripts/environment/gibs.gd" id="1_duuvm"]
-[ext_resource type="ArrayMesh" uid="uid://dea8arvxjnetg" path="res://models/gibs/mountainside_runner/torso.obj" id="2_ic86q"]
-[ext_resource type="Material" uid="uid://uxn8fucitgfr" path="res://resources/materials/level_mat.tres" id="3_7b2af"]
-[ext_resource type="Script" path="res://scripts/physics_lerp.gd" id="4_jis8f"]
-[ext_resource type="ArrayMesh" uid="uid://b2cqmdnhycr61" path="res://models/gibs/mountainside_runner/thigh.obj" id="5_cmka1"]
-[ext_resource type="ArrayMesh" uid="uid://26j8bk1u8yqg" path="res://models/gibs/mountainside_runner/calf.obj" id="6_xpqyw"]
-[ext_resource type="ArrayMesh" uid="uid://dy14m45o2oha5" path="res://models/gibs/mountainside_runner/upper_arm.obj" id="7_cquk5"]
-[ext_resource type="ArrayMesh" uid="uid://fqap4w5us62l" path="res://models/gibs/mountainside_runner/forearm.obj" id="8_y2lbv"]
-[ext_resource type="ArrayMesh" uid="uid://mf81un6axcrg" path="res://models/gibs/mountainside_runner/head.obj" id="9_u1dre"]
+[ext_resource type="Script" path="res://scripts/environment/gibs.gd" id="1_msvds"]
+[ext_resource type="ArrayMesh" uid="uid://dq8ka54kwjqe5" path="res://models/gibs/mountainside_hitscanner/torso.obj" id="2_lq5kb"]
+[ext_resource type="Material" uid="uid://uxn8fucitgfr" path="res://resources/materials/level_mat.tres" id="3_of3ll"]
+[ext_resource type="Script" path="res://scripts/physics_lerp.gd" id="4_gcr3r"]
+[ext_resource type="ArrayMesh" uid="uid://bgwglwdvbyqsx" path="res://models/gibs/mountainside_hitscanner/thigh.obj" id="5_a6ryp"]
+[ext_resource type="ArrayMesh" uid="uid://c6yebf3nidkec" path="res://models/gibs/mountainside_hitscanner/calf.obj" id="6_pty52"]
+[ext_resource type="ArrayMesh" uid="uid://bmw07a0u040q3" path="res://models/gibs/mountainside_hitscanner/upper_arm.obj" id="7_je2i3"]
+[ext_resource type="ArrayMesh" uid="uid://cwsqggklkubka" path="res://models/gibs/mountainside_hitscanner/forearm.obj" id="8_c32tw"]
+[ext_resource type="ArrayMesh" uid="uid://btvu4i1mprrsu" path="res://models/gibs/mountainside_hitscanner/head.obj" id="9_qm6y2"]
+[ext_resource type="ArrayMesh" uid="uid://cda2ifoxwyvwh" path="res://models/gibs/mountainside_hitscanner/pistol.obj" id="10_q5oba"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_j7bta"]
 friction = 10.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qca70"]
-size = Vector3(0.437247, 0.740134, 0.166147)
+size = Vector3(0.437247, 0.72323, 0.192514)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ocy1n"]
 radius = 0.0726471
@@ -22,30 +23,32 @@ height = 0.491767
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_a2giw"]
 radius = 0.0846206
-height = 0.506354
+height = 0.482545
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_npxxc"]
 radius = 0.0778896
 height = 0.351402
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_04dy3"]
-radius = 0.0515389
-height = 0.371689
+radius = 0.0750548
+height = 0.408537
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4kcti"]
-radius = 0.0653889
+radius = 0.0666962
 height = 0.46425
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rldci"]
-radius = 0.14405
-height = 0.442724
+[sub_resource type="SphereShape3D" id="SphereShape3D_jqlia"]
+radius = 0.179548
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5r86h"]
+size = Vector3(0.0534058, 0.104004, 0.196716)
 
 [node name="moutainside_runner" type="Node3D"]
 top_level = true
-script = ExtResource("1_duuvm")
+script = ExtResource("1_msvds")
 
 [node name="RigidBody3D" type="RigidBody3D" parent="." groups=["rigid_body"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0316957, 1.30141, 0.0534205)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0316957, 1.35487, 0.0534205)
 collision_layer = 16
 collision_mask = 17
 physics_material_override = SubResource("PhysicsMaterial_j7bta")
@@ -53,21 +56,21 @@ freeze = true
 metadata/_edit_group_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0345165, 0.00397176)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00370431, -0.0011373)
 shape = SubResource("BoxShape3D_qca70")
 
 [node name="Torso" type="MeshInstance3D" parent="RigidBody3D"]
 top_level = true
-material_override = ExtResource("3_7b2af")
-mesh = ExtResource("2_ic86q")
+mesh = ExtResource("2_lq5kb")
 skeleton = NodePath("../..")
-script = ExtResource("4_jis8f")
+surface_material_override/0 = ExtResource("3_of3ll")
+script = ExtResource("4_gcr3r")
 enable_rot = true
 global = true
 of_parent = true
 
 [node name="RigidBody3D2" type="RigidBody3D" parent="." groups=["rigid_body"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0942514, 0.719884, 0.0600371)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0942514, 0.719884, 0.110448)
 collision_layer = 16
 collision_mask = 17
 physics_material_override = SubResource("PhysicsMaterial_j7bta")
@@ -80,10 +83,10 @@ shape = SubResource("CapsuleShape3D_ocy1n")
 
 [node name="Thigh" type="MeshInstance3D" parent="RigidBody3D2"]
 top_level = true
-material_override = ExtResource("3_7b2af")
-mesh = ExtResource("5_cmka1")
+mesh = ExtResource("5_a6ryp")
 skeleton = NodePath("../..")
-script = ExtResource("4_jis8f")
+surface_material_override/0 = ExtResource("3_of3ll")
+script = ExtResource("4_gcr3r")
 enable_rot = true
 global = true
 of_parent = true
@@ -105,17 +108,18 @@ transform = Transform3D(0.999851, -0.0174523, 3.57186e-08, -3.52734e-08, 2.58162
 shape = SubResource("CapsuleShape3D_npxxc")
 
 [node name="Calf" type="MeshInstance3D" parent="RigidBody3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0192993, 0)
 top_level = true
-material_override = ExtResource("3_7b2af")
-mesh = ExtResource("6_xpqyw")
+mesh = ExtResource("6_pty52")
 skeleton = NodePath("../..")
-script = ExtResource("4_jis8f")
+surface_material_override/0 = ExtResource("3_of3ll")
+script = ExtResource("4_gcr3r")
 enable_rot = true
 global = true
 of_parent = true
 
 [node name="RigidBody3D4" type="RigidBody3D" parent="." groups=["rigid_body"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.128329, 0.716816, 0.0600371)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.128329, 0.716816, 0.105479)
 collision_layer = 16
 collision_mask = 17
 physics_material_override = SubResource("PhysicsMaterial_j7bta")
@@ -128,16 +132,16 @@ shape = SubResource("CapsuleShape3D_ocy1n")
 
 [node name="Thigh2" type="MeshInstance3D" parent="RigidBody3D4"]
 top_level = true
-material_override = ExtResource("3_7b2af")
-mesh = ExtResource("5_cmka1")
+mesh = ExtResource("5_a6ryp")
 skeleton = NodePath("../..")
-script = ExtResource("4_jis8f")
+surface_material_override/0 = ExtResource("3_of3ll")
+script = ExtResource("4_gcr3r")
 enable_rot = true
 global = true
 of_parent = true
 
 [node name="RigidBody3D5" type="RigidBody3D" parent="." groups=["rigid_body"]]
-transform = Transform3D(-0.999846, 0, 0.0175397, 0, 1, 0, -0.0175397, 0, -0.999846, -0.129368, 0.281508, -0.00299543)
+transform = Transform3D(-0.999846, 0, 0.0175397, 0, 1, 0, -0.0175397, 0, -0.999846, -0.129368, 0.281508, -0.0165761)
 collision_layer = 16
 collision_mask = 17
 physics_material_override = SubResource("PhysicsMaterial_j7bta")
@@ -153,17 +157,18 @@ transform = Transform3D(0.999851, -0.0174523, 3.57186e-08, -3.52734e-08, 2.58162
 shape = SubResource("CapsuleShape3D_npxxc")
 
 [node name="Calf2" type="MeshInstance3D" parent="RigidBody3D5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0192993, 0)
 top_level = true
-material_override = ExtResource("3_7b2af")
-mesh = ExtResource("6_xpqyw")
+mesh = ExtResource("6_pty52")
 skeleton = NodePath("../..")
-script = ExtResource("4_jis8f")
+surface_material_override/0 = ExtResource("3_of3ll")
+script = ExtResource("4_gcr3r")
 enable_rot = true
 global = true
 of_parent = true
 
 [node name="RigidBody3D6" type="RigidBody3D" parent="." groups=["rigid_body"]]
-transform = Transform3D(0.0959073, -0.0128453, 0.995308, 0.00123206, 0.999918, 0.0127861, -0.99539, 0, 0.0959152, 0.224319, 1.5761, 0.290982)
+transform = Transform3D(-0.53942, -0.257648, 0.801651, 0.840297, -0.103537, 0.532149, -0.0541068, 0.960676, 0.272351, 0.357955, 1.54189, 0.0694639)
 collision_layer = 16
 collision_mask = 17
 physics_material_override = SubResource("PhysicsMaterial_j7bta")
@@ -175,19 +180,17 @@ transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0.0
 shape = SubResource("CapsuleShape3D_04dy3")
 
 [node name="UpperArm" type="MeshInstance3D" parent="RigidBody3D6"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 9.31323e-10, 1, 0, 0, 0)
 top_level = true
-material_override = ExtResource("3_7b2af")
-mesh = ExtResource("7_cquk5")
+mesh = ExtResource("7_je2i3")
 skeleton = NodePath("../..")
-surface_material_override/0 = ExtResource("3_7b2af")
-script = ExtResource("4_jis8f")
+surface_material_override/0 = ExtResource("3_of3ll")
+script = ExtResource("4_gcr3r")
 enable_rot = true
 global = true
 of_parent = true
 
 [node name="RigidBody3D7" type="RigidBody3D" parent="." groups=["rigid_body"]]
-transform = Transform3D(0.036103, 0, 0.999348, 0, 1, 0, -0.999348, 0, 0.036103, 0.177331, 1.50888, 0.713238)
+transform = Transform3D(-0.135284, -0.00861894, 0.99077, 0.990514, 0.0231595, 0.13545, -0.0241132, 0.999695, 0.00540407, 0.484387, 1.11243, 0.069896)
 collision_layer = 16
 collision_mask = 17
 physics_material_override = SubResource("PhysicsMaterial_j7bta")
@@ -195,22 +198,21 @@ freeze = true
 metadata/_edit_group_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D7"]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -3.33067e-16, 0, 1, -0.0233167, 0.0179348, -0.0179687)
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.0120026, 0.0179348, 0.00195742)
 shape = SubResource("CapsuleShape3D_4kcti")
 
 [node name="Forearm" type="MeshInstance3D" parent="RigidBody3D7"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000709355, 0, -0.0196357)
 top_level = true
-material_override = ExtResource("3_7b2af")
-mesh = ExtResource("8_y2lbv")
+mesh = ExtResource("8_c32tw")
 skeleton = NodePath("../..")
-script = ExtResource("4_jis8f")
+surface_material_override/0 = ExtResource("3_of3ll")
+script = ExtResource("4_gcr3r")
 enable_rot = true
 global = true
 of_parent = true
 
 [node name="RigidBody3D8" type="RigidBody3D" parent="." groups=["rigid_body"]]
-transform = Transform3D(0.0959152, 0, 0.99539, 0, 1, 0, -0.99539, 0, 0.0959152, -0.301461, 1.61891, 0.290982)
+transform = Transform3D(0.424036, 0.0697777, 0.902954, 0.899398, 0.0844668, -0.428894, -0.106197, 0.99398, -0.026941, -0.405711, 1.50077, 0.0699304)
 collision_layer = 16
 collision_mask = 17
 physics_material_override = SubResource("PhysicsMaterial_j7bta")
@@ -218,23 +220,21 @@ freeze = true
 metadata/_edit_group_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D8"]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0.00370431, 0)
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.00106224, 0.00370431, -0.000102371)
 shape = SubResource("CapsuleShape3D_04dy3")
 
 [node name="UpperArm2" type="MeshInstance3D" parent="RigidBody3D8"]
-transform = Transform3D(1, 0, -7.45058e-09, 0, 1, 0, 7.45058e-09, 0, 1, 0, 0, 0)
 top_level = true
-material_override = ExtResource("3_7b2af")
-mesh = ExtResource("7_cquk5")
+mesh = ExtResource("7_je2i3")
 skeleton = NodePath("../..")
-surface_material_override/0 = ExtResource("3_7b2af")
-script = ExtResource("4_jis8f")
+surface_material_override/0 = ExtResource("3_of3ll")
+script = ExtResource("4_gcr3r")
 enable_rot = true
 global = true
 of_parent = true
 
 [node name="RigidBody3D9" type="RigidBody3D" parent="." groups=["rigid_body"]]
-transform = Transform3D(0.036097, 0.01829, 0.999181, -0.000660325, 0.999833, -0.0182781, -0.999348, 0, 0.036103, -0.348449, 1.55929, 0.723108)
+transform = Transform3D(0.0228759, 0.132918, -0.990863, 0.999449, 0.0207861, 0.0258624, 0.0240337, -0.990909, -0.132369, -0.481948, 1.06408, 0.109079)
 collision_layer = 16
 collision_mask = 17
 physics_material_override = SubResource("PhysicsMaterial_j7bta")
@@ -242,22 +242,21 @@ freeze = true
 metadata/_edit_group_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D9"]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -3.33067e-16, 0, 1, -0.0233167, 0.0179348, -0.0179687)
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -3.33067e-16, 0, 1, -0.00556272, 0.0179348, 0.00587016)
 shape = SubResource("CapsuleShape3D_4kcti")
 
 [node name="Forearm2" type="MeshInstance3D" parent="RigidBody3D9"]
-transform = Transform3D(1, 1.21404e-10, 0, 4.65927e-10, 1, 7.46529e-09, 3.72529e-09, -5.59863e-09, 1, -0.000657022, -0.000332713, -0.018186)
 top_level = true
-material_override = ExtResource("3_7b2af")
-mesh = ExtResource("8_y2lbv")
+mesh = ExtResource("8_c32tw")
 skeleton = NodePath("../..")
-script = ExtResource("4_jis8f")
+surface_material_override/0 = ExtResource("3_of3ll")
+script = ExtResource("4_gcr3r")
 enable_rot = true
 global = true
 of_parent = true
 
 [node name="RigidBody3D10" type="RigidBody3D" parent="." groups=["rigid_body"]]
-transform = Transform3D(-0.999893, 0, 0.0146602, 0, 1, 0, -0.0146602, 0, -0.999893, 0, 1.94385, 0.02)
+transform = Transform3D(-0.999893, 0, 0.0146602, 0, 1, 0, -0.0146602, 0, -0.999893, 0, 1.981, 0.02)
 collision_layer = 16
 collision_mask = 17
 physics_material_override = SubResource("PhysicsMaterial_j7bta")
@@ -265,15 +264,38 @@ freeze = true
 metadata/_edit_group_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D10"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0351033, 0)
-shape = SubResource("CapsuleShape3D_rldci")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00325918, 0)
+shape = SubResource("SphereShape3D_jqlia")
 
 [node name="Head" type="MeshInstance3D" parent="RigidBody3D10"]
 top_level = true
-material_override = ExtResource("3_7b2af")
-mesh = ExtResource("9_u1dre")
+mesh = ExtResource("9_qm6y2")
 skeleton = NodePath("../..")
-script = ExtResource("4_jis8f")
+surface_material_override/0 = ExtResource("3_of3ll")
+script = ExtResource("4_gcr3r")
+enable_rot = true
+global = true
+of_parent = true
+
+[node name="RigidBody3D11" type="RigidBody3D" parent="." groups=["rigid_body"]]
+transform = Transform3D(0.999893, 0, -0.0146601, -0.0146601, -4.37114e-08, -0.999893, -6.40813e-10, 1, -4.37067e-08, 0.6012, 0.832385, 0.0983106)
+collision_layer = 16
+collision_mask = 17
+physics_material_override = SubResource("PhysicsMaterial_j7bta")
+freeze = true
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000214458, 0.0103393, 0.0128479)
+shape = SubResource("BoxShape3D_5r86h")
+
+[node name="Head" type="MeshInstance3D" parent="RigidBody3D11"]
+transform = Transform3D(-1, 0, -8.75443e-08, 0, 1, 0, 8.75443e-08, 0, -1, 0, 0, 0)
+top_level = true
+mesh = ExtResource("10_q5oba")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("3_of3ll")
+script = ExtResource("4_gcr3r")
 enable_rot = true
 global = true
 of_parent = true
