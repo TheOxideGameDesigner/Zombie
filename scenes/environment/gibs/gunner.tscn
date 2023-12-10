@@ -11,32 +11,31 @@
 [ext_resource type="ArrayMesh" uid="uid://ccljgbbhen2nx" path="res://models/gibs/mountainside_gunner/forearm.obj" id="9_6m0ue"]
 [ext_resource type="ArrayMesh" uid="uid://fe1s876edgvl" path="res://models/gibs/mountainside_gunner/cannon.obj" id="10_b4ovo"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_laj3o"]
-radius = 0.234952
-height = 0.868856
+[sub_resource type="BoxShape3D" id="BoxShape3D_8p47p"]
+size = Vector3(0.642334, 0.82486, 0.343445)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_km670"]
-radius = 0.182634
-height = 0.609152
+radius = 0.158334
+height = 0.497211
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_c5dtu"]
-radius = 0.075833
-height = 0.374089
+radius = 0.12776
+height = 0.451799
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_homtn"]
-radius = 0.0729919
-height = 0.430413
+radius = 0.110974
+height = 0.53067
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dtsfn"]
-radius = 0.0493758
-height = 0.34493
+radius = 0.0701508
+height = 0.398953
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0vy7s"]
-radius = 0.0548075
+radius = 0.109242
 height = 0.457294
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_g50jr"]
-radius = 0.0580688
+radius = 0.0759327
 height = 0.532031
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_gjfrj"]
@@ -53,7 +52,7 @@ one_shot = true
 autostart = true
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00044772, 1.1941, 0.0171331)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00044772, 1.29897, 0.0171331)
 collision_layer = 16
 collision_mask = 17
 freeze = true
@@ -69,11 +68,11 @@ global = true
 of_parent = true
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="RigidBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0758436, 0)
-shape = SubResource("CapsuleShape3D_laj3o")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000610352, 0.0202874, -0.000762938)
+shape = SubResource("BoxShape3D_8p47p")
 
 [node name="RigidBody3D2" type="RigidBody3D" parent="."]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.00922099, 2.0662, 0.00563192)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.00922099, 1.94379, 0.00563192)
 collision_layer = 16
 collision_mask = 17
 freeze = true
@@ -89,11 +88,11 @@ global = true
 of_parent = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0355978, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.036948, 0)
 shape = SubResource("CapsuleShape3D_km670")
 
 [node name="RigidBody3D3" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.297796, 0.630293, -0.0610069)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.318039, 0.715952, 0.146065)
 collision_layer = 16
 collision_mask = 17
 freeze = true
@@ -109,10 +108,11 @@ global = true
 of_parent = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.020862, 0)
 shape = SubResource("CapsuleShape3D_c5dtu")
 
 [node name="RigidBody3D4" type="RigidBody3D" parent="."]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.298498, 0.242796, 0.0160437)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.286379, 0.210471, 0.0160437)
 collision_layer = 16
 collision_mask = 17
 freeze = true
@@ -128,14 +128,15 @@ global = true
 of_parent = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0513508, 0)
 shape = SubResource("CapsuleShape3D_homtn")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="RigidBody3D4"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.18617, -0.0479091)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.138631, -0.0479091)
 shape = SubResource("CapsuleShape3D_dtsfn")
 
 [node name="RigidBody3D8" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.319278, 0.630293, -0.0610069)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.222756, 0.699572, 0.153558)
 collision_layer = 16
 collision_mask = 17
 freeze = true
@@ -151,10 +152,11 @@ global = true
 of_parent = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.020862, 0)
 shape = SubResource("CapsuleShape3D_c5dtu")
 
 [node name="RigidBody3D9" type="RigidBody3D" parent="."]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.319768, 0.242796, 0.0160437)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.299899, 0.216703, 0.0160437)
 collision_layer = 16
 collision_mask = 17
 freeze = true
@@ -170,14 +172,15 @@ global = true
 of_parent = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0536474, 0)
 shape = SubResource("CapsuleShape3D_homtn")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="RigidBody3D9"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.18617, -0.0479091)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.138631, -0.0830568)
 shape = SubResource("CapsuleShape3D_dtsfn")
 
 [node name="RigidBody3D5" type="RigidBody3D" parent="."]
-transform = Transform3D(0.387648, 0.448107, -0.805561, -0.589499, 0.792349, 0.157081, 0.708674, 0.413986, 0.571311, 0.356984, 1.57793, 0.0335977)
+transform = Transform3D(-0.271125, -0.377268, 0.885528, 0.867275, 0.303314, 0.394759, -0.417523, 0.875026, 0.244959, 0.476366, 1.45988, 0.0771253)
 collision_layer = 16
 collision_mask = 17
 freeze = true
@@ -197,7 +200,7 @@ transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 
 shape = SubResource("CapsuleShape3D_0vy7s")
 
 [node name="RigidBody3D10" type="RigidBody3D" parent="."]
-transform = Transform3D(0.386968, -0.0535507, -0.920537, -0.422024, 0.87733, -0.228445, 0.819848, 0.47689, 0.3169, -0.292721, 1.57712, 0.191021)
+transform = Transform3D(-0.0690994, 0.220122, 0.973022, 0.565205, 0.81235, -0.143636, -0.822051, 0.540031, -0.180548, -0.441067, 1.47295, 0.178189)
 collision_layer = 16
 collision_mask = 17
 freeze = true
@@ -217,7 +220,7 @@ transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 
 shape = SubResource("CapsuleShape3D_0vy7s")
 
 [node name="RigidBody3D6" type="RigidBody3D" parent="."]
-transform = Transform3D(0.366306, 0, 0.930494, 0.308722, 0.943356, -0.121534, -0.877787, 0.331782, 0.345557, 0.423768, 1.37414, 0.410276)
+transform = Transform3D(0.366306, 0, 0.930494, 0.308722, 0.943356, -0.121534, -0.877787, 0.331782, 0.345557, 0.450494, 1.16489, 0.411388)
 collision_layer = 16
 collision_mask = 17
 freeze = true
@@ -237,7 +240,7 @@ transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.025
 shape = SubResource("CapsuleShape3D_g50jr")
 
 [node name="RigidBody3D11" type="RigidBody3D" parent="."]
-transform = Transform3D(-0.418961, 0, 0.908004, 0, 1, 0, -0.908004, 0, -0.418961, -0.2221, 1.47364, 0.590133)
+transform = Transform3D(-0.418961, 0, 0.908004, 0.212247, 0.972297, 0.0979325, -0.882849, 0.233751, -0.407354, -0.412959, 1.19846, 0.597183)
 collision_layer = 16
 collision_mask = 17
 freeze = true
@@ -257,7 +260,7 @@ transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.025
 shape = SubResource("CapsuleShape3D_g50jr")
 
 [node name="RigidBody3D7" type="RigidBody3D" parent="."]
-transform = Transform3D(0.0831038, 0, 0.996541, 0, 1, 0, -0.996541, 0, 0.0831038, 0.130944, 1.53246, 0.854569)
+transform = Transform3D(0.0831038, 0, 0.996541, 0, 1, 0, -0.996541, 0, 0.0831038, 0.0358305, 1.18945, 0.704757)
 collision_layer = 16
 collision_mask = 17
 freeze = true

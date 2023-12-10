@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://vu75j7stwa2m" path="res://textures/key.png" id="8_wm3n0"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_5sjja"]
-height = 3.14657
+height = 4.00041
 radius = 0.741474
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_jdsx6"]
@@ -31,7 +31,7 @@ hitscanner_scene = ExtResource("4_61gkh")
 gibs = ExtResource("5_0s1y1")
 
 [node name="hitbox" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.56258, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.00146, 0)
 shape = SubResource("CylinderShape3D_5sjja")
 
 [node name="collision_area" type="Area3D" parent="." groups=["enemy_area"]]

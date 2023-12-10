@@ -382,6 +382,8 @@ func movement(wishdir, delta):
 	for i in range(get_slide_collision_count()):
 		var col = get_slide_collision(i)
 		var collider = col.get_collider()
+		if collider == null:
+			continue
 		if collider.is_in_group("lightweight"):
 			if col.get_angle() <= PI / 4:
 				collider.pain(100)

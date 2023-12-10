@@ -1,13 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://bajqqqjylfrys"]
+[gd_scene load_steps=11 format=3 uid="uid://bajqqqjylfrys"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_n6eeb"]
 [ext_resource type="PackedScene" uid="uid://4px2n2dg363l" path="res://scenes/misc_props/player.tscn" id="2_26vq5"]
 [ext_resource type="PackedScene" uid="uid://ddiw8ybfcdmjb" path="res://scenes/misc_props/spring.tscn" id="3_0v1iu"]
 [ext_resource type="PackedScene" uid="uid://cdshg7bk5i645" path="res://scenes/misc_props/garlic.tscn" id="5_hamsc"]
 [ext_resource type="PackedScene" uid="uid://bxguakgn55464" path="res://scenes/misc_props/booster.tscn" id="6_dmeo8"]
-[ext_resource type="PackedScene" uid="uid://cian3gl8fgeb7" path="res://scenes/misc_props/double_damage.tscn" id="7_acmly"]
-[ext_resource type="PackedScene" uid="uid://bfuck1d2dtogj" path="res://scenes/props/enemies/gunner.tscn" id="8_3hpdj"]
-[ext_resource type="PackedScene" uid="uid://chc7prysjaa7j" path="res://scenes/misc_props/double_speed.tscn" id="8_xkqrx"]
+[ext_resource type="PackedScene" uid="uid://cq4mvdbpk0wiq" path="res://scenes/props/enemies/statue.tscn" id="6_wysej"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_47luo"]
 data = PackedVector3Array(-28.3425, 0.2, 28.1325, 28.3425, 0.2, 28.1325, -28.3425, -0.2, 28.1325, 28.3425, 0.2, 28.1325, 28.3425, -0.2, 28.1325, -28.3425, -0.2, 28.1325, 28.3425, 0.2, -28.1325, -28.3425, 0.2, -28.1325, 28.3425, -0.2, -28.1325, -28.3425, 0.2, -28.1325, -28.3425, -0.2, -28.1325, 28.3425, -0.2, -28.1325, 28.3425, 0.2, 28.1325, 28.3425, 0.2, -28.1325, 28.3425, -0.2, 28.1325, 28.3425, 0.2, -28.1325, 28.3425, -0.2, -28.1325, 28.3425, -0.2, 28.1325, -28.3425, 0.2, -28.1325, -28.3425, 0.2, 28.1325, -28.3425, -0.2, -28.1325, -28.3425, 0.2, 28.1325, -28.3425, -0.2, 28.1325, -28.3425, -0.2, -28.1325, 28.3425, 0.2, 28.1325, -28.3425, 0.2, 28.1325, 28.3425, 0.2, -28.1325, -28.3425, 0.2, 28.1325, -28.3425, 0.2, -28.1325, 28.3425, 0.2, -28.1325, -28.3425, -0.2, 28.1325, 28.3425, -0.2, 28.1325, -28.3425, -0.2, -28.1325, 28.3425, -0.2, 28.1325, 28.3425, -0.2, -28.1325, -28.3425, -0.2, -28.1325)
@@ -16,6 +14,9 @@ data = PackedVector3Array(-28.3425, 0.2, 28.1325, 28.3425, 0.2, 28.1325, -28.342
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3cwp8"]
 albedo_color = Color(0, 0, 0.164706, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t755f"]
+size = Vector3(36.422, 10.1717, 35.0343)
 
 [node name="test_level_3" type="Node3D"]
 script = ExtResource("1_n6eeb")
@@ -67,26 +68,15 @@ directional_shadow_blend_splits = true
 [node name="garlic" parent="." instance=ExtResource("5_hamsc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.3583, 0.200001, 20.4772)
 
-[node name="booster" parent="." instance=ExtResource("6_dmeo8")]
-transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 11, 2.32595, 0.213042, 15.7882)
-
 [node name="booster3" parent="." instance=ExtResource("6_dmeo8")]
 transform = Transform3D(-0.254995, 0, -10.9102, 0, 1, 0, 1.98368, 0, -1.40247, 39.8624, 0.213042, 16.8423)
 
-[node name="booster2" parent="." instance=ExtResource("6_dmeo8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 3, 10.4388, 0.208759, 15.7882)
+[node name="statue" parent="." instance=ExtResource("6_wysej")]
+transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, -12.3528, 0.155832, 1.06707)
+spawns = Array[PackedVector3Array]([PackedVector3Array(1, 90, 5)])
 
-[node name="double_damage" parent="." instance=ExtResource("7_acmly")]
-transform = Transform3D(0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, 0.258819, -10.5286, 2.2, 15.3901)
+[node name="Area3D" type="Area3D" parent="statue" groups=["boss_active_zone"]]
 
-[node name="double_damage2" parent="." instance=ExtResource("7_acmly")]
-transform = Transform3D(-0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, -0.258819, -25.1097, 2.2, 10.8814)
-
-[node name="double_damage3" parent="." instance=ExtResource("8_xkqrx")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.82647, 2.2, 3.00934)
-
-[node name="double_damage4" parent="." instance=ExtResource("8_xkqrx")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -20.2981, 2.2, 1.26603)
-
-[node name="gunner" parent="." instance=ExtResource("8_3hpdj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.2609, 0.2, -23.2177)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="statue/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.45244, -1.66667)
+shape = SubResource("BoxShape3D_t755f")

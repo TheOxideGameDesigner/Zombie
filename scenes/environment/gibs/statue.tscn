@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bkg86l56h5q44"]
+[gd_scene load_steps=17 format=3 uid="uid://bkg86l56h5q44"]
 
 [ext_resource type="Script" path="res://scripts/environment/gibs.gd" id="1_iebge"]
 [ext_resource type="ArrayMesh" uid="uid://bjx5p62pyuchx" path="res://models/gibs/statue/torso.obj" id="2_unp6g"]
@@ -12,6 +12,9 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_qrd45"]
 size = Vector3(0.859703, 1.44468, 0.341646)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xt1xi"]
+specular_mode = 2
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1e461"]
 radius = 0.142005
 height = 1.6178
@@ -21,11 +24,11 @@ radius = 0.142637
 height = 0.649522
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jjkpo"]
-radius = 0.100704
-height = 1.7681
+radius = 0.149684
+height = 1.87741
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xt1xi"]
-specular_mode = 2
+[sub_resource type="BoxShape3D" id="BoxShape3D_4seph"]
+size = Vector3(0.385254, 1.77441, 0.198975)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sthr2"]
 radius = 0.298751
@@ -47,7 +50,6 @@ freeze = true
 metadata/_edit_group_ = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
-top_level = true
 mesh = ExtResource("2_unp6g")
 script = ExtResource("3_jdnu6")
 enable_rot = true
@@ -66,8 +68,8 @@ freeze = true
 metadata/_edit_group_ = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D2"]
-top_level = true
 mesh = ExtResource("4_gvwtu")
+surface_material_override/0 = SubResource("StandardMaterial3D_xt1xi")
 script = ExtResource("3_jdnu6")
 enable_rot = true
 global = true
@@ -89,8 +91,8 @@ freeze = true
 metadata/_edit_group_ = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D5"]
-top_level = true
 mesh = ExtResource("4_gvwtu")
+surface_material_override/0 = SubResource("StandardMaterial3D_xt1xi")
 script = ExtResource("3_jdnu6")
 enable_rot = true
 global = true
@@ -105,43 +107,42 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.0097
 shape = SubResource("CapsuleShape3D_ajqxl")
 
 [node name="RigidBody3D3" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.19412, 2.38061, -0.370955)
+transform = Transform3D(1, 0, 0, 0, 0.961679, 0.274177, 0, -0.274177, 0.961679, 1.19412, 2.38061, -0.285631)
 collision_layer = 16
 collision_mask = 17
 freeze = true
 metadata/_edit_group_ = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D3"]
-top_level = true
 mesh = ExtResource("5_soi7b")
+surface_material_override/0 = SubResource("StandardMaterial3D_xt1xi")
 script = ExtResource("3_jdnu6")
 enable_rot = true
 global = true
 of_parent = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D3"]
-transform = Transform3D(0.942472, -0.334284, 0, 0.334284, 0.942472, 0, 0, 0, 1, -0.0464139, 0.082494, -0.0258339)
+transform = Transform3D(0.942472, -0.334284, 0, 0.321852, 0.907421, 0.27018, -0.090317, -0.254637, 0.96281, -0.0291755, 0.0418706, 0.055563)
 shape = SubResource("CapsuleShape3D_jjkpo")
 
 [node name="RigidBody3D8" type="RigidBody3D" parent="."]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.798913, 2.38061, -0.370955)
+transform = Transform3D(1, 0, 0, 0, 0.961679, 0.274177, 0, -0.274177, 0.961679, -0.784629, 2.38061, -0.285631)
 collision_layer = 16
 collision_mask = 17
 freeze = true
 metadata/_edit_group_ = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D8"]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
-top_level = true
 mesh = ExtResource("6_624ja")
+surface_material_override/0 = SubResource("StandardMaterial3D_xt1xi")
 script = ExtResource("3_jdnu6")
 enable_rot = true
 global = true
 of_parent = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D8"]
-transform = Transform3D(0.93937, -0.342906, -1.41592e-09, 0.342906, 0.93937, -1.56704e-08, 6.70356e-09, 1.42348e-08, 1, -0.146613, 0.0716429, -0.0258339)
-shape = SubResource("CapsuleShape3D_jjkpo")
+transform = Transform3D(0.486326, 0.316537, -0.814426, 0.0650487, 0.916381, 0.395004, 0.871353, -0.24508, 0.425068, 0.151466, 0.0902314, 0.075576)
+shape = SubResource("BoxShape3D_4seph")
 
 [node name="RigidBody3D4" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.231581, 3.75009, -0.416636)
@@ -151,7 +152,6 @@ freeze = true
 metadata/_edit_group_ = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D4"]
-top_level = true
 mesh = ExtResource("6_o6mdq")
 surface_material_override/0 = SubResource("StandardMaterial3D_xt1xi")
 script = ExtResource("3_jdnu6")
@@ -171,8 +171,8 @@ freeze = true
 metadata/_edit_group_ = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D6"]
-top_level = true
 mesh = ExtResource("7_4xjux")
+surface_material_override/0 = SubResource("StandardMaterial3D_xt1xi")
 script = ExtResource("3_jdnu6")
 enable_rot = true
 global = true
@@ -190,8 +190,8 @@ freeze = true
 metadata/_edit_group_ = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D7"]
-top_level = true
 mesh = ExtResource("7_4xjux")
+surface_material_override/0 = SubResource("StandardMaterial3D_xt1xi")
 script = ExtResource("3_jdnu6")
 enable_rot = true
 global = true
