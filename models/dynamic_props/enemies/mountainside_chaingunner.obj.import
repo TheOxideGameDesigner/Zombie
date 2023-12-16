@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bdfyfgkljxrht"
+path="res://.godot/imported/mountainside_chaingunner.obj-45c23140c3a99c0c9e214abac210d80c.mesh"
+
+[deps]
+
+files=["res://.godot/imported/mountainside_chaingunner.obj-45c23140c3a99c0c9e214abac210d80c.mesh"]
+
+source_file="res://models/dynamic_props/enemies/mountainside_chaingunner.obj"
+dest_files=["res://.godot/imported/mountainside_chaingunner.obj-45c23140c3a99c0c9e214abac210d80c.mesh", "res://.godot/imported/mountainside_chaingunner.obj-45c23140c3a99c0c9e214abac210d80c.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

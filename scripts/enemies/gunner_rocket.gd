@@ -4,7 +4,7 @@ extends Area3D
 var SPEED = 30.0
 const HOMING_FORCE = 6
 const V_HOMING_FORCE = 50
-const DAMAGE = 40
+const DAMAGE = 30
 const HOMING_TIME = 0.5
 
 const EXPLOSION_TIME = 1

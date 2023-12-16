@@ -653,16 +653,7 @@ func _physics_process(delta):
 	
 	if health <= 0:
 		return
-	var wishdir = Vector2.ZERO
-	if Input.is_action_pressed("g_forward"):
-		wishdir += Vector2(0, -1)
-	if Input.is_action_pressed("g_left"):
-		wishdir += Vector2(-1, 0)
-	if Input.is_action_pressed("g_backward"):
-		wishdir += Vector2(0, 1)
-	if Input.is_action_pressed("g_right"):
-		wishdir += Vector2(1, 0)
-	wishdir = wishdir.normalized().rotated(-cam.rotation.y)
+	var wishdir = Input.get_vector("g_left", "g_right", "g_forward", "g_backward").rotated(-cam.rotation.y)
 	
 	var prev_h = position.y
 	var prev_y_vel = velocity.y
