@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://br3nlvonbf0et"
+path="res://.godot/imported/gun.obj-2ef01c14f176e2eabc51adcded7c8602.mesh"
+
+[deps]
+
+files=["res://.godot/imported/gun.obj-2ef01c14f176e2eabc51adcded7c8602.mesh"]
+
+source_file="res://models/gibs/mountainside_chaingunner/gun.obj"
+dest_files=["res://.godot/imported/gun.obj-2ef01c14f176e2eabc51adcded7c8602.mesh", "res://.godot/imported/gun.obj-2ef01c14f176e2eabc51adcded7c8602.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

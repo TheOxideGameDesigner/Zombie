@@ -475,13 +475,13 @@ shape = SubResource("BoxShape3D_evafi")
 key_index = 1
 
 [node name="runner4" parent="enemies" instance=ExtResource("20_bdv36")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6.85059, 13.856, -75.7153)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.361456, 13.856, -73.9056)
 
 [node name="runner9" parent="enemies" instance=ExtResource("20_bdv36")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6.85059, 13.856, -70.0307)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.135734, 13.856, -70.5979)
 
 [node name="runner11" parent="enemies" instance=ExtResource("20_bdv36")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.52751, 13.856, -72.771)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.08745, 13.856, -72.5318)
 
 [node name="gunner" parent="enemies" instance=ExtResource("17_407sm")]
 transform = Transform3D(-0.999984, 0, 0.00560248, 0, 1, 0, -0.00560248, 0, -0.999984, -6.47281, 13.856, -44.569)
@@ -500,9 +500,3 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 56.358
 
 [node name="runner6" parent="enemies" instance=ExtResource("20_bdv36")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 41.1124, 15.598, 20.6347)
-
-[node name="runner7" parent="enemies" instance=ExtResource("20_bdv36")]
-transform = Transform3D(-0.0363472, 0, -0.999339, 0, 1, 0, 0.999339, 0, -0.0363472, 66.8787, 15.9091, -71.6289)
-
-[node name="runner13" parent="enemies" instance=ExtResource("20_bdv36")]
-transform = Transform3D(-0.0363472, 0, -0.999339, 0, 1, 0, 0.999339, 0, -0.0363472, 78.8839, 17.562, -88.3425)

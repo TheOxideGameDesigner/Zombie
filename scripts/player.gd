@@ -31,13 +31,19 @@ const HOLSTER_SPEED = 8
 
 const REVOLVER_RANGE = 42
 const REVOLVER_DAMAGE = 23
-const REVOLVER_COOLDOWN = 0.4235
+const REVOLVER_COOLDOWN = 0.5235
+const REVOLVER_COOLDOWN_VARIATION = 0.2
+const REVOLVER_MAX_HEAT = 10
+const REVOLVER_HEAT_REGEN_TIME = 3
 const SHOTGUN_DAMAGE = 100
 const SHOTGUN_PB_RANGE = 4
 const SHOTGUN_RANGE = 20
 const SHOTGUN_FORCE = 8
 const SHOTGUN_FALLOFF = 0.25
-const SHOTGUN_COOLDOWN = 1.8
+const SHOTGUN_COOLDOWN = 2.1
+const SHOTGUN_COOLDOWN_VARIATION = 0.6
+const SHOTGUN_MAX_HEAT = 4
+const SHOTGUN_HEAT_REGEN_TIME = 10
 const CANNONBOMB_FORCE = 15
 const CANNONBALL_CHARGE_TIME = 3
 const CANNONBOMB_CHARGE_TIME = 6
@@ -45,8 +51,11 @@ const BLASTER_DAMAGE = 20
 const BLASTER_SELF_DAMAGE_LOW = 1
 const BLASTER_SELF_DAMAGE_HIGH = 2
 const BLASTER_FORCE = 1.2
-const BLASTER_COOLDOWN_LONG = 0.175
+const BLASTER_COOLDOWN = 0.195
 const BLASTER_COOLDOWN_SHORT = 0.075
+const BLASTER_COOLDOWN_VARIATION = 0.04
+const BLASTER_MAX_HEAT = 15
+const BLASTER_HEAT_REGEN_TIME = 5
 const BLASTER_RANGE = 30
 const BLASTER_PB_RANGE = 4
 const BLASTER_FALLOFF = 0.1
@@ -69,6 +78,9 @@ var can_float = 1
 var wpn : int = 1
 var prev_wpn = 2
 var wpn_vis = wpn
+var revolver_heat = 0.0
+var shotgun_heat = 0.0
+var blaster_heat = 0.0
 
 var god_mode : bool = false
 var max_health : int = 100
@@ -237,7 +249,8 @@ func shoot():
 					new_particles.global_position = raycast.get_collision_point()
 					new_particles.top_level = 1
 			
-			cooldown_timers[0] = REVOLVER_COOLDOWN
+			revolver_heat = min(1.0, revolver_heat + 1.0 / REVOLVER_MAX_HEAT)
+			cooldown_timers[0] = REVOLVER_COOLDOWN + lerp(-REVOLVER_COOLDOWN_VARIATION, REVOLVER_COOLDOWN_VARIATION, revolver_heat)
 			revolver_mf_timer = mf_lifespans[0]
 			
 			revolver_anim_timer = REVOLVER_COOLDOWN
@@ -271,9 +284,11 @@ func shoot():
 					new_particles.global_position = raycast.get_collision_point()
 					new_particles.top_level = 1
 			
-			cooldown_timers[1] = SHOTGUN_COOLDOWN
+			shotgun_heat = min(1.0, shotgun_heat + 1.0 / SHOTGUN_MAX_HEAT)
+			var cooldown_var = lerp(-SHOTGUN_COOLDOWN_VARIATION, SHOTGUN_COOLDOWN_VARIATION, shotgun_heat)
+			cooldown_timers[1] = SHOTGUN_COOLDOWN + cooldown_var
 			shotgun_mf_timer = mf_lifespans[1]
-			shotgun_anim_timer = SHOTGUN_COOLDOWN
+			shotgun_anim_timer = SHOTGUN_COOLDOWN + cooldown_var
 			
 			const BULLETS = 6
 			const SPREAD_RADIUS = 0.05
@@ -319,7 +334,8 @@ func shoot():
 					add_child(new_particles)
 					new_particles.global_position = raycast.get_collision_point()
 			
-			cooldown_timers[3] = BLASTER_COOLDOWN_LONG
+			blaster_heat = min(1.0, blaster_heat + 1.0 / BLASTER_MAX_HEAT)
+			cooldown_timers[3] = BLASTER_COOLDOWN + lerp(-BLASTER_COOLDOWN_VARIATION, BLASTER_COOLDOWN_VARIATION, blaster_heat)
 			
 			var bullet = bullet_scene.instantiate()
 			bullet.position = Vector3(0.645, -0.23, -1.111) + viewmodel_pos
@@ -369,6 +385,7 @@ func shoot_alt():
 				new_particles.global_position = raycast.get_collision_point()
 				new_particles.top_level = 1
 		
+		blaster_heat = 1.0
 		cooldown_timers[3] = BLASTER_COOLDOWN_SHORT
 			
 		var bullet = bullet_scene.instantiate()
@@ -566,6 +583,10 @@ func _unhandled_input(event):
 
 
 func _process(delta):
+	revolver_viewmodel.set_instance_shader_parameter("pain", revolver_heat * 0.2)
+	shotgun_viewmodel.set_instance_shader_parameter("pain", shotgun_heat * 0.2)
+	blaster_viewmodel.set_instance_shader_parameter("pain", blaster_heat * 0.4)
+	
 	revolver_anim_timer = max(0, revolver_anim_timer - delta)
 	revolver_cylinder.rotation.z = revolver_anim_timer * PI / (4 * REVOLVER_COOLDOWN)
 	shotgun_anim_timer = max(0, shotgun_anim_timer - delta)
@@ -678,3 +699,10 @@ func _physics_process(delta):
 		viewmodel_y_bump -= delta * 3
 	
 	cam.position = global_position + Vector3(0, 1.2, 0)
+	
+	if cooldown_timers[0] <= 0.01:
+		revolver_heat = max(0, revolver_heat - delta / REVOLVER_HEAT_REGEN_TIME)
+	if cooldown_timers[1] <= 0.01:
+		shotgun_heat = max(0, shotgun_heat - delta / SHOTGUN_HEAT_REGEN_TIME)
+	if cooldown_timers[3] <= 0.01:
+		blaster_heat = max(0, blaster_heat - delta / BLASTER_HEAT_REGEN_TIME)

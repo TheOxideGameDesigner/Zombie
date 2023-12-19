@@ -721,11 +721,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.4036, 173, 837.255)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.748627, 6.25246, 0)
 shape = SubResource("BoxShape3D_2206b")
 
-[node name="hitscanner2" parent="enemies" instance=ExtResource("27_arphk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.4008, 173, 828.215)
-
 [node name="runner4" parent="enemies" instance=ExtResource("22_trfgh")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 37.0317, 173, 848.873)
+
+[node name="runner44" parent="enemies" instance=ExtResource("22_trfgh")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 25.4895, 173, 825.986)
 
 [node name="runner5" parent="enemies" instance=ExtResource("22_trfgh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5467, 173, 801.109)
@@ -750,9 +750,6 @@ transform = Transform3D(0.130526, 0, 0.991445, 0, 1, 0, -0.991445, 0, 0.130526, 
 
 [node name="gunner4" parent="enemies" instance=ExtResource("21_nqfw1")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 104.573, 182, 803.034)
-
-[node name="gunner5" parent="enemies" instance=ExtResource("21_nqfw1")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 104.573, 182, 790.178)
 
 [node name="runner10" parent="enemies" instance=ExtResource("22_trfgh")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 98.8841, 182, 810.109)
@@ -796,17 +793,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 208.473, 179, 820.22)
 [node name="runner15" parent="enemies" instance=ExtResource("22_trfgh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 235.669, 179, 816.892)
 
-[node name="runner16" parent="enemies" instance=ExtResource("22_trfgh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 253.194, 181, 773.567)
-
 [node name="runner17" parent="enemies" instance=ExtResource("22_trfgh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 274.952, 181, 795.36)
 
 [node name="runner18" parent="enemies" instance=ExtResource("22_trfgh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 257.971, 179, 857.933)
-
-[node name="runner19" parent="enemies" instance=ExtResource("22_trfgh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 271.072, 179, 859.403)
 
 [node name="runner24" parent="enemies" instance=ExtResource("22_trfgh")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 15.7929, 173, 845.743)
@@ -882,12 +873,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 88.8162, 201.75, 637.946)
 
 [node name="runner36" parent="enemies" instance=ExtResource("22_trfgh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82.7735, 201.75, 611.933)
-
-[node name="runner37" parent="enemies" instance=ExtResource("22_trfgh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 111.692, 217.415, 653.822)
-
-[node name="runner38" parent="enemies" instance=ExtResource("22_trfgh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 152.943, 217.415, 652.065)
 
 [node name="runner39" parent="enemies" instance=ExtResource("22_trfgh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 154.481, 217.415, 613.471)

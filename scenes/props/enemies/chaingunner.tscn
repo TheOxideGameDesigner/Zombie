@@ -1,24 +1,25 @@
-[gd_scene load_steps=14 format=3 uid="uid://bfuck1d2dtogj"]
+[gd_scene load_steps=15 format=3 uid="uid://26x6x0du3c7k"]
 
-[ext_resource type="Script" path="res://scripts/enemies/gunner.gd" id="1_v3qu8"]
-[ext_resource type="PackedScene" uid="uid://c5jx8yw6wwwds" path="res://scenes/environment/gibs/gunner.tscn" id="2_d5sbe"]
-[ext_resource type="Script" path="res://scripts/physics_lerp.gd" id="3_dwrji"]
-[ext_resource type="Texture2D" uid="uid://dsi7k27hhox0v" path="res://textures/alerted.png" id="4_spgsi"]
-[ext_resource type="Texture2D" uid="uid://vu75j7stwa2m" path="res://textures/key.png" id="5_00ef8"]
-[ext_resource type="Material" uid="uid://c0vwp18rc74ju" path="res://resources/materials/aura_mat.tres" id="6_3e31f"]
-[ext_resource type="FontVariation" uid="uid://cr4vqwh16ob78" path="res://resources/default_font.tres" id="7_pk2ys"]
-[ext_resource type="PackedScene" uid="uid://b0gqcw8cbkf4u" path="res://models/dynamic_props/enemies/mountainside_gunner.glb" id="8_5opxq"]
-[ext_resource type="Script" path="res://scripts/enemies/anim.gd" id="9_2o3ua"]
-[ext_resource type="PackedScene" uid="uid://d4k7qjsc8bglc" path="res://scenes/enemy_home.tscn" id="10_73ty8"]
+[ext_resource type="Script" path="res://scripts/enemies/chaingunner.gd" id="1_byk5e"]
+[ext_resource type="PackedScene" uid="uid://c5jx8yw6wwwds" path="res://scenes/environment/gibs/gunner.tscn" id="2_iw7q2"]
+[ext_resource type="Script" path="res://scripts/physics_lerp.gd" id="3_wcpd0"]
+[ext_resource type="Texture2D" uid="uid://dsi7k27hhox0v" path="res://textures/alerted.png" id="4_44kuy"]
+[ext_resource type="Texture2D" uid="uid://vu75j7stwa2m" path="res://textures/key.png" id="5_at4ch"]
+[ext_resource type="Material" uid="uid://c0vwp18rc74ju" path="res://resources/materials/aura_mat.tres" id="6_lohqa"]
+[ext_resource type="FontVariation" uid="uid://cr4vqwh16ob78" path="res://resources/default_font.tres" id="7_nc1jr"]
+[ext_resource type="Material" uid="uid://dwn0f7w4jgfyf" path="res://resources/materials/enemy_mat_gamma_corrected.tres" id="8_o64va"]
+[ext_resource type="PackedScene" uid="uid://d4k7qjsc8bglc" path="res://scenes/enemy_home.tscn" id="10_dbry5"]
+[ext_resource type="ArrayMesh" uid="uid://bab2xh46v7nwq" path="res://models/dynamic_props/enemies/mountainside_chaingunner_chaingun.obj" id="10_r3bqt"]
+[ext_resource type="ArrayMesh" uid="uid://bdfyfgkljxrht" path="res://models/dynamic_props/enemies/mountainside_chaingunner.obj" id="11_x6mlk"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_qmw2e"]
-material = ExtResource("6_3e31f")
+material = ExtResource("6_lohqa")
 radius = 1.74
 height = 6.37
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_3gd1o"]
-height = 2.00858
-radius = 0.8
+height = 2.02041
+radius = 1.0
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_ttbnl"]
 height = 3.7148
@@ -27,12 +28,12 @@ radius = 1.75
 [node name="gunner" type="CharacterBody3D" groups=["activatable", "enemy", "see_through"]]
 top_level = true
 collision_layer = 2
-script = ExtResource("1_v3qu8")
-gibs = ExtResource("2_d5sbe")
+script = ExtResource("1_byk5e")
+gibs = ExtResource("2_iw7q2")
 
 [node name="mesh" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-script = ExtResource("3_dwrji")
+script = ExtResource("3_wcpd0")
 enable_rot = true
 
 [node name="alerted" type="Sprite3D" parent="mesh"]
@@ -42,7 +43,7 @@ modulate = Color(1, 0.227451, 0.243137, 0.709804)
 pixel_size = 0.0195
 billboard = 1
 texture_filter = 0
-texture = ExtResource("4_spgsi")
+texture = ExtResource("4_44kuy")
 
 [node name="key" type="Sprite3D" parent="mesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.554, 0)
@@ -51,7 +52,7 @@ modulate = Color(1, 1, 0, 1)
 pixel_size = 0.0195
 billboard = 1
 texture_filter = 0
-texture = ExtResource("5_00ef8")
+texture = ExtResource("5_at4ch")
 
 [node name="aura" type="MeshInstance3D" parent="mesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
@@ -66,18 +67,24 @@ visibility_range_end_margin = 0.1
 billboard = 1
 texture_filter = 0
 text = "100"
-font = ExtResource("7_pk2ys")
+font = ExtResource("7_nc1jr")
 font_size = 64
 
-[node name="mountainside_gunner" parent="mesh" instance=ExtResource("8_5opxq")]
+[node name="mountainside_chaingunner" type="MeshInstance3D" parent="mesh"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
-script = ExtResource("9_2o3ua")
+material_override = ExtResource("8_o64va")
+mesh = ExtResource("11_x6mlk")
+skeleton = NodePath("../..")
+
+[node name="chaingun" type="MeshInstance3D" parent="mesh/mountainside_chaingunner"]
+material_override = ExtResource("8_o64va")
+mesh = ExtResource("10_r3bqt")
 
 [node name="hitbox" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.00003, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.99922, 0)
 shape = SubResource("CylinderShape3D_3gd1o")
 
-[node name="home" parent="." instance=ExtResource("10_73ty8")]
+[node name="home" parent="." instance=ExtResource("10_dbry5")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
 color = Color(0.564706, 0.294118, 1, 0.858824)
 

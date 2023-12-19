@@ -239,9 +239,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.1739, 22.687, -31.9427)
 [node name="runner6" parent="enemies" instance=ExtResource("12_ksxst")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.39917, 15.1368, -56.4696)
 
-[node name="runner9" parent="enemies" instance=ExtResource("12_ksxst")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75.0026, 26.7054, -23.788)
-
 [node name="runner11" parent="enemies" instance=ExtResource("12_ksxst")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -98.4713, 32.9023, -6.39908)
 

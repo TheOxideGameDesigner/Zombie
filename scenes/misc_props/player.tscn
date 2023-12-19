@@ -1,9 +1,10 @@
-[gd_scene load_steps=28 format=3 uid="uid://4px2n2dg363l"]
+[gd_scene load_steps=29 format=3 uid="uid://4px2n2dg363l"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_p5l8k"]
 [ext_resource type="Script" path="res://scripts/physics_lerp.gd" id="2_21672"]
 [ext_resource type="Script" path="res://scripts/camera.gd" id="3_3kmoi"]
 [ext_resource type="ArrayMesh" uid="uid://ppcmkttyghki" path="res://models/viewmodels/revolver_viewmodel.obj" id="3_5qgrc"]
+[ext_resource type="Material" uid="uid://dwn0f7w4jgfyf" path="res://resources/materials/enemy_mat_gamma_corrected.tres" id="4_1ep7i"]
 [ext_resource type="Material" uid="uid://bnfnis4uswgp8" path="res://resources/materials/viewmodel_mat.tres" id="4_vy1hd"]
 [ext_resource type="Material" uid="uid://s24jgd6hcbb0" path="res://resources/materials/plasma_dark.tres" id="5_gpip3"]
 [ext_resource type="Material" uid="uid://b3ojfy0a3q3a8" path="res://resources/materials/plasma_bright.tres" id="6_prp7k"]
@@ -119,7 +120,7 @@ global = true
 [node name="revolver_viewmodel" type="MeshInstance3D" parent="cam/camera/vp_cont/vp/gun_cam/viewmodel"]
 transform = Transform3D(-0.25, 0, -3.7749e-08, 0, 0.25, 0, 3.7749e-08, 0, -0.25, 0.683767, -0.382463, -0.578)
 layers = 32
-material_override = ExtResource("4_vy1hd")
+material_override = ExtResource("4_1ep7i")
 cast_shadow = 0
 mesh = ExtResource("3_5qgrc")
 
@@ -144,7 +145,7 @@ mesh = ExtResource("8_d566w")
 transform = Transform3D(-0.25, 0, -3.7749e-08, 0, 0.25, 0, 3.7749e-08, 0, -0.25, 0.683384, -0.395841, -0.58316)
 visible = false
 layers = 32
-material_override = ExtResource("4_vy1hd")
+material_override = ExtResource("4_1ep7i")
 cast_shadow = 0
 mesh = ExtResource("9_1tk0r")
 skeleton = NodePath("../revolver_viewmodel")
@@ -193,6 +194,7 @@ mesh = SubResource("CylinderMesh_iqnu7")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.615999, -0.243835, -0.533424)
 visible = false
 layers = 32
+material_override = ExtResource("4_1ep7i")
 mesh = SubResource("BoxMesh_s6exb")
 
 [node name="blood" type="Sprite2D" parent="."]
@@ -283,6 +285,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="warning" type="Label" parent="."]
 modulate = Color(1, 0.839216, 0, 0)
+texture_filter = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0

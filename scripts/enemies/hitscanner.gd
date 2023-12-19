@@ -230,8 +230,8 @@ func pain(dmg):
 func fire():
 	ribbon_mesh.material_override.albedo_color.a = 0.5
 	var dir = Vector3(0, 0, 1).rotated(Vector3.UP, mesh.rotation.y)
-	var ray_dist_to_player2D = Vector2(ray.global_position.x, ray.global_position.z).distance_to(Vector2(player.position.x, player.position.z))
-	ray.target_position = dir * ray_dist_to_player2D + Vector3(0, player.position.y - ray.global_position.y + 1, 0)
+	ray.position = Vector3(0.079, 1.642, 0.847).rotated(Vector3.UP, mesh.rotation.y)
+	ray.target_position = dir * (dist_from_player - 0.847) + Vector3(0, player.position.y - ray.global_position.y + 0.858, 0) + Vector3(-0.079, 0, 0).rotated(Vector3.UP, mesh.rotation.y)
 	ray.force_raycast_update()
 	ribbon.position = mesh.to_global(init_ribbon_pos)
 	ribbon.rotation.y = mesh.rotation.y
@@ -374,6 +374,7 @@ func _physics_process(delta):
 		add_vel = Vector3.ZERO
 	
 	#zombie logic
+	ray.position = Vector3(0.079, 1.642, 0.847).rotated(Vector3.UP, mesh.rotation.y)
 	ray.target_position = ray.to_local(player.position + Vector3(0, 1, 0)).normalized() * VIS_RANGE
 	ray.force_raycast_update()
 	sees_player = ray.is_colliding() and ray.get_collider().is_in_group("player")
@@ -439,6 +440,7 @@ func _physics_process(delta):
 		if dist_from_player3d > HIT_RANGE - HIT_RANGE_MARGIN or not sees_player:
 			move_and_slide()
 		else:
+			ray.position = Vector3(0, 1.5, 0)
 			ray.target_position = Vector3(0, -1.7, 0)
 			ray.force_raycast_update()
 			if not ray.is_colliding():

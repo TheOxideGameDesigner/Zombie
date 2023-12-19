@@ -321,9 +321,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -152.315, 5.89704, -57.259)
 [node name="runner15" parent="enemies" instance=ExtResource("14_wtgkt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -169.575, 5.89704, -82.7942)
 
-[node name="runner8" parent="enemies" instance=ExtResource("14_wtgkt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -140.596, 3.47697, -30.5035)
-
 [node name="runner11" parent="enemies" instance=ExtResource("14_wtgkt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -65.9367, -0.984661, 15.2629)
 
@@ -332,9 +329,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -55.6022, -1.12476, -15.6801)
 
 [node name="hitscanner3" parent="enemies" instance=ExtResource("16_xrqrp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.9475, -2.19289, 59.7465)
-
-[node name="runner16" parent="enemies" instance=ExtResource("14_wtgkt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.8441, -3.88784, 76.2304)
 
 [node name="runner28" parent="enemies" instance=ExtResource("14_wtgkt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.60711, -3.88784, 71.6266)
@@ -386,9 +380,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -71.0338, -8.96758, 175.826)
 
 [node name="runner23" parent="enemies" instance=ExtResource("14_wtgkt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -99.1937, -9.07226, 182.324)
-
-[node name="runner25" parent="enemies" instance=ExtResource("14_wtgkt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -93.7869, -9.07226, 158.516)
 
 [node name="runner24" parent="enemies" instance=ExtResource("14_wtgkt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -81.2179, -8.06832, 154.99)
