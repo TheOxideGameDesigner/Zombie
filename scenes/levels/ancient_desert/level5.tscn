@@ -699,6 +699,7 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 110.71
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 253.261, 182.988, 722.721)
 spawn_height = 8
 spawns = Array[PackedVector3Array]([PackedVector3Array(2, 270, 13, 2, 90, 13), PackedVector3Array(2, 45, 31.8, 2, 135, 31.8, 2, 225, 31.8, 2, 315, 31.8)])
+min_difs = Array[PackedInt32Array]([PackedInt32Array(0, 0), PackedInt32Array(0, 0, 0, 0)])
 
 [node name="purple_key" parent="enemies/statue" instance=ExtResource("9_4j3jf")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.18634, 1.45615, 5.57187)

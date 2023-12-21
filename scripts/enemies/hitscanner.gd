@@ -79,6 +79,7 @@ var y_vel = 0.0
 
 @export var respawn_time = 5.0
 @export var spawn_ang = 0.0
+@export_range(0, 4) var min_dif : int = 0
 
 var disable_particles : bool = false
 var disable_gibs : bool = false
@@ -112,24 +113,10 @@ func _ready():
 	disable_particles = config.get_value("video", "disable_particles", false)
 	disable_gibs = config.get_value("video", "disable_gibs", false)
 	
-	var diff = config.get_value("gameplay", "difficulty", 1)
-	match diff:
-		0:
-			HP = 100
-			HIT_TIME = 2.0
-		1:
-			HP = 100
-			HIT_TIME = 1.5
-		2:
-			HP = 100
-			HIT_TIME = 1
-		3:
-			HP = 100
-			HIT_TIME = 0.75
-		4:
-			HP = 100
-			HIT_TIME = 0.75
-			respawn_time = 1
+	var diff = config.get_value("gameplay", "difficulty", 2)
+	if diff < min_dif:
+		queue_free()
+		return
 	
 	health = HP
 	update_healthbar()

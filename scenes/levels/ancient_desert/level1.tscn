@@ -463,6 +463,7 @@ transform = Transform3D(-0.00310663, 0, -0.999995, 0, 1, 0, 0.999995, 0, -0.0031
 [node name="statue" parent="enemies" instance=ExtResource("19_7qjio")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 56.5938, 15.5398, 21.5395)
 spawns = Array[PackedVector3Array]([PackedVector3Array(2, 0, 5), PackedVector3Array(2, 90, 5, 2, 270, 5)])
+min_difs = Array[PackedInt32Array]([PackedInt32Array(0), PackedInt32Array(0, 0)])
 
 [node name="Area3D" type="Area3D" parent="enemies/statue" groups=["boss_active_zone"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.62939e-06, 0, -11.5274)

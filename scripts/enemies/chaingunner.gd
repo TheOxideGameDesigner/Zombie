@@ -53,6 +53,7 @@ var rocket = preload("res://scenes/props/enemies/gunner_rocket.tscn")
 
 @export var respawn_time = 10.0
 @export var spawn_ang = 0.0
+@export_range(0, 4) var min_dif : int = 0
 @onready var rot = mesh.rotation.y
 
 var sees_player = 0
@@ -76,25 +77,6 @@ func _ready():
 	config.load("user://settings.cfg")
 	disable_particles = config.get_value("video", "disable_particles", false)
 	disable_gibs = config.get_value("video", "disable_gibs", false)
-	
-	var diff = config.get_value("gameplay", "difficulty", 1)
-	match diff:
-		0:
-			HP = 200
-			HIT_DAMAGE = 2
-		1:
-			HP = 200
-			HIT_DAMAGE = 3
-		2:
-			HP = 200
-			HIT_DAMAGE = 4
-		3:
-			HP = 200
-			HIT_DAMAGE = 6
-		4:
-			HP = 200
-			HIT_DAMAGE = 6
-			respawn_time = 1
 	
 	health = HP
 	update_healthbar()
@@ -140,6 +122,10 @@ func _ready():
 			drops.push_back(c)
 			remove_child(c)
 			key.visible = 1
+	
+	var diff = config.get_value("gameplay", "difficulty", 2)
+	if diff < min_dif and drops.is_empty():
+		queue_free()
 
 
 func add_particles(edmg):

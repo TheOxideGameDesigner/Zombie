@@ -38,7 +38,8 @@ const REVOLVER_HEAT_REGEN_TIME = 3
 const SHOTGUN_DAMAGE = 100
 const SHOTGUN_PB_RANGE = 4
 const SHOTGUN_RANGE = 20
-const SHOTGUN_FORCE = 8
+const SHOTGUN_FORCE_MIN = 6.0
+const SHOTGUN_FORCE_MAX = 9.0
 const SHOTGUN_FALLOFF = 0.25
 const SHOTGUN_COOLDOWN = 2.1
 const SHOTGUN_COOLDOWN_VARIATION = 0.6
@@ -274,7 +275,7 @@ func shoot():
 						var dist = Vector2(position.x, position.z).distance_to(Vector2(collider.position.x, collider.position.z))
 						if dist < SHOTGUN_PB_RANGE:
 							var dir = cam.transform.basis.z
-							knockback(Vector3(dir.x, 0.0, dir.z).normalized() * SHOTGUN_FORCE + Vector3(0, 2, 0))
+							knockback(Vector3(dir.x, 0.0, dir.z).normalized() * lerp(SHOTGUN_FORCE_MAX, SHOTGUN_FORCE_MIN, shotgun_heat) + Vector3(0, 2, 0))
 							camera.shake(0.4, 0.75, 0.025)
 				elif not disable_particles:
 					var new_particles = particles_scene.instantiate()

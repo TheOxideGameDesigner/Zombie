@@ -8,6 +8,7 @@ var spread = 27.75
 
 
 func _ready():
+	process_material = process_material.duplicate()
 	emitting = true
 	process_material.direction = dir
 	process_material.color_ramp.gradient.colors = [Color(color.r, color.g, color.b, 1), Color(color.r, color.g, color.b, 0)]

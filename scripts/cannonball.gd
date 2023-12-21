@@ -3,7 +3,7 @@ extends StaticBody3D
 
 const SPEED = 30.0
 const LIFESPAN = 3.0
-const DAMAGE = 35.0
+const DAMAGE = 50.0
 const FALLOFF = 0.2
 const EXPLOSION_SIZE = 3.0
 const SPLASH_RADIUS = 5.0

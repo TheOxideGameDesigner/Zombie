@@ -74,6 +74,7 @@ var y_vel = 0.0
 
 @export var respawn_time = 5.0
 @export var spawn_ang = 0.0
+@export_range(0, 4) var min_dif = 0
 var rand_roam_off
 
 var disable_particles : bool = false
@@ -109,24 +110,10 @@ func _ready():
 	disable_particles = config.get_value("video", "disable_particles", false)
 	disable_gibs = config.get_value("video", "disable_gibs", false)
 	
-	var diff = config.get_value("gameplay", "difficulty", 1)
-	match diff:
-		0:
-			HP = 100
-			SPEED = 6
-		1:
-			HP = 100
-			SPEED = 7
-		2:
-			HP = 100
-			SPEED = 8
-		3:
-			HP = 100
-			SPEED = 9
-		4:
-			HP = 100
-			SPEED = 9
-			respawn_time = 1
+	var diff = config.get_value("gameplay", "difficulty", 2)
+	if diff < min_dif:
+		queue_free()
+	
 	
 	health = HP
 	update_healthbar()

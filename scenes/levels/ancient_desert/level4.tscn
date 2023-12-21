@@ -844,6 +844,7 @@ time = 0.5
 [node name="statue" parent="enemies" instance=ExtResource("24_32rgo")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -50.3787, 188.474, 19.7486)
 spawns = Array[PackedVector3Array]([PackedVector3Array(2, 0, 5, 1, 90, 10, 1, 270, 10), PackedVector3Array(3, 0, 5, 1, 270, 10, 1, 90, 10), PackedVector3Array(3, 0, 5, 3, 90, 5, 3, 270, 5)])
+min_difs = Array[PackedInt32Array]([PackedInt32Array(0, 0, 0), PackedInt32Array(0, 0, 0), PackedInt32Array(0, 0, 0)])
 
 [node name="Area3D" type="Area3D" parent="enemies/statue" groups=["boss_active_zone"]]
 
@@ -860,6 +861,7 @@ key_index = 2
 [node name="statue2" parent="enemies" instance=ExtResource("24_32rgo")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 51.0268, 188.474, 19.7486)
 spawns = Array[PackedVector3Array]([PackedVector3Array(2, 0, 5, 1, 90, 10, 1, 270, 10), PackedVector3Array(3, 0, 5, 1, 270, 10, 1, 90, 10), PackedVector3Array(3, 0, 5, 3, 90, 5, 3, 270, 5)])
+min_difs = Array[PackedInt32Array]([PackedInt32Array(0, 0, 0), PackedInt32Array(0, 0, 0), PackedInt32Array(0, 0, 0)])
 
 [node name="Area3D" type="Area3D" parent="enemies/statue2" groups=["boss_active_zone"]]
 

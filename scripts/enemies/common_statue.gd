@@ -25,6 +25,7 @@ var aura_mat = preload("res://resources/materials/aura_mat.tres").duplicate()
 @export var respawn_time = 15
 @export var spawn_height = 0
 @export var spawns : Array[PackedVector3Array]
+@export var min_difs : Array[PackedInt32Array]
 
 @onready var init_mesh_pos = mesh.position.y
 @onready var hp = spawns.size()
@@ -51,6 +52,7 @@ var servant_beams = []
 
 var disable_gibs : bool = false
 
+var diff
 var is_opengl = ProjectSettings.get_setting("rendering/renderer/rendering_method") == "gl_compatibility"
 
 func update_beam(i):
@@ -112,8 +114,10 @@ func spawn(type_f, ang, dist):
 func spawn_wave():
 	if current_wave >= spawns.size():
 		return
-	for i in spawns[current_wave]:
-		spawn(abs(i.x), i.y, i.z)
+	for i in range(spawns[current_wave].size()):
+		if min_difs[current_wave][i] <= diff:
+			var s = spawns[current_wave][i]
+			spawn(abs(s.x), s.y, s.z)
 	current_wave += 1
 
 
@@ -179,6 +183,8 @@ func _ready():
 	var config = ConfigFile.new()
 	config.load("user://settings.cfg")
 	disable_gibs = config.get_value("video", "disable_gibs", false)
+	
+	diff = config.get_value("gameplay", "difficulty", 2)
 	
 	respawn.wait_time = respawn_time
 	

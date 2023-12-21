@@ -634,6 +634,7 @@ metadata/_edit_lock_ = true
 [node name="statue" parent="enemies" instance=ExtResource("24_ji5k2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 130.073, 244.971, 430.013)
 spawns = Array[PackedVector3Array]([PackedVector3Array(2, 0, 5, 3, 180, 10)])
+min_difs = Array[PackedInt32Array]([PackedInt32Array(0, 0)])
 
 [node name="Area3D" type="Area3D" parent="enemies/statue" groups=["boss_active_zone"]]
 
@@ -649,6 +650,7 @@ key_index = 1
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 137.025, 277.984, 525.338)
 aura_col = Color(1, 0, 0, 1)
 spawns = Array[PackedVector3Array]([PackedVector3Array(1, 0, 5, 3, 90, 5, 1, 180, 5), PackedVector3Array(2, 0, 5, 2, 180, 5, 1, 270, 5)])
+min_difs = Array[PackedInt32Array]([PackedInt32Array(0, 0, 0), PackedInt32Array(0, 0, 0)])
 
 [node name="black_key" parent="enemies/statue2" instance=ExtResource("23_dx55l")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.0136566, 1.88556, 0.0326538)
@@ -673,6 +675,7 @@ time = 1.0
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 121.766, 277.984, 525.338)
 aura_col = Color(0, 0.498039, 1, 1)
 spawns = Array[PackedVector3Array]([PackedVector3Array(2, 90, 5, 1, 0, 5, 1, 180, 5), PackedVector3Array(2, 0, 5, 2, 180, 5, 1, 90, 5)])
+min_difs = Array[PackedInt32Array]([PackedInt32Array(0, 0, 0), PackedInt32Array(0, 0, 0)])
 
 [node name="white_key" parent="enemies/statue3" instance=ExtResource("23_dx55l")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.247429, 1.88556, 0.0326538)
