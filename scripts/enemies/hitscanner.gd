@@ -104,6 +104,8 @@ func is_asleep():
 
 
 func _ready():
+	visible = true
+	
 	var is_opengl = ProjectSettings.get_setting("rendering/renderer/rendering_method") == "gl_compatibility"
 	if is_opengl:
 		mesh_material = preload("res://resources/materials/opengl/enemy_mat_opengl.tres")
@@ -116,7 +118,6 @@ func _ready():
 	var diff = config.get_value("gameplay", "difficulty", 2)
 	if diff < min_dif:
 		queue_free()
-		return
 	
 	health = HP
 	update_healthbar()

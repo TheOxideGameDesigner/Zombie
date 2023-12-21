@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://26x6x0du3c7k"]
+[gd_scene load_steps=16 format=3 uid="uid://26x6x0du3c7k"]
 
 [ext_resource type="Script" path="res://scripts/enemies/chaingunner.gd" id="1_byk5e"]
 [ext_resource type="PackedScene" uid="uid://c5jx8yw6wwwds" path="res://scenes/environment/gibs/gunner.tscn" id="2_iw7q2"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://d4k7qjsc8bglc" path="res://scenes/enemy_home.tscn" id="10_dbry5"]
 [ext_resource type="ArrayMesh" uid="uid://bab2xh46v7nwq" path="res://models/dynamic_props/enemies/mountainside_chaingunner_chaingun.obj" id="10_r3bqt"]
 [ext_resource type="ArrayMesh" uid="uid://bdfyfgkljxrht" path="res://models/dynamic_props/enemies/mountainside_chaingunner.obj" id="11_x6mlk"]
+[ext_resource type="PackedScene" uid="uid://cd6bos2i6d23v" path="res://scenes/editor_tools/difficulty_visualiser.tscn" id="12_2wrjj"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_qmw2e"]
 material = ExtResource("6_lohqa")
@@ -108,6 +109,9 @@ shape = SubResource("CylinderShape3D_ttbnl")
 [node name="hit_timer" type="Timer" parent="."]
 wait_time = 1.5
 one_shot = true
+
+[node name="difficulty_visualiser" parent="." instance=ExtResource("12_2wrjj")]
+radius = 1.0
 
 [connection signal="timeout" from="respawn" to="." method="_on_respawn_timeout"]
 [connection signal="timeout" from="hit_timer" to="." method="_on_hit_timer_timeout"]

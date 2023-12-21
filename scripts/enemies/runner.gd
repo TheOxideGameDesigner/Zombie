@@ -101,6 +101,8 @@ func is_asleep():
 
 
 func _ready():
+	visible = true
+	
 	is_opengl = ProjectSettings.get_setting("rendering/renderer/rendering_method") == "gl_compatibility"
 	if is_opengl:
 		mesh_material = preload("res://resources/materials/opengl/enemy_mat_opengl.tres")

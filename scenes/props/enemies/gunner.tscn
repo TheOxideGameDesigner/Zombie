@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bfuck1d2dtogj"]
+[gd_scene load_steps=15 format=3 uid="uid://bfuck1d2dtogj"]
 
 [ext_resource type="Script" path="res://scripts/enemies/gunner.gd" id="1_v3qu8"]
 [ext_resource type="PackedScene" uid="uid://c5jx8yw6wwwds" path="res://scenes/environment/gibs/gunner.tscn" id="2_d5sbe"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://b0gqcw8cbkf4u" path="res://models/dynamic_props/enemies/mountainside_gunner.glb" id="8_5opxq"]
 [ext_resource type="Script" path="res://scripts/enemies/anim.gd" id="9_2o3ua"]
 [ext_resource type="PackedScene" uid="uid://d4k7qjsc8bglc" path="res://scenes/enemy_home.tscn" id="10_73ty8"]
+[ext_resource type="PackedScene" uid="uid://cd6bos2i6d23v" path="res://scenes/editor_tools/difficulty_visualiser.tscn" id="11_dpxc4"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_qmw2e"]
 material = ExtResource("6_3e31f")
@@ -101,6 +102,9 @@ shape = SubResource("CylinderShape3D_ttbnl")
 [node name="hit_timer" type="Timer" parent="."]
 wait_time = 1.5
 one_shot = true
+
+[node name="difficulty_visualiser" parent="." instance=ExtResource("11_dpxc4")]
+radius = 1.0
 
 [connection signal="timeout" from="respawn" to="." method="_on_respawn_timeout"]
 [connection signal="timeout" from="hit_timer" to="." method="_on_hit_timer_timeout"]

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cd6bos2i6d23v"]
+
+[ext_resource type="Script" path="res://scripts/editor_tools/difficulty_visualiser.gd" id="1_qv0yr"]
+
+[node name="difficulty_visualiser" type="Node"]
+script = ExtResource("1_qv0yr")

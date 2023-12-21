@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://d2ya5fu74vom0"]
+[gd_scene load_steps=17 format=3 uid="uid://d2ya5fu74vom0"]
 
 [ext_resource type="Script" path="res://scripts/enemies/hitscanner.gd" id="1_t2xa8"]
 [ext_resource type="PackedScene" uid="uid://b1tai2e1cohl5" path="res://scenes/environment/gibs/hitscanner.tscn" id="2_ohb4a"]
@@ -10,6 +10,7 @@
 [ext_resource type="FontVariation" uid="uid://cr4vqwh16ob78" path="res://resources/default_font.tres" id="7_87fxp"]
 [ext_resource type="PackedScene" uid="uid://blcmd2hy1r51r" path="res://models/dynamic_props/enemies/mountainside_hitscanner.glb" id="8_vs43q"]
 [ext_resource type="Script" path="res://scripts/enemies/anim.gd" id="9_dp0pp"]
+[ext_resource type="PackedScene" uid="uid://cd6bos2i6d23v" path="res://scenes/editor_tools/difficulty_visualiser.tscn" id="11_ksbdk"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_2lsg5"]
 
@@ -115,5 +116,7 @@ script = ExtResource("9_dp0pp")
 [node name="respawn" type="Timer" parent="."]
 wait_time = 5.0
 one_shot = true
+
+[node name="difficulty_visualiser" parent="." instance=ExtResource("11_ksbdk")]
 
 [connection signal="timeout" from="respawn" to="." method="_on_respawn_timeout"]
