@@ -549,6 +549,7 @@ min_dif = 4
 
 [node name="gunner" parent="." instance=ExtResource("14_wypjr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 149.866, 25.7569, 99.8335)
+min_dif = 4
 
 [node name="gunner2" parent="." instance=ExtResource("14_wypjr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.2388, 47.475, -77.2319)
