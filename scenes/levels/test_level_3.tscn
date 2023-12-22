@@ -31,14 +31,14 @@ skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_3cwp8")
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="."]
-transform = Transform3D(0.359978, 0, 0.00398973, 0.00225263, 0.29713, -0.203246, -0.00329297, 0.203258, 0.297111, 0, 3.08928, -6.05575)
+transform = Transform3D(0.359978, 0, 0.00398973, -0.00153118, 0.332433, 0.138152, -0.00368422, -0.138161, 0.332412, 0, 2.4569, -6.05575)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
 transform = Transform3D(0.999947, -0.00915225, 0.00483249, 0.00915225, 0.56393, -0.825772, 0.0048325, 0.825773, 0.563984, 0, 0, 0)
 shape = SubResource("ConcavePolygonShape3D_47luo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D2"]
-transform = Transform3D(28.0525, -0.256759, -0.175333, 1.7581e-07, 15.8206, -23.1678, 0.310914, 23.1664, 15.8196, 0, 0, 0)
+transform = Transform3D(28.0525, -0.256759, -0.175333, 1.75464e-07, 15.8206, -23.1678, 0.310914, 23.1664, 15.8196, 0, 0, 0)
 mesh = SubResource("PlaneMesh_ctp2d")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_3cwp8")
@@ -55,12 +55,6 @@ shape = SubResource("ConcavePolygonShape3D_47luo")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="StaticBody3D2"]
 transform = Transform3D(20.0176, 19.6545, -0.191654, -11.2003, 11.1813, -23.164, -16.1521, 16.6048, 15.825, 48.1726, -11.4039, -16.1377)
-mesh = SubResource("PlaneMesh_ctp2d")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_3cwp8")
-
-[node name="MeshInstance3D4" type="MeshInstance3D" parent="StaticBody3D2"]
-transform = Transform3D(20.0176, -19.6545, 0.191665, -11.2003, -11.1813, 23.164, -16.1521, -16.6048, -15.825, 48.1726, -11.4039, -16.1377)
 mesh = SubResource("PlaneMesh_ctp2d")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_3cwp8")
@@ -85,5 +79,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.3583, 0.200001, 20.4772)
 [node name="booster3" parent="." instance=ExtResource("6_dmeo8")]
 transform = Transform3D(-0.254995, 0, -10.9102, 0, 1, 0, 1.98368, 0, -1.40247, 39.8624, 0.213042, 16.8423)
 
-[node name="gunner" parent="." instance=ExtResource("6_lyq6m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.96537, 0.199999, 8.3985)
+[node name="chaingunner" parent="." instance=ExtResource("6_lyq6m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.30616, 0.2, 12.5907)

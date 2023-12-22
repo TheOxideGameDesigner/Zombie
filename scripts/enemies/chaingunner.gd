@@ -4,8 +4,9 @@ extends CharacterBody3D
 var HP : int = 300
 const REVOLVER_HEAL : int = 3
 const HIT_RANGE : float = 20
-const HIT_TIME : float = 0.2
 var HIT_DAMAGE : int = 4
+const PB_RANGE : float = 2
+const FALLOFF : float = 0.1
 const GRAVE_DEPTH : float = 4
 const RISE_HEIGHT : float = 0.25
 const RISE_FLICKER : float = 0.25
@@ -40,16 +41,19 @@ var disable_gibs : bool = false
 @onready var aura = $mesh/aura
 @onready var raycast_hitbox = $raycast_collision/raycast_hitbox
 @onready var hit_timer = $hit_timer
+@onready var ribbon = $mesh/ribbon
+@onready var init_ribbon_pos = ribbon.position
+@onready var ribbon_mesh = $mesh/ribbon/ribbon_mesh
 
 var mesh_material = preload("res://resources/materials/enemy_mat_gamma_corrected.tres")
 var blood = preload("res://scenes/environment/blood_particles.tscn")
-var rocket = preload("res://scenes/props/enemies/gunner_rocket.tscn")
 @export var gibs : PackedScene
 @onready var body = $mesh/mountainside_chaingunner
 @onready var chaingun = $mesh/mountainside_chaingunner/chaingun
 
 @onready var init_mesh_pos = $mesh.global_position - position
 @onready var dist_from_player = Vector2(player.position.x, player.position.z).distance_to(Vector2(position.x, position.z))
+@onready var dist_from_player3d = position.distance_to(player.position)
 
 @export var respawn_time = 10.0
 @export var spawn_ang = 0.0
@@ -128,6 +132,9 @@ func _ready():
 	var diff = config.get_value("gameplay", "difficulty", 2)
 	if diff < min_dif and drops.is_empty():
 		queue_free()
+	
+	ribbon_mesh.material_override = preload("res://resources/materials/ribbon_mat.tres").duplicate()
+	ribbon.top_level = 1
 
 
 func add_particles(edmg):
@@ -177,7 +184,9 @@ func update_healthbar():
 
 
 func _process(delta):
+	ribbon_mesh.material_override.albedo_color.a = max(0, ribbon_mesh.material_override.albedo_color.a - delta * 5)
 	dist_from_player = Vector2(player.position.x, player.position.z).distance_to(Vector2(position.x, position.z))
+	dist_from_player3d = position.distance_to(player.position)
 	
 	mesh.visible = (alive and not rising) or (rising and int(rising_timer / RISE_FLICKER) % 2 == 1)
 	health_label.visible = alive
@@ -249,6 +258,7 @@ func _physics_process(delta):
 	
 	if prev_pos != position:
 		prev_pos = position
+		ray.position = Vector3(0, 1.5, 0)
 		ray.target_position = Vector3(0, -1.7, 0)
 		ray.force_raycast_update()
 		if not ray.is_colliding():
@@ -256,11 +266,13 @@ func _physics_process(delta):
 		else:
 			position.y = ray.get_collision_point().y
 	
+	ray.position = Vector3(0.068, 1.13, 1.232).rotated(Vector3.UP, mesh.rotation.y)
 	ray.target_position = ray.to_local(player.position + Vector3(0, 1.5, 0)).normalized() * HIT_RANGE
 	ray.force_raycast_update()
 	
 	sees_player = ray.is_colliding() and ray.get_collider().is_in_group("player")
 	if sees_player:
+		chaingun.rotation.z += delta
 		if hit_timer.is_stopped():
 			hit_timer.start()
 		var dir = player.position - position
@@ -268,7 +280,23 @@ func _physics_process(delta):
 
 
 func _on_hit_timer_timeout():
-	pass
+	ribbon_mesh.material_override.albedo_color.a = 0.5
+	var dir = Vector3(0, 0, 1).rotated(Vector3.UP, mesh.rotation.y)
+	ray.position = Vector3(0.068, 1.13, 1.232).rotated(Vector3.UP, mesh.rotation.y)
+	ray.target_position = dir * (dist_from_player - 1.232) + Vector3(0, player.position.y - ray.global_position.y + 1.13, 0) + Vector3(-0.068, 0, 0).rotated(Vector3.UP, mesh.rotation.y)
+	ray.force_raycast_update()
+	ribbon.position = mesh.to_global(init_ribbon_pos)
+	ribbon.rotation.y = mesh.rotation.y + randf_range(-0.04, 0.04)
+	ribbon.rotation.x = -atan2(ray.to_local(player.position).y + 1.13, dist_from_player) + randf_range(-0.04, 0.04)
+	if ray.is_colliding():
+		ribbon.scale.z = ribbon.global_position.distance_to(ray.get_collision_point())
+	else:
+		ribbon.scale.z = HIT_RANGE
+	if ray.is_colliding() and ray.get_collider().is_in_group("player"):
+		if dist_from_player3d < PB_RANGE:
+			player.pain(HIT_DAMAGE)
+		else:
+			player.pain(HIT_DAMAGE / (FALLOFF * (dist_from_player3d - PB_RANGE) + 1))
 
 
 func _on_respawn_timeout():

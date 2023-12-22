@@ -1,7 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://26x6x0du3c7k"]
+[gd_scene load_steps=20 format=3 uid="uid://26x6x0du3c7k"]
 
 [ext_resource type="Script" path="res://scripts/enemies/chaingunner.gd" id="1_byk5e"]
-[ext_resource type="PackedScene" uid="uid://c5jx8yw6wwwds" path="res://scenes/environment/gibs/gunner.tscn" id="2_iw7q2"]
+[ext_resource type="PackedScene" uid="uid://m8glcgjq356c" path="res://scenes/environment/gibs/chaingunner.tscn" id="2_1sqqb"]
 [ext_resource type="Script" path="res://scripts/physics_lerp.gd" id="3_wcpd0"]
 [ext_resource type="Texture2D" uid="uid://dsi7k27hhox0v" path="res://textures/alerted.png" id="4_44kuy"]
 [ext_resource type="Texture2D" uid="uid://vu75j7stwa2m" path="res://textures/key.png" id="5_at4ch"]
@@ -10,6 +10,7 @@
 [ext_resource type="Material" uid="uid://dwn0f7w4jgfyf" path="res://resources/materials/enemy_mat_gamma_corrected.tres" id="8_o64va"]
 [ext_resource type="PackedScene" uid="uid://d4k7qjsc8bglc" path="res://scenes/enemy_home.tscn" id="10_dbry5"]
 [ext_resource type="ArrayMesh" uid="uid://bab2xh46v7nwq" path="res://models/dynamic_props/enemies/mountainside_chaingunner_chaingun.obj" id="10_r3bqt"]
+[ext_resource type="Material" uid="uid://dxklsftkbcvue" path="res://resources/materials/ribbon_mat.tres" id="11_g3y73"]
 [ext_resource type="ArrayMesh" uid="uid://bdfyfgkljxrht" path="res://models/dynamic_props/enemies/mountainside_chaingunner.obj" id="11_x6mlk"]
 [ext_resource type="PackedScene" uid="uid://cd6bos2i6d23v" path="res://scenes/editor_tools/difficulty_visualiser.tscn" id="12_2wrjj"]
 
@@ -17,6 +18,13 @@
 material = ExtResource("6_lohqa")
 radius = 1.74
 height = 6.37
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_db7ln"]
+top_radius = 0.02
+bottom_radius = 0.01
+height = 1.0
+radial_segments = 4
+rings = 1
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_3gd1o"]
 height = 2.02041
@@ -26,11 +34,21 @@ radius = 1.0
 height = 3.7148
 radius = 1.75
 
-[node name="gunner" type="CharacterBody3D" groups=["activatable", "enemy", "see_through"]]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4ygdx"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(1, 1, 1, 0.2)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ern4j"]
+top_radius = 1.0
+bottom_radius = 1.0
+radial_segments = 12
+
+[node name="chaingunner" type="CharacterBody3D" groups=["activatable", "enemy", "see_through"]]
 top_level = true
 collision_layer = 2
 script = ExtResource("1_byk5e")
-gibs = ExtResource("2_iw7q2")
+gibs = ExtResource("2_1sqqb")
 
 [node name="mesh" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -78,8 +96,18 @@ mesh = ExtResource("11_x6mlk")
 skeleton = NodePath("../..")
 
 [node name="chaingun" type="MeshInstance3D" parent="mesh/mountainside_chaingunner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.060452, 0.116317, -5.28488e-09)
 material_override = ExtResource("8_o64va")
 mesh = ExtResource("10_r3bqt")
+
+[node name="ribbon" type="Node3D" parent="mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.067, 0.128, 1.21803)
+
+[node name="ribbon_mesh" type="MeshInstance3D" parent="mesh/ribbon"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0.5)
+material_override = ExtResource("11_g3y73")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_db7ln")
 
 [node name="hitbox" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.99922, 0)
@@ -87,16 +115,17 @@ shape = SubResource("CylinderShape3D_3gd1o")
 
 [node name="home" parent="." instance=ExtResource("10_dbry5")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
-color = Color(0.564706, 0.294118, 1, 0.858824)
+color = Color(0.427451, 0.254902, 0, 0.858824)
 
 [node name="respawn" type="Timer" parent="."]
 wait_time = 5.0
 one_shot = true
 
 [node name="ray" type="RayCast3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.68889, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 enabled = false
 collision_mask = 257
+hit_from_inside = true
 
 [node name="raycast_collision" type="CharacterBody3D" parent="." groups=["enemy_raycast_collision"]]
 collision_layer = 4
@@ -107,10 +136,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.79109, 0)
 shape = SubResource("CylinderShape3D_ttbnl")
 
 [node name="hit_timer" type="Timer" parent="."]
-wait_time = 1.5
+wait_time = 0.1
 one_shot = true
 
 [node name="difficulty_visualiser" parent="." instance=ExtResource("12_2wrjj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+material_override = SubResource("StandardMaterial3D_4ygdx")
+mesh = SubResource("CylinderMesh_ern4j")
 radius = 1.0
 
 [connection signal="timeout" from="respawn" to="." method="_on_respawn_timeout"]

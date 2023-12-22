@@ -35,6 +35,7 @@ project/assembly_name="Zombie"
 
 [filesystem]
 
+import/blender/enabled=false
 import/fbx/enabled=false
 
 [input]

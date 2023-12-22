@@ -98,8 +98,6 @@ func spawn(type_f, ang, dist):
 	var beam = MeshInstance3D.new()
 	beam.mesh = CylinderMesh.new()
 	beam.mesh.material = aura_mat
-	beam.mesh.cap_bottom = 0
-	beam.mesh.cap_top = 0
 	beam.mesh.height = 1
 	beam.mesh.rings = 1
 	beam.mesh.radial_segments = 10

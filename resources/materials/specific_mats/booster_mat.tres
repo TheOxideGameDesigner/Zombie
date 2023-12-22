@@ -1,7 +1,9 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bxshyklg53mb7"]
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://bxshyklg53mb7"]
 
 [ext_resource type="Shader" path="res://resources/materials/specific_mats/booster_mat.gdshader" id="1_xonm7"]
+[ext_resource type="Texture2D" uid="uid://dec3n8dplshht" path="res://textures/booster_texture.png" id="2_lwen6"]
 
 [resource]
 render_priority = 0
 shader = ExtResource("1_xonm7")
+shader_parameter/albedo_texture = ExtResource("2_lwen6")

@@ -219,7 +219,7 @@ func fire():
 	ribbon_mesh.material_override.albedo_color.a = 0.5
 	var dir = Vector3(0, 0, 1).rotated(Vector3.UP, mesh.rotation.y)
 	ray.position = Vector3(0.079, 1.642, 0.847).rotated(Vector3.UP, mesh.rotation.y)
-	ray.target_position = dir * (dist_from_player - 0.847) + Vector3(0, player.position.y - ray.global_position.y + 0.858, 0) + Vector3(-0.079, 0, 0).rotated(Vector3.UP, mesh.rotation.y)
+	ray.target_position = dir * (dist_from_player - 0.847) + Vector3(0,  player.position.y - ray.global_position.y + 1.5, 0) + Vector3(-0.079, 0, 0).rotated(Vector3.UP, mesh.rotation.y)
 	ray.force_raycast_update()
 	ribbon.position = mesh.to_global(init_ribbon_pos)
 	ribbon.rotation.y = mesh.rotation.y

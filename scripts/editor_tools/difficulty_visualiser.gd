@@ -25,6 +25,8 @@ func _ready():
 		queue_free()
 
 func _process(delta):
+	if not get_parent().is_in_group("enemy"):
+		return
 	material_override.albedo_color = COLORS[get_parent().min_dif]
 	if not Input.is_key_pressed(KEY_SHIFT):
 		return
