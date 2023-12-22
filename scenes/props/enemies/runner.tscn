@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://ct4dtw3ijmehk"]
+[gd_scene load_steps=17 format=3 uid="uid://ct4dtw3ijmehk"]
 
 [ext_resource type="Script" path="res://scripts/enemies/runner.gd" id="1_161no"]
 [ext_resource type="PackedScene" uid="uid://drygiqwrpy1uk" path="res://scenes/environment/gibs/runner.tscn" id="2_hqbvn"]
@@ -26,6 +26,14 @@ radius = 1.03
 height = 5.915
 radial_segments = 10
 rings = 10
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j5cor"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(1, 1, 1, 0.2)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_4drmj"]
+radial_segments = 12
 
 [node name="runner" type="CharacterBody3D" groups=["activatable", "enemy", "lightweight"]]
 top_level = true
@@ -108,5 +116,8 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 
 script = ExtResource("9_rysfu")
 
 [node name="difficulty_visualiser" parent="." instance=ExtResource("10_xxpbx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+material_override = SubResource("StandardMaterial3D_j5cor")
+mesh = SubResource("CylinderMesh_4drmj")
 
 [connection signal="timeout" from="respawn" to="." method="_on_respawn_timeout"]

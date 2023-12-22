@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://d2ya5fu74vom0"]
+[gd_scene load_steps=19 format=3 uid="uid://d2ya5fu74vom0"]
 
 [ext_resource type="Script" path="res://scripts/enemies/hitscanner.gd" id="1_t2xa8"]
 [ext_resource type="PackedScene" uid="uid://b1tai2e1cohl5" path="res://scenes/environment/gibs/hitscanner.tscn" id="2_ohb4a"]
@@ -34,6 +34,13 @@ bottom_radius = 0.03
 height = 1.0
 radial_segments = 4
 rings = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ssifj"]
+transparency = 1
+shading_mode = 0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_omxc8"]
+radial_segments = 12
 
 [node name="hitscanner" type="CharacterBody3D" groups=["activatable", "enemy", "lightweight"]]
 top_level = true
@@ -118,5 +125,8 @@ wait_time = 5.0
 one_shot = true
 
 [node name="difficulty_visualiser" parent="." instance=ExtResource("11_ksbdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+material_override = SubResource("StandardMaterial3D_ssifj")
+mesh = SubResource("CylinderMesh_omxc8")
 
 [connection signal="timeout" from="respawn" to="." method="_on_respawn_timeout"]

@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" path="res://scripts/editor_tools/difficulty_visualiser.gd" id="1_qv0yr"]
 
-[node name="difficulty_visualiser" type="Node"]
+[node name="difficulty_visualiser" type="MeshInstance3D"]
 script = ExtResource("1_qv0yr")

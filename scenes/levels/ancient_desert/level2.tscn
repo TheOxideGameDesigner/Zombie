@@ -333,7 +333,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.804482, 5.41066, 0)
 shape = SubResource("BoxShape3D_41p50")
 
 [node name="gunner" parent="enemies" instance=ExtResource("17_mvafs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.6965, -3, -73.3264)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.2342, -3, -73.3264)
 
 [node name="key2" parent="enemies/gunner" instance=ExtResource("15_kxua3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.92807, -7.15256e-07, -1.11893)
@@ -342,7 +342,7 @@ key_name = "black"
 key_index = 2
 
 [node name="gunner2" parent="enemies" instance=ExtResource("17_mvafs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.6126, -3, -73.3264)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.5915, -3, -73.3264)
 
 [node name="key3" parent="enemies/gunner2" instance=ExtResource("15_kxua3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.08532, 2.38419e-07, -0.405365)
@@ -394,7 +394,6 @@ min_dif = 2
 
 [node name="hitscanner7" parent="enemies" instance=ExtResource("18_ylwd5")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -77.3669, -15, -106.182)
-visible = false
 min_dif = 4
 
 [node name="runner10" parent="enemies" instance=ExtResource("20_ip873")]
@@ -407,7 +406,6 @@ min_dif = 1
 
 [node name="hitscanner6" parent="enemies" instance=ExtResource("18_ylwd5")]
 transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, 30.9125, 8.70434, -60.5333)
-visible = false
 min_dif = 4
 
 [node name="runner7" parent="enemies" instance=ExtResource("20_ip873")]
@@ -429,7 +427,6 @@ min_dif = 3
 
 [node name="runner4" parent="." instance=ExtResource("20_ip873")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.9958, 1.12847, -26.0611)
-visible = false
 min_dif = 4
 
 [node name="runner5" parent="." instance=ExtResource("20_ip873")]
@@ -438,5 +435,4 @@ min_dif = 3
 
 [node name="runner6" parent="." instance=ExtResource("20_ip873")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.4666, -2.9386, -78.6678)
-visible = false
 min_dif = 4
