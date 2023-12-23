@@ -190,7 +190,7 @@ func _process(delta):
 	
 	mesh.visible = (alive and not rising) or (rising and int(rising_timer / RISE_FLICKER) % 2 == 1)
 	health_label.visible = alive
-	alerted.visible = not hit_timer.is_stopped()
+	alerted.visible = not hit_timer.is_stopped() or sees_player
 	alerted.position = Vector3(0, 1.862, 0) + Vector3(0, 0.5, 0) * int(key.visible)
 	
 	if not alive:
