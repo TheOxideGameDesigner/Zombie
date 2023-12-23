@@ -685,7 +685,7 @@ func _physics_process(delta):
 		camera.shake(0.4, 0.75, 0.025)
 	ramp_vel = (position.y - prev_h) / delta
 	
-	var bobbing = is_on_floor() and velocity.length_squared() > 0.1
+	var bobbing = is_on_floor() and velocity.length_squared() > 0.1 and wishdir != Vector2.ZERO
 	if abs(viewmodel_offset) > 0.1 or bobbing:
 		var mul = 1.0
 		if not bobbing:
