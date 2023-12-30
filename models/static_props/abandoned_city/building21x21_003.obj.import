@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cricqhytfhueg"
+path="res://.godot/imported/building21x21_003.obj-ab9d7df7f76ae1c78487c732c5e9cf7e.mesh"
+
+[deps]
+
+files=["res://.godot/imported/building21x21_003.obj-ab9d7df7f76ae1c78487c732c5e9cf7e.mesh"]
+
+source_file="res://models/static_props/abandoned_city/building21x21_003.obj"
+dest_files=["res://.godot/imported/building21x21_003.obj-ab9d7df7f76ae1c78487c732c5e9cf7e.mesh", "res://.godot/imported/building21x21_003.obj-ab9d7df7f76ae1c78487c732c5e9cf7e.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cvs2tymb4n7ll"
+path="res://.godot/imported/barrier_002.obj-2748f1600f1db11b1a9325b769049a1e.mesh"
+
+[deps]
+
+files=["res://.godot/imported/barrier_002.obj-2748f1600f1db11b1a9325b769049a1e.mesh"]
+
+source_file="res://models/static_props/abandoned_city/barrier_002.obj"
+dest_files=["res://.godot/imported/barrier_002.obj-2748f1600f1db11b1a9325b769049a1e.mesh", "res://.godot/imported/barrier_002.obj-2748f1600f1db11b1a9325b769049a1e.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

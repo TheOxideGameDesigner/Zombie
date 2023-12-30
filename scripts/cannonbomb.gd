@@ -24,8 +24,6 @@ var time = 0.0
 
 var damage_mul = 1.0
 
-var rising = 0
-
 func explode(body):
 	exploding = 1
 	$bomb_sphere.visible = 0
@@ -57,12 +55,6 @@ func explode(body):
 			var expl_dir = (body.global_position - position).normalized()
 			expl_dir.y = 0
 			body.add_vel = expl_dir.normalized() * 10
-
-
-func pain(_dmg):
-	if exploding:
-		return
-	explode(null)
 
 
 func _ready():

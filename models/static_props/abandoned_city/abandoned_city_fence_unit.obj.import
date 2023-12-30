@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dhnpgc206x0t5"
+path="res://.godot/imported/abandoned_city_fence_unit.obj-645a07cbefa0634dbb0d03ca7fc6970c.mesh"
+
+[deps]
+
+files=["res://.godot/imported/abandoned_city_fence_unit.obj-645a07cbefa0634dbb0d03ca7fc6970c.mesh"]
+
+source_file="res://models/static_props/abandoned_city/abandoned_city_fence_unit.obj"
+dest_files=["res://.godot/imported/abandoned_city_fence_unit.obj-645a07cbefa0634dbb0d03ca7fc6970c.mesh", "res://.godot/imported/abandoned_city_fence_unit.obj-645a07cbefa0634dbb0d03ca7fc6970c.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

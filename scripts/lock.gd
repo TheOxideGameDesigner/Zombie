@@ -9,9 +9,8 @@ extends MeshInstance3D
 @onready var dir = Vector3.MODEL_FRONT.rotated(Vector3.UP, global_rotation.y)
 
 func _ready():
-	var material = preload("res://resources/materials/lock_mat.tres").duplicate()
-	material.albedo_color = color
-	set_surface_override_material(0, material)
+	material_override = preload("res://resources/materials/lock_mat.tres").duplicate()
+	material_override.albedo_color = color
 	$arrow.visible = 0
 
 

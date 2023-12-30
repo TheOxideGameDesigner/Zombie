@@ -2,27 +2,26 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://7d0ae5fdkqdn"
-path.s3tc="res://.godot/imported/arrow.png-861c892ad5e977715fa7c7818661e8d5.s3tc.ctex"
+uid="uid://c15t2ftp3ps8g"
+path="res://.godot/imported/wire_fence.png-0d5acf96744e1d155429a24738d38d48.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/ui/arrow.png"
-dest_files=["res://.godot/imported/arrow.png-861c892ad5e977715fa7c7818661e8d5.s3tc.ctex"]
+source_file="res://textures/wire_fence.png"
+dest_files=["res://.godot/imported/wire_fence.png-0d5acf96744e1d155429a24738d38d48.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""

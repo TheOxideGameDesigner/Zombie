@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cvr4wmbxrhf5"
+path="res://.godot/imported/misc_prop_car_002.obj-75a8e99bc031805155b5dd446740552f.mesh"
+
+[deps]
+
+files=["res://.godot/imported/misc_prop_car_002.obj-75a8e99bc031805155b5dd446740552f.mesh"]
+
+source_file="res://models/static_props/abandoned_city/misc_prop_car_002.obj"
+dest_files=["res://.godot/imported/misc_prop_car_002.obj-75a8e99bc031805155b5dd446740552f.mesh", "res://.godot/imported/misc_prop_car_002.obj-75a8e99bc031805155b5dd446740552f.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

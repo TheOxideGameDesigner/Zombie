@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cgcgsfdkuvaht"
+path="res://.godot/imported/light_pole.obj-5b3fdad4c82112e744037e3dbacccc7c.mesh"
+
+[deps]
+
+files=["res://.godot/imported/light_pole.obj-5b3fdad4c82112e744037e3dbacccc7c.mesh"]
+
+source_file="res://models/static_props/abandoned_city/light_pole.obj"
+dest_files=["res://.godot/imported/light_pole.obj-5b3fdad4c82112e744037e3dbacccc7c.mesh", "res://.godot/imported/light_pole.obj-5b3fdad4c82112e744037e3dbacccc7c.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

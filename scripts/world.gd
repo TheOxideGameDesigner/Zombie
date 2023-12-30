@@ -1,3 +1,4 @@
+@tool
 extends Node3D
 
 
@@ -13,6 +14,8 @@ func _ready():
 	if not config_file.get_value("video", "shadows", 0) or ProjectSettings.get_setting("rendering/renderer/rendering_method") == "gl_compatibility":
 		for j in get_tree().get_nodes_in_group("light"):
 			j.shadow_enabled = 0
+	if Engine.is_editor_hint():
+		return
 	if config_file.get_value("video", "disable_particles"):
 		for j in get_tree().get_nodes_in_group("particles"):
 			j.queue_free()

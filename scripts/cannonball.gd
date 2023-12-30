@@ -36,7 +36,7 @@ func explode(body):
 				obj.pain(lerp(0.0, DAMAGE, 1.0 - dist / SPLASH_RADIUS) * damage_mul)
 	var dist = (player.position + Vector3(0, 0.85, 0)).distance_to(position)
 	if dist < SPLASH_RADIUS:
-		var knockback_dir = (player.cam.global_position - position) * 3 / (dist * dist)
+		var knockback_dir = (player.cam.global_position - position) * 6 / (dist * dist)
 		knockback_dir.y = 2
 		player.knockback(knockback_dir)
 		

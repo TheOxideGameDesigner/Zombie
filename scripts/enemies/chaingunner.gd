@@ -3,7 +3,7 @@ extends CharacterBody3D
 
 var HP : int = 300
 const REVOLVER_HEAL : int = 3
-const HIT_RANGE : float = 20
+const HIT_RANGE : float = 25
 var HIT_DAMAGE : int = 4
 const PB_RANGE : float = 2
 const FALLOFF : float = 0.1
@@ -78,6 +78,8 @@ func _ready():
 	var is_opengl = ProjectSettings.get_setting("rendering/renderer/rendering_method") == "gl_compatibility"
 	if is_opengl:
 		mesh_material = preload("res://resources/materials/opengl/enemy_mat_opengl.tres")
+	body.material_override = mesh_material
+	chaingun.material_override = mesh_material
 	
 	var config = ConfigFile.new()
 	config.load("user://settings.cfg")
@@ -272,7 +274,7 @@ func _physics_process(delta):
 	
 	sees_player = ray.is_colliding() and ray.get_collider().is_in_group("player")
 	if sees_player:
-		chaingun.rotation.z += delta
+		chaingun.rotation.z += delta * 3
 		if hit_timer.is_stopped():
 			hit_timer.start()
 		var dir = player.position - position

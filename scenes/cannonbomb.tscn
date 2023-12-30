@@ -32,7 +32,7 @@ rings = 8
 [sub_resource type="SphereShape3D" id="SphereShape3D_y3tma"]
 radius = 0.474268
 
-[node name="cannonbomb" type="RigidBody3D" groups=["enemy"]]
+[node name="cannonbomb" type="RigidBody3D"]
 top_level = true
 collision_layer = 0
 script = ExtResource("1_84ab5")

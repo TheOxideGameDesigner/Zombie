@@ -540,6 +540,12 @@ func _ready():
 	cam.top_level = 1
 	cam.rotation.y = rotation.y
 	rotation.y = 0
+	
+	if ProjectSettings.get_setting("rendering/renderer/rendering_method") == "gl_compatibility":
+		revolver_viewmodel.material_override = preload("res://resources/materials/level_mat.tres")
+		shotgun_viewmodel.material_override = preload("res://resources/materials/level_mat.tres")
+		cannon_viewmodel.material_override = preload("res://resources/materials/level_mat.tres")
+		blaster_viewmodel.material_override = preload("res://resources/materials/level_mat.tres")
 
 
 func _unhandled_input(event):
