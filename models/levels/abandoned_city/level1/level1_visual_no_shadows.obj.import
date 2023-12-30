@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://40n4q8ugx0ha"
+path="res://.godot/imported/level1_visual_no_shadows.obj-76c3369912215fad67b045cb299c60a2.mesh"
+
+[deps]
+
+files=["res://.godot/imported/level1_visual_no_shadows.obj-76c3369912215fad67b045cb299c60a2.mesh"]
+
+source_file="res://models/levels/abandoned_city/level1/level1_visual_no_shadows.obj"
+dest_files=["res://.godot/imported/level1_visual_no_shadows.obj-76c3369912215fad67b045cb299c60a2.mesh", "res://.godot/imported/level1_visual_no_shadows.obj-76c3369912215fad67b045cb299c60a2.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
