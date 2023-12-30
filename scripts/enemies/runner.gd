@@ -357,7 +357,10 @@ func _physics_process(delta):
 					continue
 				if not i.shape is CylinderShape3D:
 					continue
-				position += dir.normalized() * (RADIUS + i.shape.radius - dir.length())
+				if dir.dot(velocity) > 0:
+					position += (dir.normalized() * (RADIUS + i.shape.radius - dir.length())).project(velocity.rotated(Vector3.UP, PI / 2))
+				else:
+					position += (dir.normalized() * (RADIUS + i.shape.radius - dir.length()))
 				is_cylinder = 1
 				break
 			if not is_cylinder:
