@@ -361,7 +361,7 @@ func _physics_process(delta):
 				if dir.dot(velocity) > 0:
 					displacement = (dir.normalized() * (RADIUS + i.shape.radius - dir.length())).project(velocity.rotated(Vector3.UP, PI / 2))
 				else:
-					displacement += (dir.normalized() * (RADIUS + i.shape.radius - dir.length()))
+					displacement = (dir.normalized() * (RADIUS + i.shape.radius - dir.length()))
 				if displacement.length() < 0.5:
 					position += displacement
 				is_cylinder = 1
