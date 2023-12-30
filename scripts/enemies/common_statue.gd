@@ -17,6 +17,7 @@ var active_zone : Area3D
 @export var runner_scene : PackedScene
 @export var gunner_scene : PackedScene
 @export var hitscanner_scene : PackedScene
+@export var chaingunner_scene : PackedScene
 @export var aura_col : Color = Color(1, 0, 0.64)
 var aura_mat = preload("res://resources/materials/aura_mat.tres").duplicate()
 @export var gibs : PackedScene
@@ -84,6 +85,8 @@ func spawn(type_f, ang, dist):
 			new_zombie = gunner_scene.instantiate()
 		3:
 			new_zombie = hitscanner_scene.instantiate()
+		4:
+			new_zombie = chaingunner_scene.instantiate()
 	new_zombie.respawn_time = 1
 	new_zombie.position = Vector3.MODEL_FRONT.rotated(Vector3.UP, ang - PI / 2) * dist
 	new_zombie.position.y += spawn_height
@@ -187,7 +190,7 @@ func _ready():
 	respawn.wait_time = respawn_time
 	
 	for c in get_children():
-		if c.is_in_group("boss_active_zone"):
+		if c is Area3D and not c.is_in_group("drop"):
 			active_zone = c
 			c.set_collision_mask_value(9, 1)
 		elif c.is_in_group("drop"):

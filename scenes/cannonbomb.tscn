@@ -61,11 +61,4 @@ collision_mask = 3
 [node name="hitbox" type="CollisionShape3D" parent="area"]
 shape = SubResource("SphereShape3D_y3tma")
 
-[node name="raycast_hitbox" type="CharacterBody3D" parent="." groups=["enemy_raycast_collision"]]
-collision_layer = 4
-collision_mask = 0
-
-[node name="hitbox" type="CollisionShape3D" parent="raycast_hitbox"]
-shape = SubResource("SphereShape3D_8i2er")
-
 [connection signal="body_entered" from="area" to="." method="_on_area_body_entered"]

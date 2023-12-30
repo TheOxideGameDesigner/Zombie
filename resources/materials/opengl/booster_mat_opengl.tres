@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://74psswe5hvcb"]
+
+[ext_resource type="Texture2D" uid="uid://dec3n8dplshht" path="res://textures/booster_texture.png" id="1_75l7r"]
+
+[resource]
+shading_mode = 0
+specular_mode = 2
+albedo_texture = ExtResource("1_75l7r")
+uv1_triplanar = true

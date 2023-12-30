@@ -6,11 +6,12 @@ var player_inside : bool = false
 @export var boost = 10.0
 
 func _ready():
+	if ProjectSettings.get_setting("rendering/renderer/rendering_method") == "gl_compatibility":
+		$visual.material_override = preload("res://resources/materials/opengl/booster_mat_opengl.tres")
+	$editor_guide.queue_free()
 	$visual.set_instance_shader_parameter("texture_scale", Vector2(scale.x, scale.z))
 	$area/CollisionShape3D.shape = BoxShape3D.new()
 	$area/CollisionShape3D.shape.size = Vector3(scale.x * 2, 2, scale.z * 2)
-	$collision/CollisionShape3D.shape = BoxShape3D.new()
-	$collision/CollisionShape3D.shape.size = Vector3(scale.x * 2, 0.2, scale.z * 2)
 	$visual.scale = scale
 	scale = Vector3.ONE
 	boost_dir.y = 0

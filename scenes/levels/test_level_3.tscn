@@ -5,10 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://ddiw8ybfcdmjb" path="res://scenes/misc_props/spring.tscn" id="3_0v1iu"]
 [ext_resource type="PackedScene" uid="uid://cdshg7bk5i645" path="res://scenes/misc_props/garlic.tscn" id="5_hamsc"]
 [ext_resource type="PackedScene" uid="uid://bxguakgn55464" path="res://scenes/misc_props/booster.tscn" id="6_dmeo8"]
-[ext_resource type="PackedScene" uid="uid://26x6x0du3c7k" path="res://scenes/props/enemies/chaingunner.tscn" id="6_lyq6m"]
 [ext_resource type="PackedScene" uid="uid://b13esvlqxb735" path="res://scenes/props/static_props/abandoned_city/car_001.tscn" id="7_akpa4"]
 [ext_resource type="PackedScene" uid="uid://cgmgdyoch1u3a" path="res://scenes/props/static_props/abandoned_city/car_002.tscn" id="8_rls7e"]
 [ext_resource type="PackedScene" uid="uid://csvyl0lp0e1sj" path="res://scenes/props/static_props/abandoned_city/car_003.tscn" id="9_o8eci"]
+[ext_resource type="PackedScene" uid="uid://ct4dtw3ijmehk" path="res://scenes/props/enemies/runner.tscn" id="10_iikv2"]
 [ext_resource type="PackedScene" uid="uid://dpmjcbakobr4n" path="res://scenes/props/static_props/abandoned_city/truck.tscn" id="10_jgxld"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_47luo"]
@@ -72,7 +72,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.363, 0.200001, 18.0439)
 [node name="light" type="DirectionalLight3D" parent="." groups=["light"]]
 transform = Transform3D(-0.270371, 0.958996, -0.0850087, -0.539281, -0.0777098, 0.838533, 0.797543, 0.272559, 0.538179, 34.4022, 23.7255, -146.613)
 light_bake_mode = 0
-shadow_enabled = true
 shadow_bias = 0.01
 shadow_opacity = 0.7
 directional_shadow_blend_splits = true
@@ -81,10 +80,7 @@ directional_shadow_blend_splits = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.3583, 0.200001, 20.4772)
 
 [node name="booster3" parent="." instance=ExtResource("6_dmeo8")]
-transform = Transform3D(-0.254995, 0, -10.9102, 0, 1, 0, 1.98368, 0, -1.40247, 39.8624, 0.213042, 16.8423)
-
-[node name="chaingunner" parent="." instance=ExtResource("6_lyq6m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.30616, 0.2, 12.5907)
+transform = Transform3D(-0.254995, 0, -10.9102, 0, 1, 0, 1.98368, 0, -1.40247, 10.1929, 0.213042, 22.1855)
 
 [node name="Car001" parent="." instance=ExtResource("7_akpa4")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 12.642, 0.199999, 5.80766)
@@ -97,3 +93,21 @@ transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, 10.2821, 0
 
 [node name="Truck" parent="." instance=ExtResource("10_jgxld")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.3002, 0.200002, 15.1007)
+
+[node name="runner" parent="." instance=ExtResource("10_iikv2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.28597, 0.200001, 5.10798)
+
+[node name="runner2" parent="." instance=ExtResource("10_iikv2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.8827, 0.199999, 1.66899)
+
+[node name="runner3" parent="." instance=ExtResource("10_iikv2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.423, 0.199999, 5.98876)
+
+[node name="runner4" parent="." instance=ExtResource("10_iikv2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.7034, 0.199999, 2.62712)
+
+[node name="runner5" parent="." instance=ExtResource("10_iikv2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5305, 0.199999, -4.13212)
+
+[node name="runner6" parent="." instance=ExtResource("10_iikv2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5994, 0.199999, -0.43759)

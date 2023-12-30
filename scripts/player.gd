@@ -532,6 +532,7 @@ func _ready():
 	collected_keys.resize(KEYS_MAX)
 	for i in range(KEYS_MAX):
 		collected_keys[i] = 0
+	
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	Input.use_accumulated_input = false
 	raycast.add_exception(self)

@@ -15,7 +15,6 @@
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_2lsg5"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_qg53b"]
-radius = 0.829037
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_dm706"]
 height = 2.60716
@@ -35,12 +34,12 @@ height = 1.0
 radial_segments = 4
 rings = 1
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nj4wj"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bbs77"]
 transparency = 1
 shading_mode = 0
 albedo_color = Color(1, 1, 1, 0.2)
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_f3ama"]
+[sub_resource type="CylinderMesh" id="CylinderMesh_rc8ih"]
 radial_segments = 12
 
 [node name="hitscanner" type="CharacterBody3D" groups=["activatable", "enemy", "lightweight"]]
@@ -128,7 +127,7 @@ one_shot = true
 
 [node name="difficulty_visualiser" parent="." instance=ExtResource("11_ksbdk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-material_override = SubResource("StandardMaterial3D_nj4wj")
-mesh = SubResource("CylinderMesh_f3ama")
+material_override = SubResource("StandardMaterial3D_bbs77")
+mesh = SubResource("CylinderMesh_rc8ih")
 
 [connection signal="timeout" from="respawn" to="." method="_on_respawn_timeout"]

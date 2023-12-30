@@ -72,4 +72,3 @@ void light() {
 render_priority = 0
 next_pass = SubResource("ShaderMaterial_x5bn4")
 shader = SubResource("Shader_o5yh0")
-shader_parameter/ambient = 0.5

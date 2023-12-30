@@ -351,7 +351,17 @@ func _physics_process(delta):
 		if area.is_in_group("enemy_area"):
 			var dir = Vector3(position.x, 0, position.z) - \
 				  Vector3(area.global_position.x, 0, area.global_position.z)
-			push_vel += dir.normalized() * 0.5
+			var is_cylinder = 0
+			for i in area.get_children():
+				if not i is CollisionShape3D:
+					continue
+				if not i.shape is CylinderShape3D:
+					continue
+				position += dir.normalized() * (RADIUS + i.shape.radius - dir.length())
+				is_cylinder = 1
+				break
+			if not is_cylinder:
+				push_vel += dir.normalized() * 2.0 / min(1, position.distance_to(area.position))
 	
 	process_bumps(delta)
 	

@@ -39,7 +39,7 @@ func _ready():
 	
 	$death_ray/death_ray_mesh.material_override = death_ray_mat
 	for c in get_children():
-		if c.is_in_group("boss_active_zone"):
+		if c is Area3D:
 			c.set_collision_mask_value(9, 1)
 			active_zone = c
 			break
