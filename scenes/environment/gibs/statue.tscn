@@ -9,11 +9,11 @@
 [ext_resource type="ArrayMesh" uid="uid://bw68unoqmivnf" path="res://models/gibs/statue/head.obj" id="6_o6mdq"]
 [ext_resource type="ArrayMesh" uid="uid://c25i8jhypr2f5" path="res://models/gibs/statue/wing.obj" id="7_4xjux"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_qrd45"]
-size = Vector3(0.859703, 1.44468, 0.341646)
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xt1xi"]
 specular_mode = 2
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qrd45"]
+size = Vector3(0.859703, 1.44468, 0.341646)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1e461"]
 radius = 0.142005
@@ -51,6 +51,7 @@ metadata/_edit_group_ = true
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
 top_level = true
 mesh = ExtResource("2_unp6g")
+surface_material_override/0 = SubResource("StandardMaterial3D_xt1xi")
 script = ExtResource("3_jdnu6")
 enable_rot = true
 global = true
