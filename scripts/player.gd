@@ -22,6 +22,7 @@ const AIR_ACCEL = 17
 const JUMP_SPEED = 4
 const GR_ACCEL = 9.8
 const TERMINAL_VEL = 30
+const MAX_STEP_HEIGHT = 0.3
 
 const SWAY = 0.001
 const SWAY_MAX = 2
@@ -488,6 +489,16 @@ func movement(wishdir, delta):
 	velocity = Vector3(vel2d.x, velocity.y, vel2d.y)
 	
 	move_and_slide()
+	
+	#now check to see if the player can climb up a step
+	if not moving_on_floor:
+		return
+	raycast.global_position = Vector3(vel2d.x, 0, vel2d.y).normalized() * (RADIUS + 0.05) + global_position + Vector3(0, 1.2, 0)
+	raycast.target_position = raycast.to_local(raycast.global_position + Vector3(0, -1.19, 0))
+	raycast.force_raycast_update()
+	if raycast.is_colliding() and raycast.get_collision_normal().dot(Vector3.UP) > 0.9:
+		global_position.y = raycast.get_collision_point().y
+	raycast.position = Vector3.ZERO
 
 
 func _ready():
