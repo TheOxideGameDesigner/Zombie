@@ -11,10 +11,9 @@ var timer = 0.0
 func _ready():
 	var config_file = ConfigFile.new()
 	config_file.load("user://settings.cfg")
-	var shadows_on = not config_file.get_value("video", "shadows", 1) and ProjectSettings.get_setting("rendering/renderer/rendering_method") != "gl_compatibility"
-	if not shadows_on:
-		for j in get_tree().get_nodes_in_group("light"):
-			j.shadow_enabled = shadows_on
+	var shadows_on = config_file.get_value("video", "shadows", 1) and ProjectSettings.get_setting("rendering/renderer/rendering_method") != "gl_compatibility"
+	for j in get_tree().get_nodes_in_group("light"):
+		j.shadow_enabled = shadows_on
 	if Engine.is_editor_hint():
 		return
 	if config_file.get_value("video", "disable_particles"):

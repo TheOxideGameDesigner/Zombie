@@ -34,11 +34,11 @@ height = 1.0
 radial_segments = 4
 rings = 1
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nipen"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bnalx"]
 transparency = 1
 shading_mode = 0
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_uly5s"]
+[sub_resource type="CylinderMesh" id="CylinderMesh_lt64x"]
 radial_segments = 12
 
 [node name="hitscanner" type="CharacterBody3D" groups=["activatable", "enemy", "lightweight"]]
@@ -126,7 +126,7 @@ one_shot = true
 
 [node name="difficulty_visualiser" parent="." instance=ExtResource("11_ksbdk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-material_override = SubResource("StandardMaterial3D_nipen")
-mesh = SubResource("CylinderMesh_uly5s")
+material_override = SubResource("StandardMaterial3D_bnalx")
+mesh = SubResource("CylinderMesh_lt64x")
 
 [connection signal="timeout" from="respawn" to="." method="_on_respawn_timeout"]
