@@ -1,9 +1,10 @@
-[gd_scene load_steps=54 format=3 uid="uid://2f1bh8xupkm1"]
+[gd_scene load_steps=55 format=3 uid="uid://2f1bh8xupkm1"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_54pjr"]
 [ext_resource type="PackedScene" uid="uid://4px2n2dg363l" path="res://scenes/misc_props/player.tscn" id="2_dvrvk"]
 [ext_resource type="Environment" uid="uid://eqg2tcivmb0e" path="res://resources/level_enviroments/abandoned_city_environment.tres" id="3_k5nd2"]
 [ext_resource type="Material" uid="uid://uxn8fucitgfr" path="res://resources/materials/level_mat.tres" id="4_cyeta"]
+[ext_resource type="ArrayMesh" uid="uid://ddui3n28jibby" path="res://models/levels/abandoned_city/level2/level2_visual.obj" id="5_7f7gw"]
 [ext_resource type="ArrayMesh" uid="uid://5qhuhr5n24mv" path="res://models/levels/abandoned_city/level2/level2_visual_no_shadows.obj" id="5_edvvr"]
 [ext_resource type="ArrayMesh" uid="uid://kklumwcssetg" path="res://models/levels/abandoned_city/level2/level2_collision.obj" id="6_2snwg"]
 [ext_resource type="Script" path="res://scripts/create_static_body_child.gd" id="7_fuwcb"]
@@ -93,6 +94,10 @@ light_bake_mode = 0
 shadow_bias = 0.01
 shadow_opacity = 0.7
 directional_shadow_blend_splits = true
+
+[node name="level_visual" type="MeshInstance3D" parent="."]
+material_override = ExtResource("4_cyeta")
+mesh = ExtResource("5_7f7gw")
 
 [node name="level_visual_no_shadow" type="MeshInstance3D" parent="."]
 material_override = ExtResource("4_cyeta")
