@@ -37,6 +37,7 @@ rings = 1
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_myfg3"]
 transparency = 1
 shading_mode = 0
+albedo_color = Color(1, 1, 1, 0.2)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_iqlnw"]
 radial_segments = 12

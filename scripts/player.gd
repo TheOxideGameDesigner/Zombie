@@ -496,10 +496,10 @@ func movement(wishdir, delta):
 	for i in range(get_slide_collision_count()):
 		var col = get_slide_collision(i)
 		if is_equal_approx(col.get_angle(), PI / 2):
-			raycast.global_position = -col.get_normal() * (RADIUS + 0.1) + global_position + Vector3(0, 1.2, 0)
-			raycast.target_position = raycast.to_local(raycast.global_position + Vector3(0, -1.19, 0))
+			raycast.global_position = -col.get_normal() * (RADIUS + 0.1) + global_position + Vector3(0, MAX_STEP_HEIGHT, 0)
+			raycast.target_position = raycast.to_local(raycast.global_position + Vector3(0, -MAX_STEP_HEIGHT, 0))
 			raycast.force_raycast_update()
-			if raycast.is_colliding() and raycast.get_collision_normal().dot(Vector3.UP) > 0.9 and raycast.get_collision_point().y - global_position.y < MAX_STEP_HEIGHT:
+			if raycast.is_colliding() and raycast.get_collision_normal().dot(Vector3.UP) > 0.9:
 				global_position.y = raycast.get_collision_point().y
 			raycast.position = Vector3.ZERO
 			return
