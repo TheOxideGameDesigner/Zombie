@@ -26,12 +26,12 @@ height = 5.915
 radial_segments = 10
 rings = 10
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2hy3k"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4c67c"]
 transparency = 1
 shading_mode = 0
 albedo_color = Color(1, 1, 1, 0.2)
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_yi2aj"]
+[sub_resource type="CylinderMesh" id="CylinderMesh_vn55y"]
 radial_segments = 12
 
 [node name="runner" type="CharacterBody3D" groups=["activatable", "enemy", "lightweight"]]
@@ -116,7 +116,7 @@ script = ExtResource("9_rysfu")
 
 [node name="difficulty_visualiser" parent="." instance=ExtResource("10_xxpbx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-material_override = SubResource("StandardMaterial3D_2hy3k")
-mesh = SubResource("CylinderMesh_yi2aj")
+material_override = SubResource("StandardMaterial3D_4c67c")
+mesh = SubResource("CylinderMesh_vn55y")
 
 [connection signal="timeout" from="respawn" to="." method="_on_respawn_timeout"]

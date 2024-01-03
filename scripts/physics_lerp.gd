@@ -1,16 +1,40 @@
 extends Node3D
 
 
-@onready var current_pos = position
-@onready var prev_pos = position
-@onready var current_rot = rotation
-@onready var prev_rot = rotation
+@onready var current_pos
+@onready var prev_pos
+@onready var current_rot
+@onready var prev_rot
 
 @export var enable_rot : bool = 0
 @export var global : bool = 0
 @export var of_parent : bool = 0
 
 @onready var p = get_parent()
+
+func _ready():
+	if of_parent:
+		if global:
+			current_pos = p.global_position
+			current_rot = p.global_rotation
+			prev_pos = p.global_position
+			prev_rot = p.global_rotation
+		else:
+			current_pos = p.position
+			current_rot = p.rotation
+			prev_pos = p.position
+			prev_rot = p.rotation
+	else:
+		if global:
+			current_pos = global_position
+			current_rot = global_rotation
+			prev_pos = global_position
+			prev_rot = global_rotation
+		else:
+			current_pos = position
+			current_rot = rotation
+			prev_pos = position
+			prev_rot = rotation
 
 func _physics_process(_delta):
 	var pos

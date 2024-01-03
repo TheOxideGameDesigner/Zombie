@@ -38,17 +38,16 @@ radial_segments = 12
 rings = 6
 
 [node name="gunner_rocket" type="Area3D"]
-top_level = true
 collision_mask = 257
 script = ExtResource("1_oj5qd")
 
 [node name="sprite" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
-top_level = true
-visible = false
 cast_shadow = 0
 mesh = SubResource("SphereMesh_3v3hu")
 script = ExtResource("2_fr1g2")
+global = true
+of_parent = true
 
 [node name="sprite_interior" type="MeshInstance3D" parent="sprite"]
 transform = Transform3D(0.635, 0, 0, 0, 0.635, 0, 0, 0, 0.635, 0, 0, 0)

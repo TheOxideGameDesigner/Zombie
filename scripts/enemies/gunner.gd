@@ -276,12 +276,11 @@ func _on_hit_timer_timeout():
 	mesh_body.play("shooting", 1.5)
 	var new_rocket = rocket.instantiate()
 	new_rocket.player = player
-	add_child(new_rocket)
 	new_rocket.SPEED = ROCKET_SPEED
 	new_rocket.set_vel(player.position - position)
-	new_rocket.position = mesh.to_global(Vector3(0.1,1.156,1.474))
+	new_rocket.position = Vector3(0.102,1.17,1.54).rotated(Vector3.UP, mesh.rotation.y)
+	add_child(new_rocket)
 	new_rocket.top_level = 1
-
 
 func _on_respawn_timeout():
 	health = HP
