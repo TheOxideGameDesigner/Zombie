@@ -499,7 +499,7 @@ func movement(wishdir, delta):
 			raycast.global_position = -col.get_normal() * (RADIUS + 0.1) + global_position + Vector3(0, 1.2, 0)
 			raycast.target_position = raycast.to_local(raycast.global_position + Vector3(0, -1.19, 0))
 			raycast.force_raycast_update()
-			if raycast.is_colliding() and raycast.get_collision_normal().dot(Vector3.UP) > 0.9:
+			if raycast.is_colliding() and raycast.get_collision_normal().dot(Vector3.UP) > 0.9 and raycast.get_collision_point().y - global_position.y < MAX_STEP_HEIGHT:
 				global_position.y = raycast.get_collision_point().y
 			raycast.position = Vector3.ZERO
 			return
