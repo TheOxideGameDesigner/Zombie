@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://csvyl0lp0e1sj" path="res://scenes/props/static_props/abandoned_city/car_003.tscn" id="9_o8eci"]
 [ext_resource type="PackedScene" uid="uid://bd7l0srjkudj5" path="res://scenes/props/static_props/abandoned_city/light_pole.tscn" id="10_c43ug"]
 [ext_resource type="PackedScene" uid="uid://dpmjcbakobr4n" path="res://scenes/props/static_props/abandoned_city/truck.tscn" id="10_jgxld"]
-[ext_resource type="PackedScene" uid="uid://cn0h8ppoq8uq8" path="res://scenes/props/enemies/mage.tscn" id="11_kux8t"]
+[ext_resource type="PackedScene" uid="uid://26x6x0du3c7k" path="res://scenes/props/enemies/chaingunner.tscn" id="11_gai66"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_47luo"]
 data = PackedVector3Array(-28.3425, 0.2, 28.1325, 28.3425, 0.2, 28.1325, -28.3425, -0.2, 28.1325, 28.3425, 0.2, 28.1325, 28.3425, -0.2, 28.1325, -28.3425, -0.2, 28.1325, 28.3425, 0.2, -28.1325, -28.3425, 0.2, -28.1325, 28.3425, -0.2, -28.1325, -28.3425, 0.2, -28.1325, -28.3425, -0.2, -28.1325, 28.3425, -0.2, -28.1325, 28.3425, 0.2, 28.1325, 28.3425, 0.2, -28.1325, 28.3425, -0.2, 28.1325, 28.3425, 0.2, -28.1325, 28.3425, -0.2, -28.1325, 28.3425, -0.2, 28.1325, -28.3425, 0.2, -28.1325, -28.3425, 0.2, 28.1325, -28.3425, -0.2, -28.1325, -28.3425, 0.2, 28.1325, -28.3425, -0.2, 28.1325, -28.3425, -0.2, -28.1325, 28.3425, 0.2, 28.1325, -28.3425, 0.2, 28.1325, 28.3425, 0.2, -28.1325, -28.3425, 0.2, 28.1325, -28.3425, 0.2, -28.1325, 28.3425, 0.2, -28.1325, -28.3425, -0.2, 28.1325, 28.3425, -0.2, 28.1325, -28.3425, -0.2, -28.1325, 28.3425, -0.2, 28.1325, 28.3425, -0.2, -28.1325, -28.3425, -0.2, -28.1325)
@@ -99,5 +99,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.3002, 0.200002, 15.1007)
 [node name="LightPole" parent="." instance=ExtResource("10_c43ug")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.745, 0.0558164, 7.32406)
 
-[node name="mage" parent="." instance=ExtResource("11_kux8t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.9374, 0.2, -2.99519)
+[node name="chaingunner" parent="." instance=ExtResource("11_gai66")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.49787, 0.200001, 2.99813)

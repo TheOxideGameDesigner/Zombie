@@ -22,6 +22,7 @@ var rising_timer = 0.0
 var vulnerability = 1.0
 var has_died = 0
 var drops = []
+var reaction_timer = 0.0
 
 var pain_col = 0.0
 
@@ -274,11 +275,16 @@ func _physics_process(delta):
 	
 	sees_player = ray.is_colliding() and ray.get_collider().is_in_group("player")
 	if sees_player:
+		var dir = player.position - position
+		rot = -atan2(dir.z, dir.x) + PI / 2
+		if reaction_timer < 1.5:
+			reaction_timer += delta
+			return
 		chaingun.rotation.z += delta * 3
 		if hit_timer.is_stopped():
 			hit_timer.start()
-		var dir = player.position - position
-		rot = -atan2(dir.z, dir.x) + PI / 2
+	else:
+		reaction_timer = 0.0
 
 
 func _on_hit_timer_timeout():
