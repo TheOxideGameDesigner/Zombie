@@ -3,22 +3,22 @@
 [ext_resource type="Script" path="res://scripts/enemies/gunner_rocket.gd" id="1_oj5qd"]
 [ext_resource type="Script" path="res://scripts/physics_lerp.gd" id="2_fr1g2"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ngnas"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mcbti"]
 shading_mode = 0
 albedo_color = Color(1, 0, 0, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_3v3hu"]
-material = SubResource("StandardMaterial3D_ngnas")
+material = SubResource("StandardMaterial3D_mcbti")
 flip_faces = true
 radial_segments = 10
 rings = 5
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n47a8"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_648ff"]
 shading_mode = 0
 albedo_color = Color(1, 0.631373, 0, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_ot6ty"]
-material = SubResource("StandardMaterial3D_n47a8")
+material = SubResource("StandardMaterial3D_648ff")
 radial_segments = 10
 rings = 5
 

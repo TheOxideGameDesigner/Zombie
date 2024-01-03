@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cn0h8ppoq8uq8"]
+[gd_scene load_steps=21 format=3 uid="uid://cn0h8ppoq8uq8"]
 
 [ext_resource type="Script" path="res://scripts/enemies/mage.gd" id="1_aa64x"]
 [ext_resource type="PackedScene" uid="uid://c5jx8yw6wwwds" path="res://scenes/environment/gibs/gunner.tscn" id="2_4qv71"]
@@ -26,12 +26,31 @@ height = 5.915
 radial_segments = 10
 rings = 10
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2hro3"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ngnas"]
+shading_mode = 0
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_atyuv"]
+material = SubResource("StandardMaterial3D_ngnas")
+flip_faces = true
+radial_segments = 10
+rings = 5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n47a8"]
+shading_mode = 0
+albedo_color = Color(1, 0.631373, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_gskn1"]
+material = SubResource("StandardMaterial3D_n47a8")
+radial_segments = 10
+rings = 5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b2nhl"]
 transparency = 1
 shading_mode = 0
 albedo_color = Color(1, 1, 1, 0.2)
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_c4gtq"]
+[sub_resource type="CylinderMesh" id="CylinderMesh_deay8"]
 radial_segments = 12
 
 [node name="mage" type="CharacterBody3D" groups=["activatable", "enemy", "lightweight"]]
@@ -103,13 +122,25 @@ font_size = 64
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
 script = ExtResource("10_w8c6t")
 
+[node name="fireball" type="MeshInstance3D" parent="mesh"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0.752877)
+visible = false
+cast_shadow = 0
+mesh = SubResource("SphereMesh_atyuv")
+
+[node name="sprite_interior" type="MeshInstance3D" parent="mesh/fireball"]
+transform = Transform3D(0.635, 0, 0, 0, 0.635, 0, 0, 0, 0.635, 0, 0, 0)
+cast_shadow = 0
+mesh = SubResource("SphereMesh_gskn1")
+skeleton = NodePath("../..")
+
 [node name="respawn" type="Timer" parent="."]
 wait_time = 5.0
 one_shot = true
 
 [node name="difficulty_visualiser" parent="." instance=ExtResource("11_osjj8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-material_override = SubResource("StandardMaterial3D_2hro3")
-mesh = SubResource("CylinderMesh_c4gtq")
+material_override = SubResource("StandardMaterial3D_b2nhl")
+mesh = SubResource("CylinderMesh_deay8")
 
 [connection signal="timeout" from="respawn" to="." method="_on_respawn_timeout"]

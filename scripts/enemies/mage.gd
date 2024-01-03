@@ -17,10 +17,11 @@ const RISE_HEIGHT = 0.25
 const RISE_FLICKER = 0.25
 const AIM_TIME : float = 0.25
 const HIT_RANGE : float = 20
+var ROCKET_SPEED = 20
+const HIT_TIME : float = 1.5
 const HIT_RANGE_MARGIN = 1.0
 const PB_RANGE : float = 2
 const FALLOFF : float = 0.1
-var HIT_TIME : float = 1.5
 const HIT_DAMAGE : int = 30
 const REVOLVER_HEAL : int = 5
 const ATTENTION_SPAN : float = 10
@@ -36,7 +37,6 @@ var target_pos = Vector3.ZERO
 var sees_player = false
 var aim_timer = AIM_TIME
 var rising_timer = 0.0
-var hit_timer = HIT_TIME
 var attention_span_timer = 0
 var vulnerability = 1.0
 
@@ -60,6 +60,7 @@ var bump_timers : Array[float] = []
 @onready var raycast_hitbox = $raycast_collision/raycast_hitbox
 @onready var collision_area_hitbox = $collision_area/collision_area_hitbox
 
+var rocket = preload("res://scenes/props/enemies/gunner_rocket.tscn")
 var mesh_material = preload("res://resources/materials/enemy_mat.tres")
 var blood = preload("res://scenes/environment/blood_particles.tscn")
 @export var gibs : PackedScene
@@ -82,6 +83,13 @@ var disable_gibs : bool = false
 var add_vel = Vector3.ZERO
 
 var in_active_zone = 1
+
+@onready var fireball = $mesh/fireball
+const FB_TIME = 0.4666
+var hit_timer = 0.0
+var fb_timer = 0.0
+const FB_POS = [Vector3(0, 0, 0.4), Vector3(0, 0, 0.3)]
+var fired : bool = false
 
 func make_inactive():
 	in_active_zone = 0
@@ -204,10 +212,6 @@ func pain(dmg):
 	target_pos = player.position
 
 
-func fire():
-	pass
-
-
 func update_healthbar():
 	health_label.text = str(max(0, health))
 
@@ -243,6 +247,12 @@ func _process(delta):
 		mesh_body.legs_playing = 0
 	else:
 		mesh_body.legs_playing = 1
+	
+	fb_timer = max(0.0, fb_timer - delta)
+	if fb_timer != 0.0:
+		var weight = 1 - fb_timer / FB_TIME
+		fireball.scale = 0.5 * weight * Vector3.ONE
+		fireball.position = lerp(FB_POS[0], FB_POS[1], weight)
 
 
 func rising_func(t):
@@ -369,16 +379,17 @@ func _physics_process(delta):
 		velocity = add_vel + push_vel + Vector3(0, y_vel, 0)
 		move_and_slide()
 	
+	hit_timer = max(0.0, hit_timer - delta)
+	
 	if not asleep:
 		var nextpos = target_pos - position
-		
 		if sees_player and dist_from_player3d < HIT_RANGE and alive and not rising:
-			if aim_timer <= 0.0:
-				hit_timer -= delta
-				if hit_timer <= 0.2 and not mesh_body.is_playing():
-					mesh_body.play("hitting", 2.5)
-					fire()
-					hit_timer = HIT_TIME
+			if aim_timer <= 0.0 and hit_timer == 0.0:
+				hit_timer = HIT_TIME
+				fireball.visible = true
+				fired = false
+				fb_timer = FB_TIME
+				mesh_body.play("hitting", 2.5)
 			else:
 				if aim_timer == AIM_TIME:
 					mesh_body.play("aiming", 3)
@@ -387,7 +398,11 @@ func _physics_process(delta):
 			if aim_timer < AIM_TIME:
 				mesh_body.play("aiming", -3)
 			aim_timer = AIM_TIME
-			hit_timer = HIT_TIME
+		
+		if not fired and fb_timer == 0.0 and hit_timer > 0.0:
+			fire()
+			fired = true
+			fireball.visible = false
 		
 		rot = -atan2(nextpos.z, nextpos.x) + PI / 2
 		var vel_dir = Vector3.MODEL_FRONT.rotated(Vector3.UP, mesh.rotation.y)
@@ -420,6 +435,15 @@ func _physics_process(delta):
 				position.y = ray.get_collision_point().y
 	#end of zombie movement
 
+
+func fire():
+	var new_rocket = rocket.instantiate()
+	new_rocket.player = player
+	new_rocket.SPEED = ROCKET_SPEED
+	new_rocket.set_vel(player.position - position)
+	new_rocket.position = FB_POS[1].rotated(Vector3.UP, mesh.rotation.y) + Vector3(0, 1, 0)
+	add_child(new_rocket)
+	new_rocket.top_level = 1
 
 func _on_respawn_timeout():
 	health = HP
