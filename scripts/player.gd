@@ -493,12 +493,16 @@ func movement(wishdir, delta):
 	#now check to see if the player can climb up a step
 	if not moving_on_floor:
 		return
-	raycast.global_position = Vector3(vel2d.x, 0, vel2d.y).normalized() * (RADIUS + 0.05) + global_position + Vector3(0, 1.2, 0)
-	raycast.target_position = raycast.to_local(raycast.global_position + Vector3(0, -1.19, 0))
-	raycast.force_raycast_update()
-	if raycast.is_colliding() and raycast.get_collision_normal().dot(Vector3.UP) > 0.9:
-		global_position.y = raycast.get_collision_point().y
-	raycast.position = Vector3.ZERO
+	for i in range(get_slide_collision_count()):
+		var col = get_slide_collision(i)
+		if is_equal_approx(col.get_angle(), PI / 2):
+			raycast.global_position = -col.get_normal() * (RADIUS + 0.1) + global_position + Vector3(0, 1.2, 0)
+			raycast.target_position = raycast.to_local(raycast.global_position + Vector3(0, -1.19, 0))
+			raycast.force_raycast_update()
+			if raycast.is_colliding() and raycast.get_collision_normal().dot(Vector3.UP) > 0.9:
+				global_position.y = raycast.get_collision_point().y
+			raycast.position = Vector3.ZERO
+			return
 
 
 func _ready():
