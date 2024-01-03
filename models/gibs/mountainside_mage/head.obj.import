@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cdyuoi07n2lbq"
+path="res://.godot/imported/head.obj-f122c1284165c558eecdb9421dca3dad.mesh"
+
+[deps]
+
+files=["res://.godot/imported/head.obj-f122c1284165c558eecdb9421dca3dad.mesh"]
+
+source_file="res://models/gibs/mountainside_mage/head.obj"
+dest_files=["res://.godot/imported/head.obj-f122c1284165c558eecdb9421dca3dad.mesh", "res://.godot/imported/head.obj-f122c1284165c558eecdb9421dca3dad.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

@@ -446,6 +446,10 @@ func fire():
 	new_rocket.top_level = 1
 
 func _on_respawn_timeout():
+	fired = false
+	fireball.visible = false
+	fb_timer = 0.0
+	hit_timer = 0.0
 	health = HP
 	update_healthbar()
 	alive = 1
