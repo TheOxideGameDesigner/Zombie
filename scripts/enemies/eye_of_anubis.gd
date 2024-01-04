@@ -6,6 +6,7 @@ var HIT_TIME = 5.0
 
 @onready var orb = $orb
 @onready var ray = $ray
+@onready var init_ray_pos = $ray.position
 @onready var player = get_tree().get_first_node_in_group("player")
 @onready var player_cam = get_tree().get_first_node_in_group("player").get_node("cam")
 @onready var ui = player.get_node("eye_of_anubis")
@@ -77,7 +78,8 @@ func _physics_process(delta):
 	if not is_player_in_zone():
 		sees_player = 0
 		return
-	ray.target_position = ray.to_local(player.position + Vector3(0, 1, 0))
+	ray.position = init_ray_pos.rotated(Vector3.UP, orb.global_rotation.y)
+	ray.target_position = ray.to_local(player.position + Vector3(0, 1.2, 0))
 	ray.force_raycast_update()
 	sees_player = (ray.is_colliding() and ray.get_collider() == player)
 	if hit_timer >= HIT_TIME:

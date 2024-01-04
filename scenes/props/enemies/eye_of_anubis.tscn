@@ -27,6 +27,11 @@ script = ExtResource("1_tcjb3")
 [node name="hitbox" type="CollisionShape3D" parent="."]
 shape = SubResource("ConcavePolygonShape3D_iebyc")
 
+[node name="ray" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.783391, 2.0775, 0)
+enabled = false
+collision_mask = 257
+
 [node name="pedestal" type="MeshInstance3D" parent="."]
 mesh = ExtResource("1_nyixf")
 surface_material_override/0 = ExtResource("2_osr26")
@@ -48,8 +53,3 @@ shape = SubResource("ConcavePolygonShape3D_cf3x8")
 material_override = ExtResource("3_j3amu")
 mesh = ExtResource("4_l4vss")
 skeleton = NodePath("../..")
-
-[node name="ray" type="RayCast3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.01666, 0)
-enabled = false
-collision_mask = 257

@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://csvyl0lp0e1sj" path="res://scenes/props/static_props/abandoned_city/car_003.tscn" id="9_o8eci"]
 [ext_resource type="PackedScene" uid="uid://bd7l0srjkudj5" path="res://scenes/props/static_props/abandoned_city/light_pole.tscn" id="10_c43ug"]
 [ext_resource type="PackedScene" uid="uid://dpmjcbakobr4n" path="res://scenes/props/static_props/abandoned_city/truck.tscn" id="10_jgxld"]
-[ext_resource type="PackedScene" uid="uid://26x6x0du3c7k" path="res://scenes/props/enemies/chaingunner.tscn" id="11_gai66"]
+[ext_resource type="PackedScene" uid="uid://ct4dtw3ijmehk" path="res://scenes/props/enemies/runner.tscn" id="12_w3j2h"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_47luo"]
 data = PackedVector3Array(-28.3425, 0.2, 28.1325, 28.3425, 0.2, 28.1325, -28.3425, -0.2, 28.1325, 28.3425, 0.2, 28.1325, 28.3425, -0.2, 28.1325, -28.3425, -0.2, 28.1325, 28.3425, 0.2, -28.1325, -28.3425, 0.2, -28.1325, 28.3425, -0.2, -28.1325, -28.3425, 0.2, -28.1325, -28.3425, -0.2, -28.1325, 28.3425, -0.2, -28.1325, 28.3425, 0.2, 28.1325, 28.3425, 0.2, -28.1325, 28.3425, -0.2, 28.1325, 28.3425, 0.2, -28.1325, 28.3425, -0.2, -28.1325, 28.3425, -0.2, 28.1325, -28.3425, 0.2, -28.1325, -28.3425, 0.2, 28.1325, -28.3425, -0.2, -28.1325, -28.3425, 0.2, 28.1325, -28.3425, -0.2, 28.1325, -28.3425, -0.2, -28.1325, 28.3425, 0.2, 28.1325, -28.3425, 0.2, 28.1325, 28.3425, 0.2, -28.1325, -28.3425, 0.2, 28.1325, -28.3425, 0.2, -28.1325, 28.3425, 0.2, -28.1325, -28.3425, -0.2, 28.1325, 28.3425, -0.2, 28.1325, -28.3425, -0.2, -28.1325, 28.3425, -0.2, 28.1325, 28.3425, -0.2, -28.1325, -28.3425, -0.2, -28.1325)
@@ -31,35 +31,6 @@ shape = SubResource("ConcavePolygonShape3D_47luo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
 transform = Transform3D(28.0525, 0, -0.310913, 0, 28.0542, 0, 0.310913, 0, 28.0525, 0, 0.19884, 0)
-mesh = SubResource("PlaneMesh_ctp2d")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_3cwp8")
-
-[node name="StaticBody3D2" type="StaticBody3D" parent="."]
-transform = Transform3D(0.359978, 0, 0.00398973, -0.00153118, 0.332433, 0.138152, -0.00368422, -0.138161, 0.332412, 0, 2.4569, -6.05575)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
-transform = Transform3D(0.999947, -0.00915225, 0.00483249, 0.00915225, 0.56393, -0.825772, 0.0048325, 0.825773, 0.563984, 0, 0, 0)
-shape = SubResource("ConcavePolygonShape3D_47luo")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D2"]
-transform = Transform3D(28.0525, -0.256759, -0.175333, 1.75464e-07, 15.8206, -23.1678, 0.310914, 23.1664, 15.8196, 0, 0, 0)
-mesh = SubResource("PlaneMesh_ctp2d")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_3cwp8")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="StaticBody3D2"]
-transform = Transform3D(28.0525, 0.256759, 0.175334, 1.74026e-07, -15.8206, 23.1678, 0.310913, -23.1664, -15.8196, 0, 0, 0)
-mesh = SubResource("PlaneMesh_ctp2d")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_3cwp8")
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D2"]
-transform = Transform3D(0.713564, 0.70059, 0.00107683, -0.390062, 0.39856, -0.830061, -0.581963, 0.591882, 0.557672, 48.1726, -11.4039, -16.1377)
-shape = SubResource("ConcavePolygonShape3D_47luo")
-
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="StaticBody3D2"]
-transform = Transform3D(20.0176, 19.6545, -0.191654, -11.2003, 11.1813, -23.164, -16.1521, 16.6048, 15.825, 48.1726, -11.4039, -16.1377)
 mesh = SubResource("PlaneMesh_ctp2d")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_3cwp8")
@@ -99,5 +70,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.3002, 0.200002, 15.1007)
 [node name="LightPole" parent="." instance=ExtResource("10_c43ug")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.745, 0.0558164, 7.32406)
 
-[node name="chaingunner" parent="." instance=ExtResource("11_gai66")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.49787, 0.200001, 2.99813)
+[node name="runner" parent="." instance=ExtResource("12_w3j2h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.3791, 0.200005, -8.08059)
+
+[node name="runner2" parent="." instance=ExtResource("12_w3j2h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.4964, 0.200001, -8.23819)
