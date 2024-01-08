@@ -442,6 +442,13 @@ modulate = Color(1, 1, 1, 0)
 texture = ExtResource("20_iuo0h")
 centered = false
 
+[node name="color_overlay" type="ColorRect" parent="."]
+z_index = -1
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
+color = Color(1, 0, 0, 0)
+
 [connection signal="pressed" from="pause_handler/pause_panel/continue" to="pause_handler" method="_on_continue_pressed"]
 [connection signal="pressed" from="pause_handler/pause_panel/restart" to="pause_handler" method="_on_restart_pressed"]
 [connection signal="pressed" from="pause_handler/pause_panel/back" to="pause_handler" method="_on_back_pressed"]

@@ -3344,10 +3344,6 @@ min_dif = 3
 transform = Transform3D(-0.9752, 0, 0.221327, 0, 1, 0, -0.221327, 0, -0.9752, 541.72, 1.52588e-05, 529.418)
 min_dif = 4
 
-[node name="runner3" parent="." instance=ExtResource("42_qa72u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 570.891, 0.249912, 513.641)
-min_dif = 3
-
 [node name="hitscanner3" parent="." instance=ExtResource("44_5bfhw")]
 transform = Transform3D(0.0373588, 0, -0.999302, 0, 1, 0, 0.999302, 0, 0.0373588, 587.681, 1.33514e-05, 509.028)
 min_dif = 4

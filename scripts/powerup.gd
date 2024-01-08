@@ -4,6 +4,7 @@ extends Node3D
 var player_inside : bool = false
 
 @export var powerup_type : int
+@export var color : Color
 @onready var good_dir = transform.basis.z
 @onready var player = get_tree().get_first_node_in_group("player")
 
@@ -22,6 +23,8 @@ func _on_area_body_entered(body):
 	if body.is_in_group("player"):
 		player_inside = true
 	
+	player.color_overlay.color = color
+	player.color_overlay.color.a = 0.5
 	var good : bool = good_dir.dot(player.position - position) > 0
 	handle_powerup(good)
 

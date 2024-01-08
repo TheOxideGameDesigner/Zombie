@@ -116,6 +116,7 @@ var particles_scene = preload("res://scenes/environment/blood_particles.tscn")
 @onready var gun_cam = $cam/camera/vp_cont/vp/gun_cam
 @onready var revolver_mf = $cam/camera/vp_cont/vp/gun_cam/viewmodel/revolver_viewmodel/revolver_mf
 @onready var shotgun_mf = $cam/camera/vp_cont/vp/gun_cam/viewmodel/shotgun_viewmodel/shotgun_mf
+@onready var color_overlay = $color_overlay
 
 @onready var viewmodel_pos = Vector3.ZERO
 
@@ -668,6 +669,8 @@ func _process(delta):
 	shotgun_mf_timer = max(0, shotgun_mf_timer - delta)
 	revolver_mf.visible = (revolver_mf_timer != 0 and not holstering)
 	shotgun_mf.visible = (shotgun_mf_timer != 0 and not holstering)
+	
+	color_overlay.color.a -= delta
 
 
 func viewmodel_rot_func(t, dt, g):

@@ -9,6 +9,7 @@ size = Vector3(4, 4, 1)
 
 [node name="double_damage" type="Node3D"]
 script = ExtResource("1_mo4is")
+color = Color(1, 0, 0, 1)
 
 [node name="good_side" type="Sprite3D" parent="."]
 pixel_size = 0.008

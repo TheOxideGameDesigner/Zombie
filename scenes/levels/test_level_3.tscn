@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bajqqqjylfrys"]
+[gd_scene load_steps=16 format=3 uid="uid://bajqqqjylfrys"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_n6eeb"]
 [ext_resource type="PackedScene" uid="uid://4px2n2dg363l" path="res://scenes/misc_props/player.tscn" id="2_26vq5"]
@@ -10,7 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://csvyl0lp0e1sj" path="res://scenes/props/static_props/abandoned_city/car_003.tscn" id="9_o8eci"]
 [ext_resource type="PackedScene" uid="uid://bd7l0srjkudj5" path="res://scenes/props/static_props/abandoned_city/light_pole.tscn" id="10_c43ug"]
 [ext_resource type="PackedScene" uid="uid://dpmjcbakobr4n" path="res://scenes/props/static_props/abandoned_city/truck.tscn" id="10_jgxld"]
-[ext_resource type="PackedScene" uid="uid://ct4dtw3ijmehk" path="res://scenes/props/enemies/runner.tscn" id="12_w3j2h"]
+[ext_resource type="PackedScene" uid="uid://cian3gl8fgeb7" path="res://scenes/misc_props/double_damage.tscn" id="11_410h7"]
+[ext_resource type="PackedScene" uid="uid://chc7prysjaa7j" path="res://scenes/misc_props/double_speed.tscn" id="12_a6cgt"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_47luo"]
 data = PackedVector3Array(-28.3425, 0.2, 28.1325, 28.3425, 0.2, 28.1325, -28.3425, -0.2, 28.1325, 28.3425, 0.2, 28.1325, 28.3425, -0.2, 28.1325, -28.3425, -0.2, 28.1325, 28.3425, 0.2, -28.1325, -28.3425, 0.2, -28.1325, 28.3425, -0.2, -28.1325, -28.3425, 0.2, -28.1325, -28.3425, -0.2, -28.1325, 28.3425, -0.2, -28.1325, 28.3425, 0.2, 28.1325, 28.3425, 0.2, -28.1325, 28.3425, -0.2, 28.1325, 28.3425, 0.2, -28.1325, 28.3425, -0.2, -28.1325, 28.3425, -0.2, 28.1325, -28.3425, 0.2, -28.1325, -28.3425, 0.2, 28.1325, -28.3425, -0.2, -28.1325, -28.3425, 0.2, 28.1325, -28.3425, -0.2, 28.1325, -28.3425, -0.2, -28.1325, 28.3425, 0.2, 28.1325, -28.3425, 0.2, 28.1325, 28.3425, 0.2, -28.1325, -28.3425, 0.2, 28.1325, -28.3425, 0.2, -28.1325, 28.3425, 0.2, -28.1325, -28.3425, -0.2, 28.1325, 28.3425, -0.2, 28.1325, -28.3425, -0.2, -28.1325, 28.3425, -0.2, 28.1325, 28.3425, -0.2, -28.1325, -28.3425, -0.2, -28.1325)
@@ -70,8 +71,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.3002, 0.200002, 15.1007)
 [node name="LightPole" parent="." instance=ExtResource("10_c43ug")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.745, 0.0558164, 7.32406)
 
-[node name="runner" parent="." instance=ExtResource("12_w3j2h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.3791, 0.200005, -8.08059)
+[node name="double_damage" parent="." instance=ExtResource("11_410h7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.78915, 2.2, -13.3631)
 
-[node name="runner2" parent="." instance=ExtResource("12_w3j2h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.4964, 0.200001, -8.23819)
+[node name="double_speed" parent="." instance=ExtResource("12_a6cgt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.9759, 2.2, -13.0351)
