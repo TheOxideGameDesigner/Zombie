@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b50besqexikwl"
+path="res://.godot/imported/gravestone_001.obj-1774df818fcd1caf18a2f07684f9919f.mesh"
+
+[deps]
+
+files=["res://.godot/imported/gravestone_001.obj-1774df818fcd1caf18a2f07684f9919f.mesh"]
+
+source_file="res://models/static_props/abandoned_city/gravestone_001.obj"
+dest_files=["res://.godot/imported/gravestone_001.obj-1774df818fcd1caf18a2f07684f9919f.mesh", "res://.godot/imported/gravestone_001.obj-1774df818fcd1caf18a2f07684f9919f.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

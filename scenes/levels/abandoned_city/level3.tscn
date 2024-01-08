@@ -1,0 +1,3401 @@
+[gd_scene load_steps=75 format=3 uid="uid://c6r6fd3mfwv0r"]
+
+[ext_resource type="Script" path="res://scripts/world.gd" id="1_1c0ef"]
+[ext_resource type="PackedScene" uid="uid://4px2n2dg363l" path="res://scenes/misc_props/player.tscn" id="2_sxsv8"]
+[ext_resource type="Environment" uid="uid://eqg2tcivmb0e" path="res://resources/level_enviroments/abandoned_city_environment.tres" id="3_rodpf"]
+[ext_resource type="Material" uid="uid://uxn8fucitgfr" path="res://resources/materials/level_mat.tres" id="4_7lmjf"]
+[ext_resource type="ArrayMesh" uid="uid://c25h57d8whr7p" path="res://models/levels/abandoned_city/level3/level3_building.obj" id="5_upoj8"]
+[ext_resource type="Script" path="res://scripts/create_static_body_child.gd" id="8_3n00s"]
+[ext_resource type="ArrayMesh" uid="uid://dk8w6awc4wdjy" path="res://models/levels/abandoned_city/level3/level3_visual_no_shadow.obj" id="8_cdjt8"]
+[ext_resource type="ArrayMesh" uid="uid://dt8qbelnch7vd" path="res://models/levels/abandoned_city/level3/level3_collision.obj" id="9_webhv"]
+[ext_resource type="Material" uid="uid://uf6clx1smqj1" path="res://resources/materials/specific_mats/abandoned_city_building_mat.tres" id="12_r2a6j"]
+[ext_resource type="ArrayMesh" uid="uid://bn56pyrcn6g5a" path="res://models/static_props/abandoned_city/building21x21_001.obj" id="13_tx33w"]
+[ext_resource type="ArrayMesh" uid="uid://ds6pj62nbtbyn" path="res://models/static_props/abandoned_city/building21x21_002.obj" id="14_5p2xd"]
+[ext_resource type="ArrayMesh" uid="uid://do1ajxo3nq7l0" path="res://models/static_props/abandoned_city/building21x21_004.obj" id="14_t10he"]
+[ext_resource type="ArrayMesh" uid="uid://cricqhytfhueg" path="res://models/static_props/abandoned_city/building21x21_003.obj" id="15_j6set"]
+[ext_resource type="ArrayMesh" uid="uid://45oex3ltnkmf" path="res://models/static_props/abandoned_city/building36x21_001.obj" id="16_804b2"]
+[ext_resource type="ArrayMesh" uid="uid://pgteuy8v5cxh" path="res://models/static_props/abandoned_city/building36x21_002.obj" id="17_mdpo6"]
+[ext_resource type="Material" uid="uid://f0rsif8shvn3" path="res://resources/materials/specific_mats/wire_fence_mat.tres" id="17_ovco5"]
+[ext_resource type="ArrayMesh" uid="uid://dfp4j2ktyq27a" path="res://models/static_props/abandoned_city/barrier_001.obj" id="18_jcta1"]
+[ext_resource type="ArrayMesh" uid="uid://dy0a3gxu5v5mx" path="res://models/static_props/abandoned_city/building36x21_003.obj" id="18_w3dca"]
+[ext_resource type="ArrayMesh" uid="uid://cvs2tymb4n7ll" path="res://models/static_props/abandoned_city/barrier_002.obj" id="19_os376"]
+[ext_resource type="ArrayMesh" uid="uid://c2iy28gpurn13" path="res://models/static_props/abandoned_city/barrier_003.obj" id="20_tbs74"]
+[ext_resource type="PackedScene" uid="uid://bd7l0srjkudj5" path="res://scenes/props/static_props/abandoned_city/light_pole.tscn" id="21_qewab"]
+[ext_resource type="PackedScene" uid="uid://d4dyh6fckbejn" path="res://scenes/props/static_props/abandoned_city/dead_tree.tscn" id="22_sj66t"]
+[ext_resource type="PackedScene" uid="uid://cgmgdyoch1u3a" path="res://scenes/props/static_props/abandoned_city/car_002.tscn" id="23_7p3nc"]
+[ext_resource type="PackedScene" uid="uid://c2qqmx2xqhgs7" path="res://scenes/props/static_props/abandoned_city/gravestone_001.tscn" id="23_tiitm"]
+[ext_resource type="PackedScene" uid="uid://dpmjcbakobr4n" path="res://scenes/props/static_props/abandoned_city/truck.tscn" id="24_ggb7b"]
+[ext_resource type="PackedScene" uid="uid://d3gmyr8u5kegg" path="res://scenes/props/static_props/abandoned_city/gravestone_002.tscn" id="24_nu0iy"]
+[ext_resource type="PackedScene" uid="uid://d0ghysv3uglfv" path="res://scenes/props/static_props/abandoned_city/gravestone_003.tscn" id="25_1xbpy"]
+[ext_resource type="PackedScene" uid="uid://csvyl0lp0e1sj" path="res://scenes/props/static_props/abandoned_city/car_003.tscn" id="25_ri284"]
+[ext_resource type="PackedScene" uid="uid://b13esvlqxb735" path="res://scenes/props/static_props/abandoned_city/car_001.tscn" id="26_e4qxy"]
+[ext_resource type="PackedScene" uid="uid://cian3gl8fgeb7" path="res://scenes/misc_props/double_damage.tscn" id="30_7i3vj"]
+[ext_resource type="Material" uid="uid://ot512dqjxbhw" path="res://resources/materials/specific_mats/black_and_white_fence_mat.tres" id="31_fkg7l"]
+[ext_resource type="ArrayMesh" uid="uid://2asvu6fjk0no" path="res://models/static_props/mountainside/mountainside_fence_unit_tall.obj" id="32_kg8cb"]
+[ext_resource type="ArrayMesh" uid="uid://dhnpgc206x0t5" path="res://models/static_props/abandoned_city/abandoned_city_fence_unit.obj" id="33_chaq4"]
+[ext_resource type="PackedScene" uid="uid://cyw7f2nh4dtoc" path="res://scenes/misc_props/lock.tscn" id="34_ao73t"]
+[ext_resource type="Material" uid="uid://dy0ekd2n7ypic" path="res://resources/materials/specific_mats/abandoned_city_pillar_mat.tres" id="34_tk8ye"]
+[ext_resource type="Script" path="res://scripts/triggers/trigger_area.gd" id="35_73les"]
+[ext_resource type="PackedScene" uid="uid://ddiw8ybfcdmjb" path="res://scenes/misc_props/spring.tscn" id="35_rnx43"]
+[ext_resource type="PackedScene" uid="uid://csmucdgy7vpql" path="res://scenes/misc_props/exit.tscn" id="35_uvge5"]
+[ext_resource type="PackedScene" uid="uid://bfwjae77m2xmb" path="res://scenes/props/triggers/move_trigger.tscn" id="36_jq206"]
+[ext_resource type="PackedScene" uid="uid://bq1itwbnkbvp4" path="res://scenes/misc_props/key.tscn" id="37_sty2i"]
+[ext_resource type="PackedScene" uid="uid://cdshg7bk5i645" path="res://scenes/misc_props/garlic.tscn" id="41_priav"]
+[ext_resource type="PackedScene" uid="uid://ct4dtw3ijmehk" path="res://scenes/props/enemies/runner.tscn" id="42_qa72u"]
+[ext_resource type="PackedScene" uid="uid://cn0h8ppoq8uq8" path="res://scenes/props/enemies/mage.tscn" id="43_dyikl"]
+[ext_resource type="PackedScene" uid="uid://d2ya5fu74vom0" path="res://scenes/props/enemies/hitscanner.tscn" id="44_5bfhw"]
+[ext_resource type="PackedScene" uid="uid://bfuck1d2dtogj" path="res://scenes/props/enemies/gunner.tscn" id="45_d5key"]
+[ext_resource type="PackedScene" uid="uid://bxguakgn55464" path="res://scenes/misc_props/booster.tscn" id="46_ehuj3"]
+[ext_resource type="PackedScene" uid="uid://26x6x0du3c7k" path="res://scenes/props/enemies/chaingunner.tscn" id="47_358y0"]
+[ext_resource type="PackedScene" uid="uid://xlmv8rl1f7di" path="res://scenes/props/static_props/abandoned_city/cone.tscn" id="48_0rgcu"]
+[ext_resource type="PackedScene" uid="uid://cq4mvdbpk0wiq" path="res://scenes/props/enemies/statue.tscn" id="48_j0l6o"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rp4vx"]
+size = Vector3(0.556152, 5.72156, 38.7784)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_snjp1"]
+size = Vector3(0.763153, 5.19293, 48.0181)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fpiwe"]
+size = Vector3(3.67731, 5.04761, 0.551834)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3j2ve"]
+size = Vector3(90.6074, 5.63596, 0.497803)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fh24u"]
+size = Vector3(21.5759, 4.12601, 0.409195)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nf70r"]
+size = Vector3(23.2307, 4.02789, 0.435608)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cr2um"]
+size = Vector3(30.2132, 3.9942, 0.532104)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t7a3u"]
+size = Vector3(32.6169, 10.8524, 21.4392)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ppbt2"]
+size = Vector3(22.4826, 9.3114, 21.4729)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jsswp"]
+size = Vector3(10.4668, 4.52136, 0.390106)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_i4f8x"]
+size = Vector3(0.274605, 4.01978, 4.06958)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3ou27"]
+size = Vector3(1, 4.75879, 14.417)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j1bif"]
+size = Vector3(11.232, 8.83441, 14.1688)
+
+[sub_resource type="BoxMesh" id="BoxMesh_j0wbg"]
+size = Vector3(2, 8, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ppn1a"]
+size = Vector3(2, 7, 2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_5myf7"]
+size = Vector3(2, 7, 2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_nveit"]
+size = Vector3(6, 7, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pa7nd"]
+size = Vector3(6, 7, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dl8a3"]
+size = Vector3(1, 7, 20)
+
+[sub_resource type="BoxMesh" id="BoxMesh_gu3rc"]
+size = Vector3(1, 7, 20)
+
+[sub_resource type="BoxMesh" id="BoxMesh_jduvs"]
+size = Vector3(6, 1, 4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_eojay"]
+size = Vector3(6, 1, 4)
+
+[sub_resource type="BoxMesh" id="BoxMesh_xwqju"]
+size = Vector3(1, 4, 4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_63uqb"]
+size = Vector3(1, 4, 4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r130b"]
+size = Vector3(6.7229, 7.04681, 1)
+
+[node name="level2" type="Node3D"]
+script = ExtResource("1_1c0ef")
+
+[node name="light" type="DirectionalLight3D" parent="." groups=["light"]]
+transform = Transform3D(0.711456, 0.490704, 0.50303, -0.539281, -0.0777098, 0.838533, 0.450562, -0.867854, 0.209341, 253.533, 245.179, -96.0863)
+light_bake_mode = 0
+shadow_enabled = true
+shadow_bias = 0.01
+shadow_opacity = 0.7
+directional_shadow_blend_splits = true
+
+[node name="level_office" type="MeshInstance3D" parent="."]
+material_override = ExtResource("12_r2a6j")
+mesh = ExtResource("5_upoj8")
+
+[node name="level_visual_no_shadow" type="MeshInstance3D" parent="."]
+material_override = ExtResource("4_7lmjf")
+cast_shadow = 0
+mesh = ExtResource("8_cdjt8")
+
+[node name="level_collision" type="MeshInstance3D" parent="."]
+visible = false
+mesh = ExtResource("9_webhv")
+script = ExtResource("8_3n00s")
+
+[node name="buildings" type="Node3D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="Building21x21001" type="MeshInstance3D" parent="buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 316, 0, 394)
+material_override = ExtResource("12_r2a6j")
+visibility_range_end = 175.0
+mesh = ExtResource("13_tx33w")
+skeleton = NodePath("../..")
+
+[node name="Building21x21002" type="MeshInstance3D" parent="buildings"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 361, 0, 457)
+material_override = ExtResource("12_r2a6j")
+visibility_range_end = 175.0
+mesh = ExtResource("13_tx33w")
+skeleton = NodePath("../..")
+
+[node name="Building21x21003" type="MeshInstance3D" parent="buildings"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 400, 0, 460)
+material_override = ExtResource("12_r2a6j")
+visibility_range_end = 175.0
+mesh = ExtResource("13_tx33w")
+skeleton = NodePath("../..")
+
+[node name="Building21x21004" type="MeshInstance3D" parent="buildings"]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 442, 0, 484)
+material_override = ExtResource("12_r2a6j")
+visibility_range_end = 175.0
+mesh = ExtResource("13_tx33w")
+skeleton = NodePath("../..")
+
+[node name="Building21x21005" type="MeshInstance3D" parent="buildings"]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 458, 0, 457)
+material_override = ExtResource("12_r2a6j")
+visibility_range_end = 175.0
+mesh = ExtResource("13_tx33w")
+skeleton = NodePath("../..")
+
+[node name="Building21x21006" type="MeshInstance3D" parent="buildings"]
+transform = Transform3D(-2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, 551, 0, 457)
+material_override = ExtResource("12_r2a6j")
+visibility_range_end = 175.0
+mesh = ExtResource("13_tx33w")
+skeleton = NodePath("../..")
+
+[node name="Building21x21007" type="MeshInstance3D" parent="buildings"]
+transform = Transform3D(-1, 0, -2.62268e-07, 0, 1, 0, 2.62268e-07, 0, -1, 401, 0, 333)
+material_override = ExtResource("12_r2a6j")
+visibility_range_end = 175.0
+mesh = ExtResource("13_tx33w")
+skeleton = NodePath("../..")
+
+[node name="Building21x21008" type="MeshInstance3D" parent="buildings"]
+transform = Transform3D(3.0598e-07, 0, -1, 0, 1, 0, 1, 0, 3.0598e-07, 459, 0, 361)
+material_override = ExtResource("12_r2a6j")
+visibility_range_end = 175.0
+mesh = ExtResource("13_tx33w")
+skeleton = NodePath("../..")
+
+[node name="Building21x21009" type="MeshInstance3D" parent="buildings"]
+transform = Transform3D(1, 0, 3.49691e-07, 0, 1, 0, -3.49691e-07, 0, 1, 522, 0, 382)
+material_override = ExtResource("12_r2a6j")
+visibility_range_end = 175.0
+mesh = ExtResource("13_tx33w")
+skeleton = NodePath("../..")
+
+[node name="Building21x21010" type="MeshInstance3D" parent="buildings"]
+transform = Transform3D(-3.93403e-07, 0, 1, 0, 1, 0, -1, 0, -3.93403e-07, 590, 0, 406)
+material_override = ExtResource("12_r2a6j")
+visibility_range_end = 175.0
+mesh = ExtResource("13_tx33w")
+skeleton = NodePath("../..")
+
+[node name="Building21x21011" type="MeshInstance3D" parent="buildings"]
+transform = Transform3D(-1, 0, -4.37114e-07, 0, 1, 0, 4.37114e-07, 0, -1, 639, 0, 357)
+material_override = ExtResource("12_r2a6j")
+visibility_range_end = 175.0
+mesh = ExtResource("13_tx33w")
+skeleton = NodePath("../..")
+
+[node name="Building21x21012" type="MeshInstance3D" parent="buildings"]
+transform = Transform3D(4.80825e-07, 0, -1, 0, 1, 0, 1, 0, 4.80825e-07, 641, 0, 381)
+material_override = ExtResource("12_r2a6j")
+visibility_range_end = 175.0
+mesh = ExtResource("13_tx33w")
+skeleton = NodePath("../..")
+
+[node name="Building21x21013" type="MeshInstance3D" parent="buildings"]
+transform = Transform3D(1, 0, 5.24537e-07, 0, 1, 0, -5.24537e-07, 0, 1, 473, 0, 553)
+material_override = ExtResource("12_r2a6j")
+visibility_range_end = 175.0
+mesh = ExtResource("13_tx33w")
+skeleton = NodePath("../..")
+
+[node name="Building21x21014" type="MeshInstance3D" parent="buildings"]
+transform = Transform3D(-5.68248e-07, 0, 1, 0, 1, 0, -1, 0, -5.68248e-07, 470, 0, 616)
+material_override = ExtResource("12_r2a6j")
+visibility_range_end = 175.0
+mesh = ExtResource("13_tx33w")
+skeleton = NodePath("../..")
+
+[node name="Building21x21015" type="MeshInstance3D" parent="buildings"]
+transform = Transform3D(-1, 0, -6.11959e-07, 0, 1, 0, 6.11959e-07, 0, -1, 535, 0, 603)
+material_override = ExtResource("12_r2a6j")
+visibility_range_end = 175.0
+mesh = ExtResource("13_tx33w")
+skeleton = NodePath("../..")
+
+[node name="Building21x21016" type="MeshInstance3D" parent="buildings"]
+transform = Transform3D(6.55671e-07, 0, -1, 0, 1, 0, 1, 0, 6.55671e-07, 555, 0, 579)
+material_override = ExtResource("12_r2a6j")
+visibility_range_end = 175.0
+mesh = ExtResource("13_tx33w")
+skeleton = NodePath("../..")
+
+[node name="Building21x21017" type="MeshInstance3D" parent="buildings"]
+transform = Transform3D(1, 0, 6.10948e-07, 0, 1, 0, -6.10948e-07, 0, 1, 596, 0, 537)
+material_override = ExtResource("12_r2a6j")
+visibility_range_end = 175.0
+mesh = ExtResource("13_tx33w")
+skeleton = NodePath("../..")
+
+[node name="Building21x21018" type="MeshInstance3D" parent="buildings"]
+transform = Transform3D(-6.54659e-07, 0, 1, 0, 1, 0, -1, 0, -6.54659e-07, 663, 0, 513)
+material_override = ExtResource("12_r2a6j")
+visibility_range_end = 175.0
+mesh = ExtResource("13_tx33w")
+skeleton = NodePath("../..")
+
+[node name="Building21x21019" type="MeshInstance3D" parent="buildings"]
+transform = Transform3D(-1, 0, -6.9837e-07, 0, 1, 0, 6.9837e-07, 0, -1, 665, 0, 579)
+material_override = ExtResource("12_r2a6j")
+visibility_range_end = 175.0
+mesh = ExtResource("13_tx33w")
+skeleton = NodePath("../..")
+
+[node name="Building21x21020" type="MeshInstance3D" parent="buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 316, 0, 418)
+material_override = ExtResource("12_r2a6j")
+visibility_range_end = 175.0
+mesh = ExtResource("14_5p2xd")
+skeleton = NodePath("../..")
+
+[node name="Building21x21021" type="MeshInstance3D" parent="buildings"]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 438, 0, 354)
+material_override = ExtResource("12_r2a6j")
+visibility_range_end = 175.0
+mesh = ExtResource("14_5p2xd")
+skeleton = NodePath("../..")
+
+[node name="Building21x21022" type="MeshInstance3D" parent="buildings"]
+transform = Transform3D(-1, 0, -4.37114e-08, 0, 1, 0, 4.37114e-08, 0, -1, 479, 0, 385)
+material_override = ExtResource("12_r2a6j")
+visibility_range_end = 175.0
+mesh = ExtResource("14_5p2xd")
+skeleton = NodePath("../..")
+
+[node name="Building21x21023" type="MeshInstance3D" parent="buildings"]
+transform = Transform3D(8.74228e-08, 0, -1, 0, 1, 0, 1, 0, 8.74228e-08, 570, 0, 361)
+material_override = ExtResource("12_r2a6j")
+visibility_range_end = 175.0
+mesh = ExtResource("14_5p2xd")
+skeleton = NodePath("../..")
+
+[node name="Building21x21024" type="MeshInstance3D" parent="buildings"]
+transform = Transform3D(1, 0, 1.31134e-07, 0, 1, 0, -1.31134e-07, 0, 1, 617, 0, 402)
+material_override = ExtResource("12_r2a6j")
+visibility_range_end = 175.0
+mesh = ExtResource("14_5p2xd")
+skeleton = NodePath("../..")
+
+[node name="Building21x21025" type="MeshInstance3D" parent="buildings"]
+transform = Transform3D(-1.74846e-07, 0, 1, 0, 1, 0, -1, 0, -1.74846e-07, 663, 0, 378)
+material_override = ExtResource("12_r2a6j")
+visibility_range_end = 175.0
+mesh = ExtResource("14_5p2xd")
+skeleton = NodePath("../..")
+
+[node name="Building21x21026" type="MeshInstance3D" parent="buildings"]
+transform = Transform3D(-1, 0, -2.18557e-07, 0, 1, 0, 2.18557e-07, 0, -1, 575, 0, 436)
+material_override = ExtResource("12_r2a6j")
+visibility_range_end = 175.0
+mesh = ExtResource("14_5p2xd")
+skeleton = NodePath("../..")
+
+[node name="Building21x21027" type="MeshInstance3D" parent="buildings"]
+transform = Transform3D(2.62268e-07, 0, -1, 0, 1, 0, 1, 0, 2.62268e-07, 466, 0, 460)
+material_override = ExtResource("12_r2a6j")
+visibility_range_end = 175.0
+mesh = ExtResource("14_5p2xd")
+skeleton = NodePath("../..")
+
+[node name="Building21x21028" type="MeshInstance3D" parent="buildings"]
+transform = Transform3D(1, 0, 3.0598e-07, 0, 1, 0, -3.0598e-07, 0, 1, 394, 0, 505)
+material_override = ExtResource("12_r2a6j")
+visibility_range_end = 175.0
+mesh = ExtResource("14_5p2xd")
+skeleton = NodePath("../..")
+
+[node name="Building21x21029" type="MeshInstance3D" parent="buildings"]
+transform = Transform3D(-3.49691e-07, 0, 1, 0, 1, 0, -1, 0, -3.49691e-07, 352, 0, 481)
+material_override = ExtResource("12_r2a6j")
+visibility_range_end = 175.0
+mesh = ExtResource("14_5p2xd")
+skeleton = NodePath("../..")
+
+[node name="Building21x21030" type="MeshInstance3D" parent="buildings"]
+transform = Transform3D(-1, 0, -3.93403e-07, 0, 1, 0, 3.93403e-07, 0, -1, 424, 0, 460)
+material_override = ExtResource("12_r2a6j")
+visibility_range_end = 175.0
+mesh = ExtResource("14_5p2xd")
+skeleton = NodePath("../..")
+
+[node name="Building21x21031" type="MeshInstance3D" parent="buildings"]
+transform = Transform3D(4.37114e-07, 0, -1, 0, 1, 0, 1, 0, 4.37114e-07, 555, 0, 555)
+material_override = ExtResource("12_r2a6j")
+visibility_range_end = 175.0
+mesh = ExtResource("14_5p2xd")
+skeleton = NodePath("../..")
+
+[node name="Building21x21032" type="MeshInstance3D" parent="buildings"]
+transform = Transform3D(4.37114e-07, 0, -1, 0, 1, 0, 1, 0, 4.37114e-07, 644, 0, 603)
+material_override = ExtResource("12_r2a6j")
+visibility_range_end = 175.0
+mesh = ExtResource("14_5p2xd")
+skeleton = NodePath("../..")
+
+[node name="Building21x21033" type="MeshInstance3D" parent="buildings"]
+transform = Transform3D(1, 0, 4.80825e-07, 0, 1, 0, -4.80825e-07, 0, 1, 594, 0, 513)
+material_override = ExtResource("12_r2a6j")
+visibility_range_end = 175.0
+mesh = ExtResource("14_5p2xd")
+skeleton = NodePath("../..")
+
+[node name="Building21x21034" type="MeshInstance3D" parent="buildings"]
+transform = Transform3D(-5.24537e-07, 0, 1, 0, 1, 0, -1, 0, -5.24537e-07, 470, 0, 529)
+material_override = ExtResource("12_r2a6j")
+visibility_range_end = 175.0
+mesh = ExtResource("14_5p2xd")
+skeleton = NodePath("../..")
+
+[node name="Building21x21035" type="MeshInstance3D" parent="buildings"]
+transform = Transform3D(-1, 0, -5.68248e-07, 0, 1, 0, 5.68248e-07, 0, -1, 535, 0, 516)
+material_override = ExtResource("12_r2a6j")
+visibility_range_end = 175.0
+mesh = ExtResource("14_5p2xd")
+skeleton = NodePath("../..")
+
+[node name="Building21x21036" type="MeshInstance3D" parent="buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 340, 0, 394)
+material_override = ExtResource("12_r2a6j")
+visibility_range_end = 175.0
+mesh = ExtResource("15_j6set")
+skeleton = NodePath("../..")
+
+[node name="Building21x21037" type="MeshInstance3D" parent="buildings"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 401, 0, 378)
+material_override = ExtResource("12_r2a6j")
+visibility_range_end = 175.0
+mesh = ExtResource("15_j6set")
+skeleton = NodePath("../..")
+
+[node name="Building21x21038" type="MeshInstance3D" parent="buildings"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 480, 0, 337)
+material_override = ExtResource("12_r2a6j")
+visibility_range_end = 175.0
+mesh = ExtResource("15_j6set")
+skeleton = NodePath("../..")
+
+[node name="Building21x21039" type="MeshInstance3D" parent="buildings"]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 506, 0, 385)
+material_override = ExtResource("12_r2a6j")
+visibility_range_end = 175.0
+mesh = ExtResource("15_j6set")
+skeleton = NodePath("../..")
+
+[node name="Building21x21040" type="MeshInstance3D" parent="buildings"]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 594, 0, 378)
+material_override = ExtResource("12_r2a6j")
+visibility_range_end = 175.0
+mesh = ExtResource("15_j6set")
+skeleton = NodePath("../..")
+
+[node name="Building21x21041" type="MeshInstance3D" parent="buildings"]
+transform = Transform3D(-2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, 503, 0, 457)
+material_override = ExtResource("12_r2a6j")
+visibility_range_end = 175.0
+mesh = ExtResource("15_j6set")
+skeleton = NodePath("../..")
+
+[node name="Building21x21042" type="MeshInstance3D" parent="buildings"]
+transform = Transform3D(-1, 0, -2.62268e-07, 0, 1, 0, 2.62268e-07, 0, -1, 376, 0, 460)
+material_override = ExtResource("12_r2a6j")
+visibility_range_end = 175.0
+mesh = ExtResource("15_j6set")
+skeleton = NodePath("../..")
+
+[node name="Building21x21043" type="MeshInstance3D" parent="buildings"]
+transform = Transform3D(3.0598e-07, 0, -1, 0, 1, 0, 1, 0, 3.0598e-07, 466, 0, 484)
+material_override = ExtResource("12_r2a6j")
+visibility_range_end = 175.0
+mesh = ExtResource("15_j6set")
+skeleton = NodePath("../..")
+
+[node name="Building21x21044" type="MeshInstance3D" parent="buildings"]
+transform = Transform3D(3.0598e-07, 0, -1, 0, 1, 0, 1, 0, 3.0598e-07, 449, 0, 571)
+material_override = ExtResource("12_r2a6j")
+visibility_range_end = 175.0
+mesh = ExtResource("15_j6set")
+skeleton = NodePath("../..")
+
+[node name="Building21x21045" type="MeshInstance3D" parent="buildings"]
+transform = Transform3D(1, 0, 3.49691e-07, 0, 1, 0, -3.49691e-07, 0, 1, 596, 0, 624)
+material_override = ExtResource("12_r2a6j")
+visibility_range_end = 175.0
+mesh = ExtResource("15_j6set")
+skeleton = NodePath("../..")
+
+[node name="Building21x21046" type="MeshInstance3D" parent="buildings"]
+transform = Transform3D(-3.93403e-07, 0, 1, 0, 1, 0, -1, 0, -3.93403e-07, 639, 0, 513)
+material_override = ExtResource("12_r2a6j")
+visibility_range_end = 175.0
+mesh = ExtResource("15_j6set")
+skeleton = NodePath("../..")
+
+[node name="Building21x21047" type="MeshInstance3D" parent="buildings"]
+transform = Transform3D(-1, 0, -4.37114e-07, 0, 1, 0, 4.37114e-07, 0, -1, 665, 0, 555)
+material_override = ExtResource("12_r2a6j")
+visibility_range_end = 175.0
+mesh = ExtResource("15_j6set")
+skeleton = NodePath("../..")
+
+[node name="Building21x21048" type="MeshInstance3D" parent="buildings"]
+transform = Transform3D(4.80825e-07, 0, -1, 0, 1, 0, 1, 0, 4.80825e-07, 555, 0, 603)
+material_override = ExtResource("12_r2a6j")
+visibility_range_end = 175.0
+mesh = ExtResource("15_j6set")
+skeleton = NodePath("../..")
+
+[node name="Building21x21049" type="MeshInstance3D" parent="buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 473, 0, 529)
+material_override = ExtResource("12_r2a6j")
+visibility_range_end = 175.0
+mesh = ExtResource("14_t10he")
+skeleton = NodePath("../..")
+
+[node name="Building21x21050" type="MeshInstance3D" parent="buildings"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 494, 0, 616)
+material_override = ExtResource("12_r2a6j")
+visibility_range_end = 175.0
+mesh = ExtResource("14_t10he")
+skeleton = NodePath("../..")
+
+[node name="Building21x21051" type="MeshInstance3D" parent="buildings"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 535, 0, 579)
+material_override = ExtResource("12_r2a6j")
+visibility_range_end = 175.0
+mesh = ExtResource("14_t10he")
+skeleton = NodePath("../..")
+
+[node name="Building21x21052" type="MeshInstance3D" parent="buildings"]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 596, 0, 540)
+material_override = ExtResource("12_r2a6j")
+visibility_range_end = 175.0
+mesh = ExtResource("14_t10he")
+skeleton = NodePath("../..")
+
+[node name="Building21x21053" type="MeshInstance3D" parent="buildings"]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 506, 0, 457)
+material_override = ExtResource("12_r2a6j")
+visibility_range_end = 175.0
+mesh = ExtResource("14_t10he")
+skeleton = NodePath("../..")
+
+[node name="Building21x21054" type="MeshInstance3D" parent="buildings"]
+transform = Transform3D(-2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, 439, 0, 505)
+material_override = ExtResource("12_r2a6j")
+visibility_range_end = 175.0
+mesh = ExtResource("14_t10he")
+skeleton = NodePath("../..")
+
+[node name="Building21x21055" type="MeshInstance3D" parent="buildings"]
+transform = Transform3D(-1, 0, -2.62268e-07, 0, 1, 0, 2.62268e-07, 0, -1, 352, -1, 484)
+material_override = ExtResource("12_r2a6j")
+visibility_range_end = 175.0
+mesh = ExtResource("14_t10he")
+skeleton = NodePath("../..")
+
+[node name="Building21x21056" type="MeshInstance3D" parent="buildings"]
+transform = Transform3D(3.0598e-07, 0, -1, 0, 1, 0, 1, 0, 3.0598e-07, 417, 0, 357)
+material_override = ExtResource("12_r2a6j")
+visibility_range_end = 175.0
+mesh = ExtResource("14_t10he")
+skeleton = NodePath("../..")
+
+[node name="Building21x21057" type="MeshInstance3D" parent="buildings"]
+transform = Transform3D(1, 0, 3.49691e-07, 0, 1, 0, -3.49691e-07, 0, 1, 482, 0, 406)
+material_override = ExtResource("12_r2a6j")
+visibility_range_end = 175.0
+mesh = ExtResource("14_t10he")
+skeleton = NodePath("../..")
+
+[node name="Building21x21058" type="MeshInstance3D" parent="buildings"]
+transform = Transform3D(-3.93403e-07, 0, 1, 0, 1, 0, -1, 0, -3.93403e-07, 567, 0, 382)
+material_override = ExtResource("12_r2a6j")
+visibility_range_end = 175.0
+mesh = ExtResource("14_t10he")
+skeleton = NodePath("../..")
+
+[node name="Building21x21059" type="MeshInstance3D" parent="buildings"]
+transform = Transform3D(-1, 0, -4.37114e-07, 0, 1, 0, 4.37114e-07, 0, -1, 614, 0, 381)
+material_override = ExtResource("12_r2a6j")
+visibility_range_end = 175.0
+mesh = ExtResource("14_t10he")
+skeleton = NodePath("../..")
+
+[node name="Building36x21001" type="MeshInstance3D" parent="buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 355, -1, 505)
+material_override = ExtResource("12_r2a6j")
+visibility_range_end = 175.0
+mesh = ExtResource("16_804b2")
+skeleton = NodePath("../..")
+
+[node name="Building36x21002" type="MeshInstance3D" parent="buildings"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 316, -1, 421)
+material_override = ExtResource("12_r2a6j")
+visibility_range_end = 175.0
+mesh = ExtResource("16_804b2")
+skeleton = NodePath("../..")
+
+[node name="Building36x21003" type="MeshInstance3D" parent="buildings"]
+transform = Transform3D(1.19209e-07, 0, 1, 0, 1, 0, -1, 0, 1.19209e-07, 511, -1, 496)
+material_override = ExtResource("12_r2a6j")
+visibility_range_end = 175.0
+mesh = ExtResource("16_804b2")
+skeleton = NodePath("../..")
+
+[node name="Building36x21004" type="MeshInstance3D" parent="buildings"]
+transform = Transform3D(-2.06632e-07, 0, -1, 0, 1, 0, 1, 0, -2.06632e-07, 596, -1, 564)
+material_override = ExtResource("12_r2a6j")
+visibility_range_end = 175.0
+mesh = ExtResource("16_804b2")
+skeleton = NodePath("../..")
+
+[node name="Building36x21005" type="MeshInstance3D" parent="buildings"]
+transform = Transform3D(1, 0, -1.62921e-07, 0, 1, 0, 1.62921e-07, 0, 1, 555, -1, 497)
+material_override = ExtResource("12_r2a6j")
+visibility_range_end = 175.0
+mesh = ExtResource("16_804b2")
+skeleton = NodePath("../..")
+
+[node name="Building36x21006" type="MeshInstance3D" parent="buildings"]
+transform = Transform3D(-1, 0, 7.54979e-08, 0, 1, 0, -7.54979e-08, 0, -1, 566, -1, 385)
+material_override = ExtResource("12_r2a6j")
+visibility_range_end = 175.0
+mesh = ExtResource("16_804b2")
+skeleton = NodePath("../..")
+
+[node name="Building36x21007" type="MeshInstance3D" parent="buildings"]
+transform = Transform3D(1, 0, 1.19249e-08, 0, 1, 0, -1.19249e-08, 0, 1, 483, -1, 382)
+material_override = ExtResource("12_r2a6j")
+visibility_range_end = 175.0
+mesh = ExtResource("16_804b2")
+skeleton = NodePath("../..")
+
+[node name="Building36x21008" type="MeshInstance3D" parent="buildings"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 340, 0, 397)
+material_override = ExtResource("12_r2a6j")
+visibility_range_end = 175.0
+mesh = ExtResource("17_mdpo6")
+skeleton = NodePath("../..")
+
+[node name="Building36x21009" type="MeshInstance3D" parent="buildings"]
+transform = Transform3D(1.19209e-07, 0, 1, 0, 1, 0, -1, 0, 1.19209e-07, 337, 0, 370)
+material_override = ExtResource("12_r2a6j")
+visibility_range_end = 175.0
+mesh = ExtResource("17_mdpo6")
+skeleton = NodePath("../..")
+
+[node name="Building36x21010" type="MeshInstance3D" parent="buildings"]
+transform = Transform3D(-2.06632e-07, 0, -1, 0, 1, 0, 1, 0, -2.06632e-07, 555, 0, 516)
+material_override = ExtResource("12_r2a6j")
+visibility_range_end = 175.0
+mesh = ExtResource("17_mdpo6")
+skeleton = NodePath("../..")
+
+[node name="Building36x21011" type="MeshInstance3D" parent="buildings"]
+transform = Transform3D(2.94055e-07, 0, 1, 0, 1, 0, -1, 0, 2.94055e-07, 665, 0, 552)
+material_override = ExtResource("12_r2a6j")
+visibility_range_end = 175.0
+mesh = ExtResource("17_mdpo6")
+skeleton = NodePath("../..")
+
+[node name="Building36x21012" type="MeshInstance3D" parent="buildings"]
+transform = Transform3D(-2.06632e-07, 0, -1, 0, 1, 0, 1, 0, -2.06632e-07, 449, 0, 532)
+material_override = ExtResource("12_r2a6j")
+visibility_range_end = 175.0
+mesh = ExtResource("17_mdpo6")
+skeleton = NodePath("../..")
+
+[node name="Building36x21013" type="MeshInstance3D" parent="buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 427, 0, 481)
+material_override = ExtResource("12_r2a6j")
+visibility_range_end = 175.0
+mesh = ExtResource("18_w3dca")
+skeleton = NodePath("../..")
+
+[node name="Building36x21014" type="MeshInstance3D" parent="buildings"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 340, 0, 334)
+material_override = ExtResource("12_r2a6j")
+visibility_range_end = 175.0
+mesh = ExtResource("18_w3dca")
+skeleton = NodePath("../..")
+
+[node name="Building36x21015" type="MeshInstance3D" parent="buildings"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 535, 0, 496)
+material_override = ExtResource("12_r2a6j")
+visibility_range_end = 175.0
+mesh = ExtResource("18_w3dca")
+skeleton = NodePath("../..")
+
+[node name="Building36x21016" type="MeshInstance3D" parent="buildings"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 514, 0, 540)
+material_override = ExtResource("12_r2a6j")
+visibility_range_end = 175.0
+mesh = ExtResource("18_w3dca")
+skeleton = NodePath("../..")
+
+[node name="Building36x21017" type="MeshInstance3D" parent="buildings"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 494, 0, 592)
+material_override = ExtResource("12_r2a6j")
+visibility_range_end = 175.0
+mesh = ExtResource("18_w3dca")
+skeleton = NodePath("../..")
+
+[node name="barriers" type="Node3D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="Barrier002" type="MeshInstance3D" parent="barriers"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 597, 0.25, 540)
+material_override = ExtResource("17_ovco5")
+visibility_range_end = 175.0
+mesh = ExtResource("18_jcta1")
+skeleton = NodePath("../..")
+
+[node name="Barrier003" type="MeshInstance3D" parent="barriers"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 554, 0.25, 456)
+material_override = ExtResource("17_ovco5")
+visibility_range_end = 175.0
+mesh = ExtResource("18_jcta1")
+skeleton = NodePath("../..")
+
+[node name="Barrier004" type="MeshInstance3D" parent="barriers"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 514, 0.25, 495)
+material_override = ExtResource("17_ovco5")
+visibility_range_end = 175.0
+mesh = ExtResource("18_jcta1")
+skeleton = NodePath("../..")
+
+[node name="Barrier005" type="MeshInstance3D" parent="barriers"]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 493, 0.25, 529)
+material_override = ExtResource("17_ovco5")
+visibility_range_end = 175.0
+mesh = ExtResource("18_jcta1")
+skeleton = NodePath("../..")
+
+[node name="Barrier006" type="MeshInstance3D" parent="barriers"]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 566, 0.25, 405)
+material_override = ExtResource("17_ovco5")
+visibility_range_end = 175.0
+mesh = ExtResource("18_jcta1")
+skeleton = NodePath("../..")
+
+[node name="Barrier007" type="MeshInstance3D" parent="barriers"]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 479, 0.25, 405)
+material_override = ExtResource("17_ovco5")
+visibility_range_end = 175.0
+mesh = ExtResource("18_jcta1")
+skeleton = NodePath("../..")
+
+[node name="Barrier008" type="MeshInstance3D" parent="barriers"]
+transform = Transform3D(-1, 0, -2.62268e-07, 0, 1, 0, 2.62268e-07, 0, -1, 506, 0.25, 437)
+material_override = ExtResource("17_ovco5")
+visibility_range_end = 175.0
+mesh = ExtResource("18_jcta1")
+skeleton = NodePath("../..")
+
+[node name="Barrier009" type="MeshInstance3D" parent="barriers"]
+transform = Transform3D(-1, 0, -2.62268e-07, 0, 1, 0, 2.62268e-07, 0, -1, 554, 0.25, 437)
+material_override = ExtResource("17_ovco5")
+visibility_range_end = 175.0
+mesh = ExtResource("18_jcta1")
+skeleton = NodePath("../..")
+
+[node name="Barrier010" type="MeshInstance3D" parent="barriers"]
+transform = Transform3D(-1, 0, -2.62268e-07, 0, 1, 0, 2.62268e-07, 0, -1, 427, 0.25, 461)
+material_override = ExtResource("17_ovco5")
+visibility_range_end = 175.0
+mesh = ExtResource("18_jcta1")
+skeleton = NodePath("../..")
+
+[node name="Barrier011" type="MeshInstance3D" parent="barriers"]
+transform = Transform3D(-2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, 360, 0.25, 460)
+material_override = ExtResource("17_ovco5")
+visibility_range_end = 175.0
+mesh = ExtResource("18_jcta1")
+skeleton = NodePath("../..")
+
+[node name="Barrier012" type="MeshInstance3D" parent="barriers"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 506, 0.25, 405)
+material_override = ExtResource("4_7lmjf")
+visibility_range_end = 175.0
+mesh = ExtResource("19_os376")
+skeleton = NodePath("../..")
+
+[node name="Barrier013" type="MeshInstance3D" parent="barriers"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 527, 0.25, 437)
+material_override = ExtResource("4_7lmjf")
+visibility_range_end = 175.0
+mesh = ExtResource("19_os376")
+skeleton = NodePath("../..")
+
+[node name="Barrier014" type="MeshInstance3D" parent="barriers"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 459, 0.25, 460)
+material_override = ExtResource("4_7lmjf")
+visibility_range_end = 175.0
+mesh = ExtResource("19_os376")
+skeleton = NodePath("../..")
+
+[node name="Barrier015" type="MeshInstance3D" parent="barriers"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 376, 0.25, 461)
+material_override = ExtResource("4_7lmjf")
+visibility_range_end = 175.0
+mesh = ExtResource("19_os376")
+skeleton = NodePath("../..")
+
+[node name="Barrier016" type="MeshInstance3D" parent="barriers"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 360, 0.25, 394)
+material_override = ExtResource("4_7lmjf")
+visibility_range_end = 175.0
+mesh = ExtResource("19_os376")
+skeleton = NodePath("../..")
+
+[node name="Barrier017" type="MeshInstance3D" parent="barriers"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 515, 0.25, 540)
+material_override = ExtResource("4_7lmjf")
+visibility_range_end = 175.0
+mesh = ExtResource("19_os376")
+skeleton = NodePath("../..")
+
+[node name="Barrier018" type="MeshInstance3D" parent="barriers"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 486, 0.25, 505)
+material_override = ExtResource("4_7lmjf")
+visibility_range_end = 175.0
+mesh = ExtResource("19_os376")
+skeleton = NodePath("../..")
+
+[node name="Barrier019" type="MeshInstance3D" parent="barriers"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 490, 0.25, 495)
+material_override = ExtResource("4_7lmjf")
+visibility_range_end = 175.0
+mesh = ExtResource("19_os376")
+skeleton = NodePath("../..")
+
+[node name="Barrier020" type="MeshInstance3D" parent="barriers"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 594, 0.25, 496)
+material_override = ExtResource("4_7lmjf")
+visibility_range_end = 175.0
+mesh = ExtResource("19_os376")
+skeleton = NodePath("../..")
+
+[node name="Barrier021" type="MeshInstance3D" parent="barriers"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 534, 0.25, 457)
+material_override = ExtResource("4_7lmjf")
+visibility_range_end = 175.0
+mesh = ExtResource("20_tbs74")
+skeleton = NodePath("../..")
+
+[node name="Barrier022" type="MeshInstance3D" parent="barriers"]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 597, 0.25, 516)
+material_override = ExtResource("4_7lmjf")
+visibility_range_end = 175.0
+mesh = ExtResource("20_tbs74")
+skeleton = NodePath("../..")
+
+[node name="Barrier023" type="MeshInstance3D" parent="barriers"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 493, 0.25, 553)
+material_override = ExtResource("4_7lmjf")
+visibility_range_end = 175.0
+mesh = ExtResource("20_tbs74")
+skeleton = NodePath("../..")
+
+[node name="Barrier024" type="MeshInstance3D" parent="barriers"]
+transform = Transform3D(1, 0, 7.10543e-15, 0, 1, 0, -7.10543e-15, 0, 1, 479, 0.25, 437)
+material_override = ExtResource("4_7lmjf")
+visibility_range_end = 175.0
+mesh = ExtResource("20_tbs74")
+skeleton = NodePath("../..")
+
+[node name="Barrier025" type="MeshInstance3D" parent="barriers"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 530, 0.25, 405)
+material_override = ExtResource("4_7lmjf")
+visibility_range_end = 175.0
+mesh = ExtResource("20_tbs74")
+skeleton = NodePath("../..")
+
+[node name="Barrier026" type="MeshInstance3D" parent="barriers"]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 400, 0.25, 461)
+material_override = ExtResource("4_7lmjf")
+visibility_range_end = 175.0
+mesh = ExtResource("20_tbs74")
+skeleton = NodePath("../..")
+
+[node name="Barrier027" type="MeshInstance3D" parent="barriers"]
+transform = Transform3D(2.38419e-07, 0, -1, 0, 1, 0, 1, 0, 2.38419e-07, 360, 0.25, 433)
+material_override = ExtResource("4_7lmjf")
+visibility_range_end = 175.0
+mesh = ExtResource("20_tbs74")
+skeleton = NodePath("../..")
+
+[node name="road_props" type="Node3D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="LightPole" parent="road_props" instance=ExtResource("21_qewab")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 558.855, 0, 433)
+
+[node name="LightPole16" parent="road_props" instance=ExtResource("21_qewab")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 577, 0, 449)
+
+[node name="LightPole17" parent="road_props" instance=ExtResource("21_qewab")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 556, 0, 459)
+
+[node name="LightPole18" parent="road_props" instance=ExtResource("21_qewab")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 538, 0, 479)
+
+[node name="LightPole19" parent="road_props" instance=ExtResource("21_qewab")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 530, 0, 499)
+
+[node name="LightPole20" parent="road_props" instance=ExtResource("21_qewab")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 504, 0, 499)
+
+[node name="LightPole21" parent="road_props" instance=ExtResource("21_qewab")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 498, 0, 533)
+
+[node name="LightPole22" parent="road_props" instance=ExtResource("21_qewab")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 498, 0, 563)
+
+[node name="LightPole23" parent="road_props" instance=ExtResource("21_qewab")]
+transform = Transform3D(1, 0, 7.10543e-15, 0, 1, 0, -7.10543e-15, 0, 1, 511, 0, 556)
+
+[node name="LightPole24" parent="road_props" instance=ExtResource("21_qewab")]
+transform = Transform3D(1, 0, 7.10543e-15, 0, 1, 0, -7.10543e-15, 0, 1, 511, 0, 525)
+
+[node name="LightPole25" parent="road_props" instance=ExtResource("21_qewab")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 521, 0, 513)
+
+[node name="LightPole26" parent="road_props" instance=ExtResource("21_qewab")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 538, 0, 527)
+
+[node name="LightPole27" parent="road_props" instance=ExtResource("21_qewab")]
+transform = Transform3D(1, 0, 7.10543e-15, 0, 1, 0, -7.10543e-15, 0, 1, 552, 0, 531)
+
+[node name="LightPole28" parent="road_props" instance=ExtResource("21_qewab")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 566, 0, 513)
+
+[node name="LightPole29" parent="road_props" instance=ExtResource("21_qewab")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 578, 0, 525)
+
+[node name="LightPole30" parent="road_props" instance=ExtResource("21_qewab")]
+transform = Transform3D(1, 0, 7.10543e-15, 0, 1, 0, -7.10543e-15, 0, 1, 593, 0, 529)
+
+[node name="LightPole32" parent="road_props" instance=ExtResource("21_qewab")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 575, 0, 499)
+
+[node name="LightPole33" parent="road_props" instance=ExtResource("21_qewab")]
+transform = Transform3D(1, 0, 7.10543e-15, 0, 1, 0, -7.10543e-15, 0, 1, 552, 0, 486)
+
+[node name="LightPole34" parent="road_props" instance=ExtResource("21_qewab")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 569, 0, 473)
+
+[node name="LightPole4" parent="road_props" instance=ExtResource("21_qewab")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 559, 0, 408)
+
+[node name="LightPole5" parent="road_props" instance=ExtResource("21_qewab")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 517, 0, 408)
+
+[node name="LightPole6" parent="road_props" instance=ExtResource("21_qewab")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 467.834, 0, 408)
+
+[node name="LightPole7" parent="road_props" instance=ExtResource("21_qewab")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 440, 0, 397)
+
+[node name="LightPole8" parent="road_props" instance=ExtResource("21_qewab")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 440, 0, 424)
+
+[node name="LightPole9" parent="road_props" instance=ExtResource("21_qewab")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 451, 0, 457)
+
+[node name="LightPole10" parent="road_props" instance=ExtResource("21_qewab")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 414, 0, 457)
+
+[node name="LightPole11" parent="road_props" instance=ExtResource("21_qewab")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 370, 0, 457)
+
+[node name="LightPole12" parent="road_props" instance=ExtResource("21_qewab")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 364, 0, 419)
+
+[node name="LightPole13" parent="road_props" instance=ExtResource("21_qewab")]
+transform = Transform3D(1, 0, -7.10543e-15, 0, 1, 0, 7.10543e-15, 0, 1, 378, 0, 409)
+
+[node name="LightPole14" parent="road_props" instance=ExtResource("21_qewab")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 389, 0, 443)
+
+[node name="LightPole15" parent="road_props" instance=ExtResource("21_qewab")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 424, 0, 443)
+
+[node name="LightPole2" parent="road_props" instance=ExtResource("21_qewab")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 516.974, 0, 433)
+
+[node name="LightPole3" parent="road_props" instance=ExtResource("21_qewab")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 469, 0, 433)
+
+[node name="Car001" parent="road_props" instance=ExtResource("26_e4qxy")]
+transform = Transform3D(0.935592, 0, -0.353083, 0, 1, 0, 0.353083, 0, 0.935592, 501.158, 1.52588e-05, 550.401)
+
+[node name="Car002" parent="road_props" instance=ExtResource("23_7p3nc")]
+transform = Transform3D(-0.908012, 0, 0.418945, 0, 1, 0, -0.418945, 0, -0.908012, 505.764, 1.14441e-05, 532.848)
+
+[node name="Truck" parent="road_props" instance=ExtResource("24_ggb7b")]
+transform = Transform3D(-0.232393, 0, 0.972622, 0, 1, 0, -0.972622, 0, -0.232393, 507.742, 1.52588e-05, 506.425)
+
+[node name="Car003" parent="road_props" instance=ExtResource("25_ri284")]
+transform = Transform3D(0.976186, 0, 0.216934, 0, 1, 0, -0.216934, 0, 0.976186, 551.073, 1.52588e-05, 504.253)
+
+[node name="Car004" parent="road_props" instance=ExtResource("23_7p3nc")]
+transform = Transform3D(0.336767, 0, -0.941588, 0, 1, 0, 0.941588, 0, 0.336767, 543.102, 1.33514e-05, 524.327)
+
+[node name="Car005" parent="road_props" instance=ExtResource("26_e4qxy")]
+transform = Transform3D(-0.729661, 0, -0.683809, 0, 1, 0, 0.683809, 0, -0.729661, 585.031, 1.52588e-05, 504.033)
+
+[node name="Car013" parent="road_props" instance=ExtResource("26_e4qxy")]
+transform = Transform3D(-0.417153, 0, -0.908836, 0, 1, 0, 0.908836, 0, -0.417153, 585.807, 1.52588e-05, 516.981)
+
+[node name="Truck2" parent="road_props" instance=ExtResource("24_ggb7b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 587.473, 1.52588e-05, 533.402)
+
+[node name="Car007" parent="road_props" instance=ExtResource("26_e4qxy")]
+transform = Transform3D(-0.117433, 0, 0.993081, 0, 1, 0, -0.993081, 0, -0.117433, 566.386, 1.52588e-05, 463.905)
+
+[node name="Car008" parent="road_props" instance=ExtResource("25_ri284")]
+transform = Transform3D(-0.880692, 0, -0.473689, 0, 1, 0, 0.473689, 0, -0.880692, 586.377, 1.52588e-05, 438.806)
+
+[node name="Truck3" parent="road_props" instance=ExtResource("24_ggb7b")]
+transform = Transform3D(0.315566, 0, -0.948904, 0, 1, 0, 0.948904, 0, 0.315566, 545.116, 1.52588e-05, 420.673)
+
+[node name="Truck4" parent="road_props" instance=ExtResource("24_ggb7b")]
+transform = Transform3D(0.149104, 0, 0.988822, 0, 1, 0, -0.988822, 0, 0.149104, 489.892, 1.52588e-05, 421.776)
+
+[node name="Car006" parent="road_props" instance=ExtResource("26_e4qxy")]
+transform = Transform3D(0.956182, 0, -0.292772, 0, 1, 0, 0.292772, 0, 0.956182, 476.4, 7.62939e-06, 420.615)
+
+[node name="Car009" parent="road_props" instance=ExtResource("23_7p3nc")]
+transform = Transform3D(0.525487, 0, -0.850802, 0, 1, 0, 0.850802, 0, 0.525487, 421.567, 1.14441e-05, 451.543)
+
+[node name="Car010" parent="road_props" instance=ExtResource("25_ri284")]
+transform = Transform3D(0.65752, 0, 0.753437, 0, 1, 0, -0.753437, 0, 0.65752, 397.496, 1.52588e-05, 451.004)
+
+[node name="Truck5" parent="road_props" instance=ExtResource("24_ggb7b")]
+transform = Transform3D(0.989496, 0, -0.144563, 0, 1, 0, 0.144563, 0, 0.989496, 370.028, 1.52588e-05, 443.865)
+
+[node name="Car011" parent="road_props" instance=ExtResource("25_ri284")]
+transform = Transform3D(0.967277, 0, 0.253724, 0, 1, 0, -0.253724, 0, 0.967277, 368.091, 1.52588e-05, 423.1)
+
+[node name="Car012" parent="road_props" instance=ExtResource("23_7p3nc")]
+transform = Transform3D(0.848658, 0, -0.528942, 0, 1, 0, 0.528942, 0, 0.848658, 368.887, 1.52588e-05, 398.09)
+
+[node name="Cone" parent="road_props" instance=ExtResource("48_0rgcu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 371.931, 1.90735e-05, 430.493)
+
+[node name="Cone2" parent="road_props" instance=ExtResource("48_0rgcu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 513.738, 1.52588e-05, 421.707)
+
+[node name="Cone3" parent="road_props" instance=ExtResource("48_0rgcu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 584.491, 0.249924, 408.465)
+
+[node name="Cone4" parent="road_props" instance=ExtResource("48_0rgcu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 532.936, 1.52588e-05, 508.836)
+
+[node name="dead_trees_and_gravestones" type="Node3D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="DeadTree001" parent="dead_trees_and_gravestones" instance=ExtResource("22_sj66t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 589, -1, 557)
+
+[node name="DeadTree002" parent="dead_trees_and_gravestones" instance=ExtResource("22_sj66t")]
+transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 583, -1, 561)
+
+[node name="DeadTree003" parent="dead_trees_and_gravestones" instance=ExtResource("22_sj66t")]
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 589, -1, 567)
+
+[node name="DeadTree004" parent="dead_trees_and_gravestones" instance=ExtResource("22_sj66t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 585, -1, 573)
+
+[node name="DeadTree005" parent="dead_trees_and_gravestones" instance=ExtResource("22_sj66t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 589, -1, 581)
+
+[node name="DeadTree006" parent="dead_trees_and_gravestones" instance=ExtResource("22_sj66t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 548, -1, 547)
+
+[node name="DeadTree007" parent="dead_trees_and_gravestones" instance=ExtResource("22_sj66t")]
+transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 542, -1, 551)
+
+[node name="DeadTree008" parent="dead_trees_and_gravestones" instance=ExtResource("22_sj66t")]
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 548, -1, 557)
+
+[node name="DeadTree009" parent="dead_trees_and_gravestones" instance=ExtResource("22_sj66t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 544, -1, 563)
+
+[node name="DeadTree010" parent="dead_trees_and_gravestones" instance=ExtResource("22_sj66t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 548, -1, 571)
+
+[node name="DeadTree011" parent="dead_trees_and_gravestones" instance=ExtResource("22_sj66t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 507, -1, 587)
+
+[node name="DeadTree012" parent="dead_trees_and_gravestones" instance=ExtResource("22_sj66t")]
+transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 501, -1, 591)
+
+[node name="DeadTree013" parent="dead_trees_and_gravestones" instance=ExtResource("22_sj66t")]
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 507, -1, 597)
+
+[node name="DeadTree014" parent="dead_trees_and_gravestones" instance=ExtResource("22_sj66t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 503, -1, 603)
+
+[node name="DeadTree015" parent="dead_trees_and_gravestones" instance=ExtResource("22_sj66t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 507, -1, 611)
+
+[node name="DeadTree016" parent="dead_trees_and_gravestones" instance=ExtResource("22_sj66t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 450, -1, 376)
+
+[node name="DeadTree017" parent="dead_trees_and_gravestones" instance=ExtResource("22_sj66t")]
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 445, -1, 371)
+
+[node name="DeadTree018" parent="dead_trees_and_gravestones" instance=ExtResource("22_sj66t")]
+transform = Transform3D(0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 450, -1, 365)
+
+[node name="DeadTree019" parent="dead_trees_and_gravestones" instance=ExtResource("22_sj66t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 445, -1, 362)
+
+[node name="DeadTree020" parent="dead_trees_and_gravestones" instance=ExtResource("22_sj66t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 447, -1, 356)
+
+[node name="DeadTree021" parent="dead_trees_and_gravestones" instance=ExtResource("22_sj66t")]
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 451, -1, 351)
+
+[node name="DeadTree022" parent="dead_trees_and_gravestones" instance=ExtResource("22_sj66t")]
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 445, -1, 345)
+
+[node name="DeadTree023" parent="dead_trees_and_gravestones" instance=ExtResource("22_sj66t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 374, -1, 376)
+
+[node name="DeadTree024" parent="dead_trees_and_gravestones" instance=ExtResource("22_sj66t")]
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 369, -1, 371)
+
+[node name="DeadTree025" parent="dead_trees_and_gravestones" instance=ExtResource("22_sj66t")]
+transform = Transform3D(0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 374, -1, 365)
+
+[node name="DeadTree026" parent="dead_trees_and_gravestones" instance=ExtResource("22_sj66t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 369, -1, 362)
+
+[node name="DeadTree027" parent="dead_trees_and_gravestones" instance=ExtResource("22_sj66t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 371, -1, 356)
+
+[node name="DeadTree028" parent="dead_trees_and_gravestones" instance=ExtResource("22_sj66t")]
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 375, -1, 351)
+
+[node name="DeadTree029" parent="dead_trees_and_gravestones" instance=ExtResource("22_sj66t")]
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 369, -1, 345)
+
+[node name="Gravestone001" parent="dead_trees_and_gravestones" instance=ExtResource("23_tiitm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 609.418, -1.37149, 420.418)
+
+[node name="Gravestone004" parent="dead_trees_and_gravestones" instance=ExtResource("23_tiitm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 609.224, -1.37149, 465.353)
+
+[node name="Gravestone007" parent="dead_trees_and_gravestones" instance=ExtResource("23_tiitm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 624.384, -1.37149, 479.856)
+
+[node name="Gravestone002" parent="dead_trees_and_gravestones" instance=ExtResource("24_nu0iy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 610, -1.37149, 436)
+
+[node name="Gravestone005" parent="dead_trees_and_gravestones" instance=ExtResource("24_nu0iy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 610, -1.37149, 481)
+
+[node name="Gravestone003" parent="dead_trees_and_gravestones" instance=ExtResource("25_1xbpy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 610, -1.37149, 451)
+
+[node name="Gravestone006" parent="dead_trees_and_gravestones" instance=ExtResource("23_tiitm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 625, -1.37149, 436)
+
+[node name="Gravestone008" parent="dead_trees_and_gravestones" instance=ExtResource("24_nu0iy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 625, -1.37149, 421)
+
+[node name="Gravestone009" parent="dead_trees_and_gravestones" instance=ExtResource("24_nu0iy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 624.179, -1.37149, 451.411)
+
+[node name="Gravestone010" parent="dead_trees_and_gravestones" instance=ExtResource("25_1xbpy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 625.323, -1.37149, 466.841)
+
+[node name="Gravestone012" parent="dead_trees_and_gravestones" instance=ExtResource("23_tiitm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 639.281, -1.37149, 450.179)
+
+[node name="Gravestone013" parent="dead_trees_and_gravestones" instance=ExtResource("24_nu0iy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 640.647, -1.37149, 435.224)
+
+[node name="Gravestone014" parent="dead_trees_and_gravestones" instance=ExtResource("24_nu0iy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 640, -1.37149, 481)
+
+[node name="Gravestone015" parent="dead_trees_and_gravestones" instance=ExtResource("25_1xbpy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 640, -1.37149, 421)
+
+[node name="Gravestone021" parent="dead_trees_and_gravestones" instance=ExtResource("25_1xbpy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 640, -1.37149, 466)
+
+[node name="Gravestone016" parent="dead_trees_and_gravestones" instance=ExtResource("23_tiitm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 655, -1.37149, 436)
+
+[node name="Gravestone017" parent="dead_trees_and_gravestones" instance=ExtResource("23_tiitm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 656.027, -1.37149, 465.384)
+
+[node name="Gravestone018" parent="dead_trees_and_gravestones" instance=ExtResource("24_nu0iy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 655.924, -1.37149, 420.179)
+
+[node name="Gravestone020" parent="dead_trees_and_gravestones" instance=ExtResource("25_1xbpy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 654.589, -1.37149, 449.768)
+
+[node name="Gravestone022" parent="dead_trees_and_gravestones" instance=ExtResource("25_1xbpy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 654.589, -1.37149, 480.487)
+
+[node name="DeadTree030" parent="dead_trees_and_gravestones" instance=ExtResource("22_sj66t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 629.326, -1.40002, 419.494)
+
+[node name="DeadTree031" parent="dead_trees_and_gravestones" instance=ExtResource("22_sj66t")]
+transform = Transform3D(0.241956, 0, 0.970287, 0, 1, 0, -0.970287, 0, 0.241956, 615.711, -1.40001, 478.659)
+
+[node name="DeadTree032" parent="dead_trees_and_gravestones" instance=ExtResource("22_sj66t")]
+transform = Transform3D(0.241956, 0, 0.970287, 0, 1, 0, -0.970287, 0, 0.241956, 647.802, -1.40001, 460.52)
+
+[node name="DeadTree033" parent="dead_trees_and_gravestones" instance=ExtResource("22_sj66t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 673.925, -1.40001, 409.072)
+
+[node name="DeadTree034" parent="dead_trees_and_gravestones" instance=ExtResource("22_sj66t")]
+transform = Transform3D(0.886082, 0, 0.463528, 0, 1, 0, -0.463528, 0, 0.886082, 681.851, -1.40001, 410.838)
+
+[node name="DeadTree035" parent="dead_trees_and_gravestones" instance=ExtResource("22_sj66t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 675.477, -1.40001, 421.775)
+
+[node name="DeadTree036" parent="dead_trees_and_gravestones" instance=ExtResource("22_sj66t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 685.568, -1.40002, 418.134)
+
+[node name="DeadTree037" parent="dead_trees_and_gravestones" instance=ExtResource("22_sj66t")]
+transform = Transform3D(0.839639, 0, -0.543145, 0, 1, 0, 0.543145, 0, 0.839639, 679.842, -1.40001, 430.704)
+
+[node name="DeadTree038" parent="dead_trees_and_gravestones" instance=ExtResource("22_sj66t")]
+transform = Transform3D(0.187416, 0, -0.982281, 0, 1, 0, 0.982281, 0, 0.187416, 673.275, -1.40001, 438.827)
+
+[node name="DeadTree039" parent="dead_trees_and_gravestones" instance=ExtResource("22_sj66t")]
+transform = Transform3D(0.872411, 0, -0.488774, 0, 1, 0, 0.488774, 0, 0.872411, 679.403, -1.40001, 444.459)
+
+[node name="DeadTree040" parent="dead_trees_and_gravestones" instance=ExtResource("22_sj66t")]
+transform = Transform3D(0.872411, 0, -0.488774, 0, 1, 0, 0.488774, 0, 0.872411, 686.901, -1.40001, 441.406)
+
+[node name="DeadTree041" parent="dead_trees_and_gravestones" instance=ExtResource("22_sj66t")]
+transform = Transform3D(0.610961, 0, -0.791661, 0, 1, 0, 0.791661, 0, 0.610961, 673.328, -1.40001, 451.865)
+
+[node name="DeadTree042" parent="dead_trees_and_gravestones" instance=ExtResource("22_sj66t")]
+transform = Transform3D(0.842038, 0, -0.539418, 0, 1, 0, 0.539418, 0, 0.842038, 682.399, -1.40001, 454.896)
+
+[node name="DeadTree043" parent="dead_trees_and_gravestones" instance=ExtResource("22_sj66t")]
+transform = Transform3D(0.038161, 0, -0.999272, 0, 1, 0, 0.999272, 0, 0.038161, 682.068, -1.40001, 471.503)
+
+[node name="DeadTree044" parent="dead_trees_and_gravestones" instance=ExtResource("22_sj66t")]
+transform = Transform3D(0.553188, 0, -0.833056, 0, 1, 0, 0.833056, 0, 0.553188, 677.051, -1.40001, 461.51)
+
+[node name="DeadTree045" parent="dead_trees_and_gravestones" instance=ExtResource("22_sj66t")]
+transform = Transform3D(0.863545, 0, -0.504271, 0, 1, 0, 0.504271, 0, 0.863545, 684.661, -1.40001, 463.383)
+
+[node name="DeadTree046" parent="dead_trees_and_gravestones" instance=ExtResource("22_sj66t")]
+transform = Transform3D(-0.784582, 0, -0.620025, 0, 1, 0, 0.620025, 0, -0.784582, 674.978, -1.40001, 473.277)
+
+[node name="DeadTree047" parent="dead_trees_and_gravestones" instance=ExtResource("22_sj66t")]
+transform = Transform3D(-0.532669, 0, -0.846323, 0, 1, 0, 0.846323, 0, -0.532669, 678.454, -1.40001, 482.75)
+
+[node name="DeadTree048" parent="dead_trees_and_gravestones" instance=ExtResource("22_sj66t")]
+transform = Transform3D(-0.967797, 0, -0.251731, 0, 1, 0, 0.251731, 0, -0.967797, 673.071, -1.40001, 489.619)
+
+[node name="DeadTree049" parent="dead_trees_and_gravestones" instance=ExtResource("22_sj66t")]
+transform = Transform3D(0.999853, 0, -0.0171383, 0, 1, 0, 0.0171383, 0, 0.999853, 690.313, -1.40001, 409.012)
+
+[node name="DeadTree050" parent="dead_trees_and_gravestones" instance=ExtResource("22_sj66t")]
+transform = Transform3D(0.834232, 0, 0.551413, 0, 1, 0, -0.551413, 0, 0.834232, 684.387, -1.40001, 400.136)
+
+[node name="DeadTree051" parent="dead_trees_and_gravestones" instance=ExtResource("22_sj66t")]
+transform = Transform3D(0.989649, 0, 0.14351, 0, 1, 0, -0.14351, 0, 0.989649, 675.359, -1.40001, 399.562)
+
+[node name="DeadTree052" parent="dead_trees_and_gravestones" instance=ExtResource("22_sj66t")]
+transform = Transform3D(0.989649, 0, 0.14351, 0, 1, 0, -0.14351, 0, 0.989649, 679.371, -1.40001, 389.779)
+
+[node name="DeadTree053" parent="dead_trees_and_gravestones" instance=ExtResource("22_sj66t")]
+transform = Transform3D(0.893896, 0, 0.448274, 0, 1, 0, -0.448274, 0, 0.893896, 698.208, -1.40001, 410.914)
+
+[node name="DeadTree054" parent="dead_trees_and_gravestones" instance=ExtResource("22_sj66t")]
+transform = Transform3D(0.999853, 0, -0.0171383, 0, 1, 0, 0.0171383, 0, 0.999853, 689.656, -1.40001, 425.437)
+
+[node name="DeadTree055" parent="dead_trees_and_gravestones" instance=ExtResource("22_sj66t")]
+transform = Transform3D(0.999853, 0, -0.0171383, 0, 1, 0, 0.0171383, 0, 0.999853, 699.709, -1.40002, 421.717)
+
+[node name="DeadTree056" parent="dead_trees_and_gravestones" instance=ExtResource("22_sj66t")]
+transform = Transform3D(0.830207, 0, -0.557455, 0, 1, 0, 0.557455, 0, 0.830207, 695.858, -1.40001, 430.742)
+
+[node name="DeadTree057" parent="dead_trees_and_gravestones" instance=ExtResource("22_sj66t")]
+transform = Transform3D(0.170553, 0, -0.985348, 0, 1, 0, 0.985348, 0, 0.170553, 686.422, -1.40001, 434.932)
+
+[node name="DeadTree058" parent="dead_trees_and_gravestones" instance=ExtResource("22_sj66t")]
+transform = Transform3D(0.863906, 0, -0.503653, 0, 1, 0, 0.503653, 0, 0.863906, 695.183, -1.40001, 444.488)
+
+[node name="DeadTree059" parent="dead_trees_and_gravestones" instance=ExtResource("22_sj66t")]
+transform = Transform3D(0.597303, 0, -0.802015, 0, 1, 0, 0.802015, 0, 0.597303, 687.438, -1.40001, 449.491)
+
+[node name="DeadTree060" parent="dead_trees_and_gravestones" instance=ExtResource("22_sj66t")]
+transform = Transform3D(0.83267, 0, -0.553769, 0, 1, 0, 0.553769, 0, 0.83267, 698.001, -1.40001, 454.974)
+
+[node name="DeadTree061" parent="dead_trees_and_gravestones" instance=ExtResource("22_sj66t")]
+transform = Transform3D(0.0210296, 0, -0.999779, 0, 1, 0, 0.999779, 0, 0.0210296, 697.385, -1.40001, 471.574)
+
+[node name="DeadTree062" parent="dead_trees_and_gravestones" instance=ExtResource("22_sj66t")]
+transform = Transform3D(0.538829, 0, -0.842415, 0, 1, 0, 0.842415, 0, 0.538829, 692.54, -1.40001, 461.496)
+
+[node name="DeadTree063" parent="dead_trees_and_gravestones" instance=ExtResource("22_sj66t")]
+transform = Transform3D(-0.795093, 0, -0.606488, 0, 1, 0, 0.606488, 0, -0.795093, 690.266, -1.40001, 473.225)
+
+[node name="DeadTree064" parent="dead_trees_and_gravestones" instance=ExtResource("22_sj66t")]
+transform = Transform3D(-0.547096, 0, -0.83707, 0, 1, 0, 0.83707, 0, -0.547096, 693.579, -1.40001, 482.757)
+
+[node name="DeadTree065" parent="dead_trees_and_gravestones" instance=ExtResource("22_sj66t")]
+transform = Transform3D(-0.971969, 0, -0.235108, 0, 1, 0, 0.235108, 0, -0.971969, 686.229, -1.40001, 482.352)
+
+[node name="DeadTree066" parent="dead_trees_and_gravestones" instance=ExtResource("22_sj66t")]
+transform = Transform3D(-0.616596, 0, -0.787279, 0, 1, 0, 0.787279, 0, -0.616596, 687.88, -1.40001, 493.55)
+
+[node name="DeadTree067" parent="dead_trees_and_gravestones" instance=ExtResource("22_sj66t")]
+transform = Transform3D(-0.979907, 0, 0.199454, 0, 1, 0, -0.199454, 0, -0.979907, 678.543, -1.40001, 498.921)
+
+[node name="DeadTree068" parent="dead_trees_and_gravestones" instance=ExtResource("22_sj66t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 688.278, -1.40001, 459.125)
+
+[node name="DeadTree069" parent="dead_trees_and_gravestones" instance=ExtResource("22_sj66t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 682.033, -1.40001, 423.439)
+
+[node name="misc_props" type="Node3D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="graveyard_fences" type="StaticBody3D" parent="misc_props"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 594.071, 0, 442.534)
+
+[node name="MountainsideFenceUnitTall" type="MeshInstance3D" parent="misc_props/graveyard_fences"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.153503, 0, -39.0337)
+material_override = ExtResource("31_fkg7l")
+visibility_range_end = 175.0
+mesh = ExtResource("32_kg8cb")
+skeleton = NodePath("../../..")
+
+[node name="MountainsideFenceUnitTall2" type="MeshInstance3D" parent="misc_props/graveyard_fences"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.153503, 0, -36.0337)
+material_override = ExtResource("31_fkg7l")
+visibility_range_end = 175.0
+mesh = ExtResource("32_kg8cb")
+skeleton = NodePath("../../..")
+
+[node name="MountainsideFenceUnitTall3" type="MeshInstance3D" parent="misc_props/graveyard_fences"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.153503, 0, -33.0337)
+material_override = ExtResource("31_fkg7l")
+visibility_range_end = 175.0
+mesh = ExtResource("32_kg8cb")
+skeleton = NodePath("../../..")
+
+[node name="MountainsideFenceUnitTall4" type="MeshInstance3D" parent="misc_props/graveyard_fences"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.153503, 0, -30.0337)
+material_override = ExtResource("31_fkg7l")
+visibility_range_end = 175.0
+mesh = ExtResource("32_kg8cb")
+skeleton = NodePath("../../..")
+
+[node name="MountainsideFenceUnitTall5" type="MeshInstance3D" parent="misc_props/graveyard_fences"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.153503, 0, -27.0337)
+material_override = ExtResource("31_fkg7l")
+visibility_range_end = 175.0
+mesh = ExtResource("32_kg8cb")
+skeleton = NodePath("../../..")
+
+[node name="MountainsideFenceUnitTall6" type="MeshInstance3D" parent="misc_props/graveyard_fences"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.153503, 0, -24.0337)
+material_override = ExtResource("31_fkg7l")
+visibility_range_end = 175.0
+mesh = ExtResource("32_kg8cb")
+skeleton = NodePath("../../..")
+
+[node name="MountainsideFenceUnitTall7" type="MeshInstance3D" parent="misc_props/graveyard_fences"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.153503, 0, -21.0337)
+material_override = ExtResource("31_fkg7l")
+visibility_range_end = 175.0
+mesh = ExtResource("32_kg8cb")
+skeleton = NodePath("../../..")
+
+[node name="MountainsideFenceUnitTall8" type="MeshInstance3D" parent="misc_props/graveyard_fences"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.153503, 0, -18.0337)
+material_override = ExtResource("31_fkg7l")
+visibility_range_end = 175.0
+mesh = ExtResource("32_kg8cb")
+skeleton = NodePath("../../..")
+
+[node name="MountainsideFenceUnitTall9" type="MeshInstance3D" parent="misc_props/graveyard_fences"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.153503, 0, -15.0337)
+material_override = ExtResource("31_fkg7l")
+visibility_range_end = 175.0
+mesh = ExtResource("32_kg8cb")
+skeleton = NodePath("../../..")
+
+[node name="MountainsideFenceUnitTall10" type="MeshInstance3D" parent="misc_props/graveyard_fences"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.153503, 0, -12.0337)
+material_override = ExtResource("31_fkg7l")
+visibility_range_end = 175.0
+mesh = ExtResource("32_kg8cb")
+skeleton = NodePath("../../..")
+
+[node name="MountainsideFenceUnitTall11" type="MeshInstance3D" parent="misc_props/graveyard_fences"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.153503, 0, -9.03366)
+material_override = ExtResource("31_fkg7l")
+visibility_range_end = 175.0
+mesh = ExtResource("32_kg8cb")
+skeleton = NodePath("../../..")
+
+[node name="MountainsideFenceUnitTall12" type="MeshInstance3D" parent="misc_props/graveyard_fences"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.153503, 0, -6.03366)
+material_override = ExtResource("31_fkg7l")
+visibility_range_end = 175.0
+mesh = ExtResource("32_kg8cb")
+skeleton = NodePath("../../..")
+
+[node name="MountainsideFenceUnitTall13" type="MeshInstance3D" parent="misc_props/graveyard_fences"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.153503, 0, -3.03366)
+material_override = ExtResource("31_fkg7l")
+visibility_range_end = 175.0
+mesh = ExtResource("32_kg8cb")
+skeleton = NodePath("../../..")
+
+[node name="MountainsideFenceUnitTall14" type="MeshInstance3D" parent="misc_props/graveyard_fences"]
+transform = Transform3D(0.999189, 0, 0.0402539, 0, 1, 0, -0.0402539, 0, 0.999189, -1.69995, 0, -1.53253)
+material_override = ExtResource("31_fkg7l")
+visibility_range_end = 175.0
+mesh = ExtResource("32_kg8cb")
+skeleton = NodePath("../../..")
+
+[node name="MountainsideFenceUnitTall15" type="MeshInstance3D" parent="misc_props/graveyard_fences"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.0284424, 0, 2.96634)
+material_override = ExtResource("31_fkg7l")
+visibility_range_end = 175.0
+mesh = ExtResource("32_kg8cb")
+skeleton = NodePath("../../..")
+
+[node name="MountainsideFenceUnitTall16" type="MeshInstance3D" parent="misc_props/graveyard_fences"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.0284424, 0, 5.96634)
+material_override = ExtResource("31_fkg7l")
+visibility_range_end = 175.0
+mesh = ExtResource("32_kg8cb")
+skeleton = NodePath("../../..")
+
+[node name="MountainsideFenceUnitTall17" type="MeshInstance3D" parent="misc_props/graveyard_fences"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.0284424, 0, 8.96634)
+material_override = ExtResource("31_fkg7l")
+visibility_range_end = 175.0
+mesh = ExtResource("32_kg8cb")
+skeleton = NodePath("../../..")
+
+[node name="MountainsideFenceUnitTall18" type="MeshInstance3D" parent="misc_props/graveyard_fences"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.0284424, 0, 11.9663)
+material_override = ExtResource("31_fkg7l")
+visibility_range_end = 175.0
+mesh = ExtResource("32_kg8cb")
+skeleton = NodePath("../../..")
+
+[node name="MountainsideFenceUnitTall19" type="MeshInstance3D" parent="misc_props/graveyard_fences"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.0284424, 0, 14.9663)
+material_override = ExtResource("31_fkg7l")
+visibility_range_end = 175.0
+mesh = ExtResource("32_kg8cb")
+skeleton = NodePath("../../..")
+
+[node name="MountainsideFenceUnitTall20" type="MeshInstance3D" parent="misc_props/graveyard_fences"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.0284424, 0, 17.9663)
+material_override = ExtResource("31_fkg7l")
+visibility_range_end = 175.0
+mesh = ExtResource("32_kg8cb")
+skeleton = NodePath("../../..")
+
+[node name="MountainsideFenceUnitTall21" type="MeshInstance3D" parent="misc_props/graveyard_fences"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.0284424, 0, 20.9663)
+material_override = ExtResource("31_fkg7l")
+visibility_range_end = 175.0
+mesh = ExtResource("32_kg8cb")
+skeleton = NodePath("../../..")
+
+[node name="MountainsideFenceUnitTall22" type="MeshInstance3D" parent="misc_props/graveyard_fences"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.0284424, 0, 23.9663)
+material_override = ExtResource("31_fkg7l")
+visibility_range_end = 175.0
+mesh = ExtResource("32_kg8cb")
+skeleton = NodePath("../../..")
+
+[node name="MountainsideFenceUnitTall23" type="MeshInstance3D" parent="misc_props/graveyard_fences"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.0284424, 0, 26.9663)
+material_override = ExtResource("31_fkg7l")
+visibility_range_end = 175.0
+mesh = ExtResource("32_kg8cb")
+skeleton = NodePath("../../..")
+
+[node name="MountainsideFenceUnitTall24" type="MeshInstance3D" parent="misc_props/graveyard_fences"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.0284424, 0, 29.9663)
+material_override = ExtResource("31_fkg7l")
+visibility_range_end = 175.0
+mesh = ExtResource("32_kg8cb")
+skeleton = NodePath("../../..")
+
+[node name="MountainsideFenceUnitTall25" type="MeshInstance3D" parent="misc_props/graveyard_fences"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.0284424, 0, 32.9663)
+material_override = ExtResource("31_fkg7l")
+visibility_range_end = 175.0
+mesh = ExtResource("32_kg8cb")
+skeleton = NodePath("../../..")
+
+[node name="MountainsideFenceUnitTall26" type="MeshInstance3D" parent="misc_props/graveyard_fences"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.0284424, 0, 35.9663)
+material_override = ExtResource("31_fkg7l")
+visibility_range_end = 175.0
+mesh = ExtResource("32_kg8cb")
+skeleton = NodePath("../../..")
+
+[node name="MountainsideFenceUnitTall27" type="MeshInstance3D" parent="misc_props/graveyard_fences"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.0284424, 0, 38.9663)
+material_override = ExtResource("31_fkg7l")
+visibility_range_end = 175.0
+mesh = ExtResource("32_kg8cb")
+skeleton = NodePath("../../..")
+
+[node name="MountainsideFenceUnitTall28" type="MeshInstance3D" parent="misc_props/graveyard_fences"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.0284424, 0, 41.9663)
+material_override = ExtResource("31_fkg7l")
+visibility_range_end = 175.0
+mesh = ExtResource("32_kg8cb")
+skeleton = NodePath("../../..")
+
+[node name="MountainsideFenceUnitTall29" type="MeshInstance3D" parent="misc_props/graveyard_fences"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.0284424, 0, 44.9663)
+material_override = ExtResource("31_fkg7l")
+visibility_range_end = 175.0
+mesh = ExtResource("32_kg8cb")
+skeleton = NodePath("../../..")
+
+[node name="MountainsideFenceUnitTall30" type="MeshInstance3D" parent="misc_props/graveyard_fences"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.0284424, 0, 47.9663)
+material_override = ExtResource("31_fkg7l")
+visibility_range_end = 175.0
+mesh = ExtResource("32_kg8cb")
+skeleton = NodePath("../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="misc_props/graveyard_fences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.150635, 2.36078, -21.0505)
+shape = SubResource("BoxShape3D_rp4vx")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="misc_props/graveyard_fences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0523682, 2.70584, 25.5165)
+shape = SubResource("BoxShape3D_snjp1")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="misc_props/graveyard_fences"]
+transform = Transform3D(0.997418, 0, 0.0718108, 0, 1, 0, -0.0718108, 0, 0.997418, -1.51917, 2.73468, -1.63562)
+shape = SubResource("BoxShape3D_fpiwe")
+
+[node name="graveyard_fences2" type="StaticBody3D" parent="misc_props"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 661.227, -1.15479, 403.5)
+
+[node name="MountainsideFenceUnitTall" type="MeshInstance3D" parent="misc_props/graveyard_fences2"]
+material_override = ExtResource("31_fkg7l")
+mesh = ExtResource("32_kg8cb")
+skeleton = NodePath("../../..")
+
+[node name="MountainsideFenceUnitTall2" type="MeshInstance3D" parent="misc_props/graveyard_fences2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+material_override = ExtResource("31_fkg7l")
+mesh = ExtResource("32_kg8cb")
+skeleton = NodePath("../../..")
+
+[node name="MountainsideFenceUnitTall3" type="MeshInstance3D" parent="misc_props/graveyard_fences2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
+material_override = ExtResource("31_fkg7l")
+mesh = ExtResource("32_kg8cb")
+skeleton = NodePath("../../..")
+
+[node name="MountainsideFenceUnitTall4" type="MeshInstance3D" parent="misc_props/graveyard_fences2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 0)
+material_override = ExtResource("31_fkg7l")
+mesh = ExtResource("32_kg8cb")
+skeleton = NodePath("../../..")
+
+[node name="MountainsideFenceUnitTall5" type="MeshInstance3D" parent="misc_props/graveyard_fences2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 0)
+material_override = ExtResource("31_fkg7l")
+mesh = ExtResource("32_kg8cb")
+skeleton = NodePath("../../..")
+
+[node name="MountainsideFenceUnitTall6" type="MeshInstance3D" parent="misc_props/graveyard_fences2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 0)
+material_override = ExtResource("31_fkg7l")
+mesh = ExtResource("32_kg8cb")
+skeleton = NodePath("../../..")
+
+[node name="MountainsideFenceUnitTall7" type="MeshInstance3D" parent="misc_props/graveyard_fences2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 0)
+material_override = ExtResource("31_fkg7l")
+mesh = ExtResource("32_kg8cb")
+skeleton = NodePath("../../..")
+
+[node name="MountainsideFenceUnitTall8" type="MeshInstance3D" parent="misc_props/graveyard_fences2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0, 0)
+material_override = ExtResource("31_fkg7l")
+mesh = ExtResource("32_kg8cb")
+skeleton = NodePath("../../..")
+
+[node name="MountainsideFenceUnitTall9" type="MeshInstance3D" parent="misc_props/graveyard_fences2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, 0)
+material_override = ExtResource("31_fkg7l")
+mesh = ExtResource("32_kg8cb")
+skeleton = NodePath("../../..")
+
+[node name="MountainsideFenceUnitTall10" type="MeshInstance3D" parent="misc_props/graveyard_fences2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27, 0, 0)
+material_override = ExtResource("31_fkg7l")
+mesh = ExtResource("32_kg8cb")
+skeleton = NodePath("../../..")
+
+[node name="MountainsideFenceUnitTall11" type="MeshInstance3D" parent="misc_props/graveyard_fences2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 0)
+material_override = ExtResource("31_fkg7l")
+mesh = ExtResource("32_kg8cb")
+skeleton = NodePath("../../..")
+
+[node name="MountainsideFenceUnitTall12" type="MeshInstance3D" parent="misc_props/graveyard_fences2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33, 0, 0)
+material_override = ExtResource("31_fkg7l")
+mesh = ExtResource("32_kg8cb")
+skeleton = NodePath("../../..")
+
+[node name="MountainsideFenceUnitTall13" type="MeshInstance3D" parent="misc_props/graveyard_fences2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 0, 0)
+material_override = ExtResource("31_fkg7l")
+mesh = ExtResource("32_kg8cb")
+skeleton = NodePath("../../..")
+
+[node name="MountainsideFenceUnitTall14" type="MeshInstance3D" parent="misc_props/graveyard_fences2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39, 0, 0)
+material_override = ExtResource("31_fkg7l")
+mesh = ExtResource("32_kg8cb")
+skeleton = NodePath("../../..")
+
+[node name="MountainsideFenceUnitTall15" type="MeshInstance3D" parent="misc_props/graveyard_fences2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42, 0, 0)
+material_override = ExtResource("31_fkg7l")
+mesh = ExtResource("32_kg8cb")
+skeleton = NodePath("../../..")
+
+[node name="MountainsideFenceUnitTall16" type="MeshInstance3D" parent="misc_props/graveyard_fences2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45, 0, 0)
+material_override = ExtResource("31_fkg7l")
+mesh = ExtResource("32_kg8cb")
+skeleton = NodePath("../../..")
+
+[node name="MountainsideFenceUnitTall17" type="MeshInstance3D" parent="misc_props/graveyard_fences2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48, 0, 0)
+material_override = ExtResource("31_fkg7l")
+mesh = ExtResource("32_kg8cb")
+skeleton = NodePath("../../..")
+
+[node name="MountainsideFenceUnitTall18" type="MeshInstance3D" parent="misc_props/graveyard_fences2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51, 0, 0)
+material_override = ExtResource("31_fkg7l")
+mesh = ExtResource("32_kg8cb")
+skeleton = NodePath("../../..")
+
+[node name="MountainsideFenceUnitTall19" type="MeshInstance3D" parent="misc_props/graveyard_fences2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54, 0, 0)
+material_override = ExtResource("31_fkg7l")
+mesh = ExtResource("32_kg8cb")
+skeleton = NodePath("../../..")
+
+[node name="MountainsideFenceUnitTall20" type="MeshInstance3D" parent="misc_props/graveyard_fences2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57, 0, 0)
+material_override = ExtResource("31_fkg7l")
+mesh = ExtResource("32_kg8cb")
+skeleton = NodePath("../../..")
+
+[node name="MountainsideFenceUnitTall21" type="MeshInstance3D" parent="misc_props/graveyard_fences2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60, 0, 0)
+material_override = ExtResource("31_fkg7l")
+mesh = ExtResource("32_kg8cb")
+skeleton = NodePath("../../..")
+
+[node name="MountainsideFenceUnitTall22" type="MeshInstance3D" parent="misc_props/graveyard_fences2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63, 0, 0)
+material_override = ExtResource("31_fkg7l")
+mesh = ExtResource("32_kg8cb")
+skeleton = NodePath("../../..")
+
+[node name="MountainsideFenceUnitTall23" type="MeshInstance3D" parent="misc_props/graveyard_fences2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66, 0, 0)
+material_override = ExtResource("31_fkg7l")
+mesh = ExtResource("32_kg8cb")
+skeleton = NodePath("../../..")
+
+[node name="MountainsideFenceUnitTall24" type="MeshInstance3D" parent="misc_props/graveyard_fences2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 69, 0, 0)
+material_override = ExtResource("31_fkg7l")
+mesh = ExtResource("32_kg8cb")
+skeleton = NodePath("../../..")
+
+[node name="MountainsideFenceUnitTall25" type="MeshInstance3D" parent="misc_props/graveyard_fences2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72, 0, 0)
+material_override = ExtResource("31_fkg7l")
+mesh = ExtResource("32_kg8cb")
+skeleton = NodePath("../../..")
+
+[node name="MountainsideFenceUnitTall26" type="MeshInstance3D" parent="misc_props/graveyard_fences2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75, 0, 0)
+material_override = ExtResource("31_fkg7l")
+mesh = ExtResource("32_kg8cb")
+skeleton = NodePath("../../..")
+
+[node name="MountainsideFenceUnitTall27" type="MeshInstance3D" parent="misc_props/graveyard_fences2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78, 0, 0)
+material_override = ExtResource("31_fkg7l")
+mesh = ExtResource("32_kg8cb")
+skeleton = NodePath("../../..")
+
+[node name="MountainsideFenceUnitTall28" type="MeshInstance3D" parent="misc_props/graveyard_fences2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81, 0, 0)
+material_override = ExtResource("31_fkg7l")
+mesh = ExtResource("32_kg8cb")
+skeleton = NodePath("../../..")
+
+[node name="MountainsideFenceUnitTall29" type="MeshInstance3D" parent="misc_props/graveyard_fences2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 84, 0, 0)
+material_override = ExtResource("31_fkg7l")
+mesh = ExtResource("32_kg8cb")
+skeleton = NodePath("../../..")
+
+[node name="MountainsideFenceUnitTall30" type="MeshInstance3D" parent="misc_props/graveyard_fences2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87, 0, 0)
+material_override = ExtResource("31_fkg7l")
+mesh = ExtResource("32_kg8cb")
+skeleton = NodePath("../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="misc_props/graveyard_fences2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.5053, 2.38698, -0.00231934)
+shape = SubResource("BoxShape3D_3j2ve")
+
+[node name="barrier_fence" type="StaticBody3D" parent="misc_props"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 448, 0, 386)
+
+[node name="AbandonedCityFenceUnit" type="MeshInstance3D" parent="misc_props/barrier_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit2" type="MeshInstance3D" parent="misc_props/barrier_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit3" type="MeshInstance3D" parent="misc_props/barrier_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit4" type="MeshInstance3D" parent="misc_props/barrier_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit5" type="MeshInstance3D" parent="misc_props/barrier_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit6" type="MeshInstance3D" parent="misc_props/barrier_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit7" type="MeshInstance3D" parent="misc_props/barrier_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit8" type="MeshInstance3D" parent="misc_props/barrier_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit9" type="MeshInstance3D" parent="misc_props/barrier_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit10" type="MeshInstance3D" parent="misc_props/barrier_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit11" type="MeshInstance3D" parent="misc_props/barrier_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit12" type="MeshInstance3D" parent="misc_props/barrier_fence"]
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit13" type="MeshInstance3D" parent="misc_props/barrier_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit14" type="MeshInstance3D" parent="misc_props/barrier_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit15" type="MeshInstance3D" parent="misc_props/barrier_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit16" type="MeshInstance3D" parent="misc_props/barrier_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit21" type="MeshInstance3D" parent="misc_props/barrier_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit17" type="MeshInstance3D" parent="misc_props/barrier_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit18" type="MeshInstance3D" parent="misc_props/barrier_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit19" type="MeshInstance3D" parent="misc_props/barrier_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit20" type="MeshInstance3D" parent="misc_props/barrier_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="misc_props/barrier_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.562134, 1.9781, 0.0136108)
+shape = SubResource("BoxShape3D_fh24u")
+
+[node name="garlic_fence" type="StaticBody3D" parent="misc_props" groups=["10"]]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 432, 0, 449)
+
+[node name="AbandonedCityFenceUnit" type="MeshInstance3D" parent="misc_props/garlic_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit2" type="MeshInstance3D" parent="misc_props/garlic_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit3" type="MeshInstance3D" parent="misc_props/garlic_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit4" type="MeshInstance3D" parent="misc_props/garlic_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit5" type="MeshInstance3D" parent="misc_props/garlic_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit6" type="MeshInstance3D" parent="misc_props/garlic_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit7" type="MeshInstance3D" parent="misc_props/garlic_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit8" type="MeshInstance3D" parent="misc_props/garlic_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit9" type="MeshInstance3D" parent="misc_props/garlic_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit10" type="MeshInstance3D" parent="misc_props/garlic_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit11" type="MeshInstance3D" parent="misc_props/garlic_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit12" type="MeshInstance3D" parent="misc_props/garlic_fence"]
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit13" type="MeshInstance3D" parent="misc_props/garlic_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit14" type="MeshInstance3D" parent="misc_props/garlic_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit15" type="MeshInstance3D" parent="misc_props/garlic_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit16" type="MeshInstance3D" parent="misc_props/garlic_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit21" type="MeshInstance3D" parent="misc_props/garlic_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit22" type="MeshInstance3D" parent="misc_props/garlic_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit23" type="MeshInstance3D" parent="misc_props/garlic_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit17" type="MeshInstance3D" parent="misc_props/garlic_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit18" type="MeshInstance3D" parent="misc_props/garlic_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit19" type="MeshInstance3D" parent="misc_props/garlic_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit20" type="MeshInstance3D" parent="misc_props/garlic_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="misc_props/garlic_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.496094, 1.93889, -0.023407)
+shape = SubResource("BoxShape3D_nf70r")
+
+[node name="yellow_key_fence" type="StaticBody3D" parent="misc_props" groups=["3"]]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 565, 0, 425)
+
+[node name="AbandonedCityFenceUnit" type="MeshInstance3D" parent="misc_props/yellow_key_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit2" type="MeshInstance3D" parent="misc_props/yellow_key_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit3" type="MeshInstance3D" parent="misc_props/yellow_key_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit4" type="MeshInstance3D" parent="misc_props/yellow_key_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit5" type="MeshInstance3D" parent="misc_props/yellow_key_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit6" type="MeshInstance3D" parent="misc_props/yellow_key_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit7" type="MeshInstance3D" parent="misc_props/yellow_key_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit8" type="MeshInstance3D" parent="misc_props/yellow_key_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit9" type="MeshInstance3D" parent="misc_props/yellow_key_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit10" type="MeshInstance3D" parent="misc_props/yellow_key_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit11" type="MeshInstance3D" parent="misc_props/yellow_key_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit12" type="MeshInstance3D" parent="misc_props/yellow_key_fence"]
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit13" type="MeshInstance3D" parent="misc_props/yellow_key_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit14" type="MeshInstance3D" parent="misc_props/yellow_key_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit15" type="MeshInstance3D" parent="misc_props/yellow_key_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit16" type="MeshInstance3D" parent="misc_props/yellow_key_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit21" type="MeshInstance3D" parent="misc_props/yellow_key_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit22" type="MeshInstance3D" parent="misc_props/yellow_key_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit23" type="MeshInstance3D" parent="misc_props/yellow_key_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit17" type="MeshInstance3D" parent="misc_props/yellow_key_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit18" type="MeshInstance3D" parent="misc_props/yellow_key_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit19" type="MeshInstance3D" parent="misc_props/yellow_key_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit20" type="MeshInstance3D" parent="misc_props/yellow_key_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit24" type="MeshInstance3D" parent="misc_props/yellow_key_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit25" type="MeshInstance3D" parent="misc_props/yellow_key_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit26" type="MeshInstance3D" parent="misc_props/yellow_key_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit27" type="MeshInstance3D" parent="misc_props/yellow_key_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit28" type="MeshInstance3D" parent="misc_props/yellow_key_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit29" type="MeshInstance3D" parent="misc_props/yellow_key_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit30" type="MeshInstance3D" parent="misc_props/yellow_key_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="misc_props/yellow_key_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.13983, 1.99367, 0.0145874)
+shape = SubResource("BoxShape3D_cr2um")
+
+[node name="lock" parent="misc_props/yellow_key_fence" instance=ExtResource("34_ao73t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.01404, 1.77084, 0.152344)
+skeleton = NodePath("../../..")
+color = Color(1, 1, 0, 1)
+
+[node name="Area3D" type="Area3D" parent="misc_props/yellow_key_fence"]
+script = ExtResource("35_73les")
+
+[node name="move_trigger" parent="misc_props/yellow_key_fence/Area3D" instance=ExtResource("36_jq206")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, 0)
+group = 3
+target = Vector3(0, -5, 0)
+time = 1.0
+keys_required = Array[int]([3])
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="misc_props/yellow_key_fence/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0863, 4.92621, -0.0936279)
+shape = SubResource("BoxShape3D_t7a3u")
+
+[node name="barrier_fence2" type="StaticBody3D" parent="misc_props"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 371, 0, 386)
+
+[node name="AbandonedCityFenceUnit2" type="MeshInstance3D" parent="misc_props/barrier_fence2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit3" type="MeshInstance3D" parent="misc_props/barrier_fence2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit4" type="MeshInstance3D" parent="misc_props/barrier_fence2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit5" type="MeshInstance3D" parent="misc_props/barrier_fence2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit6" type="MeshInstance3D" parent="misc_props/barrier_fence2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit7" type="MeshInstance3D" parent="misc_props/barrier_fence2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit8" type="MeshInstance3D" parent="misc_props/barrier_fence2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit9" type="MeshInstance3D" parent="misc_props/barrier_fence2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit10" type="MeshInstance3D" parent="misc_props/barrier_fence2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit11" type="MeshInstance3D" parent="misc_props/barrier_fence2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit12" type="MeshInstance3D" parent="misc_props/barrier_fence2"]
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit13" type="MeshInstance3D" parent="misc_props/barrier_fence2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit14" type="MeshInstance3D" parent="misc_props/barrier_fence2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit15" type="MeshInstance3D" parent="misc_props/barrier_fence2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit16" type="MeshInstance3D" parent="misc_props/barrier_fence2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit21" type="MeshInstance3D" parent="misc_props/barrier_fence2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit17" type="MeshInstance3D" parent="misc_props/barrier_fence2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit18" type="MeshInstance3D" parent="misc_props/barrier_fence2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit19" type="MeshInstance3D" parent="misc_props/barrier_fence2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit20" type="MeshInstance3D" parent="misc_props/barrier_fence2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="misc_props/barrier_fence2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.562134, 1.9781, 0.0136108)
+shape = SubResource("BoxShape3D_fh24u")
+
+[node name="barrier_fence3" type="StaticBody3D" parent="misc_props"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 545, 0, 536)
+
+[node name="AbandonedCityFenceUnit2" type="MeshInstance3D" parent="misc_props/barrier_fence3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit3" type="MeshInstance3D" parent="misc_props/barrier_fence3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit4" type="MeshInstance3D" parent="misc_props/barrier_fence3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit5" type="MeshInstance3D" parent="misc_props/barrier_fence3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit6" type="MeshInstance3D" parent="misc_props/barrier_fence3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit7" type="MeshInstance3D" parent="misc_props/barrier_fence3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit8" type="MeshInstance3D" parent="misc_props/barrier_fence3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit9" type="MeshInstance3D" parent="misc_props/barrier_fence3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit10" type="MeshInstance3D" parent="misc_props/barrier_fence3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit11" type="MeshInstance3D" parent="misc_props/barrier_fence3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit12" type="MeshInstance3D" parent="misc_props/barrier_fence3"]
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit13" type="MeshInstance3D" parent="misc_props/barrier_fence3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit14" type="MeshInstance3D" parent="misc_props/barrier_fence3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit15" type="MeshInstance3D" parent="misc_props/barrier_fence3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit16" type="MeshInstance3D" parent="misc_props/barrier_fence3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit21" type="MeshInstance3D" parent="misc_props/barrier_fence3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit17" type="MeshInstance3D" parent="misc_props/barrier_fence3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit18" type="MeshInstance3D" parent="misc_props/barrier_fence3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit19" type="MeshInstance3D" parent="misc_props/barrier_fence3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit20" type="MeshInstance3D" parent="misc_props/barrier_fence3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="misc_props/barrier_fence3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.562134, 1.9781, 0.0136108)
+shape = SubResource("BoxShape3D_fh24u")
+
+[node name="red_and_blue_key_fence" type="StaticBody3D" parent="misc_props" groups=["1"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 545, 0, 491)
+
+[node name="AbandonedCityFenceUnit2" type="MeshInstance3D" parent="misc_props/red_and_blue_key_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit3" type="MeshInstance3D" parent="misc_props/red_and_blue_key_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit4" type="MeshInstance3D" parent="misc_props/red_and_blue_key_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit5" type="MeshInstance3D" parent="misc_props/red_and_blue_key_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit6" type="MeshInstance3D" parent="misc_props/red_and_blue_key_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit7" type="MeshInstance3D" parent="misc_props/red_and_blue_key_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit8" type="MeshInstance3D" parent="misc_props/red_and_blue_key_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit9" type="MeshInstance3D" parent="misc_props/red_and_blue_key_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit10" type="MeshInstance3D" parent="misc_props/red_and_blue_key_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit11" type="MeshInstance3D" parent="misc_props/red_and_blue_key_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit12" type="MeshInstance3D" parent="misc_props/red_and_blue_key_fence"]
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit13" type="MeshInstance3D" parent="misc_props/red_and_blue_key_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit14" type="MeshInstance3D" parent="misc_props/red_and_blue_key_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit15" type="MeshInstance3D" parent="misc_props/red_and_blue_key_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit16" type="MeshInstance3D" parent="misc_props/red_and_blue_key_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit21" type="MeshInstance3D" parent="misc_props/red_and_blue_key_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit17" type="MeshInstance3D" parent="misc_props/red_and_blue_key_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit18" type="MeshInstance3D" parent="misc_props/red_and_blue_key_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit19" type="MeshInstance3D" parent="misc_props/red_and_blue_key_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit20" type="MeshInstance3D" parent="misc_props/red_and_blue_key_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="misc_props/red_and_blue_key_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.562134, 1.9781, 0.0136108)
+shape = SubResource("BoxShape3D_fh24u")
+
+[node name="lock" parent="misc_props/red_and_blue_key_fence" instance=ExtResource("34_ao73t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.96808, 1.81343, 0.17749)
+skeleton = NodePath("../../..")
+color = Color(0, 0.501961, 1, 1)
+
+[node name="lock2" parent="misc_props/red_and_blue_key_fence" instance=ExtResource("34_ao73t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.00592, 1.81343, 0.17749)
+skeleton = NodePath("../../..")
+color = Color(1, 0, 0, 1)
+
+[node name="Area3D" type="Area3D" parent="misc_props/red_and_blue_key_fence"]
+script = ExtResource("35_73les")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="misc_props/red_and_blue_key_fence/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0704346, 4.1557, 2.27948)
+shape = SubResource("BoxShape3D_ppbt2")
+
+[node name="move_trigger" parent="misc_props/red_and_blue_key_fence/Area3D" instance=ExtResource("36_jq206")]
+group = 1
+target = Vector3(0, -5, 0)
+time = 1.0
+keys_required = Array[int]([1, 2])
+
+[node name="barrier_fence4" type="StaticBody3D" parent="misc_props"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 586, 0, 546)
+
+[node name="AbandonedCityFenceUnit2" type="MeshInstance3D" parent="misc_props/barrier_fence4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit3" type="MeshInstance3D" parent="misc_props/barrier_fence4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit4" type="MeshInstance3D" parent="misc_props/barrier_fence4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit5" type="MeshInstance3D" parent="misc_props/barrier_fence4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit6" type="MeshInstance3D" parent="misc_props/barrier_fence4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit7" type="MeshInstance3D" parent="misc_props/barrier_fence4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit8" type="MeshInstance3D" parent="misc_props/barrier_fence4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit9" type="MeshInstance3D" parent="misc_props/barrier_fence4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit10" type="MeshInstance3D" parent="misc_props/barrier_fence4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit11" type="MeshInstance3D" parent="misc_props/barrier_fence4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit12" type="MeshInstance3D" parent="misc_props/barrier_fence4"]
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit13" type="MeshInstance3D" parent="misc_props/barrier_fence4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit14" type="MeshInstance3D" parent="misc_props/barrier_fence4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit15" type="MeshInstance3D" parent="misc_props/barrier_fence4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit16" type="MeshInstance3D" parent="misc_props/barrier_fence4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit21" type="MeshInstance3D" parent="misc_props/barrier_fence4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit17" type="MeshInstance3D" parent="misc_props/barrier_fence4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit18" type="MeshInstance3D" parent="misc_props/barrier_fence4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit19" type="MeshInstance3D" parent="misc_props/barrier_fence4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit20" type="MeshInstance3D" parent="misc_props/barrier_fence4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="misc_props/barrier_fence4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.562134, 1.9781, 0.0136108)
+shape = SubResource("BoxShape3D_fh24u")
+
+[node name="exit_fence" type="StaticBody3D" parent="misc_props"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 504, 0, 576)
+
+[node name="AbandonedCityFenceUnit2" type="MeshInstance3D" parent="misc_props/exit_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit3" type="MeshInstance3D" parent="misc_props/exit_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit4" type="MeshInstance3D" parent="misc_props/exit_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit5" type="MeshInstance3D" parent="misc_props/exit_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit6" type="MeshInstance3D" parent="misc_props/exit_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit7" type="MeshInstance3D" parent="misc_props/exit_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit8" type="MeshInstance3D" parent="misc_props/exit_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit9" type="MeshInstance3D" parent="misc_props/exit_fence"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1, 0, -4)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit10" type="MeshInstance3D" parent="misc_props/exit_fence"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1, 0, -3)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit11" type="MeshInstance3D" parent="misc_props/exit_fence"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1, 0, -2)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit12" type="MeshInstance3D" parent="misc_props/exit_fence"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1, 0, -1)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit13" type="MeshInstance3D" parent="misc_props/exit_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit14" type="MeshInstance3D" parent="misc_props/exit_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit15" type="MeshInstance3D" parent="misc_props/exit_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit16" type="MeshInstance3D" parent="misc_props/exit_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit21" type="MeshInstance3D" parent="misc_props/exit_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit17" type="MeshInstance3D" parent="misc_props/exit_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit18" type="MeshInstance3D" parent="misc_props/exit_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit19" type="MeshInstance3D" parent="misc_props/exit_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit20" type="MeshInstance3D" parent="misc_props/exit_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="misc_props/exit_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.2666, 1.76068, -0.0192871)
+shape = SubResource("BoxShape3D_jsswp")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="misc_props/exit_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.31049, 1.76068, -0.0192871)
+shape = SubResource("BoxShape3D_jsswp")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="misc_props/exit_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.04532, 1.97101, -1.96765)
+shape = SubResource("BoxShape3D_i4f8x")
+
+[node name="building_fence" type="StaticBody3D" parent="misc_props" groups=["5"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 409.256, 0, 408.97)
+
+[node name="lock" parent="misc_props/building_fence" instance=ExtResource("34_ao73t")]
+transform = Transform3D(-8.9407e-08, 0, 1, 0, 1, 0, -1, 0, -8.9407e-08, 0.390045, 2.26158, 1.02997)
+skeleton = NodePath("../../..")
+color = Color(1, 1, 1, 1)
+
+[node name="lock2" parent="misc_props/building_fence" instance=ExtResource("34_ao73t")]
+transform = Transform3D(-8.9407e-08, 0, 1, 0, 1, 0, -1, 0, -8.9407e-08, 0.390045, 2.26158, -1.0354)
+skeleton = NodePath("../../..")
+color = Color(0, 0, 0, 1)
+
+[node name="AbandonedCityFenceUnit" type="MeshInstance3D" parent="misc_props/building_fence"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.244354, 0.25, 2.02997)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit2" type="MeshInstance3D" parent="misc_props/building_fence"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.244354, 0.25, 1.02997)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit3" type="MeshInstance3D" parent="misc_props/building_fence"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.244354, 0.25, 0.0299683)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit4" type="MeshInstance3D" parent="misc_props/building_fence"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.244354, 0.25, -0.970032)
+material_override = ExtResource("17_ovco5")
+mesh = ExtResource("33_chaq4")
+skeleton = NodePath("../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="misc_props/building_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.279388, 1.87939, -0.0463257)
+shape = SubResource("BoxShape3D_3ou27")
+
+[node name="Area3D" type="Area3D" parent="misc_props/building_fence"]
+script = ExtResource("35_73les")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="misc_props/building_fence/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.52963, 3.91721, 0.0106812)
+shape = SubResource("BoxShape3D_j1bif")
+
+[node name="move_trigger" parent="misc_props/building_fence/Area3D" instance=ExtResource("36_jq206")]
+group = 5
+target = Vector3(0, -5, 0)
+time = 1.0
+keys_required = Array[int]([4, 5])
+
+[node name="cover_pillar" type="StaticBody3D" parent="misc_props"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 410, 0.25, 431)
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="misc_props/cover_pillar"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+material_override = ExtResource("34_tk8ye")
+mesh = SubResource("BoxMesh_j0wbg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="misc_props/cover_pillar"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+shape = SubResource("BoxShape3D_ppn1a")
+
+[node name="cover_pillar2" type="StaticBody3D" parent="misc_props"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 410, 0.25, 422)
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="misc_props/cover_pillar2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+material_override = ExtResource("34_tk8ye")
+mesh = SubResource("BoxMesh_j0wbg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="misc_props/cover_pillar2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+shape = SubResource("BoxShape3D_ppn1a")
+
+[node name="cover_pillar3" type="StaticBody3D" parent="misc_props"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 410, 0.25, 396)
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="misc_props/cover_pillar3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+material_override = ExtResource("34_tk8ye")
+mesh = SubResource("BoxMesh_j0wbg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="misc_props/cover_pillar3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+shape = SubResource("BoxShape3D_ppn1a")
+
+[node name="cover_pillar5" type="StaticBody3D" parent="misc_props"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 417, 9.25, 396)
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="misc_props/cover_pillar5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, 0)
+material_override = ExtResource("34_tk8ye")
+mesh = SubResource("BoxMesh_5myf7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="misc_props/cover_pillar5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, 0)
+shape = SubResource("BoxShape3D_ppn1a")
+
+[node name="cover_pillar6" type="StaticBody3D" parent="misc_props"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 417, 9.25, 421)
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="misc_props/cover_pillar6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, 0)
+material_override = ExtResource("34_tk8ye")
+mesh = SubResource("BoxMesh_5myf7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="misc_props/cover_pillar6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, 0)
+shape = SubResource("BoxShape3D_ppn1a")
+
+[node name="cover_pillar7" type="StaticBody3D" parent="misc_props"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 400, 9.25, 396)
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="misc_props/cover_pillar7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, 0)
+material_override = ExtResource("34_tk8ye")
+mesh = SubResource("BoxMesh_5myf7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="misc_props/cover_pillar7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, 0)
+shape = SubResource("BoxShape3D_ppn1a")
+
+[node name="cover_pillar8" type="StaticBody3D" parent="misc_props"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 400, 9.25, 421)
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="misc_props/cover_pillar8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, 0)
+material_override = ExtResource("34_tk8ye")
+mesh = SubResource("BoxMesh_5myf7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="misc_props/cover_pillar8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, 0)
+shape = SubResource("BoxShape3D_ppn1a")
+
+[node name="cover_pillar4" type="StaticBody3D" parent="misc_props"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 410, 0.25, 387)
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="misc_props/cover_pillar4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+material_override = ExtResource("34_tk8ye")
+mesh = SubResource("BoxMesh_j0wbg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="misc_props/cover_pillar4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+shape = SubResource("BoxShape3D_ppn1a")
+
+[node name="funni_trap" type="StaticBody3D" parent="misc_props" groups=["20"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 382, 9.25, 411)
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="misc_props/funni_trap"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 3.5, 0.5)
+material_override = ExtResource("12_r2a6j")
+mesh = SubResource("BoxMesh_nveit")
+
+[node name="MeshInstance3D3" type="CollisionShape3D" parent="misc_props/funni_trap"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 3.5, 0.5)
+shape = SubResource("BoxShape3D_pa7nd")
+
+[node name="MeshInstance3D4" type="CollisionShape3D" parent="misc_props/funni_trap"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 3.5, 10)
+shape = SubResource("BoxShape3D_dl8a3")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="misc_props/funni_trap"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 3.5, 10)
+material_override = ExtResource("12_r2a6j")
+mesh = SubResource("BoxMesh_gu3rc")
+
+[node name="funni_trap2" type="StaticBody3D" parent="misc_props" groups=["30"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 388, -90.75, 411)
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="misc_props/funni_trap2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -0.5, 3)
+material_override = ExtResource("12_r2a6j")
+mesh = SubResource("BoxMesh_jduvs")
+
+[node name="MeshInstance3D3" type="CollisionShape3D" parent="misc_props/funni_trap2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -0.5, 3)
+shape = SubResource("BoxShape3D_eojay")
+
+[node name="funni_trap3" type="StaticBody3D" parent="misc_props" groups=["10"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 378.5, 11.75, 406)
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="misc_props/funni_trap3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -0.5, 3)
+material_override = ExtResource("12_r2a6j")
+mesh = SubResource("BoxMesh_xwqju")
+
+[node name="MeshInstance3D3" type="CollisionShape3D" parent="misc_props/funni_trap3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -0.5, 3)
+shape = SubResource("BoxShape3D_63uqb")
+
+[node name="spring" parent="misc_props" instance=ExtResource("35_rnx43")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 384.675, 0.249913, 414.257)
+boost = 15.0
+
+[node name="double_damage" parent="misc_props" instance=ExtResource("30_7i3vj")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 436.5, 2.25, 409)
+
+[node name="double_damage2" parent="misc_props" instance=ExtResource("30_7i3vj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 381.5, 11.25, 409)
+
+[node name="booster" parent="misc_props" instance=ExtResource("46_ehuj3")]
+transform = Transform3D(-4.37114e-08, 0, 15.855, 0, 1, 0, -1, 0, -6.93044e-07, 507.51, 2.28882e-05, 415.918)
+
+[node name="booster2" parent="misc_props" instance=ExtResource("46_ehuj3")]
+transform = Transform3D(7.54979e-08, 0, -28.06, 0, 1, 0, 1, 0, 2.11847e-06, 525.479, 2.28882e-05, 426.175)
+
+[node name="exit" parent="." instance=ExtResource("35_uvge5")]
+transform = Transform3D(-2, 0, 1.74846e-07, 0, 2, 0, -1.74846e-07, 0, -2, 502.989, 0.85853, 576.002)
+
+[node name="player" parent="." instance=ExtResource("2_sxsv8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 504.078, 1.14441e-05, 566.71)
+environment = ExtResource("3_rodpf")
+
+[node name="blue_key" parent="." instance=ExtResource("37_sty2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 545.034, 1.08331, 528.903)
+key_index = 1
+
+[node name="red_key" parent="." instance=ExtResource("37_sty2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 587.403, 3.34231, 534.73)
+key_color = Color(1, 0, 0, 1)
+key_name = "red"
+key_index = 2
+
+[node name="yellow_key" parent="." instance=ExtResource("37_sty2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 647.889, -0.426844, 415.663)
+key_color = Color(1, 1, 0, 1)
+key_name = "yellow"
+key_index = 3
+
+[node name="enemies" type="Node3D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="runner" parent="enemies" instance=ExtResource("42_qa72u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 501.183, 1.52588e-05, 545.237)
+
+[node name="mage" parent="enemies" instance=ExtResource("43_dyikl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 505.755, 1.71661e-05, 525.214)
+min_dif = 1
+
+[node name="hitscanner" parent="enemies" instance=ExtResource("44_5bfhw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 521.492, 1.52588e-05, 506.391)
+
+[node name="gunner" parent="enemies" instance=ExtResource("45_d5key")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 544.617, 1.90735e-05, 505.556)
+min_dif = 2
+
+[node name="runner2" parent="enemies" instance=ExtResource("42_qa72u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 542.99, 1.33514e-05, 520.514)
+
+[node name="runner3" parent="enemies" instance=ExtResource("42_qa72u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 560.298, 1.71661e-05, 510.055)
+
+[node name="mage2" parent="enemies" instance=ExtResource("43_dyikl")]
+transform = Transform3D(-0.0678063, 0, -0.997698, 0, 1, 0, 0.997698, 0, -0.0678063, 568.819, 1.52588e-05, 505.34)
+min_dif = 1
+
+[node name="hitscanner2" parent="enemies" instance=ExtResource("44_5bfhw")]
+transform = Transform3D(-0.999246, 0, 0.0388238, 0, 1, 0, -0.0388238, 0, -0.999246, 582.465, 1.52588e-05, 522.22)
+min_dif = 2
+
+[node name="runner4" parent="enemies" instance=ExtResource("42_qa72u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 590.049, 1.52588e-05, 532.835)
+
+[node name="runner5" parent="enemies" instance=ExtResource("42_qa72u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 543.389, 1.52588e-05, 472.983)
+
+[node name="runner6" parent="enemies" instance=ExtResource("42_qa72u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 553.542, 1.33514e-05, 461.72)
+
+[node name="hitscanner3" parent="enemies" instance=ExtResource("44_5bfhw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 583.779, 1.52588e-05, 453.838)
+min_dif = 2
+
+[node name="mage3" parent="enemies" instance=ExtResource("43_dyikl")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 608.686, -1.40001, 436.044)
+min_dif = 2
+
+[node name="mage8" parent="enemies" instance=ExtResource("43_dyikl")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 623.397, -1.40001, 420.932)
+
+[node name="mage4" parent="enemies" instance=ExtResource("43_dyikl")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 622.413, -1.40001, 451.418)
+
+[node name="mage12" parent="enemies" instance=ExtResource("43_dyikl")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 622.413, -1.40001, 436.131)
+min_dif = 3
+
+[node name="mage13" parent="enemies" instance=ExtResource("43_dyikl")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 638.514, -1.40001, 420.948)
+min_dif = 4
+
+[node name="mage5" parent="enemies" instance=ExtResource("43_dyikl")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 638.143, -1.40001, 465.974)
+min_dif = 2
+
+[node name="mage6" parent="enemies" instance=ExtResource("43_dyikl")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 639.244, -1.40001, 435.18)
+min_dif = 1
+
+[node name="mage7" parent="enemies" instance=ExtResource("43_dyikl")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 607.739, -1.40001, 465.27)
+min_dif = 1
+
+[node name="runner7" parent="enemies" instance=ExtResource("42_qa72u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 551.982, 1.14441e-05, 415.789)
+
+[node name="runner8" parent="enemies" instance=ExtResource("42_qa72u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 535.258, 1.52588e-05, 421.755)
+
+[node name="chaingunner" parent="enemies" instance=ExtResource("47_358y0")]
+transform = Transform3D(0.0290207, 0, 0.999579, 0, 1, 0, -0.999579, 0, 0.0290207, 470.197, 1.52588e-05, 424.674)
+min_dif = 2
+
+[node name="runner9" parent="enemies" instance=ExtResource("42_qa72u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 503.466, 1.14441e-05, 422.987)
+
+[node name="mage9" parent="enemies" instance=ExtResource("43_dyikl")]
+transform = Transform3D(-0.00418881, 0, 0.999991, 0, 1, 0, -0.999991, 0, -0.00418881, 458.698, 1.71661e-05, 415.004)
+min_dif = 1
+
+[node name="runner10" parent="enemies" instance=ExtResource("42_qa72u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 449.667, 1.52588e-05, 441.736)
+
+[node name="runner11" parent="enemies" instance=ExtResource("42_qa72u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 444.001, 1.90735e-05, 390.863)
+
+[node name="runner12" parent="enemies" instance=ExtResource("42_qa72u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 424.158, 1.90735e-05, 447.187)
+
+[node name="runner13" parent="enemies" instance=ExtResource("42_qa72u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 408.687, 1.90735e-05, 453.395)
+
+[node name="hitscanner4" parent="enemies" instance=ExtResource("44_5bfhw")]
+transform = Transform3D(0.0571981, 0, -0.998363, 0, 1, 0, 0.998363, 0, 0.0571981, 382.684, 0.249912, 441.173)
+min_dif = 2
+
+[node name="mage10" parent="enemies" instance=ExtResource("43_dyikl")]
+transform = Transform3D(-0.08533, 0, -0.996353, 0, 1, 0, 0.996353, 0, -0.08533, 392.596, 1.52588e-05, 453.2)
+min_dif = 1
+
+[node name="runner14" parent="enemies" instance=ExtResource("42_qa72u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 371.928, 1.52588e-05, 433.906)
+
+[node name="chaingunner2" parent="enemies" instance=ExtResource("47_358y0")]
+transform = Transform3D(-0.113793, 0, 0.993505, 0, 1, 0, -0.993505, 0, -0.113793, 389, 0, 426)
+
+[node name="black_key" parent="enemies/chaingunner2" instance=ExtResource("37_sty2i")]
+transform = Transform3D(-0.113793, 0, -0.993505, 0, 1, 0, 0.993505, 0, -0.113793, -0.81073, 1.80253, -0.979645)
+key_color = Color(0, 0, 0, 1)
+key_name = "black"
+key_index = 4
+
+[node name="gunner2" parent="enemies" instance=ExtResource("45_d5key")]
+transform = Transform3D(0.0735515, 0, 0.997291, 0, 1, 0, -0.997291, 0, 0.0735515, 387.754, 0.249914, 391.766)
+
+[node name="white_key" parent="enemies/gunner2" instance=ExtResource("37_sty2i")]
+transform = Transform3D(0.0735515, 0, -0.997291, 0, 1, 0, 0.997291, 0, 0.0735515, -0.0460815, 1.55262, 0.36908)
+key_color = Color(1, 1, 1, 1)
+key_name = "white"
+key_index = 5
+
+[node name="mage11" parent="enemies" instance=ExtResource("43_dyikl")]
+transform = Transform3D(-0.0517259, 0, 0.998661, 0, 1, 0, -0.998661, 0, -0.0517259, 402.795, 0.249914, 431.18)
+min_dif = 2
+
+[node name="runner15" parent="enemies" instance=ExtResource("42_qa72u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 418.677, 0.249913, 432.808)
+
+[node name="runner23" parent="enemies" instance=ExtResource("42_qa72u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 396.023, 0.249913, 421.922)
+min_dif = 3
+
+[node name="hitscanner5" parent="enemies" instance=ExtResource("44_5bfhw")]
+transform = Transform3D(0.106576, 0, 0.994304, 0, 1, 0, -0.994304, 0, 0.106576, 409.875, 0.249914, 392.627)
+min_dif = 2
+
+[node name="runner17" parent="enemies" instance=ExtResource("42_qa72u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 421.48, 0.249914, 386.94)
+min_dif = 1
+
+[node name="runner16" parent="enemies" instance=ExtResource("42_qa72u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 387.047, 0.249914, 407.179)
+
+[node name="runner18" parent="enemies" instance=ExtResource("42_qa72u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 386.501, 0.249914, 408.627)
+
+[node name="runner19" parent="enemies" instance=ExtResource("42_qa72u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 387.85, 0.249914, 407.907)
+min_dif = 1
+
+[node name="runner20" parent="enemies" instance=ExtResource("42_qa72u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 388.047, 0.249913, 406.611)
+min_dif = 2
+
+[node name="statue" parent="enemies" instance=ExtResource("48_j0l6o")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 408.352, 9.24989, 407.809)
+spawns = Array[PackedVector3Array]([PackedVector3Array(3, 90, 5, 3, 270, 5, 5, 0, 5, 5, 180, 5, 1, 90, 15, 1, 180, 15, 1, 270, 15, 2, 0, 10, 4, 180, 10), PackedVector3Array(4, 0, 5, 5, 90, 15, 5, 270, 15, 1, 135, 9, 1, 225, 9, 1, 45, 9, 1, 315, 9, 2, 0, 7.5, 2, 180, 5)])
+min_difs = Array[PackedInt32Array]([PackedInt32Array(2, 1, 2, 0, 0, 0, 0, 3, 4), PackedInt32Array(2, 1, 0, 0, 0, 0, 0, 3, 4)])
+
+[node name="funi_trap_area" type="Area3D" parent="enemies/statue"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 21.3832, 0.750114, 23.7641)
+script = ExtResource("35_73les")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="enemies/statue/funi_trap_area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.694946, 2.74997, -1.09134)
+shape = SubResource("BoxShape3D_r130b")
+
+[node name="move_trigger" parent="enemies/statue/funi_trap_area" instance=ExtResource("36_jq206")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -384.588, -10, -429.192)
+group = 20
+target = Vector3(0, -8, 0)
+time = 1.0
+
+[node name="move_trigger2" parent="enemies/statue/funi_trap_area" instance=ExtResource("36_jq206")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -384.588, -10, -429.192)
+group = 30
+target = Vector3(0, 100, 0)
+
+[node name="move_trigger3" parent="enemies/statue/funi_trap_area" instance=ExtResource("36_jq206")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -384.588, -10, -429.192)
+group = 30
+target = Vector3(-6, 0, 0)
+time = 1.0
+
+[node name="garlic" parent="enemies/statue" instance=ExtResource("41_priav")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.191223, -0.249886, 0.352142)
+
+[node name="move_trigger" parent="enemies/statue/garlic" instance=ExtResource("36_jq206")]
+group = 10
+target = Vector3(0, -5, 0)
+time = 1.0
+
+[node name="runner21" parent="enemies" instance=ExtResource("42_qa72u")]
+transform = Transform3D(0.124987, 0, 0.992158, 0, 1, 0, -0.992158, 0, 0.124987, 399.936, 0.249913, 387.953)
+
+[node name="runner22" parent="enemies" instance=ExtResource("42_qa72u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 420.671, 0.249913, 424.297)
+min_dif = 1
+
+[node name="hitscanner" parent="." instance=ExtResource("44_5bfhw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 501.47, 1.33514e-05, 531.337)
+min_dif = 3
+
+[node name="mage" parent="." instance=ExtResource("43_dyikl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 503.052, 1.52588e-05, 513.923)
+min_dif = 4
+
+[node name="runner" parent="." instance=ExtResource("42_qa72u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 516.692, 1.33514e-05, 502.719)
+min_dif = 3
+
+[node name="mage2" parent="." instance=ExtResource("43_dyikl")]
+transform = Transform3D(0.00691142, 0, -0.999976, 0, 1, 0, 0.999976, 0, 0.00691142, 534.664, 1.52588e-05, 505.811)
+min_dif = 4
+
+[node name="runner2" parent="." instance=ExtResource("42_qa72u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 547.962, 1.52588e-05, 515.616)
+min_dif = 3
+
+[node name="hitscanner2" parent="." instance=ExtResource("44_5bfhw")]
+transform = Transform3D(-0.9752, 0, 0.221327, 0, 1, 0, -0.221327, 0, -0.9752, 541.72, 1.52588e-05, 529.418)
+min_dif = 4
+
+[node name="runner3" parent="." instance=ExtResource("42_qa72u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 570.891, 0.249912, 513.641)
+min_dif = 3
+
+[node name="hitscanner3" parent="." instance=ExtResource("44_5bfhw")]
+transform = Transform3D(0.0373588, 0, -0.999302, 0, 1, 0, 0.999302, 0, 0.0373588, 587.681, 1.33514e-05, 509.028)
+min_dif = 4
+
+[node name="runner4" parent="." instance=ExtResource("42_qa72u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 583.784, 1.33514e-05, 535.742)
+min_dif = 3
+
+[node name="runner5" parent="." instance=ExtResource("42_qa72u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 546.296, 1.52588e-05, 465.35)
+min_dif = 3
+
+[node name="runner6" parent="." instance=ExtResource("42_qa72u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 561.188, 1.52588e-05, 467.98)
+min_dif = 3
+
+[node name="chaingunner" parent="." instance=ExtResource("47_358y0")]
+transform = Transform3D(0.0822516, 0, -0.996612, 0, 1, 0, 0.996612, 0, 0.0822516, 574.084, 1.33514e-05, 464.629)
+min_dif = 4
+
+[node name="hitscanner4" parent="." instance=ExtResource("44_5bfhw")]
+transform = Transform3D(0.35292, 0, 0.935654, 0, 1, 0, -0.935654, 0, 0.35292, 470.768, 1.33514e-05, 415.139)
+min_dif = 4
+
+[node name="runner7" parent="." instance=ExtResource("42_qa72u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 454.712, 1.71661e-05, 427.546)
+min_dif = 3
+
+[node name="runner8" parent="." instance=ExtResource("42_qa72u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 450.247, 1.71661e-05, 451.198)
+min_dif = 3
+
+[node name="hitscanner5" parent="." instance=ExtResource("44_5bfhw")]
+transform = Transform3D(0.157296, 0, -0.987551, 0, 1, 0, 0.987551, 0, 0.157296, 417.217, 1.14441e-05, 449.593)
+min_dif = 4
+
+[node name="mage3" parent="." instance=ExtResource("43_dyikl")]
+transform = Transform3D(0.200155, 0, -0.979764, 0, 1, 0, 0.979764, 0, 0.200155, 399.096, 0.249912, 442.278)
+min_dif = 3
+
+[node name="hitscanner6" parent="." instance=ExtResource("44_5bfhw")]
+transform = Transform3D(-0.184037, 0, 0.982919, 0, 1, 0, -0.982919, 0, -0.184037, 409.858, 0.249913, 424.765)
+min_dif = 4
+
+[node name="mage4" parent="." instance=ExtResource("43_dyikl")]
+transform = Transform3D(-0.350747, 0, -0.93647, 0, 1, 0, 0.93647, 0, -0.350747, 402.738, 0.249914, 396.894)
+min_dif = 4
+
+[node name="runner9" parent="." instance=ExtResource("42_qa72u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 392.573, 0.249914, 386.648)
+min_dif = 3

@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://d3gmyr8u5kegg"]
+
+[ext_resource type="Material" uid="uid://uf6clx1smqj1" path="res://resources/materials/specific_mats/abandoned_city_building_mat.tres" id="1_v2tmf"]
+[ext_resource type="ArrayMesh" uid="uid://bkicy8f1b6yxj" path="res://models/static_props/abandoned_city/gravestone_002.obj" id="2_jvop8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wqjtb"]
+size = Vector3(0.371216, 1.40714, 0.998047)
+
+[node name="Gravestone001" type="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = ExtResource("1_v2tmf")
+visibility_range_end = 175.0
+mesh = ExtResource("2_jvop8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00543213, 0.675045, -0.000976563)
+shape = SubResource("BoxShape3D_wqjtb")

@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://d0ghysv3uglfv"]
+
+[ext_resource type="Material" uid="uid://uf6clx1smqj1" path="res://resources/materials/specific_mats/abandoned_city_building_mat.tres" id="1_rb47u"]
+[ext_resource type="ArrayMesh" uid="uid://q7gwr6v1ls58" path="res://models/static_props/abandoned_city/gravestone_003.obj" id="2_xdjlv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wqjtb"]
+size = Vector3(0.371216, 1.20272, 0.998047)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qp15x"]
+size = Vector3(0.145256, 0.321384, 0.323242)
+
+[node name="Gravestone001" type="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = ExtResource("1_rb47u")
+visibility_range_end = 175.0
+mesh = ExtResource("2_xdjlv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00543213, 0.572833, -0.000976563)
+shape = SubResource("BoxShape3D_wqjtb")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00203323, 1.33535, 0.00341797)
+shape = SubResource("BoxShape3D_qp15x")
