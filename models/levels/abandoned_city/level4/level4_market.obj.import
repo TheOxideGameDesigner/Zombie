@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://hfiuhu8gj4fk"
+path="res://.godot/imported/level4_market.obj-00a0364fbe444ffbcd261780c47a6658.mesh"
+
+[deps]
+
+files=["res://.godot/imported/level4_market.obj-00a0364fbe444ffbcd261780c47a6658.mesh"]
+
+source_file="res://models/levels/abandoned_city/level4/level4_market.obj"
+dest_files=["res://.godot/imported/level4_market.obj-00a0364fbe444ffbcd261780c47a6658.mesh", "res://.godot/imported/level4_market.obj-00a0364fbe444ffbcd261780c47a6658.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

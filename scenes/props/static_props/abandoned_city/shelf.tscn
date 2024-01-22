@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://c5nkifhr5jdnd"]
+
+[ext_resource type="Material" uid="uid://ot512dqjxbhw" path="res://resources/materials/specific_mats/black_and_white_fence_mat.tres" id="1_113us"]
+[ext_resource type="ArrayMesh" uid="uid://2vj4vpsf3f0i" path="res://models/static_props/abandoned_city/shelf.obj" id="2_m24rc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xnvos"]
+size = Vector3(15.2, 3.1, 1.1)
+
+[node name="shelf" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = ExtResource("1_113us")
+visibility_range_end = 175.0
+mesh = ExtResource("2_m24rc")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 1.55, -0.55)
+shape = SubResource("BoxShape3D_xnvos")

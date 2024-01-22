@@ -277,10 +277,10 @@ func _physics_process(delta):
 	if sees_player:
 		var dir = player.position - position
 		rot = -atan2(dir.z, dir.x) + PI / 2
+		chaingun.rotation.z += delta * 3
 		if reaction_timer < 1.5:
 			reaction_timer += delta
 			return
-		chaingun.rotation.z += delta * 3
 		if hit_timer.is_stopped():
 			hit_timer.start()
 	else:

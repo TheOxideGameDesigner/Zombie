@@ -1,6 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://cd6bos2i6d23v"]
+[gd_scene load_steps=4 format=3 uid="uid://cd6bos2i6d23v"]
 
 [ext_resource type="Script" path="res://scripts/editor_tools/difficulty_visualiser.gd" id="1_qv0yr"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bhb2u"]
+transparency = 1
+shading_mode = 0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_3jbpw"]
+radial_segments = 12
+
 [node name="difficulty_visualiser" type="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+material_override = SubResource("StandardMaterial3D_bhb2u")
+mesh = SubResource("CylinderMesh_3jbpw")
 script = ExtResource("1_qv0yr")

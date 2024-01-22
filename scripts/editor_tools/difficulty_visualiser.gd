@@ -5,11 +5,10 @@ var target_diff = 4
 @export var radius = 0.5
 @export var height = 2.0
 
-const COLORS = [Color(1, 1, 1, 0.2), Color(0, 0.7, 0, 0.3), Color(1.0, 1.0, 0, 0.5), Color(1.0, 0.3, 0.0, 0.3), Color(0.3, 0.0, 0.3, 0.4)]
+const COLORS = [Color(1, 1, 1, 0.1), Color(0, 0.7, 0, 0.2), Color(1.0, 1.0, 0, 0.1), Color(1.0, 0.3, 0.0, 0.2), Color(0.3, 0.0, 0.3, 0.2)]
 
 var prev_pressed_plus = false
 var prev_pressed_minus = false
-var prev_pressed_toggle = false
 
 func _ready():
 	visible = true
@@ -34,15 +33,11 @@ func _process(delta):
 		return
 	var pressed_minus = Input.is_key_pressed(KEY_O)
 	var pressed_plus = Input.is_key_pressed(KEY_P)
-	var pressed_toggle = Input.is_key_pressed(KEY_L)
 	if pressed_minus and not prev_pressed_minus:
 		target_diff = max(0, target_diff - 1)
 		get_parent().visible = get_parent().min_dif <= target_diff
 	if pressed_plus and not prev_pressed_plus:
 		target_diff = min(4, target_diff + 1)
 		get_parent().visible = get_parent().min_dif <= target_diff
-	if pressed_toggle and not prev_pressed_toggle:
-		visible = not visible
 	prev_pressed_minus = pressed_minus
 	prev_pressed_plus = pressed_plus
-	prev_pressed_toggle = pressed_toggle
