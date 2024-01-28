@@ -1,15 +1,14 @@
-[gd_scene load_steps=21 format=3 uid="uid://cn0h8ppoq8uq8"]
+[gd_scene load_steps=20 format=3 uid="uid://dsklmuink3naj"]
 
-[ext_resource type="Script" path="res://scripts/enemies/mage.gd" id="1_aa64x"]
-[ext_resource type="PackedScene" uid="uid://b2mr8f4r6fqb5" path="res://scenes/environment/gibs/mage.tscn" id="2_7cli8"]
-[ext_resource type="PackedScene" uid="uid://d4k7qjsc8bglc" path="res://scenes/enemy_home.tscn" id="4_sbqsb"]
-[ext_resource type="Script" path="res://scripts/physics_lerp.gd" id="5_k7pak"]
-[ext_resource type="Texture2D" uid="uid://dsi7k27hhox0v" path="res://textures/alerted.png" id="6_3vwci"]
-[ext_resource type="Material" uid="uid://c0vwp18rc74ju" path="res://resources/materials/aura_mat.tres" id="7_c364q"]
-[ext_resource type="PackedScene" uid="uid://c6qjuc4e3ow38" path="res://models/dynamic_props/enemies/mountainside_mage.glb" id="7_g0t8h"]
-[ext_resource type="FontVariation" uid="uid://cr4vqwh16ob78" path="res://resources/default_font.tres" id="8_8pmtp"]
-[ext_resource type="Script" path="res://scripts/enemies/anim.gd" id="10_w8c6t"]
-[ext_resource type="PackedScene" uid="uid://cd6bos2i6d23v" path="res://scenes/editor_tools/difficulty_visualiser.tscn" id="11_osjj8"]
+[ext_resource type="Script" path="res://scripts/enemies/bomber.gd" id="1_4nv8u"]
+[ext_resource type="PackedScene" uid="uid://d4k7qjsc8bglc" path="res://scenes/enemy_home.tscn" id="3_dt8nc"]
+[ext_resource type="Script" path="res://scripts/physics_lerp.gd" id="4_5wjvi"]
+[ext_resource type="Texture2D" uid="uid://dsi7k27hhox0v" path="res://textures/alerted.png" id="5_sxbt4"]
+[ext_resource type="Material" uid="uid://c0vwp18rc74ju" path="res://resources/materials/aura_mat.tres" id="6_jhirx"]
+[ext_resource type="FontVariation" uid="uid://cr4vqwh16ob78" path="res://resources/default_font.tres" id="7_ojok1"]
+[ext_resource type="PackedScene" uid="uid://c6qjuc4e3ow38" path="res://models/dynamic_props/enemies/mountainside_mage.glb" id="8_oabko"]
+[ext_resource type="Script" path="res://scripts/enemies/anim.gd" id="9_647vp"]
+[ext_resource type="PackedScene" uid="uid://cd6bos2i6d23v" path="res://scenes/editor_tools/difficulty_visualiser.tscn" id="10_ftv05"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_2lsg5"]
 
@@ -20,7 +19,7 @@ height = 2.60716
 radius = 1.0
 
 [sub_resource type="SphereMesh" id="SphereMesh_irllb"]
-material = ExtResource("7_c364q")
+material = ExtResource("6_jhirx")
 radius = 1.03
 height = 5.915
 radial_segments = 10
@@ -45,20 +44,19 @@ material = SubResource("StandardMaterial3D_n47a8")
 radial_segments = 10
 rings = 5
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2kkly"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0820w"]
 transparency = 1
 shading_mode = 0
 albedo_color = Color(1, 1, 1, 0.1)
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_py86a"]
+[sub_resource type="CylinderMesh" id="CylinderMesh_jkj8j"]
 radial_segments = 12
 
 [node name="mage" type="CharacterBody3D" groups=["activatable", "enemy", "lightweight"]]
 top_level = true
 collision_layer = 2
 collision_mask = 257
-script = ExtResource("1_aa64x")
-gibs = ExtResource("2_7cli8")
+script = ExtResource("1_4nv8u")
 
 [node name="hitbox" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -70,7 +68,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 [node name="collision_area_hitbox" type="CollisionShape3D" parent="collision_area"]
 shape = SubResource("CylinderShape3D_qg53b")
 
-[node name="home" parent="." instance=ExtResource("4_sbqsb")]
+[node name="home" parent="." instance=ExtResource("3_dt8nc")]
 color = Color(0.0156863, 0.733333, 0.247059, 0.858824)
 
 [node name="ray" type="RayCast3D" parent="."]
@@ -90,7 +88,7 @@ shape = SubResource("CylinderShape3D_dm706")
 
 [node name="mesh" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-script = ExtResource("5_k7pak")
+script = ExtResource("4_5wjvi")
 enable_rot = true
 
 [node name="alerted" type="Sprite3D" parent="mesh"]
@@ -100,7 +98,7 @@ modulate = Color(1, 0.227451, 0.243137, 0.709804)
 pixel_size = 0.0195
 billboard = 1
 texture_filter = 0
-texture = ExtResource("6_3vwci")
+texture = ExtResource("5_sxbt4")
 
 [node name="aura" type="MeshInstance3D" parent="mesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.00643, 0)
@@ -115,12 +113,12 @@ visibility_range_end_margin = 0.1
 billboard = 1
 texture_filter = 0
 text = "100"
-font = ExtResource("8_8pmtp")
+font = ExtResource("7_ojok1")
 font_size = 64
 
-[node name="mountainside_mage" parent="mesh" instance=ExtResource("7_g0t8h")]
+[node name="mountainside_mage" parent="mesh" instance=ExtResource("8_oabko")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
-script = ExtResource("10_w8c6t")
+script = ExtResource("9_647vp")
 
 [node name="fireball" type="MeshInstance3D" parent="mesh"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0.752877)
@@ -138,8 +136,8 @@ skeleton = NodePath("../..")
 wait_time = 5.0
 one_shot = true
 
-[node name="difficulty_visualiser" parent="." instance=ExtResource("11_osjj8")]
-material_override = SubResource("StandardMaterial3D_2kkly")
-mesh = SubResource("CylinderMesh_py86a")
+[node name="difficulty_visualiser" parent="." instance=ExtResource("10_ftv05")]
+material_override = SubResource("StandardMaterial3D_0820w")
+mesh = SubResource("CylinderMesh_jkj8j")
 
 [connection signal="timeout" from="respawn" to="." method="_on_respawn_timeout"]

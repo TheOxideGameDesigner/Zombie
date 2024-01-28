@@ -3287,15 +3287,12 @@ min_dif = 4
 
 [node name="mage" parent="." instance=ExtResource("45_mv1wn")]
 transform = Transform3D(-0.0313758, 0, -0.999508, 0, 1, 0, 0.999508, 0, -0.0313758, 60.9204, 7.62939e-06, -30.7429)
-min_dif = 2
 
 [node name="mage2" parent="." instance=ExtResource("45_mv1wn")]
 transform = Transform3D(0.0925096, 0, -0.995712, 0, 1, 0, 0.995712, 0, 0.0925096, 66.0618, 7.62939e-06, -37.6485)
-min_dif = 4
 
 [node name="mage13" parent="." instance=ExtResource("45_mv1wn")]
 transform = Transform3D(0.981541, 0, 0.191254, 0, 1, 0, -0.191254, 0, 0.981541, 150.002, 1.62125e-05, -65.4973)
-min_dif = 4
 
 [node name="runner4" parent="." instance=ExtResource("42_yys3j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.1552, 5.72205e-06, -38.998)
@@ -3350,19 +3347,15 @@ transform = Transform3D(-0.0162832, 0, 0.999867, 0, 1, 0, -0.999867, 0, -0.01628
 
 [node name="mage3" parent="." instance=ExtResource("45_mv1wn")]
 transform = Transform3D(0.120899, 0, 0.992665, 0, 1, 0, -0.992665, 0, 0.120899, 113.242, 0.249977, -123.035)
-min_dif = 2
 
 [node name="mage15" parent="." instance=ExtResource("45_mv1wn")]
 transform = Transform3D(0.120899, 0, 0.992665, 0, 1, 0, -0.992665, 0, 0.120899, 90.7283, 0.249977, -115.574)
-min_dif = 3
 
 [node name="mage16" parent="." instance=ExtResource("45_mv1wn")]
 transform = Transform3D(-0.992165, 0, 0.124935, 0, 1, 0, -0.124935, 0, -0.992165, 93.8558, 0.249977, -86.257)
-min_dif = 4
 
 [node name="mage14" parent="." instance=ExtResource("45_mv1wn")]
 transform = Transform3D(0.120899, 0, 0.992665, 0, 1, 0, -0.992665, 0, 0.120899, 139.99, 0.249979, -114.899)
-min_dif = 3
 
 [node name="runner11" parent="." instance=ExtResource("42_yys3j")]
 transform = Transform3D(0.28194, 0, 0.959432, 0, 1, 0, -0.959432, 0, 0.28194, 99.4817, 0.249975, -109.054)
@@ -3412,11 +3405,9 @@ min_dif = 4
 
 [node name="mage4" parent="." instance=ExtResource("45_mv1wn")]
 transform = Transform3D(0.396731, 0, 0.917935, 0, 1, 0, -0.917935, 0, 0.396731, -107.462, -0.75, -149.537)
-min_dif = 2
 
 [node name="mage18" parent="." instance=ExtResource("45_mv1wn")]
 transform = Transform3D(0.396731, 0, 0.917935, 0, 1, 0, -0.917935, 0, 0.396731, -102.149, -0.750002, -137.149)
-min_dif = 3
 
 [node name="mage5" parent="." instance=ExtResource("45_mv1wn")]
 transform = Transform3D(0.964663, 0, 0.263486, 0, 1, 0, -0.263486, 0, 0.964663, -87.9235, -0.3326, -165.586)
@@ -3460,7 +3451,6 @@ transform = Transform3D(-0.00329873, 0, 0.999995, 0, 1, 0, -0.999995, 0, -0.0032
 
 [node name="mage17" parent="." instance=ExtResource("45_mv1wn")]
 transform = Transform3D(-0.00329873, 0, 0.999995, 0, 1, 0, -0.999995, 0, -0.00329873, -14.3841, 5.72205e-06, -76.3716)
-min_dif = 4
 
 [node name="runner13" parent="." instance=ExtResource("42_yys3j")]
 transform = Transform3D(0.148552, 0, 0.988905, 0, 1, 0, -0.988905, 0, 0.148552, -23.2754, 1.14441e-05, -78.88)
@@ -3477,11 +3467,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.05507, 7.62939e-06, -116.04
 
 [node name="mage7" parent="." instance=ExtResource("45_mv1wn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.73963, 7.62939e-06, -150.173)
-min_dif = 1
 
 [node name="mage19" parent="." instance=ExtResource("45_mv1wn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.71931, 7.62939e-06, -129.095)
-min_dif = 4
 
 [node name="hitscanner7" parent="." instance=ExtResource("44_3fhhm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.34589, 7.62939e-06, -200.053)
@@ -3518,6 +3506,7 @@ min_dif = 3
 
 [node name="hitscanner8" parent="." instance=ExtResource("44_3fhhm")]
 transform = Transform3D(0.0660998, 0, 0.997813, 0, 1, 0, -0.997813, 0, 0.0660998, -52.4987, 7.62939e-06, -209.178)
+min_dif = 3
 
 [node name="hitscanner19" parent="." instance=ExtResource("44_3fhhm")]
 transform = Transform3D(0.999965, 0, 0.00837746, 0, 1, 0, -0.00837746, 0, 0.999965, 6.2983, 7.62939e-06, -180.103)
@@ -3528,7 +3517,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64.7273, 3.8147e-06, -216.45
 
 [node name="mage8" parent="." instance=ExtResource("45_mv1wn")]
 transform = Transform3D(0.147067, 0, 0.989127, 0, 1, 0, -0.989127, 0, 0.147067, -77.5879, 7.62939e-06, -211.278)
-min_dif = 2
+min_dif = 4
 
 [node name="mage21" parent="." instance=ExtResource("45_mv1wn")]
 transform = Transform3D(0.147067, 0, 0.989127, 0, 1, 0, -0.989127, 0, 0.147067, -90.3418, 7.62939e-06, -206.824)
@@ -3536,7 +3525,6 @@ min_dif = 3
 
 [node name="mage20" parent="." instance=ExtResource("45_mv1wn")]
 transform = Transform3D(0.147067, 0, 0.989127, 0, 1, 0, -0.989127, 0, 0.147067, -60.6464, 7.62939e-06, -220.523)
-min_dif = 3
 
 [node name="chaingunner2" parent="." instance=ExtResource("46_nd1ph")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -97.5345, 7.62939e-06, -247.67)
@@ -3659,18 +3647,15 @@ min_dif = 1
 
 [node name="mage9" parent="." instance=ExtResource("45_mv1wn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90.1325, 5.72205e-06, -231.441)
-min_dif = 2
 
 [node name="mage23" parent="." instance=ExtResource("45_mv1wn")]
 transform = Transform3D(0.160346, 0, -0.987061, 0, 1, 0, 0.987061, 0, 0.160346, 46.8489, 3.8147e-06, -211.697)
-min_dif = 3
 
 [node name="mage10" parent="." instance=ExtResource("45_mv1wn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 96.7133, 7.62939e-06, -272.077)
 
 [node name="mage22" parent="." instance=ExtResource("45_mv1wn")]
 transform = Transform3D(0.00500906, 0, 0.999987, 0, 1, 0, -0.999987, 0, 0.00500906, 45.3217, 7.62939e-06, -323.893)
-min_dif = 4
 
 [node name="gunner10" parent="." instance=ExtResource("43_otksa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 92.9529, 5.72205e-06, -312.34)
@@ -3731,7 +3716,6 @@ transform = Transform3D(-0.0327539, 0, 0.999463, 0, 1, 0, -0.999463, 0, -0.03275
 
 [node name="mage12" parent="." instance=ExtResource("45_mv1wn")]
 transform = Transform3D(-0.0327539, 0, 0.999463, 0, 1, 0, -0.999463, 0, -0.0327539, -146.234, 28.2499, -321.156)
-min_dif = 1
 
 [node name="runner33" parent="." instance=ExtResource("42_yys3j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -111.376, 28.2499, -287.7)

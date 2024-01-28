@@ -69,7 +69,7 @@ func _on_body_entered(body):
 
 
 func _on_death_timer_timeout():
-	if hit_player or exploded:
+	if exploded:
 		return
 	exploded = 1
 	explosion.visible = 1

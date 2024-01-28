@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bajqqqjylfrys"]
+[gd_scene load_steps=19 format=3 uid="uid://bajqqqjylfrys"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_n6eeb"]
 [ext_resource type="PackedScene" uid="uid://4px2n2dg363l" path="res://scenes/misc_props/player.tscn" id="2_26vq5"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://chc7prysjaa7j" path="res://scenes/misc_props/double_speed.tscn" id="12_a6cgt"]
 [ext_resource type="PackedScene" uid="uid://g2rnpkvkd3ns" path="res://scenes/props/static_props/abandoned_city/bench.tscn" id="13_15gvh"]
 [ext_resource type="PackedScene" uid="uid://c5nkifhr5jdnd" path="res://scenes/props/static_props/abandoned_city/shelf.tscn" id="14_f41h2"]
+[ext_resource type="PackedScene" uid="uid://dsklmuink3naj" path="res://scenes/props/enemies/bomber.tscn" id="15_31i56"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_47luo"]
 data = PackedVector3Array(-28.3425, 0.2, 28.1325, 28.3425, 0.2, 28.1325, -28.3425, -0.2, 28.1325, 28.3425, 0.2, 28.1325, 28.3425, -0.2, 28.1325, -28.3425, -0.2, 28.1325, 28.3425, 0.2, -28.1325, -28.3425, 0.2, -28.1325, 28.3425, -0.2, -28.1325, -28.3425, 0.2, -28.1325, -28.3425, -0.2, -28.1325, 28.3425, -0.2, -28.1325, 28.3425, 0.2, 28.1325, 28.3425, 0.2, -28.1325, 28.3425, -0.2, 28.1325, 28.3425, 0.2, -28.1325, 28.3425, -0.2, -28.1325, 28.3425, -0.2, 28.1325, -28.3425, 0.2, -28.1325, -28.3425, 0.2, 28.1325, -28.3425, -0.2, -28.1325, -28.3425, 0.2, 28.1325, -28.3425, -0.2, 28.1325, -28.3425, -0.2, -28.1325, 28.3425, 0.2, 28.1325, -28.3425, 0.2, 28.1325, 28.3425, 0.2, -28.1325, -28.3425, 0.2, 28.1325, -28.3425, 0.2, -28.1325, 28.3425, 0.2, -28.1325, -28.3425, -0.2, 28.1325, 28.3425, -0.2, 28.1325, -28.3425, -0.2, -28.1325, 28.3425, -0.2, 28.1325, 28.3425, -0.2, -28.1325, -28.3425, -0.2, -28.1325)
@@ -39,7 +40,7 @@ skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_3cwp8")
 
 [node name="player" parent="." instance=ExtResource("2_26vq5")]
-transform = Transform3D(0.276661, 0, 0.960968, 0, 1, 0, -0.960968, 0, 0.276661, 17.4023, 59.8081, 7.86262)
+transform = Transform3D(0.276661, 0, 0.960968, 0, 1, 0, -0.960968, 0, 0.276661, 17.4023, 0.200682, 7.86262)
 
 [node name="spring" parent="." instance=ExtResource("3_0v1iu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.363, 0.200001, 18.0439)
@@ -84,3 +85,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5915, 0.200003, 6.24168)
 
 [node name="shelf" parent="." instance=ExtResource("14_f41h2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.9127, 0.2, -2.49677)
+
+[node name="mage" parent="." instance=ExtResource("15_31i56")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.8435, 0.200001, -12.379)

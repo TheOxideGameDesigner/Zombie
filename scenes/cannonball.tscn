@@ -56,6 +56,7 @@ mesh = SubResource("SphereMesh_e7sdo")
 skeleton = NodePath("../..")
 
 [node name="area" type="Area3D" parent="."]
+collision_layer = 0
 collision_mask = 3
 
 [node name="hitbox" type="CollisionShape3D" parent="area"]

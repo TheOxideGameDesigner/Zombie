@@ -38,6 +38,7 @@ radial_segments = 12
 rings = 6
 
 [node name="gunner_rocket" type="Area3D"]
+collision_layer = 0
 collision_mask = 257
 script = ExtResource("1_oj5qd")
 
