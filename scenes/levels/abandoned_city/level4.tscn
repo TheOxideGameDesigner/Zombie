@@ -75,13 +75,15 @@ directional_shadow_blend_splits = true
 
 [node name="exit" parent="." instance=ExtResource("33_7mt0l")]
 transform = Transform3D(-2, 0, 3.01992e-07, 0, 2, 0, -3.01992e-07, 0, -2, 4.97742, 0.605917, -4.9502)
+chapter = 2
+level = 4
 
 [node name="player" parent="." instance=ExtResource("21_krmhd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.19434, 0.0905906, -13.1694)
 environment = ExtResource("22_1ced2")
 
 [node name="blue_key" parent="." instance=ExtResource("5_xdmef")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.8061, 1.64053, -76.0931)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5513, 1.64053, -76.0931)
 key_index = 1
 
 [node name="red_key" parent="." instance=ExtResource("5_xdmef")]
@@ -3362,7 +3364,7 @@ min_dif = 3
 
 [node name="mage14" parent="." instance=ExtResource("45_mv1wn")]
 transform = Transform3D(0.120899, 0, 0.992665, 0, 1, 0, -0.992665, 0, 0.120899, 139.99, 0.249979, -114.899)
-min_dif = 4
+min_dif = 2
 
 [node name="runner11" parent="." instance=ExtResource("42_yys3j")]
 transform = Transform3D(0.28194, 0, 0.959432, 0, 1, 0, -0.959432, 0, 0.28194, 99.4817, 0.249975, -109.054)
@@ -3503,7 +3505,7 @@ min_dif = 3
 
 [node name="runner44" parent="." instance=ExtResource("42_yys3j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.9347, 7.62939e-06, -206.779)
-min_dif = 3
+min_dif = 2
 
 [node name="gunner5" parent="." instance=ExtResource("43_otksa")]
 transform = Transform3D(0.100049, 0, 0.994982, 0, 1, 0, -0.994982, 0, 0.100049, -35.487, 9.53674e-06, -212.999)
@@ -3530,7 +3532,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64.7273, 3.8147e-06, -216.45
 
 [node name="mage8" parent="." instance=ExtResource("45_mv1wn")]
 transform = Transform3D(0.147067, 0, 0.989127, 0, 1, 0, -0.989127, 0, 0.147067, -77.5879, 7.62939e-06, -211.278)
-min_dif = 4
+min_dif = 2
 
 [node name="mage21" parent="." instance=ExtResource("45_mv1wn")]
 transform = Transform3D(0.147067, 0, 0.989127, 0, 1, 0, -0.989127, 0, 0.147067, -90.3418, 7.62939e-06, -206.824)
@@ -3645,7 +3647,7 @@ min_dif = 3
 
 [node name="runner53" parent="." instance=ExtResource("42_yys3j")]
 transform = Transform3D(0.11133, 0, -0.993783, 0, 1, 0, 0.993783, 0, 0.11133, 96.7736, 5.72205e-06, -258.395)
-min_dif = 3
+min_dif = 2
 
 [node name="runner52" parent="." instance=ExtResource("42_yys3j")]
 transform = Transform3D(0.11133, 0, -0.993783, 0, 1, 0, 0.993783, 0, 0.11133, 97.5724, 3.8147e-06, -233.998)
@@ -3687,7 +3689,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 93.7192, 8.58307e-06, -291.20
 
 [node name="hitscanner23" parent="." instance=ExtResource("44_3fhhm")]
 transform = Transform3D(-0.00277511, 0, -0.999996, 0, 1, 0, 0.999996, 0, -0.00277511, 70.9325, 8.58307e-06, -211.616)
-min_dif = 4
+min_dif = 2
 
 [node name="hitscanner22" parent="." instance=ExtResource("44_3fhhm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 97.9225, 6.67572e-06, -285.277)

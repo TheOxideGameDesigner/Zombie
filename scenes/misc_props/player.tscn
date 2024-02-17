@@ -64,6 +64,7 @@ font_size = 64
 [node name="player" type="CharacterBody3D" groups=["player"]]
 collision_layer = 256
 collision_mask = 3
+floor_constant_speed = true
 floor_snap_length = 0.2
 platform_on_leave = 2
 script = ExtResource("1_p5l8k")
@@ -153,7 +154,6 @@ skeleton = NodePath("../revolver_viewmodel")
 
 [node name="shotgun_mf" type="Node3D" parent="cam/camera/vp_cont/vp/gun_cam/viewmodel/shotgun_viewmodel"]
 transform = Transform3D(1, 0, 5.68434e-14, 0, 1, 0, -5.68434e-14, 0, 1, -0.0204172, 2.03999, 2.85881)
-visible = false
 
 [node name="revolver_mf1" type="MeshInstance3D" parent="cam/camera/vp_cont/vp/gun_cam/viewmodel/shotgun_viewmodel/shotgun_mf"]
 transform = Transform3D(0.266, 8.89931e-14, -3.16856e-21, 0, -1.74408e-08, -0.325, -5.93287e-14, 0.399, -1.42062e-08, 0.150956, -1.42867, 0.418)
@@ -162,18 +162,6 @@ cast_shadow = 0
 mesh = SubResource("CylinderMesh_wsw6g")
 
 [node name="revolver_mf12" type="MeshInstance3D" parent="cam/camera/vp_cont/vp/gun_cam/viewmodel/shotgun_viewmodel/shotgun_mf/revolver_mf1"]
-transform = Transform3D(0.6, 2.13163e-14, -1.27055e-21, -2.4869e-14, 0.6, 1.95399e-14, 1.48231e-21, -2.4869e-14, 0.6, 0, 0, 0)
-layers = 32
-cast_shadow = 0
-mesh = SubResource("CylinderMesh_ichw5")
-
-[node name="revolver_mf2" type="MeshInstance3D" parent="cam/camera/vp_cont/vp/gun_cam/viewmodel/shotgun_viewmodel/shotgun_mf"]
-transform = Transform3D(0.266, 9.23706e-14, -3.17637e-21, 0, -1.74408e-08, -0.325, -6.03961e-14, 0.399, -1.42062e-08, 0.150955, -1.64329, 0.418)
-layers = 32
-cast_shadow = 0
-mesh = SubResource("CylinderMesh_wsw6g")
-
-[node name="revolver_mf12" type="MeshInstance3D" parent="cam/camera/vp_cont/vp/gun_cam/viewmodel/shotgun_viewmodel/shotgun_mf/revolver_mf2"]
 transform = Transform3D(0.6, 2.13163e-14, -1.27055e-21, -2.4869e-14, 0.6, 1.95399e-14, 1.48231e-21, -2.4869e-14, 0.6, 0, 0, 0)
 layers = 32
 cast_shadow = 0

@@ -1,0 +1,73 @@
+[gd_scene load_steps=11 format=3 uid="uid://d3jek5ooi541x"]
+
+[ext_resource type="PackedScene" uid="uid://dwtxubw5k3pgc" path="res://scenes/misc_props/light_particles.tscn" id="1_h4xfs"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5s3mg"]
+albedo_color = Color(0.392157, 0.392157, 0.392157, 1)
+disable_receive_shadows = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_xox4b"]
+material = SubResource("StandardMaterial3D_5s3mg")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7houa"]
+shading_mode = 0
+albedo_color = Color(0.839216, 0.839216, 0.839216, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_c2v71"]
+material = SubResource("StandardMaterial3D_7houa")
+flip_faces = true
+top_radius = 0.0
+bottom_radius = 1.205
+height = 0.41
+radial_segments = 4
+rings = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hrnwv"]
+shading_mode = 0
+albedo_color = Color(0.99, 0.99, 0.99, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_wfsrj"]
+material = SubResource("StandardMaterial3D_hrnwv")
+top_radius = 0.0
+bottom_radius = 1.205
+height = 0.41
+radial_segments = 4
+rings = 1
+
+[sub_resource type="Gradient" id="Gradient_2ft7n"]
+colors = PackedColorArray(1, 1, 1, 1, 0.707967, 0.707967, 0.707967, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_jg31l"]
+gradient = SubResource("Gradient_2ft7n")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vxl7l"]
+direction = Vector3(0, 1, 0)
+spread = 20.0
+initial_velocity_min = 0.5
+initial_velocity_max = 1.0
+gravity = Vector3(0, 0, 0)
+color_ramp = SubResource("GradientTexture1D_jg31l")
+turbulence_noise_scale = 0.02
+
+[node name="torch" type="Node3D"]
+
+[node name="handle" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0965058, 0, -0.0965058, 0.0468871, 0.694111, 0.0468871, 0.0843503, -0.38583, 0.0843503, 0, 0.225554, 0.146088)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_xox4b")
+
+[node name="light" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.13648, 0, 0, 0, 0.694111, 0.0663083, 0, -0.38583, 0.119289, 0, 0.692667, -0.113562)
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_c2v71")
+
+[node name="light_inner" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0923253, 0, 0, 0, 0.469549, 0.044856, 0, -0.261004, 0.0806964, 0, 0.647026, -0.0874911)
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_wfsrj")
+
+[node name="light_particles" parent="." instance=ExtResource("1_h4xfs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.030827, 0.704352, -0.114533)
+visibility_range_end = 30.0
+visibility_range_fade_mode = 1
+process_material = SubResource("ParticleProcessMaterial_vxl7l")

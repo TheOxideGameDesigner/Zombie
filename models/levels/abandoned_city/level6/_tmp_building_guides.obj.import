@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://c6molfjp053oy"
+path="res://.godot/imported/_tmp_building_guides.obj-14d7cff8c62bcef7c12e4d27d5d12cee.mesh"
+
+[deps]
+
+files=["res://.godot/imported/_tmp_building_guides.obj-14d7cff8c62bcef7c12e4d27d5d12cee.mesh"]
+
+source_file="res://models/levels/abandoned_city/level6/_tmp_building_guides.obj"
+dest_files=["res://.godot/imported/_tmp_building_guides.obj-14d7cff8c62bcef7c12e4d27d5d12cee.mesh", "res://.godot/imported/_tmp_building_guides.obj-14d7cff8c62bcef7c12e4d27d5d12cee.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

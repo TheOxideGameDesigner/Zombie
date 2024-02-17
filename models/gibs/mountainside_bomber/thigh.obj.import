@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://di6cqmjli32xc"
+path="res://.godot/imported/thigh.obj-1ba173a86dd6d4cce0be95c7f89403ea.mesh"
+
+[deps]
+
+files=["res://.godot/imported/thigh.obj-1ba173a86dd6d4cce0be95c7f89403ea.mesh"]
+
+source_file="res://models/gibs/mountainside_bomber/thigh.obj"
+dest_files=["res://.godot/imported/thigh.obj-1ba173a86dd6d4cce0be95c7f89403ea.mesh", "res://.godot/imported/thigh.obj-1ba173a86dd6d4cce0be95c7f89403ea.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

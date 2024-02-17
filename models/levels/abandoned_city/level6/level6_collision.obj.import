@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cq3rhvvvm7hve"
+path="res://.godot/imported/level6_collision.obj-6cbb276398487d1eb5c411f2438d5551.mesh"
+
+[deps]
+
+files=["res://.godot/imported/level6_collision.obj-6cbb276398487d1eb5c411f2438d5551.mesh"]
+
+source_file="res://models/levels/abandoned_city/level6/level6_collision.obj"
+dest_files=["res://.godot/imported/level6_collision.obj-6cbb276398487d1eb5c411f2438d5551.mesh", "res://.godot/imported/level6_collision.obj-6cbb276398487d1eb5c411f2438d5551.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

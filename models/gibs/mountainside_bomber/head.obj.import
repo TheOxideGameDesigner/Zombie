@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dhgnva5rxg6lk"
+path="res://.godot/imported/head.obj-eb802856dbfab42358800251d830c70f.mesh"
+
+[deps]
+
+files=["res://.godot/imported/head.obj-eb802856dbfab42358800251d830c70f.mesh"]
+
+source_file="res://models/gibs/mountainside_bomber/head.obj"
+dest_files=["res://.godot/imported/head.obj-eb802856dbfab42358800251d830c70f.mesh", "res://.godot/imported/head.obj-eb802856dbfab42358800251d830c70f.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

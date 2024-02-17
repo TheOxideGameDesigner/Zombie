@@ -14,7 +14,7 @@ const TURN_CONTROL = 95
 const AIR_TURN_CONTROL = 30
 const BRAKE_FACTOR = 1.5
 const AIR_BRAKE_FACTOR = 3
-const FRICTION = 36
+const FRICTION = 46
 const AIR_FRICTION = 12
 const BOOST_LOSS = 8
 const AIR_BOOST_LOSS = 6
@@ -27,7 +27,7 @@ const MAX_STEP_HEIGHT = 0.3
 const SWAY = 0.001
 const SWAY_MAX = 2
 const SWAY_VERICAL = 0.7
-const SWAY_RETURN = 3
+const SWAY_RETURN = 5
 const HOLSTER_SPEED = 8
 
 const REVOLVER_RANGE = 42
@@ -58,9 +58,9 @@ const BLASTER_COOLDOWN_SHORT = 0.075
 const BLASTER_COOLDOWN_VARIATION = 0.04
 const BLASTER_MAX_HEAT = 15
 const BLASTER_HEAT_REGEN_TIME = 5
-const BLASTER_RANGE = 30
-const BLASTER_PB_RANGE = 4
-const BLASTER_FALLOFF = 0.1
+const BLASTER_RANGE = 42
+const BLASTER_PB_RANGE = 6
+const BLASTER_FALLOFF = 0.08
 const DEATH_FADE_TIME = 1.0
 
 var damage_mul = 1.0
@@ -262,6 +262,7 @@ func shoot():
 			bullet.position = Vector3(0.645, -0.23, -1.111) + viewmodel_pos
 			bullet.rotation.y = 0.1
 			bullet.rotation.x = 0.04
+			bullet.lifespan = 0.08
 			gun_cam.add_child(bullet)
 		2:
 			camera.add_tilt(3, Vector3(1, 0, 0), 3)
@@ -342,8 +343,9 @@ func shoot():
 			
 			var bullet = bullet_scene.instantiate()
 			bullet.position = Vector3(0.645, -0.23, -1.111) + viewmodel_pos
-			bullet.rotation.y = 0.1 + randf_range(-0.035, 0.035)
-			bullet.rotation.x = 0.04 + randf_range(-0.035, 0.035)
+			bullet.rotation.y = 0.1 + randf_range(-0.025, 0.025)
+			bullet.rotation.x = 0.04 + randf_range(-0.025, 0.025)
+			bullet.lifespan = 0.08
 			gun_cam.add_child(bullet)
 
 
@@ -489,6 +491,7 @@ func movement(wishdir, delta):
 	
 	velocity = Vector3(vel2d.x, velocity.y, vel2d.y)
 	
+	var prev_vel = velocity
 	move_and_slide()
 	
 	#now check to see if the player can climb up a step
@@ -502,6 +505,7 @@ func movement(wishdir, delta):
 			raycast.force_raycast_update()
 			if raycast.is_colliding() and raycast.get_collision_normal().dot(Vector3.UP) > 0.9:
 				global_position.y = raycast.get_collision_point().y
+				velocity = Vector3(prev_vel.x, velocity.y, prev_vel.z)
 			raycast.position = Vector3.ZERO
 			return
 

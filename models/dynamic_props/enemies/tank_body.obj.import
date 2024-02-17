@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://c333ww8h4wb6j"
+path="res://.godot/imported/tank_body.obj-7db7ce538b2ac042db72d5660fa0530d.mesh"
+
+[deps]
+
+files=["res://.godot/imported/tank_body.obj-7db7ce538b2ac042db72d5660fa0530d.mesh"]
+
+source_file="res://models/dynamic_props/enemies/tank_body.obj"
+dest_files=["res://.godot/imported/tank_body.obj-7db7ce538b2ac042db72d5660fa0530d.mesh", "res://.godot/imported/tank_body.obj-7db7ce538b2ac042db72d5660fa0530d.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

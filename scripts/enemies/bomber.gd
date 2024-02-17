@@ -15,10 +15,9 @@ const GRAVE_DEPTH = 4
 const RISE_TIME = 3.7664
 const RISE_HEIGHT = 0.25
 const RISE_FLICKER = 0.25
-const AIM_TIME : float = 0.25
 const HIT_RANGE : float = 20
 var ROCKET_SPEED = 20
-const HIT_TIME : float = 1.5
+const HIT_TIME : float = 2.0
 const HIT_RANGE_MARGIN = 1.0
 const PB_RANGE : float = 2
 const FALLOFF : float = 0.1
@@ -35,7 +34,6 @@ var health : int
 var alive = 1
 var target_pos = Vector3.ZERO
 var sees_player = false
-var aim_timer = AIM_TIME
 var rising_timer = 0.0
 var attention_span_timer = 0
 var vulnerability = 1.0
@@ -46,7 +44,7 @@ var bumps : Array[Vector3] = []
 var bump_timers : Array[float] = []
 
 
-@onready var mesh_body = $mesh/mountainside_mage
+@onready var mesh_body = $mesh/mountainside_bomber
 @onready var player = get_tree().get_first_node_in_group("player")
 @onready var home = $home
 @onready var health_label = $mesh/health
@@ -64,7 +62,7 @@ var bomb = preload("res://scenes/props/enemies/bomber_bomb.tscn")
 var mesh_material = preload("res://resources/materials/enemy_mat.tres")
 var blood = preload("res://scenes/environment/blood_particles.tscn")
 @export var gibs : PackedScene
-@onready var body = $mesh/mountainside_mage/Armature/Skeleton3D/runner_body
+@onready var body = $mesh/mountainside_bomber/Armature/Skeleton3D/runner_body
 
 @onready var init_mesh_pos = $mesh.global_position - position
 @onready var dist_from_player = Vector2(player.position.x, player.position.z).distance_to(Vector2(position.x, position.z))
@@ -73,7 +71,7 @@ var blood = preload("res://scenes/environment/blood_particles.tscn")
 @onready var rot = mesh.rotation.y
 var y_vel = 0.0
 
-@export var respawn_time = 5.0
+@export var respawn_time = 10.0
 @export var spawn_ang = 0.0
 @export_range(0, 4) var min_dif : int = 0
 
@@ -84,12 +82,7 @@ var add_vel = Vector3.ZERO
 
 var in_active_zone = 1
 
-@onready var fireball = $mesh/fireball
-const FB_TIME = 0.4666
 var hit_timer = 0.0
-var fb_timer = 0.0
-const FB_POS = [Vector3(0, 0, 0.4), Vector3(0, 0, 0.3)]
-var fired : bool = false
 
 func make_inactive():
 	in_active_zone = 0
@@ -247,12 +240,6 @@ func _process(delta):
 		mesh_body.legs_playing = 0
 	else:
 		mesh_body.legs_playing = 1
-	
-	fb_timer = max(0.0, fb_timer - delta)
-	if fb_timer != 0.0:
-		var weight = 1 - fb_timer / FB_TIME
-		fireball.scale = 0.5 * weight * Vector3.ONE
-		fireball.position = lerp(FB_POS[0], FB_POS[1], weight)
 
 
 func rising_func(t):
@@ -283,7 +270,7 @@ func _physics_process(delta):
 		return
 	
 	var asleep = is_asleep()
-	hitbox.disabled = not alive or (asleep and add_vel.is_zero_approx())
+	hitbox.disabled = not rising and (not alive or (asleep and add_vel.is_zero_approx()))
 	
 	var dir2player = player.global_position - global_position
 	var dir2player2D = Vector2(dir2player.x, dir2player.z).normalized()
@@ -379,30 +366,17 @@ func _physics_process(delta):
 		velocity = add_vel + push_vel + Vector3(0, y_vel, 0)
 		move_and_slide()
 	
-	hit_timer = max(0.0, hit_timer - delta)
-	
 	if not asleep:
 		var nextpos = target_pos - position
 		if sees_player and dist_from_player3d < HIT_RANGE and alive and not rising:
-			if aim_timer <= 0.0 and hit_timer == 0.0:
-				hit_timer = HIT_TIME
-				fireball.visible = true
-				fired = false
-				fb_timer = FB_TIME
-				mesh_body.play("hitting", 2.5)
-			else:
-				if aim_timer == AIM_TIME:
-					mesh_body.play("aiming", 3)
-				aim_timer -= delta
+			hit_timer = max(0.0, hit_timer - delta)
 		else:
-			if aim_timer < AIM_TIME:
-				mesh_body.play("aiming", -3)
-			aim_timer = AIM_TIME
+			hit_timer = HIT_TIME
 		
-		if not fired and fb_timer == 0.0 and hit_timer > 0.0:
+		if hit_timer == 0:
+			mesh_body.play("hitting", 1.5)
 			fire()
-			fired = true
-			fireball.visible = false
+			hit_timer = HIT_TIME
 		
 		rot = -atan2(nextpos.z, nextpos.x) + PI / 2
 		var vel_dir = Vector3.MODEL_FRONT.rotated(Vector3.UP, mesh.rotation.y)
@@ -439,15 +413,13 @@ func _physics_process(delta):
 func fire():
 	var new_bomb = bomb.instantiate()
 	new_bomb.player = player
-	new_bomb.position = FB_POS[1].rotated(Vector3.UP, mesh.rotation.y) + Vector3(0, 1, 0)
+	new_bomb.position = Vector3(0, 1.25, 1).rotated(Vector3.UP, mesh.rotation.y)
+	new_bomb.target_pos = player.global_position + Vector3(0, 0.5, 0)
 	add_child(new_bomb)
 	new_bomb.top_level = 1
 
 func _on_respawn_timeout():
-	fired = false
-	fireball.visible = false
-	fb_timer = 0.0
-	hit_timer = 0.0
+	hit_timer = HIT_TIME
 	health = HP
 	update_healthbar()
 	alive = 1

@@ -1,12 +1,13 @@
-[gd_scene load_steps=20 format=3 uid="uid://dsklmuink3naj"]
+[gd_scene load_steps=17 format=3 uid="uid://dsklmuink3naj"]
 
 [ext_resource type="Script" path="res://scripts/enemies/bomber.gd" id="1_4nv8u"]
+[ext_resource type="PackedScene" uid="uid://m8a5i28h2uev" path="res://scenes/environment/gibs/bomber.tscn" id="2_5q78w"]
 [ext_resource type="PackedScene" uid="uid://d4k7qjsc8bglc" path="res://scenes/enemy_home.tscn" id="3_dt8nc"]
 [ext_resource type="Script" path="res://scripts/physics_lerp.gd" id="4_5wjvi"]
 [ext_resource type="Texture2D" uid="uid://dsi7k27hhox0v" path="res://textures/alerted.png" id="5_sxbt4"]
 [ext_resource type="Material" uid="uid://c0vwp18rc74ju" path="res://resources/materials/aura_mat.tres" id="6_jhirx"]
 [ext_resource type="FontVariation" uid="uid://cr4vqwh16ob78" path="res://resources/default_font.tres" id="7_ojok1"]
-[ext_resource type="PackedScene" uid="uid://c6qjuc4e3ow38" path="res://models/dynamic_props/enemies/mountainside_mage.glb" id="8_oabko"]
+[ext_resource type="PackedScene" uid="uid://cmhkbaqw2cb6j" path="res://models/dynamic_props/enemies/mountainside_bomber.glb" id="8_hpk71"]
 [ext_resource type="Script" path="res://scripts/enemies/anim.gd" id="9_647vp"]
 [ext_resource type="PackedScene" uid="uid://cd6bos2i6d23v" path="res://scenes/editor_tools/difficulty_visualiser.tscn" id="10_ftv05"]
 
@@ -25,38 +26,19 @@ height = 5.915
 radial_segments = 10
 rings = 10
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ngnas"]
-shading_mode = 0
-albedo_color = Color(1, 0, 0, 1)
-
-[sub_resource type="SphereMesh" id="SphereMesh_atyuv"]
-material = SubResource("StandardMaterial3D_ngnas")
-flip_faces = true
-radial_segments = 10
-rings = 5
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n47a8"]
-shading_mode = 0
-albedo_color = Color(1, 0.631373, 0, 1)
-
-[sub_resource type="SphereMesh" id="SphereMesh_gskn1"]
-material = SubResource("StandardMaterial3D_n47a8")
-radial_segments = 10
-rings = 5
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0820w"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sumhw"]
 transparency = 1
 shading_mode = 0
-albedo_color = Color(1, 1, 1, 0.1)
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_jkj8j"]
+[sub_resource type="CylinderMesh" id="CylinderMesh_c6fdf"]
 radial_segments = 12
 
-[node name="mage" type="CharacterBody3D" groups=["activatable", "enemy", "lightweight"]]
+[node name="bomber" type="CharacterBody3D" groups=["activatable", "enemy", "lightweight"]]
 top_level = true
 collision_layer = 2
 collision_mask = 257
 script = ExtResource("1_4nv8u")
+gibs = ExtResource("2_5q78w")
 
 [node name="hitbox" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -69,7 +51,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CylinderShape3D_qg53b")
 
 [node name="home" parent="." instance=ExtResource("3_dt8nc")]
-color = Color(0.0156863, 0.733333, 0.247059, 0.858824)
+color = Color(0.980392, 0.407843, 0, 0.858824)
 
 [node name="ray" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
@@ -116,28 +98,16 @@ text = "100"
 font = ExtResource("7_ojok1")
 font_size = 64
 
-[node name="mountainside_mage" parent="mesh" instance=ExtResource("8_oabko")]
+[node name="mountainside_bomber" parent="mesh" instance=ExtResource("8_hpk71")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
 script = ExtResource("9_647vp")
-
-[node name="fireball" type="MeshInstance3D" parent="mesh"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0.752877)
-visible = false
-cast_shadow = 0
-mesh = SubResource("SphereMesh_atyuv")
-
-[node name="sprite_interior" type="MeshInstance3D" parent="mesh/fireball"]
-transform = Transform3D(0.635, 0, 0, 0, 0.635, 0, 0, 0, 0.635, 0, 0, 0)
-cast_shadow = 0
-mesh = SubResource("SphereMesh_gskn1")
-skeleton = NodePath("../..")
 
 [node name="respawn" type="Timer" parent="."]
 wait_time = 5.0
 one_shot = true
 
 [node name="difficulty_visualiser" parent="." instance=ExtResource("10_ftv05")]
-material_override = SubResource("StandardMaterial3D_0820w")
-mesh = SubResource("CylinderMesh_jkj8j")
+material_override = SubResource("StandardMaterial3D_sumhw")
+mesh = SubResource("CylinderMesh_c6fdf")
 
 [connection signal="timeout" from="respawn" to="." method="_on_respawn_timeout"]

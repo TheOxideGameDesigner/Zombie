@@ -77,7 +77,7 @@ var blood = preload("res://scenes/environment/blood_particles.tscn")
 @onready var rot = mesh.rotation.y
 var y_vel = 0.0
 
-@export var respawn_time = 5.0
+@export var respawn_time = 10.0
 @export var spawn_ang = 0.0
 @export_range(0, 4) var min_dif : int = 0
 
@@ -301,7 +301,7 @@ func _physics_process(delta):
 		return
 	
 	var asleep = is_asleep()
-	hitbox.disabled = not alive or (asleep and add_vel.is_zero_approx())
+	hitbox.disabled = not rising and (not alive or (asleep and add_vel.is_zero_approx()))
 	
 	var dir2player = player.global_position - global_position
 	var dir2player2D = Vector2(dir2player.x, dir2player.z).normalized()

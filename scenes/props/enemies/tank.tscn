@@ -1,0 +1,138 @@
+[gd_scene load_steps=19 format=3 uid="uid://7t26m1omsbhg"]
+
+[ext_resource type="Script" path="res://scripts/enemies/tank.gd" id="1_a4ev3"]
+[ext_resource type="PackedScene" uid="uid://ct4dtw3ijmehk" path="res://scenes/props/enemies/runner.tscn" id="2_xboo8"]
+[ext_resource type="PackedScene" uid="uid://bfuck1d2dtogj" path="res://scenes/props/enemies/gunner.tscn" id="3_hgnvg"]
+[ext_resource type="PackedScene" uid="uid://d2ya5fu74vom0" path="res://scenes/props/enemies/hitscanner.tscn" id="4_7f2h6"]
+[ext_resource type="PackedScene" uid="uid://26x6x0du3c7k" path="res://scenes/props/enemies/chaingunner.tscn" id="5_7f64w"]
+[ext_resource type="ArrayMesh" uid="uid://c333ww8h4wb6j" path="res://models/dynamic_props/enemies/tank_body.obj" id="5_m8qa3"]
+[ext_resource type="ArrayMesh" uid="uid://de6tb8yf8sc82" path="res://models/dynamic_props/enemies/tank_head.obj" id="6_ef5jf"]
+[ext_resource type="PackedScene" uid="uid://cn0h8ppoq8uq8" path="res://scenes/props/enemies/mage.tscn" id="6_h3nnb"]
+[ext_resource type="PackedScene" uid="uid://dsklmuink3naj" path="res://scenes/props/enemies/bomber.tscn" id="7_wi3u0"]
+[ext_resource type="PackedScene" uid="uid://r32fjvrhacmm" path="res://scenes/environment/gibs/tank.tscn" id="8_mvn3q"]
+[ext_resource type="PackedScene" uid="uid://d4k7qjsc8bglc" path="res://scenes/enemy_home.tscn" id="8_sikwn"]
+[ext_resource type="FontVariation" uid="uid://cr4vqwh16ob78" path="res://resources/default_font.tres" id="9_l6ddb"]
+[ext_resource type="Texture2D" uid="uid://vu75j7stwa2m" path="res://textures/key.png" id="10_7lx14"]
+[ext_resource type="Material" uid="uid://dwn0f7w4jgfyf" path="res://resources/materials/enemy_mat_gamma_corrected.tres" id="11_aqvm1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_72cma"]
+size = Vector3(6.89929, 4.1051, 9.68262)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_jdsx6"]
+height = 4.21744
+radius = 3.44585
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_jhmyx"]
+height = 4.13179
+radius = 1.05358
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5vh1h"]
+specular_mode = 2
+
+[node name="tank" type="StaticBody3D" groups=["enemy", "see_through"]]
+top_level = true
+collision_layer = 2
+script = ExtResource("1_a4ev3")
+runner_scene = ExtResource("2_xboo8")
+gunner_scene = ExtResource("3_hgnvg")
+hitscanner_scene = ExtResource("4_7f2h6")
+chaingunner_scene = ExtResource("5_7f64w")
+mage_scene = ExtResource("6_h3nnb")
+bomber_scene = ExtResource("7_wi3u0")
+gibs = ExtResource("8_mvn3q")
+
+[node name="hitbox" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0238647, 2.04864, 0.550293)
+shape = SubResource("BoxShape3D_72cma")
+
+[node name="collision_area1" type="Area3D" parent="." groups=["enemy_area"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.672421)
+
+[node name="collision_area_hitbox" type="CollisionShape3D" parent="collision_area1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("CylinderShape3D_jdsx6")
+
+[node name="collision_area2" type="Area3D" parent="." groups=["enemy_area"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4235, 0, -3.16643)
+
+[node name="collision_area_hitbox" type="CollisionShape3D" parent="collision_area2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("CylinderShape3D_jhmyx")
+
+[node name="collision_area3" type="Area3D" parent="." groups=["enemy_area"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.42915, 0, -3.16643)
+
+[node name="collision_area_hitbox" type="CollisionShape3D" parent="collision_area3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("CylinderShape3D_jhmyx")
+
+[node name="collision_area4" type="Area3D" parent="." groups=["enemy_area"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.42915, 0, 4.3202)
+
+[node name="collision_area_hitbox" type="CollisionShape3D" parent="collision_area4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("CylinderShape3D_jhmyx")
+
+[node name="collision_area5" type="Area3D" parent="." groups=["enemy_area"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.41934, 0, 4.3202)
+
+[node name="collision_area_hitbox" type="CollisionShape3D" parent="collision_area5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("CylinderShape3D_jhmyx")
+
+[node name="collision_area6" type="Area3D" parent="." groups=["enemy_area"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00854445, 0, 4.3202)
+
+[node name="collision_area_hitbox" type="CollisionShape3D" parent="collision_area6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("CylinderShape3D_jhmyx")
+
+[node name="collision_area7" type="Area3D" parent="." groups=["enemy_area"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00854445, 0, -3.22663)
+
+[node name="collision_area_hitbox" type="CollisionShape3D" parent="collision_area7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("CylinderShape3D_jhmyx")
+
+[node name="home" parent="." instance=ExtResource("8_sikwn")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, 0, 0)
+color = Color(0.733333, 0.113725, 0.933333, 0.858824)
+
+[node name="respawn" type="Timer" parent="."]
+one_shot = true
+
+[node name="ray" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.858442, 0)
+
+[node name="health" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.86347, 0)
+pixel_size = 0.01
+billboard = 1
+texture_filter = 2
+text = "100"
+font = ExtResource("9_l6ddb")
+font_size = 64
+
+[node name="key" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.73435, 0)
+modulate = Color(1, 1, 0, 1)
+pixel_size = 0.03
+billboard = 1
+texture_filter = 0
+texture = ExtResource("10_7lx14")
+
+[node name="body" type="MeshInstance3D" parent="."]
+material_override = ExtResource("11_aqvm1")
+mesh = ExtResource("5_m8qa3")
+surface_material_override/0 = SubResource("StandardMaterial3D_5vh1h")
+
+[node name="head" type="MeshInstance3D" parent="."]
+material_override = ExtResource("11_aqvm1")
+mesh = ExtResource("6_ef5jf")
+surface_material_override/0 = SubResource("StandardMaterial3D_5vh1h")
+
+[node name="fire_timer" type="Timer" parent="."]
+wait_time = 2.0
+
+[connection signal="timeout" from="respawn" to="." method="_on_respawn_timeout"]
+[connection signal="timeout" from="fire_timer" to="." method="_on_fire_timer_timeout"]

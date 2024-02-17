@@ -1,28 +1,19 @@
-[gd_scene load_steps=19 format=3 uid="uid://bajqqqjylfrys"]
+[gd_scene load_steps=8 format=3 uid="uid://bajqqqjylfrys"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_n6eeb"]
 [ext_resource type="PackedScene" uid="uid://4px2n2dg363l" path="res://scenes/misc_props/player.tscn" id="2_26vq5"]
-[ext_resource type="PackedScene" uid="uid://ddiw8ybfcdmjb" path="res://scenes/misc_props/spring.tscn" id="3_0v1iu"]
-[ext_resource type="PackedScene" uid="uid://cdshg7bk5i645" path="res://scenes/misc_props/garlic.tscn" id="5_hamsc"]
-[ext_resource type="PackedScene" uid="uid://bxguakgn55464" path="res://scenes/misc_props/booster.tscn" id="6_dmeo8"]
-[ext_resource type="PackedScene" uid="uid://b13esvlqxb735" path="res://scenes/props/static_props/abandoned_city/car_001.tscn" id="7_akpa4"]
-[ext_resource type="PackedScene" uid="uid://cgmgdyoch1u3a" path="res://scenes/props/static_props/abandoned_city/car_002.tscn" id="8_rls7e"]
-[ext_resource type="PackedScene" uid="uid://csvyl0lp0e1sj" path="res://scenes/props/static_props/abandoned_city/car_003.tscn" id="9_o8eci"]
-[ext_resource type="PackedScene" uid="uid://bd7l0srjkudj5" path="res://scenes/props/static_props/abandoned_city/light_pole.tscn" id="10_c43ug"]
-[ext_resource type="PackedScene" uid="uid://dpmjcbakobr4n" path="res://scenes/props/static_props/abandoned_city/truck.tscn" id="10_jgxld"]
-[ext_resource type="PackedScene" uid="uid://cian3gl8fgeb7" path="res://scenes/misc_props/double_damage.tscn" id="11_410h7"]
-[ext_resource type="PackedScene" uid="uid://chc7prysjaa7j" path="res://scenes/misc_props/double_speed.tscn" id="12_a6cgt"]
-[ext_resource type="PackedScene" uid="uid://g2rnpkvkd3ns" path="res://scenes/props/static_props/abandoned_city/bench.tscn" id="13_15gvh"]
-[ext_resource type="PackedScene" uid="uid://c5nkifhr5jdnd" path="res://scenes/props/static_props/abandoned_city/shelf.tscn" id="14_f41h2"]
-[ext_resource type="PackedScene" uid="uid://dsklmuink3naj" path="res://scenes/props/enemies/bomber.tscn" id="15_31i56"]
-
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_47luo"]
-data = PackedVector3Array(-28.3425, 0.2, 28.1325, 28.3425, 0.2, 28.1325, -28.3425, -0.2, 28.1325, 28.3425, 0.2, 28.1325, 28.3425, -0.2, 28.1325, -28.3425, -0.2, 28.1325, 28.3425, 0.2, -28.1325, -28.3425, 0.2, -28.1325, 28.3425, -0.2, -28.1325, -28.3425, 0.2, -28.1325, -28.3425, -0.2, -28.1325, 28.3425, -0.2, -28.1325, 28.3425, 0.2, 28.1325, 28.3425, 0.2, -28.1325, 28.3425, -0.2, 28.1325, 28.3425, 0.2, -28.1325, 28.3425, -0.2, -28.1325, 28.3425, -0.2, 28.1325, -28.3425, 0.2, -28.1325, -28.3425, 0.2, 28.1325, -28.3425, -0.2, -28.1325, -28.3425, 0.2, 28.1325, -28.3425, -0.2, 28.1325, -28.3425, -0.2, -28.1325, 28.3425, 0.2, 28.1325, -28.3425, 0.2, 28.1325, 28.3425, 0.2, -28.1325, -28.3425, 0.2, 28.1325, -28.3425, 0.2, -28.1325, 28.3425, 0.2, -28.1325, -28.3425, -0.2, 28.1325, 28.3425, -0.2, 28.1325, -28.3425, -0.2, -28.1325, 28.3425, -0.2, 28.1325, 28.3425, -0.2, -28.1325, -28.3425, -0.2, -28.1325)
+[ext_resource type="PackedScene" uid="uid://7t26m1omsbhg" path="res://scenes/props/enemies/tank.tscn" id="11_fi5ga"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ctp2d"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3cwp8"]
 albedo_color = Color(0, 0, 0.164706, 1)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_g4v8a"]
+data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xhawp"]
+size = Vector3(58.5204, 20.87, 60.3318)
 
 [node name="test_level_3" type="Node3D"]
 script = ExtResource("1_n6eeb")
@@ -30,20 +21,18 @@ script = ExtResource("1_n6eeb")
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 transform = Transform3D(0.999939, 0, 0.0110826, 0, 1, 0, -0.0110826, 0, 0.999939, 0, 0, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_47luo")
-
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
 transform = Transform3D(28.0525, 0, -0.310913, 0, 28.0542, 0, 0.310913, 0, 28.0525, 0, 0.19884, 0)
 mesh = SubResource("PlaneMesh_ctp2d")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_3cwp8")
 
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(28.0525, 0, -0.310913, 0, 28.0542, 0, 0.310913, 0, 28.0525, 0, 0.19884, 0)
+shape = SubResource("ConcavePolygonShape3D_g4v8a")
+
 [node name="player" parent="." instance=ExtResource("2_26vq5")]
 transform = Transform3D(0.276661, 0, 0.960968, 0, 1, 0, -0.960968, 0, 0.276661, 17.4023, 0.200682, 7.86262)
-
-[node name="spring" parent="." instance=ExtResource("3_0v1iu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.363, 0.200001, 18.0439)
 
 [node name="light" type="DirectionalLight3D" parent="." groups=["light"]]
 transform = Transform3D(-0.270371, 0.958996, -0.0850087, -0.539281, -0.0777098, 0.838533, 0.797543, 0.272559, 0.538179, 34.4022, 23.7255, -146.613)
@@ -53,38 +42,13 @@ shadow_bias = 0.01
 shadow_opacity = 0.7
 directional_shadow_blend_splits = true
 
-[node name="garlic" parent="." instance=ExtResource("5_hamsc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.3583, 0.200001, 20.4772)
+[node name="tank" parent="." instance=ExtResource("11_fi5ga")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.30371, 0.200003, -0.917599)
+spawns = Array[PackedVector3Array]([PackedVector3Array(1, 90, 15)])
+min_difs = Array[PackedInt32Array]([PackedInt32Array(2)])
 
-[node name="booster3" parent="." instance=ExtResource("6_dmeo8")]
-transform = Transform3D(-0.254995, 0, -10.9102, 0, 1, 0, 1.98368, 0, -1.40247, 10.1929, 0.213042, 22.1855)
+[node name="Area3D" type="Area3D" parent="tank"]
 
-[node name="Car001" parent="." instance=ExtResource("7_akpa4")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 12.642, 0.199999, 5.80766)
-
-[node name="Car002" parent="." instance=ExtResource("8_rls7e")]
-transform = Transform3D(0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, 0.258819, 6.64022, 0.200001, 7.37157)
-
-[node name="Car003" parent="." instance=ExtResource("9_o8eci")]
-transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, 10.2821, 0.2, 2.09707)
-
-[node name="Truck" parent="." instance=ExtResource("10_jgxld")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.3002, 0.200002, 15.1007)
-
-[node name="LightPole" parent="." instance=ExtResource("10_c43ug")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.745, 0.0558164, 7.32406)
-
-[node name="double_damage" parent="." instance=ExtResource("11_410h7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.78915, 2.2, -13.3631)
-
-[node name="double_speed" parent="." instance=ExtResource("12_a6cgt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.9759, 2.2, -13.0351)
-
-[node name="bench" parent="." instance=ExtResource("13_15gvh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5915, 0.200003, 6.24168)
-
-[node name="shelf" parent="." instance=ExtResource("14_f41h2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.9127, 0.2, -2.49677)
-
-[node name="mage" parent="." instance=ExtResource("15_31i56")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.8435, 0.200001, -12.379)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="tank/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.321838, 9.935, 2.29626)
+shape = SubResource("BoxShape3D_xhawp")

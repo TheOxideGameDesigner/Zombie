@@ -3,6 +3,8 @@ extends Node3D
 
 var dir : Vector3 = Vector3.ZERO
 @export var explosive_force = 3
+@export var lifetime = 5
+@export var sinking_speed = 0.25
 var rigid_bodies : Array[RigidBody3D] = []
 var frozen = 0
 var frames_passed = 0
@@ -35,7 +37,7 @@ func _physics_process(delta):
 			
 	if frozen:
 		for c in rigid_bodies:
-			c.position.y -= delta * 0.25
+			c.position.y -= delta * sinking_speed
 		timer += delta
-		if timer > 5:
+		if timer > lifetime:
 			queue_free()
