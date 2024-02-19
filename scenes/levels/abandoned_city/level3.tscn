@@ -3089,7 +3089,7 @@ transform = Transform3D(7.54979e-08, 0, -28.06, 0, 1, 0, 1, 0, 2.11847e-06, 525.
 
 [node name="exit" parent="." instance=ExtResource("35_uvge5")]
 transform = Transform3D(-2, 0, 1.74846e-07, 0, 2, 0, -1.74846e-07, 0, -2, 502.989, 0.85853, 576.002)
-chapter = 2
+chapter = 3
 level = 3
 
 [node name="player" parent="." instance=ExtResource("2_sxsv8")]

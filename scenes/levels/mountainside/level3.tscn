@@ -63,6 +63,7 @@ transform = Transform3D(-0.717385, 0, 0.696677, 0, 1, 0, -0.696677, 0, -0.717385
 
 [node name="exit" parent="." instance=ExtResource("13_qjap5")]
 transform = Transform3D(1.89654, 0, -1.80763, 0, 2.62, 0, 1.80763, 0, 1.89654, 66.1199, 0.354117, -204.005)
+chapter = 1
 level = 3
 
 [node name="blue_key" parent="." instance=ExtResource("10_5cvph")]

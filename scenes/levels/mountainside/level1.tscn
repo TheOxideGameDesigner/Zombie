@@ -213,6 +213,7 @@ keys_required = Array[int]([2])
 
 [node name="exit" parent="." instance=ExtResource("6_xyec8")]
 transform = Transform3D(-1.77833, 0, 0.154146, 0, 1.785, 0, -0.154146, 0, -1.77833, 46.8039, 20.583, 40.5216)
+chapter = 1
 level = 1
 
 [node name="garlic" parent="." instance=ExtResource("11_wqy1s")]

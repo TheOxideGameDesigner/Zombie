@@ -126,6 +126,7 @@ var particles_scene = preload("res://scenes/environment/blood_particles.tscn")
 
 @export var environment : Environment
 @export_file("*.tscn") var respawn_scene
+@export var init_health : int = -1
 
 
 var revolver_mf_timer = 0
@@ -295,14 +296,16 @@ func shoot():
 			shotgun_anim_timer = SHOTGUN_COOLDOWN + cooldown_var
 			
 			const BULLETS = 6
-			const SPREAD_RADIUS = 0.05
+			const SPREAD_RADIUS = 0.035
 			for i in range(BULLETS):
 				var ang = 2 * PI * i / BULLETS
 				var dir_off = Vector3(cos(ang), sin(ang), 0) * SPREAD_RADIUS
 				var bullet = bullet_scene.instantiate()
-				bullet.position = Vector3(0.65, -0.227, -1.348) + viewmodel_pos
+				bullet.position = Vector3(0.645, -0.23, -1.111) + viewmodel_pos
+				bullet.rotation.y = 0.1 + dir_off.y
+				bullet.rotation.x = 0.04 + dir_off.x
+				bullet.lifespan = 0.08
 				gun_cam.add_child(bullet)
-				bullet.rotate(Vector3.FORWARD.cross(Vector3.FORWARD + dir_off).normalized(), Vector3.FORWARD.angle_to(Vector3.FORWARD + dir_off))
 			
 		3:
 			camera.add_tilt(1.5, Vector3(1, 0, 0), 3)
@@ -343,8 +346,8 @@ func shoot():
 			
 			var bullet = bullet_scene.instantiate()
 			bullet.position = Vector3(0.645, -0.23, -1.111) + viewmodel_pos
-			bullet.rotation.y = 0.1 + randf_range(-0.025, 0.025)
-			bullet.rotation.x = 0.04 + randf_range(-0.025, 0.025)
+			bullet.rotation.y = 0.1 + randf_range(-0.01, 0.01)
+			bullet.rotation.x = 0.04 + randf_range(-0.01, 0.01)
 			bullet.lifespan = 0.08
 			gun_cam.add_child(bullet)
 
@@ -395,8 +398,9 @@ func shoot_alt():
 			
 		var bullet = bullet_scene.instantiate()
 		bullet.position = Vector3(0.645, -0.23, -1.111) + viewmodel_pos
-		bullet.rotation.y = 0.1 + randf_range(-0.035, 0.035)
-		bullet.rotation.x = 0.04 + randf_range(-0.035, 0.035)
+		bullet.rotation.y = 0.1 + randf_range(-0.01, 0.01)
+		bullet.rotation.x = 0.04 + randf_range(-0.01, 0.01)
+		bullet.lifespan = 0.08
 		gun_cam.add_child(bullet)
 
 
@@ -534,6 +538,8 @@ func _ready():
 	
 	
 	health = max_health
+	if init_health > 0:
+		health = init_health
 	
 	disable_particles = config.get_value("video", "disable_particles", false)
 	if config.get_value("video", "disable_shake", false):

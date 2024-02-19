@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dj2w0jwvmbuau"
+path="res://.godot/imported/tutorial_text.obj-198bce5e610b3be9258832ca9be328f0.mesh"
+
+[deps]
+
+files=["res://.godot/imported/tutorial_text.obj-198bce5e610b3be9258832ca9be328f0.mesh"]
+
+source_file="res://models/static_props/tutorial/tutorial_text.obj"
+dest_files=["res://.godot/imported/tutorial_text.obj-198bce5e610b3be9258832ca9be328f0.mesh", "res://.godot/imported/tutorial_text.obj-198bce5e610b3be9258832ca9be328f0.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

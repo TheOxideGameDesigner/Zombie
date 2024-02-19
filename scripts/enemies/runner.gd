@@ -74,6 +74,7 @@ var y_vel = 0.0
 
 @export var respawn_time = 10.0
 @export var spawn_ang = 0.0
+@export var sedated = false
 @export_range(0, 4) var min_dif = 0
 var rand_roam_off
 
@@ -203,6 +204,8 @@ func pain(dmg):
 	if player.wpn == 1:
 		player.health = player.health + REVOLVER_HEAL
 	
+	if sedated:
+		return
 	alerted.visible = 1
 	target_pos = player.position
 
@@ -315,7 +318,7 @@ func _physics_process(delta):
 		return
 	
 	var asleep = is_asleep()
-	hitbox.disabled = not rising and (not alive or (asleep and add_vel.is_zero_approx()))
+	hitbox.disabled = not sedated and not rising and (not alive or (asleep and add_vel.is_zero_approx()))
 	
 	var dir2player = player.global_position - global_position
 	var dir2player2D = Vector2(dir2player.x, dir2player.z).normalized()
@@ -384,7 +387,7 @@ func _physics_process(delta):
 	#zombie logic
 	ray.target_position = ray.to_local(player.position + Vector3(0, 1.5, 0)).normalized() * VIS_RANGE
 	ray.force_raycast_update()
-	sees_player = ray.is_colliding() and ray.get_collider().is_in_group("player")
+	sees_player = not sedated and ray.is_colliding() and ray.get_collider().is_in_group("player")
 	if sees_player:
 		target_pos = player.position
 		attention_span_timer = 0

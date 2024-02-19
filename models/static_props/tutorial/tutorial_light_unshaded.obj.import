@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cvh1gtdnvcqp"
+path="res://.godot/imported/tutorial_light_unshaded.obj-aa0968265b46653cce96eb03e8832103.mesh"
+
+[deps]
+
+files=["res://.godot/imported/tutorial_light_unshaded.obj-aa0968265b46653cce96eb03e8832103.mesh"]
+
+source_file="res://models/static_props/tutorial/tutorial_light_unshaded.obj"
+dest_files=["res://.godot/imported/tutorial_light_unshaded.obj-aa0968265b46653cce96eb03e8832103.mesh", "res://.godot/imported/tutorial_light_unshaded.obj-aa0968265b46653cce96eb03e8832103.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

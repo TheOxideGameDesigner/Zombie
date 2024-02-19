@@ -109,7 +109,7 @@ environment = ExtResource("13_t7gt6")
 
 [node name="exit" parent="." instance=ExtResource("12_kar2j")]
 transform = Transform3D(-1.635, 0, 2.46878e-07, 0, 1.635, 0, -2.46878e-07, 0, -1.635, 292.953, 181.935, 458.944)
-chapter = 2
+chapter = 3
 
 [node name="garlic" parent="." instance=ExtResource("14_giq0k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100.093, 278.113, 524.186)

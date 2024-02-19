@@ -97,7 +97,7 @@ script = ExtResource("6_m83jf")
 
 [node name="exit" parent="." instance=ExtResource("31_bd02h")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 110.02, 0.704423, -70.0137)
-chapter = 2
+chapter = 3
 level = 1
 
 [node name="garlic" parent="." instance=ExtResource("32_1vxow")]

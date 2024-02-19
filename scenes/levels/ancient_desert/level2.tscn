@@ -106,7 +106,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -83.639, -15, -107.647)
 
 [node name="exit" parent="." instance=ExtResource("13_gkolt")]
 transform = Transform3D(-1.6262, 0, -1.42167e-07, 0, 1.6262, 0, 1.42167e-07, 0, -1.6262, 0.923833, 1.4643, 0.907269)
-chapter = 1
+chapter = 2
 level = 2
 
 [node name="props" type="Node3D" parent="."]

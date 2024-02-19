@@ -75,7 +75,7 @@ directional_shadow_blend_splits = true
 
 [node name="exit" parent="." instance=ExtResource("33_7mt0l")]
 transform = Transform3D(-2, 0, 3.01992e-07, 0, 2, 0, -3.01992e-07, 0, -2, 4.97742, 0.605917, -4.9502)
-chapter = 2
+chapter = 3
 level = 4
 
 [node name="player" parent="." instance=ExtResource("21_krmhd")]

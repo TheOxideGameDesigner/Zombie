@@ -121,7 +121,7 @@ environment = ExtResource("14_y8w5k")
 
 [node name="exit" parent="." instance=ExtResource("17_ok6ic")]
 transform = Transform3D(-1.64, 0, -2.47633e-07, 0, 1.64, 0, 2.47633e-07, 0, -1.64, 53.0401, 175.775, 868.47)
-chapter = 1
+chapter = 2
 level = 5
 
 [node name="yellow_key" parent="." instance=ExtResource("9_4j3jf")]

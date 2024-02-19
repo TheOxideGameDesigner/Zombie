@@ -34,24 +34,6 @@ offset_bottom = 114.0
 scale = Vector2(1.58887, 1.58887)
 text = "congratulations!"
 
-[node name="Label2" type="Label" parent="."]
-z_index = 20
-layout_mode = 0
-offset_left = 348.0
-offset_top = 173.0
-offset_right = 1539.0
-offset_bottom = 240.0
-text = "you extracted the garlic"
-
-[node name="Label3" type="Label" parent="."]
-z_index = 20
-layout_mode = 0
-offset_left = 206.0
-offset_top = 266.0
-offset_right = 1691.0
-offset_bottom = 333.0
-text = "there may still be hope for us"
-
 [node name="instructions" type="Label" parent="."]
 z_index = 20
 layout_mode = 1
@@ -73,16 +55,16 @@ autowrap_mode = 3
 z_index = 20
 layout_mode = 0
 offset_left = 213.0
-offset_top = 433.0
-offset_right = 816.0
-offset_bottom = 500.0
+offset_top = 331.0
+offset_right = 1128.0
+offset_bottom = 398.0
 text = "damage taken   123"
 
 [node name="time" type="Label" parent="."]
 z_index = 20
 layout_mode = 0
 offset_left = 215.0
-offset_top = 563.0
-offset_right = 818.0
-offset_bottom = 630.0
+offset_top = 461.0
+offset_right = 1180.0
+offset_bottom = 528.0
 text = "time           4[55"

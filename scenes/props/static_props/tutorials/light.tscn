@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://dh6iqvaohxhu4"]
+
+[ext_resource type="Material" uid="uid://uxn8fucitgfr" path="res://resources/materials/level_mat.tres" id="1_dde7s"]
+[ext_resource type="ArrayMesh" uid="uid://bodam41l1kgyc" path="res://models/static_props/tutorial/tutorial_light.obj" id="2_4m2k5"]
+[ext_resource type="Material" uid="uid://ctc1jrcarvuc6" path="res://resources/materials/level_unshaded_mat.tres" id="3_u4oyu"]
+[ext_resource type="ArrayMesh" uid="uid://cvh1gtdnvcqp" path="res://models/static_props/tutorial/tutorial_light_unshaded.obj" id="4_jh06w"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yf8lw"]
+size = Vector3(0.845852, 1.40301, 0.839233)
+
+[node name="light1" type="StaticBody3D"]
+
+[node name="mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.415, 0, 0, 0, 0.415, 0, 0, 0, 0.415, 0, 1.48201, 0)
+material_override = ExtResource("1_dde7s")
+cast_shadow = 0
+mesh = ExtResource("2_4m2k5")
+skeleton = NodePath("../..")
+
+[node name="light_mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.415, 0, 0, 0, 0.415, 0, 0, 0, 0.415, 0, 1.48201, 0)
+material_override = ExtResource("3_u4oyu")
+cast_shadow = 0
+mesh = ExtResource("4_jh06w")
+skeleton = NodePath("../..")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.14472, 0)
+layers = 33
+light_color = Color(0.882353, 1, 1, 1)
+omni_range = 70.8941
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00367144, 1.72311, 0.0046488)
+shape = SubResource("BoxShape3D_yf8lw")

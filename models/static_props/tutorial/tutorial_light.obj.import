@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bodam41l1kgyc"
+path="res://.godot/imported/tutorial_light.obj-1b1cc5dff7d9cbb691947c7646501fca.mesh"
+
+[deps]
+
+files=["res://.godot/imported/tutorial_light.obj-1b1cc5dff7d9cbb691947c7646501fca.mesh"]
+
+source_file="res://models/static_props/tutorial/tutorial_light.obj"
+dest_files=["res://.godot/imported/tutorial_light.obj-1b1cc5dff7d9cbb691947c7646501fca.mesh", "res://.godot/imported/tutorial_light.obj-1b1cc5dff7d9cbb691947c7646501fca.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

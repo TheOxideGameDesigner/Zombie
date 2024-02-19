@@ -605,4 +605,5 @@ key_index = 2
 
 [node name="exit" parent="." instance=ExtResource("10_ni3bv")]
 transform = Transform3D(-3.22688, -0.0191107, -0.2283, -1.06353e-09, 3.22373, -0.269854, 0.229098, -0.269176, -3.21563, 0.822566, 13.9602, 23.4159)
+chapter = 1
 level = 2

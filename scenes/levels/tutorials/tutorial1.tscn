@@ -1,0 +1,430 @@
+[gd_scene load_steps=20 format=3 uid="uid://jstpe3x0cnlt"]
+
+[ext_resource type="Script" path="res://scripts/world.gd" id="1_5tjbv"]
+[ext_resource type="Material" uid="uid://uxn8fucitgfr" path="res://resources/materials/level_mat.tres" id="2_mj6bf"]
+[ext_resource type="ArrayMesh" uid="uid://bnvjnctagixge" path="res://models/levels/tutorials/tutorial1.obj" id="3_gw2ma"]
+[ext_resource type="Script" path="res://scripts/create_static_body_child.gd" id="4_ut1iw"]
+[ext_resource type="PackedScene" uid="uid://4px2n2dg363l" path="res://scenes/misc_props/player.tscn" id="5_3yvsu"]
+[ext_resource type="Environment" uid="uid://ccc22srsoem5t" path="res://resources/level_enviroments/tutorial_environment.tres" id="6_tnyfd"]
+[ext_resource type="PackedScene" uid="uid://dh6iqvaohxhu4" path="res://scenes/props/static_props/tutorials/light.tscn" id="7_l8xl7"]
+[ext_resource type="ArrayMesh" uid="uid://cawukqsj4hmon" path="res://models/static_props/tutorial/tutorial_gate.obj" id="8_kyx0b"]
+[ext_resource type="ArrayMesh" uid="uid://dc2wye5pu6wb8" path="res://models/static_props/tutorial/tutorial_switch.obj" id="9_hts7x"]
+[ext_resource type="ArrayMesh" uid="uid://dt1c55unr6i6o" path="res://models/static_props/tutorial/tutorial_switch_moving.obj" id="10_00o4g"]
+[ext_resource type="Script" path="res://scripts/triggers/trigger_area.gd" id="11_hfn2x"]
+[ext_resource type="PackedScene" uid="uid://bfwjae77m2xmb" path="res://scenes/props/triggers/move_trigger.tscn" id="12_5qaq5"]
+[ext_resource type="PackedScene" uid="uid://ct4dtw3ijmehk" path="res://scenes/props/enemies/runner.tscn" id="13_pp1l5"]
+[ext_resource type="PackedScene" uid="uid://csmucdgy7vpql" path="res://scenes/misc_props/exit.tscn" id="14_eiago"]
+[ext_resource type="PackedScene" uid="uid://c3g448o4xte1l" path="res://scenes/props/static_props/tutorials/tutorial_text.tscn" id="15_cle5m"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j0kxy"]
+size = Vector3(10.2383, 4.21899, 0.297852)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0tvtb"]
+size = Vector3(0.385223, 0.493286, 0.441895)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6uyh6"]
+size = Vector3(2.04242, 3.48816, 3.27691)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0nq7k"]
+size = Vector3(32.4707, 3.07813, 16.8503)
+
+[node name="tutorial1" type="Node3D"]
+script = ExtResource("1_5tjbv")
+
+[node name="level" type="MeshInstance3D" parent="."]
+material_override = ExtResource("2_mj6bf")
+cast_shadow = 0
+mesh = ExtResource("3_gw2ma")
+script = ExtResource("4_ut1iw")
+hide_mesh = false
+
+[node name="player" parent="." groups=["9"] instance=ExtResource("5_3yvsu")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 236.753, -1.25862, -61.5135)
+environment = ExtResource("6_tnyfd")
+init_health = 75
+
+[node name="light1" parent="." instance=ExtResource("7_l8xl7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 236.5, 1.3014, -52.3502)
+
+[node name="light3" parent="." instance=ExtResource("7_l8xl7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 204.054, 6.24047, -28.4591)
+
+[node name="light6" parent="." instance=ExtResource("7_l8xl7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 159.217, 6.30578, -20.4313)
+
+[node name="light10" parent="." instance=ExtResource("7_l8xl7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73.0576, 6.24345, -35.3226)
+
+[node name="light8" parent="." instance=ExtResource("7_l8xl7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 115.605, 6.27093, -26.3164)
+
+[node name="light12" parent="." instance=ExtResource("7_l8xl7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.8747, 6.35696, -23.803)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.357262, 0.795883, -0.488809, 0.00296106, 0.52431, 0.851522, 0.933999, 0.302769, -0.189673, 0, 80.2176, 0)
+light_color = Color(0.941176, 1, 1, 1)
+
+[node name="gate1" type="StaticBody3D" parent="." groups=["5"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 204, 0, -14)
+
+[node name="TutorialGate" type="MeshInstance3D" parent="gate1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00139999, -0.500202)
+material_override = ExtResource("2_mj6bf")
+mesh = ExtResource("8_kyx0b")
+skeleton = NodePath("../../light1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="gate1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0184631, 1.968, -0.351074)
+shape = SubResource("BoxShape3D_j0kxy")
+
+[node name="gate2" type="StaticBody3D" parent="." groups=["6"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 160, 0, -5)
+
+[node name="TutorialGate" type="MeshInstance3D" parent="gate2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00139999, -0.500202)
+material_override = ExtResource("2_mj6bf")
+mesh = ExtResource("8_kyx0b")
+skeleton = NodePath("../../light1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="gate2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0184631, 1.968, -0.351074)
+shape = SubResource("BoxShape3D_j0kxy")
+
+[node name="gate3" type="StaticBody3D" parent="." groups=["7"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73, 0, -17)
+
+[node name="TutorialGate" type="MeshInstance3D" parent="gate3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00139999, -0.500202)
+material_override = ExtResource("2_mj6bf")
+mesh = ExtResource("8_kyx0b")
+skeleton = NodePath("../../light1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="gate3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0184631, 1.968, -0.351074)
+shape = SubResource("BoxShape3D_j0kxy")
+
+[node name="gate4" type="StaticBody3D" parent="." groups=["8"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31, 0, -7)
+
+[node name="TutorialGate" type="MeshInstance3D" parent="gate4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00139999, -0.500202)
+material_override = ExtResource("2_mj6bf")
+mesh = ExtResource("8_kyx0b")
+skeleton = NodePath("../../light1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="gate4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0184631, 1.968, -0.351074)
+shape = SubResource("BoxShape3D_j0kxy")
+
+[node name="switch1" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 218, 3, -21)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="switch1"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.114902, -1.8, 0)
+material_override = ExtResource("2_mj6bf")
+mesh = ExtResource("9_hts7x")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="switch1" groups=["1"]]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.114899, -1.8, 0)
+material_override = ExtResource("2_mj6bf")
+mesh = ExtResource("10_00o4g")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="switch1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.176426, -1.54728, -0.0118179)
+shape = SubResource("BoxShape3D_0tvtb")
+
+[node name="Area3D" type="Area3D" parent="switch1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.6, 0)
+script = ExtResource("11_hfn2x")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="switch1/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.937225, -0.439026, 0.00371361)
+shape = SubResource("BoxShape3D_6uyh6")
+
+[node name="move_trigger" parent="switch1/Area3D" instance=ExtResource("12_5qaq5")]
+group = 1
+target = Vector3(0, -0.35, 0)
+time = 0.5
+
+[node name="move_trigger2" parent="switch1/Area3D" instance=ExtResource("12_5qaq5")]
+group = 5
+target = Vector3(0, 5, 0)
+time = 1.0
+
+[node name="switch2" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 174, 3, -12)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="switch2"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.114902, -1.8, 0)
+material_override = ExtResource("2_mj6bf")
+mesh = ExtResource("9_hts7x")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="switch2" groups=["2"]]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.114899, -1.8, 0)
+material_override = ExtResource("2_mj6bf")
+mesh = ExtResource("10_00o4g")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="switch2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.176426, -1.54728, -0.0118179)
+shape = SubResource("BoxShape3D_0tvtb")
+
+[node name="Area3D" type="Area3D" parent="switch2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.6, 0)
+script = ExtResource("11_hfn2x")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="switch2/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.937225, -0.439026, 0.00371361)
+shape = SubResource("BoxShape3D_6uyh6")
+
+[node name="move_trigger" parent="switch2/Area3D" instance=ExtResource("12_5qaq5")]
+group = 2
+target = Vector3(0, -0.35, 0)
+time = 0.5
+
+[node name="move_trigger2" parent="switch2/Area3D" instance=ExtResource("12_5qaq5")]
+group = 6
+target = Vector3(0, 5, 0)
+time = 1.0
+
+[node name="switch3" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86, 3, -25)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="switch3"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.114902, -1.8, 0)
+material_override = ExtResource("2_mj6bf")
+mesh = ExtResource("9_hts7x")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="switch3" groups=["3"]]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.114899, -1.8, 0)
+material_override = ExtResource("2_mj6bf")
+mesh = ExtResource("10_00o4g")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="switch3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.176426, -1.54728, -0.0118179)
+shape = SubResource("BoxShape3D_0tvtb")
+
+[node name="Area3D" type="Area3D" parent="switch3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.6, 0)
+script = ExtResource("11_hfn2x")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="switch3/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.937225, -0.439026, 0.00371361)
+shape = SubResource("BoxShape3D_6uyh6")
+
+[node name="move_trigger" parent="switch3/Area3D" instance=ExtResource("12_5qaq5")]
+group = 3
+target = Vector3(0, -0.35, 0)
+time = 0.5
+
+[node name="move_trigger2" parent="switch3/Area3D" instance=ExtResource("12_5qaq5")]
+group = 7
+target = Vector3(0, 5, 0)
+time = 1.0
+
+[node name="switch4" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45, 3, -15)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="switch4"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.114902, -1.8, 0)
+material_override = ExtResource("2_mj6bf")
+mesh = ExtResource("9_hts7x")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="switch4" groups=["4"]]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.114899, -1.8, 0)
+material_override = ExtResource("2_mj6bf")
+mesh = ExtResource("10_00o4g")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="switch4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.176426, -1.54728, -0.0118179)
+shape = SubResource("BoxShape3D_0tvtb")
+
+[node name="Area3D" type="Area3D" parent="switch4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.6, 0)
+script = ExtResource("11_hfn2x")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="switch4/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.937225, -0.439026, 0.00371361)
+shape = SubResource("BoxShape3D_6uyh6")
+
+[node name="move_trigger" parent="switch4/Area3D" instance=ExtResource("12_5qaq5")]
+group = 4
+target = Vector3(0, -0.35, 0)
+time = 0.5
+
+[node name="move_trigger2" parent="switch4/Area3D" instance=ExtResource("12_5qaq5")]
+group = 8
+target = Vector3(0, 5, 0)
+time = 1.0
+
+[node name="runner" parent="." instance=ExtResource("13_pp1l5")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 204, 0, -9)
+sedated = true
+
+[node name="runner11" parent="." instance=ExtResource("13_pp1l5")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 207.954, 0, -9)
+sedated = true
+
+[node name="runner12" parent="." instance=ExtResource("13_pp1l5")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 199.97, 0, -9)
+sedated = true
+
+[node name="runner2" parent="." instance=ExtResource("13_pp1l5")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 160, 0, 0)
+sedated = true
+
+[node name="runner13" parent="." instance=ExtResource("13_pp1l5")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 156.375, 0, 0)
+sedated = true
+
+[node name="runner10" parent="." instance=ExtResource("13_pp1l5")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 164.104, 0, 0)
+sedated = true
+
+[node name="runner3" parent="." instance=ExtResource("13_pp1l5")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 108, 0, -17.2183)
+sedated = true
+
+[node name="runner7" parent="." instance=ExtResource("13_pp1l5")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 103.511, 0, -16.954)
+sedated = true
+
+[node name="runner8" parent="." instance=ExtResource("13_pp1l5")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 112.505, 0, -17.1206)
+sedated = true
+
+[node name="runner4" parent="." instance=ExtResource("13_pp1l5")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 73, 0, -13)
+sedated = true
+
+[node name="runner14" parent="." instance=ExtResource("13_pp1l5")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 74.2782, 0, -12.1444)
+sedated = true
+
+[node name="runner15" parent="." instance=ExtResource("13_pp1l5")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 71.9036, 0, -11.7371)
+sedated = true
+
+[node name="runner16" parent="." instance=ExtResource("13_pp1l5")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 73.2224, 0, -10.9891)
+sedated = true
+
+[node name="runner17" parent="." instance=ExtResource("13_pp1l5")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 71.1369, 0, -13.2073)
+sedated = true
+
+[node name="runner18" parent="." instance=ExtResource("13_pp1l5")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 74.4962, 0, -13.7146)
+sedated = true
+
+[node name="runner5" parent="." instance=ExtResource("13_pp1l5")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 31, 0, -3)
+sedated = true
+
+[node name="runner19" parent="." instance=ExtResource("13_pp1l5")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 33.3486, 0, -3)
+sedated = true
+
+[node name="runner20" parent="." instance=ExtResource("13_pp1l5")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 28.3618, 0, -3)
+sedated = true
+
+[node name="runner21" parent="." instance=ExtResource("13_pp1l5")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 35.9845, 0, -3)
+sedated = true
+
+[node name="runner22" parent="." instance=ExtResource("13_pp1l5")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 25.565, 0, -3)
+sedated = true
+
+[node name="runner23" parent="." instance=ExtResource("13_pp1l5")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 33.3663, 0, 0.142891)
+sedated = true
+
+[node name="runner24" parent="." instance=ExtResource("13_pp1l5")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 28.4436, 0, 0.142891)
+sedated = true
+
+[node name="runner6" parent="." instance=ExtResource("13_pp1l5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.01699, -3, -9)
+sedated = true
+
+[node name="runner9" parent="." instance=ExtResource("13_pp1l5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.95034, -3, -9.25013)
+sedated = true
+
+[node name="exit" parent="." instance=ExtResource("14_eiago")]
+transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -14, -2.5, 13)
+chapter = 1
+requires_garlic = false
+
+[node name="tutorial_text" parent="." instance=ExtResource("15_cle5m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 236.469, -1.3, -52.2285)
+message = "welcome to the training course
+
+press {g_jump} to jump and double jump"
+
+[node name="tutorial_text2" parent="." instance=ExtResource("15_cle5m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 204.114, 9.53674e-07, -28.4367)
+message = "Press {g_wpn1} to equip your pistol
+
+you can also use {g_next} and {g_prev} to switch weapons
+
+The pistol heals you on each hit
+
+Use the switch to open the gate and practice it on the sedated zombies
+"
+
+[node name="tutorial_text3" parent="." instance=ExtResource("15_cle5m")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 118.117, 9.53674e-07, -15.7194)
+message = "if you shoot at point blank range with the shotgun you get a slight speed boost in the opposite direction
+
+try using this to cross the gap"
+
+[node name="tutorial_text8" parent="." instance=ExtResource("15_cle5m")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 159.307, 9.53674e-07, -16.4605)
+message = "press {g_wpn2} to equip your shotgun
+
+the shotgun is very powerful at close ranges
+
+zombies turn red when they are in the point blank range of your shotgun"
+
+[node name="tutorial_text4" parent="." instance=ExtResource("15_cle5m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73.1054, 9.53674e-07, -33.1139)
+message = "press {g_wpn3} to equip the cannon
+
+{g_attack} fires a plasma ball that deals splash damage and knockback
+
+{g_attack2} fires a bomb that deals higher damage but can hurt you if you are too close to it"
+
+[node name="tutorial_text5" parent="." instance=ExtResource("15_cle5m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.9321, 9.53674e-07, -22.4096)
+message = "press {g_wpn4} to equip the blaster
+
+{g_attack} rapidly fires shots and does damage quickly, but it also slightly hurts you
+
+{g_attack2} fires even faster but hurts you more"
+
+[node name="tutorial_text6" parent="." instance=ExtResource("15_cle5m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8274, 9.53674e-07, -13.6023)
+message = "you can also jump on lightweight zombies to kill them"
+
+[node name="tutorial_text7" parent="." instance=ExtResource("15_cle5m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.06368, -3.02284, 8.91932)
+message = "you are now prepared to complete your mission
+
+good luck"
+
+[node name="death_zone" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 114.47, -10.0076, -28.779)
+script = ExtResource("11_hfn2x")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="death_zone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.12988, -1.03906, 1.42297)
+shape = SubResource("BoxShape3D_0nq7k")
+
+[node name="move_trigger" parent="death_zone" instance=ExtResource("12_5qaq5")]
+group = 9
+target = Vector3(122.957, 0.1, -13.652)
+multi_activate = true
+global_target = true

@@ -285,7 +285,7 @@ transform = Transform3D(-2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, -8.747
 
 [node name="exit" parent="." instance=ExtResource("10_iex13")]
 transform = Transform3D(-1.64, 0, -2.47633e-07, 0, 1.64, 0, 2.47633e-07, 0, -1.64, 0.0845643, 185.914, 3.20398)
-chapter = 1
+chapter = 2
 level = 4
 
 [node name="garlic" parent="." instance=ExtResource("11_u8tr2")]
