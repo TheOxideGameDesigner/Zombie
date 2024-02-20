@@ -375,9 +375,9 @@ offset_left = 139.0
 offset_top = 1608.0
 offset_right = 872.0
 offset_bottom = 1704.0
-text = "MOUSE WHEEL UP"
+text = "MOUSE WHEEL DOWN"
 script = ExtResource("5_8msgh")
-default_value = -4
+default_value = -5
 
 [node name="Label" type="Label" parent="options_control/options/controls/controls_panel/g_next"]
 layout_mode = 0
@@ -393,9 +393,9 @@ offset_left = 136.0
 offset_top = 1745.0
 offset_right = 967.0
 offset_bottom = 1841.0
-text = "MOUSE WHEEL DOWN"
+text = "MOUSE WHEEL UP"
 script = ExtResource("5_8msgh")
-default_value = -5
+default_value = -4
 
 [node name="Label" type="Label" parent="options_control/options/controls/controls_panel/g_prev"]
 layout_mode = 0

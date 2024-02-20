@@ -6,7 +6,7 @@ const REVOLVER_HEAL : int = 3
 const HIT_RANGE : float = 25
 var HIT_DAMAGE : int = 4
 const PB_RANGE : float = 2
-const FALLOFF : float = 0.1
+const FALLOFF : float = 0.5
 const GRAVE_DEPTH : float = 4
 const RISE_HEIGHT : float = 0.25
 const RISE_FLICKER : float = 0.25
@@ -78,7 +78,7 @@ func _ready():
 	
 	var is_opengl = ProjectSettings.get_setting("rendering/renderer/rendering_method") == "gl_compatibility"
 	if is_opengl:
-		mesh_material = preload("res://resources/materials/opengl/enemy_mat_opengl.tres")
+		mesh_material = preload("res://resources/materials/level_mat.tres")
 	body.material_override = mesh_material
 	chaingun.material_override = mesh_material
 	

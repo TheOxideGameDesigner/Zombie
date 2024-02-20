@@ -20,6 +20,7 @@ func _ready():
 	
 	#exceptions
 	config.set_value("mountainside", "0", true)
+	config.set_value("tutorial", "0", true)
 	
 	var pos = Vector2(90, 50)
 	for i in levels:

@@ -94,6 +94,7 @@ var health : int = max_health
 @onready var health_text = $healthbar/health_text
 @onready var blood = $blood
 @onready var fps_label = $fps_label
+var is_opengl = ProjectSettings.get_setting("rendering/renderer/rendering_method") == "gl_compatibility"
 
 @onready var eye_of_anubis = $eye_of_anubis
 
@@ -568,11 +569,11 @@ func _ready():
 	cam.rotation.y = rotation.y
 	rotation.y = 0
 	
-	if ProjectSettings.get_setting("rendering/renderer/rendering_method") == "gl_compatibility":
-		revolver_viewmodel.material_override = preload("res://resources/materials/level_mat.tres")
-		shotgun_viewmodel.material_override = preload("res://resources/materials/level_mat.tres")
-		cannon_viewmodel.material_override = preload("res://resources/materials/level_mat.tres")
-		blaster_viewmodel.material_override = preload("res://resources/materials/level_mat.tres")
+	if is_opengl:
+		revolver_viewmodel.material_override = preload("res://resources/materials/level_mat.tres").duplicate()
+		shotgun_viewmodel.material_override = preload("res://resources/materials/level_mat.tres").duplicate()
+		cannon_viewmodel.material_override = preload("res://resources/materials/level_mat.tres").duplicate()
+		blaster_viewmodel.material_override = preload("res://resources/materials/level_mat.tres").duplicate()
 
 
 func _unhandled_input(event):
@@ -617,9 +618,14 @@ func _unhandled_input(event):
 
 
 func _process(delta):
-	revolver_viewmodel.set_instance_shader_parameter("pain", revolver_heat * 0.2)
-	shotgun_viewmodel.set_instance_shader_parameter("pain", shotgun_heat * 0.2)
-	blaster_viewmodel.set_instance_shader_parameter("pain", blaster_heat * 0.4)
+	if is_opengl:
+		revolver_viewmodel.material_override.albedo_color = Color(1, 1 - revolver_heat * 0.2, 1 - revolver_heat * 0.2)
+		shotgun_viewmodel.material_override.albedo_color = Color(1, 1 - shotgun_heat * 0.4, 1 - shotgun_heat * 0.4)
+		blaster_viewmodel.material_override.albedo_color = Color(1, 1 - blaster_heat * 0.2, 1 - blaster_heat * 0.2)
+	else:
+		revolver_viewmodel.set_instance_shader_parameter("pain", revolver_heat * 0.2)
+		shotgun_viewmodel.set_instance_shader_parameter("pain", shotgun_heat * 0.2)
+		blaster_viewmodel.set_instance_shader_parameter("pain", blaster_heat * 0.4)
 	
 	revolver_anim_timer = max(0, revolver_anim_timer - delta)
 	revolver_cylinder.rotation.z = revolver_anim_timer * PI / (4 * REVOLVER_COOLDOWN)

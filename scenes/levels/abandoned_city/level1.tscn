@@ -80,7 +80,6 @@ environment = ExtResource("14_6lw0s")
 [node name="light" type="DirectionalLight3D" parent="." groups=["light"]]
 transform = Transform3D(0.711456, 0.490704, 0.50303, -0.539281, -0.0777098, 0.838533, 0.450562, -0.867854, 0.209341, 253.533, 245.179, -96.0863)
 light_bake_mode = 0
-shadow_enabled = true
 shadow_bias = 0.01
 shadow_opacity = 0.7
 directional_shadow_blend_splits = true
@@ -862,7 +861,7 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 17.682
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 102.064, -7.62939e-06, 72.6991)
 
 [node name="Cone2" parent="road_props" instance=ExtResource("21_7ogi5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.6477, 0.467262, 63.7165)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.6477, 0.215257, 63.7165)
 
 [node name="Cone6" parent="road_props" instance=ExtResource("21_7ogi5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.4419, 0.25, -68.7942)
