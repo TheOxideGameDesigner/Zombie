@@ -368,14 +368,21 @@ offset_bottom = 110.0
 scale = Vector2(1.84, 1.84)
 text = "you are dead"
 
-[node name="Label2" type="Label" parent="death_screen"]
-layout_mode = 0
-offset_left = 514.0
-offset_top = 202.0
-offset_right = 1396.0
-offset_bottom = 269.0
-text = "humanity is doomed
-"
+[node name="death_message" type="Label" parent="death_screen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -882.0
+offset_top = -324.0
+offset_right = 883.0
+offset_bottom = -257.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_alignment = 1
+autowrap_mode = 2
 
 [node name="respawn_guide" type="Label" parent="death_screen"]
 layout_mode = 1

@@ -92,6 +92,7 @@ var health : int = max_health
 @onready var healthbar_width = healthbar.size.x
 @onready var health_icon = $healthbar/health_icon_fill
 @onready var health_text = $healthbar/health_text
+@onready var death_message = $death_screen/death_message
 @onready var blood = $blood
 @onready var fps_label = $fps_label
 var is_opengl = ProjectSettings.get_setting("rendering/renderer/rendering_method") == "gl_compatibility"
@@ -169,7 +170,7 @@ func knockback(dir):
 		velocity += dir
 
 
-func pain(dmg, is_self_dmg = 0, no_tilt = 0, no_blood = 0):
+func pain(msg : String, dmg, is_self_dmg = 0, no_tilt = 0, no_blood = 0):
 	if health <= 0:
 		return
 	if not is_self_dmg:
@@ -180,6 +181,8 @@ func pain(dmg, is_self_dmg = 0, no_tilt = 0, no_blood = 0):
 		camera.add_tilt(-clamp(dmg, 20, 70) / 2, Vector3(0, 0, 1), 30)
 	if not god_mode:
 		health -= dmg
+		if health <= 0:
+			death_message.text = msg
 
 
 func add_key(col):
@@ -326,7 +329,7 @@ func shoot():
 			cam.add_child(new_ball)
 		4:
 			camera.add_tilt(0.5, Vector3(1, 0, 0), 2)
-			pain(BLASTER_SELF_DAMAGE_LOW, true, true, true)
+			pain("You killed yourself with the blaster", BLASTER_SELF_DAMAGE_LOW, true, true, true)
 			raycast.target_position = Vector3(0, 0, -BLASTER_RANGE)
 			raycast.force_raycast_update()
 			var collider = raycast.get_collider()
@@ -372,7 +375,7 @@ func shoot_alt():
 		new_bomb.apply_impulse((-cam.transform.basis.z + Vector3(0, 0.2, 0)) * CANNONBOMB_FORCE)
 	elif wpn == 4:
 		camera.add_tilt(0.7, Vector3(1, 0, 0), 1.5)
-		pain(BLASTER_SELF_DAMAGE_HIGH, true, true, true)
+		pain("You killed yourself with the blaster", BLASTER_SELF_DAMAGE_HIGH, true, true, true)
 		
 		var dir = cam.transform.basis.z.normalized() * BLASTER_FORCE
 		dir.y = min(dir.y, 0.25)

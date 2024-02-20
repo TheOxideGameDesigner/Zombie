@@ -302,9 +302,9 @@ func _on_hit_timer_timeout():
 		ribbon.scale.z = HIT_RANGE
 	if ray.is_colliding() and ray.get_collider().is_in_group("player"):
 		if dist_from_player3d < PB_RANGE:
-			player.pain(HIT_DAMAGE)
+			player.pain("You were killed by a chaingunner", HIT_DAMAGE)
 		else:
-			player.pain(HIT_DAMAGE / (FALLOFF * (dist_from_player3d - PB_RANGE) + 1))
+			player.pain("You were killed by a chaingunner", HIT_DAMAGE / (FALLOFF * (dist_from_player3d - PB_RANGE) + 1))
 
 
 func _on_respawn_timeout():

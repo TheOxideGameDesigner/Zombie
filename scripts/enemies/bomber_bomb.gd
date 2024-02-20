@@ -93,4 +93,4 @@ func _on_death_timer_timeout():
 	if dist < SPLASH_RADIUS:
 		var effect = lerp(1.0, 0.0, dist / SPLASH_RADIUS)
 		player.knockback((player.position - position).normalized() * 10 * effect)
-		player.pain(DAMAGE * effect)
+		player.pain("You were killed by a bomb", DAMAGE * effect)

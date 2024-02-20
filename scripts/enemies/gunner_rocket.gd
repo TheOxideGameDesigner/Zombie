@@ -63,7 +63,7 @@ func _on_body_entered(body):
 	hit_player = 1
 	explosion.queue_free()
 	$death_timer.queue_free()
-	player.pain(DAMAGE)
+	player.pain("You were killed by a fireball", DAMAGE)
 	player.knockback(vel.normalized() * 10 + Vector3(0, 0.2, 0))
 
 

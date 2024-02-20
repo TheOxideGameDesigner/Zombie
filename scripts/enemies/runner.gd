@@ -437,7 +437,7 @@ func _physics_process(delta):
 			if hit_timer <= 0.35 and not mesh_body.is_playing():
 				mesh_body.play("hitting", 4)
 			if hit_timer <= 0:
-				player.pain(HIT_DAMAGE)
+				player.pain("You were killed by a runner", HIT_DAMAGE)
 				hit_timer = HIT_TIME
 		else:
 			hit_timer = HIT_TIME

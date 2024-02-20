@@ -43,7 +43,7 @@ func explode(body):
 	if dist < SELF_DAMAGE_RADIUS:
 		player.knockback((player.cam.global_position - position) * 12 / (dist * dist))
 		player.velocity.y *= 0.2
-		player.pain(floori(40.0 / max(1.0, dist * 0.35)), true)
+		player.pain("You killed yourself with a bomb", floori(40.0 / max(1.0, dist * 0.35)), true)
 	if dist < 15:
 		player_camera.shake(0.4, 2 / (dist / 7.5 + 1), 0.025)
 		
