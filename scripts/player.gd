@@ -53,11 +53,8 @@ const BLASTER_DAMAGE = 20
 const BLASTER_SELF_DAMAGE_LOW = 1
 const BLASTER_SELF_DAMAGE_HIGH = 2
 const BLASTER_FORCE = 1.2
-const BLASTER_COOLDOWN = 0.195
+const BLASTER_COOLDOWN = 0.15
 const BLASTER_COOLDOWN_SHORT = 0.075
-const BLASTER_COOLDOWN_VARIATION = 0.04
-const BLASTER_MAX_HEAT = 15
-const BLASTER_HEAT_REGEN_TIME = 5
 const BLASTER_RANGE = 42
 const BLASTER_PB_RANGE = 6
 const BLASTER_FALLOFF = 0.08
@@ -82,7 +79,6 @@ var prev_wpn = 2
 var wpn_vis = wpn
 var revolver_heat = 0.0
 var shotgun_heat = 0.0
-var blaster_heat = 0.0
 
 var god_mode : bool = false
 var max_health : int = 100
@@ -345,8 +341,7 @@ func shoot():
 					add_child(new_particles)
 					new_particles.global_position = raycast.get_collision_point()
 			
-			blaster_heat = min(1.0, blaster_heat + 1.0 / BLASTER_MAX_HEAT)
-			cooldown_timers[3] = BLASTER_COOLDOWN + lerp(-BLASTER_COOLDOWN_VARIATION, BLASTER_COOLDOWN_VARIATION, blaster_heat)
+			cooldown_timers[3] = BLASTER_COOLDOWN
 			
 			var bullet = bullet_scene.instantiate()
 			bullet.position = Vector3(0.645, -0.23, -1.111) + viewmodel_pos
@@ -397,7 +392,6 @@ func shoot_alt():
 				new_particles.global_position = raycast.get_collision_point()
 				new_particles.top_level = 1
 		
-		blaster_heat = 1.0
 		cooldown_timers[3] = BLASTER_COOLDOWN_SHORT
 			
 		var bullet = bullet_scene.instantiate()
@@ -624,11 +618,9 @@ func _process(delta):
 	if is_opengl:
 		revolver_viewmodel.material_override.albedo_color = Color(1, 1 - revolver_heat * 0.2, 1 - revolver_heat * 0.2)
 		shotgun_viewmodel.material_override.albedo_color = Color(1, 1 - shotgun_heat * 0.4, 1 - shotgun_heat * 0.4)
-		blaster_viewmodel.material_override.albedo_color = Color(1, 1 - blaster_heat * 0.2, 1 - blaster_heat * 0.2)
 	else:
 		revolver_viewmodel.set_instance_shader_parameter("pain", revolver_heat * 0.2)
 		shotgun_viewmodel.set_instance_shader_parameter("pain", shotgun_heat * 0.2)
-		blaster_viewmodel.set_instance_shader_parameter("pain", blaster_heat * 0.4)
 	
 	revolver_anim_timer = max(0, revolver_anim_timer - delta)
 	revolver_cylinder.rotation.z = revolver_anim_timer * PI / (4 * REVOLVER_COOLDOWN)
@@ -749,5 +741,3 @@ func _physics_process(delta):
 		revolver_heat = max(0, revolver_heat - delta / REVOLVER_HEAT_REGEN_TIME)
 	if cooldown_timers[1] <= 0.01:
 		shotgun_heat = max(0, shotgun_heat - delta / SHOTGUN_HEAT_REGEN_TIME)
-	if cooldown_timers[3] <= 0.01:
-		blaster_heat = max(0, blaster_heat - delta / BLASTER_HEAT_REGEN_TIME)
