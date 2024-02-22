@@ -8,4 +8,4 @@ func _ready():
 
 func _on_body_entered(body):
 	if body.is_in_group("player") or body.is_in_group("lightweight"):
-		body.pain(9001)
+		body.pain("You stepped on a dangerous surface", 9001)
