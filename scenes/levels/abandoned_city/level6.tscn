@@ -1101,155 +1101,155 @@ transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -1.1, -1
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -1.9, -17.85, -68.5)
 
 [node name="runner2" parent="." instance=ExtResource("30_0edej")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -49)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, -49)
 
 [node name="runner15" parent="." instance=ExtResource("30_0edej")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.9388, -1.90735e-06, -64.5405)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.9388, 0.999998, -64.5405)
 min_dif = 4
 
 [node name="bomber" parent="." instance=ExtResource("32_vm70x")]
-transform = Transform3D(0.947495, 0, -0.31977, 0, 1, 0, 0.31977, 0, 0.947495, 15.7928, 1.04904e-05, -67.777)
+transform = Transform3D(0.947495, 0, -0.31977, 0, 1, 0, 0.31977, 0, 0.947495, 15.7928, 1.00001, -67.777)
 min_dif = 1
 
 [node name="bomber5" parent="." instance=ExtResource("32_vm70x")]
-transform = Transform3D(0.0983124, 0, -0.995156, 0, 1, 0, 0.995156, 0, 0.0983124, 25.5508, 1.04904e-05, -57.7719)
+transform = Transform3D(0.0983124, 0, -0.995156, 0, 1, 0, 0.995156, 0, 0.0983124, 25.5508, 1.00001, -57.7719)
 min_dif = 4
 
 [node name="runner3" parent="." instance=ExtResource("30_0edej")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.6137, 9.53674e-06, -68.8564)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.6137, 1.00001, -68.8564)
 
 [node name="runner9" parent="." instance=ExtResource("30_0edej")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.9871, 1.14441e-05, -68.1289)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.9871, 1.00001, -68.1289)
 min_dif = 3
 
 [node name="runner12" parent="." instance=ExtResource("30_0edej")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.73203, 1.33514e-05, -66.3834)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.73203, 1.00001, -66.3834)
 min_dif = 3
 
 [node name="runner4" parent="." instance=ExtResource("30_0edej")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.4653, 7.62939e-06, -62.3251)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.4653, 1.00001, -62.3251)
 min_dif = 1
 
 [node name="runner5" parent="." instance=ExtResource("30_0edej")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.2111, 7.62939e-06, -67.6248)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.7813, 1.00001, -66.898)
 
 [node name="runner16" parent="." instance=ExtResource("30_0edej")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.9431, 7.62939e-06, -65.3887)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.9431, 1.00001, -65.3887)
 min_dif = 3
 
 [node name="hitscanner" parent="." instance=ExtResource("33_ltjs7")]
-transform = Transform3D(0.276644, 0, -0.960973, 0, 1, 0, 0.960973, 0, 0.276644, 56.7373, 1.14441e-05, -67.9358)
+transform = Transform3D(0.276644, 0, -0.960973, 0, 1, 0, 0.960973, 0, 0.276644, 56.7373, 1.00001, -67.9358)
 min_dif = 1
 
 [node name="hitscanner2" parent="." instance=ExtResource("33_ltjs7")]
-transform = Transform3D(-0.239957, 0, -0.970784, 0, 1, 0, 0.970784, 0, -0.239957, 52.5008, 1.14441e-05, -61.797)
+transform = Transform3D(-0.239957, 0, -0.970784, 0, 1, 0, 0.970784, 0, -0.239957, 52.5008, 1.00001, -61.797)
 min_dif = 3
 
 [node name="gunner" parent="." instance=ExtResource("34_dhmta")]
-transform = Transform3D(0.120639, 0, -0.992696, 0, 1, 0, 0.992696, 0, 0.120639, 75.5828, 9.53674e-06, -65.8597)
+transform = Transform3D(0.120639, 0, -0.992696, 0, 1, 0, 0.992696, 0, 0.120639, 75.5828, 1.00001, -65.8597)
 min_dif = 1
 
 [node name="gunner2" parent="." instance=ExtResource("34_dhmta")]
-transform = Transform3D(-0.131322, 0, -0.99134, 0, 1, 0, 0.99134, 0, -0.131322, 75.2131, -0.116386, -59.173)
+transform = Transform3D(-0.131322, 0, -0.99134, 0, 1, 0, 0.99134, 0, -0.131322, 75.2131, 0.883614, -59.173)
 min_dif = 4
 
 [node name="runner6" parent="." instance=ExtResource("30_0edej")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81.4515, 0.249798, -72.7344)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81.4515, 1.2498, -72.7344)
 
 [node name="mage" parent="." instance=ExtResource("31_233tp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.39322, 0.902468, -56.4113)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.39322, 1.90247, -56.4113)
 min_dif = 2
 
 [node name="mage4" parent="." instance=ExtResource("31_233tp")]
-transform = Transform3D(0.955376, 0, -0.295391, 0, 1, 0, 0.295391, 0, 0.955376, 8.69691, 0.902468, -61.5981)
+transform = Transform3D(0.955376, 0, -0.295391, 0, 1, 0, 0.295391, 0, 0.955376, 8.69691, 1.90247, -61.5981)
 min_dif = 4
 
 [node name="runner7" parent="." instance=ExtResource("30_0edej")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 131.068, -9.8502, -66.5543)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 131.068, -8.8502, -66.5543)
 min_dif = 1
 
 [node name="runner8" parent="." instance=ExtResource("30_0edej")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 139.665, -9.8502, -61.5959)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 139.665, -8.8502, -61.5959)
 
 [node name="runner17" parent="." instance=ExtResource("30_0edej")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 138.991, -9.8502, -58.1084)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 138.991, -8.8502, -58.1084)
 min_dif = 3
 
 [node name="runner18" parent="." instance=ExtResource("30_0edej")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 134.392, -9.8502, -36.6347)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 134.392, -8.8502, -36.6347)
 min_dif = 4
 
 [node name="runner19" parent="." instance=ExtResource("30_0edej")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 133.845, -9.8502, -32.6584)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 133.845, -8.8502, -32.6584)
 min_dif = 3
 
 [node name="runner20" parent="." instance=ExtResource("30_0edej")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 133.845, -9.8502, -18.0449)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 133.845, -8.8502, -18.0449)
 min_dif = 3
 
 [node name="runner21" parent="." instance=ExtResource("30_0edej")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 123.365, -9.8502, -18.1767)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 123.365, -8.8502, -18.1767)
 min_dif = 4
 
 [node name="runner22" parent="." instance=ExtResource("30_0edej")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 125.016, -9.8502, -35.5271)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 125.016, -8.8502, -35.5271)
 min_dif = 3
 
 [node name="runner23" parent="." instance=ExtResource("30_0edej")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 99.6059, -9.8502, -18.7649)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 99.6059, -8.8502, -18.7649)
 min_dif = 3
 
 [node name="runner24" parent="." instance=ExtResource("30_0edej")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 89.9895, -9.8502, -33.0955)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 89.9895, -8.8502, -33.0955)
 min_dif = 3
 
 [node name="mage2" parent="." instance=ExtResource("31_233tp")]
-transform = Transform3D(-0.980008, 0, 0.198957, 0, 1, 0, -0.198957, 0, -0.980008, 139.814, -9.8502, -52.7043)
+transform = Transform3D(-0.980008, 0, 0.198957, 0, 1, 0, -0.198957, 0, -0.980008, 139.814, -8.8502, -52.7043)
 min_dif = 2
 
 [node name="mage5" parent="." instance=ExtResource("31_233tp")]
-transform = Transform3D(-0.980008, 0, 0.198957, 0, 1, 0, -0.198957, 0, -0.980008, 139.814, -9.8502, -47.7544)
+transform = Transform3D(-0.980008, 0, 0.198957, 0, 1, 0, -0.198957, 0, -0.980008, 139.814, -8.8502, -47.7544)
 min_dif = 4
 
 [node name="bomber2" parent="." instance=ExtResource("32_vm70x")]
-transform = Transform3D(-0.913098, 0, 0.407741, 0, 1, 0, -0.407741, 0, -0.913098, 118.954, -9.8502, -14.9476)
+transform = Transform3D(-0.913098, 0, 0.407741, 0, 1, 0, -0.407741, 0, -0.913098, 118.954, -8.8502, -14.9476)
 min_dif = 2
 
 [node name="bomber4" parent="." instance=ExtResource("32_vm70x")]
-transform = Transform3D(-0.357341, 0, 0.933974, 0, 1, 0, -0.933974, 0, -0.357341, 118.954, -9.8502, -32.9476)
+transform = Transform3D(-0.357341, 0, 0.933974, 0, 1, 0, -0.933974, 0, -0.357341, 118.954, -8.8502, -32.9476)
 min_dif = 1
 
 [node name="runner10" parent="." instance=ExtResource("30_0edej")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 104.65, -9.8502, -33.612)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 104.65, -8.8502, -33.612)
 
 [node name="runner11" parent="." instance=ExtResource("30_0edej")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 103.411, -9.8502, -15.5763)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 103.411, -8.8502, -15.5763)
 
 [node name="mage3" parent="." instance=ExtResource("31_233tp")]
-transform = Transform3D(-0.402124, 0, 0.915585, 0, 1, 0, -0.915585, 0, -0.402124, 87.9305, -9.8502, -15.9672)
+transform = Transform3D(-0.402124, 0, 0.915585, 0, 1, 0, -0.915585, 0, -0.402124, 87.9305, -8.8502, -15.9672)
 min_dif = 1
 
 [node name="mage6" parent="." instance=ExtResource("31_233tp")]
-transform = Transform3D(0.512957, 0, 0.858414, 0, 1, 0, -0.858414, 0, 0.512957, 99.1211, -9.8502, -35.2252)
+transform = Transform3D(0.512957, 0, 0.858414, 0, 1, 0, -0.858414, 0, 0.512957, 99.1211, -8.8502, -35.2252)
 min_dif = 4
 
 [node name="runner13" parent="." instance=ExtResource("30_0edej")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 85.2911, -9.8502, -34.004)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 85.2911, -8.8502, -34.004)
 min_dif = 2
 
 [node name="bomber3" parent="." instance=ExtResource("32_vm70x")]
-transform = Transform3D(0.444776, 0, 0.895642, 0, 1, 0, -0.895642, 0, 0.444776, 68.0002, -9.8502, -33.4502)
+transform = Transform3D(0.444776, 0, 0.895642, 0, 1, 0, -0.895642, 0, 0.444776, 68.0002, -8.8502, -33.4502)
 
 [node name="bomber6" parent="." instance=ExtResource("32_vm70x")]
-transform = Transform3D(-0.424563, 0, 0.905398, 0, 1, 0, -0.905398, 0, -0.424563, 68.0002, -9.8502, -16.6774)
+transform = Transform3D(-0.424563, 0, 0.905398, 0, 1, 0, -0.905398, 0, -0.424563, 68.0002, -8.8502, -16.6774)
 min_dif = 3
 
 [node name="bomber7" parent="." instance=ExtResource("32_vm70x")]
-transform = Transform3D(-0.424563, 0, 0.905398, 0, 1, 0, -0.905398, 0, -0.424563, 85.9394, -9.8502, -17.8673)
+transform = Transform3D(-0.424563, 0, 0.905398, 0, 1, 0, -0.905398, 0, -0.424563, 85.9394, -8.8502, -17.8673)
 min_dif = 4
 
 [node name="runner14" parent="." instance=ExtResource("30_0edej")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71.7332, -9.8502, -13.8243)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71.7332, -8.8502, -13.8243)
 
 [node name="tank" parent="." instance=ExtResource("37_mcu6d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 25, -9.85, -68)

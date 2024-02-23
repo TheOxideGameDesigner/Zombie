@@ -11,6 +11,7 @@ const EXPLOSION_TIME = 1
 const EXPLOSION_RADIUS = 6
 
 var player
+var death_message = "You were killed by a fireball"
 var vel = Vector3.ZERO
 var velv = 0
 
@@ -63,7 +64,7 @@ func _on_body_entered(body):
 	hit_player = 1
 	explosion.queue_free()
 	$death_timer.queue_free()
-	player.pain("You were killed by a fireball", DAMAGE)
+	player.pain(death_message, DAMAGE)
 	player.knockback(vel.normalized() * 10 + Vector3(0, 0.2, 0))
 
 

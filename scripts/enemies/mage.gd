@@ -439,6 +439,7 @@ func _physics_process(delta):
 func fire():
 	var new_rocket = rocket.instantiate()
 	new_rocket.player = player
+	new_rocket.death_message = "You were killed by a mage"
 	new_rocket.SPEED = ROCKET_SPEED
 	new_rocket.set_vel(player.position - position)
 	new_rocket.position = FB_POS[1].rotated(Vector3.UP, mesh.rotation.y) + Vector3(0, 1, 0)

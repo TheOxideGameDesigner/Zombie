@@ -413,6 +413,7 @@ func _physics_process(delta):
 func fire():
 	var new_bomb = bomb.instantiate()
 	new_bomb.player = player
+	new_bomb.death_message = "You were killed by a bomber"
 	new_bomb.position = Vector3(0, 1.25, 1).rotated(Vector3.UP, mesh.rotation.y)
 	new_bomb.target_pos = player.global_position + Vector3(0, 0.5, 0)
 	add_child(new_bomb)

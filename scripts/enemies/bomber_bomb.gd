@@ -12,6 +12,7 @@ const FLICKER_TIME = 1.0
 const FLICKER_FREQ = 10
 
 var player
+var death_message = "You were killed by a bomb"
 @onready var start_pos : Vector3 = global_position
 var target_pos : Vector3
 @onready var hdir : Vector3 = Vector3(target_pos.x - start_pos.x, 0, target_pos.z - start_pos.z).normalized()
@@ -69,7 +70,7 @@ func _on_body_entered(body):
 		$hitbox.queue_free()
 		death_timer.queue_free()
 		$touch_area.queue_free()
-		player.pain(DAMAGE)
+		player.pain(death_message, DAMAGE)
 		if touched_surface:
 			player.knockback((player.position - position).normalized() * 10)
 		else:
@@ -93,4 +94,4 @@ func _on_death_timer_timeout():
 	if dist < SPLASH_RADIUS:
 		var effect = lerp(1.0, 0.0, dist / SPLASH_RADIUS)
 		player.knockback((player.position - position).normalized() * 10 * effect)
-		player.pain("You were killed by a bomb", DAMAGE * effect)
+		player.pain(death_message, DAMAGE * effect)

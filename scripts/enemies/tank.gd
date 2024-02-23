@@ -288,6 +288,7 @@ func _on_fire_timer_timeout():
 		var dir = Vector3.FORWARD.rotated(Vector3.UP, i * PI / 2 + head.rotation.y)
 		var new_bomb = bomb_scene.instantiate()
 		new_bomb.player = player
+		new_bomb.death_message = "You were killed by a tank"
 		new_bomb.position = Vector3(0, 3.45, 0)
 		new_bomb.position += dir * 4.1
 		new_bomb.target_pos = Vector3(position.x, player.position.y, position.z)
