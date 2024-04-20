@@ -333,7 +333,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.804482, 5.41066, 0)
 shape = SubResource("BoxShape3D_41p50")
 
 [node name="gunner" parent="enemies" instance=ExtResource("17_mvafs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.2342, -3, -73.3264)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.7729, -3, -73.3264)
 
 [node name="key2" parent="enemies/gunner" instance=ExtResource("15_kxua3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.92807, -7.15256e-07, -1.11893)
@@ -342,7 +342,7 @@ key_name = "black"
 key_index = 2
 
 [node name="gunner2" parent="enemies" instance=ExtResource("17_mvafs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.5915, -3, -73.3264)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.0796, -3, -73.3264)
 
 [node name="key3" parent="enemies/gunner2" instance=ExtResource("15_kxua3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.08532, 2.38419e-07, -0.405365)

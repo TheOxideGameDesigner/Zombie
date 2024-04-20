@@ -69,8 +69,8 @@ var can_jump = 1
 var ramp_vel = 0.0
 
 var holstering = 0
-var cooldown_timers = [0, 0, 0, 0]
-var mf_lifespans = [0.2, 0.2, 0, 0]
+var cooldown_timers = [0, 0, 0, 0, 0]
+var mf_lifespans = [0.2, 0.2, 0, 0, 0]
 
 var can_float = 1
 
@@ -107,6 +107,7 @@ var particles_scene = preload("res://scenes/environment/blood_particles.tscn")
 @onready var shotgun_viewmodel = $cam/camera/vp_cont/vp/gun_cam/viewmodel/shotgun_viewmodel
 @onready var cannon_viewmodel = $cam/camera/vp_cont/vp/gun_cam/viewmodel/cannon_viewmodel
 @onready var blaster_viewmodel = $cam/camera/vp_cont/vp/gun_cam/viewmodel/blaster_viewmodel
+@onready var hypnotizer_viewmodel = $cam/camera/vp_cont/vp/gun_cam/viewmodel/hypnotizer_viewmodel
 
 
 @onready var cam = $cam
@@ -198,6 +199,7 @@ func update_wpn():
 	shotgun_viewmodel.visible = 0
 	cannon_viewmodel.visible = 0
 	blaster_viewmodel.visible = 0
+	hypnotizer_viewmodel.visible = 0
 	match wpn:
 		1:
 			revolver_viewmodel.visible = 1
@@ -207,6 +209,8 @@ func update_wpn():
 			cannon_viewmodel.visible = 1
 		4:
 			blaster_viewmodel.visible = 1
+		5:
+			hypnotizer_viewmodel.visible = 1
 
 
 func hurt(collider):
@@ -349,6 +353,16 @@ func shoot():
 			bullet.rotation.x = 0.04 + randf_range(-0.01, 0.01)
 			bullet.lifespan = 0.08
 			gun_cam.add_child(bullet)
+		5:
+			raycast.target_position = Vector3(0, 0, -REVOLVER_RANGE)
+			raycast.force_raycast_update()
+			var collider = raycast.get_collider()
+			if collider != null:
+				if collider.is_in_group("enemy_raycast_collision"):
+					collider = collider.get_parent()
+					if not collider.rising:
+						collider.hypnotize()
+			cooldown_timers[4] = 0.5
 
 
 func shoot_alt():
@@ -571,6 +585,7 @@ func _ready():
 		shotgun_viewmodel.material_override = preload("res://resources/materials/level_mat.tres").duplicate()
 		cannon_viewmodel.material_override = preload("res://resources/materials/level_mat.tres").duplicate()
 		blaster_viewmodel.material_override = preload("res://resources/materials/level_mat.tres").duplicate()
+		hypnotizer_viewmodel.material_override = preload("res://resources/materials/level_mat.tres").duplicate()
 
 
 func _unhandled_input(event):
@@ -599,6 +614,10 @@ func _unhandled_input(event):
 	elif event.is_action_pressed("g_wpn4") and wpn != 4:
 		prev_wpn = wpn
 		wpn = 4
+		holstering = 1
+	elif event.is_action_pressed("g_wpn5") and wpn != 5:
+		prev_wpn = wpn
+		wpn = 5
 		holstering = 1
 	elif event.is_action_pressed("g_next"):
 		prev_wpn = wpn
@@ -694,7 +713,7 @@ func _physics_process(delta):
 	viewmodel_pos.x -= viewmodel_pos.x * delta * SWAY_RETURN
 	viewmodel_pos.y -= viewmodel_pos.y * delta * SWAY_RETURN
 	
-	for i in range(4):
+	for i in range(5):
 		cooldown_timers[i] = max(0, cooldown_timers[i] - delta)
 
 	if holstering:

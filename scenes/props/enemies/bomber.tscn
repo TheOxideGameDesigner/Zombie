@@ -26,12 +26,12 @@ height = 5.915
 radial_segments = 10
 rings = 10
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3mcjt"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mc5kn"]
 transparency = 1
 shading_mode = 0
 albedo_color = Color(1, 1, 1, 0.1)
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_iceog"]
+[sub_resource type="CylinderMesh" id="CylinderMesh_nos5i"]
 radial_segments = 12
 
 [node name="bomber" type="CharacterBody3D" groups=["activatable", "enemy", "lightweight"]]
@@ -57,7 +57,7 @@ color = Color(0.980392, 0.407843, 0, 0.858824)
 [node name="ray" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 enabled = false
-collision_mask = 257
+collision_mask = 769
 hit_from_inside = true
 
 [node name="raycast_collision" type="CharacterBody3D" parent="." groups=["enemy_raycast_collision"]]
@@ -108,7 +108,7 @@ wait_time = 5.0
 one_shot = true
 
 [node name="difficulty_visualiser" parent="." instance=ExtResource("10_ftv05")]
-material_override = SubResource("StandardMaterial3D_3mcjt")
-mesh = SubResource("CylinderMesh_iceog")
+material_override = SubResource("StandardMaterial3D_mc5kn")
+mesh = SubResource("CylinderMesh_nos5i")
 
 [connection signal="timeout" from="respawn" to="." method="_on_respawn_timeout"]

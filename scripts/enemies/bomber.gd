@@ -33,7 +33,7 @@ var rising = 0
 var health : int
 var alive = 1
 var target_pos = Vector3.ZERO
-var sees_player = false
+var sees_target = false
 var rising_timer = 0.0
 var attention_span_timer = 0
 var vulnerability = 1.0
@@ -46,6 +46,7 @@ var bump_timers : Array[float] = []
 
 @onready var mesh_body = $mesh/mountainside_bomber
 @onready var player = get_tree().get_first_node_in_group("player")
+@onready var target = player
 @onready var home = $home
 @onready var health_label = $mesh/health
 @onready var mesh = $mesh
@@ -66,7 +67,7 @@ var blood = preload("res://scenes/environment/blood_particles.tscn")
 
 @onready var init_mesh_pos = $mesh.global_position - position
 @onready var dist_from_player = Vector2(player.position.x, player.position.z).distance_to(Vector2(position.x, position.z))
-@onready var dist_from_player3d = position.distance_to(player.position)
+@onready var dist_from_target = dist_from_player
 
 @onready var rot = mesh.rotation.y
 var y_vel = 0.0
@@ -79,20 +80,30 @@ var disable_particles : bool = false
 var disable_gibs : bool = false
 
 var add_vel = Vector3.ZERO
-
-var in_active_zone = 1
+var hypno : bool = 0
+var hypno_col = 0.0
 
 var hit_timer = 0.0
 
-func make_inactive():
-	in_active_zone = 0
-	if sees_player:
-		pain(9001)
-	position = home.position
+
+func hypnotize():
+	target = null
+	hypno = true
+	add_to_group("hypno")
+	set_collision_layer_value(10, true)
+	ray.set_collision_mask_value(2, true)
+	alerted.visible = false
+
+
+func unhypnotize():
+	hypno = false
+	remove_from_group("hypno")
+	set_collision_layer_value(10, false)
+	ray.set_collision_mask_value(2, false)
 
 
 func is_active():
-	return dist_from_player < ACTIVE_RADIUS and in_active_zone
+	return dist_from_player < ACTIVE_RADIUS
 
 
 func is_asleep():
@@ -153,8 +164,6 @@ func _ready():
 	
 	target_pos = home.global_position
 	respawn.wait_time = respawn_time
-	for i in get_tree().get_nodes_in_group("see_through"):
-		ray.add_exception(i)
 	
 	body.set_surface_override_material(0, mesh_material)
 
@@ -201,6 +210,9 @@ func pain(dmg):
 	if player.wpn == 1:
 		player.health = player.health + REVOLVER_HEAL
 	
+	if hypno or sees_target:
+		return
+	
 	alerted.visible = 1
 	target_pos = player.position
 
@@ -211,7 +223,6 @@ func update_healthbar():
 
 func _process(delta):
 	dist_from_player = Vector2(player.position.x, player.position.z).distance_to(Vector2(position.x, position.z))
-	dist_from_player3d = position.distance_to(player.position)
 	if not is_active():
 		mesh_body.process_mode = Node.PROCESS_MODE_DISABLED
 		return
@@ -229,6 +240,11 @@ func _process(delta):
 	var pb_col = clamp(lerp(0.0, 1.0, (player.SHOTGUN_PB_RANGE - dist_from_player) / FADE_RANGE) ,0.0, 1.0)
 	var col = max(pain_col, pb_col) * 0.5
 	body.set_instance_shader_parameter("pain", col)
+	if hypno:
+		hypno_col = min(0.35, hypno_col + delta)
+	else:
+		hypno_col = max(0.0, hypno_col - delta)
+	body.set_instance_shader_parameter("hypno", hypno_col)
 	
 	if rising or is_asleep() or velocity.length() < 0.1:
 		mesh_body.anim_timer = 0.0
@@ -236,7 +252,7 @@ func _process(delta):
 		mesh_body.anim_speed = 1.5
 		mesh_body.anim_amplitude = PI / 6
 	
-	if dist_from_player3d <= HIT_RANGE - HIT_RANGE_MARGIN and sees_player:
+	if dist_from_target <= HIT_RANGE - HIT_RANGE_MARGIN and sees_target:
 		mesh_body.legs_playing = 0
 	else:
 		mesh_body.legs_playing = 1
@@ -261,6 +277,10 @@ func process_bumps(delta : float):
 
 
 func _physics_process(delta):
+	if target == null:
+		dist_from_target = 10000
+	else:
+		dist_from_target = Vector2(target.position.x, target.position.z).distance_to(Vector2(position.x, position.z))
 	mesh.position = position + init_mesh_pos
 	
 	if not is_active():
@@ -270,7 +290,7 @@ func _physics_process(delta):
 		return
 	
 	var asleep = is_asleep()
-	hitbox.disabled = not rising and (not alive or (asleep and add_vel.is_zero_approx()))
+	hitbox.disabled = not rising and not hypno and (not alive or (asleep and add_vel.is_zero_approx()))
 	
 	var dir2player = player.global_position - global_position
 	var dir2player2D = Vector2(dir2player.x, dir2player.z).normalized()
@@ -291,6 +311,7 @@ func _physics_process(delta):
 		rising = 0
 	
 	if health <= 0:
+		unhypnotize()
 		home.time_left = respawn_time
 		alive = 0
 		respawn.start()
@@ -342,12 +363,38 @@ func _physics_process(delta):
 		add_vel = Vector3.ZERO
 	
 	#zombie logic
-	ray.position = Vector3(0.079, 1.642, 0.847).rotated(Vector3.UP, mesh.rotation.y)
-	ray.target_position = ray.to_local(player.position + Vector3(0, 1, 0)).normalized() * VIS_RANGE
-	ray.force_raycast_update()
-	sees_player = ray.is_colliding() and ray.get_collider().is_in_group("player")
-	if sees_player:
-		target_pos = player.position
+	
+	#determine target
+	if not hypno:
+		var min_dist = VIS_RANGE
+		ray.target_position = ray.to_local(player.position + Vector3(0, 1.5, 0)).normalized() * VIS_RANGE
+		ray.force_raycast_update()
+		if ray.get_collider() == player:
+			min_dist = dist_from_player
+			target = player
+		for hombie in get_tree().get_nodes_in_group("hypno"):
+			var dist_from_hombie = Vector2(hombie.position.x, hombie.position.z).distance_to(Vector2(position.x, position.z))
+			if dist_from_hombie < min_dist:
+				ray.target_position = ray.to_local(hombie.position + Vector3(0, 1.5, 0)).normalized() * VIS_RANGE
+				ray.force_raycast_update()
+				if ray.get_collider() == hombie:
+					target = hombie
+					if hombie.dist_from_target >= dist_from_hombie + 0.1:
+						hombie.target = self
+	
+	if target != player and target != null and (not target.alive or target.hypno == hypno):
+		target = null
+		alerted.visible = false
+	
+	if target == null:
+		sees_target = false
+	else:
+		ray.position = Vector3(0.079, 1.642, 0.847).rotated(Vector3.UP, mesh.rotation.y)
+		ray.target_position = ray.to_local(target.position + Vector3(0, 1, 0)).normalized() * VIS_RANGE
+		ray.force_raycast_update()
+		sees_target = ray.is_colliding() and ray.get_collider() == target
+	if sees_target:
+		target_pos = target.position
 		attention_span_timer = 0
 		alerted.visible = 1
 	else:
@@ -368,7 +415,7 @@ func _physics_process(delta):
 	
 	if not asleep:
 		var nextpos = target_pos - position
-		if sees_player and dist_from_player3d < HIT_RANGE and alive and not rising:
+		if sees_target and dist_from_target < HIT_RANGE and alive and not rising:
 			hit_timer = max(0.0, hit_timer - delta)
 		else:
 			hit_timer = HIT_TIME
@@ -397,7 +444,7 @@ func _physics_process(delta):
 		
 		velocity.y = y_vel
 		
-		if dist_from_player3d > HIT_RANGE - HIT_RANGE_MARGIN or not sees_player:
+		if dist_from_target > HIT_RANGE - HIT_RANGE_MARGIN or not sees_target:
 			move_and_slide()
 		else:
 			ray.position = Vector3(0, 1.5, 0)
@@ -412,11 +459,15 @@ func _physics_process(delta):
 
 func fire():
 	var new_bomb = bomb.instantiate()
-	new_bomb.player = player
+	new_bomb.target = target
 	new_bomb.death_message = "You were killed by a bomber"
 	new_bomb.position = Vector3(0, 1.25, 1).rotated(Vector3.UP, mesh.rotation.y)
-	new_bomb.target_pos = player.global_position + Vector3(0, 0.5, 0)
+	new_bomb.target_pos = target.global_position + Vector3(0, 0.5, 0)
 	add_child(new_bomb)
+	if hypno:
+		new_bomb.touch_area.set_collision_mask_value(2, true)
+	else:
+		new_bomb.touch_area.set_collision_mask_value(10, true)
 	new_bomb.top_level = 1
 
 func _on_respawn_timeout():

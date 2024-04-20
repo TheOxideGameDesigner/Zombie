@@ -26,12 +26,12 @@ height = 5.915
 radial_segments = 10
 rings = 10
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4r5dk"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ux211"]
 transparency = 1
 shading_mode = 0
 albedo_color = Color(1, 1, 1, 0.1)
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_cg3h3"]
+[sub_resource type="CylinderMesh" id="CylinderMesh_w2yqe"]
 radial_segments = 12
 
 [node name="runner" type="CharacterBody3D" groups=["activatable", "enemy", "lightweight"]]
@@ -64,7 +64,7 @@ one_shot = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 enabled = false
 target_position = Vector3(0, -10, 0)
-collision_mask = 257
+collision_mask = 769
 
 [node name="raycast_collision" type="CharacterBody3D" parent="." groups=["enemy_raycast_collision"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05309, 0)
@@ -114,7 +114,7 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 
 script = ExtResource("9_rysfu")
 
 [node name="difficulty_visualiser" parent="." instance=ExtResource("10_xxpbx")]
-material_override = SubResource("StandardMaterial3D_4r5dk")
-mesh = SubResource("CylinderMesh_cg3h3")
+material_override = SubResource("StandardMaterial3D_ux211")
+mesh = SubResource("CylinderMesh_w2yqe")
 
 [connection signal="timeout" from="respawn" to="." method="_on_respawn_timeout"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bfuck1d2dtogj"]
+[gd_scene load_steps=18 format=3 uid="uid://bfuck1d2dtogj"]
 
 [ext_resource type="Script" path="res://scripts/enemies/gunner.gd" id="1_v3qu8"]
 [ext_resource type="PackedScene" uid="uid://c5jx8yw6wwwds" path="res://scenes/environment/gibs/gunner.tscn" id="2_d5sbe"]
@@ -25,17 +25,20 @@ radius = 0.8
 height = 3.7148
 radius = 1.75
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cfncv"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mqrgi"]
 transparency = 1
 shading_mode = 0
 albedo_color = Color(1, 1, 1, 0.1)
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_hxfv3"]
+[sub_resource type="CylinderMesh" id="CylinderMesh_n8eqf"]
 top_radius = 1.0
 bottom_radius = 1.0
 radial_segments = 12
 
-[node name="gunner" type="CharacterBody3D" groups=["activatable", "enemy", "see_through"]]
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ud1j6"]
+radius = 1.14581
+
+[node name="gunner" type="CharacterBody3D" groups=["activatable", "enemy"]]
 top_level = true
 collision_layer = 2
 script = ExtResource("1_v3qu8")
@@ -99,7 +102,7 @@ one_shot = true
 [node name="ray" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.68889, 0)
 enabled = false
-collision_mask = 257
+collision_mask = 769
 
 [node name="raycast_collision" type="CharacterBody3D" parent="." groups=["enemy_raycast_collision"]]
 collision_layer = 4
@@ -114,9 +117,15 @@ wait_time = 1.5
 one_shot = true
 
 [node name="difficulty_visualiser" parent="." instance=ExtResource("11_dpxc4")]
-material_override = SubResource("StandardMaterial3D_cfncv")
-mesh = SubResource("CylinderMesh_hxfv3")
+material_override = SubResource("StandardMaterial3D_mqrgi")
+mesh = SubResource("CylinderMesh_n8eqf")
 radius = 1.0
+
+[node name="collision_area" type="Area3D" parent="." groups=["enemy_area"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="collision_area_hitbox" type="CollisionShape3D" parent="collision_area"]
+shape = SubResource("CylinderShape3D_ud1j6")
 
 [connection signal="timeout" from="respawn" to="." method="_on_respawn_timeout"]
 [connection signal="timeout" from="hit_timer" to="." method="_on_hit_timer_timeout"]

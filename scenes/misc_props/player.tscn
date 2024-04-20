@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://4px2n2dg363l"]
+[gd_scene load_steps=30 format=3 uid="uid://4px2n2dg363l"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_p5l8k"]
 [ext_resource type="Script" path="res://scripts/physics_lerp.gd" id="2_21672"]
@@ -56,6 +56,9 @@ height = 1.0
 
 [sub_resource type="BoxMesh" id="BoxMesh_s6exb"]
 size = Vector3(0.145, 0.32, 0.935)
+
+[sub_resource type="PrismMesh" id="PrismMesh_281or"]
+size = Vector3(0.22, 0.22, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_0q5dt"]
 font = ExtResource("22_be58p")
@@ -186,15 +189,22 @@ layers = 32
 material_override = ExtResource("4_1ep7i")
 mesh = SubResource("BoxMesh_s6exb")
 
+[node name="hypnotizer_viewmodel" type="MeshInstance3D" parent="cam/camera/vp_cont/vp/gun_cam/viewmodel"]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0.609179, -0.324325, -0.491977)
+visible = false
+layers = 32
+material_override = ExtResource("4_1ep7i")
+mesh = SubResource("PrismMesh_281or")
+
 [node name="blood" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0)
 texture = ExtResource("19_u01oi")
 centered = false
 
 [node name="crosshair" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.784314)
 texture_filter = 1
 position = Vector2(960, 540)
-scale = Vector2(0.5, 0.5)
 texture = ExtResource("15_xhimj")
 
 [node name="healthbar" type="Control" parent="."]

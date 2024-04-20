@@ -900,10 +900,14 @@ min_dif = 1
 
 [node name="runner27" parent="enemies" instance=ExtResource("22_trfgh")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 262.365, 183, 719.207)
-min_dif = 2
+min_dif = 3
 
 [node name="runner28" parent="enemies" instance=ExtResource("22_trfgh")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 262.365, 183, 726.451)
+min_dif = 3
+
+[node name="runner48" parent="enemies" instance=ExtResource("22_trfgh")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 262.365, 183, 722.603)
 min_dif = 2
 
 [node name="gunner9" parent="enemies" instance=ExtResource("21_nqfw1")]
@@ -1021,9 +1025,6 @@ min_dif = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 154.839, 217.415, 626.328)
 
 [node name="mage2" parent="." instance=ExtResource("26_mxko8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 108.464, 217.415, 626.328)
-
-[node name="mage3" parent="." instance=ExtResource("26_mxko8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 108.464, 217.415, 626.328)
 
 [node name="mage5" parent="." groups=["20"] instance=ExtResource("26_mxko8")]

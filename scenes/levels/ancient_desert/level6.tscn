@@ -59,7 +59,7 @@ size = Vector3(48.8564, 9.36292, 37.6073)
 [sub_resource type="BoxShape3D" id="BoxShape3D_5fbxl"]
 size = Vector3(46.5914, 15.418, 43.7854)
 
-[node name="level5" type="Node3D"]
+[node name="level6" type="Node3D"]
 script = ExtResource("1_1e6vi")
 
 [node name="level_visual" type="MeshInstance3D" parent="."]
@@ -104,7 +104,7 @@ shadow_opacity = 0.7
 directional_shadow_blend_splits = true
 
 [node name="player" parent="." instance=ExtResource("10_sqyil")]
-transform = Transform3D(1, 0, 1.63913e-07, 0, 1, 0, -1.63913e-07, 0, 1, 292.932, 181.019, 454.38)
+transform = Transform3D(-1, 0, -2.51336e-07, 0, 1, 0, 2.51336e-07, 0, -1, 129.296, 283.015, 514.178)
 environment = ExtResource("13_t7gt6")
 
 [node name="exit" parent="." instance=ExtResource("12_kar2j")]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://26x6x0du3c7k"]
+[gd_scene load_steps=21 format=3 uid="uid://26x6x0du3c7k"]
 
 [ext_resource type="Script" path="res://scripts/enemies/chaingunner.gd" id="1_byk5e"]
 [ext_resource type="PackedScene" uid="uid://m8glcgjq356c" path="res://scenes/environment/gibs/chaingunner.tscn" id="2_1sqqb"]
@@ -34,16 +34,20 @@ radius = 1.0
 height = 3.7148
 radius = 1.75
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ax2ax"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p170q"]
 transparency = 1
 shading_mode = 0
+albedo_color = Color(1, 1, 1, 0.1)
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_nnoex"]
+[sub_resource type="CylinderMesh" id="CylinderMesh_17tnw"]
 top_radius = 1.0
 bottom_radius = 1.0
 radial_segments = 12
 
-[node name="chaingunner" type="CharacterBody3D" groups=["activatable", "enemy", "see_through"]]
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_c1f0i"]
+radius = 1.14581
+
+[node name="chaingunner" type="CharacterBody3D" groups=["activatable", "enemy"]]
 top_level = true
 collision_layer = 2
 script = ExtResource("1_byk5e")
@@ -123,7 +127,7 @@ one_shot = true
 [node name="ray" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 enabled = false
-collision_mask = 257
+collision_mask = 769
 hit_from_inside = true
 
 [node name="raycast_collision" type="CharacterBody3D" parent="." groups=["enemy_raycast_collision"]]
@@ -139,9 +143,15 @@ wait_time = 0.1
 one_shot = true
 
 [node name="difficulty_visualiser" parent="." instance=ExtResource("12_2wrjj")]
-material_override = SubResource("StandardMaterial3D_ax2ax")
-mesh = SubResource("CylinderMesh_nnoex")
+material_override = SubResource("StandardMaterial3D_p170q")
+mesh = SubResource("CylinderMesh_17tnw")
 radius = 1.0
+
+[node name="collision_area" type="Area3D" parent="." groups=["enemy_area"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="collision_area_hitbox" type="CollisionShape3D" parent="collision_area"]
+shape = SubResource("CylinderShape3D_c1f0i")
 
 [connection signal="timeout" from="respawn" to="." method="_on_respawn_timeout"]
 [connection signal="timeout" from="hit_timer" to="." method="_on_hit_timer_timeout"]

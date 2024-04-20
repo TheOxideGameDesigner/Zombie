@@ -11,19 +11,21 @@ const EXPLOSION_RADIUS = 8
 const FLICKER_TIME = 1.0
 const FLICKER_FREQ = 10
 
-var player
+var target
 var death_message = "You were killed by a bomb"
 @onready var start_pos : Vector3 = global_position
 var target_pos : Vector3
 @onready var hdir : Vector3 = Vector3(target_pos.x - start_pos.x, 0, target_pos.z - start_pos.z).normalized()
-@onready var roll_axis = hdir.rotated(Vector3.UP, PI / 2)
+@onready var roll_axis = hdir.rotated(Vector3.UP, PI / 2).normalized()
+@onready var touch_area = $touch_area
+
 var vvel = 0.0
 
 var timer = 0.0
 var touched_surface : bool = 0
 var exploded : bool = 0
 
-var hit_player = 0
+var hit_target = 0
 @onready var sprite = $sprite
 @onready var explosion = $explosion
 @onready var death_timer = $death_timer
@@ -43,14 +45,14 @@ func _process(delta):
 		explosion.mesh.material.albedo_color.a = pow(1 - timer / EXPLOSION_TIME, 2)
 		explosion.scale = Vector3.ONE * EXPLOSION_RADIUS * timer / EXPLOSION_TIME
 		return
-	if not hit_player and death_timer.time_left < FLICKER_TIME:
+	if not hit_target and death_timer.time_left < FLICKER_TIME:
 		var flicker = int(FLICKER_FREQ * (death_timer.time_left) / FLICKER_TIME) % 2
 		if flicker:
 			sprite.material_override = unshaded_material
 		else:
 			sprite.material_override = shaded_material
-	if not touched_surface:
-		sprite.rotate(roll_axis, delta * 2 * PI)
+	if not touched_surface and not hit_target:
+		sprite.rotate(roll_axis.normalized(), delta * 2 * PI)
 
 
 func _physics_process(delta):
@@ -63,26 +65,36 @@ func _physics_process(delta):
 
 
 func _on_body_entered(body):
-	if body == player:
-		hit_player = 1
+	if exploded or hit_target:
+		return
+	if body.is_in_group("player") or body.is_in_group("enemy"):
+		hit_target = 1
 		explosion.queue_free()
 		sprite.queue_free()
 		$hitbox.queue_free()
 		death_timer.queue_free()
 		$touch_area.queue_free()
-		player.pain(death_message, DAMAGE)
-		if touched_surface:
-			player.knockback((player.position - position).normalized() * 10)
+		if body.is_in_group("player"):
+			body.pain(death_message, DAMAGE)
 		else:
-			player.knockback(hdir * 10 + Vector3(0, 0.2, 0))
-	if body.is_in_group("enemy") or (not body.get_collision_layer_value(1) and not body.get_collision_layer_value(9)) or touched_surface:
+			body.pain(DAMAGE)
+		var kb
+		if touched_surface:
+			kb = (body.position - position).normalized() * 10
+		else:
+			kb = hdir * 10 + Vector3(0, 0.2, 0)
+		if body.is_in_group("player"):
+			body.knockback(kb)
+		elif body.is_in_group("lightweight"):
+			body.add_vel = kb
+	if body.is_in_group("enemy") or body.is_in_group("player") or touched_surface:
 		return
 	touched_surface = 1
 
 
 
 func _on_death_timer_timeout():
-	if exploded:
+	if exploded or hit_target:
 		return
 	exploded = 1
 	explosion.visible = 1
@@ -90,8 +102,13 @@ func _on_death_timer_timeout():
 	$hitbox.queue_free()
 	death_timer.queue_free()
 	$touch_area.queue_free()
-	var dist = (player.position + Vector3(0, 0.5, 0)).distance_to(global_position)
+	var dist = (target.position + Vector3(0, 0.5, 0)).distance_to(global_position)
 	if dist < SPLASH_RADIUS:
 		var effect = lerp(1.0, 0.0, dist / SPLASH_RADIUS)
-		player.knockback((player.position - position).normalized() * 10 * effect)
-		player.pain(death_message, DAMAGE * effect)
+		if target.is_in_group("player"):
+			target.knockback((target.position - position).normalized() * 10 * effect)
+			target.pain(death_message, DAMAGE * effect)
+		else:
+			target.pain(DAMAGE * effect)
+			if target.is_in_group("lightweight"):
+				target.add_vel = (target.position - position).normalized() * 10 * effect

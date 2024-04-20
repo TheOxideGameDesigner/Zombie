@@ -2,15 +2,13 @@ extends Area3D
 
 
 var SPEED = 30.0
-const HOMING_FORCE = 6
 const V_HOMING_FORCE = 50
 const DAMAGE = 30
-const HOMING_TIME = 0.5
 
 const EXPLOSION_TIME = 1
 const EXPLOSION_RADIUS = 6
 
-var player
+var target
 var death_message = "You were killed by a fireball"
 var vel = Vector3.ZERO
 var velv = 0
@@ -20,7 +18,7 @@ var exploded : bool = 0
 
 var time_since_birth = 0
 
-var hit_player = 0
+var hit_target = 0
 @onready var sprite = $sprite
 @onready var explosion = $explosion
 
@@ -29,7 +27,7 @@ func set_vel(new_vel):
 
 
 func _process(delta):
-	if exploded and not hit_player:
+	if exploded and not hit_target:
 		if timer > EXPLOSION_TIME:
 			queue_free()
 		timer += delta
@@ -44,28 +42,32 @@ func _physics_process(delta):
 	if vel == Vector3.ZERO:
 		return
 	
-	if time_since_birth < HOMING_TIME:
-		vel += HOMING_FORCE * delta * Vector3(player.global_position - global_position).normalized()
-		vel.y = 0
-		vel = vel.normalized()
+	vel.y = 0
+	vel = vel.normalized()
 	global_position += vel * delta * SPEED
-	global_position.y = lerp(global_position.y, player.global_position.y + 1.5, min(1, V_HOMING_FORCE * delta / (position.distance_to(player.position) + 1)))
+	if target.is_in_group("player") or target.alive:
+		global_position.y = lerp(global_position.y, target.global_position.y + 1.5, min(1, V_HOMING_FORCE * delta / (position.distance_to(target.position) + 1)))
 
 
 func _on_body_entered(body):
-	if body.is_in_group("enemy") or (not body.get_collision_layer_value(1) and not body.get_collision_layer_value(9)) or exploded:
+	if body == get_parent() or exploded:
 		return
 	exploded = 1
 	explosion.visible = 1
 	sprite.queue_free()
 	$hitbox.queue_free()
-	if body != player:
+	if !body.is_in_group("player") and !body.is_in_group("enemy"):
 		return
-	hit_player = 1
+	hit_target = 1
 	explosion.queue_free()
 	$death_timer.queue_free()
-	player.pain(death_message, DAMAGE)
-	player.knockback(vel.normalized() * 10 + Vector3(0, 0.2, 0))
+	if body.is_in_group("player"):
+		body.pain(death_message, DAMAGE)
+		body.knockback(vel.normalized() * 10 + Vector3(0, 0.2, 0))
+	else:
+		body.pain(DAMAGE)
+		if body.is_in_group("lightweight"):
+			body.add_vel = vel.normalized() * 10 + Vector3(0, 0.2, 0)
 
 
 
