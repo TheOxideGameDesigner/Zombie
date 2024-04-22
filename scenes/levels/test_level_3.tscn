@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_n6eeb"]
 [ext_resource type="PackedScene" uid="uid://4px2n2dg363l" path="res://scenes/misc_props/player.tscn" id="2_26vq5"]
 [ext_resource type="PackedScene" uid="uid://c3g448o4xte1l" path="res://scenes/props/static_props/tutorials/tutorial_text.tscn" id="3_4rfs3"]
-[ext_resource type="PackedScene" uid="uid://26x6x0du3c7k" path="res://scenes/props/enemies/chaingunner.tscn" id="4_ek327"]
-[ext_resource type="PackedScene" uid="uid://ct4dtw3ijmehk" path="res://scenes/props/enemies/runner.tscn" id="4_ho3mo"]
+[ext_resource type="PackedScene" uid="uid://d2ya5fu74vom0" path="res://scenes/props/enemies/hitscanner.tscn" id="5_buqg8"]
+[ext_resource type="PackedScene" uid="uid://dsklmuink3naj" path="res://scenes/props/enemies/bomber.tscn" id="6_t4ete"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ctp2d"]
 
@@ -65,14 +65,8 @@ message = "how to make cheese
 
 have a great rest of your {g_forward}!"
 
-[node name="chaingunner" parent="." instance=ExtResource("4_ek327")]
-transform = Transform3D(0.426142, 0, 0.904656, 0, 1, 0, -0.904656, 0, 0.426142, -22.4269, 0.19884, 11.8361)
+[node name="hitscanner" parent="." instance=ExtResource("5_buqg8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.482, 0.19884, -3.06443)
 
-[node name="runner" parent="." instance=ExtResource("4_ho3mo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.5079, 0.198839, 18.7681)
-
-[node name="runner2" parent="." instance=ExtResource("4_ho3mo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.57821, 0.198841, 22.4166)
-
-[node name="runner3" parent="." instance=ExtResource("4_ho3mo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.26899, 0.198839, 17.2481)
+[node name="bomber" parent="." instance=ExtResource("6_t4ete")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.8656, 0.19884, 20.5827)

@@ -24,10 +24,10 @@ const GR_ACCEL = 9.8
 const TERMINAL_VEL = 30
 const MAX_STEP_HEIGHT = 0.3
 
-const SWAY = 0.001
-const SWAY_MAX = 2
+const SWAY = 0.0015
+const SWAY_MAX = 3
 const SWAY_VERICAL = 0.7
-const SWAY_RETURN = 5
+const SWAY_RETURN = 6
 const HOLSTER_SPEED = 8
 
 const REVOLVER_RANGE = 42
@@ -108,6 +108,7 @@ var particles_scene = preload("res://scenes/environment/blood_particles.tscn")
 @onready var cannon_viewmodel = $cam/camera/vp_cont/vp/gun_cam/viewmodel/cannon_viewmodel
 @onready var blaster_viewmodel = $cam/camera/vp_cont/vp/gun_cam/viewmodel/blaster_viewmodel
 @onready var hypnotizer_viewmodel = $cam/camera/vp_cont/vp/gun_cam/viewmodel/hypnotizer_viewmodel
+@onready var hypnotizer_ribbon = $cam/camera/vp_cont/vp/gun_cam/viewmodel/hypnotizer_viewmodel/hypnotizer_ribbon
 
 
 @onready var cam = $cam
@@ -130,6 +131,7 @@ var particles_scene = preload("res://scenes/environment/blood_particles.tscn")
 
 var revolver_mf_timer = 0
 var shotgun_mf_timer = 0
+var hypnotizer_last_shot_hit = 0
 var time_after_death = 0
 var has_garlic = 0
 const KEYS_MAX = 32
@@ -216,7 +218,7 @@ func update_wpn():
 func hurt(collider):
 	match wpn:
 		1:
-			collider.pain(REVOLVER_DAMAGE * damage_mul)
+			collider.pain(REVOLVER_DAMAGE * damage_mul, false, true)
 		2:
 			var dmg
 			var dist = Vector2(position.x, position.z).distance_to(Vector2(collider.position.x, collider.position.z))
@@ -237,7 +239,7 @@ func hurt(collider):
 			collider.pain(dmg * damage_mul)
 
 
-func shoot():
+func shoot(delta):
 	match wpn:
 		1:
 			camera.add_tilt(0.5, Vector3(1, 0, 0), 1)
@@ -357,12 +359,22 @@ func shoot():
 			raycast.target_position = Vector3(0, 0, -REVOLVER_RANGE)
 			raycast.force_raycast_update()
 			var collider = raycast.get_collider()
+			hypnotizer_last_shot_hit = false
 			if collider != null:
 				if collider.is_in_group("enemy_raycast_collision"):
 					collider = collider.get_parent()
-					if not collider.rising:
-						collider.hypnotize()
-			cooldown_timers[4] = 0.5
+					if not collider.rising and not collider.hypno:
+						hypnotizer_last_shot_hit = true
+						collider.hypno_health -= delta / collider.HYPNO_RESISTANCE
+						collider.update_healthbar()
+						if not disable_particles:
+							var new_particles = particles_scene.instantiate()
+							new_particles.dir = raycast.get_collision_normal()
+							new_particles.color = Color(1.0, 0.0, 1.0)
+							new_particles.amount = 1
+							new_particles.size = 0.05
+							add_child(new_particles)
+							new_particles.global_position = raycast.get_collision_point()
 
 
 func shoot_alt():
@@ -615,7 +627,7 @@ func _unhandled_input(event):
 		prev_wpn = wpn
 		wpn = 4
 		holstering = 1
-	elif event.is_action_pressed("g_wpn5") and wpn != 5:
+	elif event.is_action_pressed("g_wpn5") and wpn != 5 and false:
 		prev_wpn = wpn
 		wpn = 5
 		holstering = 1
@@ -658,6 +670,12 @@ func _process(delta):
 	else:
 		left_hand.position.z = 0
 	
+	if wpn_vis == 5 and holstering == 0 and Input.is_action_pressed("g_attack") and hypnotizer_last_shot_hit:
+		hypnotizer_ribbon.visible = 1
+		hypnotizer_ribbon.rotation.z += 9 * delta
+	else:
+		hypnotizer_ribbon.visible = 0
+	
 	
 	warning.modulate.a -= delta
 	fps_label.text = str(Engine.get_frames_per_second())
@@ -689,11 +707,6 @@ func _process(delta):
 	var fov = lerp(fov_min, fov_max,
 			 clamp((Vector2(velocity.x, velocity.z).length() - SPEED * speed_mul) / (SPEED * speed_mul * (fov_max_spd - 1)), 0, 1))
 	camera.fov = lerp(camera.fov, fov, delta * 15)
-	if not holstering and cooldown_timers[wpn - 1] == 0:
-		if Input.is_action_pressed("g_attack"):
-			shoot()
-		elif Input.is_action_pressed("g_attack2"):
-			shoot_alt()
 	
 	revolver_mf_timer = max(0, revolver_mf_timer - delta)
 	shotgun_mf_timer = max(0, shotgun_mf_timer - delta)
@@ -715,6 +728,12 @@ func _physics_process(delta):
 	
 	for i in range(5):
 		cooldown_timers[i] = max(0, cooldown_timers[i] - delta)
+	
+	if not holstering and cooldown_timers[wpn - 1] == 0:
+		if Input.is_action_pressed("g_attack"):
+			shoot(delta)
+		elif Input.is_action_pressed("g_attack2"):
+			shoot_alt()
 
 	if holstering:
 		viewmodel_pos.y -= HOLSTER_SPEED * delta

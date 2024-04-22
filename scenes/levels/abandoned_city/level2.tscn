@@ -2936,13 +2936,15 @@ min_dif = 1
 
 [node name="runner6" parent="." instance=ExtResource("37_lvtf6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 109.434, 1.14441e-05, -79.1532)
+min_dif = 3
 
 [node name="runner7" parent="." instance=ExtResource("37_lvtf6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 122.32, 1.52588e-05, -64.5815)
-min_dif = 2
+min_dif = 3
 
 [node name="runner11" parent="." instance=ExtResource("37_lvtf6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 131.951, 1.33514e-05, -78.4487)
+min_dif = 3
 
 [node name="runner12" parent="." instance=ExtResource("37_lvtf6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 165.072, 1.33514e-05, -102.018)
@@ -2979,6 +2981,7 @@ min_dif = 1
 
 [node name="runner9" parent="." instance=ExtResource("37_lvtf6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 105.929, 1.52588e-05, -65.5273)
+min_dif = 3
 
 [node name="gunner" parent="." instance=ExtResource("38_xbh7r")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 143.345, 9.53674e-06, -71.9334)

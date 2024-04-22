@@ -3,6 +3,7 @@ extends GPUParticles3D
 
 var dir = Vector3.ZERO
 var speed = 2
+var size = 0.1
 var color = Color(1, 0, 0)
 var spread = 27.75
 
@@ -17,6 +18,7 @@ func _ready():
 	process_material.initial_velocity_min = speed
 	process_material.initial_velocity_max = 2 * speed
 	process_material.spread = spread
+	draw_pass_1.size = Vector3(size, size, size)
 
 
 func _on_finished():

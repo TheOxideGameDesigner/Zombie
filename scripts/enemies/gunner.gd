@@ -2,6 +2,9 @@ extends CharacterBody3D
 
 
 var HP : int = 300
+const HYPNO_RESISTANCE = 3
+const HYPNO_HEALTH_DRAIN = 4
+var hypno_health_drain_timer = 0.0
 var ROCKET_SPEED = 30
 const REVOLVER_HEAL : int = 2
 const HIT_RANGE : float = 25
@@ -15,6 +18,7 @@ const ACTIVE_RADIUS = 64
 
 var rising = 0
 var health : int
+var hypno_health = 1.0
 var alive : bool = 1
 var rising_timer = 0.0
 var vulnerability = 1.0
@@ -69,7 +73,10 @@ func hypnotize():
 	add_to_group("hypno")
 	set_collision_layer_value(10, true)
 	ray.set_collision_mask_value(2, true)
+	ray.set_collision_mask_value(9, false)
 	alerted.visible = false
+	hypno_health = 1.0
+	update_healthbar()
 
 
 func unhypnotize():
@@ -77,6 +84,7 @@ func unhypnotize():
 	remove_from_group("hypno")
 	set_collision_layer_value(10, false)
 	ray.set_collision_mask_value(2, false)
+	ray.set_collision_mask_value(9, true)
 
 
 func is_active():
@@ -169,7 +177,7 @@ func add_gibs(dmg):
 	new_gibs.dir = (position - player.position).normalized() * clamp(dmg / 10, 1, 10)
 
 
-func pain(dmg):
+func pain(dmg, noblood=false, heal_player = false):
 	if rising or not alive or health <= 0:
 		return
 	
@@ -178,17 +186,19 @@ func pain(dmg):
 	if edmg >= health:
 		add_gibs(edmg)
 	
-	add_particles(edmg)
+	if not noblood:
+		add_particles(edmg)
+		pain_col = 1.0
 	
-	pain_col = 1.0
 	health -= dmg * vulnerability
 	update_healthbar()
-	if player.wpn == 1:
+	if heal_player:
 		player.health = player.health + REVOLVER_HEAL
 
 
 func update_healthbar():
-	health_label.text = str(max(0, health))
+	health_label.modulate = Color(1, hypno_health, 1)
+	health_label.text = str(max(0, ceil(health * hypno_health)))
 
 
 func _process(delta):
@@ -226,6 +236,14 @@ func rising_func(t):
 
 
 func _physics_process(delta):
+	if hypno_health <= 0:
+		hypnotize()
+	if hypno:
+		if hypno_health_drain_timer <= 0:
+			hypno_health_drain_timer = 0.2
+			pain(HYPNO_HEALTH_DRAIN, true)
+		hypno_health_drain_timer -= delta
+	
 	if target == null:
 		dist_from_target = 10000
 	else:
@@ -238,7 +256,7 @@ func _physics_process(delta):
 	var dir2player2D = Vector2(dir2player.x, dir2player.z).normalized()
 	var player_dir = player.cam.transform.basis.z
 	var player_dir2D = Vector2(player_dir.x, player_dir.z).normalized()
-	raycast_hitbox.disabled = rising or not alive or dir2player2D.dot(player_dir2D) < player.MIN_HIT_DOT_PROD
+	raycast_hitbox.disabled = hypno or rising or not alive or dir2player2D.dot(player_dir2D) < player.MIN_HIT_DOT_PROD
 	
 	if rising and rising_timer < RISE_TIME:
 		mesh.rotation.y = spawn_ang
@@ -296,11 +314,13 @@ func _physics_process(delta):
 			target = player
 		for hombie in get_tree().get_nodes_in_group("hypno"):
 			var dist_from_hombie = Vector2(hombie.position.x, hombie.position.z).distance_to(Vector2(position.x, position.z))
-			if dist_from_hombie < min_dist:
+			if dist_from_hombie < HIT_RANGE:
 				ray.target_position = ray.to_local(hombie.position + Vector3(0, 1.5, 0)).normalized() * HIT_RANGE
 				ray.force_raycast_update()
 				if ray.get_collider() == hombie:
-					target = hombie
+					if dist_from_hombie < min_dist:
+						target = hombie
+						min_dist = dist_from_hombie
 					if hombie.dist_from_target >= dist_from_hombie + 0.1:
 						hombie.target = self
 	
@@ -341,6 +361,7 @@ func _on_hit_timer_timeout():
 
 func _on_respawn_timeout():
 	health = HP
+	hypno_health = 1.0
 	update_healthbar()
 	alive = 1
 	rising = 1
