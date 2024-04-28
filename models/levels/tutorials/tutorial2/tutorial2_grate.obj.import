@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://c3wj0pyu7nd5y"
+path="res://.godot/imported/tutorial2_grate.obj-8690c1e327d515111c238d4566f46c56.mesh"
+
+[deps]
+
+files=["res://.godot/imported/tutorial2_grate.obj-8690c1e327d515111c238d4566f46c56.mesh"]
+
+source_file="res://models/levels/tutorials/tutorial2/tutorial2_grate.obj"
+dest_files=["res://.godot/imported/tutorial2_grate.obj-8690c1e327d515111c238d4566f46c56.mesh", "res://.godot/imported/tutorial2_grate.obj-8690c1e327d515111c238d4566f46c56.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

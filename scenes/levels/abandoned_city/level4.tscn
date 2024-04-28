@@ -110,6 +110,11 @@ material_override = ExtResource("4_qf2ek")
 cast_shadow = 0
 mesh = ExtResource("5_pxf5x")
 
+[node name="level_visual_no_shadow2" type="MeshInstance3D" parent="."]
+material_override = ExtResource("4_qf2ek")
+cast_shadow = 0
+mesh = ExtResource("5_pxf5x")
+
 [node name="level_collision" type="MeshInstance3D" parent="."]
 visible = false
 mesh = ExtResource("6_vp72y")
@@ -1394,6 +1399,13 @@ visibility_range_end = 175.0
 mesh = ExtResource("16_gf8w1")
 skeleton = NodePath("../..")
 
+[node name="Barrier079" type="MeshInstance3D" parent="barriers"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 20, 0.1, -355)
+material_override = ExtResource("15_to35k")
+visibility_range_end = 175.0
+mesh = ExtResource("16_gf8w1")
+skeleton = NodePath("../..")
+
 [node name="Barrier007" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -25, 0.1, -306)
 material_override = ExtResource("15_to35k")
@@ -1569,6 +1581,13 @@ visibility_range_end = 175.0
 mesh = ExtResource("19_uacvs")
 skeleton = NodePath("../..")
 
+[node name="Barrier090" type="MeshInstance3D" parent="barriers"]
+transform = Transform3D(1, 0, -1.01332e-07, 0, 1, 0, 1.01332e-07, 0, 1, -170, 0.216461, -250)
+material_override = ExtResource("4_qf2ek")
+visibility_range_end = 175.0
+mesh = ExtResource("19_uacvs")
+skeleton = NodePath("../..")
+
 [node name="Barrier053" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(-1, 0, 1.88755e-07, 0, 1, 0, -1.88755e-07, 0, -1, -48, 0.216461, -335)
 material_override = ExtResource("4_qf2ek")
@@ -1585,6 +1604,13 @@ skeleton = NodePath("../..")
 
 [node name="Barrier055" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(1, 0, -2.83122e-07, 0, 1, 0, 2.83122e-07, 0, 1, 35, 0.216461, -306)
+material_override = ExtResource("4_qf2ek")
+visibility_range_end = 175.0
+mesh = ExtResource("19_uacvs")
+skeleton = NodePath("../..")
+
+[node name="Barrier088" type="MeshInstance3D" parent="barriers"]
+transform = Transform3D(2.39411e-07, 0, 1, 0, 1, 0, -1, 0, 2.39411e-07, 42, 0.216461, -348)
 material_override = ExtResource("4_qf2ek")
 visibility_range_end = 175.0
 mesh = ExtResource("19_uacvs")
@@ -1669,6 +1695,13 @@ skeleton = NodePath("../..")
 
 [node name="Barrier076" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(-1.03316e-07, 0, 1, 0, 1, 0, -1, 0, -1.03316e-07, -86, 0.236603, -268)
+material_override = ExtResource("4_qf2ek")
+visibility_range_end = 175.0
+mesh = ExtResource("20_nmdqm")
+skeleton = NodePath("../..")
+
+[node name="Barrier089" type="MeshInstance3D" parent="barriers"]
+transform = Transform3D(-1, 0, -1.47027e-07, 0, 1, 0, 1.47027e-07, 0, -1, -166, 0.236603, -272)
 material_override = ExtResource("4_qf2ek")
 visibility_range_end = 175.0
 mesh = ExtResource("20_nmdqm")

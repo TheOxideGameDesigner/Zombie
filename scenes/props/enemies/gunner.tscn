@@ -25,11 +25,11 @@ radius = 1.03518
 height = 3.7148
 radius = 1.75
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_afsjn"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ilw82"]
 transparency = 1
 shading_mode = 0
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_r1s1u"]
+[sub_resource type="CylinderMesh" id="CylinderMesh_yq8qe"]
 top_radius = 1.0
 bottom_radius = 1.0
 radial_segments = 12
@@ -116,8 +116,8 @@ wait_time = 1.5
 one_shot = true
 
 [node name="difficulty_visualiser" parent="." instance=ExtResource("11_dpxc4")]
-material_override = SubResource("StandardMaterial3D_afsjn")
-mesh = SubResource("CylinderMesh_r1s1u")
+material_override = SubResource("StandardMaterial3D_ilw82")
+mesh = SubResource("CylinderMesh_yq8qe")
 radius = 1.0
 
 [node name="collision_area" type="Area3D" parent="." groups=["enemy_area"]]

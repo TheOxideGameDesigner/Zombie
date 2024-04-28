@@ -58,6 +58,10 @@ const BLASTER_COOLDOWN_SHORT = 0.075
 const BLASTER_RANGE = 42
 const BLASTER_PB_RANGE = 6
 const BLASTER_FALLOFF = 0.08
+const HYPNOTIZER_BUFF = 1.3
+const HYPNOTIZER_DRAIN = 3 * HYPNOTIZER_BUFF
+const HYPNOTIZER_RECHARGE = 8.5
+const HYPNOTIZER_RECHARGE_START = 0.5
 const DEATH_FADE_TIME = 1.0
 
 var damage_mul = 1.0
@@ -70,6 +74,9 @@ var ramp_vel = 0.0
 
 var holstering = 0
 var cooldown_timers = [0, 0, 0, 0, 0]
+var hypnotizer_charge = 1.0
+var hypnotizer_charge_timer = 0.0
+var unlocked_hypno : bool = false
 var mf_lifespans = [0.2, 0.2, 0, 0, 0]
 
 var can_float = 1
@@ -156,6 +163,7 @@ var time = 0
 var damage_taken : int = 0
 
 @onready var charge_rect = $charge/charge_rect
+@onready var hypno_charge_rect = $hypno_charge/charge_rect
 var charge_rect_time = 5
 
 
@@ -356,6 +364,8 @@ func shoot(delta):
 			bullet.lifespan = 0.08
 			gun_cam.add_child(bullet)
 		5:
+			if hypnotizer_charge == 0.0:
+				return
 			raycast.target_position = Vector3(0, 0, -REVOLVER_RANGE)
 			raycast.force_raycast_update()
 			var collider = raycast.get_collider()
@@ -363,9 +373,11 @@ func shoot(delta):
 			if collider != null:
 				if collider.is_in_group("enemy_raycast_collision"):
 					collider = collider.get_parent()
-					if not collider.rising and not collider.hypno:
+					if collider.hypnotizable and not collider.rising and not collider.hypno:
 						hypnotizer_last_shot_hit = true
-						collider.hypno_health -= delta / collider.HYPNO_RESISTANCE
+						hypnotizer_charge_timer = HYPNOTIZER_RECHARGE_START
+						hypnotizer_charge = max(0.0, hypnotizer_charge - delta / HYPNOTIZER_DRAIN)
+						collider.hypno_health -= HYPNOTIZER_BUFF * (float(collider.HP) / collider.health) * delta / collider.HYPNO_RESISTANCE
 						collider.update_healthbar()
 						if not disable_particles:
 							var new_particles = particles_scene.instantiate()
@@ -569,6 +581,10 @@ func _ready():
 	if config.get_value("video", "disable_shake", false):
 		camera.disable_shake = 1
 	
+	config.load("user://unlocked.cfg")
+	unlocked_hypno = config.get_value("weapons", "unlocked_hypno", false)
+	$hypno_charge.visible = unlocked_hypno
+	
 	var respawn_event = InputMap.action_get_events("g_respawn")[0]
 	var respawn_event_text
 	if respawn_event is InputEventKey:
@@ -627,7 +643,7 @@ func _unhandled_input(event):
 		prev_wpn = wpn
 		wpn = 4
 		holstering = 1
-	elif event.is_action_pressed("g_wpn5") and wpn != 5 and false:
+	elif event.is_action_pressed("g_wpn5") and wpn != 5 and unlocked_hypno:
 		prev_wpn = wpn
 		wpn = 5
 		holstering = 1
@@ -670,11 +686,15 @@ func _process(delta):
 	else:
 		left_hand.position.z = 0
 	
-	if wpn_vis == 5 and holstering == 0 and Input.is_action_pressed("g_attack") and hypnotizer_last_shot_hit:
+	if wpn_vis == 5 and holstering == 0 and Input.is_action_pressed("g_attack") and hypnotizer_last_shot_hit and hypnotizer_charge > 0.0:
 		hypnotizer_ribbon.visible = 1
 		hypnotizer_ribbon.rotation.z += 9 * delta
 	else:
 		hypnotizer_ribbon.visible = 0
+		if hypnotizer_charge_timer == 0.0:
+			hypnotizer_charge = min(1.0, hypnotizer_charge + delta / HYPNOTIZER_RECHARGE)
+		elif not Input.is_action_pressed("g_attack"):
+			hypnotizer_charge_timer = max(0.0, hypnotizer_charge_timer - delta)
 	
 	
 	warning.modulate.a -= delta
@@ -691,6 +711,7 @@ func _process(delta):
 	health_text.text = str(health)
 	
 	charge_rect.scale.y = 1 - cooldown_timers[2] / charge_rect_time
+	hypno_charge_rect.scale.y = hypnotizer_charge
 	
 	if health <= 0:
 		health = -1000

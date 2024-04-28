@@ -70,6 +70,8 @@ script = ExtResource("1_depq5")
 
 [node name="exit" parent="." instance=ExtResource("29_cuy3q")]
 transform = Transform3D(-2, 0, -3.01992e-07, 0, 2, 0, 3.01992e-07, 0, -2, 5, 0.7, -7)
+level = 1
+unlock_hypno = true
 
 [node name="light" type="DirectionalLight3D" parent="." groups=["light"]]
 transform = Transform3D(0.711456, 0.490704, 0.50303, -0.539281, -0.0777098, 0.838533, 0.450562, -0.867854, 0.209341, 253.533, 245.179, -96.0863)

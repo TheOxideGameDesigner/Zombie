@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dl3bbu8l4e8pk"]
+
+[ext_resource type="Shader" path="res://resources/materials/specific_mats/angel_mat.gdshader" id="1_dcla2"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_dcla2")

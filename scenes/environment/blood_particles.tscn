@@ -8,11 +8,11 @@ shading_mode = 0
 vertex_color_use_as_albedo = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_ylev7"]
-material = SubResource("StandardMaterial3D_frxv8")
 size = Vector3(0.1, 0.1, 0.1)
 
 [node name="blood_particles" type="GPUParticles3D"]
 top_level = true
+material_override = SubResource("StandardMaterial3D_frxv8")
 emitting = false
 amount = 10
 lifetime = 0.4

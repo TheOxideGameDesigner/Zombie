@@ -1,10 +1,12 @@
 extends CharacterBody3D
 
 var HP : int = 100
-const HYPNO_RESISTANCE = 1.75
-const HYPNO_HEALTH_DRAIN = 2
+const HYPNO_RESISTANCE = 1.5
+const HYPNO_HEALTH_DRAIN = 1
 var hypno_health_drain_timer = 0.0
 var hypno_health = 1.0
+var hypnotizable : bool = true
+var hypno_timer = 0.0
 const SPEED = 5
 const WALK_FREQ = 1
 const MAX_TURN_SPEED = 2 * PI
@@ -107,6 +109,7 @@ func hypnotize():
 
 
 func unhypnotize():
+	hypno_timer = 0.0
 	hypno = false
 	remove_from_group("hypno")
 	set_collision_layer_value(10, false)
@@ -331,6 +334,7 @@ func _physics_process(delta):
 			hypno_health_drain_timer = 0.2
 			pain(HYPNO_HEALTH_DRAIN, true)
 		hypno_health_drain_timer -= delta
+		hypno_timer += delta
 	
 	if target == null:
 		dist_from_target = 10000
@@ -424,6 +428,7 @@ func _physics_process(delta):
 	
 	#zombie logic
 	
+	#determine target
 	if not hypno:
 		var min_dist = VIS_RANGE
 		ray.target_position = ray.to_local(player.position + Vector3(0, 1.5, 0)).normalized() * VIS_RANGE
@@ -437,11 +442,12 @@ func _physics_process(delta):
 				ray.target_position = ray.to_local(hombie.position + Vector3(0, 1.5, 0)).normalized() * VIS_RANGE
 				ray.force_raycast_update()
 				if ray.get_collider() == hombie:
-					if dist_from_hombie < min_dist:
+					if dist_from_hombie < min_dist and hombie.hypno_timer > 1:
 						target = hombie
 						min_dist = dist_from_hombie
-					if hombie.dist_from_target >= dist_from_hombie + 0.1:
+					if hombie.dist_from_target >= dist_from_hombie:
 						hombie.target = self
+						hitbox.disabled = false
 	
 	if target != player and target != null and (not target.alive or target.hypno == hypno):
 		target = null

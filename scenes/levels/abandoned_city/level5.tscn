@@ -69,7 +69,7 @@ size = Vector3(20.2436, 4.53076, 0.602081)
 size = Vector3(20.252, 8.12219, 11.0505)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fjvss"]
-size = Vector3(80.458, 24.4418, 70.4007)
+size = Vector3(80.458, 24.4418, 83.3781)
 
 [node name="level5" type="Node3D"]
 script = ExtResource("1_hatn3")
@@ -3817,7 +3817,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -147.531, -0.267773, -118.018
 [node name="Area3D" type="Area3D" parent="eye_of_anubis"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="eye_of_anubis/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.30518, 11.7209, 0.34446)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.30518, 11.7209, 1.14419)
 shape = SubResource("BoxShape3D_fjvss")
 
 [node name="runner17" parent="." instance=ExtResource("37_2w2ha")]

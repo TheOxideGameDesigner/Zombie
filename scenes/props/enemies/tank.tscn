@@ -29,7 +29,7 @@ radius = 1.05358
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5vh1h"]
 specular_mode = 2
 
-[node name="tank" type="StaticBody3D" groups=["enemy", "see_through"]]
+[node name="tank" type="StaticBody3D" groups=["enemy", "unhealable"]]
 top_level = true
 collision_layer = 2
 script = ExtResource("1_a4ev3")

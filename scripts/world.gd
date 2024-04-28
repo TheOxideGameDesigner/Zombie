@@ -8,6 +8,7 @@ var wait_time
 var i = 0
 var timer = 0.0
 
+
 func _ready():
 	var config_file = ConfigFile.new()
 	config_file.load("user://settings.cfg")

@@ -26,12 +26,12 @@ height = 5.915
 radial_segments = 10
 rings = 10
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_why2i"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wdeg1"]
 transparency = 1
 shading_mode = 0
 albedo_color = Color(1, 1, 1, 0.1)
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_qb48q"]
+[sub_resource type="CylinderMesh" id="CylinderMesh_wcpfn"]
 radial_segments = 12
 
 [node name="bomber" type="CharacterBody3D" groups=["activatable", "enemy", "lightweight"]]
@@ -108,7 +108,7 @@ wait_time = 5.0
 one_shot = true
 
 [node name="difficulty_visualiser" parent="." instance=ExtResource("10_ftv05")]
-material_override = SubResource("StandardMaterial3D_why2i")
-mesh = SubResource("CylinderMesh_qb48q")
+material_override = SubResource("StandardMaterial3D_wdeg1")
+mesh = SubResource("CylinderMesh_wcpfn")
 
 [connection signal="timeout" from="respawn" to="." method="_on_respawn_timeout"]

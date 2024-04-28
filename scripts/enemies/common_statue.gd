@@ -93,6 +93,7 @@ func spawn(type_f, ang, dist):
 			new_zombie = mage_scene.instantiate()
 		6:
 			new_zombie = bomber_scene.instantiate()
+	new_zombie.hypnotizable = false
 	new_zombie.respawn_time = 1
 	new_zombie.position = Vector3.MODEL_FRONT.rotated(Vector3.UP, ang - PI / 2) * dist
 	new_zombie.position.y += spawn_height

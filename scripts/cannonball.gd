@@ -74,6 +74,6 @@ func _process(delta):
 
 
 func _on_area_body_entered(body):
-	if exploding or body == player or body.is_in_group("cannonball") or (not body.get_collision_layer_value(1) and not body.get_collision_layer_value(2)):
+	if exploding or body == player or body.is_in_group("cannonball"):
 		return
 	explode(body)

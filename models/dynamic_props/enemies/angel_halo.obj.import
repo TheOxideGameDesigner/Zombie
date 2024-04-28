@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://wmyml2xrli80"
+path="res://.godot/imported/angel_halo.obj-980623b91c06996da418fc686a06da20.mesh"
+
+[deps]
+
+files=["res://.godot/imported/angel_halo.obj-980623b91c06996da418fc686a06da20.mesh"]
+
+source_file="res://models/dynamic_props/enemies/angel_halo.obj"
+dest_files=["res://.godot/imported/angel_halo.obj-980623b91c06996da418fc686a06da20.mesh", "res://.godot/imported/angel_halo.obj-980623b91c06996da418fc686a06da20.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

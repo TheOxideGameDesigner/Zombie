@@ -5,6 +5,7 @@ extends Area3D
 @export var chapter : int
 @export var level : int
 @export var requires_garlic : bool = true
+@export var unlock_hypno : bool = false
 
 var end_screen_scene = preload("res://scenes/end_screen.tscn")
 
@@ -22,6 +23,8 @@ func _on_body_entered(body):
 		var config = ConfigFile.new()
 		config.load(CONFIG_PATH)
 		config.set_value(levels[chapter][0], str(level), true)
+		if unlock_hypno:
+			config.set_value("weapons", "unlocked_hypno", true)
 		config.save(CONFIG_PATH)
 		
 		var end_screen = end_screen_scene.instantiate()

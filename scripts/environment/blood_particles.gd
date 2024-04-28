@@ -1,11 +1,11 @@
 extends GPUParticles3D
 
 
-var dir = Vector3.ZERO
-var speed = 2
-var size = 0.1
-var color = Color(1, 0, 0)
-var spread = 27.75
+@export var dir = Vector3.ZERO
+@export var speed = 2
+@export var size = 0.1
+@export var color = Color(1, 0, 0)
+@export var spread = 27.75
 
 
 func _ready():
@@ -18,6 +18,7 @@ func _ready():
 	process_material.initial_velocity_min = speed
 	process_material.initial_velocity_max = 2 * speed
 	process_material.spread = spread
+	draw_pass_1 = BoxMesh.new()
 	draw_pass_1.size = Vector3(size, size, size)
 
 

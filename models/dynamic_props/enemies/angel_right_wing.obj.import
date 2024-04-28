@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://c40kxk52n1ndu"
+path="res://.godot/imported/angel_right_wing.obj-9c8f3c4b7871877934c51ec6a943f94f.mesh"
+
+[deps]
+
+files=["res://.godot/imported/angel_right_wing.obj-9c8f3c4b7871877934c51ec6a943f94f.mesh"]
+
+source_file="res://models/dynamic_props/enemies/angel_right_wing.obj"
+dest_files=["res://.godot/imported/angel_right_wing.obj-9c8f3c4b7871877934c51ec6a943f94f.mesh", "res://.godot/imported/angel_right_wing.obj-9c8f3c4b7871877934c51ec6a943f94f.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

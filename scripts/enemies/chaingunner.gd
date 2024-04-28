@@ -2,10 +2,12 @@ extends CharacterBody3D
 
 
 var HP : int = 300
-const HYPNO_RESISTANCE = 4
-const HYPNO_HEALTH_DRAIN = 7
+const HYPNO_RESISTANCE = 3
+const HYPNO_HEALTH_DRAIN = 2
 var hypno_health_drain_timer = 0.0
 var hypno_health = 1.0
+var hypnotizable : bool = true
+var hypno_timer = 0.0
 const REVOLVER_HEAL : int = 3
 const HIT_RANGE : float = 25
 var HIT_DAMAGE : int = 4
@@ -85,6 +87,7 @@ func hypnotize():
 
 
 func unhypnotize():
+	hypno_timer = 0.0
 	hypno = false
 	remove_from_group("hypno")
 	set_collision_layer_value(10, false)
@@ -249,6 +252,7 @@ func _physics_process(delta):
 			hypno_health_drain_timer = 0.2
 			pain(HYPNO_HEALTH_DRAIN, true)
 		hypno_health_drain_timer -= delta
+		hypno_timer += delta
 	
 	if target == null:
 		dist_from_target = 10000
@@ -287,6 +291,8 @@ func _physics_process(delta):
 		respawn.start()
 		position = home.position
 		position.y -= GRAVE_DEPTH
+		if hypno:
+			unhypnotize()
 	
 	var max_turn_speed
 	if hypno:
@@ -314,6 +320,7 @@ func _physics_process(delta):
 		else:
 			position.y = ray.get_collision_point().y
 	
+	#determine target
 	if not hypno:
 		var min_dist = HIT_RANGE
 		ray.target_position = ray.to_local(player.position + Vector3(0, 1.5, 0)).normalized() * HIT_RANGE
@@ -327,10 +334,10 @@ func _physics_process(delta):
 				ray.target_position = ray.to_local(hombie.position + Vector3(0, 1.5, 0)).normalized() * HIT_RANGE
 				ray.force_raycast_update()
 				if ray.get_collider() == hombie:
-					if dist_from_hombie < min_dist:
+					if dist_from_hombie < min_dist and hombie.hypno_timer > 1:
 						target = hombie
 						min_dist = dist_from_hombie
-					if hombie.dist_from_target >= dist_from_hombie + 0.1:
+					if hombie.dist_from_target >= dist_from_hombie:
 						hombie.target = self
 	
 	if target != player and target != null and (not target.alive or target.hypno == hypno):

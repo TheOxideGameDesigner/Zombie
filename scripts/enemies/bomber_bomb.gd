@@ -5,7 +5,6 @@ var HVEL = 15.0
 const GR_ACCEL = 9.8
 const DAMAGE = 30
 const SPLASH_RADIUS = 5.0
-
 const EXPLOSION_TIME = 0.5
 const EXPLOSION_RADIUS = 8
 const FLICKER_TIME = 1.0

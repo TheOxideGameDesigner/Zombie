@@ -45,11 +45,11 @@ material = SubResource("StandardMaterial3D_n47a8")
 radial_segments = 10
 rings = 5
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d8xj0"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vfsks"]
 transparency = 1
 shading_mode = 0
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_ryg3s"]
+[sub_resource type="CylinderMesh" id="CylinderMesh_2ub5u"]
 radial_segments = 12
 
 [node name="mage" type="CharacterBody3D" groups=["activatable", "enemy", "lightweight"]]
@@ -138,7 +138,7 @@ wait_time = 5.0
 one_shot = true
 
 [node name="difficulty_visualiser" parent="." instance=ExtResource("11_osjj8")]
-material_override = SubResource("StandardMaterial3D_d8xj0")
-mesh = SubResource("CylinderMesh_ryg3s")
+material_override = SubResource("StandardMaterial3D_vfsks")
+mesh = SubResource("CylinderMesh_2ub5u")
 
 [connection signal="timeout" from="respawn" to="." method="_on_respawn_timeout"]

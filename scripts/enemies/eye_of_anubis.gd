@@ -22,22 +22,6 @@ var hit_timer = 0.0
 var sees_player = 0
 
 func _ready():
-	var config = ConfigFile.new()
-	config.load("user://settings.cfg")
-	
-	var diff = config.get_value("gameplay", "difficulty", 1)
-	match diff:
-		0:
-			HIT_TIME = 7.5
-		1:
-			HIT_TIME = 6.5
-		2:
-			HIT_TIME = 5
-		3:
-			HIT_TIME = 4
-		4:
-			HIT_TIME = 4
-	
 	$death_ray/death_ray_mesh.material_override = death_ray_mat
 	for c in get_children():
 		if c is Area3D:

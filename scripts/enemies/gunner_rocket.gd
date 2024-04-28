@@ -43,6 +43,8 @@ func _physics_process(delta):
 		return
 	
 	vel.y = 0
+	if target.is_in_group("enemy"):
+		vel = target.position - position
 	vel = vel.normalized()
 	global_position += vel * delta * SPEED
 	if target.is_in_group("player") or target.alive:

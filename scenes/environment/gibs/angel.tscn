@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://bnwnph4iqgj7h"]
+
+[ext_resource type="PackedScene" uid="uid://b1gm6ohp4ttmp" path="res://scenes/environment/blood_particles.tscn" id="1_a02r4"]
+[ext_resource type="Material" uid="uid://c32u4uobk2704" path="res://resources/materials/specific_mats/angel_explosion.tres" id="1_cxy0m"]
+[ext_resource type="Script" path="res://scripts/environment/angel_explosion.gd" id="2_k41ij"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_336v7"]
+radial_segments = 8
+rings = 4
+
+[node name="angel" type="MeshInstance3D"]
+top_level = true
+material_override = ExtResource("1_cxy0m")
+mesh = SubResource("SphereMesh_336v7")
+script = ExtResource("2_k41ij")
+
+[node name="blood_particles" parent="." instance=ExtResource("1_a02r4")]
+amount = 35
+speed = 10
+size = 0.3
+color = Color(1, 1, 0, 1)
+spread = 180.0

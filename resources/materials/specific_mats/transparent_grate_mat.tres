@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://qwoy0uoneiqd"]
+
+[ext_resource type="Texture2D" uid="uid://c15t2ftp3ps8g" path="res://textures/wire_fence.png" id="1_qoy5a"]
+
+[resource]
+transparency = 1
+cull_mode = 2
+specular_mode = 2
+albedo_color = Color(1, 1, 1, 0.878431)
+albedo_texture = ExtResource("1_qoy5a")
+texture_filter = 1
