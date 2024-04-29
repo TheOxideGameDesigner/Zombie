@@ -34,12 +34,11 @@ radius = 1.0
 height = 3.7148
 radius = 1.75
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_toh6g"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vj2ew"]
 transparency = 1
 shading_mode = 0
-albedo_color = Color(1, 1, 1, 0.1)
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_mtpbw"]
+[sub_resource type="CylinderMesh" id="CylinderMesh_r0802"]
 top_radius = 1.0
 bottom_radius = 1.0
 radial_segments = 12
@@ -130,7 +129,7 @@ enabled = false
 collision_mask = 769
 hit_from_inside = true
 
-[node name="raycast_collision" type="CharacterBody3D" parent="." groups=["enemy_raycast_collision"]]
+[node name="raycast_collision" type="Area3D" parent="." groups=["enemy_raycast_collision"]]
 collision_layer = 4
 collision_mask = 0
 
@@ -143,12 +142,14 @@ wait_time = 0.1
 one_shot = true
 
 [node name="difficulty_visualiser" parent="." instance=ExtResource("12_2wrjj")]
-material_override = SubResource("StandardMaterial3D_toh6g")
-mesh = SubResource("CylinderMesh_mtpbw")
+material_override = SubResource("StandardMaterial3D_vj2ew")
+mesh = SubResource("CylinderMesh_r0802")
 radius = 1.0
 
 [node name="collision_area" type="Area3D" parent="." groups=["enemy_area"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+collision_layer = 65536
+collision_mask = 65536
 
 [node name="collision_area_hitbox" type="CollisionShape3D" parent="collision_area"]
 shape = SubResource("CylinderShape3D_c1f0i")

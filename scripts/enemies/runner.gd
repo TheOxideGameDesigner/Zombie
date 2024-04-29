@@ -44,7 +44,6 @@ var prev_on_floor = 0
 var rising_timer = 0.0
 var hit_timer = HIT_TIME
 var attention_span_timer = 0
-var vulnerability = 1.0
 
 var roaming_timer = 0.0
 var pain_col = 0.0
@@ -212,16 +211,14 @@ func pain(dmg, noblood=false, heal_player = false, player_inflicted = false):
 	if rising or not alive or health <= 0:
 		return
 	
-	var edmg = ceili(dmg * vulnerability)
-	
-	if edmg >= health:
-		add_gibs(edmg)
+	if dmg >= health:
+		add_gibs(dmg)
 	
 	if not noblood:
-		add_particles(edmg)
+		add_particles(dmg)
 		pain_col = 1.0
 	
-	health -= edmg
+	health -= dmg
 	update_healthbar()
 	if heal_player:
 		player.health = player.health + REVOLVER_HEAL
@@ -393,28 +390,22 @@ func _physics_process(delta):
 		else:
 			mesh.rotation.y -= MAX_TURN_SPEED * delta
 	
-	var push_vel = Vector3.ZERO
 	for area in collision_area.get_overlapping_areas():
-		if area.is_in_group("enemy_area"):
-			var dir = Vector3(position.x, 0, position.z) - \
-				  Vector3(area.global_position.x, 0, area.global_position.z)
-			var is_cylinder = 0
-			for i in area.get_children():
-				if not i is CollisionShape3D:
-					continue
-				if not i.shape is CylinderShape3D:
-					continue
-				var displacement
-				if dir.dot(velocity) > 0:
-					displacement = (dir.normalized() * (RADIUS + i.shape.radius - dir.length())).project(velocity.rotated(Vector3.UP, PI / 2))
-				else:
-					displacement = (dir.normalized() * (RADIUS + i.shape.radius - dir.length()))
-				if displacement.length() < 0.5:
-					position += displacement
-				is_cylinder = 1
-				break
-			if not is_cylinder:
-				push_vel += dir.normalized() * 2.0 / min(1, position.distance_to(area.position))
+		var dir = Vector3(position.x, 0, position.z) - \
+			  Vector3(area.global_position.x, 0, area.global_position.z)
+		for i in area.get_children():
+			if not i is CollisionShape3D:
+				continue
+			if not i.shape is CylinderShape3D:
+				continue
+			var displacement
+			if dir.dot(velocity) > 0:
+				displacement = (dir.normalized() * (RADIUS + i.shape.radius - dir.length())).project(velocity.rotated(Vector3.UP, PI / 2))
+			else:
+				displacement = (dir.normalized() * (RADIUS + i.shape.radius - dir.length()))
+			if displacement.length() < 0.5:
+				position += displacement
+			break
 	
 	process_bumps(delta)
 	
@@ -485,7 +476,7 @@ func _physics_process(delta):
 	
 	#zombie movement
 	if not add_vel.is_zero_approx():
-		velocity = add_vel + push_vel + Vector3(0, y_vel, 0)
+		velocity = add_vel + Vector3(0, y_vel, 0)
 		move_and_slide()
 	elif asleep:
 		if on_screen:
@@ -493,7 +484,7 @@ func _physics_process(delta):
 			
 			roaming_timer += delta
 			rot = roaming_ang_func(roaming_timer * WALK_FREQ) + rand_roam_off
-			velocity = WALK_SPEED * Vector3.MODEL_FRONT.rotated(Vector3.UP, mesh.rotation.y) + push_vel
+			velocity = WALK_SPEED * Vector3.MODEL_FRONT.rotated(Vector3.UP, mesh.rotation.y)
 			roam_physics(delta)
 	else:
 		#kill the zombie if it is standing on the player
@@ -523,7 +514,7 @@ func _physics_process(delta):
 		var vel_dir = Vector3.MODEL_FRONT.rotated(Vector3.UP, mesh.rotation.y)
 		if (target == player and dist_from_target < 0.2) or (target != player and dist_from_target < 1.05):
 			vel_dir = Vector3.ZERO
-		velocity = SPEED * vel_dir.normalized() + push_vel
+		velocity = SPEED * vel_dir.normalized()
 		
 		if climbing:
 			y_vel = CLIMB_SPEED
@@ -544,13 +535,13 @@ func _physics_process(delta):
 				var normal = col.get_normal()
 				normal.y = 0
 				normal = normal.normalized()
-				if col.get_angle() > PI / 4 and vel_dir.dot(-normal) > 0.8:
+				if col.get_angle() > PI / 4:
 					ray.position.y = 0.7
 					ray.target_position = -normal * RADIUS * 2
 					ray.force_raycast_update()
 					if not ray.is_colliding():
 						y_vel = JUMP_SPEED
-					else:
+					elif vel_dir.dot(-normal) > 0.8:
 						climbing = 1
 					ray.position.y = 1.751
 					break

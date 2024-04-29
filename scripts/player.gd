@@ -376,8 +376,8 @@ func shoot(delta):
 					if collider.hypnotizable and not collider.rising and not collider.hypno:
 						hypnotizer_last_shot_hit = true
 						hypnotizer_charge_timer = HYPNOTIZER_RECHARGE_START
-						hypnotizer_charge = max(0.0, hypnotizer_charge - delta / HYPNOTIZER_DRAIN)
-						collider.hypno_health -= HYPNOTIZER_BUFF * (float(collider.HP) / collider.health) * delta / collider.HYPNO_RESISTANCE
+						hypnotizer_charge = max(0.0, hypnotizer_charge - delta * HYPNOTIZER_BUFF / HYPNOTIZER_DRAIN)
+						collider.hypno_health -= HYPNOTIZER_BUFF * damage_mul * (float(collider.HP) / collider.health) * delta / collider.HYPNO_RESISTANCE
 						collider.update_healthbar()
 						if not disable_particles:
 							var new_particles = particles_scene.instantiate()

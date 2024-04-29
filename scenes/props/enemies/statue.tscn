@@ -41,6 +41,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.00146, 0)
 shape = SubResource("CylinderShape3D_5sjja")
 
 [node name="collision_area" type="Area3D" parent="." groups=["enemy_area"]]
+collision_layer = 65536
+collision_mask = 65536
 
 [node name="collision_area_hitbox" type="CollisionShape3D" parent="collision_area"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)

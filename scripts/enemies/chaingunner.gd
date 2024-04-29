@@ -25,7 +25,6 @@ var rising = 0
 var health : int
 var alive = 1
 var rising_timer = 0.0
-var vulnerability = 1.0
 var has_died = 0
 var drops = []
 var reaction_timer = 0.0
@@ -192,16 +191,14 @@ func pain(dmg, noblood=false, heal_player = false):
 	if rising or not alive or health <= 0:
 		return
 	
-	var edmg = roundi(dmg * vulnerability)
-	
-	if edmg >= health:
-		add_gibs(edmg)
+	if dmg >= health:
+		add_gibs(dmg)
 	
 	if not noblood:
-		add_particles(edmg)
+		add_particles(dmg)
 		pain_col = 1.0
 	
-	health -= dmg * vulnerability
+	health -= dmg
 	update_healthbar()
 	if heal_player:
 		player.health = player.health + REVOLVER_HEAL

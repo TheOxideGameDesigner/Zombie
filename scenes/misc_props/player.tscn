@@ -100,6 +100,7 @@ target_position = Vector3(0, 0, -1)
 collision_mask = 5
 hit_from_inside = true
 hit_back_faces = false
+collide_with_areas = true
 
 [node name="vp_cont" type="SubViewportContainer" parent="cam/camera"]
 anchors_preset = 15
@@ -139,6 +140,7 @@ mesh = ExtResource("3_5qgrc")
 
 [node name="revolver_mf" type="MeshInstance3D" parent="cam/camera/vp_cont/vp/gun_cam/viewmodel/revolver_viewmodel"]
 transform = Transform3D(0.249, 6.39488e-14, -2.5411e-21, 0, -1.63043e-08, -0.342, -4.26326e-14, 0.373, -1.49493e-08, 0.152559, 0.608522, 2.11548)
+visible = false
 layers = 32
 cast_shadow = 0
 mesh = SubResource("CylinderMesh_wsw6g")
@@ -165,6 +167,7 @@ skeleton = NodePath("../revolver_viewmodel")
 
 [node name="shotgun_mf" type="Node3D" parent="cam/camera/vp_cont/vp/gun_cam/viewmodel/shotgun_viewmodel"]
 transform = Transform3D(1, 0, 5.68434e-14, 0, 1, 0, -5.68434e-14, 0, 1, -0.0204172, 2.03999, 2.85881)
+visible = false
 
 [node name="revolver_mf1" type="MeshInstance3D" parent="cam/camera/vp_cont/vp/gun_cam/viewmodel/shotgun_viewmodel/shotgun_mf"]
 transform = Transform3D(0.266, 8.89931e-14, -3.16856e-21, 0, -1.74408e-08, -0.325, -5.93287e-14, 0.399, -1.42062e-08, 0.150956, -1.42867, 0.418)

@@ -25,17 +25,18 @@ radius = 1.03518
 height = 3.7148
 radius = 1.75
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ilw82"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gioev"]
 transparency = 1
 shading_mode = 0
+albedo_color = Color(1, 1, 1, 0.1)
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_yq8qe"]
+[sub_resource type="CylinderMesh" id="CylinderMesh_7lx4v"]
 top_radius = 1.0
 bottom_radius = 1.0
 radial_segments = 12
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_ud1j6"]
-radius = 1.14581
+radius = 1.49327
 
 [node name="gunner" type="CharacterBody3D" groups=["activatable", "enemy"]]
 top_level = true
@@ -103,7 +104,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.68889, 0)
 enabled = false
 collision_mask = 769
 
-[node name="raycast_collision" type="CharacterBody3D" parent="." groups=["enemy_raycast_collision"]]
+[node name="raycast_collision" type="Area3D" parent="." groups=["enemy_raycast_collision"]]
 collision_layer = 4
 collision_mask = 0
 
@@ -116,12 +117,14 @@ wait_time = 1.5
 one_shot = true
 
 [node name="difficulty_visualiser" parent="." instance=ExtResource("11_dpxc4")]
-material_override = SubResource("StandardMaterial3D_ilw82")
-mesh = SubResource("CylinderMesh_yq8qe")
+material_override = SubResource("StandardMaterial3D_gioev")
+mesh = SubResource("CylinderMesh_7lx4v")
 radius = 1.0
 
 [node name="collision_area" type="Area3D" parent="." groups=["enemy_area"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+collision_layer = 65536
+collision_mask = 65536
 
 [node name="collision_area_hitbox" type="CollisionShape3D" parent="collision_area"]
 shape = SubResource("CylinderShape3D_ud1j6")

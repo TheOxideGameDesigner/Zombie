@@ -69,10 +69,10 @@ func update_beam(i):
 	beam_mesh.visible = 1
 	servants[i].aura.visible = 1
 	beam_mesh.position = (from + to) / 2
-	beam_mesh.mesh.height = from.distance_to(to)
 	var dir = to - from
 	beam_mesh.global_rotation.y = -atan2(dir.z, dir.x) + PI / 2
 	beam_mesh.global_rotation.x = -atan2(dir.y, Vector2(dir.z, dir.x).length()) + PI / 2
+	beam_mesh.scale.y = from.distance_to(to)
 
 
 #type 0 = runner; type 1 = gunner
@@ -111,8 +111,8 @@ func spawn(type_f, ang, dist):
 	beam.mesh.height = 1
 	beam.mesh.rings = 1
 	beam.mesh.radial_segments = 10
-	beam.mesh.bottom_radius = 0.2
-	beam.mesh.top_radius = 0.2
+	beam.mesh.bottom_radius = 0.1
+	beam.mesh.top_radius = 0.1
 	add_child(beam)
 	beam.top_level = 1
 	servant_beams.push_back(beam)
