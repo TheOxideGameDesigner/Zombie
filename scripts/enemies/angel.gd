@@ -49,7 +49,7 @@ func update_beam(i):
 		beam_mesh.visible = 0
 		return
 	var from = body.global_position
-	var to = zombies[i].global_position + Vector3(0, zombies[i].mesh.position.y - zombies[i].position.y, 0)
+	var to = zombies[i].mesh.global_position + Vector3(0, 0.25, 0)
 	beam_mesh.visible = 1
 	beam_mesh.position = (from + to) / 2
 	var dir = to - from
@@ -105,7 +105,7 @@ func pain(dmg, noblood=false, heal_player = false, source = player):
 
 
 func _body_entered(body):
-	if body == self or not body.is_in_group("enemy") or body.is_in_group("unhealable") or not body.hypnotizable:
+	if body == self or not body.is_in_group("enemy") or body.is_in_group("unhealable") or body.get_parent().is_in_group("enemy"):
 		return
 	zombies.push_back(body)
 	var beam = MeshInstance3D.new()
@@ -123,7 +123,7 @@ func _body_entered(body):
 
 
 func _body_exited(body):
-	if body == self or not body.is_in_group("enemy") or body.is_in_group("unhealable") or not body.hypnotizable:
+	if body == self or not body.is_in_group("enemy") or body.is_in_group("unhealable") or body.get_parent().is_in_group("enemy"):
 		return
 	zombies.erase(body)
 	beams[beams.size() - 1].queue_free()
@@ -188,7 +188,7 @@ func _physics_process(delta):
 		return
 	
 	for i in zombies:
-		if not i.hypno:
+		if not i.hypno and i.health > 0:
 			i.health = min(i.health + 1, i.HP)
 			i.update_healthbar()
 

@@ -27,6 +27,8 @@ func _ready():
 		if c is Area3D:
 			c.set_collision_mask_value(9, 1)
 			active_zone = c
+			c.collision_layer = 0
+			active_zone.input_ray_pickable = false
 			break
 
 func is_player_in_zone():

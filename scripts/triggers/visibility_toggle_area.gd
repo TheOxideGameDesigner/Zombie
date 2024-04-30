@@ -2,6 +2,8 @@ extends Area3D
 
 
 func _ready():
+	collision_layer = 0
+	collision_mask = 0
 	set_collision_mask_value(9, 1)
 	connect("body_entered", _on_body_entered)
 	connect("body_exited", _on_body_exited)

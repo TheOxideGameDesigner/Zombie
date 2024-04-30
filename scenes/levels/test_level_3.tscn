@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_n6eeb"]
 [ext_resource type="PackedScene" uid="uid://4px2n2dg363l" path="res://scenes/misc_props/player.tscn" id="2_26vq5"]
 [ext_resource type="PackedScene" uid="uid://c3g448o4xte1l" path="res://scenes/props/static_props/tutorials/tutorial_text.tscn" id="3_4rfs3"]
-[ext_resource type="PackedScene" uid="uid://ct4dtw3ijmehk" path="res://scenes/props/enemies/runner.tscn" id="4_rxlq5"]
+[ext_resource type="PackedScene" uid="uid://dsklmuink3naj" path="res://scenes/props/enemies/bomber.tscn" id="4_11og4"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ctp2d"]
 
@@ -64,5 +64,5 @@ message = "how to make cheese
 
 have a great rest of your {g_forward}!"
 
-[node name="runner" parent="." instance=ExtResource("4_rxlq5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.55927, 0.198839, 7.38731)
+[node name="bomber" parent="." instance=ExtResource("4_11og4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.901709, 0.19884, 6.56712)

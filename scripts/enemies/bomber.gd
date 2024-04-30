@@ -437,7 +437,7 @@ func _physics_process(delta):
 			hit_timer = HIT_TIME
 		
 		if hit_timer == 0:
-			mesh_body.play("hitting", 1.5)
+			mesh_body.play("hitting", 0.48)
 			fire()
 			hit_timer = HIT_TIME
 		

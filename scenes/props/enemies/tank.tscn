@@ -49,6 +49,7 @@ shape = SubResource("BoxShape3D_72cma")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.672421)
 collision_layer = 65536
 collision_mask = 65536
+input_ray_pickable = false
 
 [node name="collision_area_hitbox" type="CollisionShape3D" parent="collision_area1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
@@ -58,6 +59,7 @@ shape = SubResource("CylinderShape3D_jdsx6")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4235, 0, -3.16643)
 collision_layer = 65536
 collision_mask = 65536
+input_ray_pickable = false
 
 [node name="collision_area_hitbox" type="CollisionShape3D" parent="collision_area2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
@@ -67,6 +69,7 @@ shape = SubResource("CylinderShape3D_jhmyx")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.42915, 0, -3.16643)
 collision_layer = 65536
 collision_mask = 65536
+input_ray_pickable = false
 
 [node name="collision_area_hitbox" type="CollisionShape3D" parent="collision_area3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
@@ -76,6 +79,7 @@ shape = SubResource("CylinderShape3D_jhmyx")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.42915, 0, 4.3202)
 collision_layer = 65536
 collision_mask = 65536
+input_ray_pickable = false
 
 [node name="collision_area_hitbox" type="CollisionShape3D" parent="collision_area4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
@@ -85,6 +89,7 @@ shape = SubResource("CylinderShape3D_jhmyx")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.41934, 0, 4.3202)
 collision_layer = 65536
 collision_mask = 65536
+input_ray_pickable = false
 
 [node name="collision_area_hitbox" type="CollisionShape3D" parent="collision_area5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
@@ -94,6 +99,7 @@ shape = SubResource("CylinderShape3D_jhmyx")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00854445, 0, 4.3202)
 collision_layer = 65536
 collision_mask = 65536
+input_ray_pickable = false
 
 [node name="collision_area_hitbox" type="CollisionShape3D" parent="collision_area6"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
@@ -103,6 +109,7 @@ shape = SubResource("CylinderShape3D_jhmyx")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00854445, 0, -3.22663)
 collision_layer = 65536
 collision_mask = 65536
+input_ray_pickable = false
 
 [node name="collision_area_hitbox" type="CollisionShape3D" parent="collision_area7"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)

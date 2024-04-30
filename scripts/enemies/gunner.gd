@@ -346,7 +346,7 @@ func _physics_process(delta):
 func _on_hit_timer_timeout():
 	if target == null:
 		return
-	mesh_body.play("shooting", 1.5)
+	mesh_body.play("shooting", 0.3)
 	var new_rocket = rocket.instantiate()
 	new_rocket.target = target
 	new_rocket.death_message = "You were killed by a gunner"

@@ -452,14 +452,14 @@ func _physics_process(delta):
 				fireball.visible = true
 				fired = false
 				fb_timer = FB_TIME
-				mesh_body.play("hitting", 2.5)
+				mesh_body.play("hitting", 0.5)
 			else:
 				if aim_timer == AIM_TIME:
-					mesh_body.play("aiming", 3)
+					mesh_body.play("aiming", 0.3)
 				aim_timer -= delta
 		else:
 			if aim_timer < AIM_TIME:
-				mesh_body.play("aiming", -3)
+				mesh_body.play("aiming", -0.3)
 			aim_timer = AIM_TIME
 		
 		if not fired and fb_timer == 0.0 and hit_timer > 0.0:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://d2oh8oq4wds0h"]
+[gd_scene load_steps=14 format=3 uid="uid://d2oh8oq4wds0h"]
 
 [ext_resource type="Script" path="res://scripts/enemies/angel.gd" id="1_muwug"]
 [ext_resource type="PackedScene" uid="uid://buribwjfbhwro" path="res://models/dynamic_props/enemies/angel.glb" id="1_qe7aq"]
@@ -15,25 +15,18 @@
 height = 3.40052
 radius = 1.48798
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hfd4r"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vxsgv"]
 transparency = 1
 shading_mode = 0
-albedo_color = Color(1, 1, 1, 0.1)
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_k4rkp"]
+[sub_resource type="CylinderMesh" id="CylinderMesh_0iwtb"]
 top_radius = 1.5
 bottom_radius = 1.5
 height = 3.0
 radial_segments = 12
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_8st6l"]
-height = 3.03527
-radius = 1.19028
-
-[node name="angel" type="StaticBody3D" groups=["enemy", "unhealable"]]
+[node name="angel" type="Node3D" groups=["enemy", "unhealable"]]
 top_level = true
-collision_layer = 268435456
-collision_mask = 0
 script = ExtResource("1_muwug")
 
 [node name="mesh" type="Node3D" parent="."]
@@ -84,8 +77,8 @@ shape = SubResource("CylinderShape3D_258bd")
 
 [node name="difficulty_visualiser" parent="." instance=ExtResource("9_2jhd6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
-material_override = SubResource("StandardMaterial3D_hfd4r")
-mesh = SubResource("CylinderMesh_k4rkp")
+material_override = SubResource("StandardMaterial3D_vxsgv")
+mesh = SubResource("CylinderMesh_0iwtb")
 radius = 1.5
 height = 3.0
 
@@ -98,9 +91,5 @@ color = Color(1, 1, 0, 1)
 [node name="respawn" type="Timer" parent="."]
 wait_time = 10.0
 one_shot = true
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.45822, 0)
-shape = SubResource("CylinderShape3D_8st6l")
 
 [connection signal="timeout" from="respawn" to="." method="_on_respawn_timeout"]

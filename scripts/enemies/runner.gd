@@ -29,6 +29,7 @@ const ATTENTION_SPAN : float = 10
 
 const ACTIVE_RADIUS = 64
 const TARGET_RADIUS = 0.5
+const PHANTOM_RADIUS = 7.5
 
 
 var rising = 0
@@ -82,6 +83,7 @@ var y_vel = 0.0
 @export var respawn_time = 10.0
 @export var spawn_ang = 0.0
 @export var sedated = false
+@export var is_phantom = false
 @export_range(0, 4) var min_dif = 0
 var rand_roam_off
 
@@ -127,6 +129,8 @@ func _ready():
 	visible = true
 	
 	is_opengl = ProjectSettings.get_setting("rendering/renderer/rendering_method") == "gl_compatibility"
+	if is_phantom:
+		mesh_material = preload("res://resources/materials/specific_mats/phantom_mat.tres")
 	if is_opengl:
 		mesh_material = preload("res://resources/materials/opengl/enemy_mat_opengl.tres")
 	
@@ -192,6 +196,8 @@ func add_particles(edmg):
 	else:
 		new_blood.spread = 180
 	new_blood.speed = clamp(edmg / 10, 1, 10)
+	if is_phantom:
+		new_blood.color = Color(1, 1, 1)
 	add_child(new_blood)
 	new_blood.position = position + Vector3(0, 1.5, 0) + new_blood.dir.normalized() * 0.25
 	new_blood.amount = clamp(edmg / 2, 5, 50)
@@ -203,12 +209,15 @@ func add_gibs(dmg):
 	var new_gibs = gibs.instantiate()
 	new_gibs.position = position
 	new_gibs.rotation.y = mesh.rotation.y
+	if is_phantom:
+		new_gibs.position += Vector3(0, 1.5, 0)
+	else:
+		new_gibs.dir = (position - player.position).normalized() * clamp(dmg / 10, 1, 10)
 	get_tree().current_scene.add_child(new_gibs)
-	new_gibs.dir = (position - player.position).normalized() * clamp(dmg / 10, 1, 10)
 
 
 func pain(dmg, noblood=false, heal_player = false, player_inflicted = false):
-	if rising or not alive or health <= 0:
+	if rising or not alive or health <= 0 or (is_phantom and dist_from_player > PHANTOM_RADIUS):
 		return
 	
 	if dmg >= health:
@@ -268,6 +277,11 @@ func _process(delta):
 	else:
 		hypno_col = max(0.0, hypno_col - delta)
 	body.set_instance_shader_parameter("hypno", hypno_col)
+	if is_phantom:
+		const T = 0.5
+		const OPAC_MIN = 0.2
+		const OPAC_MAX = 0.8
+		body.set_instance_shader_parameter("opacity", clamp(OPAC_MIN + (dist_from_player - PHANTOM_RADIUS) * (OPAC_MIN - OPAC_MAX) / T, OPAC_MIN, OPAC_MAX))
 	
 	if rising:
 		mesh_body.anim_timer = 0.0
@@ -337,6 +351,9 @@ func process_bumps(delta : float):
 
 
 func _physics_process(delta):
+	if is_phantom:
+		hypnotizable = dist_from_player < PHANTOM_RADIUS
+	
 	if hypno_health <= 0:
 		hypnotize()
 	if hypno:
@@ -500,7 +517,7 @@ func _physics_process(delta):
 				player.warning.modulate.a = 1.0
 			hit_timer -= delta
 			if hit_timer <= 0.35 and not mesh_body.is_playing():
-				mesh_body.play("hitting", 4)
+				mesh_body.play("hitting", 0.4)
 			if hit_timer <= 0:
 				if target == player:
 					player.pain("You were killed by a runner", HIT_DAMAGE)

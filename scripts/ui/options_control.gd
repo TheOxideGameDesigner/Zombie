@@ -59,7 +59,7 @@ func _on_shadows_toggled(button_pressed):
 
 func _on_difficulty_value_changed(value):
 	config.set_value("gameplay", "difficulty", roundi(value))
-	const DIFF_NAMES = ["relaxing", "easy", "normal", "hard", "unfair"]
+	const DIFF_NAMES = ["very easy", "easy", "normal", "hard", "expert"]
 	$options/gameplay/difficulty/difficulty_label.text = DIFF_NAMES[roundi(value)]
 
 

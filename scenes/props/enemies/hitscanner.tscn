@@ -34,11 +34,12 @@ height = 1.0
 radial_segments = 4
 rings = 1
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1pxg6"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wlx20"]
 transparency = 1
 shading_mode = 0
+albedo_color = Color(1, 1, 1, 0.1)
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_vqvf5"]
+[sub_resource type="CylinderMesh" id="CylinderMesh_d6lag"]
 radial_segments = 12
 
 [node name="hitscanner" type="CharacterBody3D" groups=["activatable", "enemy", "lightweight"]]
@@ -57,6 +58,7 @@ shape = SubResource("CylinderShape3D_2lsg5")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 collision_layer = 65536
 collision_mask = 65536
+input_ray_pickable = false
 
 [node name="collision_area_hitbox" type="CollisionShape3D" parent="collision_area"]
 shape = SubResource("CylinderShape3D_qg53b")
@@ -126,7 +128,7 @@ wait_time = 5.0
 one_shot = true
 
 [node name="difficulty_visualiser" parent="." instance=ExtResource("11_ksbdk")]
-material_override = SubResource("StandardMaterial3D_1pxg6")
-mesh = SubResource("CylinderMesh_vqvf5")
+material_override = SubResource("StandardMaterial3D_wlx20")
+mesh = SubResource("CylinderMesh_d6lag")
 
 [connection signal="timeout" from="respawn" to="." method="_on_respawn_timeout"]

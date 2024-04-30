@@ -62,7 +62,7 @@ var is_opengl = ProjectSettings.get_setting("rendering/renderer/rendering_method
 func update_beam(i):
 	var beam_mesh = servant_beams[i]
 	var from = global_position + Vector3(0, 2, 0)
-	var to = servants[i].global_position + Vector3(0, servants[i].mesh.position.y - servants[i].position.y, 0)
+	var to = servants[i].mesh.global_position + Vector3(0, 0.25, 0)
 	if servants[i].rising:
 		beam_mesh.visible = 0
 		servants[i].aura.visible = 0
@@ -201,6 +201,7 @@ func _ready():
 		if c is Area3D and not c.is_in_group("drop"):
 			active_zone = c
 			c.set_collision_mask_value(9, 1)
+			c.collision_layer = 0
 		elif c.is_in_group("drop"):
 			key.visible = 1
 			drops.push_back(c)

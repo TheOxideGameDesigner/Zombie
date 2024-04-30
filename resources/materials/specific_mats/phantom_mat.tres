@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://yt3co50dr57b"]
+
+[ext_resource type="Shader" path="res://resources/materials/specific_mats/phantom_mat.gdshader" id="1_0wdy7"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_0wdy7")
