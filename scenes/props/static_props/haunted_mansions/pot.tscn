@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://cadde3gpe114j"]
+
+[ext_resource type="Material" uid="uid://uxn8fucitgfr" path="res://resources/materials/level_mat.tres" id="1_wbyd3"]
+[ext_resource type="ArrayMesh" uid="uid://cg3h4xwfyktx" path="res://models/static_props/haunted_mansions/pot.obj" id="2_tu805"]
+[ext_resource type="Script" path="res://scripts/physics_lerp.gd" id="3_mylu8"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_vql5y"]
+height = 0.252219
+radius = 0.0793968
+
+[node name="pot" type="RigidBody3D" groups=["physics"]]
+collision_layer = 32768
+collision_mask = 32769
+mass = 0.1
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = ExtResource("1_wbyd3")
+mesh = ExtResource("2_tu805")
+script = ExtResource("3_mylu8")
+enable_rot = true
+global = true
+of_parent = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00195313, 0.049733, 0)
+shape = SubResource("CylinderShape3D_vql5y")

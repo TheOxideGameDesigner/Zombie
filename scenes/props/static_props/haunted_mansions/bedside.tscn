@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bsjgrxlihwxrl"]
+
+[ext_resource type="Material" uid="uid://uxn8fucitgfr" path="res://resources/materials/level_mat.tres" id="1_b0oux"]
+[ext_resource type="ArrayMesh" uid="uid://dvsd4x7n3xt4y" path="res://models/static_props/haunted_mansions/bedside.obj" id="2_fkfaf"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jfb16"]
+size = Vector3(0.836151, 0.905396, 0.690186)
+
+[node name="bedside" type="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.355689, 0.18832)
+material_override = ExtResource("1_b0oux")
+mesh = ExtResource("2_fkfaf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00260925, 0.453084, 0.00305176)
+shape = SubResource("BoxShape3D_jfb16")

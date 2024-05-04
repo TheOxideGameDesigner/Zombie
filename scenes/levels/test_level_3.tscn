@@ -1,9 +1,20 @@
-[gd_scene load_steps=8 format=3 uid="uid://bajqqqjylfrys"]
+[gd_scene load_steps=19 format=3 uid="uid://bajqqqjylfrys"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_n6eeb"]
 [ext_resource type="PackedScene" uid="uid://4px2n2dg363l" path="res://scenes/misc_props/player.tscn" id="2_26vq5"]
 [ext_resource type="PackedScene" uid="uid://c3g448o4xte1l" path="res://scenes/props/static_props/tutorials/tutorial_text.tscn" id="3_4rfs3"]
-[ext_resource type="PackedScene" uid="uid://dsklmuink3naj" path="res://scenes/props/enemies/bomber.tscn" id="4_11og4"]
+[ext_resource type="PackedScene" uid="uid://bq1itwbnkbvp4" path="res://scenes/misc_props/key.tscn" id="5_kqldf"]
+[ext_resource type="PackedScene" uid="uid://baeraajm5vkpo" path="res://scenes/props/static_props/haunted_mansions/door.tscn" id="5_myige"]
+[ext_resource type="PackedScene" uid="uid://08lee70ia54" path="res://scenes/props/static_props/haunted_mansions/painting1x1.tscn" id="6_un0g8"]
+[ext_resource type="PackedScene" uid="uid://us2eg1jhjkd8" path="res://scenes/props/static_props/haunted_mansions/painting3x2.tscn" id="7_kwcg2"]
+[ext_resource type="PackedScene" uid="uid://bdlio3qmcsovx" path="res://scenes/props/static_props/haunted_mansions/bed.tscn" id="8_fjcck"]
+[ext_resource type="PackedScene" uid="uid://d1mlqso4uxqad" path="res://scenes/props/static_props/haunted_mansions/sofa.tscn" id="9_gij64"]
+[ext_resource type="PackedScene" uid="uid://bsjgrxlihwxrl" path="res://scenes/props/static_props/haunted_mansions/bedside.tscn" id="10_gi8o8"]
+[ext_resource type="PackedScene" uid="uid://b6epf08xis1wu" path="res://scenes/props/static_props/haunted_mansions/wardrobe.tscn" id="11_gndde"]
+[ext_resource type="PackedScene" uid="uid://cglhug1lafnqo" path="res://scenes/props/static_props/haunted_mansions/chair.tscn" id="12_4elhq"]
+[ext_resource type="PackedScene" uid="uid://e23khqsdhse1" path="res://scenes/props/static_props/haunted_mansions/table.tscn" id="13_riio2"]
+[ext_resource type="PackedScene" uid="uid://cadde3gpe114j" path="res://scenes/props/static_props/haunted_mansions/pot.tscn" id="14_2yb62"]
+[ext_resource type="PackedScene" uid="uid://cn2daom6rjal1" path="res://scenes/props/static_props/haunted_mansions/plate.tscn" id="15_ogq6i"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ctp2d"]
 
@@ -64,5 +75,58 @@ message = "how to make cheese
 
 have a great rest of your {g_forward}!"
 
-[node name="bomber" parent="." instance=ExtResource("4_11og4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.901709, 0.19884, 6.56712)
+[node name="door" parent="." instance=ExtResource("5_myige")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.39689, 0.198838, 7.2989)
+key_id = 1
+
+[node name="key" parent="." instance=ExtResource("5_kqldf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.6478, 1.7894, 13.5222)
+key_index = 1
+
+[node name="painting1x1" parent="." instance=ExtResource("6_un0g8")]
+transform = Transform3D(0.0568148, 0, 0.998385, 0, 1, 0, -0.998385, 0, 0.0568148, -22.5176, 2.01367, -18.4838)
+
+[node name="painting3x2" parent="." instance=ExtResource("7_kwcg2")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -22.605, 1.75341, -19.4105)
+
+[node name="bed" parent="." instance=ExtResource("8_fjcck")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 13.7188, 0.198841, -6.27606)
+
+[node name="bed2" parent="." instance=ExtResource("9_gij64")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5.68313, 0.198838, -7.6879)
+
+[node name="bed3" parent="." instance=ExtResource("10_gi8o8")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 10.3518, 0.198839, -6.69925)
+
+[node name="bed4" parent="." instance=ExtResource("11_gndde")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 18.712, 0.198839, -1.00352)
+
+[node name="Chair" parent="." instance=ExtResource("12_4elhq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.1867, 0.675517, -17.806)
+
+[node name="Chair2" parent="." instance=ExtResource("12_4elhq")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -16.6839, 0.675517, -19.9844)
+
+[node name="Chair3" parent="." instance=ExtResource("12_4elhq")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -14.2133, 0.675517, -22.3886)
+
+[node name="Chair4" parent="." instance=ExtResource("12_4elhq")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -11.9286, 0.675517, -19.8914)
+
+[node name="table" parent="." instance=ExtResource("13_riio2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.1947, 0.836104, -20.0346)
+
+[node name="pot" parent="." instance=ExtResource("14_2yb62")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.1981, 1.38412, -20.0515)
+
+[node name="plate" parent="." instance=ExtResource("15_ogq6i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.6285, 1.32882, -20.0591)
+
+[node name="plate2" parent="." instance=ExtResource("15_ogq6i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.1948, 1.32882, -19.4147)
+
+[node name="plate3" parent="." instance=ExtResource("15_ogq6i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.8001, 1.32882, -20.0103)
+
+[node name="plate4" parent="." instance=ExtResource("15_ogq6i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.1948, 1.32882, -20.6059)

@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://cglhug1lafnqo"]
+
+[ext_resource type="Material" uid="uid://uxn8fucitgfr" path="res://resources/materials/level_mat.tres" id="1_gkb3q"]
+[ext_resource type="ArrayMesh" uid="uid://rrir2wgilg8j" path="res://models/static_props/haunted_mansions/chair.obj" id="2_inltf"]
+[ext_resource type="Script" path="res://scripts/physics_lerp.gd" id="3_crhbn"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bro8g"]
+size = Vector3(0.606873, 0.62146, 0.694885)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jw7vm"]
+size = Vector3(0.606873, 0.859619, 0.0734253)
+
+[node name="chair" type="RigidBody3D" groups=["physics"]]
+collision_layer = 32769
+collision_mask = 33027
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = ExtResource("1_gkb3q")
+mesh = ExtResource("2_inltf")
+script = ExtResource("3_crhbn")
+enable_rot = true
+global = true
+of_parent = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00144875, -0.151306, -0.0387878)
+shape = SubResource("BoxShape3D_bro8g")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.999259, -0.0384924, 0, 0.0384924, 0.999259, 0.00138772, 0.594817, 0.290397)
+shape = SubResource("BoxShape3D_jw7vm")

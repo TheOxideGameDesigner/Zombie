@@ -1,0 +1,16 @@
+[gd_scene load_steps=5 format=3 uid="uid://08lee70ia54"]
+
+[ext_resource type="Material" uid="uid://uxn8fucitgfr" path="res://resources/materials/level_mat.tres" id="1_3ctam"]
+[ext_resource type="ArrayMesh" uid="uid://c25t1nbwnqli3" path="res://models/static_props/haunted_mansions/painting_large.obj" id="2_xax6w"]
+[ext_resource type="Script" path="res://scripts/hanted_mansion_painting.gd" id="3_u18gv"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_nfumk"]
+
+[node name="painting1x1" type="MeshInstance3D"]
+material_override = ExtResource("1_3ctam")
+mesh = ExtResource("2_xax6w")
+script = ExtResource("3_u18gv")
+
+[node name="image" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.3, 0, 0, 0, -1.31134e-08, -0.3, 0, 0.3, -1.31134e-08, -0.028228, -0.115305, 0.0320146)
+mesh = SubResource("PlaneMesh_nfumk")

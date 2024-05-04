@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bc4cr8uyaa1wg"
+path="res://.godot/imported/painting_small.obj-45904f384894358485dead04a7b384b6.mesh"
+
+[deps]
+
+files=["res://.godot/imported/painting_small.obj-45904f384894358485dead04a7b384b6.mesh"]
+
+source_file="res://models/static_props/haunted_mansions/painting_small.obj"
+dest_files=["res://.godot/imported/painting_small.obj-45904f384894358485dead04a7b384b6.mesh", "res://.godot/imported/painting_small.obj-45904f384894358485dead04a7b384b6.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

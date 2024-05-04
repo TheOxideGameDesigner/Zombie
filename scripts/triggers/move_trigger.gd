@@ -71,4 +71,7 @@ func _process(delta):
 
 
 func _on_ready_timer_timeout():
-	in_group = get_tree().get_nodes_in_group(str(group))
+	if group >= 0:
+		in_group = get_tree().get_nodes_in_group(str(group))
+	else:
+		in_group = [get_parent().get_parent()]

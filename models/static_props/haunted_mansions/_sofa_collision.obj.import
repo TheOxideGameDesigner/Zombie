@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://k5n5vgppn2oe"
+path="res://.godot/imported/_sofa_collision.obj-605c3a30fb86377876d82a8aea39325f.mesh"
+
+[deps]
+
+files=["res://.godot/imported/_sofa_collision.obj-605c3a30fb86377876d82a8aea39325f.mesh"]
+
+source_file="res://models/static_props/haunted_mansions/_sofa_collision.obj"
+dest_files=["res://.godot/imported/_sofa_collision.obj-605c3a30fb86377876d82a8aea39325f.mesh", "res://.godot/imported/_sofa_collision.obj-605c3a30fb86377876d82a8aea39325f.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

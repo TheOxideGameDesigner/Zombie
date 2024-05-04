@@ -56,8 +56,6 @@ const BLASTER_FORCE = 1.2
 const BLASTER_COOLDOWN = 0.15
 const BLASTER_COOLDOWN_SHORT = 0.075
 const BLASTER_RANGE = 42
-const BLASTER_PB_RANGE = 6
-const BLASTER_FALLOFF = 0.08
 const HYPNOTIZER_BUFF = 1.3
 const HYPNOTIZER_DRAIN = 3 * HYPNOTIZER_BUFF
 const HYPNOTIZER_RECHARGE = 8.5
@@ -238,13 +236,8 @@ func hurt(collider):
 		3:
 			pass
 		4:
-			var dmg
 			var dist = Vector2(global_position.x, global_position.z).distance_to(Vector2(collider.global_position.x, global_position.z))
-			if dist < BLASTER_PB_RANGE:
-				dmg = BLASTER_DAMAGE
-			else:
-				dmg = BLASTER_DAMAGE / (BLASTER_FALLOFF * (dist - BLASTER_PB_RANGE) + 1)
-			collider.pain(dmg * damage_mul)
+			collider.pain(BLASTER_DAMAGE * damage_mul)
 
 
 func shoot(delta):
@@ -259,13 +252,16 @@ func shoot(delta):
 					collider = collider.get_parent()
 					if not collider.rising:
 						hurt(collider)
-				elif not disable_particles:
-					var new_particles = particles_scene.instantiate()
-					new_particles.dir = raycast.get_collision_normal()
-					new_particles.color = Color(0.7, 1, 1)
-					add_child(new_particles)
-					new_particles.global_position = raycast.get_collision_point()
-					new_particles.top_level = 1
+				else:
+					if collider.is_in_group("physics"):
+						collider.apply_impulse((raycast.get_collision_point() - global_position).normalized() * 3.5, raycast.get_collision_point() - collider.center_of_mass - collider.global_position)
+					if not disable_particles:
+						var new_particles = particles_scene.instantiate()
+						new_particles.dir = raycast.get_collision_normal()
+						new_particles.color = Color(0.7, 1, 1)
+						add_child(new_particles)
+						new_particles.global_position = raycast.get_collision_point()
+						new_particles.top_level = 1
 			
 			revolver_heat = min(1.0, revolver_heat + 1.0 / REVOLVER_MAX_HEAT)
 			cooldown_timers[0] = REVOLVER_COOLDOWN + lerp(-REVOLVER_COOLDOWN_VARIATION, REVOLVER_COOLDOWN_VARIATION, revolver_heat)
@@ -295,13 +291,16 @@ func shoot(delta):
 							var dir = cam.transform.basis.z
 							knockback(Vector3(dir.x, 0.0, dir.z).normalized() * lerp(SHOTGUN_FORCE_MAX, SHOTGUN_FORCE_MIN, shotgun_heat) + Vector3(0, 2, 0))
 							camera.shake(0.4, 0.75, 0.025)
-				elif not disable_particles:
-					var new_particles = particles_scene.instantiate()
-					new_particles.dir = raycast.get_collision_normal()
-					new_particles.color = Color(0.7, 1, 1)
-					add_child(new_particles)
-					new_particles.global_position = raycast.get_collision_point()
-					new_particles.top_level = 1
+				else:
+					if collider.is_in_group("physics"):
+						collider.apply_impulse((raycast.get_collision_point() - global_position).normalized() * 5, raycast.get_collision_point() - collider.center_of_mass - collider.global_position)
+					if not disable_particles:
+						var new_particles = particles_scene.instantiate()
+						new_particles.dir = raycast.get_collision_normal()
+						new_particles.color = Color(0.7, 1, 1)
+						add_child(new_particles)
+						new_particles.global_position = raycast.get_collision_point()
+						new_particles.top_level = 1
 			
 			shotgun_heat = min(1.0, shotgun_heat + 1.0 / SHOTGUN_MAX_HEAT)
 			var cooldown_var = lerp(-SHOTGUN_COOLDOWN_VARIATION, SHOTGUN_COOLDOWN_VARIATION, shotgun_heat)
@@ -348,12 +347,16 @@ func shoot(delta):
 					collider = collider.get_parent()
 					if not collider.rising:
 						hurt(collider)
-				elif not disable_particles:
-					var new_particles = particles_scene.instantiate()
-					new_particles.dir = raycast.get_collision_normal()
-					new_particles.color = Color(0.7, 1, 1)
-					add_child(new_particles)
-					new_particles.global_position = raycast.get_collision_point()
+				else:
+					if collider.is_in_group("physics"):
+						collider.apply_impulse((raycast.get_collision_point() - global_position).normalized() * 2.5, raycast.get_collision_point() - collider.center_of_mass - collider.global_position)
+					if not disable_particles:
+						var new_particles = particles_scene.instantiate()
+						new_particles.dir = raycast.get_collision_normal()
+						new_particles.color = Color(0.7, 1, 1)
+						add_child(new_particles)
+						new_particles.global_position = raycast.get_collision_point()
+						new_particles.top_level = 1
 			
 			cooldown_timers[3] = BLASTER_COOLDOWN
 			
@@ -422,13 +425,16 @@ func shoot_alt():
 				collider = collider.get_parent()
 				if not collider.rising:
 					hurt(collider)
-			elif not disable_particles:
-				var new_particles = particles_scene.instantiate()
-				new_particles.dir = raycast.get_collision_normal()
-				new_particles.color = Color(0.7, 1, 1)
-				add_child(new_particles)
-				new_particles.global_position = raycast.get_collision_point()
-				new_particles.top_level = 1
+			else:
+				if collider.is_in_group("physics"):
+					collider.apply_impulse((raycast.get_collision_point() - global_position).normalized() * 2.5, raycast.get_collision_point() - collider.center_of_mass - collider.global_position)
+				if not disable_particles:
+					var new_particles = particles_scene.instantiate()
+					new_particles.dir = raycast.get_collision_normal()
+					new_particles.color = Color(0.7, 1, 1)
+					add_child(new_particles)
+					new_particles.global_position = raycast.get_collision_point()
+					new_particles.top_level = 1
 		
 		cooldown_timers[3] = BLASTER_COOLDOWN_SHORT
 			

@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://hx04wydtgdhq"
+path="res://.godot/imported/plate.obj-7fc07bc70f58675c828e46ad0b21b111.mesh"
+
+[deps]
+
+files=["res://.godot/imported/plate.obj-7fc07bc70f58675c828e46ad0b21b111.mesh"]
+
+source_file="res://models/static_props/haunted_mansions/plate.obj"
+dest_files=["res://.godot/imported/plate.obj-7fc07bc70f58675c828e46ad0b21b111.mesh", "res://.godot/imported/plate.obj-7fc07bc70f58675c828e46ad0b21b111.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

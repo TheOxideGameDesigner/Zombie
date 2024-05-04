@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dx2usueb2dud1"
+path="res://.godot/imported/lamp.obj-85d1efd7e64700496dba52e2a001f2bc.mesh"
+
+[deps]
+
+files=["res://.godot/imported/lamp.obj-85d1efd7e64700496dba52e2a001f2bc.mesh"]
+
+source_file="res://models/static_props/haunted_mansions/lamp.obj"
+dest_files=["res://.godot/imported/lamp.obj-85d1efd7e64700496dba52e2a001f2bc.mesh", "res://.godot/imported/lamp.obj-85d1efd7e64700496dba52e2a001f2bc.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

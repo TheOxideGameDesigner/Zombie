@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b26j0euuv7q4v"
+path="res://.godot/imported/bed.obj-99d8895781001f29e3dc473eabf9d0b7.mesh"
+
+[deps]
+
+files=["res://.godot/imported/bed.obj-99d8895781001f29e3dc473eabf9d0b7.mesh"]
+
+source_file="res://models/static_props/haunted_mansions/bed.obj"
+dest_files=["res://.godot/imported/bed.obj-99d8895781001f29e3dc473eabf9d0b7.mesh", "res://.godot/imported/bed.obj-99d8895781001f29e3dc473eabf9d0b7.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

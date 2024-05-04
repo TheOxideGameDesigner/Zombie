@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bwpes4ar4ksre"
+path="res://.godot/imported/_bed_collision.obj-92d551f559b4c8f84c9748a9f4567895.mesh"
+
+[deps]
+
+files=["res://.godot/imported/_bed_collision.obj-92d551f559b4c8f84c9748a9f4567895.mesh"]
+
+source_file="res://models/static_props/haunted_mansions/_bed_collision.obj"
+dest_files=["res://.godot/imported/_bed_collision.obj-92d551f559b4c8f84c9748a9f4567895.mesh", "res://.godot/imported/_bed_collision.obj-92d551f559b4c8f84c9748a9f4567895.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

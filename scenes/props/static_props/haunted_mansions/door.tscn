@@ -1,0 +1,56 @@
+[gd_scene load_steps=11 format=3 uid="uid://baeraajm5vkpo"]
+
+[ext_resource type="ArrayMesh" uid="uid://cdr6he637piv2" path="res://models/static_props/haunted_mansions/door_static.obj" id="1_jl4mb"]
+[ext_resource type="Material" uid="uid://uxn8fucitgfr" path="res://resources/materials/level_mat.tres" id="2_eaudn"]
+[ext_resource type="Script" path="res://scripts/haunted_mansions_door.gd" id="3_gsofp"]
+[ext_resource type="ArrayMesh" uid="uid://bofbbuc4pygsr" path="res://models/static_props/haunted_mansions/door_moving.obj" id="4_rhdao"]
+[ext_resource type="Script" path="res://scripts/triggers/trigger_area.gd" id="5_u2mxh"]
+[ext_resource type="PackedScene" uid="uid://1bou6i6bvjwg" path="res://scenes/props/triggers/rotate_trigger.tscn" id="6_emdmx"]
+[ext_resource type="PackedScene" uid="uid://cyw7f2nh4dtoc" path="res://scenes/misc_props/lock.tscn" id="7_xy3hv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vycxw"]
+size = Vector3(4.40244, 4.245, 3.73823)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_aw7l8"]
+size = Vector3(1.80127, 2.89661, 0.0998535)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_735h6"]
+size = Vector3(1.8042, 0.100464, 0.596558)
+
+[node name="door" type="StaticBody3D"]
+script = ExtResource("3_gsofp")
+
+[node name="door_outer" type="MeshInstance3D" parent="."]
+material_override = ExtResource("2_eaudn")
+mesh = ExtResource("1_jl4mb")
+
+[node name="door_moving" type="StaticBody3D" parent="."]
+
+[node name="door_inner" type="MeshInstance3D" parent="door_moving"]
+material_override = ExtResource("2_eaudn")
+mesh = ExtResource("4_rhdao")
+
+[node name="Area3D" type="Area3D" parent="door_moving"]
+script = ExtResource("5_u2mxh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="door_moving/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.930401, 2.12211, 0.987108)
+shape = SubResource("BoxShape3D_vycxw")
+
+[node name="rotate_trigger" parent="door_moving/Area3D" instance=ExtResource("6_emdmx")]
+group = -1
+target = Vector3(0, 90, 0)
+time = 0.5
+
+[node name="lock" parent="door_moving" instance=ExtResource("7_xy3hv")]
+transform = Transform3D(0.435, 0, 0, 0, 0.435, 0, 0, 0, 0.435, 1.42298, 1.36761, 0.17153)
+skeleton = NodePath("../..")
+one_sided = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="door_moving"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.901709, 1.55197, 0.0494385)
+shape = SubResource("BoxShape3D_aw7l8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.902063, 0.0501773, -0.150452)
+shape = SubResource("BoxShape3D_735h6")
