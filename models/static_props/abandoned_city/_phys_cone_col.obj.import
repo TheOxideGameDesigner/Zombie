@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bkfmb7l7p5mhy"
+path="res://.godot/imported/_phys_cone_col.obj-0e53ac2dffb49a396e14d26877e265ca.mesh"
+
+[deps]
+
+files=["res://.godot/imported/_phys_cone_col.obj-0e53ac2dffb49a396e14d26877e265ca.mesh"]
+
+source_file="res://models/static_props/abandoned_city/_phys_cone_col.obj"
+dest_files=["res://.godot/imported/_phys_cone_col.obj-0e53ac2dffb49a396e14d26877e265ca.mesh", "res://.godot/imported/_phys_cone_col.obj-0e53ac2dffb49a396e14d26877e265ca.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

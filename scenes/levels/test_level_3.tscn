@@ -1,8 +1,9 @@
-[gd_scene load_steps=19 format=3 uid="uid://bajqqqjylfrys"]
+[gd_scene load_steps=22 format=3 uid="uid://bajqqqjylfrys"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_n6eeb"]
 [ext_resource type="PackedScene" uid="uid://4px2n2dg363l" path="res://scenes/misc_props/player.tscn" id="2_26vq5"]
 [ext_resource type="PackedScene" uid="uid://c3g448o4xte1l" path="res://scenes/props/static_props/tutorials/tutorial_text.tscn" id="3_4rfs3"]
+[ext_resource type="Environment" uid="uid://ccc22srsoem5t" path="res://resources/level_enviroments/tutorial_environment.tres" id="3_umtsh"]
 [ext_resource type="PackedScene" uid="uid://bq1itwbnkbvp4" path="res://scenes/misc_props/key.tscn" id="5_kqldf"]
 [ext_resource type="PackedScene" uid="uid://baeraajm5vkpo" path="res://scenes/props/static_props/haunted_mansions/door.tscn" id="5_myige"]
 [ext_resource type="PackedScene" uid="uid://08lee70ia54" path="res://scenes/props/static_props/haunted_mansions/painting1x1.tscn" id="6_un0g8"]
@@ -15,11 +16,14 @@
 [ext_resource type="PackedScene" uid="uid://e23khqsdhse1" path="res://scenes/props/static_props/haunted_mansions/table.tscn" id="13_riio2"]
 [ext_resource type="PackedScene" uid="uid://cadde3gpe114j" path="res://scenes/props/static_props/haunted_mansions/pot.tscn" id="14_2yb62"]
 [ext_resource type="PackedScene" uid="uid://cn2daom6rjal1" path="res://scenes/props/static_props/haunted_mansions/plate.tscn" id="15_ogq6i"]
+[ext_resource type="PackedScene" uid="uid://dyao2hinxch17" path="res://scenes/props/static_props/chandelier.tscn" id="16_xusm1"]
+[ext_resource type="PackedScene" uid="uid://xj1y12nynwuv" path="res://scenes/props/static_props/abandoned_city/cone_phys.tscn" id="18_6s40w"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ctp2d"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3cwp8"]
-albedo_color = Color(0, 0, 0.164706, 1)
+specular_mode = 2
+albedo_color = Color(0.290196, 0.254902, 0.188235, 1)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_g4v8a"]
 data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
@@ -31,7 +35,7 @@ script = ExtResource("1_n6eeb")
 transform = Transform3D(0.999939, 0, 0.0110826, 0, 1, 0, -0.0110826, 0, 0.999939, 0, 0, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
-transform = Transform3D(28.0525, 0, -0.310913, 0, 28.0542, 0, 0.310913, 0, 28.0525, 0, 0.19884, 0)
+transform = Transform3D(28.0525, 0, -0.310913, 0, 28.0542, 0, 0.310913, 0, 28.0525, -0.093022, 0.127878, -0.205609)
 mesh = SubResource("PlaneMesh_ctp2d")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_3cwp8")
@@ -42,6 +46,7 @@ shape = SubResource("ConcavePolygonShape3D_g4v8a")
 
 [node name="player" parent="." instance=ExtResource("2_26vq5")]
 transform = Transform3D(0.276661, 0, 0.960968, 0, 1, 0, -0.960968, 0, 0.276661, 0.672016, 0.200682, -21.0097)
+environment = ExtResource("3_umtsh")
 
 [node name="light" type="DirectionalLight3D" parent="." groups=["light"]]
 transform = Transform3D(-0.270371, 0.958996, -0.085009, -0.539281, -0.0777097, 0.838533, 0.797543, 0.272559, 0.538179, 34.4022, 23.7255, -146.613)
@@ -130,3 +135,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.8001, 1.32882, -20.0103)
 
 [node name="plate4" parent="." instance=ExtResource("15_ogq6i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.1948, 1.32882, -20.6059)
+
+[node name="chandelier" parent="." instance=ExtResource("16_xusm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.7206, 6.45894, -15.4296)
+
+[node name="Cone" parent="." instance=ExtResource("18_6s40w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5002, 0.19884, -11.6309)
+mass = 0.5

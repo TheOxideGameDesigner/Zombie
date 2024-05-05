@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://ba04u1al0qovp"
+path="res://.godot/imported/chandelier_lights.obj-838b45b05c4afb66ca91fcbfb4f8aed9.mesh"
+
+[deps]
+
+files=["res://.godot/imported/chandelier_lights.obj-838b45b05c4afb66ca91fcbfb4f8aed9.mesh"]
+
+source_file="res://models/static_props/haunted_mansions/chandelier_lights.obj"
+dest_files=["res://.godot/imported/chandelier_lights.obj-838b45b05c4afb66ca91fcbfb4f8aed9.mesh", "res://.godot/imported/chandelier_lights.obj-838b45b05c4afb66ca91fcbfb4f8aed9.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

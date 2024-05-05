@@ -15,6 +15,7 @@ radius = 0.873259
 [node name="table" type="RigidBody3D" groups=["physics"]]
 collision_layer = 32769
 collision_mask = 33027
+mass = 2.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 material_override = ExtResource("1_yqhbf")

@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://dyao2hinxch17"]
+
+[ext_resource type="Material" uid="uid://uxn8fucitgfr" path="res://resources/materials/level_mat.tres" id="1_le5ud"]
+[ext_resource type="ArrayMesh" uid="uid://dhjdpt8568wbe" path="res://models/static_props/haunted_mansions/chandelier.obj" id="2_lwd70"]
+[ext_resource type="Material" uid="uid://ctc1jrcarvuc6" path="res://resources/materials/level_unshaded_mat.tres" id="3_upkif"]
+[ext_resource type="ArrayMesh" uid="uid://ba04u1al0qovp" path="res://models/static_props/haunted_mansions/chandelier_lights.obj" id="4_lrs1t"]
+[ext_resource type="PackedScene" uid="uid://dwtxubw5k3pgc" path="res://scenes/misc_props/light_particles.tscn" id="5_7oahk"]
+
+[node name="chandelier" type="MeshInstance3D"]
+material_override = ExtResource("1_le5ud")
+mesh = ExtResource("2_lwd70")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = ExtResource("3_upkif")
+mesh = ExtResource("4_lrs1t")
+
+[node name="light_particles" parent="." instance=ExtResource("5_7oahk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.331832, -0.622951, -0.588685)
+
+[node name="light_particles2" parent="." instance=ExtResource("5_7oahk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.337041, -0.622951, -0.562455)
+
+[node name="light_particles3" parent="." instance=ExtResource("5_7oahk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.658362, -0.622951, 0.00805402)
+
+[node name="light_particles4" parent="." instance=ExtResource("5_7oahk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.317368, -0.622951, 0.58512)
+
+[node name="light_particles5" parent="." instance=ExtResource("5_7oahk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.338389, -0.622951, 0.565448)
+
+[node name="light_particles6" parent="." instance=ExtResource("5_7oahk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.666268, -0.622951, 0.00149655)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+light_color = Color(1, 1, 0.835294, 1)
+light_energy = 1.696
+omni_range = 20.956
+omni_attenuation = 0.066986
