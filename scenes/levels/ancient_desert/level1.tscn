@@ -472,6 +472,13 @@ cast_shadow = 0
 mesh = ExtResource("28_x2rcq")
 skeleton = NodePath("../..")
 
+[node name="BackgroundPyramid7" type="MeshInstance3D" parent="props"]
+transform = Transform3D(0.0306973, 0.0628688, -1.13284, -0.193475, 1.11695, 0.056744, 1.11797, 0.191572, 0.0409258, -189.049, 53.2725, -8.5585)
+material_override = ExtResource("27_w64n7")
+cast_shadow = 0
+mesh = ExtResource("28_x2rcq")
+skeleton = NodePath("../..")
+
 [node name="BackgroundPyramid6" type="MeshInstance3D" parent="props"]
 transform = Transform3D(-0.311792, 0.199289, -0.503681, 0.13017, 0.591699, 0.153536, 0.525801, -0.0283085, -0.336686, -171.79, 90.4259, -239.51)
 material_override = ExtResource("27_w64n7")
@@ -486,6 +493,13 @@ cast_shadow = 0
 mesh = ExtResource("28_x2rcq")
 skeleton = NodePath("../..")
 
+[node name="BackgroundPyramid8" type="MeshInstance3D" parent="props"]
+transform = Transform3D(0.198941, -0.201024, 0.529162, -0.0351667, 0.555418, 0.22422, -0.564965, -0.105359, 0.172376, 216.589, 59.1627, 33.0069)
+material_override = ExtResource("27_w64n7")
+cast_shadow = 0
+mesh = ExtResource("28_x2rcq")
+skeleton = NodePath("../..")
+
 [node name="BackgroundPyramid4" type="MeshInstance3D" parent="props"]
 transform = Transform3D(-0.599271, 0, 0.0295713, 0, 0.6, 0, -0.0295713, 0, -0.599271, 135.147, 22.5935, -151.304)
 material_override = ExtResource("27_w64n7")
@@ -494,7 +508,7 @@ mesh = ExtResource("28_x2rcq")
 skeleton = NodePath("../..")
 
 [node name="BackgroundRuin1" type="MeshInstance3D" parent="props"]
-transform = Transform3D(0.212672, -0.0132214, 1.252, -0.0728512, 1.26765, 0.0257616, -1.24995, -0.0761324, 0.21152, -98.112, 17.2316, 32.6269)
+transform = Transform3D(0.212672, -0.0132214, 1.252, -0.0728512, 1.26765, 0.0257616, -1.24995, -0.0761324, 0.21152, -96.9401, 17.2316, 47.5742)
 material_override = ExtResource("27_w64n7")
 cast_shadow = 0
 mesh = ExtResource("29_gj55e")
@@ -502,6 +516,13 @@ skeleton = NodePath("../..")
 
 [node name="BackgroundRuin3" type="MeshInstance3D" parent="props"]
 transform = Transform3D(-0.935659, -0.207569, -0.833281, -0.205689, 1.25064, -0.0805735, 0.833748, 0.0755963, -0.955009, 219.986, 42.9353, -80.9573)
+material_override = ExtResource("27_w64n7")
+cast_shadow = 0
+mesh = ExtResource("30_d125b")
+skeleton = NodePath("../..")
+
+[node name="BackgroundRuin6" type="MeshInstance3D" parent="props"]
+transform = Transform3D(-0.574671, -0.0215627, 1.13233, -0.13394, 1.26215, -0.0439409, -1.1246, -0.139303, -0.573394, 67.0619, 58.058, 232.262)
 material_override = ExtResource("27_w64n7")
 cast_shadow = 0
 mesh = ExtResource("30_d125b")
@@ -516,6 +537,13 @@ skeleton = NodePath("../..")
 
 [node name="BackgroundRuin4" type="MeshInstance3D" parent="props"]
 transform = Transform3D(-0.169462, 0.142448, 1.20991, 0.104473, 1.21876, -0.128858, -1.21378, 0.0850138, -0.180013, -6.97723, 31.5157, 141.634)
+material_override = ExtResource("27_w64n7")
+cast_shadow = 0
+mesh = ExtResource("30_ks3tg")
+skeleton = NodePath("../..")
+
+[node name="BackgroundRuin5" type="MeshInstance3D" parent="props"]
+transform = Transform3D(-0.256878, -0.104675, -1.19831, -0.209217, 1.21054, -0.0608957, 1.18454, 0.191109, -0.27062, 225.588, 56.8149, -197.766)
 material_override = ExtResource("27_w64n7")
 cast_shadow = 0
 mesh = ExtResource("30_ks3tg")

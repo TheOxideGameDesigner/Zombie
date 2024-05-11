@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://cqawajl3sic6o"]
+[gd_scene load_steps=41 format=3 uid="uid://cqawajl3sic6o"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_c5vfy"]
 [ext_resource type="Material" uid="uid://uxn8fucitgfr" path="res://resources/materials/level_mat.tres" id="2_mlsxx"]
@@ -28,6 +28,13 @@
 [ext_resource type="PackedScene" uid="uid://hpxwt38akn5y" path="res://scenes/props/static_props/ancient_desert/crate.tscn" id="26_2ei31"]
 [ext_resource type="PackedScene" uid="uid://bwtuxjoeb41rc" path="res://scenes/props/static_props/ancient_desert/monument.tscn" id="27_4bni6"]
 [ext_resource type="PackedScene" uid="uid://cocbo5383phed" path="res://scenes/props/static_props/ancient_desert/spawn_pyramid.tscn" id="28_6erbo"]
+[ext_resource type="Material" uid="uid://cpjj475f3yych" path="res://resources/materials/level_no_shadow_mat.tres" id="29_nrcl6"]
+[ext_resource type="ArrayMesh" uid="uid://dee16k0bulvn4" path="res://models/static_props/ancient_desert/background_pyramid.obj" id="30_nlqvm"]
+[ext_resource type="ArrayMesh" uid="uid://b3pg6v8mdy8aj" path="res://models/static_props/ancient_desert/background_obelisk.obj" id="31_vuiy3"]
+[ext_resource type="ArrayMesh" uid="uid://r0i8pderqtiw" path="res://models/static_props/ancient_desert/background_ruin_4.obj" id="32_pikk0"]
+[ext_resource type="ArrayMesh" uid="uid://fsvkoxrk3h3o" path="res://models/static_props/ancient_desert/background_ruin_1.obj" id="33_oqnai"]
+[ext_resource type="ArrayMesh" uid="uid://bdjm7hwe62qmx" path="res://models/static_props/ancient_desert/background_ruin_2.obj" id="34_41o6k"]
+[ext_resource type="ArrayMesh" uid="uid://jyek8hb17oti" path="res://models/static_props/ancient_desert/background_ruin_3.obj" id="35_cujpg"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nxdpq"]
 size = Vector3(27.101, 5.57284, 1)
@@ -530,3 +537,113 @@ transform = Transform3D(0.49139, 0, 0.870939, 0, 1, 0, -0.870939, 0, 0.49139, -1
 
 [node name="spawn_pyramid" parent="." instance=ExtResource("28_6erbo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.4055, 164.423, 459.73)
+
+[node name="BackgroundPyramid" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.31824, 0, 1.36335, 0, 1.4, 0, -1.36335, 0, -0.31824, 301.259, 179.394, 392.047)
+material_override = ExtResource("29_nrcl6")
+cast_shadow = 0
+mesh = ExtResource("30_nlqvm")
+
+[node name="BackgroundPyramid5" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.21599, 0, -0.693812, 0, 1.4, 0, 0.693812, 0, -1.21599, -119.589, 167.791, 167.501)
+material_override = ExtResource("29_nrcl6")
+cast_shadow = 0
+mesh = ExtResource("30_nlqvm")
+
+[node name="BackgroundPyramid7" type="MeshInstance3D" parent="."]
+transform = Transform3D(-7.36978, 2.68591, -4.20502, 1.86867, 8.44038, 2.11613, 4.62648, 0.8694, -7.55313, -228.018, 179.514, 278.969)
+material_override = ExtResource("29_nrcl6")
+cast_shadow = 0
+mesh = ExtResource("31_vuiy3")
+
+[node name="BackgroundPyramid8" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.67911, -0.174099, -2.66978, -0.151216, 5.38719, -0.0862799, 2.67118, 4.11626e-07, -4.68155, 186.576, 173.1, 166.113)
+material_override = ExtResource("29_nrcl6")
+cast_shadow = 0
+mesh = ExtResource("31_vuiy3")
+
+[node name="BackgroundPyramid10" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.194438, 0.0240941, 1.16362, 0.0478462, 1.17858, -0.0323989, -1.16289, 0.0525207, 0.193228, -26.5124, 159.954, 532.591)
+material_override = ExtResource("29_nrcl6")
+cast_shadow = 0
+mesh = ExtResource("32_pikk0")
+
+[node name="BackgroundPyramid11" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.16875, 0.130926, 0.0963077, -0.127413, 1.17215, -0.0472495, -0.100909, 0.0364001, 1.17511, -136.426, 163.462, 375.044)
+material_override = ExtResource("29_nrcl6")
+cast_shadow = 0
+mesh = ExtResource("33_oqnai")
+
+[node name="BackgroundPyramid13" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.489188, -0.0339845, -0.990235, 0.0803039, 1.10208, 0.00184828, 0.987558, -0.0727818, 0.490364, 116.277, 156.55, 252.097)
+material_override = ExtResource("29_nrcl6")
+cast_shadow = 0
+mesh = ExtResource("34_41o6k")
+
+[node name="BackgroundPyramid17" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.100644, -0.329451, 1.04993, -0.117632, 1.04505, 0.339196, -1.0941, -0.142664, 0.0601124, -105.901, 172.858, 661.252)
+material_override = ExtResource("29_nrcl6")
+cast_shadow = 0
+mesh = ExtResource("34_41o6k")
+
+[node name="BackgroundPyramid16" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.999029, -0.158191, -0.444907, -0.131561, 1.09317, -0.0932704, 0.453496, -0.0313553, -1.00717, 305.223, 176.731, 612.464)
+material_override = ExtResource("29_nrcl6")
+cast_shadow = 0
+mesh = ExtResource("34_41o6k")
+
+[node name="BackgroundPyramid14" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.489188, -0.0339845, -0.990235, -0.0433775, 1.10256, -0.0592683, 0.989868, 0.0651107, 0.486772, 13.3866, 161.247, 167.478)
+material_override = ExtResource("29_nrcl6")
+cast_shadow = 0
+mesh = ExtResource("35_cujpg")
+
+[node name="BackgroundPyramid15" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.08215, -0.0306718, 0.221429, -0.0433775, 1.10256, -0.0592684, -0.219294, -0.0667352, -1.08096, 165.456, 159.702, 558.473)
+material_override = ExtResource("29_nrcl6")
+cast_shadow = 0
+mesh = ExtResource("35_cujpg")
+
+[node name="BackgroundPyramid9" type="MeshInstance3D" parent="."]
+transform = Transform3D(-5.62101, -0.209145, -3.20721, 0.779878, 6.17942, -1.76979, 3.11797, -1.92266, -5.33922, 217.043, 180.491, 653.534)
+material_override = ExtResource("29_nrcl6")
+cast_shadow = 0
+mesh = ExtResource("31_vuiy3")
+
+[node name="BackgroundPyramid12" type="MeshInstance3D" parent="."]
+transform = Transform3D(-5.74564, 1.46944, 2.59883, 0.779878, 6.17942, -1.76979, -2.88184, -1.25743, -5.66035, -230.803, 189.954, 654.711)
+material_override = ExtResource("29_nrcl6")
+cast_shadow = 0
+mesh = ExtResource("31_vuiy3")
+
+[node name="BackgroundPyramid6" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.574032, 0, -1.92629, 0, 2.01, 0, 1.92629, 0, 0.574032, -247.772, 188.496, 509.716)
+material_override = ExtResource("29_nrcl6")
+cast_shadow = 0
+mesh = ExtResource("30_nlqvm")
+
+[node name="BackgroundPyramid3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.05219, 0.0975075, -0.0835851, -0.0972013, 1.05551, 0.00772159, 0.083941, -2.468e-09, 1.05667, 54.6758, 177.387, 634.501)
+material_override = ExtResource("29_nrcl6")
+cast_shadow = 0
+mesh = ExtResource("30_nlqvm")
+
+[node name="BackgroundPyramid2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.223905, 0, 0.959214, 0, 0.985, 0, -0.959214, 0, -0.223905, 218.201, 174.499, 300.205)
+material_override = ExtResource("29_nrcl6")
+cast_shadow = 0
+mesh = ExtResource("30_nlqvm")
+
+[node name="BackgroundPyramid4" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.177305, 0, 0.759581, 0, 0.78, 0, -0.759581, 0, -0.177305, 239.471, 166.272, 518.966)
+material_override = ExtResource("29_nrcl6")
+cast_shadow = 0
+mesh = ExtResource("30_nlqvm")
+
+[node name="BackgroundObelisk" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.27375, -0.208786, -0.488241, 0.227912, 1.36099, 0.0125889, 0.479611, -0.0922544, 1.29068, 59.0875, 162.824, 430.064)
+material_override = ExtResource("2_mlsxx")
+mesh = ExtResource("31_vuiy3")
+skeleton = NodePath("../..")
+script = ExtResource("6_4qkqf")
+hide_mesh = false
