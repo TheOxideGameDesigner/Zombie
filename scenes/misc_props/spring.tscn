@@ -25,6 +25,7 @@ height = 1.28552
 radius = 0.722409
 
 [node name="spring" type="Area3D"]
+collision_layer = 0
 collision_mask = 256
 script = ExtResource("1_448m2")
 

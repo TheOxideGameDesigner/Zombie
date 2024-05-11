@@ -257,7 +257,7 @@ func _physics_process(delta):
 	var dir2player2D = Vector2(dir2player.x, dir2player.z).normalized()
 	var player_dir = player.cam.transform.basis.z
 	var player_dir2D = Vector2(player_dir.x, player_dir.z).normalized()
-	raycast_hitbox.disabled = hypno or rising or not alive or dir2player2D.dot(player_dir2D) < player.MIN_HIT_DOT_PROD
+	raycast_hitbox.disabled = rising or not alive or dir2player2D.dot(player_dir2D) < player.MIN_HIT_DOT_PROD
 	
 	if rising and rising_timer < RISE_TIME:
 		mesh.rotation.y = spawn_ang
@@ -324,6 +324,7 @@ func _physics_process(delta):
 						min_dist = dist_from_hombie
 					if hombie.dist_from_target >= dist_from_hombie:
 						hombie.target = self
+						hombie.dist_from_target = dist_from_hombie
 	
 	if target != player and target != null and (not target.alive or target.hypno == hypno):
 		target = null

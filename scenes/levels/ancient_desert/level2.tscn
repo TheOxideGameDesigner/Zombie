@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://dttfa3nyiieu6"]
+[gd_scene load_steps=30 format=3 uid="uid://dttfa3nyiieu6"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_g6ng6"]
 [ext_resource type="Material" uid="uid://uxn8fucitgfr" path="res://resources/materials/level_mat.tres" id="2_ru57n"]
@@ -23,6 +23,9 @@
 [ext_resource type="Script" path="res://scripts/triggers/trigger_area.gd" id="18_v1c1i"]
 [ext_resource type="PackedScene" uid="uid://d2ya5fu74vom0" path="res://scenes/props/enemies/hitscanner.tscn" id="18_ylwd5"]
 [ext_resource type="PackedScene" uid="uid://ct4dtw3ijmehk" path="res://scenes/props/enemies/runner.tscn" id="20_ip873"]
+[ext_resource type="PackedScene" uid="uid://cocbo5383phed" path="res://scenes/props/static_props/ancient_desert/spawn_pyramid.tscn" id="24_33uld"]
+[ext_resource type="PackedScene" uid="uid://bwtuxjoeb41rc" path="res://scenes/props/static_props/ancient_desert/monument.tscn" id="25_poh2u"]
+[ext_resource type="PackedScene" uid="uid://hpxwt38akn5y" path="res://scenes/props/static_props/ancient_desert/crate.tscn" id="26_mfo4g"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gif4g"]
 size = Vector3(35.9115, 4.6098, 0.893105)
@@ -436,3 +439,18 @@ min_dif = 3
 [node name="runner6" parent="." instance=ExtResource("20_ip873")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.4666, -2.9386, -78.6678)
 min_dif = 4
+
+[node name="spawn_pyramid" parent="." instance=ExtResource("24_33uld")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.977432, -1.9701, 9.05224)
+
+[node name="monument" parent="." instance=ExtResource("25_poh2u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.306, 0.999802, -23.404)
+
+[node name="crate" parent="." instance=ExtResource("26_mfo4g")]
+transform = Transform3D(0.868946, -0.124346, -0.479031, 0.108895, 0.992239, -0.0600316, 0.482778, -7.37068e-09, 0.875743, 39.7272, 2.32806, -21.3792)
+
+[node name="crate2" parent="." instance=ExtResource("26_mfo4g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.6992, 3.91029, -50.1807)
+
+[node name="crate3" parent="." instance=ExtResource("26_mfo4g")]
+transform = Transform3D(1, 0, 0, 0, 0.980443, 0.196802, 0, -0.196802, 0.980443, -22.0771, -1.6011, -25.3127)

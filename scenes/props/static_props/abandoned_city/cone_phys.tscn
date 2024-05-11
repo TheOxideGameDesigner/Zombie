@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://xj1y12nynwuv"]
+[gd_scene load_steps=5 format=3 uid="uid://cria4o4no5qle"]
 
 [ext_resource type="Material" uid="uid://uxn8fucitgfr" path="res://resources/materials/level_mat.tres" id="1_6ntoo"]
 [ext_resource type="ArrayMesh" uid="uid://dt8v55jlc6714" path="res://models/static_props/abandoned_city/misc_prop_traffic_cone.obj" id="2_bt6f5"]

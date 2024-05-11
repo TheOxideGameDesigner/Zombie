@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://bc0mh8pi77ais"]
+[gd_scene load_steps=47 format=3 uid="uid://bc0mh8pi77ais"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_yrwuf"]
 [ext_resource type="Material" uid="uid://uxn8fucitgfr" path="res://resources/materials/level_mat.tres" id="2_b3adx"]
@@ -29,6 +29,9 @@
 [ext_resource type="PackedScene" uid="uid://2ukt3tqlkh71" path="res://scenes/props/enemies/eye_of_anubis.tscn" id="27_5jpyk"]
 [ext_resource type="PackedScene" uid="uid://d2ya5fu74vom0" path="res://scenes/props/enemies/hitscanner.tscn" id="28_lrs5w"]
 [ext_resource type="PackedScene" uid="uid://cn0h8ppoq8uq8" path="res://scenes/props/enemies/mage.tscn" id="29_ixa6q"]
+[ext_resource type="PackedScene" uid="uid://hpxwt38akn5y" path="res://scenes/props/static_props/ancient_desert/crate.tscn" id="30_4csh0"]
+[ext_resource type="PackedScene" uid="uid://bwtuxjoeb41rc" path="res://scenes/props/static_props/ancient_desert/monument.tscn" id="31_jiue4"]
+[ext_resource type="PackedScene" uid="uid://cocbo5383phed" path="res://scenes/props/static_props/ancient_desert/spawn_pyramid.tscn" id="32_7y2od"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vtej7"]
 size = Vector3(83.6724, 22.0838, 66.1556)
@@ -1043,3 +1046,30 @@ min_dif = 1
 [node name="mage4" parent="." instance=ExtResource("29_ixa6q")]
 transform = Transform3D(0.154969, 0, 0.987919, 0, 1, 0, -0.987919, 0, 0.154969, 71.8096, 190.072, -97.061)
 min_dif = 3
+
+[node name="crate" parent="." instance=ExtResource("30_4csh0")]
+transform = Transform3D(0.87171, 0, -0.490022, 0, 1, 0, 0.490022, 0, 0.87171, -12.8751, 188.08, -64.6527)
+
+[node name="crate2" parent="." instance=ExtResource("30_4csh0")]
+transform = Transform3D(0.545598, 0, 0.422401, 0, 0.69, 0, -0.422401, 0, 0.545598, -13.5026, 188.08, -62.0639)
+
+[node name="crate3" parent="." instance=ExtResource("30_4csh0")]
+transform = Transform3D(0.977882, 0, -0.209158, 0, 1, 0, 0.209158, 0, 0.977882, 10.4684, 195.08, -84.7792)
+
+[node name="crate4" parent="." instance=ExtResource("30_4csh0")]
+transform = Transform3D(0.86902, 0, -0.494776, 0, 1, 0, 0.494776, 0, 0.86902, 59.0424, 192.08, -90.7477)
+
+[node name="crate5" parent="." instance=ExtResource("30_4csh0")]
+transform = Transform3D(0.599293, 0, 0.138104, 0, 0.615, 0, -0.138104, 0, 0.599293, -1.1648, 197.08, -140.313)
+
+[node name="crate6" parent="." instance=ExtResource("30_4csh0")]
+transform = Transform3D(0.206443, 0, 0.978459, 0, 1, 0, -0.978459, 0, 0.206443, -1.13267, 197.08, -142.962)
+
+[node name="monument" parent="." instance=ExtResource("31_jiue4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.102369, 188.08, -59.3009)
+
+[node name="monument2" parent="." instance=ExtResource("31_jiue4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.569, 195.08, -100.991)
+
+[node name="spawn_pyramid" parent="." instance=ExtResource("32_7y2od")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0245545, 182.379, 10.4973)

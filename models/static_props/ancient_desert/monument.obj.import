@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b7uyo2m8i6xux"
+path="res://.godot/imported/monument.obj-7acf30d064b4ae73370a9513ea69dfe8.mesh"
+
+[deps]
+
+files=["res://.godot/imported/monument.obj-7acf30d064b4ae73370a9513ea69dfe8.mesh"]
+
+source_file="res://models/static_props/ancient_desert/monument.obj"
+dest_files=["res://.godot/imported/monument.obj-7acf30d064b4ae73370a9513ea69dfe8.mesh", "res://.godot/imported/monument.obj-7acf30d064b4ae73370a9513ea69dfe8.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

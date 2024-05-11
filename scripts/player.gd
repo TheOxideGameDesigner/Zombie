@@ -56,9 +56,9 @@ const BLASTER_FORCE = 1.2
 const BLASTER_COOLDOWN = 0.15
 const BLASTER_COOLDOWN_SHORT = 0.075
 const BLASTER_RANGE = 42
-const HYPNOTIZER_BUFF = 1.3
+const HYPNOTIZER_BUFF = 1
 const HYPNOTIZER_DRAIN = 3 * HYPNOTIZER_BUFF
-const HYPNOTIZER_RECHARGE = 8.5
+const HYPNOTIZER_RECHARGE = 15
 const HYPNOTIZER_RECHARGE_START = 0.5
 const DEATH_FADE_TIME = 1.0
 
@@ -608,8 +608,6 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	Input.use_accumulated_input = false
 	raycast.add_exception(self)
-	for i in get_tree().get_nodes_in_group("wallbang"):
-		raycast.add_exception(i)
 	cam.top_level = 1
 	cam.rotation.y = rotation.y
 	rotation.y = 0

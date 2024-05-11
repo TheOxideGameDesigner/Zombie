@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dee16k0bulvn4"
+path="res://.godot/imported/background_pyramid.obj-af2bcb8a2a6a433e32f210922142b18d.mesh"
+
+[deps]
+
+files=["res://.godot/imported/background_pyramid.obj-af2bcb8a2a6a433e32f210922142b18d.mesh"]
+
+source_file="res://models/static_props/ancient_desert/background_pyramid.obj"
+dest_files=["res://.godot/imported/background_pyramid.obj-af2bcb8a2a6a433e32f210922142b18d.mesh", "res://.godot/imported/background_pyramid.obj-af2bcb8a2a6a433e32f210922142b18d.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

@@ -10,6 +10,7 @@
 radius = 3.13272
 
 [node name="garlic" type="Area3D" groups=["drop"]]
+collision_layer = 0
 collision_mask = 256
 script = ExtResource("1_6merg")
 

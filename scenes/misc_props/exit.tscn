@@ -24,6 +24,7 @@ shading_mode = 0
 albedo_color = Color(1, 0, 0, 0.168627)
 
 [node name="exit" type="Area3D" groups=["enemy_area"]]
+collision_layer = 0
 collision_mask = 256
 script = ExtResource("1_6une0")
 

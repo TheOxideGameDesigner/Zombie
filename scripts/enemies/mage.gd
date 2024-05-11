@@ -328,7 +328,7 @@ func _physics_process(delta):
 	var dir2player2D = Vector2(dir2player.x, dir2player.z).normalized()
 	var player_dir = player.cam.transform.basis.z
 	var player_dir2D = Vector2(player_dir.x, player_dir.z).normalized()
-	raycast_hitbox.disabled = hypno or rising or not alive or dir2player2D.dot(player_dir2D) < player.MIN_HIT_DOT_PROD
+	raycast_hitbox.disabled = rising or not alive or dir2player2D.dot(player_dir2D) < player.MIN_HIT_DOT_PROD
 	
 	collision_area_hitbox.disabled = not alive
 	
@@ -410,6 +410,7 @@ func _physics_process(delta):
 					if hombie.dist_from_target >= dist_from_hombie:
 						hombie.target = self
 						hitbox.disabled = false
+						hombie.dist_from_target = dist_from_hombie
 	
 	if target != player and target != null and (not target.alive or target.hypno == hypno):
 		target = null
@@ -418,7 +419,7 @@ func _physics_process(delta):
 	if target == null:
 		sees_target = false
 	else:
-		ray.position = Vector3(0.079, 1.642, 0.847).rotated(Vector3.UP, mesh.rotation.y)
+		ray.position = Vector3(0, 1.5, 0)
 		ray.target_position = ray.to_local(target.position + Vector3(0, 1, 0)).normalized() * VIS_RANGE
 		ray.force_raycast_update()
 		sees_target = ray.is_colliding() and ray.get_collider() == target
@@ -469,13 +470,14 @@ func _physics_process(delta):
 		
 		rot = -atan2(nextpos.z, nextpos.x) + PI / 2
 		var vel_dir = Vector3.MODEL_FRONT.rotated(Vector3.UP, mesh.rotation.y)
-		
 		ray.position = vel_dir * 0.25 + Vector3(0, ray.position.y, 0)
 		ray.target_position = Vector3(0, -5, 0)
 		ray.force_raycast_update()
 		ray.position = Vector3(0, ray.position.y, 0)
 		if ray.is_colliding():
 			velocity = SPEED * vel_dir
+		else:
+			velocity = Vector3(0, velocity.y, 0)
 		
 		if is_on_floor():
 			y_vel = 0

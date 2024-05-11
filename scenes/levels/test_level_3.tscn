@@ -17,7 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://cadde3gpe114j" path="res://scenes/props/static_props/haunted_mansions/pot.tscn" id="14_2yb62"]
 [ext_resource type="PackedScene" uid="uid://cn2daom6rjal1" path="res://scenes/props/static_props/haunted_mansions/plate.tscn" id="15_ogq6i"]
 [ext_resource type="PackedScene" uid="uid://dyao2hinxch17" path="res://scenes/props/static_props/chandelier.tscn" id="16_xusm1"]
-[ext_resource type="PackedScene" uid="uid://xj1y12nynwuv" path="res://scenes/props/static_props/abandoned_city/cone_phys.tscn" id="18_6s40w"]
+[ext_resource type="PackedScene" uid="uid://xlmv8rl1f7di" path="res://scenes/props/static_props/abandoned_city/cone.tscn" id="18_vjsth"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ctp2d"]
 
@@ -137,8 +137,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.8001, 1.32882, -20.0103)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.1948, 1.32882, -20.6059)
 
 [node name="chandelier" parent="." instance=ExtResource("16_xusm1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.7206, 6.45894, -15.4296)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.2049, 6.45894, -19.9554)
 
-[node name="Cone" parent="." instance=ExtResource("18_6s40w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5002, 0.19884, -11.6309)
-mass = 0.5
+[node name="Cone" parent="." instance=ExtResource("18_vjsth")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.7282, 0.198839, -18.3159)
+
+[node name="Cone2" parent="." instance=ExtResource("18_vjsth")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.7093, 0.19884, -21.5986)
+
+[node name="Cone3" parent="." instance=ExtResource("18_vjsth")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.9647, 0.19884, -21.2872)

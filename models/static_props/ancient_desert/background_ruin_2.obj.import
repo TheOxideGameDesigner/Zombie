@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bdjm7hwe62qmx"
+path="res://.godot/imported/background_ruin_2.obj-96d43193ec3d603e8a96e1751c384bca.mesh"
+
+[deps]
+
+files=["res://.godot/imported/background_ruin_2.obj-96d43193ec3d603e8a96e1751c384bca.mesh"]
+
+source_file="res://models/static_props/ancient_desert/background_ruin_2.obj"
+dest_files=["res://.godot/imported/background_ruin_2.obj-96d43193ec3d603e8a96e1751c384bca.mesh", "res://.godot/imported/background_ruin_2.obj-96d43193ec3d603e8a96e1751c384bca.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

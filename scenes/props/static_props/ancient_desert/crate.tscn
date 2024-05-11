@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://hpxwt38akn5y"]
+
+[ext_resource type="Material" uid="uid://uxn8fucitgfr" path="res://resources/materials/level_mat.tres" id="1_24ylh"]
+[ext_resource type="ArrayMesh" uid="uid://wajch4cv75l6" path="res://models/static_props/ancient_desert/crate.obj" id="2_idd1j"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fxm7y"]
+size = Vector3(2.3725, 2.38501, 2.3847)
+
+[node name="crate" type="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = ExtResource("1_24ylh")
+mesh = ExtResource("2_idd1j")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0027771, 1.1842, -9.15527e-05)
+shape = SubResource("BoxShape3D_fxm7y")

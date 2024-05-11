@@ -34,6 +34,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.666268, -0.622951, 0.00149
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 light_color = Color(1, 1, 0.835294, 1)
-light_energy = 1.696
-omni_range = 20.956
-omni_attenuation = 0.066986
+omni_range = 41.8491
+omni_attenuation = 0.0769468

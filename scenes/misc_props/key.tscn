@@ -10,6 +10,7 @@ radius = 3.13272
 
 [node name="key" type="Area3D" groups=["drop"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05773, 0)
+collision_layer = 0
 collision_mask = 256
 script = ExtResource("1_dmr35")
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://cqawajl3sic6o"]
+[gd_scene load_steps=34 format=3 uid="uid://cqawajl3sic6o"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_c5vfy"]
 [ext_resource type="Material" uid="uid://uxn8fucitgfr" path="res://resources/materials/level_mat.tres" id="2_mlsxx"]
@@ -25,6 +25,9 @@
 [ext_resource type="Script" path="res://scripts/triggers/trigger_area.gd" id="19_ys4ua"]
 [ext_resource type="PackedScene" uid="uid://d2ya5fu74vom0" path="res://scenes/props/enemies/hitscanner.tscn" id="20_ojew3"]
 [ext_resource type="PackedScene" uid="uid://ct4dtw3ijmehk" path="res://scenes/props/enemies/runner.tscn" id="21_oa7e3"]
+[ext_resource type="PackedScene" uid="uid://hpxwt38akn5y" path="res://scenes/props/static_props/ancient_desert/crate.tscn" id="26_2ei31"]
+[ext_resource type="PackedScene" uid="uid://bwtuxjoeb41rc" path="res://scenes/props/static_props/ancient_desert/monument.tscn" id="27_4bni6"]
+[ext_resource type="PackedScene" uid="uid://cocbo5383phed" path="res://scenes/props/static_props/ancient_desert/spawn_pyramid.tscn" id="28_6erbo"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nxdpq"]
 size = Vector3(27.101, 5.57284, 1)
@@ -34,9 +37,6 @@ size = Vector3(13.0162, 9.92289, 18.1684)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nwl76"]
 size = Vector3(7.06047, 5.80713, 0.529086)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_6a6rb"]
-size = Vector3(5.53377, 4.02152, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fmupk"]
 size = Vector3(8.93055, 3.32158, 1.67353)
@@ -114,10 +114,6 @@ level = 3
 
 [node name="garlic" parent="." instance=ExtResource("17_6a282")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.8559, 166.44, 366.028)
-
-[node name="blue_key" parent="." instance=ExtResource("18_axbuo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.61844, 183.141, 371.897)
-key_index = 1
 
 [node name="purple_key" parent="." instance=ExtResource("18_axbuo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 128.469, 171.317, 482.701)
@@ -311,85 +307,11 @@ keys_required = Array[int]([4])
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.09441, 0)
 shape = SubResource("BoxShape3D_dcbv6")
 
-[node name="blue_key_fence" type="StaticBody3D" parent="props" groups=["2"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.0018, 165.182, 389.336)
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="props/blue_key_fence"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.44928, -0.468979, 1.03891)
-material_override = ExtResource("2_mlsxx")
-mesh = ExtResource("10_xohpk")
-
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="props/blue_key_fence"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.66958, -0.468979, 1.03891)
-material_override = ExtResource("2_mlsxx")
-mesh = ExtResource("10_xohpk")
-
-[node name="MeshInstance3D4" type="MeshInstance3D" parent="props/blue_key_fence"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.897134, -0.468979, 1.03891)
-material_override = ExtResource("2_mlsxx")
-mesh = ExtResource("10_xohpk")
-
-[node name="MeshInstance3D5" type="MeshInstance3D" parent="props/blue_key_fence"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.132069, -0.468979, 1.03891)
-material_override = ExtResource("2_mlsxx")
-mesh = ExtResource("10_xohpk")
-
-[node name="MeshInstance3D6" type="MeshInstance3D" parent="props/blue_key_fence"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.589275, -0.468979, 1.03891)
-material_override = ExtResource("2_mlsxx")
-mesh = ExtResource("10_xohpk")
-
-[node name="MeshInstance3D7" type="MeshInstance3D" parent="props/blue_key_fence"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.36618, -0.468979, 1.03891)
-material_override = ExtResource("2_mlsxx")
-mesh = ExtResource("10_xohpk")
-
-[node name="MeshInstance3D8" type="MeshInstance3D" parent="props/blue_key_fence"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.06301, -0.468979, 1.03891)
-material_override = ExtResource("2_mlsxx")
-mesh = ExtResource("10_xohpk")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="props/blue_key_fence"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20229, 3.24031, 0.837799)
-shape = SubResource("BoxShape3D_6a6rb")
-
-[node name="lock" parent="props/blue_key_fence" instance=ExtResource("11_par71")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.169601, 3.50052, 1.45279)
-skeleton = NodePath("../../..")
-one_sided = false
-
-[node name="Area3D" type="Area3D" parent="props/blue_key_fence"]
-script = ExtResource("19_ys4ua")
-
-[node name="move_trigger" parent="props/blue_key_fence/Area3D" instance=ExtResource("13_n21vt")]
-group = 2
-target = Vector3(0, -6, 0)
-time = 1.0
-keys_required = Array[int]([1])
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="props/blue_key_fence/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.09441, 0)
-shape = SubResource("BoxShape3D_dcbv6")
-
-[node name="lock2" parent="props" instance=ExtResource("11_par71")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.4335, 170.354, 370.147)
-cast_shadow = 0
-skeleton = NodePath("../..")
-color = Color(0, 0, 0, 1)
-one_sided = false
-
 [node name="lock3" parent="props" instance=ExtResource("11_par71")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.7908, 170.354, 370.147)
 cast_shadow = 0
 skeleton = NodePath("../..")
 color = Color(0.498039, 0, 0.498039, 1)
-one_sided = false
-
-[node name="lock4" parent="props" instance=ExtResource("11_par71")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59.9881, 170.354, 370.147)
-cast_shadow = 0
-skeleton = NodePath("../..")
-color = Color(1, 1, 1, 1)
 one_sided = false
 
 [node name="garlic_fence" type="StaticBody3D" parent="props" groups=["5"]]
@@ -426,7 +348,7 @@ script = ExtResource("19_ys4ua")
 group = 5
 target = Vector3(0, -3, 0)
 time = 1.0
-keys_required = Array[int]([6, 7, 5])
+keys_required = Array[int]([5])
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="props/garlic_fence/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.09441, 0)
@@ -446,21 +368,11 @@ key_index = 4
 
 [node name="gunner2" parent="enemies" instance=ExtResource("16_kyyy3")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 38.7888, 173, 378.505)
-
-[node name="white_key" parent="enemies/gunner2" instance=ExtResource("18_axbuo")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.131439, 1.19896, 0.339943)
-key_color = Color(1, 1, 1, 1)
-key_name = "white"
-key_index = 6
+min_dif = 2
 
 [node name="gunner5" parent="enemies" instance=ExtResource("16_kyyy3")]
 transform = Transform3D(-0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, -0.258819, 76.9137, 173, 353.973)
-
-[node name="black_key" parent="enemies/gunner5" instance=ExtResource("18_axbuo")]
-transform = Transform3D(-0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, -0.258819, -0.196228, 0.315659, 0.106857)
-key_color = Color(0, 0, 0, 1)
-key_name = "black"
-key_index = 7
+min_dif = 2
 
 [node name="eye_of_anubis" parent="enemies" instance=ExtResource("19_piyel")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -9.54251, 182, 325.339)
@@ -548,7 +460,7 @@ min_dif = 2
 
 [node name="runner12" parent="enemies" instance=ExtResource("21_oa7e3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.0747, 167, 352.182)
-min_dif = 2
+min_dif = 3
 
 [node name="runner13" parent="enemies" instance=ExtResource("21_oa7e3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.8369, 167, 367.333)
@@ -582,3 +494,39 @@ min_dif = 4
 [node name="gunner2" parent="." instance=ExtResource("16_kyyy3")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 76.349, 173.041, 378.232)
 min_dif = 3
+
+[node name="crate" parent="." instance=ExtResource("26_2ei31")]
+transform = Transform3D(0.756036, 0, 0.65453, 0, 1, 0, -0.65453, 0, 0.756036, 102.298, 169, 421.714)
+
+[node name="crate4" parent="." instance=ExtResource("26_2ei31")]
+transform = Transform3D(0.756036, 0, 0.65453, 0, 1, 0, -0.65453, 0, 0.756036, 103.302, 169, 461.699)
+
+[node name="crate2" parent="." instance=ExtResource("26_2ei31")]
+transform = Transform3D(1.44855, 0, -0.136852, 0, 1.455, 0, 0.136852, 0, 1.44855, 106.115, 169, 422.974)
+
+[node name="crate3" parent="." instance=ExtResource("26_2ei31")]
+transform = Transform3D(1.40159, 0, 0.390618, 0, 1.455, 0, -0.390618, 0, 1.40159, 127.064, 169, 444.646)
+
+[node name="monument" parent="." instance=ExtResource("27_4bni6")]
+transform = Transform3D(1.325, 0, 0, 0, 1.325, 0, 0, 0, 1.325, 114.465, 169, 450.064)
+
+[node name="monument2" parent="." instance=ExtResource("27_4bni6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.2936, 182, 334.364)
+
+[node name="crate5" parent="." instance=ExtResource("26_2ei31")]
+transform = Transform3D(0.866697, 0, -0.498836, 0, 1, 0, 0.498836, 0, 0.866697, 9.17837, 169, 398.429)
+
+[node name="crate6" parent="." instance=ExtResource("26_2ei31")]
+transform = Transform3D(-0.510408, 0, -0.859933, 0, 1, 0, 0.859933, 0, -0.510408, -20.9789, 169, 397.321)
+
+[node name="crate7" parent="." instance=ExtResource("26_2ei31")]
+transform = Transform3D(0.370756, 0, -1.34483, 0, 1.395, 0, 1.34483, 0, 0.370756, -24.9646, 169, 397.441)
+
+[node name="crate8" parent="." instance=ExtResource("26_2ei31")]
+transform = Transform3D(0.370756, 0, -1.34483, 0, 1.395, 0, 1.34483, 0, 0.370756, -5.92405, 181.885, 380.676)
+
+[node name="crate9" parent="." instance=ExtResource("26_2ei31")]
+transform = Transform3D(0.49139, 0, 0.870939, 0, 1, 0, -0.870939, 0, 0.49139, -15.4983, 182, 367.991)
+
+[node name="spawn_pyramid" parent="." instance=ExtResource("28_6erbo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.4055, 164.423, 459.73)
