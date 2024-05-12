@@ -521,7 +521,10 @@ func _physics_process(delta):
 				mesh_body.play("hitting", 0.4)
 			if hit_timer <= 0:
 				if target == player:
-					player.pain("You were killed by a runner", HIT_DAMAGE)
+					if is_phantom:
+						player.pain("You were killed by a phantom", HIT_DAMAGE)
+					else:
+						player.pain("You were killed by a runner", HIT_DAMAGE)
 				else:
 					target.pain(HIT_DAMAGE)
 				hit_timer = HIT_TIME

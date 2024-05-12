@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://necfw3c14atl"]
+[gd_scene load_steps=43 format=3 uid="uid://necfw3c14atl"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_1fq5o"]
 [ext_resource type="Material" uid="uid://uxn8fucitgfr" path="res://resources/materials/level_mat.tres" id="2_uv08g"]
@@ -29,6 +29,12 @@
 [ext_resource type="PackedScene" uid="uid://hpxwt38akn5y" path="res://scenes/props/static_props/ancient_desert/crate.tscn" id="27_rnlsc"]
 [ext_resource type="PackedScene" uid="uid://bwtuxjoeb41rc" path="res://scenes/props/static_props/ancient_desert/monument.tscn" id="28_x7ho3"]
 [ext_resource type="PackedScene" uid="uid://cocbo5383phed" path="res://scenes/props/static_props/ancient_desert/spawn_pyramid.tscn" id="29_plqhx"]
+[ext_resource type="ArrayMesh" uid="uid://dee16k0bulvn4" path="res://models/static_props/ancient_desert/background_pyramid.obj" id="30_r42ek"]
+[ext_resource type="ArrayMesh" uid="uid://b3pg6v8mdy8aj" path="res://models/static_props/ancient_desert/background_obelisk.obj" id="31_uk43c"]
+[ext_resource type="ArrayMesh" uid="uid://fsvkoxrk3h3o" path="res://models/static_props/ancient_desert/background_ruin_1.obj" id="32_wp772"]
+[ext_resource type="ArrayMesh" uid="uid://bdjm7hwe62qmx" path="res://models/static_props/ancient_desert/background_ruin_2.obj" id="33_bfwm5"]
+[ext_resource type="ArrayMesh" uid="uid://jyek8hb17oti" path="res://models/static_props/ancient_desert/background_ruin_3.obj" id="34_5c4j2"]
+[ext_resource type="ArrayMesh" uid="uid://r0i8pderqtiw" path="res://models/static_props/ancient_desert/background_ruin_4.obj" id="35_us8a5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_oyvdx"]
 size = Vector3(4.88327, 5.59789, 0.531837)
@@ -119,7 +125,7 @@ omni_range = 17.5466
 omni_attenuation = 0.637283
 
 [node name="player" parent="." instance=ExtResource("13_b80dx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 235.975, 183.551, 723.248)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.9289, 175.025, 862.387)
 environment = ExtResource("14_y8w5k")
 
 [node name="exit" parent="." instance=ExtResource("17_ok6ic")]
@@ -589,6 +595,212 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 242.124, 183, 736.737)
 [node name="spring4" parent="props" instance=ExtResource("25_tde57")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 263.337, 183, 736.737)
 
+[node name="crate" parent="props" instance=ExtResource("27_rnlsc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.95444, 173, 802.259)
+
+[node name="crate2" parent="props" instance=ExtResource("27_rnlsc")]
+transform = Transform3D(0.487798, 0, -0.194109, 0, 0.525, 0, 0.194109, 0, 0.487798, 0.148939, 173, 802.674)
+
+[node name="crate3" parent="props" instance=ExtResource("27_rnlsc")]
+transform = Transform3D(0.871787, 0, -0.489885, 0, 1, 0, 0.489885, 0, 0.871787, 32.9251, 173, 833.197)
+
+[node name="crate4" parent="props" instance=ExtResource("27_rnlsc")]
+transform = Transform3D(0.975558, 0, 0.219744, 0, 1, 0, -0.219744, 0, 0.975558, 30.0396, 173, 843.726)
+
+[node name="crate5" parent="props" instance=ExtResource("27_rnlsc")]
+transform = Transform3D(-0.237839, 0, 0.971305, 0, 1, 0, -0.971305, 0, -0.237839, 19.5327, 173, 836.082)
+
+[node name="crate6" parent="props" instance=ExtResource("27_rnlsc")]
+transform = Transform3D(0.796762, 0, -0.604293, 0, 1, 0, 0.604293, 0, 0.796762, 106.725, 178, 839.026)
+
+[node name="crate7" parent="props" instance=ExtResource("27_rnlsc")]
+transform = Transform3D(0.998993, 0, -0.0448748, 0, 1, 0, 0.0448748, 0, 0.998993, 104.362, 182, 793.772)
+
+[node name="crate8" parent="props" instance=ExtResource("27_rnlsc")]
+transform = Transform3D(0.812745, 0, -0.58262, 0, 1, 0, 0.58262, 0, 0.812745, 90.937, 182, 781.589)
+
+[node name="crate9" parent="props" instance=ExtResource("27_rnlsc")]
+transform = Transform3D(0.52148, 0, -0.174809, 0, 0.55, 0, 0.174809, 0, 0.52148, 89.7564, 182, 783.359)
+
+[node name="crate10" parent="props" instance=ExtResource("27_rnlsc")]
+transform = Transform3D(0.9588, 0, -0.284082, 0, 1, 0, 0.284082, 0, 0.9588, 187.091, 185, 732.855)
+
+[node name="crate11" parent="props" instance=ExtResource("27_rnlsc")]
+transform = Transform3D(0.895898, 0, 0.44426, 0, 1, 0, -0.44426, 0, 0.895898, 190.168, 181, 782.261)
+
+[node name="crate12" parent="props" instance=ExtResource("27_rnlsc")]
+transform = Transform3D(0.576672, 0, 0.146542, 0, 0.595, 0, -0.146542, 0, 0.576672, 189.718, 181, 780.125)
+
+[node name="crate13" parent="props" instance=ExtResource("27_rnlsc")]
+transform = Transform3D(0.99462, 0, -0.103591, 0, 1, 0, 0.103591, 0, 0.99462, 267.616, 179, 854.664)
+
+[node name="crate14" parent="props" instance=ExtResource("27_rnlsc")]
+transform = Transform3D(0.818842, 0, -0.57402, 0, 1, 0, 0.57402, 0, 0.818842, 261.893, 179, 831.06)
+
+[node name="crate15" parent="props" instance=ExtResource("27_rnlsc")]
+transform = Transform3D(0.568901, 0, 0.0353736, 0, 0.57, 0, -0.0353736, 0, 0.568901, 259.671, 179, 830.275)
+
+[node name="crate16" parent="props" instance=ExtResource("27_rnlsc")]
+transform = Transform3D(0.821534, 0, -0.175162, 0, 0.84, 0, 0.175162, 0, 0.821534, 272.859, 181, 790.113)
+
+[node name="crate17" parent="props" instance=ExtResource("27_rnlsc")]
+transform = Transform3D(0.869366, 0, 0.49417, 0, 1, 0, -0.49417, 0, 0.869366, 257.695, 181, 771.204)
+
+[node name="crate18" parent="props" instance=ExtResource("27_rnlsc")]
+transform = Transform3D(0.834396, 0, -0.551165, 0, 1, 0, 0.551165, 0, 0.834396, 228.576, 179, 825.338)
+
+[node name="crate19" parent="props" instance=ExtResource("27_rnlsc")]
+transform = Transform3D(0.715646, 0, 0.368614, 0, 0.805, 0, -0.368614, 0, 0.715646, 210.299, 179, 803.49)
+
+[node name="monument" parent="props" instance=ExtResource("28_x7ho3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 131.997, 185, 744.583)
+
+[node name="spawn_pyramid" parent="props" instance=ExtResource("29_plqhx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.019, 172.24, 875.521)
+
+[node name="monument2" parent="props" instance=ExtResource("28_x7ho3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 257.713, 179, 845.288)
+
+[node name="BackgroundPyramid" type="MeshInstance3D" parent="props"]
+transform = Transform3D(-1.32415, -0.108991, 1.42048, -0.0177319, 1.94041, 0.132355, -1.42455, 0.0771566, -1.32202, 533.327, 202.501, 420.215)
+material_override = ExtResource("2_uv08g")
+cast_shadow = 0
+mesh = ExtResource("30_r42ek")
+skeleton = NodePath("../..")
+
+[node name="BackgroundPyramid2" type="MeshInstance3D" parent="props"]
+transform = Transform3D(-1.76956, 0.167079, -0.990951, 0.0738072, 2.02287, 0.209266, 1.00222, 0.146029, -1.76506, -106.497, 211.277, 392.158)
+material_override = ExtResource("2_uv08g")
+cast_shadow = 0
+mesh = ExtResource("30_r42ek")
+skeleton = NodePath("../..")
+
+[node name="BackgroundPyramid4" type="MeshInstance3D" parent="props"]
+transform = Transform3D(2.24883, -0.168356, 1.28392, -0.100754, 2.54242, 0.509854, -1.29098, -0.491689, 2.19673, 437.535, 228.955, 1103.82)
+material_override = ExtResource("2_uv08g")
+cast_shadow = 0
+mesh = ExtResource("30_r42ek")
+skeleton = NodePath("../..")
+
+[node name="BackgroundPyramid5" type="MeshInstance3D" parent="props"]
+transform = Transform3D(1.81183, 0.0891988, -0.780987, -0.00956237, 1.9646, 0.202198, 0.786006, -0.181712, 1.80272, -132.423, 198.04, 1054.4)
+material_override = ExtResource("2_uv08g")
+cast_shadow = 0
+mesh = ExtResource("30_r42ek")
+skeleton = NodePath("../..")
+
+[node name="BackgroundPyramid7" type="MeshInstance3D" parent="props"]
+transform = Transform3D(5.28977, -0.089059, -2.31538, 0.294319, 5.74981, 0.451248, 2.29832, -0.531335, 5.27125, -108.357, 176.802, 748.521)
+material_override = ExtResource("2_uv08g")
+cast_shadow = 0
+mesh = ExtResource("31_uk43c")
+skeleton = NodePath("../..")
+
+[node name="BackgroundPyramid8" type="MeshInstance3D" parent="props"]
+transform = Transform3D(7.04387, -0.118591, -3.08316, -0.394963, 7.58644, -1.19415, 3.06006, 1.25217, 6.94293, 320.091, 188.359, 542)
+material_override = ExtResource("2_uv08g")
+cast_shadow = 0
+mesh = ExtResource("31_uk43c")
+skeleton = NodePath("../..")
+
+[node name="BackgroundPyramid9" type="MeshInstance3D" parent="props"]
+transform = Transform3D(6.50675, -1.37329, -2.42955, 1.35046, 6.94319, -0.30784, 2.44231, -0.180506, 6.64296, 449.331, 179.054, 895.429)
+material_override = ExtResource("2_uv08g")
+cast_shadow = 0
+mesh = ExtResource("31_uk43c")
+skeleton = NodePath("../..")
+
+[node name="BackgroundPyramid6" type="MeshInstance3D" parent="props"]
+transform = Transform3D(1.106, -0.096004, -0.455575, 0.247203, 1.11611, 0.364936, 0.394532, -0.430199, 1.04846, 1.57185, 221.412, 1194.1)
+material_override = ExtResource("2_uv08g")
+cast_shadow = 0
+mesh = ExtResource("30_r42ek")
+skeleton = NodePath("../..")
+
+[node name="BackgroundPyramid10" type="MeshInstance3D" parent="props"]
+transform = Transform3D(-0.666952, -0.0951413, 0.993038, -0.21279, 1.18061, -0.0298039, -0.974626, -0.192655, -0.673044, 190.804, 178.182, 1024.52)
+material_override = ExtResource("2_uv08g")
+cast_shadow = 0
+mesh = ExtResource("32_wp772")
+skeleton = NodePath("../..")
+
+[node name="BackgroundPyramid19" type="MeshInstance3D" parent="props"]
+transform = Transform3D(-1.06186, -0.20452, -0.520211, -0.160551, 1.18133, -0.136718, 0.535417, -0.0513799, -1.0727, 534.722, 198.783, 653.446)
+material_override = ExtResource("2_uv08g")
+cast_shadow = 0
+mesh = ExtResource("32_wp772")
+skeleton = NodePath("../..")
+
+[node name="BackgroundPyramid12" type="MeshInstance3D" parent="props"]
+transform = Transform3D(1.30953, -0.0485831, 0.873722, 0.0449142, 1.57423, 0.0202175, -0.873919, 0.0081061, 1.31028, -147.475, 176.005, 872.564)
+material_override = ExtResource("2_uv08g")
+cast_shadow = 0
+mesh = ExtResource("33_bfwm5")
+skeleton = NodePath("../..")
+
+[node name="BackgroundPyramid13" type="MeshInstance3D" parent="props"]
+transform = Transform3D(0.913099, -0.00957079, -1.28327, -0.038503, 1.57404, -0.0391358, 1.28273, 0.0540603, 0.91231, 171.116, 190.86, 395.864)
+material_override = ExtResource("2_uv08g")
+cast_shadow = 0
+mesh = ExtResource("33_bfwm5")
+skeleton = NodePath("../..")
+
+[node name="BackgroundPyramid14" type="MeshInstance3D" parent="props"]
+transform = Transform3D(-1.03187, -0.0489182, -0.952304, -0.0343471, 1.40415, -0.0349118, 0.952941, -0.0023597, -1.03244, 415.78, 184.263, 753.227)
+material_override = ExtResource("2_uv08g")
+cast_shadow = 0
+mesh = ExtResource("34_5c4j2")
+skeleton = NodePath("../..")
+
+[node name="BackgroundPyramid15" type="MeshInstance3D" parent="props"]
+transform = Transform3D(-1.07999, -0.00407371, 0.89868, -0.172299, 1.37986, -0.200806, -0.882019, -0.264563, -1.06117, 141.07, 208.586, 1172.73)
+material_override = ExtResource("2_uv08g")
+cast_shadow = 0
+mesh = ExtResource("34_5c4j2")
+skeleton = NodePath("../..")
+
+[node name="BackgroundPyramid20" type="MeshInstance3D" parent="props"]
+transform = Transform3D(-0.939054, -0.0914646, 0.177234, -0.0801526, 0.954244, 0.0677741, -0.182629, 0.0514977, -0.94106, 183.004, 170.134, 905.953)
+material_override = ExtResource("2_uv08g")
+cast_shadow = 0
+mesh = ExtResource("34_5c4j2")
+skeleton = NodePath("../..")
+
+[node name="BackgroundPyramid16" type="MeshInstance3D" parent="props"]
+transform = Transform3D(-0.513107, 0.174671, -1.29624, -0.0199228, 1.39121, 0.195355, 1.3078, 0.0897243, -0.505594, 372.327, 193.148, 281.458)
+material_override = ExtResource("2_uv08g")
+cast_shadow = 0
+mesh = ExtResource("35_us8a5")
+skeleton = NodePath("../..")
+
+[node name="BackgroundPyramid11" type="MeshInstance3D" parent="props"]
+transform = Transform3D(1.19415, -0.0244003, -0.115831, 0.0269022, 1.19944, 0.0246791, 0.115275, -0.0271556, 1.19414, 13.9948, 179.614, 709.843)
+material_override = ExtResource("2_uv08g")
+cast_shadow = 0
+mesh = ExtResource("32_wp772")
+skeleton = NodePath("../..")
+
+[node name="BackgroundPyramid18" type="MeshInstance3D" parent="props"]
+transform = Transform3D(1.1244, -0.0563458, -0.415397, -0.0384316, 1.17025, -0.262762, 0.417436, 0.259511, 1.09472, -3.30521, 236.551, 219.909)
+material_override = ExtResource("2_uv08g")
+cast_shadow = 0
+mesh = ExtResource("32_wp772")
+skeleton = NodePath("../..")
+
+[node name="BackgroundPyramid3" type="MeshInstance3D" parent="props"]
+transform = Transform3D(-1.11206, 0.198196, -0.612592, 0.128024, 1.26626, 0.177275, 0.631, 0.0923847, -1.11558, -196.89, 201.669, 572.164)
+material_override = ExtResource("2_uv08g")
+cast_shadow = 0
+mesh = ExtResource("30_r42ek")
+skeleton = NodePath("../..")
+
+[node name="BackgroundPyramid17" type="MeshInstance3D" parent="props"]
+transform = Transform3D(-1.2727, 0.0816529, -0.157452, 0.0607022, 1.27237, 0.169174, 0.166655, 0.160116, -1.26405, 257.645, 228.051, 199.563)
+material_override = ExtResource("2_uv08g")
+cast_shadow = 0
+mesh = ExtResource("30_r42ek")
+skeleton = NodePath("../..")
+
 [node name="enemies" type="Node3D" parent="."]
 
 [node name="gunner" parent="enemies" instance=ExtResource("21_nqfw1")]
@@ -922,100 +1134,34 @@ min_dif = 3
 [node name="runner43" parent="enemies" instance=ExtResource("22_trfgh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 132.783, 221.326, 652.002)
 
-[node name="hitscanner2" parent="." instance=ExtResource("27_arphk")]
+[node name="hitscanner3" parent="enemies" instance=ExtResource("27_arphk")]
 transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, 30.3446, 174.118, 830.765)
 min_dif = 4
 
-[node name="mage5" parent="." groups=["20"] instance=ExtResource("26_mxko8")]
+[node name="mage5" parent="enemies" groups=["20"] instance=ExtResource("26_mxko8")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 110.986, 185, 732.009)
 
-[node name="mage6" parent="." groups=["20"] instance=ExtResource("26_mxko8")]
+[node name="mage6" parent="enemies" groups=["20"] instance=ExtResource("26_mxko8")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 110.986, 185, 752.06)
 
-[node name="runner" parent="." groups=["21"] instance=ExtResource("22_trfgh")]
+[node name="runner" parent="enemies" groups=["21"] instance=ExtResource("22_trfgh")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 154.586, 185, 752.185)
 
-[node name="mage4" parent="." instance=ExtResource("26_mxko8")]
+[node name="mage4" parent="enemies" instance=ExtResource("26_mxko8")]
 transform = Transform3D(0.0724027, 0, -0.997375, 0, 1, 0, 0.997375, 0, 0.0724027, 90.2263, 177.056, 835.952)
 min_dif = 3
 
-[node name="mage7" parent="." instance=ExtResource("26_mxko8")]
+[node name="mage7" parent="enemies" instance=ExtResource("26_mxko8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3291, 173.077, 820.16)
 min_dif = 4
 
-[node name="mage8" parent="." instance=ExtResource("26_mxko8")]
+[node name="mage8" parent="enemies" instance=ExtResource("26_mxko8")]
 transform = Transform3D(-0.210489, 0, 0.977596, 0, 1, 0, -0.977596, 0, -0.210489, -1.98105, 173.258, 815.765)
 
-[node name="mage9" parent="." instance=ExtResource("26_mxko8")]
+[node name="mage9" parent="enemies" instance=ExtResource("26_mxko8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.875, 173.468, 803.24)
 min_dif = 2
 
-[node name="mage10" parent="." instance=ExtResource("26_mxko8")]
+[node name="mage10" parent="enemies" instance=ExtResource("26_mxko8")]
 transform = Transform3D(0.00178023, 0, 0.999998, 0, 1, 0, -0.999998, 0, 0.00178023, 98.8123, 179.961, 822.875)
 min_dif = 2
-
-[node name="crate" parent="." instance=ExtResource("27_rnlsc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.95444, 173, 802.259)
-
-[node name="crate2" parent="." instance=ExtResource("27_rnlsc")]
-transform = Transform3D(0.487798, 0, -0.194109, 0, 0.525, 0, 0.194109, 0, 0.487798, 0.148939, 173, 802.674)
-
-[node name="crate3" parent="." instance=ExtResource("27_rnlsc")]
-transform = Transform3D(0.871787, 0, -0.489885, 0, 1, 0, 0.489885, 0, 0.871787, 32.9251, 173, 833.197)
-
-[node name="crate4" parent="." instance=ExtResource("27_rnlsc")]
-transform = Transform3D(0.975558, 0, 0.219744, 0, 1, 0, -0.219744, 0, 0.975558, 30.0396, 173, 843.726)
-
-[node name="crate5" parent="." instance=ExtResource("27_rnlsc")]
-transform = Transform3D(-0.237839, 0, 0.971305, 0, 1, 0, -0.971305, 0, -0.237839, 19.5327, 173, 836.082)
-
-[node name="crate6" parent="." instance=ExtResource("27_rnlsc")]
-transform = Transform3D(0.796762, 0, -0.604293, 0, 1, 0, 0.604293, 0, 0.796762, 106.725, 178, 839.026)
-
-[node name="crate7" parent="." instance=ExtResource("27_rnlsc")]
-transform = Transform3D(0.998993, 0, -0.0448748, 0, 1, 0, 0.0448748, 0, 0.998993, 104.362, 182, 793.772)
-
-[node name="crate8" parent="." instance=ExtResource("27_rnlsc")]
-transform = Transform3D(0.812745, 0, -0.58262, 0, 1, 0, 0.58262, 0, 0.812745, 90.937, 182, 781.589)
-
-[node name="crate9" parent="." instance=ExtResource("27_rnlsc")]
-transform = Transform3D(0.52148, 0, -0.174809, 0, 0.55, 0, 0.174809, 0, 0.52148, 89.7564, 182, 783.359)
-
-[node name="crate10" parent="." instance=ExtResource("27_rnlsc")]
-transform = Transform3D(0.9588, 0, -0.284082, 0, 1, 0, 0.284082, 0, 0.9588, 187.091, 185, 732.855)
-
-[node name="crate11" parent="." instance=ExtResource("27_rnlsc")]
-transform = Transform3D(0.895898, 0, 0.44426, 0, 1, 0, -0.44426, 0, 0.895898, 190.168, 181, 782.261)
-
-[node name="crate12" parent="." instance=ExtResource("27_rnlsc")]
-transform = Transform3D(0.576672, 0, 0.146542, 0, 0.595, 0, -0.146542, 0, 0.576672, 189.718, 181, 780.125)
-
-[node name="crate13" parent="." instance=ExtResource("27_rnlsc")]
-transform = Transform3D(0.99462, 0, -0.103591, 0, 1, 0, 0.103591, 0, 0.99462, 267.616, 179, 854.664)
-
-[node name="crate14" parent="." instance=ExtResource("27_rnlsc")]
-transform = Transform3D(0.818842, 0, -0.57402, 0, 1, 0, 0.57402, 0, 0.818842, 261.893, 179, 831.06)
-
-[node name="crate15" parent="." instance=ExtResource("27_rnlsc")]
-transform = Transform3D(0.568901, 0, 0.0353736, 0, 0.57, 0, -0.0353736, 0, 0.568901, 259.671, 179, 830.275)
-
-[node name="crate16" parent="." instance=ExtResource("27_rnlsc")]
-transform = Transform3D(0.821534, 0, -0.175162, 0, 0.84, 0, 0.175162, 0, 0.821534, 272.859, 181, 790.113)
-
-[node name="crate17" parent="." instance=ExtResource("27_rnlsc")]
-transform = Transform3D(0.869366, 0, 0.49417, 0, 1, 0, -0.49417, 0, 0.869366, 257.695, 181, 771.204)
-
-[node name="crate18" parent="." instance=ExtResource("27_rnlsc")]
-transform = Transform3D(0.834396, 0, -0.551165, 0, 1, 0, 0.551165, 0, 0.834396, 228.576, 179, 825.338)
-
-[node name="crate19" parent="." instance=ExtResource("27_rnlsc")]
-transform = Transform3D(0.715646, 0, 0.368614, 0, 0.805, 0, -0.368614, 0, 0.715646, 210.299, 179, 803.49)
-
-[node name="monument" parent="." instance=ExtResource("28_x7ho3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 131.997, 185, 744.583)
-
-[node name="spawn_pyramid" parent="." instance=ExtResource("29_plqhx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.019, 172.24, 875.521)
-
-[node name="monument2" parent="." instance=ExtResource("28_x7ho3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 257.713, 179, 845.288)

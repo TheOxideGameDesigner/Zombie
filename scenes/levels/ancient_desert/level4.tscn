@@ -1159,12 +1159,6 @@ material_override = ExtResource("2_b3adx")
 cast_shadow = 0
 mesh = ExtResource("37_lw1oh")
 
-[node name="BackgroundPyramid17" type="MeshInstance3D" parent="."]
-transform = Transform3D(-1.38653, -0.211348, -0.820657, -0.215638, 1.60984, -0.0502615, 0.819541, 0.066016, -1.40165, 320.581, 193.898, -192.562)
-material_override = ExtResource("2_b3adx")
-cast_shadow = 0
-mesh = ExtResource("38_ktooa")
-
 [node name="BackgroundPyramid20" type="MeshInstance3D" parent="."]
 transform = Transform3D(-1.40171, -0.036278, -0.821286, -0.0646568, 1.62325, 0.0386486, 0.819541, 0.066016, -1.40165, 177.105, 180.911, -6.16045)
 material_override = ExtResource("2_b3adx")
