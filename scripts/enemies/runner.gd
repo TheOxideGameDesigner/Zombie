@@ -296,11 +296,6 @@ func _process(delta):
 			mesh_body.bob_amplitude = 0.1
 		else:
 			mesh_body.bob_amplitude = 0.0
-	
-	if (dist_from_target <= 1.1 and player.velocity.length() < 0.1) or (dist_from_target < 0.2):
-		mesh_body.legs_playing = 0
-	else:
-		mesh_body.legs_playing = 1
 
 
 func roaming_ang_func(t):
@@ -531,11 +526,25 @@ func _physics_process(delta):
 		else:
 			hit_timer = HIT_TIME
 		
+		if velocity.length() < 0.1:
+			mesh_body.legs_playing = 0
+		else:
+			mesh_body.legs_playing = 1
+		
 		rot = -atan2(nextpos.z, nextpos.x) + PI / 2
 		var vel_dir = Vector3.MODEL_FRONT.rotated(Vector3.UP, mesh.rotation.y)
-		if (target == player and dist_from_target < 0.2) or (target != player and dist_from_target < 1.05):
+		if target != player and dist_from_target < RADIUS + target.RADIUS + 0.05:
 			vel_dir = Vector3.ZERO
-		velocity = SPEED * vel_dir.normalized()
+		elif target == player:
+			if dist_from_player <= 0.51 and dist_from_player >= 0.49:
+				var nexpos = Vector3(player.position.x, position.y, player.position.z) - vel_dir * 0.5
+				if (nexpos - position).length() > 0.025:
+					mesh_body.legs_playing = true
+				position = nexpos
+				vel_dir = Vector3.ZERO
+			elif dist_from_player <= 0.5:
+				vel_dir = Vector3.ZERO
+		velocity = SPEED * vel_dir
 		
 		if climbing:
 			y_vel = CLIMB_SPEED

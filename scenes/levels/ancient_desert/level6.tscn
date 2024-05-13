@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://bg1olsl6b8b0v"]
+[gd_scene load_steps=49 format=3 uid="uid://bg1olsl6b8b0v"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_1e6vi"]
 [ext_resource type="Material" uid="uid://uxn8fucitgfr" path="res://resources/materials/level_mat.tres" id="2_511kt"]
@@ -25,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://cq4mvdbpk0wiq" path="res://scenes/props/enemies/statue.tscn" id="24_ji5k2"]
 [ext_resource type="PackedScene" uid="uid://bfuck1d2dtogj" path="res://scenes/props/enemies/gunner.tscn" id="25_vtcoq"]
 [ext_resource type="PackedScene" uid="uid://ct4dtw3ijmehk" path="res://scenes/props/enemies/runner.tscn" id="26_8ctec"]
+[ext_resource type="ArrayMesh" uid="uid://r0i8pderqtiw" path="res://models/static_props/ancient_desert/background_ruin_4.obj" id="27_deymp"]
 [ext_resource type="PackedScene" uid="uid://d2ya5fu74vom0" path="res://scenes/props/enemies/hitscanner.tscn" id="27_hgcxk"]
 [ext_resource type="PackedScene" uid="uid://cn0h8ppoq8uq8" path="res://scenes/props/enemies/mage.tscn" id="27_tijdk"]
 [ext_resource type="PackedScene" uid="uid://cocbo5383phed" path="res://scenes/props/static_props/ancient_desert/spawn_pyramid.tscn" id="28_bxsux"]
@@ -689,6 +690,20 @@ cast_shadow = 0
 mesh = ExtResource("34_bcfsu")
 skeleton = NodePath("../../..")
 
+[node name="BackgroundPyramid28" type="MeshInstance3D" parent="props"]
+transform = Transform3D(0.954077, -0.201652, -0.549148, 0.230268, 1.0952, -0.00210746, 0.537776, -0.111192, 0.975152, 125.341, 180.19, 212.134)
+material_override = ExtResource("2_511kt")
+cast_shadow = 0
+mesh = ExtResource("27_deymp")
+skeleton = NodePath("../../..")
+
+[node name="BackgroundPyramid27" type="MeshInstance3D" parent="props"]
+transform = Transform3D(0.673492, -0.198824, 0.871416, 0.153729, 1.10061, 0.132305, -0.880491, 0.0400799, 0.689651, 0.609947, 179.286, 496.176)
+material_override = ExtResource("2_511kt")
+cast_shadow = 0
+mesh = ExtResource("34_bcfsu")
+skeleton = NodePath("../../..")
+
 [node name="BackgroundPyramid21" type="MeshInstance3D" parent="props"]
 transform = Transform3D(-0.909359, 0.079675, -0.647462, 0.0226301, 1.11395, 0.105296, 0.651953, 0.0724657, -0.90675, 370.772, 173.534, 420.169)
 material_override = ExtResource("2_511kt")
@@ -698,6 +713,13 @@ skeleton = NodePath("../../..")
 
 [node name="BackgroundPyramid18" type="MeshInstance3D" parent="props"]
 transform = Transform3D(0.294921, 0.072344, -1.07716, -0.116753, 1.11222, 0.0427323, 1.07326, 0.101112, 0.300642, 256.348, 179.095, 361.888)
+material_override = ExtResource("2_511kt")
+cast_shadow = 0
+mesh = ExtResource("35_ia1q7")
+skeleton = NodePath("../../..")
+
+[node name="BackgroundPyramid26" type="MeshInstance3D" parent="props"]
+transform = Transform3D(-0.904804, 0.136475, -0.644357, 0.09045, 1.11023, 0.108139, 0.652414, 0.0353504, -0.908622, 469.81, 170.119, 546.592)
 material_override = ExtResource("2_511kt")
 cast_shadow = 0
 mesh = ExtResource("35_ia1q7")

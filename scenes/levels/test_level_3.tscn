@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bajqqqjylfrys"]
+[gd_scene load_steps=24 format=3 uid="uid://bajqqqjylfrys"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_n6eeb"]
 [ext_resource type="PackedScene" uid="uid://4px2n2dg363l" path="res://scenes/misc_props/player.tscn" id="2_26vq5"]
@@ -18,6 +18,8 @@
 [ext_resource type="PackedScene" uid="uid://cn2daom6rjal1" path="res://scenes/props/static_props/haunted_mansions/plate.tscn" id="15_ogq6i"]
 [ext_resource type="PackedScene" uid="uid://dyao2hinxch17" path="res://scenes/props/static_props/chandelier.tscn" id="16_xusm1"]
 [ext_resource type="PackedScene" uid="uid://xlmv8rl1f7di" path="res://scenes/props/static_props/abandoned_city/cone.tscn" id="18_vjsth"]
+[ext_resource type="PackedScene" uid="uid://ct4dtw3ijmehk" path="res://scenes/props/enemies/runner.tscn" id="19_pmcu5"]
+[ext_resource type="PackedScene" uid="uid://ddiw8ybfcdmjb" path="res://scenes/misc_props/spring.tscn" id="20_kphxb"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ctp2d"]
 
@@ -147,3 +149,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.7093, 0.19884, -21.5986)
 
 [node name="Cone3" parent="." instance=ExtResource("18_vjsth")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.9647, 0.19884, -21.2872)
+
+[node name="runner" parent="." instance=ExtResource("19_pmcu5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.02113, 0.198841, 11.4351)
+
+[node name="spring" parent="." instance=ExtResource("20_kphxb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5437, 0.198837, 4.68848)
