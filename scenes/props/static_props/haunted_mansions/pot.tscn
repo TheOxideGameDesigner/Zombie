@@ -10,7 +10,7 @@ size = Vector3(0.129021, 0.247559, 0.126251)
 [sub_resource type="SphereShape3D" id="SphereShape3D_ve8nn"]
 radius = 0.0644951
 
-[node name="pot" type="RigidBody3D" groups=["physics"]]
+[node name="pot" type="RigidBody3D"]
 collision_layer = 32768
 collision_mask = 32769
 mass = 0.05

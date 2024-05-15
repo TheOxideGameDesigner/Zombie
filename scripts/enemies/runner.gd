@@ -358,6 +358,7 @@ func _physics_process(delta):
 		hypno_health_drain_timer -= delta
 		hypno_timer += delta
 	
+	var prev_dist_from_target = dist_from_target
 	if target != null:
 		dist_from_target = Vector2(target.position.x, target.position.z).distance_to(Vector2(position.x, position.z))
 	else:
@@ -391,6 +392,13 @@ func _physics_process(delta):
 	else:
 		rising = 0
 	
+	
+	if velocity.length() < 0.5 and not asleep:
+		mesh_body.legs_playing = 0
+	else:
+		mesh_body.legs_playing = 1
+	
+	#if dist_from_target > 1:
 	rot = fposmod(rot, 2 * PI)
 	mesh.rotation.y = fposmod(mesh.rotation.y, 2 * PI)
 	var dif = fposmod(rot - mesh.rotation.y, 2 * PI)
@@ -526,25 +534,9 @@ func _physics_process(delta):
 		else:
 			hit_timer = HIT_TIME
 		
-		if velocity.length() < 0.1:
-			mesh_body.legs_playing = 0
-		else:
-			mesh_body.legs_playing = 1
-		
 		rot = -atan2(nextpos.z, nextpos.x) + PI / 2
 		var vel_dir = Vector3.MODEL_FRONT.rotated(Vector3.UP, mesh.rotation.y)
-		if target != player and dist_from_target < RADIUS + target.RADIUS + 0.05:
-			vel_dir = Vector3.ZERO
-		elif target == player:
-			if dist_from_player <= 0.51 and dist_from_player >= 0.49:
-				var nexpos = Vector3(player.position.x, position.y, player.position.z) - vel_dir * 0.5
-				if (nexpos - position).length() > 0.025:
-					mesh_body.legs_playing = true
-				position = nexpos
-				vel_dir = Vector3.ZERO
-			elif dist_from_player <= 0.5:
-				vel_dir = Vector3.ZERO
-		velocity = SPEED * vel_dir
+		velocity = SPEED * clamp(dist_from_target, 0, 1) * vel_dir
 		
 		if climbing:
 			y_vel = CLIMB_SPEED

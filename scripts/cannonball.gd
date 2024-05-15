@@ -36,10 +36,9 @@ func explode(body):
 					obj.add_vel = expl_dir.normalized() * 10
 				obj.pain(lerp(0.0, DAMAGE, 1.0 - dist / SPLASH_RADIUS) * damage_mul)
 	for obj in get_tree().get_nodes_in_group("physics"):
-		if obj != body and obj.mass > 0.49:
-			var dist = obj.global_position.distance_to(global_position)
-			if dist < SPLASH_RADIUS:
-				obj.apply_central_impulse(5 * (obj.global_position - position).normalized() / (1 + dist / 3))
+		var dist = obj.global_position.distance_to(global_position)
+		if dist < SPLASH_RADIUS:
+			obj.apply_central_impulse(5 * (obj.global_position - position).normalized() / (1 + dist / 3))
 	var dist = (player.position + Vector3(0, 0.85, 0)).distance_to(position)
 	if dist < PLAYER_SPLASH_RADIUS:
 		var knockback_dir = (player.cam.global_position - position) * 6 / (dist * dist)

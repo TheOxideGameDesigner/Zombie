@@ -106,7 +106,7 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5.6831
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 10.3518, 0.198839, -6.69925)
 
 [node name="bed4" parent="." instance=ExtResource("11_gndde")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 18.712, 0.198839, -1.00352)
+transform = Transform3D(-2.635, 0, -3.97874e-07, 0, 2.635, 0, 3.97874e-07, 0, -2.635, -19.7293, 0.198838, 3.41776)
 
 [node name="Chair" parent="." instance=ExtResource("12_4elhq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.1867, 0.675517, -17.806)
@@ -150,8 +150,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.7093, 0.19884, -21.5986)
 [node name="Cone3" parent="." instance=ExtResource("18_vjsth")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.9647, 0.19884, -21.2872)
 
-[node name="runner" parent="." instance=ExtResource("19_pmcu5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.02113, 0.198841, 11.4351)
-
 [node name="spring" parent="." instance=ExtResource("20_kphxb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5437, 0.198837, 4.68848)
+
+[node name="runner" parent="." instance=ExtResource("19_pmcu5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.0395, 0.19884, 10.2261)
