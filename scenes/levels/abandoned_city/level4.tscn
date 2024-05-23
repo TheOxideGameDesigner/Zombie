@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://c1m5b7fqhugu7"]
+[gd_scene load_steps=55 format=3 uid="uid://c1m5b7fqhugu7"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_syy0u"]
 [ext_resource type="Material" uid="uid://uf6clx1smqj1" path="res://resources/materials/specific_mats/abandoned_city_building_mat.tres" id="2_bujs1"]
@@ -46,6 +46,9 @@
 [ext_resource type="PackedScene" uid="uid://d2ya5fu74vom0" path="res://scenes/props/enemies/hitscanner.tscn" id="44_3fhhm"]
 [ext_resource type="PackedScene" uid="uid://cn0h8ppoq8uq8" path="res://scenes/props/enemies/mage.tscn" id="45_mv1wn"]
 [ext_resource type="PackedScene" uid="uid://26x6x0du3c7k" path="res://scenes/props/enemies/chaingunner.tscn" id="46_nd1ph"]
+[ext_resource type="ArrayMesh" uid="uid://dqqlgwgawals0" path="res://models/static_props/abandoned_city/grass.obj" id="47_xpgyf"]
+[ext_resource type="PackedScene" uid="uid://b5vsubbxupt0u" path="res://scenes/props/static_props/abandoned_city/dumpster_001.tscn" id="48_hbotc"]
+[ext_resource type="PackedScene" uid="uid://dva0i1jl5w3ue" path="res://scenes/props/static_props/abandoned_city/dumpster_002.tscn" id="49_i8fqu"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_alerp"]
 size = Vector3(1, 13.1535, 68.8241)
@@ -3788,3 +3791,63 @@ min_dif = 3
 
 [node name="runner34" parent="." instance=ExtResource("42_yys3j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -150.208, 28.2497, -291.516)
+
+[node name="Grass" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100.467, -0.82748, -121.987)
+material_override = ExtResource("4_qf2ek")
+visibility_range_end = 175.0
+mesh = ExtResource("47_xpgyf")
+
+[node name="Grass2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, -73.9074, -0.827482, -157.729)
+material_override = ExtResource("4_qf2ek")
+visibility_range_end = 175.0
+mesh = ExtResource("47_xpgyf")
+
+[node name="Grass9" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, -59.8759, -0.827482, -171.27)
+material_override = ExtResource("4_qf2ek")
+visibility_range_end = 175.0
+mesh = ExtResource("47_xpgyf")
+
+[node name="Grass8" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, -94.9482, -0.827482, -143.896)
+material_override = ExtResource("4_qf2ek")
+visibility_range_end = 175.0
+mesh = ExtResource("47_xpgyf")
+
+[node name="Grass3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, -99.9321, -0.827482, -173.942)
+material_override = ExtResource("4_qf2ek")
+visibility_range_end = 175.0
+mesh = ExtResource("47_xpgyf")
+
+[node name="Grass4" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, -82.9351, -0.827482, -128.853)
+material_override = ExtResource("4_qf2ek")
+visibility_range_end = 175.0
+mesh = ExtResource("47_xpgyf")
+
+[node name="Grass5" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, -59.7764, -0.827482, -143.248)
+material_override = ExtResource("4_qf2ek")
+visibility_range_end = 175.0
+mesh = ExtResource("47_xpgyf")
+
+[node name="Grass6" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, -56.3432, -0.827482, -110.006)
+material_override = ExtResource("4_qf2ek")
+visibility_range_end = 175.0
+mesh = ExtResource("47_xpgyf")
+
+[node name="Grass7" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.105, 0, 0, 0, 1.105, 0, 0, 0, 1.105, -66.3261, -0.827482, -123.807)
+material_override = ExtResource("4_qf2ek")
+visibility_range_end = 175.0
+mesh = ExtResource("47_xpgyf")
+
+[node name="dumpster" parent="." instance=ExtResource("48_hbotc")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -72.2547, 0.228874, -292.701)
+
+[node name="dumpster2" parent="." instance=ExtResource("49_i8fqu")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -79.5041, 0.228874, -292.693)

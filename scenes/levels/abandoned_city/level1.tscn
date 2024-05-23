@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://byx28rpdxff5h"]
+[gd_scene load_steps=47 format=3 uid="uid://byx28rpdxff5h"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_owtet"]
 [ext_resource type="Material" uid="uid://uxn8fucitgfr" path="res://resources/materials/level_mat.tres" id="3_70p7x"]
@@ -11,6 +11,7 @@
 [ext_resource type="ArrayMesh" uid="uid://cricqhytfhueg" path="res://models/static_props/abandoned_city/building21x21_003.obj" id="8_klnuc"]
 [ext_resource type="ArrayMesh" uid="uid://45oex3ltnkmf" path="res://models/static_props/abandoned_city/building36x21_001.obj" id="9_076kn"]
 [ext_resource type="ArrayMesh" uid="uid://pgteuy8v5cxh" path="res://models/static_props/abandoned_city/building36x21_002.obj" id="10_govqa"]
+[ext_resource type="ArrayMesh" uid="uid://dqqlgwgawals0" path="res://models/static_props/abandoned_city/grass.obj" id="10_jxgq3"]
 [ext_resource type="ArrayMesh" uid="uid://dy0a3gxu5v5mx" path="res://models/static_props/abandoned_city/building36x21_003.obj" id="11_idbfg"]
 [ext_resource type="PackedScene" uid="uid://4px2n2dg363l" path="res://scenes/misc_props/player.tscn" id="12_rg2ra"]
 [ext_resource type="Environment" uid="uid://eqg2tcivmb0e" path="res://resources/level_enviroments/abandoned_city_environment.tres" id="14_6lw0s"]
@@ -37,8 +38,6 @@
 [ext_resource type="PackedScene" uid="uid://ct4dtw3ijmehk" path="res://scenes/props/enemies/runner.tscn" id="35_5d8le"]
 [ext_resource type="PackedScene" uid="uid://bfuck1d2dtogj" path="res://scenes/props/enemies/gunner.tscn" id="36_b7lel"]
 [ext_resource type="PackedScene" uid="uid://d2ya5fu74vom0" path="res://scenes/props/enemies/hitscanner.tscn" id="37_wq2bn"]
-[ext_resource type="FontVariation" uid="uid://cr4vqwh16ob78" path="res://resources/default_font.tres" id="38_bgmnd"]
-[ext_resource type="Texture2D" uid="uid://dl060esg3nwvf" path="res://textures/arrow.png" id="39_582dr"]
 [ext_resource type="PackedScene" uid="uid://cn0h8ppoq8uq8" path="res://scenes/props/enemies/mage.tscn" id="40_wrapu"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_llscw"]
@@ -65,10 +64,6 @@ size = Vector3(21.2927, 4.53223, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lwsp0"]
 size = Vector3(21.8316, 8.04187, 10.0803)
-
-[sub_resource type="FontVariation" id="FontVariation_uf547"]
-base_font = ExtResource("38_bgmnd")
-spacing_glyph = -10
 
 [node name="level1" type="Node3D"]
 script = ExtResource("1_owtet")
@@ -102,6 +97,11 @@ level = 1
 
 [node name="garlic" parent="." instance=ExtResource("32_1vxow")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.0971, 0.919841, -99.706)
+
+[node name="move_trigger" parent="garlic" instance=ExtResource("30_bondp")]
+group = 69
+target = Vector3(0, 5, 0)
+time = 1.0
 
 [node name="buildings" type="Node3D" parent="."]
 metadata/_edit_lock_ = true
@@ -669,6 +669,50 @@ transform = Transform3D(-0.409987, 0, 0.912091, 0, 1, 0, -0.912091, 0, -0.409987
 [node name="DeadTree012" parent="dead_trees" instance=ExtResource("15_dm38u")]
 transform = Transform3D(-0.19122, 0, 0.981547, 0, 1, 0, -0.981547, 0, -0.19122, 108.736, -0.775531, -105.343)
 
+[node name="Grass2" type="MeshInstance3D" parent="dead_trees"]
+transform = Transform3D(1.035, 0, 0, 0, 1.035, 0, 0, 0, 1.035, 56.9552, -0.0459667, -94.7594)
+material_override = ExtResource("3_70p7x")
+visibility_range_end = 175.0
+mesh = ExtResource("10_jxgq3")
+skeleton = NodePath("../../garlic")
+
+[node name="Grass6" type="MeshInstance3D" parent="dead_trees"]
+transform = Transform3D(1.035, 0, 0, 0, 1.035, 0, 0, 0, 1.035, 35.416, -0.0459705, -109.427)
+material_override = ExtResource("3_70p7x")
+visibility_range_end = 175.0
+mesh = ExtResource("10_jxgq3")
+skeleton = NodePath("../../garlic")
+
+[node name="Grass3" type="MeshInstance3D" parent="dead_trees"]
+transform = Transform3D(0.81, 0, 0, 0, 0.81, 0, 0, 0, 0.81, 55.2636, -0.0459686, -108.546)
+material_override = ExtResource("3_70p7x")
+visibility_range_end = 175.0
+mesh = ExtResource("10_jxgq3")
+skeleton = NodePath("../../garlic")
+
+[node name="Grass4" type="MeshInstance3D" parent="dead_trees"]
+transform = Transform3D(0.945, 0, 0, 0, 0.945, 0, 0, 0, 0.945, 41.6864, -0.0459705, -89.2731)
+material_override = ExtResource("3_70p7x")
+visibility_range_end = 175.0
+mesh = ExtResource("10_jxgq3")
+skeleton = NodePath("../../garlic")
+
+[node name="Grass5" type="MeshInstance3D" parent="dead_trees"]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 32.6377, -0.0459705, -98.1558)
+material_override = ExtResource("3_70p7x")
+visibility_range_end = 175.0
+mesh = ExtResource("10_jxgq3")
+skeleton = NodePath("../../garlic")
+
+[node name="DeadTree015" parent="dead_trees" instance=ExtResource("15_dm38u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.5774, -0.332319, -89.2018)
+
+[node name="DeadTree016" parent="dead_trees" instance=ExtResource("15_dm38u")]
+transform = Transform3D(0.832757, 0, 0.553639, 0, 1, 0, -0.553639, 0, 0.832757, 44.6757, -0.332317, -107.904)
+
+[node name="DeadTree017" parent="dead_trees" instance=ExtResource("15_dm38u")]
+transform = Transform3D(0.96503, 0, -0.262139, 0, 1, 0, 0.262139, 0, 0.96503, 35.0219, -0.332317, -92.2542)
+
 [node name="road_props" type="Node3D" parent="."]
 metadata/_edit_lock_ = true
 
@@ -852,6 +896,18 @@ transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 27.0021,
 [node name="LightPole36" parent="road_props" instance=ExtResource("20_l0ln5")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 13.7318, 0.245313, -122.028)
 
+[node name="LightPole38" parent="road_props" instance=ExtResource("20_l0ln5")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 27.4917, 0.245313, -116.604)
+
+[node name="LightPole39" parent="road_props" instance=ExtResource("20_l0ln5")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 62.5102, 0.245313, -116.289)
+
+[node name="LightPole40" parent="road_props" instance=ExtResource("20_l0ln5")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 62.4805, 0.245313, -83.5794)
+
+[node name="LightPole41" parent="road_props" instance=ExtResource("20_l0ln5")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 27.5399, 0.245313, -83.4277)
+
 [node name="LightPole37" parent="road_props" instance=ExtResource("20_l0ln5")]
 transform = Transform3D(-4.50161e-08, 0.000831576, 1, 0.000759334, 0.999999, -0.000831575, -1, 0.000759333, -6.76459e-07, 64.7565, 0.245313, -129.601)
 
@@ -860,6 +916,12 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 17.682
 
 [node name="Cone" parent="road_props" instance=ExtResource("21_7ogi5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 102.064, -7.62939e-06, 72.6991)
+
+[node name="Cone8" parent="road_props" instance=ExtResource("21_7ogi5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.1466, 0.258892, -83.4993)
+
+[node name="Cone9" parent="road_props" instance=ExtResource("21_7ogi5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.6259, 0.258892, -106.561)
 
 [node name="Cone2" parent="road_props" instance=ExtResource("21_7ogi5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.6477, 0.215257, 63.7165)
@@ -1131,7 +1193,7 @@ skeleton = NodePath("../..")
 metadata/_edit_lock_ = true
 
 [node name="garlic_fence" type="StaticBody3D" parent="fences" groups=["1"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.1117, 0.897052, -102.454)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.3057, 0.395752, -102.114)
 
 [node name="AbandonedCityFenceUnit" type="MeshInstance3D" parent="fences/garlic_fence"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.21025, -0.397052, 4.97594)
@@ -1341,6 +1403,11 @@ color = Color(0, 0, 0, 1)
 
 [node name="lock3" parent="fences/garlic_fence" instance=ExtResource("28_ink25")]
 transform = Transform3D(-2.18557e-07, 0, -1, 0, 1, 0, 1, 0, -2.18557e-07, -2.95261, 1.55308, 2.47078)
+skeleton = NodePath("../../..")
+color = Color(1, 1, 1, 1)
+
+[node name="lock4" parent="fences/garlic_fence" instance=ExtResource("28_ink25")]
+transform = Transform3D(-1, 0, 2.62268e-07, 0, 1, 0, -2.62268e-07, 0, -1, 0.770771, 1.55308, -1.19411)
 skeleton = NodePath("../../..")
 color = Color(1, 1, 1, 1)
 
@@ -2027,6 +2094,133 @@ target = Vector3(0, -5, 0)
 time = 1.0
 keys_required = Array[int]([2])
 
+[node name="dumdum_fence" type="StaticBody3D" parent="fences" groups=["69"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.0265, -5, -25.3656)
+
+[node name="AbandonedCityFenceUnit" type="MeshInstance3D" parent="fences/dumdum_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.0265, 0, 0.164276)
+material_override = ExtResource("26_m8qeg")
+mesh = ExtResource("27_48yf0")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit2" type="MeshInstance3D" parent="fences/dumdum_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.02653, 0, 0.164276)
+material_override = ExtResource("26_m8qeg")
+mesh = ExtResource("27_48yf0")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit3" type="MeshInstance3D" parent="fences/dumdum_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.02653, 0, 0.164276)
+material_override = ExtResource("26_m8qeg")
+mesh = ExtResource("27_48yf0")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit4" type="MeshInstance3D" parent="fences/dumdum_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.02653, 0, 0.164276)
+material_override = ExtResource("26_m8qeg")
+mesh = ExtResource("27_48yf0")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit5" type="MeshInstance3D" parent="fences/dumdum_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.02653, 0, 0.164276)
+material_override = ExtResource("26_m8qeg")
+mesh = ExtResource("27_48yf0")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit6" type="MeshInstance3D" parent="fences/dumdum_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.02653, 0, 0.164276)
+material_override = ExtResource("26_m8qeg")
+mesh = ExtResource("27_48yf0")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit7" type="MeshInstance3D" parent="fences/dumdum_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.02653, 0, 0.164276)
+material_override = ExtResource("26_m8qeg")
+mesh = ExtResource("27_48yf0")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit8" type="MeshInstance3D" parent="fences/dumdum_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.02653, 0, 0.164276)
+material_override = ExtResource("26_m8qeg")
+mesh = ExtResource("27_48yf0")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit9" type="MeshInstance3D" parent="fences/dumdum_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.02653, 0, 0.164276)
+material_override = ExtResource("26_m8qeg")
+mesh = ExtResource("27_48yf0")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit10" type="MeshInstance3D" parent="fences/dumdum_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.02653, 0, 0.164276)
+material_override = ExtResource("26_m8qeg")
+mesh = ExtResource("27_48yf0")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit11" type="MeshInstance3D" parent="fences/dumdum_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0265312, 0, 0.164276)
+material_override = ExtResource("26_m8qeg")
+mesh = ExtResource("27_48yf0")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit12" type="MeshInstance3D" parent="fences/dumdum_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.973469, 0, 0.164276)
+material_override = ExtResource("26_m8qeg")
+mesh = ExtResource("27_48yf0")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit13" type="MeshInstance3D" parent="fences/dumdum_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.97347, 0, 0.164276)
+material_override = ExtResource("26_m8qeg")
+mesh = ExtResource("27_48yf0")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit14" type="MeshInstance3D" parent="fences/dumdum_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.97347, 0, 0.164276)
+material_override = ExtResource("26_m8qeg")
+mesh = ExtResource("27_48yf0")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit15" type="MeshInstance3D" parent="fences/dumdum_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.97347, 0, 0.164276)
+material_override = ExtResource("26_m8qeg")
+mesh = ExtResource("27_48yf0")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit16" type="MeshInstance3D" parent="fences/dumdum_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.97347, 0, 0.164276)
+material_override = ExtResource("26_m8qeg")
+mesh = ExtResource("27_48yf0")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit17" type="MeshInstance3D" parent="fences/dumdum_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.97347, 0, 0.164276)
+material_override = ExtResource("26_m8qeg")
+mesh = ExtResource("27_48yf0")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit18" type="MeshInstance3D" parent="fences/dumdum_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.97347, 0, 0.164276)
+material_override = ExtResource("26_m8qeg")
+mesh = ExtResource("27_48yf0")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit19" type="MeshInstance3D" parent="fences/dumdum_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.97347, 0, 0.164276)
+material_override = ExtResource("26_m8qeg")
+mesh = ExtResource("27_48yf0")
+skeleton = NodePath("../../..")
+
+[node name="AbandonedCityFenceUnit20" type="MeshInstance3D" parent="fences/dumdum_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.97347, 0, 0.164276)
+material_override = ExtResource("26_m8qeg")
+mesh = ExtResource("27_48yf0")
+skeleton = NodePath("../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="fences/dumdum_fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.180054, 1.76611, 0)
+shape = SubResource("BoxShape3D_qecrj")
+
 [node name="blue_key_fence" type="StaticBody3D" parent="fences" groups=["3"]]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 56, 0, 5)
 
@@ -2298,7 +2492,7 @@ skeleton = NodePath("../../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.180054, 1.76611, 0)
 shape = SubResource("BoxShape3D_qecrj")
 
-[node name="blue_shortcut_fence" type="StaticBody3D" parent="fences" groups=["5"]]
+[node name="blue_shortcut_fence" type="StaticBody3D" parent="fences" groups=["5", "69"]]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 34.467, 0, -36)
 
 [node name="AbandonedCityFenceUnit" type="MeshInstance3D" parent="fences/blue_shortcut_fence"]
@@ -2425,20 +2619,6 @@ skeleton = NodePath("../../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.180054, 1.76611, 0)
 shape = SubResource("BoxShape3D_qecrj")
 
-[node name="exit_label" type="Label3D" parent="fences"]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 56.87, 2.31343, -26.0925)
-pixel_size = 0.0185
-texture_filter = 0
-modulate = Color(1, 0, 0, 1)
-text = "EXIT"
-font = SubResource("FontVariation_uf547")
-
-[node name="Sprite3D" type="Sprite3D" parent="fences/exit_label"]
-transform = Transform3D(-4.37114e-08, -1, 8.74228e-08, 1, -4.37114e-08, -8.74228e-08, 8.74228e-08, 8.74228e-08, 1, -0.26292, -0.890486, 0)
-modulate = Color(1, 0, 0, 1)
-pixel_size = 0.003
-texture = ExtResource("39_582dr")
-
 [node name="enemies" type="Node3D" parent="."]
 metadata/_edit_lock_ = true
 
@@ -2490,7 +2670,6 @@ min_dif = 1
 
 [node name="hitscanner" parent="enemies" instance=ExtResource("37_wq2bn")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 28.8366, -5.72205e-06, 3.59832)
-visible = false
 min_dif = 3
 
 [node name="runner8" parent="enemies" instance=ExtResource("35_5d8le")]
@@ -2530,12 +2709,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 116.987, 0.499899, 31.1019)
 
 [node name="runner24" parent="enemies" instance=ExtResource("35_5d8le")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.4234, 0.499899, 11.5922)
-visible = false
 min_dif = 3
 
 [node name="runner25" parent="enemies" instance=ExtResource("35_5d8le")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 85.7039, 0.499899, 4.59135)
-visible = false
 min_dif = 4
 
 [node name="gunner3" parent="enemies" instance=ExtResource("36_b7lel")]
@@ -2551,102 +2728,82 @@ min_dif = 2
 
 [node name="runner3" parent="enemies" instance=ExtResource("35_5d8le")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68.096, 0.499897, -30.0363)
-visible = false
 min_dif = 3
 
 [node name="runner6" parent="enemies" instance=ExtResource("35_5d8le")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59.111, 0.499901, -42.6877)
-visible = false
 min_dif = 4
 
 [node name="runner26" parent="enemies" instance=ExtResource("35_5d8le")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.7187, 2.81024, -78.9809)
-visible = false
 min_dif = 3
 
 [node name="runner27" parent="enemies" instance=ExtResource("35_5d8le")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.4372, 2.81024, -118.103)
-visible = false
 min_dif = 3
 
 [node name="runner28" parent="enemies" instance=ExtResource("35_5d8le")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66.3073, 2.81024, -117.686)
-visible = false
 min_dif = 3
 
 [node name="runner29" parent="enemies" instance=ExtResource("35_5d8le")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.8755, 2.81024, -78.7277)
-visible = false
 min_dif = 3
 
 [node name="hitscanner5" parent="enemies" instance=ExtResource("37_wq2bn")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 37.0795, 0.499899, -18.87)
-visible = false
 min_dif = 4
 
 [node name="runner16" parent="enemies" instance=ExtResource("35_5d8le")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.3485, -9.53674e-06, 5.60241)
-visible = false
 min_dif = 3
 
 [node name="runner19" parent="enemies" instance=ExtResource("35_5d8le")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.6032, 0.499897, 19.7391)
-visible = false
 min_dif = 4
 
 [node name="hitscanner6" parent="enemies" instance=ExtResource("37_wq2bn")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8.17906, 0.499897, 36.8444)
-visible = false
 min_dif = 3
 
 [node name="hitscanner7" parent="enemies" instance=ExtResource("37_wq2bn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.29332, 0.499897, 11.1662)
-visible = false
 min_dif = 4
 
 [node name="runner20" parent="enemies" instance=ExtResource("35_5d8le")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.1093, 0.499899, -5.27225)
-visible = false
 min_dif = 3
 
 [node name="runner21" parent="enemies" instance=ExtResource("35_5d8le")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.31016, 0.499901, -24.1061)
-visible = false
 min_dif = 4
 
 [node name="hitscanner8" parent="enemies" instance=ExtResource("37_wq2bn")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 10.1587, 0.61527, -28.7328)
-visible = false
 min_dif = 3
 
 [node name="gunner4" parent="enemies" instance=ExtResource("36_b7lel")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 45.6784, -7.62939e-06, 69.3673)
-visible = false
 min_dif = 4
 
 [node name="runner14" parent="enemies" instance=ExtResource("35_5d8le")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.5431, 0.499901, 56.1534)
-visible = false
 min_dif = 3
 
 [node name="runner22" parent="enemies" instance=ExtResource("35_5d8le")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65.6561, 0.499901, 70.084)
-visible = false
 min_dif = 3
 
 [node name="runner23" parent="enemies" instance=ExtResource("35_5d8le")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 96.3291, 0.499901, 67.693)
-visible = false
 min_dif = 3
 
 [node name="hitscanner9" parent="enemies" instance=ExtResource("37_wq2bn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 108.826, -5.72205e-06, 53.343)
-visible = false
 min_dif = 4
 
 [node name="chaingunner4" parent="enemies" instance=ExtResource("34_gfgkm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.9175, 0.499897, -93.3847)
-visible = false
 min_dif = 4
 
 [node name="key" parent="." instance=ExtResource("33_uraqb")]

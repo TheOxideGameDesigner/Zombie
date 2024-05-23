@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bu3d87jfgkla7"
+path="res://.godot/imported/trashcan.obj-dc59607f5aa0f4e6df3fd19a2075544b.mesh"
+
+[deps]
+
+files=["res://.godot/imported/trashcan.obj-dc59607f5aa0f4e6df3fd19a2075544b.mesh"]
+
+source_file="res://models/static_props/abandoned_city/trashcan.obj"
+dest_files=["res://.godot/imported/trashcan.obj-dc59607f5aa0f4e6df3fd19a2075544b.mesh", "res://.godot/imported/trashcan.obj-dc59607f5aa0f4e6df3fd19a2075544b.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

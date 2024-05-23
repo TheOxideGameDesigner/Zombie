@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://drv37q6nni4ah"]
+
+[ext_resource type="Material" uid="uid://uxn8fucitgfr" path="res://resources/materials/level_mat.tres" id="1_dmgsl"]
+[ext_resource type="ArrayMesh" uid="uid://bu3d87jfgkla7" path="res://models/static_props/abandoned_city/trashcan.obj" id="2_bks3w"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_0e6ow"]
+height = 1.21973
+radius = 0.326348
+
+[node name="trashcan" type="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -1, 0, 0, 0)
+material_override = ExtResource("1_dmgsl")
+visibility_range_end = 175.0
+mesh = ExtResource("2_bks3w")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.608071, 0)
+shape = SubResource("CylinderShape3D_0e6ow")

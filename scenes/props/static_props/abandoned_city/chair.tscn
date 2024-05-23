@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=3 uid="uid://bb7tdsitsm6ea"]
+
+[ext_resource type="Material" uid="uid://uxn8fucitgfr" path="res://resources/materials/level_mat.tres" id="1_ip0ua"]
+[ext_resource type="ArrayMesh" uid="uid://bj6n40grrqvs1" path="res://models/static_props/abandoned_city/chair.obj" id="2_abutl"]
+[ext_resource type="Script" path="res://scripts/physics_lerp.gd" id="3_i32n5"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_bq64o"]
+height = 0.137406
+radius = 0.383818
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_v64ta"]
+height = 0.303627
+radius = 0.0433705
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tvswk"]
+size = Vector3(0.606812, 0.0835571, 0.655396)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sxspv"]
+size = Vector3(0.606812, 0.740372, 0.0889282)
+
+[node name="chair" type="RigidBody3D" groups=["physics"]]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = ExtResource("1_ip0ua")
+visibility_range_end = 175.0
+mesh = ExtResource("2_abutl")
+script = ExtResource("3_i32n5")
+enable_rot = true
+global = true
+of_parent = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.334938, 0.0323968)
+shape = SubResource("CylinderShape3D_bq64o")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.116984, 0.024088)
+shape = SubResource("CylinderShape3D_v64ta")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000183105, 0.0740867, 0.027567)
+shape = SubResource("BoxShape3D_tvswk")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000183105, 0.485679, -0.255667)
+shape = SubResource("BoxShape3D_sxspv")

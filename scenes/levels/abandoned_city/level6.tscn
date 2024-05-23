@@ -1,10 +1,11 @@
-[gd_scene load_steps=49 format=3 uid="uid://e2jvhnyo3rts"]
+[gd_scene load_steps=55 format=3 uid="uid://e2jvhnyo3rts"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_depq5"]
 [ext_resource type="Material" uid="uid://uxn8fucitgfr" path="res://resources/materials/level_mat.tres" id="2_bwbts"]
 [ext_resource type="ArrayMesh" uid="uid://2700kcctjndr" path="res://models/levels/abandoned_city/level6/level6_visual.obj" id="3_tmi7v"]
 [ext_resource type="ArrayMesh" uid="uid://cq3rhvvvm7hve" path="res://models/levels/abandoned_city/level6/level6_collision.obj" id="4_ppv4h"]
 [ext_resource type="Script" path="res://scripts/create_static_body_child.gd" id="6_in1pl"]
+[ext_resource type="ArrayMesh" uid="uid://bpy0gyx1xhok0" path="res://models/levels/abandoned_city/level6/level6_pillar_collision.obj" id="7_3rbx7"]
 [ext_resource type="PackedScene" uid="uid://4px2n2dg363l" path="res://scenes/misc_props/player.tscn" id="7_wa7rp"]
 [ext_resource type="Environment" uid="uid://eqg2tcivmb0e" path="res://resources/level_enviroments/abandoned_city_environment.tres" id="8_5j6vu"]
 [ext_resource type="Material" uid="uid://uf6clx1smqj1" path="res://resources/materials/specific_mats/abandoned_city_building_mat.tres" id="13_h0uji"]
@@ -40,12 +41,21 @@
 [ext_resource type="Script" path="res://scripts/triggers/trigger_area.gd" id="38_rk0uo"]
 [ext_resource type="PackedScene" uid="uid://bfwjae77m2xmb" path="res://scenes/props/triggers/move_trigger.tscn" id="39_8fdre"]
 [ext_resource type="PackedScene" uid="uid://cdshg7bk5i645" path="res://scenes/misc_props/garlic.tscn" id="40_ucygc"]
+[ext_resource type="PackedScene" uid="uid://drv37q6nni4ah" path="res://scenes/props/static_props/abandoned_city/trashcan.tscn" id="42_48v45"]
+[ext_resource type="PackedScene" uid="uid://b5vsubbxupt0u" path="res://scenes/props/static_props/abandoned_city/dumpster_001.tscn" id="43_h4a74"]
+[ext_resource type="PackedScene" uid="uid://dva0i1jl5w3ue" path="res://scenes/props/static_props/abandoned_city/dumpster_002.tscn" id="44_ketdl"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_d5bid"]
 size = Vector3(119.226, 14.4636, 35)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_pwmrm"]
+size = Vector3(18.3133, 11.2671, 29.8687)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_s5c3x"]
+size = Vector3(14.9326, 15.1281, 34.7775)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_l0wx3"]
-size = Vector3(68.7354, 11.2213, 54)
+size = Vector3(84.1919, 11.2213, 54)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_uinoq"]
 size = Vector3(8.10742, 3.49402, 0.370239)
@@ -90,6 +100,12 @@ mesh = ExtResource("3_tmi7v")
 visible = false
 mesh = ExtResource("4_ppv4h")
 script = ExtResource("6_in1pl")
+
+[node name="level_pillar_collision" type="MeshInstance3D" parent="."]
+visible = false
+mesh = ExtResource("7_3rbx7")
+script = ExtResource("6_in1pl")
+layer = 258
 
 [node name="player" parent="." instance=ExtResource("7_wa7rp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.24509, 0.333091, -17.1118)
@@ -648,6 +664,14 @@ script = ExtResource("27_eoajn")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.88942, -2.97839, 3.06394)
 shape = SubResource("BoxShape3D_d5bid")
 
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="lights/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.5482, -3.63488, -27.7445)
+shape = SubResource("BoxShape3D_pwmrm")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="lights/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.5937, -4.48932, -29.6336)
+shape = SubResource("BoxShape3D_s5c3x")
+
 [node name="OmniLight3D" type="OmniLight3D" parent="lights/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.9334, -1.05675, 10.7382)
 light_bake_mode = 0
@@ -677,7 +701,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.87048, -5.11526, -69.7687)
 script = ExtResource("27_eoajn")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="lights/Area3D2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.9296, -2.09286, 1.23617)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.2013, -2.09286, 1.23617)
 shape = SubResource("BoxShape3D_l0wx3")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="lights/Area3D2"]
@@ -1315,3 +1339,15 @@ mesh = SubResource("BoxMesh_nqmoy")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="funi_trap2"]
 shape = SubResource("BoxShape3D_otrcv")
+
+[node name="trashcan" parent="." instance=ExtResource("42_48v45")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 127.166, -9.86972, -11.5438)
+
+[node name="trashcan2" parent="." instance=ExtResource("42_48v45")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 87.3832, -9.86972, -38.5724)
+
+[node name="dumpster" parent="." instance=ExtResource("43_h4a74")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 119.308, 0.223492, -72.7875)
+
+[node name="dumpster2" parent="." instance=ExtResource("44_ketdl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.2874, 0.203368, -59.6321)

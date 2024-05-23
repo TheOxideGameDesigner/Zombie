@@ -16,10 +16,10 @@
 [ext_resource type="PackedScene" uid="uid://e23khqsdhse1" path="res://scenes/props/static_props/haunted_mansions/table.tscn" id="13_riio2"]
 [ext_resource type="PackedScene" uid="uid://cadde3gpe114j" path="res://scenes/props/static_props/haunted_mansions/pot.tscn" id="14_2yb62"]
 [ext_resource type="PackedScene" uid="uid://cn2daom6rjal1" path="res://scenes/props/static_props/haunted_mansions/plate.tscn" id="15_ogq6i"]
-[ext_resource type="PackedScene" uid="uid://dyao2hinxch17" path="res://scenes/props/static_props/chandelier.tscn" id="16_xusm1"]
 [ext_resource type="PackedScene" uid="uid://xlmv8rl1f7di" path="res://scenes/props/static_props/abandoned_city/cone.tscn" id="18_vjsth"]
-[ext_resource type="PackedScene" uid="uid://ct4dtw3ijmehk" path="res://scenes/props/enemies/runner.tscn" id="19_pmcu5"]
+[ext_resource type="PackedScene" uid="uid://ct4dtw3ijmehk" path="res://scenes/props/enemies/runner.tscn" id="19_6icht"]
 [ext_resource type="PackedScene" uid="uid://ddiw8ybfcdmjb" path="res://scenes/misc_props/spring.tscn" id="20_kphxb"]
+[ext_resource type="PackedScene" uid="uid://bb7tdsitsm6ea" path="res://scenes/props/static_props/abandoned_city/chair.tscn" id="20_q66nc"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ctp2d"]
 
@@ -37,7 +37,7 @@ script = ExtResource("1_n6eeb")
 transform = Transform3D(0.999939, 0, 0.0110826, 0, 1, 0, -0.0110826, 0, 0.999939, 0, 0, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
-transform = Transform3D(28.0525, 0, -0.310913, 0, 28.0542, 0, 0.310913, 0, 28.0525, -0.093022, 0.127878, -0.205609)
+transform = Transform3D(28.0525, 0, -0.310913, 0, 28.0542, 0, 0.310913, 0, 28.0525, 0, 0.19884, 0)
 mesh = SubResource("PlaneMesh_ctp2d")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_3cwp8")
@@ -138,9 +138,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.8001, 1.32882, -20.0103)
 [node name="plate4" parent="." instance=ExtResource("15_ogq6i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.1948, 1.32882, -20.6059)
 
-[node name="chandelier" parent="." instance=ExtResource("16_xusm1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.2049, 6.45894, -19.9554)
-
 [node name="Cone" parent="." instance=ExtResource("18_vjsth")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.7282, 0.198839, -18.3159)
 
@@ -153,5 +150,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.9647, 0.19884, -21.2872)
 [node name="spring" parent="." instance=ExtResource("20_kphxb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5437, 0.198837, 4.68848)
 
-[node name="runner" parent="." instance=ExtResource("19_pmcu5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.0395, 0.19884, 10.2261)
+[node name="runner" parent="." instance=ExtResource("19_6icht")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.85175, 0.198841, 18.3268)
+
+[node name="runner2" parent="." instance=ExtResource("19_6icht")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.78385, 0.198841, 18.2336)
+
+[node name="runner3" parent="." instance=ExtResource("19_6icht")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.14869, 0.198841, 15.3566)
+
+[node name="Cone4" parent="." instance=ExtResource("20_q66nc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.98775, 0.615919, -20.9923)

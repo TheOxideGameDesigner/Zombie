@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=3 uid="uid://c6r6fd3mfwv0r"]
+[gd_scene load_steps=78 format=3 uid="uid://c6r6fd3mfwv0r"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_1c0ef"]
 [ext_resource type="PackedScene" uid="uid://4px2n2dg363l" path="res://scenes/misc_props/player.tscn" id="2_sxsv8"]
@@ -49,6 +49,8 @@
 [ext_resource type="PackedScene" uid="uid://26x6x0du3c7k" path="res://scenes/props/enemies/chaingunner.tscn" id="47_358y0"]
 [ext_resource type="PackedScene" uid="uid://xlmv8rl1f7di" path="res://scenes/props/static_props/abandoned_city/cone.tscn" id="48_0rgcu"]
 [ext_resource type="PackedScene" uid="uid://cq4mvdbpk0wiq" path="res://scenes/props/enemies/statue.tscn" id="48_j0l6o"]
+[ext_resource type="ArrayMesh" uid="uid://dqqlgwgawals0" path="res://models/static_props/abandoned_city/grass.obj" id="50_x6gl5"]
+[ext_resource type="PackedScene" uid="uid://bb7tdsitsm6ea" path="res://scenes/props/static_props/abandoned_city/chair.tscn" id="51_ayq33"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rp4vx"]
 size = Vector3(0.556152, 5.72156, 38.7784)
@@ -92,10 +94,13 @@ size = Vector3(11.232, 8.83441, 14.1688)
 [sub_resource type="BoxMesh" id="BoxMesh_j0wbg"]
 size = Vector3(2, 8, 2)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_ppn1a"]
-size = Vector3(2, 7, 2)
+[sub_resource type="BoxShape3D" id="BoxShape3D_7l28y"]
+size = Vector3(2, 8.225, 2)
 
 [sub_resource type="BoxMesh" id="BoxMesh_5myf7"]
+size = Vector3(2, 7, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ppn1a"]
 size = Vector3(2, 7, 2)
 
 [sub_resource type="BoxMesh" id="BoxMesh_nveit"]
@@ -1189,13 +1194,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 654.589, -1.37149, 449.768)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 654.589, -1.37149, 480.487)
 
 [node name="DeadTree030" parent="dead_trees_and_gravestones" instance=ExtResource("22_sj66t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 629.326, -1.40002, 419.494)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 632.055, -1.40002, 426.457)
 
 [node name="DeadTree031" parent="dead_trees_and_gravestones" instance=ExtResource("22_sj66t")]
-transform = Transform3D(0.241956, 0, 0.970287, 0, 1, 0, -0.970287, 0, 0.241956, 615.711, -1.40001, 478.659)
+transform = Transform3D(0.241956, 0, 0.970287, 0, 1, 0, -0.970287, 0, 0.241956, 606.64, -1.40001, 473.319)
+
+[node name="DeadTree071" parent="dead_trees_and_gravestones" instance=ExtResource("22_sj66t")]
+transform = Transform3D(0.241956, 0, 0.970287, 0, 1, 0, -0.970287, 0, 0.241956, 606.939, -1.40001, 431.359)
 
 [node name="DeadTree032" parent="dead_trees_and_gravestones" instance=ExtResource("22_sj66t")]
-transform = Transform3D(0.241956, 0, 0.970287, 0, 1, 0, -0.970287, 0, 0.241956, 647.802, -1.40001, 460.52)
+transform = Transform3D(0.241956, 0, 0.970287, 0, 1, 0, -0.970287, 0, 0.241956, 645.716, -1.40001, 458.35)
+
+[node name="DeadTree070" parent="dead_trees_and_gravestones" instance=ExtResource("22_sj66t")]
+transform = Transform3D(0.241956, 0, 0.970287, 0, 1, 0, -0.970287, 0, 0.241956, 629.358, -1.40001, 475.469)
 
 [node name="DeadTree033" parent="dead_trees_and_gravestones" instance=ExtResource("22_sj66t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 673.925, -1.40001, 409.072)
@@ -2930,7 +2941,7 @@ mesh = SubResource("BoxMesh_j0wbg")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="misc_props/cover_pillar"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
-shape = SubResource("BoxShape3D_ppn1a")
+shape = SubResource("BoxShape3D_7l28y")
 
 [node name="cover_pillar2" type="StaticBody3D" parent="misc_props"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 410, 0.25, 422)
@@ -2943,7 +2954,7 @@ mesh = SubResource("BoxMesh_j0wbg")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="misc_props/cover_pillar2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
-shape = SubResource("BoxShape3D_ppn1a")
+shape = SubResource("BoxShape3D_7l28y")
 
 [node name="cover_pillar3" type="StaticBody3D" parent="misc_props"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 410, 0.25, 396)
@@ -2956,7 +2967,7 @@ mesh = SubResource("BoxMesh_j0wbg")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="misc_props/cover_pillar3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
-shape = SubResource("BoxShape3D_ppn1a")
+shape = SubResource("BoxShape3D_7l28y")
 
 [node name="cover_pillar5" type="StaticBody3D" parent="misc_props"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 417, 9.25, 396)
@@ -3021,7 +3032,7 @@ mesh = SubResource("BoxMesh_j0wbg")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="misc_props/cover_pillar4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
-shape = SubResource("BoxShape3D_ppn1a")
+shape = SubResource("BoxShape3D_7l28y")
 
 [node name="funni_trap" type="StaticBody3D" parent="misc_props" groups=["20"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 382, 9.25, 411)
@@ -3283,11 +3294,11 @@ spawns = Array[PackedVector3Array]([PackedVector3Array(3, 90, 5, 3, 270, 5, 5, 0
 min_difs = Array[PackedInt32Array]([PackedInt32Array(2, 1, 2, 0, 0, 0, 0, 3, 4), PackedInt32Array(2, 1, 0, 0, 0, 0, 0, 3, 4)])
 
 [node name="funi_trap_area" type="Area3D" parent="enemies/statue"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 21.3832, 0.750114, 23.7641)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 18.6124, 0.750114, 23.7641)
 script = ExtResource("35_73les")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="enemies/statue/funi_trap_area"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.694946, 2.74997, -1.09134)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.694946, 2.74997, 0.207703)
 shape = SubResource("BoxShape3D_r130b")
 
 [node name="move_trigger" parent="enemies/statue/funi_trap_area" instance=ExtResource("36_jq206")]
@@ -3404,3 +3415,78 @@ min_dif = 4
 [node name="runner9" parent="." instance=ExtResource("42_qa72u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 392.573, 0.249914, 386.648)
 min_dif = 3
+
+[node name="Grass2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.648, 0, 0, 0, 0.648, 0, 0, 0, 0.648, 633.973, -1.39863, 446.566)
+material_override = ExtResource("4_7lmjf")
+visibility_range_end = 175.0
+mesh = ExtResource("50_x6gl5")
+
+[node name="Grass11" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.648, 0, 0, 0, 0.648, 0, 0, 0, 0.648, 649.571, -1.39863, 440.999)
+material_override = ExtResource("4_7lmjf")
+visibility_range_end = 175.0
+mesh = ExtResource("50_x6gl5")
+
+[node name="Grass9" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.648, 0, 0, 0, 0.648, 0, 0, 0, 0.648, 650.891, -1.399, 485.448)
+material_override = ExtResource("4_7lmjf")
+visibility_range_end = 175.0
+mesh = ExtResource("50_x6gl5")
+
+[node name="Grass3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.648, 0, 0, 0, 0.648, 0, 0, 0, 0.648, 613.982, -1.39863, 443.825)
+material_override = ExtResource("4_7lmjf")
+visibility_range_end = 175.0
+mesh = ExtResource("50_x6gl5")
+
+[node name="Grass4" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.648, 0, 0, 0, 0.648, 0, 0, 0, 0.648, 648.322, -1.39863, 422.849)
+material_override = ExtResource("4_7lmjf")
+visibility_range_end = 175.0
+mesh = ExtResource("50_x6gl5")
+
+[node name="Grass5" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.648, 0, 0, 0, 0.648, 0, 0, 0, 0.648, 649.743, -1.39863, 468.239)
+material_override = ExtResource("4_7lmjf")
+visibility_range_end = 175.0
+mesh = ExtResource("50_x6gl5")
+
+[node name="Grass6" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.648, 0, 0, 0, 0.648, 0, 0, 0, 0.648, 633.664, -1.39863, 483.187)
+material_override = ExtResource("4_7lmjf")
+visibility_range_end = 175.0
+mesh = ExtResource("50_x6gl5")
+
+[node name="Grass7" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.648, 0, 0, 0, 0.648, 0, 0, 0, 0.648, 613.289, -1.39863, 463.734)
+material_override = ExtResource("4_7lmjf")
+visibility_range_end = 175.0
+mesh = ExtResource("50_x6gl5")
+
+[node name="Grass8" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.648, 0, 0, 0, 0.648, 0, 0, 0, 0.648, 604.317, -1.39863, 421.352)
+material_override = ExtResource("4_7lmjf")
+visibility_range_end = 175.0
+mesh = ExtResource("50_x6gl5")
+
+[node name="Grass10" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.648, 0, 0, 0, 0.648, 0, 0, 0, 0.648, 623.183, -1.39863, 426.865)
+material_override = ExtResource("4_7lmjf")
+visibility_range_end = 175.0
+mesh = ExtResource("50_x6gl5")
+
+[node name="chair" parent="." instance=ExtResource("51_ayq33")]
+transform = Transform3D(0.634447, 0, 0.772966, 0, 1, 0, -0.772966, 0, 0.634447, 414.86, 0.664515, 430.405)
+
+[node name="chair2" parent="." instance=ExtResource("51_ayq33")]
+transform = Transform3D(-0.244394, 0, 0.969676, 0, 1, 0, -0.969676, 0, -0.244394, 400.556, 0.664515, 421.384)
+
+[node name="chair3" parent="." instance=ExtResource("51_ayq33")]
+transform = Transform3D(0.328999, 0, 0.944331, 0, 1, 0, -0.944331, 0, 0.328999, 415.579, 0.664515, 387.424)
+
+[node name="chair5" parent="." instance=ExtResource("51_ayq33")]
+transform = Transform3D(-0.501828, 0, 0.864968, 0, 1, 0, -0.864968, 0, -0.501828, 398.979, 0.664515, 413.662)
+
+[node name="chair4" parent="." instance=ExtResource("51_ayq33")]
+transform = Transform3D(-0.95139, 0, 0.307988, 0, 1, 0, -0.307988, 0, -0.95139, 396.818, 0.664515, 398.905)
