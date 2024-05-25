@@ -1,10 +1,9 @@
-[gd_scene load_steps=19 format=3 uid="uid://d2722ge0rsh16"]
+[gd_scene load_steps=20 format=3 uid="uid://d2722ge0rsh16"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_3q057"]
 [ext_resource type="Material" uid="uid://uxn8fucitgfr" path="res://resources/materials/level_mat.tres" id="1_qxfro"]
 [ext_resource type="ArrayMesh" uid="uid://dkyoyqsmmjdhy" path="res://models/levels/mountainside/level2/level2_visual.obj" id="2_3hp8a"]
 [ext_resource type="PackedScene" uid="uid://4px2n2dg363l" path="res://scenes/misc_props/player.tscn" id="3_7u71y"]
-[ext_resource type="ArrayMesh" uid="uid://cjnx5evuuo6np" path="res://models/levels/mountainside/level2/level2_collision.obj" id="4_8idhj"]
 [ext_resource type="PackedScene" uid="uid://bq1itwbnkbvp4" path="res://scenes/misc_props/key.tscn" id="4_c6jyc"]
 [ext_resource type="Script" path="res://scripts/create_static_body_child.gd" id="4_smh5n"]
 [ext_resource type="ArrayMesh" uid="uid://2asvu6fjk0no" path="res://models/static_props/mountainside/mountainside_fence_unit_tall.obj" id="6_e2r6k"]
@@ -15,6 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://csmucdgy7vpql" path="res://scenes/misc_props/exit.tscn" id="10_ni3bv"]
 [ext_resource type="PackedScene" uid="uid://cdshg7bk5i645" path="res://scenes/misc_props/garlic.tscn" id="11_f7lcd"]
 [ext_resource type="PackedScene" uid="uid://ct4dtw3ijmehk" path="res://scenes/props/enemies/runner.tscn" id="12_32ix4"]
+[ext_resource type="PackedScene" uid="uid://ccjrg28uqind6" path="res://scenes/props/static_props/mountainside/container_001.tscn" id="16_58ao8"]
+[ext_resource type="PackedScene" uid="uid://b12o6rxk7pbr0" path="res://scenes/props/static_props/mountainside/container_002.tscn" id="17_kbxnr"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nxx13"]
 size = Vector3(20.7753, 6.75283, 1)
@@ -31,12 +32,6 @@ script = ExtResource("1_3q057")
 [node name="level_visual" type="MeshInstance3D" parent="."]
 material_override = ExtResource("1_qxfro")
 mesh = ExtResource("2_3hp8a")
-metadata/_edit_lock_ = true
-
-[node name="level_collision" type="MeshInstance3D" parent="."]
-visible = false
-material_override = ExtResource("1_qxfro")
-mesh = ExtResource("4_8idhj")
 script = ExtResource("4_smh5n")
 metadata/_edit_lock_ = true
 
@@ -563,7 +558,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70.1486, 9.68012, -102.889)
 min_dif = 4
 
 [node name="runner17" parent="enemies" instance=ExtResource("12_32ix4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 238.761, 13.0113, -172.276)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 248.325, 9.60271, -168.522)
 min_dif = 4
 
 [node name="runner18" parent="enemies" instance=ExtResource("12_32ix4")]
@@ -607,3 +602,30 @@ key_index = 2
 transform = Transform3D(-3.22688, -0.0191107, -0.2283, -1.06353e-09, 3.22373, -0.269854, 0.229098, -0.269176, -3.21563, 0.822566, 13.9602, 23.4159)
 chapter = 1
 level = 2
+
+[node name="container_001" parent="." instance=ExtResource("16_58ao8")]
+transform = Transform3D(0.334147, -0.0369002, -0.941799, -0.0353372, 0.99804, -0.0516413, 0.941858, 0.0505363, 0.332188, -3.12783, 1.4875, -40.8293)
+
+[node name="container_002" parent="." instance=ExtResource("17_kbxnr")]
+transform = Transform3D(0.604219, -0.057487, 0.794742, 0.0261411, 0.998287, 0.052336, -0.79639, -0.0108469, 0.604686, -83.2474, -1.44423, -49.3773)
+
+[node name="container_003" parent="." instance=ExtResource("16_58ao8")]
+transform = Transform3D(0.58005, -0.0551875, 0.762953, 0.0250954, 0.958356, 0.0502425, -0.764534, -0.010413, 0.580499, -84.4049, 1.83388, -49.8833)
+
+[node name="container_004" parent="." instance=ExtResource("17_kbxnr")]
+transform = Transform3D(0.985457, -0.129738, 0.109734, 0.130526, 0.991445, 0, -0.108796, 0.0143232, 0.993961, 34.087, 8.43663, -114.944)
+
+[node name="container_005" parent="." instance=ExtResource("16_58ao8")]
+transform = Transform3D(0.333834, -0.07978, -0.93925, 0.0244459, 0.99681, -0.0759804, 0.942315, 0.00240405, 0.334719, 83.5282, 9.87195, -102.858)
+
+[node name="container_006" parent="." instance=ExtResource("17_kbxnr")]
+transform = Transform3D(0.470735, 0, 0.882275, 0, 1, 0, -0.882275, 0, 0.470735, 89.366, 12.9235, -154.12)
+
+[node name="container_007" parent="." instance=ExtResource("17_kbxnr")]
+transform = Transform3D(0.990751, 0.0692801, 0.116671, -0.0663205, 0.997375, -0.0290651, -0.118378, 0.0210587, 0.992745, 238.705, 9.89185, -172.454)
+
+[node name="container_008" parent="." instance=ExtResource("16_58ao8")]
+transform = Transform3D(0.350387, 0, -0.936605, 0.00389054, 0.999991, 0.00145546, 0.936597, -0.00415387, 0.350384, 262.557, 8.5637, -154.694)
+
+[node name="container_009" parent="." instance=ExtResource("17_kbxnr")]
+transform = Transform3D(0.974825, -0.0769104, 0.209287, 0.0796092, 0.996816, -0.00448882, -0.208275, 0.021037, 0.977844, 202.613, 14.2411, -62.6809)

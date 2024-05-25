@@ -1,10 +1,9 @@
-[gd_scene load_steps=26 format=3 uid="uid://dyjgulkvmryko"]
+[gd_scene load_steps=27 format=3 uid="uid://dyjgulkvmryko"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_6bwtx"]
 [ext_resource type="Material" uid="uid://uxn8fucitgfr" path="res://resources/materials/level_mat.tres" id="2_qxy8p"]
 [ext_resource type="ArrayMesh" uid="uid://cm6kctw6d7h86" path="res://models/levels/mountainside/level4/level4_visual.obj" id="3_sp00m"]
 [ext_resource type="ArrayMesh" uid="uid://buygfpqt6o7x4" path="res://models/levels/mountainside/level4/level4_visual_no_shadow.obj" id="4_3yfxi"]
-[ext_resource type="Material" uid="uid://cpjj475f3yych" path="res://resources/materials/level_no_shadow_mat.tres" id="4_ik2cs"]
 [ext_resource type="ArrayMesh" uid="uid://b1hhg72qkqwdy" path="res://models/levels/mountainside/level4/level4_collision.obj" id="5_4g3sj"]
 [ext_resource type="PackedScene" uid="uid://4px2n2dg363l" path="res://scenes/misc_props/player.tscn" id="5_rxf2o"]
 [ext_resource type="PackedScene" uid="uid://csmucdgy7vpql" path="res://scenes/misc_props/exit.tscn" id="6_fipd4"]
@@ -19,6 +18,8 @@
 [ext_resource type="PackedScene" uid="uid://ct4dtw3ijmehk" path="res://scenes/props/enemies/runner.tscn" id="14_wtgkt"]
 [ext_resource type="PackedScene" uid="uid://bfuck1d2dtogj" path="res://scenes/props/enemies/gunner.tscn" id="15_33oos"]
 [ext_resource type="PackedScene" uid="uid://d2ya5fu74vom0" path="res://scenes/props/enemies/hitscanner.tscn" id="16_xrqrp"]
+[ext_resource type="PackedScene" uid="uid://ccjrg28uqind6" path="res://scenes/props/static_props/mountainside/container_001.tscn" id="20_pyx6t"]
+[ext_resource type="PackedScene" uid="uid://b12o6rxk7pbr0" path="res://scenes/props/static_props/mountainside/container_002.tscn" id="21_huv3l"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ddnih"]
 size = Vector3(4.04517, 6.67668, 0.769954)
@@ -43,11 +44,12 @@ script = ExtResource("1_6bwtx")
 
 [node name="level_visual" type="MeshInstance3D" parent="."]
 material_override = ExtResource("2_qxy8p")
+cast_shadow = 2
 mesh = ExtResource("3_sp00m")
 metadata/_edit_lock_ = true
 
 [node name="level_visual_no_shadow" type="MeshInstance3D" parent="."]
-material_override = ExtResource("4_ik2cs")
+material_override = ExtResource("2_qxy8p")
 cast_shadow = 0
 mesh = ExtResource("4_3yfxi")
 metadata/_edit_lock_ = true
@@ -61,7 +63,7 @@ script = ExtResource("6_k38we")
 metadata/_edit_lock_ = true
 
 [node name="light" type="DirectionalLight3D" parent="." groups=["light"]]
-transform = Transform3D(-0.270371, 0.958996, -0.0850087, -0.539281, -0.0777098, 0.838533, 0.797543, 0.272559, 0.538179, 34.4022, 23.7255, -146.613)
+transform = Transform3D(0.710353, 0.492824, 0.502517, -0.539281, -0.0777096, 0.838533, 0.452299, -0.866652, 0.210569, 34.4022, 23.7255, -146.613)
 light_bake_mode = 0
 shadow_enabled = true
 shadow_bias = 0.01
@@ -249,7 +251,7 @@ material_override = ExtResource("2_qxy8p")
 mesh = ExtResource("9_y8ir6")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="props/fence2"]
-transform = Transform3D(0.628778, 0, -0.777585, 0, 1, 0, 0.777585, 0, 0.628778, -0.521149, -1.50092, 0.712227)
+transform = Transform3D(0.628778, 0, -0.777585, 0, 1, 0, 0.777585, 0, 0.628778, -0.521149, -1.50092, 0.712212)
 shape = SubResource("BoxShape3D_gdgcs")
 
 [node name="lock" parent="props/fence2" instance=ExtResource("13_5j3gl")]
@@ -370,7 +372,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.3677, -4.13684, 54.6486)
 min_dif = 1
 
 [node name="gunner4" parent="enemies" instance=ExtResource("15_33oos")]
-transform = Transform3D(-0.506064, 0, -0.862496, 0, 1, 0, 0.862496, 0, -0.506064, -72.5951, -9.34552, 195.352)
+transform = Transform3D(-0.506064, 0, -0.862496, 0, 1, 0, 0.862496, 0, -0.506064, -79.5947, -9.23811, 195.026)
 
 [node name="black_key" parent="enemies/gunner4" instance=ExtResource("7_wxlx7")]
 transform = Transform3D(-0.506064, 0, 0.862496, 0, 1, 0, -0.862496, 0, -0.506064, -0.275665, 1.85194, 1.84151)
@@ -379,10 +381,10 @@ key_name = "black"
 key_index = 3
 
 [node name="gunner5" parent="enemies" instance=ExtResource("15_33oos")]
-transform = Transform3D(-0.180965, 0, 0.983489, 0, 1, 0, -0.983489, 0, -0.180965, -95.9994, -9.30085, 189.448)
+transform = Transform3D(-0.180965, 0, 0.983489, 0, 1, 0, -0.983489, 0, -0.180965, -99.6933, -9.30085, 192.736)
 
 [node name="white_key" parent="enemies/gunner5" instance=ExtResource("7_wxlx7")]
-transform = Transform3D(-0.180965, 0, -0.983489, 0, 1, 0, 0.983489, 0, -0.180965, 0.885071, 1.80727, 0.0897064)
+transform = Transform3D(-0.180965, 0, -0.983489, 0, 1, 0, 0.983489, 0, -0.180965, 0.885071, 1.80727, 0.0896912)
 key_color = Color(1, 1, 1, 1)
 key_name = "white"
 key_index = 4
@@ -497,3 +499,33 @@ min_dif = 4
 [node name="hitscanner4" parent="." instance=ExtResource("16_xrqrp")]
 transform = Transform3D(-0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, -0.965926, -113.5, -9.04225, 35.6503)
 min_dif = 4
+
+[node name="container_001" parent="." instance=ExtResource("20_pyx6t")]
+transform = Transform3D(0.670889, -0.0148139, -0.74141, -0.026152, 0.998706, -0.0436194, 0.741097, 0.0486531, 0.669633, -97.6641, -8.54737, 172.381)
+
+[node name="container_002" parent="." instance=ExtResource("21_huv3l")]
+transform = Transform3D(0.990651, 0, 0.136425, 0, 1, 0, -0.136425, 0, 0.990651, -75.7753, -8.72986, 185.041)
+
+[node name="container_003" parent="." instance=ExtResource("20_pyx6t")]
+transform = Transform3D(0.669026, -0.0171252, -0.743042, 0.0851941, 0.994912, 0.0537776, 0.73834, -0.0992814, 0.667081, -170.723, 3.66933, -113.198)
+
+[node name="container_004" parent="." instance=ExtResource("21_huv3l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -143.184, 3.91737, -45.5162)
+
+[node name="container_005" parent="." instance=ExtResource("20_pyx6t")]
+transform = Transform3D(0.643081, 0.0613451, -0.763338, -0.0370236, 0.998111, 0.0490216, 0.764903, -0.00326327, 0.644137, -119.637, 3.04421, -9.06754)
+
+[node name="container_006" parent="." instance=ExtResource("21_huv3l")]
+transform = Transform3D(0.990753, 0, 0.135681, 0, 1, 0, -0.135681, 0, 0.990753, -65.2693, -0.554102, -9.68114)
+
+[node name="container_007" parent="." instance=ExtResource("20_pyx6t")]
+transform = Transform3D(0.618915, 0.0556555, -0.783484, -0.0731561, 0.997235, 0.0130497, 0.782044, 0.04924, 0.621276, -36.6351, -2.80402, 75.0882)
+
+[node name="container_008" parent="." instance=ExtResource("21_huv3l")]
+transform = Transform3D(0.989822, 0.0217102, 0.140643, -0.0166802, 0.999182, -0.0368449, -0.141328, 0.034124, 0.989375, -2.80247, -2.34277, 30.1307)
+
+[node name="container_009" parent="." instance=ExtResource("21_huv3l")]
+transform = Transform3D(0.956594, 0.0052246, -0.291379, -0.0166802, 0.999182, -0.0368449, 0.290948, 0.0401059, 0.955898, -4.80993, -2.98107, 46.4419)
+
+[node name="container_010" parent="." instance=ExtResource("20_pyx6t")]
+transform = Transform3D(0.82267, 0.00449316, -0.250586, -0.014345, 0.859296, -0.0316866, 0.250215, 0.0344911, 0.822072, -4.45204, 0.37253, 44.9361)

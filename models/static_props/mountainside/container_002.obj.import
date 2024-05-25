@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cqh33htq8fo4x"
+path="res://.godot/imported/container_002.obj-1042c2c6bb70b399dc765f3d9dbac168.mesh"
+
+[deps]
+
+files=["res://.godot/imported/container_002.obj-1042c2c6bb70b399dc765f3d9dbac168.mesh"]
+
+source_file="res://models/static_props/mountainside/container_002.obj"
+dest_files=["res://.godot/imported/container_002.obj-1042c2c6bb70b399dc765f3d9dbac168.mesh", "res://.godot/imported/container_002.obj-1042c2c6bb70b399dc765f3d9dbac168.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

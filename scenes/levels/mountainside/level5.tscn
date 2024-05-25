@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://cgb4acwljildg"]
+[gd_scene load_steps=34 format=3 uid="uid://cgb4acwljildg"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_kg0rf"]
 [ext_resource type="Material" uid="uid://uxn8fucitgfr" path="res://resources/materials/level_mat.tres" id="2_qying"]
@@ -9,7 +9,6 @@
 [ext_resource type="Material" uid="uid://cpjj475f3yych" path="res://resources/materials/level_no_shadow_mat.tres" id="5_uvvgb"]
 [ext_resource type="PackedScene" uid="uid://csmucdgy7vpql" path="res://scenes/misc_props/exit.tscn" id="6_3n3tw"]
 [ext_resource type="ArrayMesh" uid="uid://diyovjtlbhaf4" path="res://models/levels/mountainside/level5/level5_windows.obj" id="6_7goe0"]
-[ext_resource type="ArrayMesh" uid="uid://ccri71g2s0sqr" path="res://models/levels/mountainside/level5/level5_visual_no_receive_shadow.obj" id="6_qb7b8"]
 [ext_resource type="PackedScene" uid="uid://bq1itwbnkbvp4" path="res://scenes/misc_props/key.tscn" id="7_lx2jd"]
 [ext_resource type="PackedScene" uid="uid://cdshg7bk5i645" path="res://scenes/misc_props/garlic.tscn" id="8_m67yw"]
 [ext_resource type="PackedScene" uid="uid://bfwjae77m2xmb" path="res://scenes/props/triggers/move_trigger.tscn" id="9_1v7jc"]
@@ -24,6 +23,8 @@
 [ext_resource type="PackedScene" uid="uid://d2ya5fu74vom0" path="res://scenes/props/enemies/hitscanner.tscn" id="16_snc65"]
 [ext_resource type="PackedScene" uid="uid://cjg4wjt43xbks" path="res://scenes/misc_props/torch.tscn" id="17_re2tm"]
 [ext_resource type="PackedScene" uid="uid://cq4mvdbpk0wiq" path="res://scenes/props/enemies/statue.tscn" id="17_yw7ys"]
+[ext_resource type="PackedScene" uid="uid://b12o6rxk7pbr0" path="res://scenes/props/static_props/mountainside/container_002.tscn" id="25_g226i"]
+[ext_resource type="PackedScene" uid="uid://ccjrg28uqind6" path="res://scenes/props/static_props/mountainside/container_001.tscn" id="26_4imha"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0p2ik"]
 size = Vector3(37.1404, 21.6386, 36.2883)
@@ -55,7 +56,7 @@ size = Vector3(48.6993, 17.3946, 41.9827)
 script = ExtResource("1_kg0rf")
 
 [node name="level_visual" type="MeshInstance3D" parent="."]
-material_override = ExtResource("2_qying")
+material_override = ExtResource("5_uvvgb")
 mesh = ExtResource("3_xig51")
 metadata/_edit_lock_ = true
 
@@ -63,12 +64,6 @@ metadata/_edit_lock_ = true
 material_override = ExtResource("2_qying")
 cast_shadow = 0
 mesh = ExtResource("4_sbkg5")
-metadata/_edit_lock_ = true
-
-[node name="level_visual_no_shadow2" type="MeshInstance3D" parent="."]
-material_override = ExtResource("5_uvvgb")
-cast_shadow = 0
-mesh = ExtResource("6_qb7b8")
 metadata/_edit_lock_ = true
 
 [node name="level_visual_windows" type="MeshInstance3D" parent="."]
@@ -79,7 +74,6 @@ metadata/_edit_lock_ = true
 
 [node name="level_collision" type="MeshInstance3D" parent="."]
 visible = false
-material_override = ExtResource("5_6ckbs")
 cast_shadow = 0
 mesh = ExtResource("9_5y5iu")
 script = ExtResource("10_f6rpl")
@@ -201,7 +195,7 @@ transform = Transform3D(0.250752, 0, -0.968052, 0, 1, 0, 0.968052, 0, 0.250752, 
 shape = SubResource("BoxShape3D_7byos")
 
 [node name="church_fence" type="StaticBody3D" parent="props" groups=["1"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.21268, -5.0172, 40.6573)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.95602, -5.1487, 40.544)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="props/church_fence"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, -1.59646, 3.92689)
@@ -228,14 +222,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.962469, -0.320541)
 shape = SubResource("BoxShape3D_fkqg7")
 
 [node name="lock" parent="props/church_fence" instance=ExtResource("13_kuuqx")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.299709, 0.710988, 1.00503)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.299709, 0.929687, 0.3395)
 material_override = SubResource("StandardMaterial3D_fhxie")
 skeleton = NodePath("../../..")
 color = Color(0, 0.501961, 1, 1)
 one_sided = false
 
 [node name="lock2" parent="props/church_fence" instance=ExtResource("13_kuuqx")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.299709, 0.710988, -1.47815)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.299709, 0.929687, -2.14368)
 material_override = SubResource("StandardMaterial3D_8t31w")
 skeleton = NodePath("../../..")
 color = Color(1, 0, 0, 1)
@@ -359,7 +353,7 @@ min_dif = 1
 transform = Transform3D(-0.981557, 0, -0.191169, 0, 1, 0, 0.191169, 0, -0.981557, 88.0266, -7.1862, -24.7034)
 
 [node name="gunner4" parent="enemies" instance=ExtResource("15_1edj7")]
-transform = Transform3D(0.671643, 0, -0.740875, 0, 1, 0, 0.740875, 0, 0.671643, 104.125, -7.5617, -45.7648)
+transform = Transform3D(0.671643, 0, -0.740875, 0, 1, 0, 0.740875, 0, 0.671643, 106.733, -7.5617, -45.9369)
 min_dif = 2
 
 [node name="runner18" parent="enemies" instance=ExtResource("14_petng")]
@@ -450,3 +444,9 @@ min_dif = 4
 [node name="hitscanner4" parent="." instance=ExtResource("16_snc65")]
 transform = Transform3D(0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, 0.5, 85.6464, -6.62358, -31.1945)
 min_dif = 4
+
+[node name="container_002" parent="." instance=ExtResource("25_g226i")]
+transform = Transform3D(0.981641, 0, 0.19074, 0, 1, 0, -0.19074, 0, 0.981641, 43.7799, -4.1813, 36.2191)
+
+[node name="container_001" parent="." instance=ExtResource("26_4imha")]
+transform = Transform3D(0.969355, 0, -0.245663, 0, 1, 0, 0.245663, 0, 0.969355, 97.6656, -7.30442, -45.7711)

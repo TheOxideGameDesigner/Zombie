@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://ccjrg28uqind6"]
+
+[ext_resource type="Material" uid="uid://uxn8fucitgfr" path="res://resources/materials/level_mat.tres" id="1_st6t3"]
+[ext_resource type="ArrayMesh" uid="uid://bdtqqdkp0bcs8" path="res://models/static_props/mountainside/container_001.obj" id="2_767nj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_687c4"]
+size = Vector3(2.9706, 3.47159, 7.53033)
+
+[node name="container_001" type="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = ExtResource("1_st6t3")
+mesh = ExtResource("2_767nj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000587463, 1.17824, 0.00515747)
+shape = SubResource("BoxShape3D_687c4")

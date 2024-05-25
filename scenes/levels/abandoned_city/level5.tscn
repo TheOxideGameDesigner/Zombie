@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://my1wqf40rtyq"]
+[gd_scene load_steps=53 format=3 uid="uid://my1wqf40rtyq"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_hatn3"]
 [ext_resource type="ArrayMesh" uid="uid://bhl58kyw4g6a" path="res://models/levels/abandoned_city/level5/level5_visual_no_shadow.obj" id="3_8i706"]
@@ -43,6 +43,7 @@
 [ext_resource type="PackedScene" uid="uid://26x6x0du3c7k" path="res://scenes/props/enemies/chaingunner.tscn" id="41_lewux"]
 [ext_resource type="PackedScene" uid="uid://2ukt3tqlkh71" path="res://scenes/props/enemies/eye_of_anubis.tscn" id="42_honqu"]
 [ext_resource type="PackedScene" uid="uid://dsklmuink3naj" path="res://scenes/props/enemies/bomber.tscn" id="43_xcm3p"]
+[ext_resource type="ArrayMesh" uid="uid://dqqlgwgawals0" path="res://models/static_props/abandoned_city/grass.obj" id="44_r1k1a"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3sm82"]
 size = Vector3(14.1318, 4.57123, 0.46936)
@@ -4251,3 +4252,42 @@ min_dif = 4
 [node name="gunner4" parent="." instance=ExtResource("38_him31")]
 transform = Transform3D(-0.00844735, 0, 0.999964, 0, 1, 0, -0.999964, 0, -0.00844735, -288.603, 7.62939e-06, -180.745)
 min_dif = 4
+
+[node name="DeadTree001" parent="." instance=ExtResource("29_tw1kf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -146.516, -0.107302, -100.516)
+
+[node name="DeadTree002" parent="." instance=ExtResource("29_tw1kf")]
+transform = Transform3D(0.79522, 0, 0.606322, 0, 1, 0, -0.606322, 0, 0.79522, -131.32, -0.107302, -119.834)
+
+[node name="DeadTree003" parent="." instance=ExtResource("29_tw1kf")]
+transform = Transform3D(0.79522, 0, 0.606322, 0, 1, 0, -0.606322, 0, 0.79522, -156.533, -0.107302, -128.545)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, -137.096, -0.0287726, -110.452)
+material_override = ExtResource("9_xog8k")
+mesh = ExtResource("44_r1k1a")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, -144.714, -0.0287726, -103.26)
+material_override = ExtResource("9_xog8k")
+mesh = ExtResource("44_r1k1a")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, -159.247, -0.0287726, -110.499)
+material_override = ExtResource("9_xog8k")
+mesh = ExtResource("44_r1k1a")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, -162.709, -0.0287745, -124.828)
+material_override = ExtResource("9_xog8k")
+mesh = ExtResource("44_r1k1a")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, -151.567, -0.0287726, -135.476)
+material_override = ExtResource("9_xog8k")
+mesh = ExtResource("44_r1k1a")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, -134.125, -0.0287726, -128.926)
+material_override = ExtResource("9_xog8k")
+mesh = ExtResource("44_r1k1a")
