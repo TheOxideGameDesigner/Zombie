@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://tsfreyaa84jf"]
+
+[ext_resource type="Material" uid="uid://uxn8fucitgfr" path="res://resources/materials/level_mat.tres" id="1_gigq4"]
+[ext_resource type="ArrayMesh" uid="uid://c1yuxl0k6gdw8" path="res://models/static_props/mountainside/pumpkin.obj" id="2_kq5mc"]
+[ext_resource type="Script" path="res://scripts/physics_lerp.gd" id="3_xq4h0"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ctups"]
+points = PackedVector3Array(0.407922, -0.0128935, -7.98404e-05, 0.372864, -0.18191, -7.98404e-05, 0.263616, -0.18191, -0.263776, 0.288372, -0.0128935, -0.288452, 0.233669, 0.148107, -0.233749, 0.330458, 0.148107, -7.98404e-05, 0.233669, 0.148107, 0.233669, 0.288372, -0.0128935, 0.288372, 0.263616, -0.18191, 0.263616, 0.205957, -0.296105, -7.98404e-05, -7.98702e-05, -0.18191, -0.372944, -7.98702e-05, -0.0128935, -0.407922, 0.145584, -0.296105, -0.145743, -7.98702e-05, 0.148107, -0.330538, 0.0869669, 0.232253, -0.0870468, 0.122984, 0.232253, -7.98404e-05, 0.0869669, 0.232253, 0.086967, -7.98702e-05, 0.148107, 0.330458, -7.98702e-05, -0.0128935, 0.407842, -7.98702e-05, -0.18191, 0.372864, -7.98702e-05, -0.296105, 0.205958, 0.145584, -0.296105, 0.145584, -7.98702e-05, -0.296105, -0.206037, -0.145743, -0.296105, -0.145743, -0.263776, -0.18191, -0.263776, -0.288452, -0.0128935, -0.288452, -0.233749, 0.148107, -0.233749, -0.0870468, 0.232253, -0.0870468, -7.98702e-05, 0.232253, -0.123063, -7.98702e-05, 0.232253, 0.122984, -0.0870468, 0.232253, 0.086967, -0.233749, 0.148107, 0.233669, -0.288452, -0.0128935, 0.288372, -0.263776, -0.18191, 0.263616, -0.145743, -0.296105, 0.145584, -0.206037, -0.296105, -7.98404e-05, -0.372944, -0.18191, -7.98404e-05, -0.407922, -0.0128935, -7.98404e-05, -0.330538, 0.148107, -7.98404e-05, -0.123063, 0.232253, -7.98404e-05)
+
+[node name="Pumpkin" type="RigidBody3D" groups=["physics"]]
+mass = 0.5
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = ExtResource("1_gigq4")
+visibility_range_end = 175.0
+mesh = ExtResource("2_kq5mc")
+script = ExtResource("3_xq4h0")
+enable_rot = true
+global = true
+of_parent = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+visible = false
+shape = SubResource("ConvexPolygonShape3D_ctups")

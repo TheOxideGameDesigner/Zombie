@@ -10,6 +10,7 @@ size = Vector3(2.9706, 3.47159, 7.53033)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 material_override = ExtResource("1_st6t3")
+visibility_range_end = 175.0
 mesh = ExtResource("2_767nj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

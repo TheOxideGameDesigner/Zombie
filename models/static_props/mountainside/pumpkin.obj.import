@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://c1yuxl0k6gdw8"
+path="res://.godot/imported/pumpkin.obj-b31287e4ad03e53e1f40aa9ea0a971bf.mesh"
+
+[deps]
+
+files=["res://.godot/imported/pumpkin.obj-b31287e4ad03e53e1f40aa9ea0a971bf.mesh"]
+
+source_file="res://models/static_props/mountainside/pumpkin.obj"
+dest_files=["res://.godot/imported/pumpkin.obj-b31287e4ad03e53e1f40aa9ea0a971bf.mesh", "res://.godot/imported/pumpkin.obj-b31287e4ad03e53e1f40aa9ea0a971bf.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
