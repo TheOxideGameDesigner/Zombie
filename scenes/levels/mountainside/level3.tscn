@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bkyl1xxf5d2dp"]
+[gd_scene load_steps=29 format=3 uid="uid://bkyl1xxf5d2dp"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_ca74o"]
 [ext_resource type="Material" uid="uid://uxn8fucitgfr" path="res://resources/materials/level_mat.tres" id="2_b6ery"]
@@ -18,6 +18,12 @@
 [ext_resource type="PackedScene" uid="uid://bfuck1d2dtogj" path="res://scenes/props/enemies/gunner.tscn" id="14_wypjr"]
 [ext_resource type="PackedScene" uid="uid://ccjrg28uqind6" path="res://scenes/props/static_props/mountainside/container_001.tscn" id="17_vsmwi"]
 [ext_resource type="PackedScene" uid="uid://b12o6rxk7pbr0" path="res://scenes/props/static_props/mountainside/container_002.tscn" id="18_acwql"]
+[ext_resource type="PackedScene" uid="uid://bxnqs2qqskber" path="res://scenes/props/static_props/mountainside/pine_tree.tscn" id="19_be1sa"]
+[ext_resource type="PackedScene" uid="uid://c0tqi0atq3exh" path="res://scenes/props/static_props/mountainside/dead_tree.tscn" id="20_ehgq2"]
+[ext_resource type="ArrayMesh" uid="uid://caixsbll8hdey" path="res://models/static_props/mountainside/grass.obj" id="21_7a58i"]
+[ext_resource type="ArrayMesh" uid="uid://3e3agn4ficrt" path="res://models/static_props/mountainside/pebble_001.obj" id="22_fima1"]
+[ext_resource type="ArrayMesh" uid="uid://sm6xg8156r0b" path="res://models/static_props/mountainside/pebble_002.obj" id="23_gi4v5"]
+[ext_resource type="PackedScene" uid="uid://tsfreyaa84jf" path="res://scenes/props/static_props/mountainside/pumpkin.tscn" id="24_8cwvi"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5d6o2"]
 size = Vector3(42.2173, 8.92717, 1)
@@ -80,7 +86,7 @@ key_name = "red"
 key_index = 2
 
 [node name="garlic" parent="." instance=ExtResource("12_fakrp")]
-transform = Transform3D(0.99997, 0.00780154, 0, -0.00780154, 0.99997, 0, 0, 0, 1, 186.675, 79.2888, -146.985)
+transform = Transform3D(0.99997, 0.00780154, 0, -0.00780154, 0.99997, 0, 0, 0, 1, 179.471, 75.8402, -142.926)
 
 [node name="props" type="Node3D" parent="."]
 
@@ -300,6 +306,522 @@ group = 2
 target = Vector3(0, -6, 0)
 time = 1.0
 keys_required = Array[int]([2])
+
+[node name="container_001" parent="props" instance=ExtResource("17_vsmwi")]
+transform = Transform3D(0.970102, 0.152523, 0.188782, -0.144117, 0.987885, -0.057564, -0.195275, 0.0286363, 0.98033, -57.3768, 25.6357, 37.7065)
+
+[node name="container_002" parent="props" instance=ExtResource("18_acwql")]
+transform = Transform3D(0.480866, 0, 0.876794, 0, 1, 0, -0.876794, 0, 0.480866, 43.0555, -3.75794, -146.467)
+
+[node name="container_003" parent="props" instance=ExtResource("17_vsmwi")]
+transform = Transform3D(0.977329, 0.0669089, 0.200875, -0.0595888, 0.997328, -0.0422767, -0.203167, 0.0293484, 0.978704, -179.061, 29.7727, 115.575)
+
+[node name="container_004" parent="props" instance=ExtResource("18_acwql")]
+transform = Transform3D(0.413794, -0.0283347, 0.90993, 0.139071, 0.989752, -0.0324228, -0.899685, 0.139961, 0.413494, -186.291, 26.1952, 144.397)
+
+[node name="container_005" parent="props" instance=ExtResource("18_acwql")]
+transform = Transform3D(0.478584, -0.104934, 0.871749, 0.0938904, 0.993257, 0.0680153, -0.873007, 0.0492978, 0.485209, 183.429, 76.1054, -149.108)
+
+[node name="container_006" parent="props" instance=ExtResource("17_vsmwi")]
+transform = Transform3D(0.335555, -0.0962013, -0.937096, -0.0459351, 0.991917, -0.118278, 0.9409, 0.0827343, 0.328424, 160.654, 73.4618, -152.266)
+
+[node name="container_007" parent="props" instance=ExtResource("17_vsmwi")]
+transform = Transform3D(0.34204, -0.0638003, -0.937517, -0.0243602, 0.996755, -0.076719, 0.93937, 0.0490791, 0.339376, -3.44841, -4.78569, -130.798)
+
+[node name="pine_tree" parent="props" instance=ExtResource("19_be1sa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.7083, -2.7743, -168.469)
+
+[node name="pine_tree2" parent="props" instance=ExtResource("19_be1sa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.67924, -4.17358, -160.017)
+
+[node name="pine_tree3" parent="props" instance=ExtResource("19_be1sa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.2389, -4.38098, -129.768)
+
+[node name="pine_tree4" parent="props" instance=ExtResource("19_be1sa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.46581, -4.33093, -110.071)
+
+[node name="pine_tree5" parent="props" instance=ExtResource("19_be1sa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.8871, 51.6432, -90.7257)
+
+[node name="pine_tree6" parent="props" instance=ExtResource("19_be1sa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.7435, -1.93156, -81.5232)
+
+[node name="pine_tree7" parent="props" instance=ExtResource("19_be1sa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.11039, 1.32443, -49.1107)
+
+[node name="pine_tree8" parent="props" instance=ExtResource("19_be1sa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.4447, 5.90515, -27.9523)
+
+[node name="pine_tree9" parent="props" instance=ExtResource("19_be1sa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.39585, 11.3527, -3.5474)
+
+[node name="pine_tree10" parent="props" instance=ExtResource("19_be1sa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.2668, 14.5067, 22.7717)
+
+[node name="pine_tree11" parent="props" instance=ExtResource("19_be1sa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.1075, 22.3748, 40.4772)
+
+[node name="pine_tree12" parent="props" instance=ExtResource("19_be1sa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.7272, 24.371, 9.85138)
+
+[node name="pine_tree14" parent="props" instance=ExtResource("19_be1sa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -66.9972, 32.4679, -48.5291)
+
+[node name="pine_tree15" parent="props" instance=ExtResource("19_be1sa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -69.2092, 27.3363, 54.2512)
+
+[node name="pine_tree16" parent="props" instance=ExtResource("19_be1sa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -103.489, 31.6418, 50.4484)
+
+[node name="pine_tree13" parent="props" instance=ExtResource("19_be1sa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -87.0701, 29.2983, 16.8548)
+
+[node name="pine_tree17" parent="props" instance=ExtResource("19_be1sa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.0461, 29.332, -21.658)
+
+[node name="pine_tree18" parent="props" instance=ExtResource("19_be1sa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -136.687, 29.7822, 98.7268)
+
+[node name="pine_tree19" parent="props" instance=ExtResource("19_be1sa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -160.448, 26.2109, 141.084)
+
+[node name="pine_tree20" parent="props" instance=ExtResource("19_be1sa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -191.442, 26.0367, 157.614)
+
+[node name="pine_tree21" parent="props" instance=ExtResource("19_be1sa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -175.945, 30.2809, 108.025)
+
+[node name="pine_tree22" parent="props" instance=ExtResource("19_be1sa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.67894, 41.8741, -67.2911)
+
+[node name="pine_tree23" parent="props" instance=ExtResource("19_be1sa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86.4642, 56.6857, -69.6697)
+
+[node name="pine_tree24" parent="props" instance=ExtResource("19_be1sa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 123.656, 65.7206, -104.795)
+
+[node name="pine_tree25" parent="props" instance=ExtResource("19_be1sa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 136.053, 69.2523, -141.987)
+
+[node name="pine_tree26" parent="props" instance=ExtResource("19_be1sa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 177.378, 73.4658, -124.424)
+
+[node name="pine_tree27" parent="props" instance=ExtResource("19_be1sa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 151.55, 73.718, -181.245)
+
+[node name="pine_tree28" parent="props" instance=ExtResource("19_be1sa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 197.007, 73.8524, -180.212)
+
+[node name="dead_tree" parent="props" instance=ExtResource("20_ehgq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.8728, -4.36841, -137.688)
+
+[node name="dead_tree2" parent="props" instance=ExtResource("20_ehgq2")]
+transform = Transform3D(0.756288, 0, 0.654239, 0, 1, 0, -0.654239, 0, 0.756288, 5.85387, -1.30327, -66.2019)
+
+[node name="dead_tree3" parent="props" instance=ExtResource("20_ehgq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.4538, 10.3081, 2.78491)
+
+[node name="dead_tree4" parent="props" instance=ExtResource("20_ehgq2")]
+transform = Transform3D(0.63733, 0, -0.770591, 0, 1, 0, 0.770591, 0, 0.63733, -54.7309, 25.1301, 24.987)
+
+[node name="dead_tree5" parent="props" instance=ExtResource("20_ehgq2")]
+transform = Transform3D(0.84958, 0, -0.52746, 0, 1, 0, 0.52746, 0, 0.84958, -108.347, 32.0073, 73.9797)
+
+[node name="dead_tree6" parent="props" instance=ExtResource("20_ehgq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -175.401, 26.8176, 140.452)
+
+[node name="dead_tree7" parent="props" instance=ExtResource("20_ehgq2")]
+transform = Transform3D(0.806321, 0, -0.591479, 0, 1, 0, 0.591479, 0, 0.806321, -81.1115, 29.7607, -8.77137)
+
+[node name="dead_tree8" parent="props" instance=ExtResource("20_ehgq2")]
+transform = Transform3D(0.937477, 0, -0.348049, 0, 1, 0, 0.348049, 0, 0.937477, 22.8834, 46.451, -72.0023)
+
+[node name="dead_tree9" parent="props" instance=ExtResource("20_ehgq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 186.183, 75.0765, -168.179)
+
+[node name="Grass" type="MeshInstance3D" parent="props"]
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, 37.3102, -2.21484, -185.182)
+material_override = ExtResource("2_b6ery")
+visibility_range_end = 175.0
+mesh = ExtResource("21_7a58i")
+skeleton = NodePath("../..")
+
+[node name="Grass3" type="MeshInstance3D" parent="props"]
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, 49.8652, -3.5835, -152.473)
+material_override = ExtResource("2_b6ery")
+visibility_range_end = 175.0
+mesh = ExtResource("21_7a58i")
+skeleton = NodePath("../..")
+
+[node name="Grass4" type="MeshInstance3D" parent="props"]
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, 17.5386, -3.80299, -162.964)
+material_override = ExtResource("2_b6ery")
+visibility_range_end = 175.0
+mesh = ExtResource("21_7a58i")
+skeleton = NodePath("../..")
+
+[node name="Grass5" type="MeshInstance3D" parent="props"]
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, 0.643799, -4.69189, -126.862)
+material_override = ExtResource("2_b6ery")
+visibility_range_end = 175.0
+mesh = ExtResource("21_7a58i")
+skeleton = NodePath("../..")
+
+[node name="Grass6" type="MeshInstance3D" parent="props"]
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, 27.6136, -4.70813, -114.276)
+material_override = ExtResource("2_b6ery")
+visibility_range_end = 175.0
+mesh = ExtResource("21_7a58i")
+skeleton = NodePath("../..")
+
+[node name="Grass7" type="MeshInstance3D" parent="props"]
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, 9.6427, -3.5365, -94.4183)
+material_override = ExtResource("2_b6ery")
+visibility_range_end = 175.0
+mesh = ExtResource("21_7a58i")
+skeleton = NodePath("../..")
+
+[node name="Grass8" type="MeshInstance3D" parent="props"]
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, 4.58672, -0.594307, -64.9038)
+material_override = ExtResource("2_b6ery")
+visibility_range_end = 175.0
+mesh = ExtResource("21_7a58i")
+skeleton = NodePath("../..")
+
+[node name="Grass9" type="MeshInstance3D" parent="props"]
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, 20.9244, 4.15076, -40.3232)
+material_override = ExtResource("2_b6ery")
+visibility_range_end = 175.0
+mesh = ExtResource("21_7a58i")
+skeleton = NodePath("../..")
+
+[node name="Grass10" type="MeshInstance3D" parent="props"]
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, 7.14915, 7.84668, -15.9141)
+material_override = ExtResource("2_b6ery")
+visibility_range_end = 175.0
+mesh = ExtResource("21_7a58i")
+skeleton = NodePath("../..")
+
+[node name="Grass11" type="MeshInstance3D" parent="props"]
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, 25.5805, 11.0953, 9.18159)
+material_override = ExtResource("2_b6ery")
+visibility_range_end = 175.0
+mesh = ExtResource("21_7a58i")
+skeleton = NodePath("../..")
+
+[node name="Grass12" type="MeshInstance3D" parent="props"]
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, -10.6039, 15.5687, 7.3836)
+material_override = ExtResource("2_b6ery")
+visibility_range_end = 175.0
+mesh = ExtResource("21_7a58i")
+skeleton = NodePath("../..")
+
+[node name="Grass13" type="MeshInstance3D" parent="props"]
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, -5.65949, 19.6272, 35.0277)
+material_override = ExtResource("2_b6ery")
+visibility_range_end = 175.0
+mesh = ExtResource("21_7a58i")
+skeleton = NodePath("../..")
+
+[node name="Grass15" type="MeshInstance3D" parent="props"]
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, -49.2607, 24.3223, 44.2423)
+material_override = ExtResource("2_b6ery")
+visibility_range_end = 175.0
+mesh = ExtResource("21_7a58i")
+skeleton = NodePath("../..")
+
+[node name="Grass17" type="MeshInstance3D" parent="props"]
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, -80.0512, 28.5742, 38.1741)
+material_override = ExtResource("2_b6ery")
+visibility_range_end = 175.0
+mesh = ExtResource("21_7a58i")
+skeleton = NodePath("../..")
+
+[node name="Grass18" type="MeshInstance3D" parent="props"]
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, -83.6472, 29.5765, 1.3154)
+material_override = ExtResource("2_b6ery")
+visibility_range_end = 175.0
+mesh = ExtResource("21_7a58i")
+skeleton = NodePath("../..")
+
+[node name="Grass19" type="MeshInstance3D" parent="props"]
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, -62.0713, 28.5909, -9.69728)
+material_override = ExtResource("2_b6ery")
+visibility_range_end = 175.0
+mesh = ExtResource("21_7a58i")
+skeleton = NodePath("../..")
+
+[node name="Grass14" type="MeshInstance3D" parent="props"]
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, -39.1309, 21.8085, 18.9259)
+material_override = ExtResource("2_b6ery")
+visibility_range_end = 175.0
+mesh = ExtResource("21_7a58i")
+skeleton = NodePath("../..")
+
+[node name="Grass16" type="MeshInstance3D" parent="props"]
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, -76.961, 30.6461, -36.5802)
+material_override = ExtResource("2_b6ery")
+visibility_range_end = 175.0
+mesh = ExtResource("21_7a58i")
+skeleton = NodePath("../..")
+
+[node name="Grass20" type="MeshInstance3D" parent="props"]
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, -84.5672, 29.2832, 58.8756)
+material_override = ExtResource("2_b6ery")
+visibility_range_end = 175.0
+mesh = ExtResource("21_7a58i")
+skeleton = NodePath("../..")
+
+[node name="Grass21" type="MeshInstance3D" parent="props"]
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, -111.145, 32.3953, 59.8433)
+material_override = ExtResource("2_b6ery")
+visibility_range_end = 175.0
+mesh = ExtResource("21_7a58i")
+skeleton = NodePath("../..")
+
+[node name="Grass22" type="MeshInstance3D" parent="props"]
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, -121.483, 32.1172, 84.5656)
+material_override = ExtResource("2_b6ery")
+visibility_range_end = 175.0
+mesh = ExtResource("21_7a58i")
+skeleton = NodePath("../..")
+
+[node name="Grass23" type="MeshInstance3D" parent="props"]
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, -140.812, 29.7563, 93.5556)
+material_override = ExtResource("2_b6ery")
+visibility_range_end = 175.0
+mesh = ExtResource("21_7a58i")
+skeleton = NodePath("../..")
+
+[node name="Grass24" type="MeshInstance3D" parent="props"]
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, -166.469, 29.6552, 110.252)
+material_override = ExtResource("2_b6ery")
+visibility_range_end = 175.0
+mesh = ExtResource("21_7a58i")
+skeleton = NodePath("../..")
+
+[node name="Grass25" type="MeshInstance3D" parent="props"]
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, -164.896, 27.6693, 130.03)
+material_override = ExtResource("2_b6ery")
+visibility_range_end = 175.0
+mesh = ExtResource("21_7a58i")
+skeleton = NodePath("../..")
+
+[node name="Grass26" type="MeshInstance3D" parent="props"]
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, -170.324, 25.3676, 151.247)
+material_override = ExtResource("2_b6ery")
+visibility_range_end = 175.0
+mesh = ExtResource("21_7a58i")
+skeleton = NodePath("../..")
+
+[node name="Grass27" type="MeshInstance3D" parent="props"]
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, -201.115, 27.0491, 136.863)
+material_override = ExtResource("2_b6ery")
+visibility_range_end = 175.0
+mesh = ExtResource("21_7a58i")
+skeleton = NodePath("../..")
+
+[node name="Grass28" type="MeshInstance3D" parent="props"]
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, -41.2799, 33.62, -49.7174)
+material_override = ExtResource("2_b6ery")
+visibility_range_end = 175.0
+mesh = ExtResource("21_7a58i")
+skeleton = NodePath("../..")
+
+[node name="Grass29" type="MeshInstance3D" parent="props"]
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, -18.9783, 39.9351, -76.1489)
+material_override = ExtResource("2_b6ery")
+visibility_range_end = 175.0
+mesh = ExtResource("21_7a58i")
+skeleton = NodePath("../..")
+
+[node name="Grass30" type="MeshInstance3D" parent="props"]
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, 8.42414, 44.7152, -70.5329)
+material_override = ExtResource("2_b6ery")
+visibility_range_end = 175.0
+mesh = ExtResource("21_7a58i")
+skeleton = NodePath("../..")
+
+[node name="Grass31" type="MeshInstance3D" parent="props"]
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, 36.7425, 50.4208, -90.985)
+material_override = ExtResource("2_b6ery")
+visibility_range_end = 175.0
+mesh = ExtResource("21_7a58i")
+skeleton = NodePath("../..")
+
+[node name="Grass32" type="MeshInstance3D" parent="props"]
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, 47.9799, 51.5944, -75.2526)
+material_override = ExtResource("2_b6ery")
+visibility_range_end = 175.0
+mesh = ExtResource("21_7a58i")
+skeleton = NodePath("../..")
+
+[node name="Grass33" type="MeshInstance3D" parent="props"]
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, 78.9415, 55.6676, -79.1052)
+material_override = ExtResource("2_b6ery")
+visibility_range_end = 175.0
+mesh = ExtResource("21_7a58i")
+skeleton = NodePath("../..")
+
+[node name="Grass34" type="MeshInstance3D" parent="props"]
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, 125.653, 54.7931, -73.8053)
+material_override = ExtResource("2_b6ery")
+visibility_range_end = 175.0
+mesh = ExtResource("21_7a58i")
+skeleton = NodePath("../..")
+
+[node name="Grass35" type="MeshInstance3D" parent="props"]
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, 119.232, 65.2052, -105.344)
+material_override = ExtResource("2_b6ery")
+visibility_range_end = 175.0
+mesh = ExtResource("21_7a58i")
+skeleton = NodePath("../..")
+
+[node name="Grass37" type="MeshInstance3D" parent="props"]
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, 144.136, 70.7941, -148.239)
+material_override = ExtResource("2_b6ery")
+visibility_range_end = 175.0
+mesh = ExtResource("21_7a58i")
+skeleton = NodePath("../..")
+
+[node name="Grass38" type="MeshInstance3D" parent="props"]
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, 156.751, 73.9386, -174.246)
+material_override = ExtResource("2_b6ery")
+visibility_range_end = 175.0
+mesh = ExtResource("21_7a58i")
+skeleton = NodePath("../..")
+
+[node name="Grass39" type="MeshInstance3D" parent="props"]
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, 183.678, 74.2949, -177.385)
+material_override = ExtResource("2_b6ery")
+visibility_range_end = 175.0
+mesh = ExtResource("21_7a58i")
+skeleton = NodePath("../..")
+
+[node name="Grass40" type="MeshInstance3D" parent="props"]
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, 190.286, 75.8833, -138.729)
+material_override = ExtResource("2_b6ery")
+visibility_range_end = 175.0
+mesh = ExtResource("21_7a58i")
+skeleton = NodePath("../..")
+
+[node name="Pebble001" type="MeshInstance3D" parent="props"]
+transform = Transform3D(1.68951, -0.0405746, -0.00233383, 0.0402738, 1.68448, -0.130359, 0.00545596, 0.130266, 1.68496, 31.2014, -4.29864, -141.539)
+material_override = ExtResource("2_b6ery")
+visibility_range_end = 175.0
+mesh = ExtResource("22_fima1")
+skeleton = NodePath("../..")
+
+[node name="Pebble002" type="MeshInstance3D" parent="props"]
+transform = Transform3D(1.59954, -0.0384138, -0.00220954, 0.0384369, 1.59101, 0.164969, -0.00176356, -0.164975, 1.59147, 6.91199, -1.07459, -73.1799)
+material_override = ExtResource("2_b6ery")
+visibility_range_end = 175.0
+mesh = ExtResource("22_fima1")
+skeleton = NodePath("../..")
+
+[node name="Pebble005" type="MeshInstance3D" parent="props"]
+transform = Transform3D(1.59802, 0.078103, -0.0157448, -0.0782497, 1.59802, -0.0148903, 0.0149984, 0.0156418, 1.59985, -110.11, 32.2513, 77.5365)
+material_override = ExtResource("2_b6ery")
+visibility_range_end = 175.0
+mesh = ExtResource("22_fima1")
+skeleton = NodePath("../..")
+
+[node name="Pebble006" type="MeshInstance3D" parent="props"]
+transform = Transform3D(1.59602, -0.110441, 0.0225323, 0.112716, 1.56412, -0.317532, -0.000109154, 0.31833, 1.56801, -191.566, 29.3863, 122.526)
+material_override = ExtResource("2_b6ery")
+visibility_range_end = 175.0
+mesh = ExtResource("22_fima1")
+skeleton = NodePath("../..")
+
+[node name="Pebble003" type="MeshInstance3D" parent="props"]
+transform = Transform3D(1.6736, 0.0657729, 0.018581, -0.0681246, 1.64205, 0.323528, -0.00551133, -0.324015, 1.64335, 22.2728, 9.27991, -1.08222)
+material_override = ExtResource("2_b6ery")
+visibility_range_end = 175.0
+mesh = ExtResource("23_gi4v5")
+skeleton = NodePath("../..")
+
+[node name="Pebble004" type="MeshInstance3D" parent="props"]
+transform = Transform3D(1.58901, 0.169874, 0.0785868, -0.17202, 1.5902, 0.0408244, -0.0737711, -0.0489932, 1.59755, -57.2526, 25.8703, 49.6793)
+material_override = ExtResource("2_b6ery")
+visibility_range_end = 175.0
+mesh = ExtResource("23_gi4v5")
+skeleton = NodePath("../..")
+
+[node name="Pebble007" type="MeshInstance3D" parent="props"]
+transform = Transform3D(1.58259, 0.228898, -0.0550211, -0.234187, 1.5689, -0.209056, 0.0240439, 0.214834, 1.58533, -55.805, 25.8107, 1.16484)
+material_override = ExtResource("2_b6ery")
+visibility_range_end = 175.0
+mesh = ExtResource("22_fima1")
+skeleton = NodePath("../..")
+
+[node name="Pebble008" type="MeshInstance3D" parent="props"]
+transform = Transform3D(1.59849, 0.0600793, -0.0348181, -0.0603464, 1.59882, -0.0116977, 0.0343531, 0.0129999, 1.59958, -83.3219, 29.7944, -6.31342)
+material_override = ExtResource("2_b6ery")
+visibility_range_end = 175.0
+mesh = ExtResource("22_fima1")
+skeleton = NodePath("../..")
+
+[node name="Pebble009" type="MeshInstance3D" parent="props"]
+transform = Transform3D(1.81901, -0.30644, -0.0365751, 0.306062, 1.81931, -0.0213588, 0.0396134, 0.0149906, 1.84451, 10.7295, 45.5173, -83.4768)
+material_override = ExtResource("2_b6ery")
+visibility_range_end = 175.0
+mesh = ExtResource("22_fima1")
+skeleton = NodePath("../..")
+
+[node name="Pebble010" type="MeshInstance3D" parent="props"]
+transform = Transform3D(1.59705, -0.0911234, -0.0335582, 0.0908267, 1.59735, -0.0149325, 0.0343531, 0.0129999, 1.59958, 85.9799, 56.6658, -73.027)
+material_override = ExtResource("2_b6ery")
+visibility_range_end = 175.0
+mesh = ExtResource("22_fima1")
+skeleton = NodePath("../..")
+
+[node name="Pebble011" type="MeshInstance3D" parent="props"]
+transform = Transform3D(1.76703, -0.163952, -0.0366169, 0.162364, 1.76608, -0.07237, 0.0431175, 0.0686957, 1.77315, 132.597, 68.4744, -137.514)
+material_override = ExtResource("2_b6ery")
+visibility_range_end = 175.0
+mesh = ExtResource("22_fima1")
+skeleton = NodePath("../..")
+
+[node name="Pebble012" type="MeshInstance3D" parent="props"]
+transform = Transform3D(1.59282, -0.147788, -0.0330068, 0.146356, 1.59196, -0.0652349, 0.0388665, 0.0619228, 1.59833, 179.47, 74.4736, -135.297)
+material_override = ExtResource("2_b6ery")
+visibility_range_end = 175.0
+mesh = ExtResource("22_fima1")
+skeleton = NodePath("../..")
+
+[node name="Pebble013" type="MeshInstance3D" parent="props"]
+transform = Transform3D(0.15575, -0.158424, 1.5845, 0.168028, 1.58481, 0.141938, -1.58351, 0.152583, 0.170909, 162.75, 74.2781, -167.13)
+material_override = ExtResource("2_b6ery")
+visibility_range_end = 175.0
+mesh = ExtResource("22_fima1")
+skeleton = NodePath("../..")
+
+[node name="Pumpkin" parent="props" instance=ExtResource("24_8cwvi")]
+transform = Transform3D(0.990139, -0.140089, 0, 0.140089, 0.990139, 0, 0, 0, 1, 173.021, 73.2408, -124.935)
+
+[node name="Pumpkin2" parent="props" instance=ExtResource("24_8cwvi")]
+transform = Transform3D(0.990139, -0.140089, 0, 0.140089, 0.990139, 0, 0, 0, 1, -8.96871, 41.7621, -65.2269)
+
+[node name="Pumpkin3" parent="props" instance=ExtResource("24_8cwvi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -175.382, 27.6917, 135.877)
+
+[node name="dead_tree10" parent="props" instance=ExtResource("20_ehgq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.2575, -4.48427, -106.101)
+
+[node name="pine_tree29" parent="props" instance=ExtResource("19_be1sa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.3652, 19.0222, 13.4049)
+
+[node name="dead_tree11" parent="props" instance=ExtResource("20_ehgq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.7627, 36.3103, -66.6121)
+
+[node name="dead_tree12" parent="props" instance=ExtResource("20_ehgq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.679, 57.1932, -78.7675)
+
+[node name="dead_tree13" parent="props" instance=ExtResource("20_ehgq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 153.492, 71.7118, -143.778)
+
+[node name="dead_tree14" parent="props" instance=ExtResource("20_ehgq2")]
+transform = Transform3D(0.932456, 0, -0.361283, 0, 1, 0, 0.361283, 0, 0.932456, -10.5072, 20.4867, 39.3474)
 
 [node name="enemies" type="Node3D" parent="."]
 metadata/_edit_lock_ = true
@@ -543,31 +1065,10 @@ min_dif = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -66.0045, 28.9221, 26.7924)
 min_dif = 4
 
-[node name="gunner" parent="." instance=ExtResource("14_wypjr")]
+[node name="gunner5" parent="enemies" instance=ExtResource("14_wypjr")]
 transform = Transform3D(-0.276983, -0.0249345, 0.960551, -0.0896592, 0.995973, 0, -0.956683, -0.0861222, -0.278103, 150.202, 21.6598, 90.0174)
 min_dif = 4
 
-[node name="gunner2" parent="." instance=ExtResource("14_wypjr")]
+[node name="gunner6" parent="enemies" instance=ExtResource("14_wypjr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.2388, 47.475, -77.2319)
 min_dif = 4
-
-[node name="container_001" parent="." instance=ExtResource("17_vsmwi")]
-transform = Transform3D(0.970102, 0.152523, 0.188782, -0.144117, 0.987885, -0.057564, -0.195275, 0.0286363, 0.98033, -57.3768, 25.6357, 37.7065)
-
-[node name="container_002" parent="." instance=ExtResource("18_acwql")]
-transform = Transform3D(0.480866, 0, 0.876794, 0, 1, 0, -0.876794, 0, 0.480866, 43.0555, -3.75794, -146.467)
-
-[node name="container_003" parent="." instance=ExtResource("17_vsmwi")]
-transform = Transform3D(0.977329, 0.0669089, 0.200875, -0.0595888, 0.997328, -0.0422767, -0.203167, 0.0293484, 0.978704, -179.061, 29.7727, 115.575)
-
-[node name="container_004" parent="." instance=ExtResource("18_acwql")]
-transform = Transform3D(0.413794, -0.0283347, 0.90993, 0.139071, 0.989752, -0.0324228, -0.899685, 0.139961, 0.413494, -186.291, 26.1952, 144.397)
-
-[node name="container_005" parent="." instance=ExtResource("18_acwql")]
-transform = Transform3D(0.478584, -0.104934, 0.871749, 0.0938904, 0.993257, 0.0680153, -0.873007, 0.0492978, 0.485209, 183.429, 76.1054, -149.108)
-
-[node name="container_006" parent="." instance=ExtResource("17_vsmwi")]
-transform = Transform3D(0.335555, -0.0962013, -0.937096, -0.0459351, 0.991917, -0.118278, 0.9409, 0.0827343, 0.328424, 160.654, 73.4618, -152.266)
-
-[node name="container_007" parent="." instance=ExtResource("17_vsmwi")]
-transform = Transform3D(0.34204, -0.0638003, -0.937517, -0.0243602, 0.996755, -0.076719, 0.93937, 0.0490791, 0.339376, -3.44841, -4.78569, -130.798)

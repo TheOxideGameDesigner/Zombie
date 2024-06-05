@@ -568,7 +568,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 121.17, 17.6688, -172.165)
 min_dif = 4
 
 [node name="runner23" parent="enemies" instance=ExtResource("12_32ix4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.9445, 12.8715, -137.799)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.9445, 10.6231, -137.799)
 min_dif = 4
 
 [node name="runner24" parent="enemies" instance=ExtResource("12_32ix4")]
