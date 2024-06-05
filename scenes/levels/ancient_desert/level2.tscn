@@ -9,7 +9,7 @@
 [ext_resource type="Script" path="res://scripts/create_static_body_child.gd" id="6_ln55x"]
 [ext_resource type="Environment" uid="uid://7y4csdtn0hmo" path="res://resources/level_enviroments/ancient_desert_environment.tres" id="6_tmesk"]
 [ext_resource type="Script" path="res://scripts/death_surface.gd" id="7_cihfl"]
-[ext_resource type="PackedScene" uid="uid://cjg4wjt43xbks" path="res://scenes/misc_props/torch.tscn" id="8_7uy6h"]
+[ext_resource type="PackedScene" uid="uid://cjg4wjt43xbks" path="res://scenes/props/static_props/mountainside/torch.tscn" id="8_7uy6h"]
 [ext_resource type="ArrayMesh" uid="uid://car1b8qjy06yu" path="res://models/levels/ancient_desert/level2/level2_sand_collision.obj" id="8_8bjm1"]
 [ext_resource type="PackedScene" uid="uid://cyw7f2nh4dtoc" path="res://scenes/misc_props/lock.tscn" id="9_5ck2f"]
 [ext_resource type="Script" path="res://scripts/create_collision_shape_sibling.gd" id="9_h43kp"]

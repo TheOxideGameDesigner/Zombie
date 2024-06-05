@@ -10,6 +10,7 @@ data = PackedVector3Array(0.5302, -0.8963, -0.5303, 0, 4.2991, -0.75, 0, -0.8963
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 material_override = ExtResource("1_indji")
+visibility_range_end = 175.0
 mesh = ExtResource("2_u4d8m")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

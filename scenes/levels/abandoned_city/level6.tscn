@@ -19,7 +19,7 @@
 [ext_resource type="ArrayMesh" uid="uid://dfp4j2ktyq27a" path="res://models/static_props/abandoned_city/barrier_001.obj" id="22_11etc"]
 [ext_resource type="ArrayMesh" uid="uid://cvs2tymb4n7ll" path="res://models/static_props/abandoned_city/barrier_002.obj" id="23_5vnm6"]
 [ext_resource type="ArrayMesh" uid="uid://c2iy28gpurn13" path="res://models/static_props/abandoned_city/barrier_003.obj" id="24_66o54"]
-[ext_resource type="PackedScene" uid="uid://d3jek5ooi541x" path="res://scenes/misc_props/black_and_white_torch.tscn" id="26_modcw"]
+[ext_resource type="PackedScene" uid="uid://d3jek5ooi541x" path="res://scenes/props/static_props/abandoned_city/black_and_white_torch.tscn" id="26_modcw"]
 [ext_resource type="Script" path="res://scripts/triggers/visibility_toggle_area.gd" id="27_eoajn"]
 [ext_resource type="ArrayMesh" uid="uid://dhnpgc206x0t5" path="res://models/static_props/abandoned_city/abandoned_city_fence_unit.obj" id="28_a2bee"]
 [ext_resource type="PackedScene" uid="uid://csmucdgy7vpql" path="res://scenes/misc_props/exit.tscn" id="29_cuy3q"]

@@ -14,7 +14,7 @@
 [ext_resource type="Script" path="res://scripts/create_collision_shape_sibling.gd" id="9_uksvs"]
 [ext_resource type="PackedScene" uid="uid://csmucdgy7vpql" path="res://scenes/misc_props/exit.tscn" id="10_c2ohp"]
 [ext_resource type="ArrayMesh" uid="uid://cpwmtpuu4wwgo" path="res://models/static_props/ancient_desert/ancient_desert_fence_unit_tall.obj" id="10_xohpk"]
-[ext_resource type="PackedScene" uid="uid://cjg4wjt43xbks" path="res://scenes/misc_props/torch.tscn" id="11_f8qwe"]
+[ext_resource type="PackedScene" uid="uid://cjg4wjt43xbks" path="res://scenes/props/static_props/mountainside/torch.tscn" id="11_f8qwe"]
 [ext_resource type="PackedScene" uid="uid://cyw7f2nh4dtoc" path="res://scenes/misc_props/lock.tscn" id="11_par71"]
 [ext_resource type="PackedScene" uid="uid://bfwjae77m2xmb" path="res://scenes/props/triggers/move_trigger.tscn" id="13_n21vt"]
 [ext_resource type="ArrayMesh" uid="uid://bd4uck1pwnm0m" path="res://models/static_props/ancient_desert/ancient_desert_fence_unit.obj" id="14_1acrx"]

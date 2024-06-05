@@ -21,7 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://cyw7f2nh4dtoc" path="res://scenes/misc_props/lock.tscn" id="22_xa3ap"]
 [ext_resource type="Script" path="res://scripts/triggers/trigger_area.gd" id="23_hbkyk"]
 [ext_resource type="PackedScene" uid="uid://cq4mvdbpk0wiq" path="res://scenes/props/enemies/statue.tscn" id="23_j22bb"]
-[ext_resource type="PackedScene" uid="uid://cjg4wjt43xbks" path="res://scenes/misc_props/torch.tscn" id="24_ejt2x"]
+[ext_resource type="PackedScene" uid="uid://cjg4wjt43xbks" path="res://scenes/props/static_props/mountainside/torch.tscn" id="24_ejt2x"]
 [ext_resource type="PackedScene" uid="uid://ddiw8ybfcdmjb" path="res://scenes/misc_props/spring.tscn" id="25_tde57"]
 [ext_resource type="PackedScene" uid="uid://2ukt3tqlkh71" path="res://scenes/props/enemies/eye_of_anubis.tscn" id="26_83n8y"]
 [ext_resource type="PackedScene" uid="uid://cn0h8ppoq8uq8" path="res://scenes/props/enemies/mage.tscn" id="26_mxko8"]
