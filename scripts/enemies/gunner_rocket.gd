@@ -33,22 +33,17 @@ func _process(delta):
 		timer += delta
 		explosion.mesh.material.albedo_color.a = pow(1 - timer / EXPLOSION_TIME, 2)
 		explosion.scale = Vector3.ONE * EXPLOSION_RADIUS * timer / EXPLOSION_TIME
-
-
-func _physics_process(delta):
+	
 	if exploded:
 		return
 	time_since_birth += delta
 	if vel == Vector3.ZERO:
 		return
 	
-	vel.y = 0
 	if target.is_in_group("enemy"):
 		vel = target.position - position
 	vel = vel.normalized()
 	global_position += vel * delta * SPEED
-	if target.is_in_group("player") or target.alive:
-		global_position.y = lerp(global_position.y, target.global_position.y + 1.5, min(1, V_HOMING_FORCE * delta / (position.distance_to(target.position) + 1)))
 
 
 func _on_body_entered(body):

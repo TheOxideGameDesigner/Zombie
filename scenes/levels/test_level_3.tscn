@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bajqqqjylfrys"]
+[gd_scene load_steps=25 format=3 uid="uid://bajqqqjylfrys"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_n6eeb"]
 [ext_resource type="PackedScene" uid="uid://4px2n2dg363l" path="res://scenes/misc_props/player.tscn" id="2_26vq5"]
@@ -20,8 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://ddiw8ybfcdmjb" path="res://scenes/misc_props/spring.tscn" id="20_kphxb"]
 [ext_resource type="PackedScene" uid="uid://bb7tdsitsm6ea" path="res://scenes/props/static_props/abandoned_city/chair.tscn" id="20_q66nc"]
 [ext_resource type="PackedScene" uid="uid://tsfreyaa84jf" path="res://scenes/props/static_props/mountainside/pumpkin.tscn" id="21_2nsty"]
-[ext_resource type="PackedScene" uid="uid://ct4dtw3ijmehk" path="res://scenes/props/enemies/runner.tscn" id="22_7geek"]
-[ext_resource type="PackedScene" uid="uid://bfuck1d2dtogj" path="res://scenes/props/enemies/gunner.tscn" id="22_18ubf"]
+[ext_resource type="PackedScene" uid="uid://cn0h8ppoq8uq8" path="res://scenes/props/enemies/mage.tscn" id="21_sm1el"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ctp2d"]
 
@@ -158,8 +157,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.98775, 0.615919, -20.9923)
 [node name="Pumpkin" parent="." instance=ExtResource("21_2nsty")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.42678, 0.509872, -16.4356)
 
-[node name="gunner" parent="." instance=ExtResource("22_18ubf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.63856, 0.198839, 23.4295)
-
-[node name="runner" parent="." instance=ExtResource("22_7geek")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.26308, 0.19884, 24.0706)
+[node name="mage" parent="." instance=ExtResource("21_sm1el")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.83511, 0.198839, 18.0013)
