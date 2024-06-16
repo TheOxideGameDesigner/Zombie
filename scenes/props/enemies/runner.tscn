@@ -1,9 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://ct4dtw3ijmehk"]
+[gd_scene load_steps=16 format=3 uid="uid://ct4dtw3ijmehk"]
 
 [ext_resource type="Script" path="res://scripts/enemies/runner.gd" id="1_161no"]
 [ext_resource type="PackedScene" uid="uid://drygiqwrpy1uk" path="res://scenes/environment/gibs/runner.tscn" id="2_hqbvn"]
 [ext_resource type="PackedScene" uid="uid://d4k7qjsc8bglc" path="res://scenes/enemy_home.tscn" id="3_oc55d"]
-[ext_resource type="Script" path="res://scripts/physics_lerp.gd" id="4_1f14b"]
 [ext_resource type="Texture2D" uid="uid://dsi7k27hhox0v" path="res://textures/alerted.png" id="5_nm2sq"]
 [ext_resource type="Material" uid="uid://c0vwp18rc74ju" path="res://resources/materials/aura_mat.tres" id="6_syeth"]
 [ext_resource type="FontVariation" uid="uid://cr4vqwh16ob78" path="res://resources/default_font.tres" id="7_iyfbf"]
@@ -26,12 +25,12 @@ height = 5.915
 radial_segments = 10
 rings = 10
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gcse5"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6mrtp"]
 transparency = 1
 shading_mode = 0
 albedo_color = Color(1, 1, 1, 0.1)
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_bxjxg"]
+[sub_resource type="CylinderMesh" id="CylinderMesh_162cl"]
 radial_segments = 12
 
 [node name="runner" type="CharacterBody3D" groups=["activatable", "enemy", "lightweight"]]
@@ -84,12 +83,11 @@ aabb = AABB(-0.346727, -1.03405, -0.331776, 0.693449, 2.0681, 0.663553)
 
 [node name="mesh" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-script = ExtResource("4_1f14b")
-enable_rot = true
 
 [node name="alerted" type="Sprite3D" parent="mesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.855, 0)
 visible = false
+visibility_range_end = 175.0
 modulate = Color(1, 0.227451, 0.243137, 0.709804)
 pixel_size = 0.0195
 billboard = 1
@@ -99,6 +97,7 @@ texture = ExtResource("5_nm2sq")
 [node name="aura" type="MeshInstance3D" parent="mesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.00643, 0)
 visible = false
+visibility_range_end = 175.0
 mesh = SubResource("SphereMesh_xuhii")
 
 [node name="health" type="Label3D" parent="mesh"]
@@ -117,7 +116,7 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 
 script = ExtResource("9_rysfu")
 
 [node name="difficulty_visualiser" parent="." instance=ExtResource("10_xxpbx")]
-material_override = SubResource("StandardMaterial3D_gcse5")
-mesh = SubResource("CylinderMesh_bxjxg")
+material_override = SubResource("StandardMaterial3D_6mrtp")
+mesh = SubResource("CylinderMesh_162cl")
 
 [connection signal="timeout" from="respawn" to="." method="_on_respawn_timeout"]

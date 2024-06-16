@@ -26,11 +26,11 @@ func _on_freeze_timer_timeout():
 	frozen = 1
 
 var timer = 0
-func _physics_process(delta):
+func _process(delta):
 	frames_passed += 1
 	var added_force_yet_c = added_force_yet
 	for c in rigid_bodies:
-		c.freeze = frozen or frames_passed < 5
+		c.freeze = frozen
 		if not c.freeze and not added_force_yet_c:
 			c.apply_impulse(dir + c.position.normalized() * explosive_force)
 			added_force_yet = 1

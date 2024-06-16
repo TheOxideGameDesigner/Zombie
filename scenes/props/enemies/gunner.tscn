@@ -1,8 +1,7 @@
-[gd_scene load_steps=18 format=3 uid="uid://bfuck1d2dtogj"]
+[gd_scene load_steps=17 format=3 uid="uid://bfuck1d2dtogj"]
 
 [ext_resource type="Script" path="res://scripts/enemies/gunner.gd" id="1_v3qu8"]
 [ext_resource type="PackedScene" uid="uid://c5jx8yw6wwwds" path="res://scenes/environment/gibs/gunner.tscn" id="2_d5sbe"]
-[ext_resource type="Script" path="res://scripts/physics_lerp.gd" id="3_dwrji"]
 [ext_resource type="Texture2D" uid="uid://dsi7k27hhox0v" path="res://textures/alerted.png" id="4_spgsi"]
 [ext_resource type="Texture2D" uid="uid://vu75j7stwa2m" path="res://textures/key.png" id="5_00ef8"]
 [ext_resource type="Material" uid="uid://c0vwp18rc74ju" path="res://resources/materials/aura_mat.tres" id="6_3e31f"]
@@ -25,12 +24,12 @@ radius = 1.03518
 height = 3.7148
 radius = 1.75
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_egcsh"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tet2e"]
 transparency = 1
 shading_mode = 0
 albedo_color = Color(1, 1, 1, 0.1)
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_hxe62"]
+[sub_resource type="CylinderMesh" id="CylinderMesh_0pxy8"]
 top_radius = 1.0
 bottom_radius = 1.0
 radial_segments = 12
@@ -38,7 +37,7 @@ radial_segments = 12
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_ud1j6"]
 radius = 1.49327
 
-[node name="gunner" type="CharacterBody3D" groups=["activatable", "enemy"]]
+[node name="gunner" type="StaticBody3D" groups=["activatable", "enemy"]]
 top_level = true
 collision_layer = 2
 script = ExtResource("1_v3qu8")
@@ -46,12 +45,11 @@ gibs = ExtResource("2_d5sbe")
 
 [node name="mesh" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-script = ExtResource("3_dwrji")
-enable_rot = true
 
 [node name="alerted" type="Sprite3D" parent="mesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.862, 0)
 visible = false
+visibility_range_end = 175.0
 modulate = Color(1, 0.227451, 0.243137, 0.709804)
 pixel_size = 0.0195
 billboard = 1
@@ -61,6 +59,7 @@ texture = ExtResource("4_spgsi")
 [node name="key" type="Sprite3D" parent="mesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.554, 0)
 visible = false
+visibility_range_end = 175.0
 modulate = Color(1, 1, 0, 1)
 pixel_size = 0.0195
 billboard = 1
@@ -70,6 +69,7 @@ texture = ExtResource("5_00ef8")
 [node name="aura" type="MeshInstance3D" parent="mesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 visible = false
+visibility_range_end = 175.0
 mesh = SubResource("SphereMesh_qmw2e")
 
 [node name="health" type="Label3D" parent="mesh"]
@@ -117,8 +117,8 @@ wait_time = 1.5
 one_shot = true
 
 [node name="difficulty_visualiser" parent="." instance=ExtResource("11_dpxc4")]
-material_override = SubResource("StandardMaterial3D_egcsh")
-mesh = SubResource("CylinderMesh_hxe62")
+material_override = SubResource("StandardMaterial3D_tet2e")
+mesh = SubResource("CylinderMesh_0pxy8")
 radius = 1.0
 
 [node name="collision_area" type="Area3D" parent="." groups=["enemy_area"]]

@@ -1,8 +1,8 @@
-extends CharacterBody3D
+extends StaticBody3D
 
 
 var HP : int = 300
-const HYPNO_RESISTANCE = 3
+const HYPNO_RESISTANCE = 2.5
 const HYPNO_HEALTH_DRAIN = 2
 var hypno_health_drain_timer = 0.0
 var hypno_health = 1.0
@@ -37,6 +37,7 @@ var disable_particles : bool = false
 var disable_gibs : bool = false
 
 @onready var player = get_tree().get_first_node_in_group("player")
+@onready var player_cam = player.get_node("cam")
 @onready var target = player
 @onready var home = $home
 @onready var cross = $home/cross
@@ -59,6 +60,7 @@ var blood = preload("res://scenes/environment/blood_particles.tscn")
 @export var gibs : PackedScene
 @onready var body = $mesh/mountainside_chaingunner
 @onready var chaingun = $mesh/mountainside_chaingunner/chaingun
+var ribbon_opac : float = 0.0
 
 @onready var init_mesh_pos = $mesh.global_position - position
 @onready var dist_from_player = Vector2(player.position.x, player.position.z).distance_to(Vector2(position.x, position.z))
@@ -92,10 +94,6 @@ func unhypnotize():
 	set_collision_layer_value(10, false)
 	ray.set_collision_mask_value(2, false)
 	ray.set_collision_mask_value(9, true)
-
-
-func is_active():
-	return dist_from_player < ACTIVE_RADIUS
 
 
 func _ready():
@@ -209,39 +207,11 @@ func update_healthbar():
 	health_label.text = str(max(0, ceil(health * hypno_health)))
 
 
-func _process(delta):
-	ribbon_mesh.material_override.albedo_color.a = max(0, ribbon_mesh.material_override.albedo_color.a - delta * 5)
-	dist_from_player = Vector2(player.position.x, player.position.z).distance_to(Vector2(position.x, position.z))
-	
-	mesh.visible = (alive and not rising) or (rising and int(rising_timer / RISE_FLICKER) % 2 == 1)
-	health_label.visible = alive
-	alerted.visible = not hit_timer.is_stopped() or sees_target
-	alerted.position = Vector3(0, 1.862, 0) + Vector3(0, 0.5, 0) * int(key.visible)
-	
-	if not alive:
-		cross.visible = 1
-		return
-	cross.visible = 0
-	
-	pain_col = max(0, pain_col - delta * 2)
-	const FADE_RANGE = 1
-	var pb_col = clamp(lerp(0.0, 1.0, (player.SHOTGUN_PB_RANGE - dist_from_player) / FADE_RANGE) ,0.0, 1.0)
-	var col = max(pain_col, pb_col) * 0.5
-	body.set_instance_shader_parameter("pain", col)
-	chaingun.set_instance_shader_parameter("pain", col)
-	if hypno:
-		hypno_col = min(0.35, hypno_col + delta)
-	else:
-		hypno_col = max(0.0, hypno_col - delta)
-	body.set_instance_shader_parameter("hypno", hypno_col)
-	chaingun.set_instance_shader_parameter("hypno", hypno_col)
-
-
 func rising_func(t):
 	return (1 - 1 / (10 * t + 1)) * 1.1
 
 
-func _physics_process(delta):
+func ai(delta):
 	if hypno_health <= 0:
 		hypnotize()
 	if hypno:
@@ -256,7 +226,7 @@ func _physics_process(delta):
 	else:
 		dist_from_target = Vector2(target.position.x, target.position.z).distance_to(Vector2(position.x, position.z))
 	mesh.global_position = position + init_mesh_pos
-	if not is_active() or not alive:
+	if not alive:
 		return
 	
 	var dir2player = player.global_position - global_position
@@ -268,7 +238,6 @@ func _physics_process(delta):
 	if rising and rising_timer < RISE_TIME:
 		mesh.rotation.y = spawn_ang
 		rising_timer += delta
-		velocity.y = 0.0
 		position.y = rising_func(rising_timer / RISE_TIME) * (RISE_HEIGHT + GRAVE_DEPTH) + home.position.y - GRAVE_DEPTH
 		return
 	else:
@@ -345,12 +314,16 @@ func _physics_process(delta):
 	if target == null:
 		sees_target = false
 	else:
-		ray.position = Vector3(0.068, 1.13, 1.232).rotated(Vector3.UP, mesh.rotation.y)
+		ray.position = Vector3(0.068, 1.13, 0.9).rotated(Vector3.UP, mesh.rotation.y)
 		ray.target_position = ray.to_local(target.position + Vector3(0, 1.5, 0)).normalized() * HIT_RANGE
 		ray.force_raycast_update()
 		sees_target = ray.is_colliding() and ray.get_collider() == target
 	if sees_target:
-		var dir = target.position - position
+		var dir
+		if target == player:
+			dir = player_cam.position - position
+		else:
+			dir = target.position - position
 		rot = -atan2(dir.z, dir.x) + PI / 2
 		chaingun.rotation.z += delta * 3
 		if reaction_timer < (1.5 - int(hypno)):
@@ -362,13 +335,51 @@ func _physics_process(delta):
 		reaction_timer = 0.0
 
 
+func _process(delta):
+	if ribbon_opac > 0.0:
+		ribbon_opac = max(0.0, ribbon_opac - delta * 5)
+		ribbon_mesh.material_override.albedo_color.a = ribbon_opac
+	dist_from_player = Vector2(player.position.x, player.position.z).distance_to(Vector2(position.x, position.z))
+	
+	if dist_from_player > ACTIVE_RADIUS:
+		return
+	
+	ai(delta)
+	
+	mesh.visible = (alive and not rising) or (rising and int(rising_timer / RISE_FLICKER) % 2 == 1)
+	health_label.visible = alive
+	alerted.visible = not hit_timer.is_stopped() or sees_target
+	alerted.position = Vector3(0, 1.862, 0) + Vector3(0, 0.5, 0) * int(key.visible)
+	
+	if not alive:
+		cross.visible = 1
+		return
+	cross.visible = 0
+	
+	if pain_col > 0.0 or dist_from_player < player.SHOTGUN_PB_RANGE:
+		pain_col = max(0, pain_col - delta * 2)
+		const FADE_RANGE = 1
+		var pb_col = clamp(lerp(0.0, 1.0, (player.SHOTGUN_PB_RANGE - dist_from_player) / FADE_RANGE) ,0.0, 1.0)
+		var col = max(pain_col, pb_col) * 0.5
+		body.set_instance_shader_parameter("pain", col)
+		chaingun.set_instance_shader_parameter("pain", col)
+	if hypno:
+		hypno_col = min(0.35, hypno_col + delta)
+		body.set_instance_shader_parameter("hypno", hypno_col)
+		chaingun.set_instance_shader_parameter("hypno", hypno_col)
+	else:
+		hypno_col = max(0.0, hypno_col - delta)
+		body.set_instance_shader_parameter("hypno", hypno_col)
+		chaingun.set_instance_shader_parameter("hypno", hypno_col)
+
+
 func _on_hit_timer_timeout():
 	if target == null:
 		return
 	
-	ribbon_mesh.material_override.albedo_color.a = 0.5
+	ribbon_opac = 0.5
 	var dir = Vector3(0, 0, 1).rotated(Vector3.UP, mesh.rotation.y)
-	ray.position = Vector3(0.068, 1.13, 1.232).rotated(Vector3.UP, mesh.rotation.y)
+	ray.position = Vector3(0.068, 1.13, 0.9).rotated(Vector3.UP, mesh.rotation.y)
 	ray.target_position = dir * (dist_from_target - 1.232) + Vector3(0, target.position.y - ray.global_position.y + 1.13, 0) + Vector3(-0.068, 0, 0).rotated(Vector3.UP, mesh.rotation.y)
 	ray.force_raycast_update()
 	ribbon.position = mesh.to_global(init_ribbon_pos)

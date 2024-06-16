@@ -15,12 +15,12 @@
 height = 3.40052
 radius = 1.48798
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1j8ax"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uf677"]
 transparency = 1
 shading_mode = 0
 albedo_color = Color(1, 1, 1, 0.1)
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_iubg3"]
+[sub_resource type="CylinderMesh" id="CylinderMesh_xv2wi"]
 top_radius = 1.5
 bottom_radius = 1.5
 height = 3.0
@@ -37,6 +37,7 @@ script = ExtResource("2_nvh6n")
 transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 2.96386, -0.059214)
 material_override = ExtResource("2_an8gs")
 cast_shadow = 0
+visibility_range_end = 175.0
 mesh = ExtResource("2_o6f4o")
 skeleton = NodePath("")
 
@@ -44,6 +45,7 @@ skeleton = NodePath("")
 transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 1.5, 0)
 material_override = ExtResource("2_an8gs")
 cast_shadow = 0
+visibility_range_end = 175.0
 mesh = ExtResource("3_ls4cu")
 skeleton = NodePath("")
 
@@ -51,6 +53,7 @@ skeleton = NodePath("")
 transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 1.5, 0)
 material_override = ExtResource("2_an8gs")
 cast_shadow = 0
+visibility_range_end = 175.0
 mesh = ExtResource("4_hciva")
 skeleton = NodePath("")
 
@@ -60,7 +63,6 @@ transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 1.5, 0)
 [node name="health" type="Label3D" parent="mesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.26816, 0)
 visibility_range_end = 42.0
-visibility_range_end_margin = 0.1
 billboard = 1
 texture_filter = 0
 text = "500"
@@ -78,8 +80,8 @@ shape = SubResource("CylinderShape3D_258bd")
 
 [node name="difficulty_visualiser" parent="." instance=ExtResource("9_2jhd6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
-material_override = SubResource("StandardMaterial3D_1j8ax")
-mesh = SubResource("CylinderMesh_iubg3")
+material_override = SubResource("StandardMaterial3D_uf677")
+mesh = SubResource("CylinderMesh_xv2wi")
 radius = 1.5
 height = 3.0
 

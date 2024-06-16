@@ -1,11 +1,10 @@
-[gd_scene load_steps=55 format=3 uid="uid://e2jvhnyo3rts"]
+[gd_scene load_steps=54 format=3 uid="uid://e2jvhnyo3rts"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_depq5"]
 [ext_resource type="Material" uid="uid://uxn8fucitgfr" path="res://resources/materials/level_mat.tres" id="2_bwbts"]
 [ext_resource type="ArrayMesh" uid="uid://2700kcctjndr" path="res://models/levels/abandoned_city/level6/level6_visual.obj" id="3_tmi7v"]
 [ext_resource type="ArrayMesh" uid="uid://cq3rhvvvm7hve" path="res://models/levels/abandoned_city/level6/level6_collision.obj" id="4_ppv4h"]
 [ext_resource type="Script" path="res://scripts/create_static_body_child.gd" id="6_in1pl"]
-[ext_resource type="ArrayMesh" uid="uid://bpy0gyx1xhok0" path="res://models/levels/abandoned_city/level6/level6_pillar_collision.obj" id="7_3rbx7"]
 [ext_resource type="PackedScene" uid="uid://4px2n2dg363l" path="res://scenes/misc_props/player.tscn" id="7_wa7rp"]
 [ext_resource type="Environment" uid="uid://eqg2tcivmb0e" path="res://resources/level_enviroments/abandoned_city_environment.tres" id="8_5j6vu"]
 [ext_resource type="Material" uid="uid://uf6clx1smqj1" path="res://resources/materials/specific_mats/abandoned_city_building_mat.tres" id="13_h0uji"]
@@ -100,12 +99,6 @@ mesh = ExtResource("3_tmi7v")
 visible = false
 mesh = ExtResource("4_ppv4h")
 script = ExtResource("6_in1pl")
-
-[node name="level_pillar_collision" type="MeshInstance3D" parent="."]
-visible = false
-mesh = ExtResource("7_3rbx7")
-script = ExtResource("6_in1pl")
-layer = 258
 
 [node name="player" parent="." instance=ExtResource("7_wa7rp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.24509, 0.333091, -17.1118)
@@ -633,16 +626,16 @@ transform = Transform3D(0.430117, 0, -0.902773, 0, 1, 0, 0.902773, 0, 0.430117, 
 metadata/_edit_lock_ = true
 
 [node name="torch" parent="lights" instance=ExtResource("26_modcw")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 120.766, -6.26962, -38.7813)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 118.978, -6.26962, -37.9567)
 
 [node name="torch2" parent="lights" instance=ExtResource("26_modcw")]
-transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 120.766, -6.26962, -11.2533)
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 118.976, -6.26962, -12.077)
 
 [node name="torch3" parent="lights" instance=ExtResource("26_modcw")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 84.0202, -6.26962, -38.7813)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 70.5547, -6.26962, -37.9782)
 
 [node name="torch4" parent="lights" instance=ExtResource("26_modcw")]
-transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 84.0202, -6.26962, -11.2533)
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 70.5762, -6.26962, -12.0654)
 
 [node name="torch5" parent="lights" instance=ExtResource("26_modcw")]
 transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 42.7423, -6.26962, -42.2373)
@@ -673,25 +666,25 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.5937, -4.48932, -29.6336)
 shape = SubResource("BoxShape3D_s5c3x")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="lights/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.9334, -1.05675, 10.7382)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.1175, -1.05675, 10.7382)
 light_bake_mode = 0
 omni_range = 22.243
 omni_attenuation = 0.0457527
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="lights/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.9334, -1.05675, -10.4288)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.3431, -1.05675, -10.4288)
 light_bake_mode = 0
 omni_range = 22.243
 omni_attenuation = 0.0457527
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="lights/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.60602, -1.05675, 10.7382)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.0501, -1.05675, 9.9261)
 light_bake_mode = 0
 omni_range = 22.243
 omni_attenuation = 0.0457527
 
 [node name="OmniLight3D4" type="OmniLight3D" parent="lights/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.60602, -1.05675, -10.4288)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.0715, -1.05675, -9.62568)
 light_bake_mode = 0
 omni_range = 22.243
 omni_attenuation = 0.0457527

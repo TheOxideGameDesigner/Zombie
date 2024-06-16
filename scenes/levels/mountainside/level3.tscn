@@ -328,6 +328,9 @@ transform = Transform3D(0.335555, -0.0962013, -0.937096, -0.0459351, 0.991917, -
 [node name="container_007" parent="props" instance=ExtResource("17_vsmwi")]
 transform = Transform3D(0.34204, -0.0638003, -0.937517, -0.0243602, 0.996755, -0.076719, 0.93937, 0.0490791, 0.339376, -3.44841, -4.78569, -130.798)
 
+[node name="container_008" parent="props" instance=ExtResource("17_vsmwi")]
+transform = Transform3D(-0.655223, -0.0238032, -0.75506, -0.00799031, 0.999666, -0.0245805, 0.755393, -0.0100726, -0.655194, 14.1483, -3.22929, -169.74)
+
 [node name="pine_tree" parent="props" instance=ExtResource("19_be1sa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.7083, -2.7743, -168.469)
 
@@ -391,6 +394,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -191.442, 26.0367, 157.614)
 [node name="pine_tree21" parent="props" instance=ExtResource("19_be1sa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -175.945, 30.2809, 108.025)
 
+[node name="pine_tree30" parent="props" instance=ExtResource("19_be1sa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -198.059, 28.7336, 124.381)
+
 [node name="pine_tree22" parent="props" instance=ExtResource("19_be1sa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.67894, 41.8741, -67.2911)
 
@@ -414,6 +420,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 197.007, 73.8524, -180.212)
 
 [node name="dead_tree" parent="props" instance=ExtResource("20_ehgq2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.8728, -4.36841, -137.688)
+
+[node name="dead_tree15" parent="props" instance=ExtResource("20_ehgq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.339, -1.89009, -187.603)
 
 [node name="dead_tree2" parent="props" instance=ExtResource("20_ehgq2")]
 transform = Transform3D(0.756288, 0, 0.654239, 0, 1, 0, -0.654239, 0, 0.756288, 5.85387, -1.30327, -66.2019)
@@ -679,6 +688,13 @@ skeleton = NodePath("../..")
 
 [node name="Grass37" type="MeshInstance3D" parent="props"]
 transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, 144.136, 70.7941, -148.239)
+material_override = ExtResource("2_b6ery")
+visibility_range_end = 175.0
+mesh = ExtResource("21_7a58i")
+skeleton = NodePath("../..")
+
+[node name="Grass41" type="MeshInstance3D" parent="props"]
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, 150.621, 69.6097, -120.477)
 material_override = ExtResource("2_b6ery")
 visibility_range_end = 175.0
 mesh = ExtResource("21_7a58i")
@@ -1072,3 +1088,9 @@ min_dif = 4
 [node name="gunner6" parent="enemies" instance=ExtResource("14_wypjr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.2388, 47.475, -77.2319)
 min_dif = 4
+
+[node name="pine_tree" parent="." instance=ExtResource("19_be1sa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.2371, -2.84005, -168.753)
+
+[node name="pine_tree2" parent="." instance=ExtResource("19_be1sa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.5217, -4.07527, -114.505)

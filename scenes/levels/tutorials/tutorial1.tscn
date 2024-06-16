@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_5tjbv"]
 [ext_resource type="Material" uid="uid://uxn8fucitgfr" path="res://resources/materials/level_mat.tres" id="2_mj6bf"]
-[ext_resource type="ArrayMesh" uid="uid://bnvjnctagixge" path="res://models/levels/tutorials/tutorial1.obj" id="3_gw2ma"]
+[ext_resource type="ArrayMesh" uid="uid://bnvjnctagixge" path="res://models/levels/tutorials/tutorial1/tutorial1.obj" id="3_gw2ma"]
 [ext_resource type="Script" path="res://scripts/create_static_body_child.gd" id="4_ut1iw"]
 [ext_resource type="PackedScene" uid="uid://4px2n2dg363l" path="res://scenes/misc_props/player.tscn" id="5_3yvsu"]
 [ext_resource type="Environment" uid="uid://ccc22srsoem5t" path="res://resources/level_enviroments/tutorial_environment.tres" id="6_tnyfd"]

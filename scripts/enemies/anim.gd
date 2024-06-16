@@ -20,6 +20,11 @@ var legs_playing = 0
 
 var actually_legs_playing = 0.0
 
+func _ready():
+	for i in skel.get_children():
+		if i is MeshInstance3D:
+			i.visibility_range_end = 175
+
 func bob_func(t: float) -> float:
 	t = fmod(t, 0.5)
 	return -16 * t * (t - 0.5)

@@ -33,6 +33,7 @@ enabled = false
 collision_mask = 257
 
 [node name="pedestal" type="MeshInstance3D" parent="."]
+visibility_range_end = 175.0
 mesh = ExtResource("1_nyixf")
 surface_material_override/0 = ExtResource("2_osr26")
 
@@ -42,6 +43,7 @@ metadata/_edit_group_ = true
 
 [node name="death_ray_mesh" type="MeshInstance3D" parent="death_ray"]
 transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0.5, 0, 0)
+visibility_range_end = 175.0
 mesh = SubResource("CylinderMesh_6odb5")
 skeleton = NodePath("../..")
 
@@ -51,5 +53,6 @@ shape = SubResource("ConcavePolygonShape3D_cf3x8")
 
 [node name="orb" type="MeshInstance3D" parent="orb"]
 material_override = ExtResource("3_j3amu")
+visibility_range_end = 175.0
 mesh = ExtResource("4_l4vss")
 skeleton = NodePath("../..")

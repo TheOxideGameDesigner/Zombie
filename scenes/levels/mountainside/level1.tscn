@@ -329,13 +329,6 @@ visibility_range_end = 175.0
 mesh = ExtResource("21_tv5km")
 skeleton = NodePath("../..")
 
-[node name="pebble8" type="MeshInstance3D" parent="props"]
-transform = Transform3D(0.607835, 0.109548, 1.8496, 0.000370867, 1.94658, -0.115413, -1.85285, 0.0363273, 0.606749, -24.5798, 15.3358, -64.4457)
-material_override = ExtResource("1_wf84k")
-visibility_range_end = 175.0
-mesh = ExtResource("21_tv5km")
-skeleton = NodePath("../..")
-
 [node name="pebble7" type="MeshInstance3D" parent="props"]
 transform = Transform3D(0.564196, 0.101683, 1.71681, 0.000344241, 1.80683, -0.107127, -1.71982, 0.0337192, 0.563187, 30.5384, 22.9359, -133.825)
 material_override = ExtResource("1_wf84k")

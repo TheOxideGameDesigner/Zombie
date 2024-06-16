@@ -1,10 +1,9 @@
-[gd_scene load_steps=19 format=3 uid="uid://d2ya5fu74vom0"]
+[gd_scene load_steps=18 format=3 uid="uid://d2ya5fu74vom0"]
 
 [ext_resource type="Script" path="res://scripts/enemies/hitscanner.gd" id="1_t2xa8"]
 [ext_resource type="PackedScene" uid="uid://b1tai2e1cohl5" path="res://scenes/environment/gibs/hitscanner.tscn" id="2_ohb4a"]
 [ext_resource type="PackedScene" uid="uid://y4rowxxduukc" path="res://scenes/environment/gibs/hitscanner_standing.tscn" id="3_npsvl"]
 [ext_resource type="PackedScene" uid="uid://d4k7qjsc8bglc" path="res://scenes/enemy_home.tscn" id="3_qs300"]
-[ext_resource type="Script" path="res://scripts/physics_lerp.gd" id="4_swmcv"]
 [ext_resource type="Texture2D" uid="uid://dsi7k27hhox0v" path="res://textures/alerted.png" id="5_oinvm"]
 [ext_resource type="Material" uid="uid://c0vwp18rc74ju" path="res://resources/materials/aura_mat.tres" id="6_7ytpk"]
 [ext_resource type="FontVariation" uid="uid://cr4vqwh16ob78" path="res://resources/default_font.tres" id="7_87fxp"]
@@ -34,11 +33,12 @@ height = 1.0
 radial_segments = 4
 rings = 1
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_duaal"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t0wtd"]
 transparency = 1
 shading_mode = 0
+albedo_color = Color(1, 1, 1, 0.1)
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_emo5f"]
+[sub_resource type="CylinderMesh" id="CylinderMesh_n8qeq"]
 radial_segments = 12
 
 [node name="hitscanner" type="CharacterBody3D" groups=["activatable", "enemy", "lightweight"]]
@@ -82,8 +82,6 @@ shape = SubResource("CylinderShape3D_dm706")
 
 [node name="mesh" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-script = ExtResource("4_swmcv")
-enable_rot = true
 
 [node name="alerted" type="Sprite3D" parent="mesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.855, 0)
@@ -127,7 +125,7 @@ wait_time = 5.0
 one_shot = true
 
 [node name="difficulty_visualiser" parent="." instance=ExtResource("11_ksbdk")]
-material_override = SubResource("StandardMaterial3D_duaal")
-mesh = SubResource("CylinderMesh_emo5f")
+material_override = SubResource("StandardMaterial3D_t0wtd")
+mesh = SubResource("CylinderMesh_n8qeq")
 
 [connection signal="timeout" from="respawn" to="." method="_on_respawn_timeout"]

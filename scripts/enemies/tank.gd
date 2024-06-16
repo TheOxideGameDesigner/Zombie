@@ -211,6 +211,8 @@ func _ready():
 
 
 func _process(delta):
+	ai()
+	
 	body.visible = (alive and not rising) or (rising and int(rising_timer / RISE_FLICKER) % 2 == 1)
 	head.visible = body.visible
 	home.visible = not alive
@@ -231,15 +233,16 @@ func _process(delta):
 	if not alive:
 		return
 	
-	hurt_timer = max(0, hurt_timer - delta)
-	body.set_instance_shader_parameter("pain", hurt_timer)
-	head.set_instance_shader_parameter("pain", hurt_timer)
+	if hurt_timer > 0.0:
+		hurt_timer = max(0, hurt_timer - delta)
+		body.set_instance_shader_parameter("pain", hurt_timer)
+		head.set_instance_shader_parameter("pain", hurt_timer)
 	
 	for i in range(servant_beams.size()):
 		update_beam(i)
 
 
-func _physics_process(_delta):
+func ai():
 	if not fight_started:
 		if is_player_in_zone():
 			fight_started = 1

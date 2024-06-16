@@ -58,9 +58,7 @@ func _process(delta):
 	death_ray.global_rotation.z = atan2(dir.y, Vector2(dir.z, dir.x).length())
 	death_ray_mat.albedo_color.a = opac
 	death_ray.scale.x = dir.length()
-
-
-func _physics_process(delta):
+	
 	if not is_player_in_zone():
 		sees_player = 0
 		return

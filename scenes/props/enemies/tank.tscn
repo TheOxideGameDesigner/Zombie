@@ -127,6 +127,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.858442, 0)
 
 [node name="health" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.86347, 0)
+visibility_range_end = 175.0
 pixel_size = 0.01
 billboard = 1
 texture_filter = 2
@@ -136,6 +137,7 @@ font_size = 64
 
 [node name="key" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.73435, 0)
+visibility_range_end = 175.0
 modulate = Color(1, 1, 0, 1)
 pixel_size = 0.03
 billboard = 1
@@ -144,11 +146,12 @@ texture = ExtResource("10_7lx14")
 
 [node name="body" type="MeshInstance3D" parent="."]
 material_override = ExtResource("11_aqvm1")
+visibility_range_end = 175.0
 mesh = ExtResource("5_m8qa3")
-surface_material_override/0 = SubResource("StandardMaterial3D_5vh1h")
 
 [node name="head" type="MeshInstance3D" parent="."]
 material_override = ExtResource("11_aqvm1")
+visibility_range_end = 175.0
 mesh = ExtResource("6_ef5jf")
 surface_material_override/0 = SubResource("StandardMaterial3D_5vh1h")
 

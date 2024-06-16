@@ -130,6 +130,7 @@ g_attack2={
 
 common/physics_jitter_fix=0.0
 3d/physics_engine="JoltPhysics3D"
+common/enable_object_picking=false
 jolt_3d/collisions/areas_detect_static_bodies=true
 
 [rendering]

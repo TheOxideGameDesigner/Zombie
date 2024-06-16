@@ -6,15 +6,13 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_xnvos"]
 size = Vector3(15.2, 3.1, 1.1)
 
-[node name="shelf" type="Node3D"]
+[node name="shelf" type="StaticBody3D"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 material_override = ExtResource("1_113us")
 visibility_range_end = 175.0
 mesh = ExtResource("2_m24rc")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 1.55, -0.55)
 shape = SubResource("BoxShape3D_xnvos")

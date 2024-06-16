@@ -1,7 +1,7 @@
 shader_type spatial;
 render_mode specular_disabled;
 
-instance uniform float pain;
+instance uniform float pain = 0.0;
 instance uniform float hypno = 0.0;
 
 void vertex() {

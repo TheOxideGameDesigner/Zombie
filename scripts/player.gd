@@ -56,8 +56,8 @@ const BLASTER_FORCE = 1.2
 const BLASTER_COOLDOWN = 0.15
 const BLASTER_COOLDOWN_SHORT = 0.075
 const BLASTER_RANGE = 42
-const HYPNOTIZER_BUFF = 1.5
-const HYPNOTIZER_DRAIN = 3 * HYPNOTIZER_BUFF
+const HYPNOTIZER_BUFF = 1.75
+const HYPNOTIZER_DRAIN = 2.5 / HYPNOTIZER_BUFF
 const HYPNOTIZER_RECHARGE = 15
 const HYPNOTIZER_RECHARGE_START = 0.5
 const DEATH_FADE_TIME = 1.0
@@ -236,7 +236,6 @@ func hurt(collider):
 		3:
 			pass
 		4:
-			var dist = Vector2(global_position.x, global_position.z).distance_to(Vector2(collider.global_position.x, global_position.z))
 			collider.pain(BLASTER_DAMAGE * damage_mul)
 
 
@@ -379,7 +378,7 @@ func shoot(delta):
 					if collider.hypnotizable and not collider.rising and not collider.hypno:
 						hypnotizer_last_shot_hit = true
 						hypnotizer_charge_timer = HYPNOTIZER_RECHARGE_START
-						hypnotizer_charge = max(0.0, hypnotizer_charge - delta * HYPNOTIZER_BUFF / HYPNOTIZER_DRAIN)
+						hypnotizer_charge = max(0.0, hypnotizer_charge - delta / HYPNOTIZER_DRAIN)
 						collider.hypno_health -= HYPNOTIZER_BUFF * damage_mul * (float(collider.HP) / collider.health) * delta / collider.HYPNO_RESISTANCE
 						collider.update_healthbar()
 						if not disable_particles:

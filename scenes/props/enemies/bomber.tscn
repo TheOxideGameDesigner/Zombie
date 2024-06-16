@@ -1,9 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://dsklmuink3naj"]
+[gd_scene load_steps=16 format=3 uid="uid://dsklmuink3naj"]
 
 [ext_resource type="Script" path="res://scripts/enemies/bomber.gd" id="1_4nv8u"]
 [ext_resource type="PackedScene" uid="uid://m8a5i28h2uev" path="res://scenes/environment/gibs/bomber.tscn" id="2_5q78w"]
 [ext_resource type="PackedScene" uid="uid://d4k7qjsc8bglc" path="res://scenes/enemy_home.tscn" id="3_dt8nc"]
-[ext_resource type="Script" path="res://scripts/physics_lerp.gd" id="4_5wjvi"]
 [ext_resource type="Texture2D" uid="uid://dsi7k27hhox0v" path="res://textures/alerted.png" id="5_sxbt4"]
 [ext_resource type="Material" uid="uid://c0vwp18rc74ju" path="res://resources/materials/aura_mat.tres" id="6_jhirx"]
 [ext_resource type="FontVariation" uid="uid://cr4vqwh16ob78" path="res://resources/default_font.tres" id="7_ojok1"]
@@ -26,11 +25,12 @@ height = 5.915
 radial_segments = 10
 rings = 10
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iwnli"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uxke2"]
 transparency = 1
 shading_mode = 0
+albedo_color = Color(1, 1, 1, 0.1)
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_dmu54"]
+[sub_resource type="CylinderMesh" id="CylinderMesh_b8e2u"]
 radial_segments = 12
 
 [node name="bomber" type="CharacterBody3D" groups=["activatable", "enemy", "lightweight"]]
@@ -72,12 +72,11 @@ shape = SubResource("CylinderShape3D_dm706")
 
 [node name="mesh" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-script = ExtResource("4_5wjvi")
-enable_rot = true
 
 [node name="alerted" type="Sprite3D" parent="mesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.855, 0)
 visible = false
+visibility_range_end = 175.0
 modulate = Color(1, 0.227451, 0.243137, 0.709804)
 pixel_size = 0.0195
 billboard = 1
@@ -87,6 +86,7 @@ texture = ExtResource("5_sxbt4")
 [node name="aura" type="MeshInstance3D" parent="mesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.00643, 0)
 visible = false
+visibility_range_end = 175.0
 mesh = SubResource("SphereMesh_irllb")
 
 [node name="health" type="Label3D" parent="mesh"]
@@ -109,7 +109,7 @@ wait_time = 5.0
 one_shot = true
 
 [node name="difficulty_visualiser" parent="." instance=ExtResource("10_ftv05")]
-material_override = SubResource("StandardMaterial3D_iwnli")
-mesh = SubResource("CylinderMesh_dmu54")
+material_override = SubResource("StandardMaterial3D_uxke2")
+mesh = SubResource("CylinderMesh_b8e2u")
 
 [connection signal="timeout" from="respawn" to="." method="_on_respawn_timeout"]

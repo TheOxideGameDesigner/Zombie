@@ -174,7 +174,7 @@ func _ready():
 	active_zone.connect("body_exited", _body_exited)
 
 
-func _physics_process(delta):
+func ai(delta):
 	if health <= 0 and alive:
 		home.time_left = respawn_time
 		alive = 0
@@ -188,23 +188,26 @@ func _physics_process(delta):
 		return
 	
 	for i in zombies:
-		if not i.hypno and i.health > 0:
-			i.health = min(i.health + 1, i.HP)
+		if not i.hypno and i.health > 0 and i.health < i.HP:
+			i.health = i.health + 1
 			i.update_healthbar()
 
 
 func _process(delta):
+	ai(delta)
+	
 	dist_from_player = Vector2(player.position.x, player.position.z).distance_to(Vector2(position.x, position.z))
 	home.cross.visible = not alive
 	
-	pain_col = max(0, pain_col - delta * 2)
-	const FADE_RANGE = 1
-	var pb_col = clamp(lerp(0.0, 1.0, (player.SHOTGUN_PB_RANGE - dist_from_player) / FADE_RANGE) ,0.0, 1.0)
-	var col = max(pain_col, pb_col) * 0.5
-	body.set_instance_shader_parameter("pain", col)
-	left_wing.set_instance_shader_parameter("pain", col)
-	right_wing.set_instance_shader_parameter("pain", col)
-	halo.set_instance_shader_parameter("pain", col)
+	if pain_col > 0.0 or dist_from_player < player.SHOTGUN_PB_RANGE:
+		pain_col = max(0, pain_col - delta * 2)
+		const FADE_RANGE = 1
+		var pb_col = clamp(lerp(0.0, 1.0, (player.SHOTGUN_PB_RANGE - dist_from_player) / FADE_RANGE) ,0.0, 1.0)
+		var col = max(pain_col, pb_col) * 0.5
+		body.set_instance_shader_parameter("pain", col)
+		left_wing.set_instance_shader_parameter("pain", col)
+		right_wing.set_instance_shader_parameter("pain", col)
+		halo.set_instance_shader_parameter("pain", col)
 	
 	mesh.visible = (alive and not rising) or (rising and int(rising_timer / RISE_FLICKER) % 2 == 1)
 	
@@ -220,6 +223,7 @@ func _process(delta):
 	
 	for i in range(beams.size()):
 		update_beam(i)
+	
 
 
 func _on_respawn_timeout():

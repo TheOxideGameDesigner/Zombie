@@ -4,7 +4,6 @@ extends StaticBody3D
 var velocity = Vector3.ZERO
 var active_zone : Area3D
 @onready var mesh = $mesh
-@onready var material = $mesh.get_surface_override_material(0)
 @onready var is_visible = $mesh/is_visible
 @onready var player = get_tree().get_nodes_in_group("player")[0]
 @onready var home = $home
@@ -210,6 +209,8 @@ func _ready():
 
 
 func _process(delta):
+	ai()
+	
 	mesh.visible = (alive and not rising) or (rising and int(rising_timer / RISE_FLICKER) % 2 == 1)
 	home.cross.visible = not alive
 	hitbox.disabled = not alive
@@ -225,7 +226,9 @@ func _process(delta):
 		return
 	
 	hurt_timer = max(0, hurt_timer - delta)
-	material.albedo_color = lerp(COLOR, HURT_COLOR, hurt_timer)
+	if hurt_timer > 0.0:
+		hurt_timer = max(0, hurt_timer - delta)
+		mesh.set_instance_shader_parameter("pain", hurt_timer)
 	if (not is_visible.is_on_screen() and not is_opengl) and fight_started:
 		var dir = player.global_position - global_position
 		mesh.global_rotation.y = -atan2(dir.z, dir.x) + PI / 2
@@ -234,7 +237,7 @@ func _process(delta):
 		update_beam(i)
 
 
-func _physics_process(_delta):
+func ai():
 	if not fight_started:
 		if is_player_in_zone():
 			fight_started = 1

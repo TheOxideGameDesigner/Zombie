@@ -1,0 +1,555 @@
+[gd_scene load_steps=13 format=3 uid="uid://b2dlmjeaypmsc"]
+
+[ext_resource type="Script" path="res://scripts/world.gd" id="1_8gpob"]
+[ext_resource type="ArrayMesh" uid="uid://jusfannspmlr" path="res://models/levels/tutorials/optimization_chamber.obj" id="2_yf42w"]
+[ext_resource type="Texture2D" uid="uid://c15t2ftp3ps8g" path="res://textures/wire_fence.png" id="3_3ii02"]
+[ext_resource type="PackedScene" uid="uid://4px2n2dg363l" path="res://scenes/misc_props/player.tscn" id="4_oshyr"]
+[ext_resource type="Environment" uid="uid://ccc22srsoem5t" path="res://resources/level_enviroments/tutorial_environment.tres" id="5_1oq7k"]
+[ext_resource type="PackedScene" uid="uid://dh6iqvaohxhu4" path="res://scenes/props/static_props/tutorials/light.tscn" id="6_0treg"]
+[ext_resource type="PackedScene" uid="uid://26x6x0du3c7k" path="res://scenes/props/enemies/chaingunner.tscn" id="7_cisf7"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_1fcy5"]
+data = PackedVector3Array(-10, 0, -20, -10, 0, 10, -10, 9.9998, -20, -10, 9.9998, -20, -10, 0, 10, -10, 9.9998, 10, 20, 0, -20, -10, 0, -20, 20, 9.9998, -20, 20, 9.9998, -20, -10, 0, -20, -10, 9.9998, -20, 20, 0, 10, 20, 0, -20, 20, 9.9998, 10, 20, 9.9998, 10, 20, 0, -20, 20, 9.9998, -20, -10, 0, 10, 20, 0, 10, -10, 9.9998, 10, -10, 9.9998, 10, 20, 0, 10, 20, 9.9998, 10, -10, 0, 10, -10, 0, -20, 20, 0, 10, 20, 0, 10, -10, 0, -20, 20, 0, -20, 30, 9.9998, -30, 20, 9.9998, -20, -20, 9.9998, -30, -20, 9.9998, -30, 20, 9.9998, -20, -10, 9.9998, -20, 30, 9.9998, 20, 20, 9.9998, 10, 30, 9.9998, -30, 30, 9.9998, -30, 20, 9.9998, 10, 20, 9.9998, -20, -20, 9.9998, -30, -10, 9.9998, -20, -20, 9.9998, 20, -20, 9.9998, 20, -10, 9.9998, -20, -10, 9.9998, 10, -20, 9.9998, 20, -10, 9.9998, 10, 30, 9.9998, 20, 30, 9.9998, 20, -10, 9.9998, 10, 20, 9.9998, 10, -20, 9.9998, 20, 30, 9.9998, 20, -20, 22, 20, -20, 22, 20, 30, 9.9998, 20, 30, 22, 20, 30, 9.9998, -30, -20, 9.9998, -30, 30, 22, -30, 30, 22, -30, -20, 9.9998, -30, -20, 22, -30, 30, 9.9998, 20, 30, 9.9998, -30, 30, 22, 20, 30, 22, 20, 30, 9.9998, -30, 30, 22, -30, -20, 9.9998, -30, -20, 9.9998, 20, -20, 22, -30, -20, 22, -30, -20, 9.9998, 20, -20, 22, 20, -20, 22, -30, -20, 22, 20, 30, 22, -30, 30, 22, -30, -20, 22, 20, 30, 22, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kyx7l"]
+transparency = 1
+specular_mode = 2
+albedo_color = Color(1, 1, 1, 0.658824)
+albedo_texture = ExtResource("3_3ii02")
+uv1_scale = Vector3(37.76, 37.76, 37.76)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_itdaq"]
+size = Vector2(30, 30)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_3vr0c"]
+data = PackedVector3Array(15, 0, 15, -15, 0, 15, 15, 0, -15, -15, 0, 15, -15, 0, -15, 15, 0, -15)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pbr4o"]
+size = Vector3(30, 1, 30)
+
+[node name="test_level_3" type="Node3D"]
+script = ExtResource("1_8gpob")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = ExtResource("2_yf42w")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_1fcy5")
+
+[node name="grill" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="grill"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 10, -5)
+material_override = SubResource("StandardMaterial3D_kyx7l")
+mesh = SubResource("PlaneMesh_itdaq")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="grill"]
+transform = Transform3D(-1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0, 1, 5, 10, -5)
+shape = SubResource("ConcavePolygonShape3D_3vr0c")
+
+[node name="fall_prevention" type="StaticBody3D" parent="."]
+collision_layer = 16384
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="fall_prevention"]
+transform = Transform3D(-1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0, 1, 5, 9.5, -5)
+shape = SubResource("BoxShape3D_pbr4o")
+
+[node name="player" parent="." instance=ExtResource("4_oshyr")]
+transform = Transform3D(-0.960968, 0, 0.276661, 0, 1, 0, -0.276661, 0, -0.960968, 6.06267, 10.7992, -22.8738)
+environment = ExtResource("5_1oq7k")
+
+[node name="light" type="DirectionalLight3D" parent="." groups=["light"]]
+transform = Transform3D(-0.270371, 0.958996, -0.085009, -0.539281, -0.0777097, 0.838533, 0.797543, 0.272559, 0.538179, 34.4022, 23.7255, -146.613)
+light_bake_mode = 0
+shadow_enabled = true
+shadow_bias = 0.01
+shadow_opacity = 0.7
+directional_shadow_blend_splits = true
+
+[node name="light1" parent="." instance=ExtResource("6_0treg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.08026, 20.0256, -4.95548)
+
+[node name="chaingunner" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.15398, -4.76837e-07, -0.902762)
+
+[node name="chaingunner2" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.56667, -4.76837e-07, -1.01591)
+
+[node name="chaingunner3" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0418, -9.53674e-07, 0.975213)
+
+[node name="chaingunner4" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.45448, -9.53674e-07, 0.862067)
+
+[node name="chaingunner5" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6151, -9.53674e-07, -2.99979)
+
+[node name="chaingunner6" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.79759, -9.53674e-07, -3.11294)
+
+[node name="chaingunner7" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.21703, -9.53674e-07, -6.6413)
+
+[node name="chaingunner8" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.62972, -9.53674e-07, -6.75445)
+
+[node name="chaingunner9" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.985731, -4.76837e-07, -3.66603)
+
+[node name="chaingunner10" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.39842, -4.76837e-07, -3.77918)
+
+[node name="chaingunner11" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.12645, -9.53674e-07, -1.78806)
+
+[node name="chaingunner12" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.28623, -9.53674e-07, -1.9012)
+
+[node name="chaingunner13" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.78335, -9.53674e-07, -5.76306)
+
+[node name="chaingunner14" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.370665, -9.53674e-07, -5.87621)
+
+[node name="chaingunner15" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.951222, -9.53674e-07, -9.40457)
+
+[node name="chaingunner16" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.46146, -9.53674e-07, -9.51772)
+
+[node name="chaingunner17" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.12972, -4.76837e-07, -0.146968)
+
+[node name="chaingunner18" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.54241, -4.76837e-07, -0.260115)
+
+[node name="chaingunner19" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.982465, -9.53674e-07, 1.73101)
+
+[node name="chaingunner20" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.43022, -9.53674e-07, 1.61786)
+
+[node name="chaingunner21" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.63936, -9.53674e-07, -2.244)
+
+[node name="chaingunner22" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.226676, -9.53674e-07, -2.35715)
+
+[node name="chaingunner23" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.807233, -9.53674e-07, -5.88551)
+
+[node name="chaingunner24" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.60545, -9.53674e-07, -5.99865)
+
+[node name="chaingunner25" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3537, -4.76837e-07, -4.7484)
+
+[node name="chaingunner26" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.7664, -4.76837e-07, -4.86155)
+
+[node name="chaingunner27" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.24149, -9.53674e-07, -2.87043)
+
+[node name="chaingunner28" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.6542, -9.53674e-07, -2.98357)
+
+[node name="chaingunner29" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.58459, -9.53674e-07, -6.84543)
+
+[node name="chaingunner30" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.99728, -9.53674e-07, -6.95858)
+
+[node name="chaingunner31" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.41672, -9.53674e-07, -10.4869)
+
+[node name="chaingunner32" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.8294, -9.53674e-07, -10.6001)
+
+[node name="chaingunner33" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.15398, -4.76837e-07, 4.59724)
+
+[node name="chaingunner34" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5667, -4.76837e-07, 4.48409)
+
+[node name="chaingunner35" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0418, -9.53674e-07, 6.47521)
+
+[node name="chaingunner36" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.45448, -9.53674e-07, 6.36207)
+
+[node name="chaingunner37" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.384901, -9.53674e-07, 2.50021)
+
+[node name="chaingunner38" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.79759, -9.53674e-07, 2.38706)
+
+[node name="chaingunner39" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.21703, -9.53674e-07, -1.1413)
+
+[node name="chaingunner40" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.62972, -9.53674e-07, -1.25445)
+
+[node name="chaingunner41" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.98573, -4.76837e-07, 1.83397)
+
+[node name="chaingunner42" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.39842, -4.76837e-07, 1.72082)
+
+[node name="chaingunner43" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.873546, -9.53674e-07, 3.71194)
+
+[node name="chaingunner44" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.28623, -9.53674e-07, 3.5988)
+
+[node name="chaingunner45" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.78335, -9.53674e-07, -0.263062)
+
+[node name="chaingunner46" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.62933, -9.53674e-07, -0.376208)
+
+[node name="chaingunner47" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.04878, -9.53674e-07, -3.90457)
+
+[node name="chaingunner48" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.46146, -9.53674e-07, -4.01772)
+
+[node name="chaingunner49" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.12972, -4.76837e-07, 5.35303)
+
+[node name="chaingunner50" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.54241, -4.76837e-07, 5.23989)
+
+[node name="chaingunner51" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.01754, -9.53674e-07, 7.23101)
+
+[node name="chaingunner52" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.43022, -9.53674e-07, 7.11786)
+
+[node name="chaingunner53" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.63936, -9.53674e-07, 3.256)
+
+[node name="chaingunner54" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.77332, -9.53674e-07, 3.14285)
+
+[node name="chaingunner55" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.19277, -9.53674e-07, -0.385506)
+
+[node name="chaingunner56" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.60545, -9.53674e-07, -0.498653)
+
+[node name="chaingunner57" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.3537, -4.76837e-07, 0.751598)
+
+[node name="chaingunner58" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.7664, -4.76837e-07, 0.638452)
+
+[node name="chaingunner59" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.2415, -9.53674e-07, 2.62957)
+
+[node name="chaingunner60" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.6542, -9.53674e-07, 2.51643)
+
+[node name="chaingunner61" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.58459, -9.53674e-07, -1.34543)
+
+[node name="chaingunner62" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.9973, -9.53674e-07, -1.45858)
+
+[node name="chaingunner63" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4167, -9.53674e-07, -4.98694)
+
+[node name="chaingunner64" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.8294, -9.53674e-07, -5.10009)
+
+[node name="chaingunner65" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.09145, -1.43051e-06, -4.33603)
+
+[node name="chaingunner66" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.50413, -1.43051e-06, -4.44917)
+
+[node name="chaingunner67" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0207376, -1.90735e-06, -2.45805)
+
+[node name="chaingunner68" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.39195, -1.90735e-06, -2.5712)
+
+[node name="chaingunner69" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.67764, -1.90735e-06, -6.43306)
+
+[node name="chaingunner70" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.735051, -1.90735e-06, -6.5462)
+
+[node name="chaingunner71" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.154494, -1.90735e-06, -10.0746)
+
+[node name="chaingunner72" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.56718, -1.90735e-06, -10.1877)
+
+[node name="chaingunner73" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0768, -1.43051e-06, -7.0993)
+
+[node name="chaingunner74" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.33588, -1.43051e-06, -7.21244)
+
+[node name="chaingunner75" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.18899, -1.90735e-06, -5.22132)
+
+[node name="chaingunner76" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2237, -1.90735e-06, -5.33447)
+
+[node name="chaingunner77" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.84589, -1.90735e-06, -9.19633)
+
+[node name="chaingunner78" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4332, -1.90735e-06, -9.30947)
+
+[node name="chaingunner79" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.01376, -1.90735e-06, -12.8378)
+
+[node name="chaingunner80" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.39893, -1.90735e-06, -12.951)
+
+[node name="chaingunner81" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.932816, -1.43051e-06, -3.58023)
+
+[node name="chaingunner82" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.47987, -1.43051e-06, -3.69338)
+
+[node name="chaingunner83" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.045, -1.90735e-06, -1.70226)
+
+[node name="chaingunner84" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.36769, -1.90735e-06, -1.81541)
+
+[node name="chaingunner85" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.7019, -1.90735e-06, -5.67726)
+
+[node name="chaingunner86" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.28921, -1.90735e-06, -5.79041)
+
+[node name="chaingunner87" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.86977, -1.90735e-06, -9.31877)
+
+[node name="chaingunner88" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.54292, -1.90735e-06, -9.43192)
+
+[node name="chaingunner89" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.29114, -1.43051e-06, -8.18167)
+
+[node name="chaingunner90" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.7038, -1.43051e-06, -8.29481)
+
+[node name="chaingunner91" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.17895, -1.90735e-06, -6.30369)
+
+[node name="chaingunner92" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5916, -1.90735e-06, -6.41684)
+
+[node name="chaingunner93" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.52206, -1.90735e-06, -10.2787)
+
+[node name="chaingunner94" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.93474, -1.90735e-06, -10.3918)
+
+[node name="chaingunner95" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.35418, -1.90735e-06, -13.9202)
+
+[node name="chaingunner96" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.7669, -1.90735e-06, -14.0334)
+
+[node name="chaingunner97" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.09145, -1.43051e-06, 3.66397)
+
+[node name="chaingunner98" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.50413, -1.43051e-06, 3.55083)
+
+[node name="chaingunner99" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.02074, -1.90735e-06, 5.54195)
+
+[node name="chaingunner100" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.39195, -1.90735e-06, 5.4288)
+
+[node name="chaingunner101" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.67764, -1.90735e-06, 1.56694)
+
+[node name="chaingunner102" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.264949, -1.90735e-06, 1.4538)
+
+[node name="chaingunner103" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.845506, -1.90735e-06, -2.07457)
+
+[node name="chaingunner104" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.56718, -1.90735e-06, -2.18771)
+
+[node name="chaingunner105" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0768, -1.43051e-06, 0.900703)
+
+[node name="chaingunner106" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.33588, -1.43051e-06, 0.787557)
+
+[node name="chaingunner107" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.18899, -1.90735e-06, 2.77868)
+
+[node name="chaingunner108" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.223697, -1.90735e-06, 2.66553)
+
+[node name="chaingunner109" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.84589, -1.90735e-06, -1.19633)
+
+[node name="chaingunner110" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.4332, -1.90735e-06, -1.30947)
+
+[node name="chaingunner111" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.01376, -1.90735e-06, -4.83783)
+
+[node name="chaingunner112" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.398929, -1.90735e-06, -4.95098)
+
+[node name="chaingunner113" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.93282, -1.43051e-06, 4.41977)
+
+[node name="chaingunner114" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.47987, -1.43051e-06, 4.30662)
+
+[node name="chaingunner115" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.045, -1.90735e-06, 6.29774)
+
+[node name="chaingunner116" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.367686, -1.90735e-06, 6.18459)
+
+[node name="chaingunner117" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.7019, -1.90735e-06, 2.32274)
+
+[node name="chaingunner118" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.28921, -1.90735e-06, 2.20959)
+
+[node name="chaingunner119" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.86977, -1.90735e-06, -1.31877)
+
+[node name="chaingunner120" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.542918, -1.90735e-06, -1.43192)
+
+[node name="chaingunner121" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.29114, -1.43051e-06, -0.181667)
+
+[node name="chaingunner122" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.7038, -1.43051e-06, -0.294814)
+
+[node name="chaingunner123" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.17895, -1.90735e-06, 1.69631)
+
+[node name="chaingunner124" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.59164, -1.90735e-06, 1.58316)
+
+[node name="chaingunner125" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.52206, -1.90735e-06, -2.2787)
+
+[node name="chaingunner126" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.93474, -1.90735e-06, -2.39185)
+
+[node name="chaingunner127" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.35418, -1.90735e-06, -5.92021)
+
+[node name="chaingunner128" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.76687, -1.90735e-06, -6.03335)
+
+[node name="chaingunner129" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.59145, -1.43051e-06, -5.83603)
+
+[node name="chaingunner130" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.0041, -1.43051e-06, -5.94917)
+
+[node name="chaingunner131" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.47926, -1.90735e-06, -3.95805)
+
+[node name="chaingunner132" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.8919, -1.90735e-06, -4.0712)
+
+[node name="chaingunner133" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.82236, -1.90735e-06, -7.93306)
+
+[node name="chaingunner134" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.23505, -1.90735e-06, -8.0462)
+
+[node name="chaingunner135" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.65449, -1.90735e-06, -11.5746)
+
+[node name="chaingunner136" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.0672, -1.90735e-06, -11.6877)
+
+[node name="chaingunner137" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4232, -1.43051e-06, -8.5993)
+
+[node name="chaingunner138" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.83588, -1.43051e-06, -8.71244)
+
+[node name="chaingunner139" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.31101, -1.90735e-06, -6.72132)
+
+[node name="chaingunner140" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.7237, -1.90735e-06, -6.83447)
+
+[node name="chaingunner141" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.345887, -1.90735e-06, -10.6963)
+
+[node name="chaingunner142" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0668, -1.90735e-06, -10.8095)
+
+[node name="chaingunner143" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.48624, -1.90735e-06, -14.3378)
+
+[node name="chaingunner144" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.89893, -1.90735e-06, -14.451)
+
+[node name="chaingunner145" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.56718, -1.43051e-06, -5.08023)
+
+[node name="chaingunner146" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.97987, -1.43051e-06, -5.19338)
+
+[node name="chaingunner147" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.455, -1.90735e-06, -3.20226)
+
+[node name="chaingunner148" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.86769, -1.90735e-06, -3.31541)
+
+[node name="chaingunner149" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.201898, -1.90735e-06, -7.17726)
+
+[node name="chaingunner150" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.21079, -1.90735e-06, -7.29041)
+
+[node name="chaingunner151" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.63023, -1.90735e-06, -10.8188)
+
+[node name="chaingunner152" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.04292, -1.90735e-06, -10.9319)
+
+[node name="chaingunner153" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.7911, -1.43051e-06, -9.68167)
+
+[node name="chaingunner154" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.2038, -1.43051e-06, -9.79481)
+
+[node name="chaingunner155" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.679, -1.90735e-06, -7.80369)
+
+[node name="chaingunner156" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.0916, -1.90735e-06, -7.91684)
+
+[node name="chaingunner157" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.02205, -1.90735e-06, -11.7787)
+
+[node name="chaingunner158" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4347, -1.90735e-06, -11.8918)
+
+[node name="chaingunner159" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.8542, -1.90735e-06, -15.4202)
+
+[node name="chaingunner160" parent="." instance=ExtResource("7_cisf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.2669, -1.90735e-06, -15.5334)

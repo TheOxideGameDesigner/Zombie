@@ -55,6 +55,7 @@ var bump_timers : Array[float] = []
 
 @onready var mesh_body = $mesh/mountainside_runner
 @onready var player = get_tree().get_first_node_in_group("player")
+@onready var player_cam = player.get_node("cam")
 @onready var target = player
 @onready var home = $home
 @onready var health_label = $mesh/health
@@ -70,7 +71,7 @@ var bump_timers : Array[float] = []
 var mesh_material = preload("res://resources/materials/enemy_mat.tres")
 var blood = preload("res://scenes/environment/blood_particles.tscn")
 @export var gibs : PackedScene
-@onready var is_visible = $is_visible
+@onready var visibility = $is_visible
 @onready var body = $mesh/mountainside_runner/Armature/Skeleton3D/runner_body
 
 @onready var init_mesh_pos = $mesh.global_position - position
@@ -116,9 +117,6 @@ func unhypnotize():
 	set_collision_layer_value(10, false)
 	ray.set_collision_mask_value(2, false)
 	ray.set_collision_mask_value(9, true)
-
-func is_active():
-	return dist_from_player < ACTIVE_RADIUS
 
 
 func is_asleep():
@@ -244,59 +242,6 @@ func update_healthbar():
 	health_label.text = str(max(0, floor(health * hypno_health)))
 
 
-func _process(delta):
-	dist_from_player = Vector2(player.position.x, player.position.z).distance_to(Vector2(position.x, position.z))
-	if not is_active():
-		mesh_body.process_mode = Node.PROCESS_MODE_DISABLED
-		return
-	else:
-		mesh_body.process_mode = Node.PROCESS_MODE_INHERIT
-	
-	if health <= 0 and alive:
-		home.time_left = respawn_time
-		alive = 0
-		if hypno:
-			unhypnotize()
-		respawn.start()
-		position = home.position
-		position.y -= GRAVE_DEPTH
-	
-	mesh.visible = (alive and not rising) or (rising and int(rising_timer / RISE_FLICKER) % 2 == 1)
-	health_label.visible = alive
-	
-	if not alive:
-		return
-	
-	pain_col = max(0, pain_col - delta * 2)
-	const FADE_RANGE = 1
-	var pb_col = clamp(lerp(0.0, 1.0, (player.SHOTGUN_PB_RANGE - dist_from_player) / FADE_RANGE) ,0.0, 1.0)
-	var col = max(pain_col, pb_col) * 0.5
-	body.set_instance_shader_parameter("pain", col)
-	if hypno:
-		hypno_col = min(0.35, hypno_col + delta)
-	else:
-		hypno_col = max(0.0, hypno_col - delta)
-	body.set_instance_shader_parameter("hypno", hypno_col)
-	if is_phantom:
-		const T = 0.5
-		const OPAC_MIN = 0.2
-		const OPAC_MAX = 0.8
-		body.set_instance_shader_parameter("opacity", clamp(OPAC_MIN + (dist_from_player - PHANTOM_RADIUS) * (OPAC_MIN - OPAC_MAX) / T, OPAC_MIN, OPAC_MAX))
-	
-	if rising:
-		mesh_body.anim_timer = 0.0
-	if is_asleep():
-		mesh_body.anim_speed = 1.0
-		mesh_body.anim_amplitude = PI / 12
-		mesh_body.bob_amplitude = 0.0
-	else:
-		mesh_body.anim_speed = 1.5
-		mesh_body.anim_amplitude = PI / 6
-		if is_on_floor() and add_vel.is_zero_approx():
-			mesh_body.bob_amplitude = 0.1
-		else:
-			mesh_body.bob_amplitude = 0.0
-
 
 func roaming_ang_func(t):
 	t = t * WALK_FREQ
@@ -345,7 +290,7 @@ func process_bumps(delta : float):
 			bump_timers.remove_at(i)
 
 
-func _physics_process(delta):
+func ai(delta):
 	if is_phantom:
 		hypnotizable = dist_from_player < PHANTOM_RADIUS
 	
@@ -365,14 +310,12 @@ func _physics_process(delta):
 		dist_from_target = 10000
 	mesh.position = position + init_mesh_pos
 	
-	if not is_active():
-		return
-	
 	if not alive:
 		return
 	
+	
 	var asleep = is_asleep()
-	hitbox.disabled = not sedated and not rising and not hypno and (not alive or (asleep and add_vel.is_zero_approx()))
+	hitbox.disabled = not alive
 	
 	var dir2player = player.global_position - global_position
 	var dir2player2D = Vector2(dir2player.x, dir2player.z).normalized()
@@ -392,13 +335,11 @@ func _physics_process(delta):
 	else:
 		rising = 0
 	
-	
 	if velocity.length() < 0.5 and not asleep:
 		mesh_body.legs_playing = 0
 	else:
 		mesh_body.legs_playing = 1
 	
-	#if dist_from_target > 1:
 	rot = fposmod(rot, 2 * PI)
 	mesh.rotation.y = fposmod(mesh.rotation.y, 2 * PI)
 	var dif = fposmod(rot - mesh.rotation.y, 2 * PI)
@@ -493,7 +434,7 @@ func _physics_process(delta):
 	if is_opengl:
 		on_screen = dir2player2D.dot(player_dir2D) > 0
 	else:
-		on_screen = is_visible.is_on_screen()
+		on_screen = visibility.is_on_screen()
 	
 	#zombie movement
 	if not add_vel.is_zero_approx():
@@ -513,7 +454,11 @@ func _physics_process(delta):
 			position.y - player.position.y > 1.5 and position.y - player.position.y < 2.0:
 				pain(100)
 		
-		var nextpos = target_pos - position
+		var nextpos
+		if target == player:
+			nextpos = player_cam.position - position
+		else:
+			nextpos = target_pos - position
 		
 		if target != null and dist_from_target <= HIT_RANGE and alive and not rising \
 		   and target.position.y - position.y > -2.1 and target.position.y - position.y < 1.2:
@@ -536,7 +481,12 @@ func _physics_process(delta):
 		
 		rot = -atan2(nextpos.z, nextpos.x) + PI / 2
 		var vel_dir = Vector3.MODEL_FRONT.rotated(Vector3.UP, mesh.rotation.y)
-		velocity = SPEED * clamp(dist_from_target, 0, 1) * vel_dir
+		if target == player:
+			velocity = SPEED * clamp(dist_from_target, 0, 1) * vel_dir
+		elif target != null and dist_from_target > target.RADIUS + RADIUS + 0.1:
+			velocity = SPEED * vel_dir
+		else:
+			velocity = Vector3.ZERO
 		
 		if climbing:
 			y_vel = CLIMB_SPEED
@@ -576,6 +526,63 @@ func _physics_process(delta):
 		move_and_slide()
 	#end of zombie movement
 
+
+func _process(delta):
+	dist_from_player = Vector2(player.position.x, player.position.z).distance_to(Vector2(position.x, position.z))
+	if dist_from_player > ACTIVE_RADIUS:
+		mesh_body.process_mode = Node.PROCESS_MODE_DISABLED
+		return
+	else:
+		mesh_body.process_mode = Node.PROCESS_MODE_INHERIT
+	
+	ai(delta)
+	
+	if health <= 0 and alive:
+		home.time_left = respawn_time
+		alive = 0
+		if hypno:
+			unhypnotize()
+		respawn.start()
+		position = home.position
+		position.y -= GRAVE_DEPTH
+	
+	mesh.visible = (alive and not rising) or (rising and int(rising_timer / RISE_FLICKER) % 2 == 1)
+	health_label.visible = alive
+	
+	if not alive:
+		return
+	
+	if pain_col > 0.0 or dist_from_player < player.SHOTGUN_PB_RANGE:
+		pain_col = max(0, pain_col - delta * 2)
+		const FADE_RANGE = 1
+		var pb_col = clamp(lerp(0.0, 1.0, (player.SHOTGUN_PB_RANGE - dist_from_player) / FADE_RANGE) ,0.0, 1.0)
+		var col = max(pain_col, pb_col) * 0.5
+		body.set_instance_shader_parameter("pain", col)
+	if hypno:
+		hypno_col = min(0.35, hypno_col + delta)
+		body.set_instance_shader_parameter("hypno", hypno_col)
+	else:
+		hypno_col = max(0.0, hypno_col - delta)
+		body.set_instance_shader_parameter("hypno", hypno_col)
+	if is_phantom and dist_from_player < PHANTOM_RADIUS:
+		const T = 0.5
+		const OPAC_MIN = 0.2
+		const OPAC_MAX = 0.8
+		body.set_instance_shader_parameter("opacity", clamp(OPAC_MIN + (dist_from_player - PHANTOM_RADIUS) * (OPAC_MIN - OPAC_MAX) / T, OPAC_MIN, OPAC_MAX))
+	
+	if rising:
+		mesh_body.anim_timer = 0.0
+	if is_asleep():
+		mesh_body.anim_speed = 1.0
+		mesh_body.anim_amplitude = PI / 12
+		mesh_body.bob_amplitude = 0.0
+	else:
+		mesh_body.anim_speed = 1.5
+		mesh_body.anim_amplitude = PI / 6
+		if is_on_floor() and add_vel.is_zero_approx():
+			mesh_body.bob_amplitude = 0.1
+		else:
+			mesh_body.bob_amplitude = 0.0
 
 func _on_respawn_timeout():
 	health = HP

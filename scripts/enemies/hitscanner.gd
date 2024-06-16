@@ -47,6 +47,7 @@ var hit_timer = HIT_TIME
 var attention_span_timer = 0
 var hypno : bool = 0
 var hypno_col = 0.0
+var ribbon_opac : float = 0.0
 
 var pain_col = 0.0
 
@@ -56,6 +57,7 @@ var bump_timers : Array[float] = []
 
 @onready var mesh_body = $mesh/mountainside_hitscanner
 @onready var player = get_tree().get_first_node_in_group("player")
+@onready var player_cam = player.get_node("cam")
 @onready var target = player
 @onready var home = $home
 @onready var health_label = $mesh/health
@@ -114,10 +116,6 @@ func unhypnotize():
 	set_collision_layer_value(10, false)
 	ray.set_collision_mask_value(2, false)
 	ray.set_collision_mask_value(9, true)
-
-
-func is_active():
-	return dist_from_player < ACTIVE_RADIUS
 
 
 func is_asleep():
@@ -237,9 +235,9 @@ func pain(dmg, noblood=false, heal_player = false):
 
 
 func fire():
-	ribbon_mesh.material_override.albedo_color.a = 0.5
+	ribbon_opac = 0.5
 	var dir = Vector3(0, 0, 1).rotated(Vector3.UP, mesh.rotation.y)
-	ray.position = Vector3(0.079, 1.642, 0.847).rotated(Vector3.UP, mesh.rotation.y)
+	ray.position = Vector3(0.079, 1.642, 0.4).rotated(Vector3.UP, mesh.rotation.y)
 	ray.target_position = dir * (dist_from_target - 0.847) + Vector3(0, target.position.y - ray.global_position.y + 1.5, 0) + Vector3(-0.079, 0, 0).rotated(Vector3.UP, mesh.rotation.y)
 	ray.force_raycast_update()
 	ribbon.position = mesh.to_global(init_ribbon_pos)
@@ -267,14 +265,18 @@ func update_healthbar():
 
 
 func _process(delta):
-	ribbon_mesh.material_override.albedo_color.a = max(0, ribbon_mesh.material_override.albedo_color.a - delta)
+	if ribbon_opac > 0.0:
+		ribbon_opac = max(0, ribbon_opac - delta)
+		ribbon_mesh.material_override.albedo_color.a = ribbon_opac
 	dist_from_player = Vector2(player.position.x, player.position.z).distance_to(Vector2(position.x, position.z))
 	dist_from_target = position.distance_to(player.position)
-	if not is_active():
+	if dist_from_player > ACTIVE_RADIUS:
 		mesh_body.process_mode = Node.PROCESS_MODE_DISABLED
 		return
 	else:
 		mesh_body.process_mode = Node.PROCESS_MODE_INHERIT
+	
+	ai(delta)
 	
 	mesh.visible = (alive and not rising) or (rising and int(rising_timer / RISE_FLICKER) % 2 == 1)
 	health_label.visible = alive
@@ -282,16 +284,18 @@ func _process(delta):
 	if not alive:
 		return
 	
-	pain_col = max(0, pain_col - delta * 2)
-	const FADE_RANGE = 1
-	var pb_col = clamp(lerp(0.0, 1.0, (player.SHOTGUN_PB_RANGE - dist_from_player) / FADE_RANGE) ,0.0, 1.0)
-	var col = max(pain_col, pb_col) * 0.5
-	body.set_instance_shader_parameter("pain", col)
+	if pain_col > 0.0 or dist_from_player < player.SHOTGUN_PB_RANGE:
+		pain_col = max(0, pain_col - delta * 2)
+		const FADE_RANGE = 1
+		var pb_col = clamp(lerp(0.0, 1.0, (player.SHOTGUN_PB_RANGE - dist_from_player) / FADE_RANGE) ,0.0, 1.0)
+		var col = max(pain_col, pb_col) * 0.5
+		body.set_instance_shader_parameter("pain", col)
 	if hypno:
 		hypno_col = min(0.35, hypno_col + delta)
+		body.set_instance_shader_parameter("hypno", hypno_col)
 	else:
 		hypno_col = max(0.0, hypno_col - delta)
-	body.set_instance_shader_parameter("hypno", hypno_col)
+		body.set_instance_shader_parameter("hypno", hypno_col)
 	
 	if rising or is_asleep() or velocity.length() < 0.1:
 		mesh_body.anim_timer = 0.0
@@ -323,7 +327,7 @@ func process_bumps(delta : float):
 			bump_timers.remove_at(i)
 
 
-func _physics_process(delta):
+func ai(delta):
 	if hypno_health <= 0:
 		hypnotize()
 	if hypno:
@@ -339,14 +343,11 @@ func _physics_process(delta):
 		dist_from_target = Vector2(target.position.x, target.position.z).distance_to(Vector2(position.x, position.z))
 	mesh.position = position + init_mesh_pos
 	
-	if not is_active():
-		return
-	
 	if not alive:
 		return
 	
 	var asleep = is_asleep()
-	hitbox.disabled = not rising and not hypno and (not alive or (asleep and add_vel.is_zero_approx()))
+	hitbox.disabled = not alive
 	
 	var dir2player = player.global_position - global_position
 	var dir2player2D = Vector2(dir2player.x, dir2player.z).normalized()
@@ -448,7 +449,7 @@ func _physics_process(delta):
 	if target == null:
 		sees_target = false
 	else:
-		ray.position = Vector3(0.079, 1.642, 0.847).rotated(Vector3.UP, mesh.rotation.y)
+		ray.position = Vector3(0.079, 1.642, 0.4).rotated(Vector3.UP, mesh.rotation.y)
 		ray.target_position = ray.to_local(target.position + Vector3(0, 1, 0)).normalized() * VIS_RANGE
 		ray.force_raycast_update()
 		sees_target = ray.is_colliding() and ray.get_collider() == target
@@ -473,7 +474,11 @@ func _physics_process(delta):
 		move_and_slide()
 	
 	if not asleep:
-		var nextpos = target_pos - position
+		var nextpos
+		if target == player:
+			nextpos = player_cam.position - position
+		else:
+			nextpos = target_pos - position
 		
 		if sees_target and dist_from_target < HIT_RANGE and alive and not rising:
 			if aim_timer <= 0.0:

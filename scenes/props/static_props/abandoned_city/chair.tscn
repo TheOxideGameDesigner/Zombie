@@ -22,7 +22,6 @@ size = Vector3(0.606812, 0.740372, 0.0889282)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 material_override = ExtResource("1_ip0ua")
-visibility_range_end = 175.0
 mesh = ExtResource("2_abutl")
 script = ExtResource("3_i32n5")
 enable_rot = true

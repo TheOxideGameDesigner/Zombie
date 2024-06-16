@@ -1,9 +1,8 @@
-[gd_scene load_steps=21 format=3 uid="uid://cn0h8ppoq8uq8"]
+[gd_scene load_steps=20 format=3 uid="uid://cn0h8ppoq8uq8"]
 
 [ext_resource type="Script" path="res://scripts/enemies/mage.gd" id="1_aa64x"]
 [ext_resource type="PackedScene" uid="uid://b2mr8f4r6fqb5" path="res://scenes/environment/gibs/mage.tscn" id="2_7cli8"]
 [ext_resource type="PackedScene" uid="uid://d4k7qjsc8bglc" path="res://scenes/enemy_home.tscn" id="4_sbqsb"]
-[ext_resource type="Script" path="res://scripts/physics_lerp.gd" id="5_k7pak"]
 [ext_resource type="Texture2D" uid="uid://dsi7k27hhox0v" path="res://textures/alerted.png" id="6_3vwci"]
 [ext_resource type="Material" uid="uid://c0vwp18rc74ju" path="res://resources/materials/aura_mat.tres" id="7_c364q"]
 [ext_resource type="PackedScene" uid="uid://c6qjuc4e3ow38" path="res://models/dynamic_props/enemies/mountainside_mage.glb" id="7_g0t8h"]
@@ -45,11 +44,12 @@ material = SubResource("StandardMaterial3D_n47a8")
 radial_segments = 10
 rings = 5
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1f3un"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hve25"]
 transparency = 1
 shading_mode = 0
+albedo_color = Color(1, 1, 1, 0.1)
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_5tu6d"]
+[sub_resource type="CylinderMesh" id="CylinderMesh_tixdi"]
 radial_segments = 12
 
 [node name="mage" type="CharacterBody3D" groups=["activatable", "enemy", "lightweight"]]
@@ -92,12 +92,11 @@ shape = SubResource("CylinderShape3D_dm706")
 
 [node name="mesh" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-script = ExtResource("5_k7pak")
-enable_rot = true
 
 [node name="alerted" type="Sprite3D" parent="mesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.855, 0)
 visible = false
+visibility_range_end = 175.0
 modulate = Color(1, 0.227451, 0.243137, 0.709804)
 pixel_size = 0.0195
 billboard = 1
@@ -107,6 +106,7 @@ texture = ExtResource("6_3vwci")
 [node name="aura" type="MeshInstance3D" parent="mesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.00643, 0)
 visible = false
+visibility_range_end = 175.0
 mesh = SubResource("SphereMesh_irllb")
 
 [node name="health" type="Label3D" parent="mesh"]
@@ -128,11 +128,13 @@ script = ExtResource("10_w8c6t")
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0.752877)
 visible = false
 cast_shadow = 0
+visibility_range_end = 175.0
 mesh = SubResource("SphereMesh_atyuv")
 
 [node name="sprite_interior" type="MeshInstance3D" parent="mesh/fireball"]
 transform = Transform3D(0.635, 0, 0, 0, 0.635, 0, 0, 0, 0.635, 0, 0, 0)
 cast_shadow = 0
+visibility_range_end = 175.0
 mesh = SubResource("SphereMesh_gskn1")
 skeleton = NodePath("../..")
 
@@ -141,7 +143,7 @@ wait_time = 5.0
 one_shot = true
 
 [node name="difficulty_visualiser" parent="." instance=ExtResource("11_osjj8")]
-material_override = SubResource("StandardMaterial3D_1f3un")
-mesh = SubResource("CylinderMesh_5tu6d")
+material_override = SubResource("StandardMaterial3D_hve25")
+mesh = SubResource("CylinderMesh_tixdi")
 
 [connection signal="timeout" from="respawn" to="." method="_on_respawn_timeout"]

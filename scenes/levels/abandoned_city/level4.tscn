@@ -103,6 +103,7 @@ key_index = 3
 
 [node name="level_market" type="MeshInstance3D" parent="."]
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 mesh = ExtResource("3_ot3lf")
 
 [node name="double_speed" parent="level_market" instance=ExtResource("8_cmbmn")]
@@ -111,11 +112,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -128, 2.25, -271.5)
 [node name="level_visual_no_shadow" type="MeshInstance3D" parent="."]
 material_override = ExtResource("4_qf2ek")
 cast_shadow = 0
+ignore_occlusion_culling = true
 mesh = ExtResource("5_pxf5x")
 
 [node name="level_visual_no_shadow2" type="MeshInstance3D" parent="."]
 material_override = ExtResource("4_qf2ek")
 cast_shadow = 0
+ignore_occlusion_culling = true
 mesh = ExtResource("5_pxf5x")
 
 [node name="level_collision" type="MeshInstance3D" parent="."]
@@ -125,10 +128,12 @@ script = ExtResource("7_v80gy")
 
 [node name="buildings" type="Node3D" parent="."]
 metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
 
 [node name="Building21x21001" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -115, 0, -93)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("8_gxhnd")
 skeleton = NodePath("../..")
@@ -136,6 +141,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21002" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -70, 0, -69)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("8_gxhnd")
 skeleton = NodePath("../..")
@@ -143,6 +149,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21003" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, -44, 0, -42)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("8_gxhnd")
 skeleton = NodePath("../..")
@@ -150,6 +157,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21004" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(4.37114e-08, 0, -1, 0, 1, 0, 1, 0, 4.37114e-08, 39, 0, -66)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("8_gxhnd")
 skeleton = NodePath("../..")
@@ -157,6 +165,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21005" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, 1, 102, 0, -45)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("8_gxhnd")
 skeleton = NodePath("../..")
@@ -164,6 +173,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21006" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(-1.31134e-07, 0, 1, 0, 1, 0, -1, 0, -1.31134e-07, 188, 0, -91)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("8_gxhnd")
 skeleton = NodePath("../..")
@@ -171,6 +181,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21007" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(-1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, -1, 212, 0, -64)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("8_gxhnd")
 skeleton = NodePath("../..")
@@ -178,6 +189,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21008" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(2.18557e-07, 0, -1, 0, 1, 0, 1, 0, 2.18557e-07, 165, 0, -25)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("8_gxhnd")
 skeleton = NodePath("../..")
@@ -185,6 +197,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21009" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(1, 0, 2.62268e-07, 0, 1, 0, -2.62268e-07, 0, 1, 102, 0, 20)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("8_gxhnd")
 skeleton = NodePath("../..")
@@ -192,6 +205,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21010" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(-3.0598e-07, 0, 1, 0, 1, 0, -1, 0, -3.0598e-07, 36, 0, -4)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("8_gxhnd")
 skeleton = NodePath("../..")
@@ -199,6 +213,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21060" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(-1, 0, -3.49691e-07, 0, 1, 0, 3.49691e-07, 0, -1, 212, 0, -151)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("8_gxhnd")
 skeleton = NodePath("../..")
@@ -206,6 +221,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21011" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(-1, 0, -3.49691e-07, 0, 1, 0, 3.49691e-07, 0, -1, -5, 0, 30)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("8_gxhnd")
 skeleton = NodePath("../..")
@@ -213,6 +229,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21012" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(-1, 0, -3.49691e-07, 0, 1, 0, 3.49691e-07, 0, -1, -5, 0, -131)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("8_gxhnd")
 skeleton = NodePath("../..")
@@ -220,6 +237,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21013" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(3.93403e-07, 0, -1, 0, 1, 0, 1, 0, 3.93403e-07, -50, 0, -179)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("8_gxhnd")
 skeleton = NodePath("../..")
@@ -227,6 +245,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21014" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(1, 0, 4.37114e-07, 0, 1, 0, -4.37114e-07, 0, 1, -113, 0, -182)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("8_gxhnd")
 skeleton = NodePath("../..")
@@ -234,6 +253,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21015" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(1, 0, 4.37114e-07, 0, 1, 0, -4.37114e-07, 0, 1, 15, 0, -86)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("8_gxhnd")
 skeleton = NodePath("../..")
@@ -241,6 +261,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21016" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(-4.80825e-07, 0, 1, 0, 1, 0, -1, 0, -4.80825e-07, 36, 0, -182)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("8_gxhnd")
 skeleton = NodePath("../..")
@@ -248,6 +269,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21017" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(-1, 0, -5.24537e-07, 0, 1, 0, 5.24537e-07, 0, -1, 123, 0, -203)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("8_gxhnd")
 skeleton = NodePath("../..")
@@ -255,6 +277,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21018" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(5.68248e-07, 0, -1, 0, 1, 0, 1, 0, 5.68248e-07, 104, 0, -290)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("8_gxhnd")
 skeleton = NodePath("../..")
@@ -262,6 +285,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21019" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(1, 0, 6.1196e-07, 0, 1, 0, -6.1196e-07, 0, 1, 41, 0, -327)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("8_gxhnd")
 skeleton = NodePath("../..")
@@ -269,6 +293,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21020" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(-6.55671e-07, 0, 1, 0, 1, 0, -1, 0, -6.55671e-07, 86, 0, -375)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("8_gxhnd")
 skeleton = NodePath("../..")
@@ -276,6 +301,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21021" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(-1, 0, -6.99382e-07, 0, 1, 0, 6.99382e-07, 0, -1, 23, 0, -427)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("8_gxhnd")
 skeleton = NodePath("../..")
@@ -283,6 +309,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21022" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(7.43094e-07, 0, -1, 0, 1, 0, 1, 0, 7.43094e-07, -22, 0, -379)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("8_gxhnd")
 skeleton = NodePath("../..")
@@ -290,6 +317,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21023" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(1, 0, 7.86805e-07, 0, 1, 0, -7.86805e-07, 0, 1, -48, 0, -334)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("8_gxhnd")
 skeleton = NodePath("../..")
@@ -297,6 +325,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21024" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(-8.30517e-07, 0, 1, 0, 1, 0, -1, 0, -8.30517e-07, -169, 0, -271)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("8_gxhnd")
 skeleton = NodePath("../..")
@@ -304,6 +333,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21025" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(-1, 0, -8.74228e-07, 0, 1, 0, 8.74228e-07, 0, -1, -107, 0, -251)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("8_gxhnd")
 skeleton = NodePath("../..")
@@ -311,6 +341,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21026" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(9.17939e-07, 0, -1, 0, 1, 0, 1, 0, 9.17939e-07, -215, 0, -251)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("8_gxhnd")
 skeleton = NodePath("../..")
@@ -318,6 +349,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21027" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(1, 0, 9.61651e-07, 0, 1, 0, -9.61651e-07, 0, 1, -87, 0, -247)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("8_gxhnd")
 skeleton = NodePath("../..")
@@ -325,6 +357,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21028" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(-1.00536e-06, 0, 1, 0, 1, 0, -1, 0, -1.00536e-06, -3, 0, -223)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("8_gxhnd")
 skeleton = NodePath("../..")
@@ -332,6 +365,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21029" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(-1, 0, -1.04907e-06, 0, 1, 0, 1.04907e-06, 0, -1, 84, 0, -268)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("8_gxhnd")
 skeleton = NodePath("../..")
@@ -339,6 +373,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21030" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(-1.08778e-06, 0, 1, 0, 1, 0, -1, 0, -1.08778e-06, -4, 0, -286)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("8_gxhnd")
 skeleton = NodePath("../..")
@@ -346,6 +381,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21031" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 119, 0, -125)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("8_gxhnd")
 skeleton = NodePath("../..")
@@ -353,6 +389,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21059" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 188, 0, -139)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("8_gxhnd")
 skeleton = NodePath("../..")
@@ -360,6 +397,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21032" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -91, 0, -93)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("9_us2ft")
 skeleton = NodePath("../..")
@@ -367,6 +405,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21033" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -29, 0, -45)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("9_us2ft")
 skeleton = NodePath("../..")
@@ -374,6 +413,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21034" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(-1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, -1, -29, 0, -107)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("9_us2ft")
 skeleton = NodePath("../..")
@@ -381,6 +421,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21035" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(7.35137e-08, 0, -1, 0, 1, 0, 1, 0, 7.35137e-08, -26, 0, -155)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("9_us2ft")
 skeleton = NodePath("../..")
@@ -388,6 +429,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21036" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(1, 0, 1.17225e-07, 0, 1, 0, -1.17225e-07, 0, 1, -26, 0, -182)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("9_us2ft")
 skeleton = NodePath("../..")
@@ -395,6 +437,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21037" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(-1.60936e-07, 0, 1, 0, 1, 0, -1, 0, -1.60936e-07, -107, 0, -206)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("9_us2ft")
 skeleton = NodePath("../..")
@@ -402,6 +445,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21038" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(-1, 0, -2.04648e-07, 0, 1, 0, 2.04648e-07, 0, -1, -66, 0, -292)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("9_us2ft")
 skeleton = NodePath("../..")
@@ -409,6 +453,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21039" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(2.48359e-07, 0, -1, 0, 1, 0, 1, 0, 2.48359e-07, 104, 0, -314)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("9_us2ft")
 skeleton = NodePath("../..")
@@ -416,6 +461,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21040" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(1, 0, 2.92071e-07, 0, 1, 0, -2.92071e-07, 0, 1, 128, 0, -206)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("9_us2ft")
 skeleton = NodePath("../..")
@@ -423,6 +469,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21041" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(-3.35782e-07, 0, 1, 0, 1, 0, -1, 0, -3.35782e-07, 60, 0, -182)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("9_us2ft")
 skeleton = NodePath("../..")
@@ -430,6 +477,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21042" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(-1, 0, -3.79493e-07, 0, 1, 0, 3.79493e-07, 0, -1, 36, 0, -155)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("9_us2ft")
 skeleton = NodePath("../..")
@@ -437,6 +485,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21043" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(4.23205e-07, 0, -1, 0, 1, 0, 1, 0, 4.23205e-07, 2, 0, -403)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("9_us2ft")
 skeleton = NodePath("../..")
@@ -444,6 +493,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21044" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(1, 0, 4.66916e-07, 0, 1, 0, -4.66916e-07, 0, 1, -24, 0, -334)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("9_us2ft")
 skeleton = NodePath("../..")
@@ -451,6 +501,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21045" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(-5.10628e-07, 0, 1, 0, 1, 0, -1, 0, -5.10628e-07, 62, 0, -351)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("9_us2ft")
 skeleton = NodePath("../..")
@@ -458,6 +509,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21046" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(-1, 0, -4.91738e-07, 0, 1, 0, 4.91738e-07, 0, -1, 86, 0, -420)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("9_us2ft")
 skeleton = NodePath("../..")
@@ -465,6 +517,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21047" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(5.3545e-07, 0, -1, 0, 1, 0, 1, 0, 5.3545e-07, 128, 0, -338)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("9_us2ft")
 skeleton = NodePath("../..")
@@ -472,6 +525,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21048" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(5.3545e-07, 0, -1, 0, 1, 0, 1, 0, 5.3545e-07, 39, 0, -244)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("9_us2ft")
 skeleton = NodePath("../..")
@@ -479,6 +533,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21049" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(1, 0, 4.76837e-07, 0, 1, 0, -4.76837e-07, 0, 1, 78, 0, -4)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("9_us2ft")
 skeleton = NodePath("../..")
@@ -486,6 +541,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21050" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(-5.20549e-07, 0, 1, 0, 1, 0, -1, 0, -5.20549e-07, -5, 0, 3)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("9_us2ft")
 skeleton = NodePath("../..")
@@ -493,6 +549,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21051" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(-1, 0, -5.6426e-07, 0, 1, 0, 5.6426e-07, 0, -1, -92, 0, -42)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("9_us2ft")
 skeleton = NodePath("../..")
@@ -500,6 +557,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21052" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -92, 0, -45)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("10_4x7ip")
 skeleton = NodePath("../..")
@@ -507,6 +565,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21053" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -5, 0, -107)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("10_4x7ip")
 skeleton = NodePath("../..")
@@ -514,6 +573,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21054" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -26, 0, -66)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("10_4x7ip")
 skeleton = NodePath("../..")
@@ -521,6 +581,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21055" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 54, 0, 20)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("10_4x7ip")
 skeleton = NodePath("../..")
@@ -528,6 +589,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21061" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(-2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, 123, 0, -4)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("10_4x7ip")
 skeleton = NodePath("../..")
@@ -535,6 +597,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21062" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(-1, 0, -2.62268e-07, 0, 1, 0, 2.62268e-07, 0, -1, 188, 0, -88)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("10_4x7ip")
 skeleton = NodePath("../..")
@@ -542,6 +605,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21063" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(3.0598e-07, 0, -1, 0, 1, 0, 1, 0, 3.0598e-07, 126, 0, -105)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("10_4x7ip")
 skeleton = NodePath("../..")
@@ -549,6 +613,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21064" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(1, 0, 3.49691e-07, 0, 1, 0, -3.49691e-07, 0, 1, 15, 0, -110)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("10_4x7ip")
 skeleton = NodePath("../..")
@@ -556,6 +621,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21065" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(-3.93403e-07, 0, 1, 0, 1, 0, -1, 0, -3.93403e-07, -29, 0, -134)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("10_4x7ip")
 skeleton = NodePath("../..")
@@ -563,6 +629,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21066" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(-1, 0, -4.37114e-07, 0, 1, 0, 4.37114e-07, 0, -1, -27, 0, -244)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("10_4x7ip")
 skeleton = NodePath("../..")
@@ -570,6 +637,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21067" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(4.80825e-07, 0, -1, 0, 1, 0, 1, 0, 4.80825e-07, -214, 0, -292)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("10_4x7ip")
 skeleton = NodePath("../..")
@@ -577,6 +645,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21068" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(1, 0, 5.24537e-07, 0, 1, 0, -5.24537e-07, 0, 1, 38, 0, -286)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("10_4x7ip")
 skeleton = NodePath("../..")
@@ -584,6 +653,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21069" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(-5.68248e-07, 0, 1, 0, 1, 0, -1, 0, -5.68248e-07, 21, 0, -334)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("10_4x7ip")
 skeleton = NodePath("../..")
@@ -591,6 +661,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21070" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(-1, 0, -6.11959e-07, 0, 1, 0, 6.11959e-07, 0, -1, -1, 0, -427)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("10_4x7ip")
 skeleton = NodePath("../..")
@@ -598,6 +669,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21071" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(6.55671e-07, 0, -1, 0, 1, 0, 1, 0, 6.55671e-07, 41, 0, -420)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("10_4x7ip")
 skeleton = NodePath("../..")
@@ -605,6 +677,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21072" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(1, 0, 6.99382e-07, 0, 1, 0, -6.99382e-07, 0, 1, 65, 0, -351)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("10_4x7ip")
 skeleton = NodePath("../..")
@@ -612,6 +685,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21073" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(-7.43094e-07, 0, 1, 0, 1, 0, -1, 0, -7.43094e-07, 149, 0, -254)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("10_4x7ip")
 skeleton = NodePath("../..")
@@ -619,6 +693,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21074" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(-1, 0, -7.86805e-07, 0, 1, 0, 7.86805e-07, 0, -1, 125, 0, -227)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("10_4x7ip")
 skeleton = NodePath("../..")
@@ -626,6 +701,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21075" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(-1, 0, -7.86805e-07, 0, 1, 0, 7.86805e-07, 0, -1, 36, 0, 23)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("10_4x7ip")
 skeleton = NodePath("../..")
@@ -633,6 +709,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21056" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(-2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, 212, 0, -19)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("10_4x7ip")
 skeleton = NodePath("../..")
@@ -640,6 +717,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21095" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(-2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, 164, 0, -125)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("10_4x7ip")
 skeleton = NodePath("../..")
@@ -647,6 +725,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21057" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(3.05979e-07, 0, -1, 0, 1, 0, 1, 0, 3.05979e-07, 191, 0, -88)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("10_4x7ip")
 skeleton = NodePath("../..")
@@ -654,6 +733,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21058" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(3.0598e-07, 0, -1, 0, 1, 0, 1, 0, 3.0598e-07, 167, 0, -136)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("10_4x7ip")
 skeleton = NodePath("../..")
@@ -661,6 +741,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21076" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 0, 27)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("11_kxj6w")
 skeleton = NodePath("../..")
@@ -668,6 +749,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21077" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -68, 0, -21)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("11_kxj6w")
 skeleton = NodePath("../..")
@@ -675,6 +757,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21078" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -94, 0, -90)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("11_kxj6w")
 skeleton = NodePath("../..")
@@ -682,6 +765,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21079" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 39, 0, -107)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("11_kxj6w")
 skeleton = NodePath("../..")
@@ -689,6 +773,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21080" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 15, 0, -45)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("11_kxj6w")
 skeleton = NodePath("../..")
@@ -696,6 +781,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21081" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(-2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, 147, 0, 20)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("11_kxj6w")
 skeleton = NodePath("../..")
@@ -703,6 +789,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21082" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(-1, 0, -2.62268e-07, 0, 1, 0, 2.62268e-07, 0, -1, 99, 0, -1)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("11_kxj6w")
 skeleton = NodePath("../..")
@@ -710,6 +797,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21083" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(3.0598e-07, 0, -1, 0, 1, 0, 1, 0, 3.0598e-07, 15, 0, -179)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("11_kxj6w")
 skeleton = NodePath("../..")
@@ -717,6 +805,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21084" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(1, 0, 3.49691e-07, 0, 1, 0, -3.49691e-07, 0, 1, -50, 0, -110)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("11_kxj6w")
 skeleton = NodePath("../..")
@@ -724,6 +813,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21085" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(-3.93403e-07, 0, 1, 0, 1, 0, -1, 0, -3.93403e-07, -5, 0, -158)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("11_kxj6w")
 skeleton = NodePath("../..")
@@ -731,6 +821,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21086" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(-1, 0, -4.37114e-07, 0, 1, 0, 4.37114e-07, 0, -1, -170, 0, -251)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("11_kxj6w")
 skeleton = NodePath("../..")
@@ -738,6 +829,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21096" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(-1, 0, -4.37114e-07, 0, 1, 0, 4.37114e-07, 0, -1, -169, 0, -316)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("11_kxj6w")
 skeleton = NodePath("../..")
@@ -745,6 +837,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21097" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(4.80825e-07, 0, -1, 0, 1, 0, 1, 0, 4.80825e-07, -190, 0, -340)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("11_kxj6w")
 skeleton = NodePath("../..")
@@ -752,6 +845,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21098" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(-1, 0, -4.37114e-07, 0, 1, 0, 4.37114e-07, 0, -1, -169, 0, -364)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("11_kxj6w")
 skeleton = NodePath("../..")
@@ -759,6 +853,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21099" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(-1, 0, -4.37114e-07, 0, 1, 0, 4.37114e-07, 0, -1, -144, -1, -371)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("11_kxj6w")
 skeleton = NodePath("../..")
@@ -766,6 +861,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21100" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(4.80825e-07, 0, -1, 0, 1, 0, 1, 0, 4.80825e-07, -138, -1, -371)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("11_kxj6w")
 skeleton = NodePath("../..")
@@ -773,6 +869,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21101" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(1, 0, 5.24537e-07, 0, 1, 0, -5.24537e-07, 0, 1, -112, -1, -351)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("11_kxj6w")
 skeleton = NodePath("../..")
@@ -780,6 +877,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21087" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(4.80825e-07, 0, -1, 0, 1, 0, 1, 0, 4.80825e-07, 63, 0, -244)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("11_kxj6w")
 skeleton = NodePath("../..")
@@ -787,6 +885,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21088" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(1, 0, 5.24537e-07, 0, 1, 0, -5.24537e-07, 0, 1, 2, 0, -358)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("11_kxj6w")
 skeleton = NodePath("../..")
@@ -794,6 +893,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21089" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(-4.91738e-07, 0, 1, 0, 1, 0, -1, 0, -4.91738e-07, -1, 0, -382)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("11_kxj6w")
 skeleton = NodePath("../..")
@@ -801,6 +901,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21090" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(-1, 0, -5.3545e-07, 0, 1, 0, 5.3545e-07, 0, -1, 62, 0, -396)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("11_kxj6w")
 skeleton = NodePath("../..")
@@ -808,6 +909,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21091" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(5.79161e-07, 0, -1, 0, 1, 0, 1, 0, 5.79161e-07, 128, 0, -251)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("11_kxj6w")
 skeleton = NodePath("../..")
@@ -815,6 +917,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21092" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(1, 0, 6.22873e-07, 0, 1, 0, -6.22873e-07, 0, 1, 126, 0, -182)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("11_kxj6w")
 skeleton = NodePath("../..")
@@ -822,6 +925,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21093" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(-6.66584e-07, 0, 1, 0, 1, 0, -1, 0, -6.66584e-07, 125, 0, -317)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("11_kxj6w")
 skeleton = NodePath("../..")
@@ -829,6 +933,7 @@ skeleton = NodePath("../..")
 [node name="Building21x21094" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(-1, 0, -7.10295e-07, 0, 1, 0, 7.10295e-07, 0, -1, -29, 0, -203)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("11_kxj6w")
 skeleton = NodePath("../..")
@@ -836,6 +941,7 @@ skeleton = NodePath("../..")
 [node name="Building36x21001" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -167, 0, -230)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("12_sv1oc")
 skeleton = NodePath("../..")
@@ -843,6 +949,7 @@ skeleton = NodePath("../..")
 [node name="Building36x21002" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 36, 0, -244)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("12_sv1oc")
 skeleton = NodePath("../..")
@@ -850,6 +957,7 @@ skeleton = NodePath("../..")
 [node name="Building36x21003" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -63, 0, -286)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("12_sv1oc")
 skeleton = NodePath("../..")
@@ -857,6 +965,7 @@ skeleton = NodePath("../..")
 [node name="Building36x21004" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 125, 0, -230)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("12_sv1oc")
 skeleton = NodePath("../..")
@@ -864,6 +973,7 @@ skeleton = NodePath("../..")
 [node name="Building36x21005" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -51, 0, -355)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("12_sv1oc")
 skeleton = NodePath("../..")
@@ -871,6 +981,7 @@ skeleton = NodePath("../..")
 [node name="Building36x21006" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65, 0, -327)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("12_sv1oc")
 skeleton = NodePath("../..")
@@ -878,6 +989,7 @@ skeleton = NodePath("../..")
 [node name="Building36x21007" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(-1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -1, 116, 0, -146)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("12_sv1oc")
 skeleton = NodePath("../..")
@@ -885,6 +997,7 @@ skeleton = NodePath("../..")
 [node name="Building36x21008" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(-4.56956e-08, 0, 1, 0, 1, 0, -1, 0, -4.56956e-08, 212, 0, -91)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("12_sv1oc")
 skeleton = NodePath("../..")
@@ -892,6 +1005,7 @@ skeleton = NodePath("../..")
 [node name="Building36x21009" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(-5.96046e-08, 0, -1, 0, 1, 0, 1, 0, -5.96046e-08, 126, 0, -81)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("12_sv1oc")
 skeleton = NodePath("../..")
@@ -899,6 +1013,7 @@ skeleton = NodePath("../..")
 [node name="Building36x21010" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(1, 0, -1.58933e-08, 0, 1, 0, 1.58933e-08, 0, 1, 150, 0, 20)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("12_sv1oc")
 skeleton = NodePath("../..")
@@ -906,6 +1021,7 @@ skeleton = NodePath("../..")
 [node name="Building36x21011" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(-1, 0, -7.15295e-08, 0, 1, 0, 7.15295e-08, 0, -1, -5, 0, -42)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("12_sv1oc")
 skeleton = NodePath("../..")
@@ -913,6 +1029,7 @@ skeleton = NodePath("../..")
 [node name="Building36x21012" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -89, 0, -45)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("13_tbqbv")
 skeleton = NodePath("../..")
@@ -920,6 +1037,7 @@ skeleton = NodePath("../..")
 [node name="Building36x21013" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 84, 0, -86)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("13_tbqbv")
 skeleton = NodePath("../..")
@@ -927,6 +1045,7 @@ skeleton = NodePath("../..")
 [node name="Building36x21014" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(-1, 0, -4.37114e-08, 0, 1, 0, 4.37114e-08, 0, -1, 99, 0, -66)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("13_tbqbv")
 skeleton = NodePath("../..")
@@ -934,6 +1053,7 @@ skeleton = NodePath("../..")
 [node name="Building36x21015" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(1, 0, 1.31134e-07, 0, 1, 0, -1.31134e-07, 0, 1, 128, 0, -149)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("13_tbqbv")
 skeleton = NodePath("../..")
@@ -941,6 +1061,7 @@ skeleton = NodePath("../..")
 [node name="Building36x21016" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(-1, 0, -4.37114e-08, 0, 1, 0, 4.37114e-08, 0, -1, -51, 0, -244)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("13_tbqbv")
 skeleton = NodePath("../..")
@@ -948,6 +1069,7 @@ skeleton = NodePath("../..")
 [node name="Building36x21017" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 83, 0, -271)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("13_tbqbv")
 skeleton = NodePath("../..")
@@ -955,6 +1077,7 @@ skeleton = NodePath("../..")
 [node name="Building36x21018" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(-1, 0, -4.37114e-08, 0, 1, 0, 4.37114e-08, 0, -1, 99, 0, -203)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("13_tbqbv")
 skeleton = NodePath("../..")
@@ -962,6 +1085,7 @@ skeleton = NodePath("../..")
 [node name="Building36x21019" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(-3.55271e-15, 0, 1, 0, 1, 0, -1, 0, -3.55271e-15, 210, 0, 20)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("13_tbqbv")
 skeleton = NodePath("../..")
@@ -969,6 +1093,7 @@ skeleton = NodePath("../..")
 [node name="Building36x21020" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(-1, 0, -4.37114e-08, 0, 1, 0, 4.37114e-08, 0, -1, 51, 0, -1)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("13_tbqbv")
 skeleton = NodePath("../..")
@@ -976,6 +1101,7 @@ skeleton = NodePath("../..")
 [node name="Building36x21021" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(-7.10543e-15, 0, 1, 0, 1, 0, -1, 0, -7.10543e-15, 188, 0, -28)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("13_tbqbv")
 skeleton = NodePath("../..")
@@ -983,6 +1109,7 @@ skeleton = NodePath("../..")
 [node name="Building36x21022" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39, 0, -4)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("14_gnq0n")
 skeleton = NodePath("../..")
@@ -990,6 +1117,7 @@ skeleton = NodePath("../..")
 [node name="Building36x21023" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 162, 0, -25)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("14_gnq0n")
 skeleton = NodePath("../..")
@@ -997,6 +1125,7 @@ skeleton = NodePath("../..")
 [node name="Building36x21024" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 123, 0, -69)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("14_gnq0n")
 skeleton = NodePath("../..")
@@ -1004,6 +1133,7 @@ skeleton = NodePath("../..")
 [node name="Building36x21025" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, -53, 0, -203)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("14_gnq0n")
 skeleton = NodePath("../..")
@@ -1011,6 +1141,7 @@ skeleton = NodePath("../..")
 [node name="Building36x21026" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, 1, -1, 0, -286)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("14_gnq0n")
 skeleton = NodePath("../..")
@@ -1018,6 +1149,7 @@ skeleton = NodePath("../..")
 [node name="Building36x21027" type="MeshInstance3D" parent="buildings"]
 transform = Transform3D(-4.47035e-08, 0, 1, 0, 1, 0, -1, 0, -4.47035e-08, 149, 0, -278)
 material_override = ExtResource("2_bujs1")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("14_gnq0n")
 skeleton = NodePath("../..")
@@ -1217,12 +1349,82 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.9019, -0.75, -386.441)
 [node name="DeadTree022" parent="various_stuff_im_too_lazy_to_name_these_anymore" instance=ExtResource("25_gqo5j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.4063, -0.750002, -393.046)
 
+[node name="dumpster" parent="various_stuff_im_too_lazy_to_name_these_anymore" instance=ExtResource("48_hbotc")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -72.2547, 0.228874, -292.701)
+
+[node name="dumpster2" parent="various_stuff_im_too_lazy_to_name_these_anymore" instance=ExtResource("49_i8fqu")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -79.5041, 0.228874, -292.693)
+
+[node name="Grass" type="MeshInstance3D" parent="various_stuff_im_too_lazy_to_name_these_anymore"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100.467, -0.82748, -121.987)
+material_override = ExtResource("4_qf2ek")
+visibility_range_end = 175.0
+mesh = ExtResource("47_xpgyf")
+skeleton = NodePath("../..")
+
+[node name="Grass2" type="MeshInstance3D" parent="various_stuff_im_too_lazy_to_name_these_anymore"]
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, -73.9074, -0.827482, -157.729)
+material_override = ExtResource("4_qf2ek")
+visibility_range_end = 175.0
+mesh = ExtResource("47_xpgyf")
+skeleton = NodePath("../..")
+
+[node name="Grass9" type="MeshInstance3D" parent="various_stuff_im_too_lazy_to_name_these_anymore"]
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, -59.8759, -0.827482, -171.27)
+material_override = ExtResource("4_qf2ek")
+visibility_range_end = 175.0
+mesh = ExtResource("47_xpgyf")
+skeleton = NodePath("../..")
+
+[node name="Grass8" type="MeshInstance3D" parent="various_stuff_im_too_lazy_to_name_these_anymore"]
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, -94.9482, -0.827482, -143.896)
+material_override = ExtResource("4_qf2ek")
+visibility_range_end = 175.0
+mesh = ExtResource("47_xpgyf")
+skeleton = NodePath("../..")
+
+[node name="Grass3" type="MeshInstance3D" parent="various_stuff_im_too_lazy_to_name_these_anymore"]
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, -99.9321, -0.827482, -173.942)
+material_override = ExtResource("4_qf2ek")
+visibility_range_end = 175.0
+mesh = ExtResource("47_xpgyf")
+skeleton = NodePath("../..")
+
+[node name="Grass4" type="MeshInstance3D" parent="various_stuff_im_too_lazy_to_name_these_anymore"]
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, -82.9351, -0.827482, -128.853)
+material_override = ExtResource("4_qf2ek")
+visibility_range_end = 175.0
+mesh = ExtResource("47_xpgyf")
+skeleton = NodePath("../..")
+
+[node name="Grass5" type="MeshInstance3D" parent="various_stuff_im_too_lazy_to_name_these_anymore"]
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, -59.7764, -0.827482, -143.248)
+material_override = ExtResource("4_qf2ek")
+visibility_range_end = 175.0
+mesh = ExtResource("47_xpgyf")
+skeleton = NodePath("../..")
+
+[node name="Grass6" type="MeshInstance3D" parent="various_stuff_im_too_lazy_to_name_these_anymore"]
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, -56.3432, -0.827482, -110.006)
+material_override = ExtResource("4_qf2ek")
+visibility_range_end = 175.0
+mesh = ExtResource("47_xpgyf")
+skeleton = NodePath("../..")
+
+[node name="Grass7" type="MeshInstance3D" parent="various_stuff_im_too_lazy_to_name_these_anymore"]
+transform = Transform3D(1.105, 0, 0, 0, 1.105, 0, 0, 0, 1.105, -66.3261, -0.827482, -123.807)
+material_override = ExtResource("4_qf2ek")
+visibility_range_end = 175.0
+mesh = ExtResource("47_xpgyf")
+skeleton = NodePath("../..")
+
 [node name="barriers" type="Node3D" parent="."]
 metadata/_edit_lock_ = true
 
 [node name="Barrier001" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -90, 0.1, -272)
 material_override = ExtResource("15_to35k")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("16_gf8w1")
 skeleton = NodePath("../..")
@@ -1230,6 +1432,7 @@ skeleton = NodePath("../..")
 [node name="Barrier002" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -86, 0.1, -247)
 material_override = ExtResource("15_to35k")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("16_gf8w1")
 skeleton = NodePath("../..")
@@ -1237,6 +1440,7 @@ skeleton = NodePath("../..")
 [node name="Barrier029" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -128, 0.1, -250)
 material_override = ExtResource("15_to35k")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("16_gf8w1")
 skeleton = NodePath("../..")
@@ -1244,6 +1448,7 @@ skeleton = NodePath("../..")
 [node name="Barrier030" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -108, 0.1, -203)
 material_override = ExtResource("15_to35k")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("16_gf8w1")
 skeleton = NodePath("../..")
@@ -1251,6 +1456,7 @@ skeleton = NodePath("../..")
 [node name="Barrier031" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -26, 0.1, -202)
 material_override = ExtResource("15_to35k")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("16_gf8w1")
 skeleton = NodePath("../..")
@@ -1258,6 +1464,7 @@ skeleton = NodePath("../..")
 [node name="Barrier003" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -51, 0.1, -224)
 material_override = ExtResource("15_to35k")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("16_gf8w1")
 skeleton = NodePath("../..")
@@ -1265,6 +1472,7 @@ skeleton = NodePath("../..")
 [node name="Barrier004" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 0.1, -224)
 material_override = ExtResource("15_to35k")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("16_gf8w1")
 skeleton = NodePath("../..")
@@ -1272,6 +1480,7 @@ skeleton = NodePath("../..")
 [node name="Barrier016" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6, 0.1, -179)
 material_override = ExtResource("15_to35k")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("16_gf8w1")
 skeleton = NodePath("../..")
@@ -1279,6 +1488,7 @@ skeleton = NodePath("../..")
 [node name="Barrier017" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 16, 0.1, -155)
 material_override = ExtResource("15_to35k")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("16_gf8w1")
 skeleton = NodePath("../..")
@@ -1286,6 +1496,7 @@ skeleton = NodePath("../..")
 [node name="Barrier018" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6, 0.1, -107)
 material_override = ExtResource("15_to35k")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("16_gf8w1")
 skeleton = NodePath("../..")
@@ -1293,6 +1504,7 @@ skeleton = NodePath("../..")
 [node name="Barrier019" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 63, 0.1, -87)
 material_override = ExtResource("15_to35k")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("16_gf8w1")
 skeleton = NodePath("../..")
@@ -1300,6 +1512,7 @@ skeleton = NodePath("../..")
 [node name="Barrier020" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 39, 0.1, -65)
 material_override = ExtResource("15_to35k")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("16_gf8w1")
 skeleton = NodePath("../..")
@@ -1307,6 +1520,7 @@ skeleton = NodePath("../..")
 [node name="Barrier021" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 102, 0.1, -65)
 material_override = ExtResource("15_to35k")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("16_gf8w1")
 skeleton = NodePath("../..")
@@ -1314,6 +1528,7 @@ skeleton = NodePath("../..")
 [node name="Barrier022" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 119, 0.1, -126)
 material_override = ExtResource("15_to35k")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("16_gf8w1")
 skeleton = NodePath("../..")
@@ -1321,6 +1536,7 @@ skeleton = NodePath("../..")
 [node name="Barrier023" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 168, 0.1, -115)
 material_override = ExtResource("15_to35k")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("16_gf8w1")
 skeleton = NodePath("../..")
@@ -1328,6 +1544,7 @@ skeleton = NodePath("../..")
 [node name="Barrier024" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 164, 0.1, -150)
 material_override = ExtResource("15_to35k")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("16_gf8w1")
 skeleton = NodePath("../..")
@@ -1335,6 +1552,7 @@ skeleton = NodePath("../..")
 [node name="Barrier025" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 168, 0.1, -28)
 material_override = ExtResource("15_to35k")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("16_gf8w1")
 skeleton = NodePath("../..")
@@ -1342,6 +1560,7 @@ skeleton = NodePath("../..")
 [node name="Barrier026" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 102, 0.1, -24)
 material_override = ExtResource("15_to35k")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("16_gf8w1")
 skeleton = NodePath("../..")
@@ -1349,6 +1568,7 @@ skeleton = NodePath("../..")
 [node name="Barrier045" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 39, 0.1, -24)
 material_override = ExtResource("15_to35k")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("16_gf8w1")
 skeleton = NodePath("../..")
@@ -1356,6 +1576,7 @@ skeleton = NodePath("../..")
 [node name="Barrier043" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 63, 0.1, -46)
 material_override = ExtResource("15_to35k")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("16_gf8w1")
 skeleton = NodePath("../..")
@@ -1363,6 +1584,7 @@ skeleton = NodePath("../..")
 [node name="Barrier027" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6, 0.1, -18)
 material_override = ExtResource("15_to35k")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("16_gf8w1")
 skeleton = NodePath("../..")
@@ -1370,6 +1592,7 @@ skeleton = NodePath("../..")
 [node name="Barrier028" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -26, 0.1, -65)
 material_override = ExtResource("15_to35k")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("16_gf8w1")
 skeleton = NodePath("../..")
@@ -1377,6 +1600,7 @@ skeleton = NodePath("../..")
 [node name="Barrier037" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -49, 0.1, -107)
 material_override = ExtResource("15_to35k")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("16_gf8w1")
 skeleton = NodePath("../..")
@@ -1384,6 +1608,7 @@ skeleton = NodePath("../..")
 [node name="Barrier038" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -49, 0.1, -179)
 material_override = ExtResource("15_to35k")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("16_gf8w1")
 skeleton = NodePath("../..")
@@ -1391,6 +1616,7 @@ skeleton = NodePath("../..")
 [node name="Barrier005" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 83, 0.1, -244)
 material_override = ExtResource("15_to35k")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("16_gf8w1")
 skeleton = NodePath("../..")
@@ -1398,6 +1624,7 @@ skeleton = NodePath("../..")
 [node name="Barrier006" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 62, 0.1, -306)
 material_override = ExtResource("15_to35k")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("16_gf8w1")
 skeleton = NodePath("../..")
@@ -1405,6 +1632,7 @@ skeleton = NodePath("../..")
 [node name="Barrier079" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 20, 0.1, -355)
 material_override = ExtResource("15_to35k")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("16_gf8w1")
 skeleton = NodePath("../..")
@@ -1412,6 +1640,7 @@ skeleton = NodePath("../..")
 [node name="Barrier007" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -25, 0.1, -306)
 material_override = ExtResource("15_to35k")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("16_gf8w1")
 skeleton = NodePath("../..")
@@ -1419,6 +1648,7 @@ skeleton = NodePath("../..")
 [node name="Barrier008" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -25, 0.1, -287)
 material_override = ExtResource("15_to35k")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("16_gf8w1")
 skeleton = NodePath("../..")
@@ -1426,6 +1656,7 @@ skeleton = NodePath("../..")
 [node name="Barrier009" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 65, 0.1, -328)
 material_override = ExtResource("15_to35k")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("16_gf8w1")
 skeleton = NodePath("../..")
@@ -1433,6 +1664,7 @@ skeleton = NodePath("../..")
 [node name="Barrier010" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -24, 0.1, -335)
 material_override = ExtResource("15_to35k")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("16_gf8w1")
 skeleton = NodePath("../..")
@@ -1440,6 +1672,7 @@ skeleton = NodePath("../..")
 [node name="Barrier011" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -87, 0.1, -335)
 material_override = ExtResource("15_to35k")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("16_gf8w1")
 skeleton = NodePath("../..")
@@ -1447,6 +1680,7 @@ skeleton = NodePath("../..")
 [node name="Barrier012" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -87, 0.1, -291)
 material_override = ExtResource("15_to35k")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("16_gf8w1")
 skeleton = NodePath("../..")
@@ -1454,6 +1688,7 @@ skeleton = NodePath("../..")
 [node name="Barrier013" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 39, 0.1, -202)
 material_override = ExtResource("15_to35k")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("16_gf8w1")
 skeleton = NodePath("../..")
@@ -1461,6 +1696,7 @@ skeleton = NodePath("../..")
 [node name="Barrier014" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 105, 0.1, -206)
 material_override = ExtResource("15_to35k")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("16_gf8w1")
 skeleton = NodePath("../..")
@@ -1468,6 +1704,7 @@ skeleton = NodePath("../..")
 [node name="Barrier015" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 105, 0.1, -293)
 material_override = ExtResource("15_to35k")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("16_gf8w1")
 skeleton = NodePath("../..")
@@ -1475,6 +1712,7 @@ skeleton = NodePath("../..")
 [node name="Barrier032" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -6, 0.216461, -45)
 material_override = ExtResource("4_qf2ek")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("19_uacvs")
 skeleton = NodePath("../..")
@@ -1482,6 +1720,7 @@ skeleton = NodePath("../..")
 [node name="Barrier033" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -53, 0.216461, -65)
 material_override = ExtResource("4_qf2ek")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("19_uacvs")
 skeleton = NodePath("../..")
@@ -1489,6 +1728,7 @@ skeleton = NodePath("../..")
 [node name="Barrier034" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(2.98023e-08, 0, -1, 0, 1, 0, 1, 0, 2.98023e-08, -71, 0.216461, -93)
 material_override = ExtResource("4_qf2ek")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("19_uacvs")
 skeleton = NodePath("../..")
@@ -1496,6 +1736,7 @@ skeleton = NodePath("../..")
 [node name="Barrier035" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(-1, 0, 1.39091e-08, 0, 1, 0, -1.39091e-08, 0, -1, -89, 0.216461, -183)
 material_override = ExtResource("4_qf2ek")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("19_uacvs")
 skeleton = NodePath("../..")
@@ -1503,6 +1744,7 @@ skeleton = NodePath("../..")
 [node name="Barrier036" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(5.76205e-08, 0, 1, 0, 1, 0, -1, 0, 5.76205e-08, -49, 0.216461, -155)
 material_override = ExtResource("4_qf2ek")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("19_uacvs")
 skeleton = NodePath("../..")
@@ -1510,6 +1752,7 @@ skeleton = NodePath("../..")
 [node name="Barrier039" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(1, 0, -1.01332e-07, 0, 1, 0, 1.01332e-07, 0, 1, -94, 0.216461, -113)
 material_override = ExtResource("4_qf2ek")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("19_uacvs")
 skeleton = NodePath("../..")
@@ -1517,6 +1760,7 @@ skeleton = NodePath("../..")
 [node name="Barrier040" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(-1.45043e-07, 0, -1, 0, 1, 0, 1, 0, -1.45043e-07, -6, 0.216461, 27)
 material_override = ExtResource("4_qf2ek")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("19_uacvs")
 skeleton = NodePath("../..")
@@ -1524,6 +1768,7 @@ skeleton = NodePath("../..")
 [node name="Barrier041" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(-1, 0, 1.88755e-07, 0, 1, 0, -1.88755e-07, 0, -1, 39, 0.216461, -46)
 material_override = ExtResource("4_qf2ek")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("19_uacvs")
 skeleton = NodePath("../..")
@@ -1531,6 +1776,7 @@ skeleton = NodePath("../..")
 [node name="Barrier042" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(-1, 0, 1.88755e-07, 0, 1, 0, -1.88755e-07, 0, -1, 126, 0.216461, -46)
 material_override = ExtResource("4_qf2ek")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("19_uacvs")
 skeleton = NodePath("../..")
@@ -1538,6 +1784,7 @@ skeleton = NodePath("../..")
 [node name="Barrier046" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(1, 0, -1.01332e-07, 0, 1, 0, 1.01332e-07, 0, 1, 123, 0.216461, -24)
 material_override = ExtResource("4_qf2ek")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("19_uacvs")
 skeleton = NodePath("../..")
@@ -1545,6 +1792,7 @@ skeleton = NodePath("../..")
 [node name="Barrier047" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(5.76205e-08, 0, 1, 0, 1, 0, -1, 0, 5.76205e-08, 168, 0.216461, -88)
 material_override = ExtResource("4_qf2ek")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("19_uacvs")
 skeleton = NodePath("../..")
@@ -1552,6 +1800,7 @@ skeleton = NodePath("../..")
 [node name="Barrier048" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(-1, 0, 1.39091e-08, 0, 1, 0, -1.39091e-08, 0, -1, 143, 0.216461, -126)
 material_override = ExtResource("4_qf2ek")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("19_uacvs")
 skeleton = NodePath("../..")
@@ -1559,6 +1808,7 @@ skeleton = NodePath("../..")
 [node name="Barrier049" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(1, 0, -1.01332e-07, 0, 1, 0, 1.01332e-07, 0, 1, 60, 0.216461, -65)
 material_override = ExtResource("4_qf2ek")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("19_uacvs")
 skeleton = NodePath("../..")
@@ -1566,6 +1816,7 @@ skeleton = NodePath("../..")
 [node name="Barrier050" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(-1.45043e-07, 0, -1, 0, 1, 0, 1, 0, -1.45043e-07, -6, 0.216461, -134)
 material_override = ExtResource("4_qf2ek")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("19_uacvs")
 skeleton = NodePath("../..")
@@ -1573,6 +1824,7 @@ skeleton = NodePath("../..")
 [node name="Barrier051" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(1, 0, -1.01332e-07, 0, 1, 0, 1.01332e-07, 0, 1, -53, 0.216461, -202)
 material_override = ExtResource("4_qf2ek")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("19_uacvs")
 skeleton = NodePath("../..")
@@ -1580,6 +1832,7 @@ skeleton = NodePath("../..")
 [node name="Barrier052" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(-1.45043e-07, 0, -1, 0, 1, 0, 1, 0, -1.45043e-07, -108, 0.216461, -230)
 material_override = ExtResource("4_qf2ek")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("19_uacvs")
 skeleton = NodePath("../..")
@@ -1587,6 +1840,7 @@ skeleton = NodePath("../..")
 [node name="Barrier090" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(1, 0, -1.01332e-07, 0, 1, 0, 1.01332e-07, 0, 1, -170, 0.216461, -250)
 material_override = ExtResource("4_qf2ek")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("19_uacvs")
 skeleton = NodePath("../..")
@@ -1594,6 +1848,7 @@ skeleton = NodePath("../..")
 [node name="Barrier053" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(-1, 0, 1.88755e-07, 0, 1, 0, -1.88755e-07, 0, -1, -48, 0.216461, -335)
 material_override = ExtResource("4_qf2ek")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("19_uacvs")
 skeleton = NodePath("../..")
@@ -1601,6 +1856,7 @@ skeleton = NodePath("../..")
 [node name="Barrier054" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(1, 0, -2.83122e-07, 0, 1, 0, 2.83122e-07, 0, 1, -66, 0.216461, -291)
 material_override = ExtResource("4_qf2ek")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("19_uacvs")
 skeleton = NodePath("../..")
@@ -1608,6 +1864,7 @@ skeleton = NodePath("../..")
 [node name="Barrier055" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(1, 0, -2.83122e-07, 0, 1, 0, 2.83122e-07, 0, 1, 35, 0.216461, -306)
 material_override = ExtResource("4_qf2ek")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("19_uacvs")
 skeleton = NodePath("../..")
@@ -1615,6 +1872,7 @@ skeleton = NodePath("../..")
 [node name="Barrier088" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(2.39411e-07, 0, 1, 0, 1, 0, -1, 0, 2.39411e-07, 42, 0.216461, -348)
 material_override = ExtResource("4_qf2ek")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("19_uacvs")
 skeleton = NodePath("../..")
@@ -1622,6 +1880,7 @@ skeleton = NodePath("../..")
 [node name="Barrier056" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(-1, 0, 3.70545e-07, 0, 1, 0, -3.70545e-07, 0, -1, 104, 0.216461, -328)
 material_override = ExtResource("4_qf2ek")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("19_uacvs")
 skeleton = NodePath("../..")
@@ -1629,6 +1888,7 @@ skeleton = NodePath("../..")
 [node name="Barrier057" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(4.14256e-07, 0, 1, 0, 1, 0, -1, 0, 4.14256e-07, 105, 0.216461, -227)
 material_override = ExtResource("4_qf2ek")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("19_uacvs")
 skeleton = NodePath("../..")
@@ -1636,6 +1896,7 @@ skeleton = NodePath("../..")
 [node name="Barrier058" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(1, 0, -4.57968e-07, 0, 1, 0, 4.57968e-07, 0, 1, 60, 0.216461, -202)
 material_override = ExtResource("4_qf2ek")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("19_uacvs")
 skeleton = NodePath("../..")
@@ -1643,6 +1904,7 @@ skeleton = NodePath("../..")
 [node name="Barrier059" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(4.14256e-07, 0, 1, 0, 1, 0, -1, 0, 4.14256e-07, 16, 0.216461, -107)
 material_override = ExtResource("4_qf2ek")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("19_uacvs")
 skeleton = NodePath("../..")
@@ -1650,6 +1912,7 @@ skeleton = NodePath("../..")
 [node name="Barrier060" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(4.14256e-07, 0, 1, 0, 1, 0, -1, 0, 4.14256e-07, 16, 0.216461, -179)
 material_override = ExtResource("4_qf2ek")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("19_uacvs")
 skeleton = NodePath("../..")
@@ -1657,6 +1920,7 @@ skeleton = NodePath("../..")
 [node name="Barrier061" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(-3.26833e-07, 0, -1, 0, 1, 0, 1, 0, -3.26833e-07, 83, 0.216461, -125)
 material_override = ExtResource("4_qf2ek")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("19_uacvs")
 skeleton = NodePath("../..")
@@ -1664,6 +1928,7 @@ skeleton = NodePath("../..")
 [node name="Barrier062" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(-1, 0, 3.70545e-07, 0, 1, 0, -3.70545e-07, 0, -1, -24, 0.216461, -224)
 material_override = ExtResource("4_qf2ek")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("19_uacvs")
 skeleton = NodePath("../..")
@@ -1671,6 +1936,7 @@ skeleton = NodePath("../..")
 [node name="Barrier044" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(2.32466e-07, 0, 1, 0, 1, 0, -1, 0, 2.32466e-07, 168, 0.216461, -64)
 material_override = ExtResource("4_qf2ek")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("19_uacvs")
 skeleton = NodePath("../..")
@@ -1678,6 +1944,7 @@ skeleton = NodePath("../..")
 [node name="Barrier063" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.236603, -224)
 material_override = ExtResource("4_qf2ek")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("20_nmdqm")
 skeleton = NodePath("../..")
@@ -1685,6 +1952,7 @@ skeleton = NodePath("../..")
 [node name="Barrier064" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 63, 0.236603, -224)
 material_override = ExtResource("4_qf2ek")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("20_nmdqm")
 skeleton = NodePath("../..")
@@ -1692,6 +1960,7 @@ skeleton = NodePath("../..")
 [node name="Barrier075" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, 1, -92, 0.236603, -202)
 material_override = ExtResource("4_qf2ek")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("20_nmdqm")
 skeleton = NodePath("../..")
@@ -1699,6 +1968,7 @@ skeleton = NodePath("../..")
 [node name="Barrier076" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(-1.03316e-07, 0, 1, 0, 1, 0, -1, 0, -1.03316e-07, -86, 0.236603, -268)
 material_override = ExtResource("4_qf2ek")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("20_nmdqm")
 skeleton = NodePath("../..")
@@ -1706,6 +1976,7 @@ skeleton = NodePath("../..")
 [node name="Barrier089" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(-1, 0, -1.47027e-07, 0, 1, 0, 1.47027e-07, 0, -1, -166, 0.236603, -272)
 material_override = ExtResource("4_qf2ek")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("20_nmdqm")
 skeleton = NodePath("../..")
@@ -1713,6 +1984,7 @@ skeleton = NodePath("../..")
 [node name="Barrier077" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, 1, -4, 0.236603, -306)
 material_override = ExtResource("4_qf2ek")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("20_nmdqm")
 skeleton = NodePath("../..")
@@ -1720,6 +1992,7 @@ skeleton = NodePath("../..")
 [node name="Barrier078" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(-1, 0, 2.78181e-08, 0, 1, 0, -2.78181e-08, 0, -1, 0, 0.236603, -335)
 material_override = ExtResource("4_qf2ek")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("20_nmdqm")
 skeleton = NodePath("../..")
@@ -1727,6 +2000,7 @@ skeleton = NodePath("../..")
 [node name="Barrier080" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(7.15295e-08, 0, 1, 0, 1, 0, -1, 0, 7.15295e-08, 105, 0.236603, -266)
 material_override = ExtResource("4_qf2ek")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("20_nmdqm")
 skeleton = NodePath("../..")
@@ -1734,6 +2008,7 @@ skeleton = NodePath("../..")
 [node name="Barrier081" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(-1, 0, 2.78181e-08, 0, 1, 0, -2.78181e-08, 0, -1, 102, 0.236603, -46)
 material_override = ExtResource("4_qf2ek")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("20_nmdqm")
 skeleton = NodePath("../..")
@@ -1741,6 +2016,7 @@ skeleton = NodePath("../..")
 [node name="Barrier082" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(-2.98023e-08, 0, -1, 0, 1, 0, 1, 0, -2.98023e-08, 146, 0.236603, -84)
 material_override = ExtResource("4_qf2ek")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("20_nmdqm")
 skeleton = NodePath("../..")
@@ -1748,6 +2024,7 @@ skeleton = NodePath("../..")
 [node name="Barrier083" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(1, 0, 1.39091e-08, 0, 1, 0, -1.39091e-08, 0, 1, 123, 0.236603, -104)
 material_override = ExtResource("4_qf2ek")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("20_nmdqm")
 skeleton = NodePath("../..")
@@ -1755,6 +2032,7 @@ skeleton = NodePath("../..")
 [node name="Barrier084" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(-5.76204e-08, 0, 1, 0, 1, 0, -1, 0, -5.76204e-08, 103, 0.236603, -66)
 material_override = ExtResource("4_qf2ek")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("20_nmdqm")
 skeleton = NodePath("../..")
@@ -1762,6 +2040,7 @@ skeleton = NodePath("../..")
 [node name="Barrier085" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(1, 0, 1.39091e-08, 0, 1, 0, -1.39091e-08, 0, 1, 162, 0.236603, -24)
 material_override = ExtResource("4_qf2ek")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("20_nmdqm")
 skeleton = NodePath("../..")
@@ -1769,6 +2048,7 @@ skeleton = NodePath("../..")
 [node name="Barrier086" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(-1, 0, -1.01332e-07, 0, 1, 0, 1.01332e-07, 0, -1, 167, 0.236603, -126)
 material_override = ExtResource("4_qf2ek")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("20_nmdqm")
 skeleton = NodePath("../..")
@@ -1776,6 +2056,7 @@ skeleton = NodePath("../..")
 [node name="Barrier087" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(1, 0, 1.39091e-08, 0, 1, 0, -1.39091e-08, 0, 1, 75, 0.236603, -24)
 material_override = ExtResource("4_qf2ek")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("20_nmdqm")
 skeleton = NodePath("../..")
@@ -1783,6 +2064,7 @@ skeleton = NodePath("../..")
 [node name="Barrier065" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 82, 0.236603, -271)
 material_override = ExtResource("4_qf2ek")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("20_nmdqm")
 skeleton = NodePath("../..")
@@ -1790,6 +2072,7 @@ skeleton = NodePath("../..")
 [node name="Barrier066" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(-2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, 105, 0.237, -314)
 material_override = ExtResource("4_qf2ek")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("20_nmdqm")
 skeleton = NodePath("../..")
@@ -1797,6 +2080,7 @@ skeleton = NodePath("../..")
 [node name="Barrier067" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 99, 0.237, -202)
 material_override = ExtResource("4_qf2ek")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("20_nmdqm")
 skeleton = NodePath("../..")
@@ -1804,6 +2088,7 @@ skeleton = NodePath("../..")
 [node name="Barrier068" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -6, 0.237, -158)
 material_override = ExtResource("4_qf2ek")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("20_nmdqm")
 skeleton = NodePath("../..")
@@ -1811,6 +2096,7 @@ skeleton = NodePath("../..")
 [node name="Barrier069" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -26, 0.237, -87)
 material_override = ExtResource("4_qf2ek")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("20_nmdqm")
 skeleton = NodePath("../..")
@@ -1818,6 +2104,7 @@ skeleton = NodePath("../..")
 [node name="Barrier070" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -71, 0.237, -69)
 material_override = ExtResource("4_qf2ek")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("20_nmdqm")
 skeleton = NodePath("../..")
@@ -1825,6 +2112,7 @@ skeleton = NodePath("../..")
 [node name="Barrier071" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(-2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, -49, 0.237, -131)
 material_override = ExtResource("4_qf2ek")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("20_nmdqm")
 skeleton = NodePath("../..")
@@ -1832,6 +2120,7 @@ skeleton = NodePath("../..")
 [node name="Barrier072" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(-1, 0, -2.62268e-07, 0, 1, 0, 2.62268e-07, 0, -1, -50, 0.237, -183)
 material_override = ExtResource("4_qf2ek")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("20_nmdqm")
 skeleton = NodePath("../..")
@@ -1839,6 +2128,7 @@ skeleton = NodePath("../..")
 [node name="Barrier073" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(-1, 0, -2.62268e-07, 0, 1, 0, 2.62268e-07, 0, -1, 39, 0.237, -87)
 material_override = ExtResource("4_qf2ek")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("20_nmdqm")
 skeleton = NodePath("../..")
@@ -1846,6 +2136,7 @@ skeleton = NodePath("../..")
 [node name="Barrier074" type="MeshInstance3D" parent="barriers"]
 transform = Transform3D(-2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, 16, 0.237, -131)
 material_override = ExtResource("4_qf2ek")
+ignore_occlusion_culling = true
 visibility_range_end = 175.0
 mesh = ExtResource("20_nmdqm")
 skeleton = NodePath("../..")
@@ -3300,554 +3591,497 @@ transform = Transform3D(-1.74846e-07, 0, 40, 0, 1, 0, -4, 0, -1.74846e-06, -29.3
 [node name="garlic" parent="." instance=ExtResource("41_wd0xk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -128.545, 28.2498, -276.656)
 
-[node name="runner3" parent="." instance=ExtResource("42_yys3j")]
+[node name="enemies" type="Node3D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="runner3" parent="enemies" instance=ExtResource("42_yys3j")]
 transform = Transform3D(0.139329, 0, -0.990246, 0, 1, 0, 0.990246, 0, 0.139329, 33.7345, 3.8147e-06, -31.8117)
 
-[node name="runner9" parent="." instance=ExtResource("42_yys3j")]
+[node name="runner9" parent="enemies" instance=ExtResource("42_yys3j")]
 transform = Transform3D(0.139329, 0, -0.990246, 0, 1, 0, 0.990246, 0, 0.139329, 47.9696, 3.8147e-06, -32.1954)
 min_dif = 3
 
-[node name="hitscanner" parent="." instance=ExtResource("44_3fhhm")]
+[node name="hitscanner" parent="enemies" instance=ExtResource("44_3fhhm")]
 transform = Transform3D(0.21598, 0, -0.976398, 0, 1, 0, 0.976398, 0, 0.21598, 53.2707, 7.62939e-06, -37.0437)
 min_dif = 1
 
-[node name="hitscanner13" parent="." instance=ExtResource("44_3fhhm")]
+[node name="hitscanner13" parent="enemies" instance=ExtResource("44_3fhhm")]
 transform = Transform3D(0.21598, 0, -0.976398, 0, 1, 0, 0.976398, 0, 0.21598, 119.216, 7.62939e-06, -34.7382)
 min_dif = 3
 
-[node name="gunner2" parent="." instance=ExtResource("43_otksa")]
+[node name="gunner2" parent="enemies" instance=ExtResource("43_otksa")]
 transform = Transform3D(-0.0482047, 0, -0.998837, 0, 1, 0, 0.998837, 0, -0.0482047, 135.167, 7.62939e-06, -35.1525)
 min_dif = 1
 
-[node name="gunner13" parent="." instance=ExtResource("43_otksa")]
+[node name="gunner13" parent="enemies" instance=ExtResource("43_otksa")]
 transform = Transform3D(0.999989, 0, 0.00462519, 0, 1, 0, -0.00462519, 0, 0.999989, 157.089, 7.62939e-06, -89.5324)
 min_dif = 4
 
-[node name="mage" parent="." instance=ExtResource("45_mv1wn")]
+[node name="mage" parent="enemies" instance=ExtResource("45_mv1wn")]
 transform = Transform3D(-0.0313758, 0, -0.999508, 0, 1, 0, 0.999508, 0, -0.0313758, 60.9204, 7.62939e-06, -30.7429)
 min_dif = 4
 
-[node name="mage2" parent="." instance=ExtResource("45_mv1wn")]
+[node name="mage2" parent="enemies" instance=ExtResource("45_mv1wn")]
 transform = Transform3D(0.0925096, 0, -0.995712, 0, 1, 0, 0.995712, 0, 0.0925096, 66.0618, 7.62939e-06, -37.6485)
 min_dif = 3
 
-[node name="mage13" parent="." instance=ExtResource("45_mv1wn")]
+[node name="mage13" parent="enemies" instance=ExtResource("45_mv1wn")]
 transform = Transform3D(0.981541, 0, 0.191254, 0, 1, 0, -0.191254, 0, 0.981541, 150.002, 1.62125e-05, -65.4973)
 min_dif = 3
 
-[node name="runner4" parent="." instance=ExtResource("42_yys3j")]
+[node name="runner4" parent="enemies" instance=ExtResource("42_yys3j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.1552, 5.72205e-06, -38.998)
 
-[node name="runner5" parent="." instance=ExtResource("42_yys3j")]
+[node name="runner5" parent="enemies" instance=ExtResource("42_yys3j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 103.007, 7.62939e-06, -36.7978)
 
-[node name="runner31" parent="." instance=ExtResource("42_yys3j")]
+[node name="runner31" parent="enemies" instance=ExtResource("42_yys3j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 142.973, 7.62939e-06, -31.3008)
 min_dif = 3
 
-[node name="runner30" parent="." instance=ExtResource("42_yys3j")]
+[node name="runner30" parent="enemies" instance=ExtResource("42_yys3j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 96.6644, 7.62939e-06, -31.8)
 min_dif = 4
 
-[node name="runner6" parent="." instance=ExtResource("42_yys3j")]
+[node name="runner6" parent="enemies" instance=ExtResource("42_yys3j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 112.11, 0.249975, -28.152)
 min_dif = 2
 
-[node name="chaingunner" parent="." instance=ExtResource("46_nd1ph")]
+[node name="chaingunner" parent="enemies" instance=ExtResource("46_nd1ph")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 155.597, 9.53674e-06, -105.959)
 min_dif = 2
 
-[node name="chaingunner7" parent="." instance=ExtResource("46_nd1ph")]
+[node name="chaingunner7" parent="enemies" instance=ExtResource("46_nd1ph")]
 transform = Transform3D(0.0484662, 0, 0.998825, 0, 1, 0, -0.998825, 0, 0.0484662, 35.6185, 0, -73.8571)
 min_dif = 3
 
-[node name="hitscanner2" parent="." instance=ExtResource("44_3fhhm")]
+[node name="hitscanner2" parent="enemies" instance=ExtResource("44_3fhhm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 153.491, 7.62939e-06, -56.4609)
 min_dif = 2
 
-[node name="hitscanner5" parent="." instance=ExtResource("44_3fhhm")]
+[node name="hitscanner5" parent="enemies" instance=ExtResource("44_3fhhm")]
 transform = Transform3D(0.0678412, 0, -0.997696, 0, 1, 0, 0.997696, 0, 0.0678412, 156.734, 7.62939e-06, -35.5507)
 
-[node name="hitscanner16" parent="." instance=ExtResource("44_3fhhm")]
+[node name="hitscanner16" parent="enemies" instance=ExtResource("44_3fhhm")]
 transform = Transform3D(0.0678412, 0, -0.997696, 0, 1, 0, 0.997696, 0, 0.0678412, 134.218, 7.62939e-06, -27.0954)
 min_dif = 4
 
-[node name="runner8" parent="." instance=ExtResource("42_yys3j")]
+[node name="runner8" parent="enemies" instance=ExtResource("42_yys3j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 160.12, 9.53674e-06, -75.9202)
 
-[node name="runner36" parent="." instance=ExtResource("42_yys3j")]
+[node name="runner36" parent="enemies" instance=ExtResource("42_yys3j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 153.551, 9.53674e-06, -82.7941)
 min_dif = 3
 
-[node name="runner35" parent="." instance=ExtResource("42_yys3j")]
+[node name="runner35" parent="enemies" instance=ExtResource("42_yys3j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 156.024, 9.53674e-06, -50.36)
 min_dif = 3
 
-[node name="hitscanner3" parent="." instance=ExtResource("44_3fhhm")]
+[node name="hitscanner3" parent="enemies" instance=ExtResource("44_3fhhm")]
 transform = Transform3D(-0.0162832, 0, 0.999867, 0, 1, 0, -0.999867, 0, -0.0162832, 126.538, 7.62939e-06, -112.749)
 
-[node name="mage3" parent="." instance=ExtResource("45_mv1wn")]
+[node name="mage3" parent="enemies" instance=ExtResource("45_mv1wn")]
 transform = Transform3D(0.120899, 0, 0.992665, 0, 1, 0, -0.992665, 0, 0.120899, 113.242, 0.249977, -123.035)
 min_dif = 2
 
-[node name="mage15" parent="." instance=ExtResource("45_mv1wn")]
+[node name="mage15" parent="enemies" instance=ExtResource("45_mv1wn")]
 transform = Transform3D(0.120899, 0, 0.992665, 0, 1, 0, -0.992665, 0, 0.120899, 90.7283, 0.249977, -115.574)
 min_dif = 4
 
-[node name="mage16" parent="." instance=ExtResource("45_mv1wn")]
+[node name="mage16" parent="enemies" instance=ExtResource("45_mv1wn")]
 transform = Transform3D(-0.992165, 0, 0.124935, 0, 1, 0, -0.124935, 0, -0.992165, 93.8558, 0.249977, -86.257)
 min_dif = 3
 
-[node name="mage14" parent="." instance=ExtResource("45_mv1wn")]
+[node name="mage14" parent="enemies" instance=ExtResource("45_mv1wn")]
 transform = Transform3D(0.120899, 0, 0.992665, 0, 1, 0, -0.992665, 0, 0.120899, 139.99, 0.249979, -114.899)
 min_dif = 2
 
-[node name="runner11" parent="." instance=ExtResource("42_yys3j")]
+[node name="runner11" parent="enemies" instance=ExtResource("42_yys3j")]
 transform = Transform3D(0.28194, 0, 0.959432, 0, 1, 0, -0.959432, 0, 0.28194, 99.4817, 0.249975, -109.054)
 min_dif = 1
 
-[node name="runner37" parent="." instance=ExtResource("42_yys3j")]
+[node name="runner37" parent="enemies" instance=ExtResource("42_yys3j")]
 transform = Transform3D(-0.0394866, 0, 0.99922, 0, 1, 0, -0.99922, 0, -0.0394866, 125.108, 0.249975, -107.751)
 min_dif = 4
 
-[node name="runner38" parent="." instance=ExtResource("42_yys3j")]
+[node name="runner38" parent="enemies" instance=ExtResource("42_yys3j")]
 transform = Transform3D(-0.0394866, 0, 0.99922, 0, 1, 0, -0.99922, 0, -0.0394866, 113.798, 0.249975, -107.751)
 min_dif = 4
 
-[node name="runner12" parent="." instance=ExtResource("42_yys3j")]
+[node name="runner12" parent="enemies" instance=ExtResource("42_yys3j")]
 transform = Transform3D(-0.993605, 0, -0.112909, 0, 1, 0, 0.112909, 0, -0.993605, 89.6233, 7.62939e-06, -95.3618)
 
-[node name="runner39" parent="." instance=ExtResource("42_yys3j")]
+[node name="runner39" parent="enemies" instance=ExtResource("42_yys3j")]
 transform = Transform3D(-0.993605, 0, -0.112909, 0, 1, 0, 0.112909, 0, -0.993605, 84.6033, 7.62939e-06, -83.6656)
 min_dif = 3
 
-[node name="gunner3" parent="." instance=ExtResource("43_otksa")]
+[node name="gunner3" parent="enemies" instance=ExtResource("43_otksa")]
 transform = Transform3D(0.0573724, 0, 0.998353, 0, 1, 0, -0.998353, 0, 0.0573724, 64.5934, 7.62939e-06, -75.0163)
 
-[node name="gunner14" parent="." instance=ExtResource("43_otksa")]
+[node name="gunner14" parent="enemies" instance=ExtResource("43_otksa")]
 transform = Transform3D(0.0573724, 0, 0.998353, 0, 1, 0, -0.998353, 0, 0.0573724, 64.5934, 7.62939e-06, -82.746)
 min_dif = 4
 
-[node name="runner14" parent="." instance=ExtResource("42_yys3j")]
+[node name="runner14" parent="enemies" instance=ExtResource("42_yys3j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.4941, 3.8147e-06, -72.9749)
 min_dif = 2
 
-[node name="runner15" parent="." instance=ExtResource("42_yys3j")]
+[node name="runner15" parent="enemies" instance=ExtResource("42_yys3j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.9851, 5.72205e-06, -78.7698)
 min_dif = 1
 
-[node name="hitscanner4" parent="." instance=ExtResource("44_3fhhm")]
+[node name="hitscanner4" parent="enemies" instance=ExtResource("44_3fhhm")]
 transform = Transform3D(-0.514425, 0, 0.857536, 0, 1, 0, -0.857536, 0, -0.514425, 80.4797, 7.62939e-06, -75.5595)
 min_dif = 2
 
-[node name="gunner4" parent="." instance=ExtResource("43_otksa")]
+[node name="gunner4" parent="enemies" instance=ExtResource("43_otksa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -84.206, -0.75, -146.532)
 min_dif = 1
 
-[node name="gunner15" parent="." instance=ExtResource("43_otksa")]
+[node name="gunner15" parent="enemies" instance=ExtResource("43_otksa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -68.9458, -0.75, -146.532)
 min_dif = 4
 
-[node name="mage4" parent="." instance=ExtResource("45_mv1wn")]
+[node name="mage4" parent="enemies" instance=ExtResource("45_mv1wn")]
 transform = Transform3D(0.396731, 0, 0.917935, 0, 1, 0, -0.917935, 0, 0.396731, -107.462, -0.75, -149.537)
 min_dif = 3
 
-[node name="mage18" parent="." instance=ExtResource("45_mv1wn")]
+[node name="mage18" parent="enemies" instance=ExtResource("45_mv1wn")]
 transform = Transform3D(0.396731, 0, 0.917935, 0, 1, 0, -0.917935, 0, 0.396731, -102.149, -0.750002, -137.149)
 min_dif = 4
 
-[node name="mage5" parent="." instance=ExtResource("45_mv1wn")]
+[node name="mage5" parent="enemies" instance=ExtResource("45_mv1wn")]
 transform = Transform3D(0.964663, 0, 0.263486, 0, 1, 0, -0.263486, 0, 0.964663, -87.9235, -0.3326, -165.586)
 
-[node name="runner" parent="." instance=ExtResource("42_yys3j")]
+[node name="runner" parent="enemies" instance=ExtResource("42_yys3j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -102.575, -0.75, -127.056)
 
-[node name="runner2" parent="." instance=ExtResource("42_yys3j")]
+[node name="runner2" parent="enemies" instance=ExtResource("42_yys3j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70.5923, -0.75, -165.287)
 
-[node name="runner42" parent="." instance=ExtResource("42_yys3j")]
+[node name="runner42" parent="enemies" instance=ExtResource("42_yys3j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -87.0013, -0.75, -135.935)
 min_dif = 3
 
-[node name="runner7" parent="." instance=ExtResource("42_yys3j")]
+[node name="runner7" parent="enemies" instance=ExtResource("42_yys3j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -69.1732, -0.750004, -133.563)
 min_dif = 1
 
-[node name="runner10" parent="." instance=ExtResource("42_yys3j")]
+[node name="runner10" parent="enemies" instance=ExtResource("42_yys3j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -63.691, 7.62939e-06, -99.5185)
 min_dif = 1
 
-[node name="runner41" parent="." instance=ExtResource("42_yys3j")]
+[node name="runner41" parent="enemies" instance=ExtResource("42_yys3j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59.5982, 7.62939e-06, -88.4272)
 min_dif = 4
 
-[node name="hitscanner6" parent="." instance=ExtResource("44_3fhhm")]
+[node name="hitscanner6" parent="enemies" instance=ExtResource("44_3fhhm")]
 transform = Transform3D(-0.091015, 0, 0.995849, 0, 1, 0, -0.995849, 0, -0.091015, -61.0634, 7.62939e-06, -77.7846)
 min_dif = 2
 
-[node name="hitscanner18" parent="." instance=ExtResource("44_3fhhm")]
+[node name="hitscanner18" parent="enemies" instance=ExtResource("44_3fhhm")]
 transform = Transform3D(-0.091015, 0, 0.995849, 0, 1, 0, -0.995849, 0, -0.091015, -50.2441, 7.62939e-06, -78.3775)
 min_dif = 4
 
-[node name="hitscanner17" parent="." instance=ExtResource("44_3fhhm")]
+[node name="hitscanner17" parent="enemies" instance=ExtResource("44_3fhhm")]
 transform = Transform3D(-0.091015, 0, 0.995849, 0, 1, 0, -0.995849, 0, -0.091015, -26.7437, 7.62939e-06, -72.1818)
 min_dif = 3
 
-[node name="mage6" parent="." instance=ExtResource("45_mv1wn")]
+[node name="mage6" parent="enemies" instance=ExtResource("45_mv1wn")]
 transform = Transform3D(-0.00329873, 0, 0.999995, 0, 1, 0, -0.999995, 0, -0.00329873, -40.555, 5.72205e-06, -73.1045)
 min_dif = 1
 
-[node name="mage17" parent="." instance=ExtResource("45_mv1wn")]
+[node name="mage17" parent="enemies" instance=ExtResource("45_mv1wn")]
 transform = Transform3D(-0.00329873, 0, 0.999995, 0, 1, 0, -0.999995, 0, -0.00329873, -14.3841, 5.72205e-06, -76.3716)
 min_dif = 3
 
-[node name="runner13" parent="." instance=ExtResource("42_yys3j")]
+[node name="runner13" parent="enemies" instance=ExtResource("42_yys3j")]
 transform = Transform3D(0.148552, 0, 0.988905, 0, 1, 0, -0.988905, 0, 0.148552, -23.2754, 1.14441e-05, -78.88)
 
-[node name="runner40" parent="." instance=ExtResource("42_yys3j")]
+[node name="runner40" parent="enemies" instance=ExtResource("42_yys3j")]
 transform = Transform3D(0.148552, 0, 0.988905, 0, 1, 0, -0.988905, 0, 0.148552, -53.8633, 1.14441e-05, -73.669)
 min_dif = 3
 
-[node name="runner16" parent="." instance=ExtResource("42_yys3j")]
+[node name="runner16" parent="enemies" instance=ExtResource("42_yys3j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.99898, 3.8147e-06, -105.173)
 
-[node name="runner17" parent="." instance=ExtResource("42_yys3j")]
+[node name="runner17" parent="enemies" instance=ExtResource("42_yys3j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.05507, 7.62939e-06, -116.043)
 
-[node name="mage7" parent="." instance=ExtResource("45_mv1wn")]
+[node name="mage7" parent="enemies" instance=ExtResource("45_mv1wn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.73963, 7.62939e-06, -150.173)
 min_dif = 1
 
-[node name="mage19" parent="." instance=ExtResource("45_mv1wn")]
+[node name="mage19" parent="enemies" instance=ExtResource("45_mv1wn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.71931, 7.62939e-06, -129.095)
 min_dif = 4
 
-[node name="hitscanner7" parent="." instance=ExtResource("44_3fhhm")]
+[node name="hitscanner7" parent="enemies" instance=ExtResource("44_3fhhm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.34589, 7.62939e-06, -200.053)
 min_dif = 2
 
-[node name="runner18" parent="." instance=ExtResource("42_yys3j")]
+[node name="runner18" parent="enemies" instance=ExtResource("42_yys3j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.82352, 7.62939e-06, -168.23)
 
-[node name="runner19" parent="." instance=ExtResource("42_yys3j")]
+[node name="runner19" parent="enemies" instance=ExtResource("42_yys3j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.47323, 7.62939e-06, -186.412)
 
-[node name="runner20" parent="." instance=ExtResource("42_yys3j")]
+[node name="runner20" parent="enemies" instance=ExtResource("42_yys3j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.8618, 7.62939e-06, -215.935)
 
-[node name="runner43" parent="." instance=ExtResource("42_yys3j")]
+[node name="runner43" parent="enemies" instance=ExtResource("42_yys3j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.09893, 7.62939e-06, -206.259)
 min_dif = 3
 
-[node name="runner44" parent="." instance=ExtResource("42_yys3j")]
+[node name="runner44" parent="enemies" instance=ExtResource("42_yys3j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.9347, 7.62939e-06, -206.779)
 min_dif = 2
 
-[node name="gunner5" parent="." instance=ExtResource("43_otksa")]
+[node name="gunner5" parent="enemies" instance=ExtResource("43_otksa")]
 transform = Transform3D(0.100049, 0, 0.994982, 0, 1, 0, -0.994982, 0, 0.100049, -35.487, 9.53674e-06, -212.999)
 min_dif = 1
 
-[node name="gunner17" parent="." instance=ExtResource("43_otksa")]
+[node name="gunner17" parent="enemies" instance=ExtResource("43_otksa")]
 transform = Transform3D(0.100049, 0, 0.994982, 0, 1, 0, -0.994982, 0, 0.100049, -35.487, 9.53674e-06, -220.689)
 min_dif = 4
 
-[node name="gunner16" parent="." instance=ExtResource("43_otksa")]
+[node name="gunner16" parent="enemies" instance=ExtResource("43_otksa")]
 transform = Transform3D(0.972772, 0, 0.231765, 0, 1, 0, -0.231765, 0, 0.972772, 5.64255, 7.62939e-06, -142.099)
 min_dif = 3
 
-[node name="hitscanner8" parent="." instance=ExtResource("44_3fhhm")]
+[node name="hitscanner8" parent="enemies" instance=ExtResource("44_3fhhm")]
 transform = Transform3D(0.0660998, 0, 0.997813, 0, 1, 0, -0.997813, 0, 0.0660998, -52.4987, 7.62939e-06, -209.178)
 min_dif = 3
 
-[node name="hitscanner19" parent="." instance=ExtResource("44_3fhhm")]
+[node name="hitscanner19" parent="enemies" instance=ExtResource("44_3fhhm")]
 transform = Transform3D(0.999965, 0, 0.00837746, 0, 1, 0, -0.00837746, 0, 0.999965, 6.2983, 7.62939e-06, -180.103)
 min_dif = 4
 
-[node name="runner21" parent="." instance=ExtResource("42_yys3j")]
+[node name="runner21" parent="enemies" instance=ExtResource("42_yys3j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64.7273, 3.8147e-06, -216.451)
 
-[node name="mage8" parent="." instance=ExtResource("45_mv1wn")]
+[node name="mage8" parent="enemies" instance=ExtResource("45_mv1wn")]
 transform = Transform3D(0.147067, 0, 0.989127, 0, 1, 0, -0.989127, 0, 0.147067, -77.5879, 7.62939e-06, -211.278)
 min_dif = 2
 
-[node name="mage21" parent="." instance=ExtResource("45_mv1wn")]
+[node name="mage21" parent="enemies" instance=ExtResource("45_mv1wn")]
 transform = Transform3D(0.147067, 0, 0.989127, 0, 1, 0, -0.989127, 0, 0.147067, -90.3418, 7.62939e-06, -206.824)
 min_dif = 3
 
-[node name="mage20" parent="." instance=ExtResource("45_mv1wn")]
+[node name="mage20" parent="enemies" instance=ExtResource("45_mv1wn")]
 transform = Transform3D(0.147067, 0, 0.989127, 0, 1, 0, -0.989127, 0, 0.147067, -60.6464, 7.62939e-06, -220.523)
 min_dif = 3
 
-[node name="chaingunner2" parent="." instance=ExtResource("46_nd1ph")]
+[node name="chaingunner2" parent="enemies" instance=ExtResource("46_nd1ph")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -97.5345, 7.62939e-06, -247.67)
 min_dif = 1
 
-[node name="chaingunner8" parent="." instance=ExtResource("46_nd1ph")]
+[node name="chaingunner8" parent="enemies" instance=ExtResource("46_nd1ph")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -90.1232, 7.62939e-06, -224.2)
 min_dif = 4
 
-[node name="runner22" parent="." instance=ExtResource("42_yys3j")]
+[node name="runner22" parent="enemies" instance=ExtResource("42_yys3j")]
 transform = Transform3D(0.0753616, 0, 0.997156, 0, 1, 0, -0.997156, 0, 0.0753616, -95.6482, 9.53674e-06, -211.077)
 
-[node name="runner23" parent="." instance=ExtResource("42_yys3j")]
+[node name="runner23" parent="enemies" instance=ExtResource("42_yys3j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -97.397, 9.53674e-06, -231.073)
 min_dif = 2
 
-[node name="runner24" parent="." instance=ExtResource("42_yys3j")]
+[node name="runner24" parent="enemies" instance=ExtResource("42_yys3j")]
 transform = Transform3D(-0.102029, 0, 0.994781, 0, 1, 0, -0.994781, 0, -0.102029, -104.433, 5.72205e-06, -259.726)
 min_dif = 2
 
-[node name="runner45" parent="." instance=ExtResource("42_yys3j")]
+[node name="runner45" parent="enemies" instance=ExtResource("42_yys3j")]
 transform = Transform3D(-0.102029, 0, 0.994781, 0, 1, 0, -0.994781, 0, -0.102029, -127.251, 5.72205e-06, -253.845)
 min_dif = 3
 
-[node name="runner25" parent="." instance=ExtResource("42_yys3j")]
+[node name="runner25" parent="enemies" instance=ExtResource("42_yys3j")]
 transform = Transform3D(0.00647512, 0, 0.999979, 0, 1, 0, -0.999979, 0, 0.00647512, -118.77, 9.53674e-06, -261.562)
 
-[node name="chaingunner3" parent="." instance=ExtResource("46_nd1ph")]
+[node name="chaingunner3" parent="enemies" instance=ExtResource("46_nd1ph")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -128.028, 0.249977, -310.965)
 min_dif = 2
 
-[node name="chaingunner9" parent="." instance=ExtResource("46_nd1ph")]
+[node name="chaingunner9" parent="enemies" instance=ExtResource("46_nd1ph")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -144.639, 0.249977, -310.965)
 min_dif = 4
 
-[node name="chaingunner10" parent="." instance=ExtResource("46_nd1ph")]
+[node name="chaingunner10" parent="enemies" instance=ExtResource("46_nd1ph")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -110.442, 0.249977, -310.965)
 min_dif = 4
 
-[node name="chaingunner4" parent="." instance=ExtResource("46_nd1ph")]
+[node name="chaingunner4" parent="enemies" instance=ExtResource("46_nd1ph")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -96.147, 0.249977, -310.965)
 
-[node name="chaingunner5" parent="." instance=ExtResource("46_nd1ph")]
+[node name="chaingunner5" parent="enemies" instance=ExtResource("46_nd1ph")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -159.56, 0.249977, -310.965)
 
-[node name="gunner6" parent="." instance=ExtResource("43_otksa")]
+[node name="gunner6" parent="enemies" instance=ExtResource("43_otksa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -96.5136, 0.249977, -326.172)
 min_dif = 1
 
-[node name="gunner7" parent="." instance=ExtResource("43_otksa")]
+[node name="gunner7" parent="enemies" instance=ExtResource("43_otksa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -159.841, 0.249977, -326.172)
 min_dif = 1
 
-[node name="gunner8" parent="." instance=ExtResource("43_otksa")]
+[node name="gunner8" parent="enemies" instance=ExtResource("43_otksa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -127.78, 0.249977, -340.91)
 min_dif = 1
 
-[node name="gunner18" parent="." instance=ExtResource("43_otksa")]
+[node name="gunner18" parent="enemies" instance=ExtResource("43_otksa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -127.78, 0.249977, -328.373)
 min_dif = 3
 
-[node name="hitscanner9" parent="." instance=ExtResource("44_3fhhm")]
+[node name="hitscanner9" parent="enemies" instance=ExtResource("44_3fhhm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -144.825, 0.249975, -301.279)
 
-[node name="hitscanner20" parent="." instance=ExtResource("44_3fhhm")]
+[node name="hitscanner20" parent="enemies" instance=ExtResource("44_3fhhm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -96.4923, 0.249975, -298.236)
 min_dif = 3
 
-[node name="hitscanner21" parent="." instance=ExtResource("44_3fhhm")]
+[node name="hitscanner21" parent="enemies" instance=ExtResource("44_3fhhm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -160.127, 0.249975, -298.236)
 min_dif = 3
 
-[node name="hitscanner10" parent="." instance=ExtResource("44_3fhhm")]
+[node name="hitscanner10" parent="enemies" instance=ExtResource("44_3fhhm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -110.231, 0.249975, -301.279)
 
-[node name="hitscanner11" parent="." instance=ExtResource("44_3fhhm")]
+[node name="hitscanner11" parent="enemies" instance=ExtResource("44_3fhhm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -144.825, 0.249975, -333.802)
 min_dif = 2
 
-[node name="hitscanner12" parent="." instance=ExtResource("44_3fhhm")]
+[node name="hitscanner12" parent="enemies" instance=ExtResource("44_3fhhm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -110.231, 0.249975, -331.877)
 min_dif = 2
 
-[node name="runner26" parent="." instance=ExtResource("42_yys3j")]
+[node name="runner26" parent="enemies" instance=ExtResource("42_yys3j")]
 transform = Transform3D(0.11133, 0, -0.993783, 0, 1, 0, 0.993783, 0, 0.11133, 31.658, 3.8147e-06, -210.829)
 
-[node name="runner27" parent="." instance=ExtResource("42_yys3j")]
+[node name="runner27" parent="enemies" instance=ExtResource("42_yys3j")]
 transform = Transform3D(0.11133, 0, -0.993783, 0, 1, 0, 0.993783, 0, 0.11133, 43.384, 3.8147e-06, -215.75)
 
-[node name="runner55" parent="." instance=ExtResource("42_yys3j")]
+[node name="runner55" parent="enemies" instance=ExtResource("42_yys3j")]
 transform = Transform3D(0.11133, 0, -0.993783, 0, 1, 0, 0.993783, 0, 0.11133, 30.8439, 3.8147e-06, -217.041)
 min_dif = 4
 
-[node name="runner28" parent="." instance=ExtResource("42_yys3j")]
+[node name="runner28" parent="enemies" instance=ExtResource("42_yys3j")]
 transform = Transform3D(0.11133, 0, -0.993783, 0, 1, 0, 0.993783, 0, 0.11133, 76.2583, 5.72205e-06, -215.507)
 
-[node name="runner54" parent="." instance=ExtResource("42_yys3j")]
+[node name="runner54" parent="enemies" instance=ExtResource("42_yys3j")]
 transform = Transform3D(0.11133, 0, -0.993783, 0, 1, 0, 0.993783, 0, 0.11133, 64.1131, 5.72205e-06, -209.391)
 min_dif = 3
 
-[node name="runner51" parent="." instance=ExtResource("42_yys3j")]
+[node name="runner51" parent="enemies" instance=ExtResource("42_yys3j")]
 transform = Transform3D(0.11133, 0, -0.993783, 0, 1, 0, 0.993783, 0, 0.11133, 93.8145, 5.72205e-06, -219.745)
 min_dif = 3
 
-[node name="runner53" parent="." instance=ExtResource("42_yys3j")]
+[node name="runner53" parent="enemies" instance=ExtResource("42_yys3j")]
 transform = Transform3D(0.11133, 0, -0.993783, 0, 1, 0, 0.993783, 0, 0.11133, 96.7736, 5.72205e-06, -258.395)
 min_dif = 2
 
-[node name="runner52" parent="." instance=ExtResource("42_yys3j")]
+[node name="runner52" parent="enemies" instance=ExtResource("42_yys3j")]
 transform = Transform3D(0.11133, 0, -0.993783, 0, 1, 0, 0.993783, 0, 0.11133, 97.5724, 3.8147e-06, -233.998)
 min_dif = 4
 
-[node name="runner29" parent="." instance=ExtResource("42_yys3j")]
+[node name="runner29" parent="enemies" instance=ExtResource("42_yys3j")]
 transform = Transform3D(0.993122, 0, 0.117087, 0, 1, 0, -0.117087, 0, 0.993122, 93.8183, 5.72205e-06, -247.125)
 min_dif = 1
 
-[node name="gunner9" parent="." instance=ExtResource("43_otksa")]
+[node name="gunner9" parent="enemies" instance=ExtResource("43_otksa")]
 transform = Transform3D(-0.0752398, 0, -0.997165, 0, 1, 0, 0.997165, 0, -0.0752398, 93.7256, 1.14441e-05, -214.598)
 min_dif = 1
 
-[node name="mage9" parent="." instance=ExtResource("45_mv1wn")]
+[node name="mage9" parent="enemies" instance=ExtResource("45_mv1wn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90.1325, 5.72205e-06, -231.441)
 
-[node name="mage23" parent="." instance=ExtResource("45_mv1wn")]
+[node name="mage23" parent="enemies" instance=ExtResource("45_mv1wn")]
 transform = Transform3D(0.160346, 0, -0.987061, 0, 1, 0, 0.987061, 0, 0.160346, 46.8489, 3.8147e-06, -211.697)
 min_dif = 4
 
-[node name="mage10" parent="." instance=ExtResource("45_mv1wn")]
+[node name="mage10" parent="enemies" instance=ExtResource("45_mv1wn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 96.7133, 7.62939e-06, -272.077)
 min_dif = 2
 
-[node name="mage22" parent="." instance=ExtResource("45_mv1wn")]
+[node name="mage22" parent="enemies" instance=ExtResource("45_mv1wn")]
 transform = Transform3D(0.00500906, 0, 0.999987, 0, 1, 0, -0.999987, 0, 0.00500906, 45.3217, 7.62939e-06, -323.893)
 min_dif = 3
 
-[node name="gunner10" parent="." instance=ExtResource("43_otksa")]
+[node name="gunner10" parent="enemies" instance=ExtResource("43_otksa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 92.9529, 5.72205e-06, -312.34)
 min_dif = 1
 
-[node name="gunner20" parent="." instance=ExtResource("43_otksa")]
+[node name="gunner20" parent="enemies" instance=ExtResource("43_otksa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 92.9529, 5.72205e-06, -264.454)
 min_dif = 4
 
-[node name="hitscanner14" parent="." instance=ExtResource("44_3fhhm")]
+[node name="hitscanner14" parent="enemies" instance=ExtResource("44_3fhhm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 93.7192, 8.58307e-06, -291.206)
 
-[node name="hitscanner23" parent="." instance=ExtResource("44_3fhhm")]
+[node name="hitscanner23" parent="enemies" instance=ExtResource("44_3fhhm")]
 transform = Transform3D(-0.00277511, 0, -0.999996, 0, 1, 0, 0.999996, 0, -0.00277511, 70.9325, 8.58307e-06, -211.616)
 min_dif = 2
 
-[node name="hitscanner22" parent="." instance=ExtResource("44_3fhhm")]
+[node name="hitscanner22" parent="enemies" instance=ExtResource("44_3fhhm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 97.9225, 6.67572e-06, -285.277)
 min_dif = 4
 
-[node name="runner32" parent="." instance=ExtResource("42_yys3j")]
+[node name="runner32" parent="enemies" instance=ExtResource("42_yys3j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.8317, 9.53674e-06, -318.706)
 
-[node name="runner49" parent="." instance=ExtResource("42_yys3j")]
+[node name="runner49" parent="enemies" instance=ExtResource("42_yys3j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.8771, 9.53674e-06, -313.821)
 min_dif = 3
 
-[node name="runner50" parent="." instance=ExtResource("42_yys3j")]
+[node name="runner50" parent="enemies" instance=ExtResource("42_yys3j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65.0461, 9.53674e-06, -325.074)
 min_dif = 3
 
-[node name="hitscanner15" parent="." instance=ExtResource("44_3fhhm")]
+[node name="hitscanner15" parent="enemies" instance=ExtResource("44_3fhhm")]
 transform = Transform3D(0.0887727, 0, 0.996052, 0, 1, 0, -0.996052, 0, 0.0887727, 68.2843, 3.8147e-06, -313.75)
 min_dif = 2
 
-[node name="chaingunner6" parent="." instance=ExtResource("46_nd1ph")]
+[node name="chaingunner6" parent="enemies" instance=ExtResource("46_nd1ph")]
 transform = Transform3D(0.0637311, 0, 0.997967, 0, 1, 0, -0.997967, 0, 0.0637311, 24.6047, 0.249978, -324.879)
 min_dif = 1
 
-[node name="chaingunner11" parent="." instance=ExtResource("46_nd1ph")]
+[node name="chaingunner11" parent="enemies" instance=ExtResource("46_nd1ph")]
 transform = Transform3D(0.0637311, 0, 0.997967, 0, 1, 0, -0.997967, 0, 0.0637311, 24.6047, 0.249978, -314.831)
 min_dif = 4
 
-[node name="gunner11" parent="." instance=ExtResource("43_otksa")]
+[node name="gunner11" parent="enemies" instance=ExtResource("43_otksa")]
 transform = Transform3D(0.0208726, 0, 0.999782, 0, 1, 0, -0.999782, 0, 0.0208726, -126.502, 28.2498, -307.633)
 min_dif = 2
 
-[node name="gunner19" parent="." instance=ExtResource("43_otksa")]
+[node name="gunner19" parent="enemies" instance=ExtResource("43_otksa")]
 transform = Transform3D(0.0208726, 0, 0.999782, 0, 1, 0, -0.999782, 0, 0.0208726, -119.991, 28.2498, -290.029)
 min_dif = 4
 
-[node name="gunner12" parent="." instance=ExtResource("43_otksa")]
+[node name="gunner12" parent="enemies" instance=ExtResource("43_otksa")]
 transform = Transform3D(-0.269138, 0, 0.963102, 0, 1, 0, -0.963102, 0, -0.269138, -142.876, 28.2498, -277.225)
 min_dif = 1
 
-[node name="mage11" parent="." instance=ExtResource("45_mv1wn")]
+[node name="mage11" parent="enemies" instance=ExtResource("45_mv1wn")]
 transform = Transform3D(-0.0327539, 0, 0.999463, 0, 1, 0, -0.999463, 0, -0.0327539, -114.359, 28.2499, -320.953)
 min_dif = 1
 
-[node name="mage12" parent="." instance=ExtResource("45_mv1wn")]
+[node name="mage12" parent="enemies" instance=ExtResource("45_mv1wn")]
 transform = Transform3D(-0.0327539, 0, 0.999463, 0, 1, 0, -0.999463, 0, -0.0327539, -146.234, 28.2499, -321.156)
 min_dif = 3
 
-[node name="runner33" parent="." instance=ExtResource("42_yys3j")]
+[node name="runner33" parent="enemies" instance=ExtResource("42_yys3j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -111.376, 28.2499, -287.7)
 
-[node name="runner46" parent="." instance=ExtResource("42_yys3j")]
+[node name="runner46" parent="enemies" instance=ExtResource("42_yys3j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -106.59, 28.2499, -297.945)
 min_dif = 3
 
-[node name="runner47" parent="." instance=ExtResource("42_yys3j")]
+[node name="runner47" parent="enemies" instance=ExtResource("42_yys3j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -145.85, 28.2499, -306.301)
 min_dif = 3
 
-[node name="runner48" parent="." instance=ExtResource("42_yys3j")]
+[node name="runner48" parent="enemies" instance=ExtResource("42_yys3j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -133.738, 28.2499, -335.783)
 min_dif = 3
 
-[node name="runner34" parent="." instance=ExtResource("42_yys3j")]
+[node name="runner34" parent="enemies" instance=ExtResource("42_yys3j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -150.208, 28.2497, -291.516)
-
-[node name="Grass" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100.467, -0.82748, -121.987)
-material_override = ExtResource("4_qf2ek")
-visibility_range_end = 175.0
-mesh = ExtResource("47_xpgyf")
-
-[node name="Grass2" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, -73.9074, -0.827482, -157.729)
-material_override = ExtResource("4_qf2ek")
-visibility_range_end = 175.0
-mesh = ExtResource("47_xpgyf")
-
-[node name="Grass9" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, -59.8759, -0.827482, -171.27)
-material_override = ExtResource("4_qf2ek")
-visibility_range_end = 175.0
-mesh = ExtResource("47_xpgyf")
-
-[node name="Grass8" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, -94.9482, -0.827482, -143.896)
-material_override = ExtResource("4_qf2ek")
-visibility_range_end = 175.0
-mesh = ExtResource("47_xpgyf")
-
-[node name="Grass3" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, -99.9321, -0.827482, -173.942)
-material_override = ExtResource("4_qf2ek")
-visibility_range_end = 175.0
-mesh = ExtResource("47_xpgyf")
-
-[node name="Grass4" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, -82.9351, -0.827482, -128.853)
-material_override = ExtResource("4_qf2ek")
-visibility_range_end = 175.0
-mesh = ExtResource("47_xpgyf")
-
-[node name="Grass5" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, -59.7764, -0.827482, -143.248)
-material_override = ExtResource("4_qf2ek")
-visibility_range_end = 175.0
-mesh = ExtResource("47_xpgyf")
-
-[node name="Grass6" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, -56.3432, -0.827482, -110.006)
-material_override = ExtResource("4_qf2ek")
-visibility_range_end = 175.0
-mesh = ExtResource("47_xpgyf")
-
-[node name="Grass7" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.105, 0, 0, 0, 1.105, 0, 0, 0, 1.105, -66.3261, -0.827482, -123.807)
-material_override = ExtResource("4_qf2ek")
-visibility_range_end = 175.0
-mesh = ExtResource("47_xpgyf")
-
-[node name="dumpster" parent="." instance=ExtResource("48_hbotc")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -72.2547, 0.228874, -292.701)
-
-[node name="dumpster2" parent="." instance=ExtResource("49_i8fqu")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -79.5041, 0.228874, -292.693)

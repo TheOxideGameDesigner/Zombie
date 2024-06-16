@@ -12,7 +12,7 @@ extends Node3D
 @onready var init_left_thigh_rot = skel.get_bone_pose_rotation(left_th).get_euler()
 @onready var init_right_calf_rot = skel.get_bone_pose_rotation(right_cf).get_euler()
 @onready var init_left_calf_rot = skel.get_bone_pose_rotation(left_cf).get_euler()
-@onready var player = get_tree().get_first_node_in_group("player")
+@onready var player_cam = get_tree().get_first_node_in_group("player").get_node("cam")
 var anim_timer = 0.0
 
 
@@ -32,6 +32,6 @@ func _ready():
 
 
 func _process(delta):
-	rotation.y = -atan2(player.cam.global_position.z - global_position.z, player.cam.global_position.x - global_position.x) + PI / 2
+	rotation.y = -atan2(player_cam.global_position.z - global_position.z, player_cam.global_position.x - global_position.x) + PI / 2
 	anim_timer = fmod(anim_timer + 2 * delta, PI * 2)
 	anim(sin(anim_timer))
