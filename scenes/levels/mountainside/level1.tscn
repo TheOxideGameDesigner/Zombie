@@ -193,7 +193,7 @@ transform = Transform3D(0.999993, 0, 0.00610888, 0, 1, 0, -0.00610888, 0, 0.9999
 shape = SubResource("BoxShape3D_tub8r")
 
 [node name="container_002" parent="props" instance=ExtResource("16_kvnkk")]
-transform = Transform3D(0.669121, 0.18898, 0.718723, -0.0563476, 0.977244, -0.204496, -0.741014, 0.0963344, 0.664544, -83.59, 29.7089, 11.7919)
+transform = Transform3D(0.664615, 0.23358, 0.709737, -0.133442, 0.971715, -0.19484, -0.735174, 0.0347847, 0.676986, -83.59, 29.3572, 11.7919)
 
 [node name="container_001" parent="props" instance=ExtResource("17_hu0uv")]
 transform = Transform3D(0.9753, 0.220885, 0, -0.220833, 0.975069, -0.0217451, -0.00480316, 0.021208, 0.999764, -107.233, 35.1813, 0.543382)
@@ -509,7 +509,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.231, 21.375, -98.9157)
 group = 2
 target = Vector3(0, -5.5, 0)
 time = 1.0
-keys_required = Array[int]([2])
 
 [node name="enemies" type="Node3D" parent="."]
 metadata/_edit_lock_ = true

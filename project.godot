@@ -136,7 +136,6 @@ jolt_3d/collisions/areas_detect_static_bodies=true
 [rendering]
 
 renderer/rendering_method="mobile"
-renderer/rendering_method.mobile="gl_compatibility"
 lights_and_shadows/directional_shadow/size=8192
 shading/overrides/force_lambert_over_burley=true
 lights_and_shadows/positional_shadow/atlas_size=8192

@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://dyjgulkvmryko"]
+[gd_scene load_steps=35 format=3 uid="uid://dyjgulkvmryko"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_6bwtx"]
 [ext_resource type="Material" uid="uid://uxn8fucitgfr" path="res://resources/materials/level_mat.tres" id="2_qxy8p"]
@@ -26,6 +26,7 @@
 [ext_resource type="ArrayMesh" uid="uid://3e3agn4ficrt" path="res://models/static_props/mountainside/pebble_001.obj" id="24_hcxoy"]
 [ext_resource type="ArrayMesh" uid="uid://sm6xg8156r0b" path="res://models/static_props/mountainside/pebble_002.obj" id="25_8a0c1"]
 [ext_resource type="PackedScene" uid="uid://tsfreyaa84jf" path="res://scenes/props/static_props/mountainside/pumpkin.tscn" id="26_7428f"]
+[ext_resource type="Material" uid="uid://ctc1jrcarvuc6" path="res://resources/materials/level_unshaded_mat.tres" id="27_gskkx"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ddnih"]
 size = Vector3(4.04517, 6.67668, 0.769954)
@@ -44,6 +45,10 @@ size = Vector3(16.3234, 14.4676, 19.7576)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bosgh"]
 size = Vector3(8.93984, 5.66809, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_uyc5e"]
+size = Vector2(7.37, 8.965)
+orientation = 2
 
 [node name="level4" type="Node3D"]
 script = ExtResource("1_6bwtx")
@@ -69,7 +74,7 @@ script = ExtResource("6_k38we")
 metadata/_edit_lock_ = true
 
 [node name="light" type="DirectionalLight3D" parent="." groups=["light"]]
-transform = Transform3D(0.710353, 0.492824, 0.502517, -0.539281, -0.0777096, 0.838533, 0.452299, -0.866652, 0.210569, 34.4022, 23.7255, -146.613)
+transform = Transform3D(0.710353, 0.492824, 0.502517, -0.539281, -0.0777093, 0.838533, 0.452299, -0.866652, 0.210569, 34.4022, 23.7255, -146.613)
 light_bake_mode = 0
 shadow_enabled = true
 shadow_bias = 0.01
@@ -90,7 +95,7 @@ omni_range = 11.275
 transform = Transform3D(-0.992317, 0, -0.123723, 0, 1, 0, 0.123723, 0, -0.992317, -166.541, -0.572281, -162.165)
 
 [node name="exit" parent="." instance=ExtResource("6_fipd4")]
-transform = Transform3D(2.485, 0, 0, 0, 2.485, 0, 0, 0, 2.485, -165.875, -0.518187, -171.019)
+transform = Transform3D(2.485, 0, 0, 0, 2.485, 0, 0, 0, 2.485, -165.875, -0.0994094, -171.019)
 chapter = 1
 level = 4
 
@@ -115,7 +120,7 @@ target = Vector3(0, -6, 0)
 metadata/_edit_lock_ = true
 
 [node name="exit_fence" type="StaticBody3D" parent="props"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -169.25, -4.76837e-07, -165.785)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -169.25, -0.841498, -165.785)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="props/exit_fence"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.62854, -1.51943, -5.1897)
@@ -957,3 +962,8 @@ min_dif = 4
 [node name="hitscanner6" parent="enemies" instance=ExtResource("16_xrqrp")]
 transform = Transform3D(-0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, -0.965926, -113.5, -9.04225, 35.6503)
 min_dif = 4
+
+[node name="shadow_fix" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.710353, 0.492824, 0.502517, -0.539281, -0.0777093, 0.838533, 0.452299, -0.866652, 0.210569, -87.6638, -6.94266, 34.5573)
+mesh = SubResource("PlaneMesh_uyc5e")
+surface_material_override/0 = ExtResource("27_gskkx")

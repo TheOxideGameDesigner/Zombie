@@ -73,13 +73,11 @@ script = ExtResource("1_kg0rf")
 [node name="level_visual" type="MeshInstance3D" parent="."]
 material_override = ExtResource("5_uvvgb")
 mesh = ExtResource("3_xig51")
-metadata/_edit_lock_ = true
 
 [node name="level_visual_no_shadow" type="MeshInstance3D" parent="."]
 material_override = ExtResource("2_qying")
 cast_shadow = 0
 mesh = ExtResource("4_sbkg5")
-metadata/_edit_lock_ = true
 
 [node name="level_visual_windows" type="MeshInstance3D" parent="."]
 material_override = ExtResource("5_6ckbs")
@@ -106,7 +104,7 @@ directional_shadow_blend_splits = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 117.392, -6.92409, 119.143)
 
 [node name="exit" parent="." instance=ExtResource("6_3n3tw")]
-transform = Transform3D(-1.51495, 0, -0.01174, 0, 1.515, 0, 0.01174, 0, -1.51495, 116.862, -5.94248, 131.09)
+transform = Transform3D(-1.51495, 0, -0.01174, 0, 1.515, 0, 0.01174, 0, -1.51495, 116.862, -5.73209, 131.09)
 chapter = 2
 
 [node name="blue_key" parent="." instance=ExtResource("7_lx2jd")]
@@ -123,7 +121,7 @@ key_index = 2
 metadata/_edit_lock_ = true
 
 [node name="exit_fence" type="StaticBody3D" parent="props"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 116.996, -6.43252, 131.877)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 116.996, -7.63437, 131.877)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="props/exit_fence"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.01904, -0.737529, -0.754898)
