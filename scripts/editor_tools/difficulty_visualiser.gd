@@ -25,7 +25,7 @@ func _ready():
 	else:
 		queue_free()
 
-func _process(delta):
+func _process(_delta):
 	if not get_parent().is_in_group("enemy"):
 		return
 	material_override.albedo_color = COLORS[get_parent().min_dif]

@@ -3551,9 +3551,6 @@ transform = Transform3D(-0.985208, 0, 0.171362, 0, 1, 0, -0.171362, 0, -0.985208
 [node name="Car003" parent="road_props" instance=ExtResource("33_yhved")]
 transform = Transform3D(0.610353, 0, 0.79213, 0, 1, 0, -0.79213, 0, 0.610353, 11.0807, 7.62939e-06, -41.0192)
 
-[node name="Truck" parent="road_props" instance=ExtResource("34_8lipt")]
-transform = Transform3D(-0.869159, 0, 0.494534, 0, 1, 0, -0.494534, 0, -0.869159, 12.8215, 5.72205e-06, -53.2946)
-
 [node name="Car004" parent="road_props" instance=ExtResource("32_42jmx")]
 transform = Transform3D(0.837519, 0, -0.546409, 0, 1, 0, 0.546409, 0, 0.837519, 33.4426, 7.62939e-06, -54.7916)
 

@@ -53,22 +53,23 @@ var hurt_timer = 0
 var drops = []
 var servants = []
 var servant_beams = []
+var servants_unkilled = []
 
 var disable_gibs : bool = false
 
 var diff
 var is_opengl = ProjectSettings.get_setting("rendering/renderer/rendering_method") == "gl_compatibility"
 
+
 func update_beam(i):
 	var beam_mesh = servant_beams[i]
+	servants[i].aura.visible = not servants[i].rising and servants_unkilled[i]
+	if servants[i].rising or not servants[i].alive:
+		beam_mesh.visible = 0
+		return
 	var from = global_position + Vector3(0, 2, 0)
 	var to = servants[i].mesh.global_position + Vector3(0, 0.25, 0)
-	if servants[i].rising:
-		beam_mesh.visible = 0
-		servants[i].aura.visible = 0
-		return
 	beam_mesh.visible = 1
-	servants[i].aura.visible = 1
 	beam_mesh.position = (from + to) / 2
 	var dir = to - from
 	beam_mesh.global_rotation.y = -atan2(dir.z, dir.x) + PI / 2
@@ -104,7 +105,9 @@ func spawn(type_f, ang, dist):
 	new_zombie.rising = 1
 	new_zombie.mesh.visible = 0
 	new_zombie.aura.material_override = aura_mat
+	new_zombie.aura.visible = 1
 	servants.push_back(new_zombie)
+	servants_unkilled.push_back(true)
 	
 	var beam = MeshInstance3D.new()
 	beam.mesh = CylinderMesh.new()
@@ -152,6 +155,13 @@ func real_pain():
 		if c.is_in_group("enemy"):
 			c.pain(9001)
 			c.queue_free()
+	for i in servants:
+		i.queue_free()
+	for i in servant_beams:
+		i.queue_free()
+	servants.clear()
+	servant_beams.clear()
+	servants_unkilled.clear()
 	spawn_wave()
 
 
@@ -224,6 +234,7 @@ func _process(delta):
 		head.position.y = body.position.y
 		if rising_timer > RISE_TIME:
 			rising = 0
+			fire_timer.start()
 	
 	if not fight_started:
 		return
@@ -246,13 +257,12 @@ func ai():
 	if not fight_started:
 		if is_player_in_zone():
 			fight_started = 1
-			fire_timer.start()
 			spawn_wave()
 		return
 	if health <= 0 and alive:
 		fight_started = 0
-		alive = 0
 		fire_timer.stop()
+		alive = 0
 		home.time_left = respawn_time
 		respawn.start()
 		add_gibs()
@@ -264,17 +274,14 @@ func ai():
 				c.top_level = 1
 				c.global_position = global_position + Vector3(0, 2, 0)
 	
-	var i = 0
-	while i < servants.size():
+	var l = servants.size()
+	for i in range(l):
 		if not servants[i].alive:
-			servants[i].aura.visible = 0
-			servants.pop_at(i)
-			servant_beams[i].queue_free()
-			servant_beams.pop_at(i)
-		else:
-			i = i + 1
+			servants_unkilled[i] = 0
+		if not servants_unkilled[i]:
+			l -= 1
 	
-	if servants.is_empty():
+	if l == 0:
 		real_pain()
 
 

@@ -1,9 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://tqdbcqx2hoti"]
+[gd_scene load_steps=16 format=3 uid="uid://tqdbcqx2hoti"]
 
 [ext_resource type="Script" path="res://scripts/enemies/runner.gd" id="1_j03nu"]
 [ext_resource type="PackedScene" uid="uid://ds0hboxkrxt7x" path="res://scenes/environment/gibs/phantom.tscn" id="2_sj28g"]
 [ext_resource type="PackedScene" uid="uid://d4k7qjsc8bglc" path="res://scenes/enemy_home.tscn" id="3_5ip5s"]
-[ext_resource type="Script" path="res://scripts/physics_lerp.gd" id="4_go423"]
 [ext_resource type="Texture2D" uid="uid://dsi7k27hhox0v" path="res://textures/alerted.png" id="5_wjiid"]
 [ext_resource type="Material" uid="uid://c0vwp18rc74ju" path="res://resources/materials/aura_mat.tres" id="6_a3l6a"]
 [ext_resource type="FontVariation" uid="uid://cr4vqwh16ob78" path="res://resources/default_font.tres" id="7_5f2xh"]
@@ -26,15 +25,15 @@ height = 5.915
 radial_segments = 10
 rings = 10
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bgc4l"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8o8lw"]
 transparency = 1
 shading_mode = 0
 albedo_color = Color(1, 1, 1, 0.1)
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_y5lji"]
+[sub_resource type="CylinderMesh" id="CylinderMesh_48kkx"]
 radial_segments = 12
 
-[node name="phantom" type="CharacterBody3D" groups=["activatable", "enemy", "lightweight"]]
+[node name="phantom" type="CharacterBody3D" groups=["activatable", "enemy", "lightweight", "phantom"]]
 top_level = true
 collision_layer = 2
 collision_mask = 257
@@ -85,8 +84,6 @@ aabb = AABB(-0.346727, -1.03405, -0.331776, 0.693449, 2.0681, 0.663553)
 
 [node name="mesh" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-script = ExtResource("4_go423")
-enable_rot = true
 
 [node name="alerted" type="Sprite3D" parent="mesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.855, 0)
@@ -120,7 +117,7 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 
 script = ExtResource("9_4688s")
 
 [node name="difficulty_visualiser" parent="." instance=ExtResource("10_dld0m")]
-material_override = SubResource("StandardMaterial3D_bgc4l")
-mesh = SubResource("CylinderMesh_y5lji")
+material_override = SubResource("StandardMaterial3D_8o8lw")
+mesh = SubResource("CylinderMesh_48kkx")
 
 [connection signal="timeout" from="respawn" to="." method="_on_respawn_timeout"]

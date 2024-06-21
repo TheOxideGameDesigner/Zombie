@@ -8,9 +8,11 @@
 
 [node name="painting1x1" type="MeshInstance3D"]
 material_override = ExtResource("1_3ctam")
+cast_shadow = 0
 mesh = ExtResource("2_xax6w")
 script = ExtResource("3_u18gv")
 
 [node name="image" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.3, 0, 0, 0, -1.31134e-08, -0.3, 0, 0.3, -1.31134e-08, -0.028228, -0.115305, 0.0320146)
+cast_shadow = 0
 mesh = SubResource("PlaneMesh_nfumk")

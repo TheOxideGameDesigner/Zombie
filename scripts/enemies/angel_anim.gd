@@ -1,4 +1,4 @@
-extends Node3D
+extends CollisionShape3D
 
 @onready var left_wing = $left_wing
 @onready var right_wing = $right_wing

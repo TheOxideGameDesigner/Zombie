@@ -188,7 +188,7 @@ func add_particles(edmg):
 		return
 	var new_blood = blood.instantiate()
 	if edmg < health:
-		new_blood.dir = velocity.rotated(Vector3.UP, (randi_range(0, 2) - 1) * (PI / 2 + randf_range(-PI/10, PI/10))) + Vector3(0, 0.5, 0)
+		new_blood.dir = velocity.rotated(Vector3.UP, ((randi() % 2) * 2 - 1) * (PI / 2 + randf_range(-PI/10, PI/10))) + Vector3(0, 0.5, 0)
 	else:
 		new_blood.spread = 180
 	new_blood.speed = clamp(edmg / 10, 1, 10)
@@ -327,6 +327,8 @@ func ai(delta):
 				displacement = (dir.normalized() * (RADIUS + i.shape.radius - dir.length())).project(velocity.rotated(Vector3.UP, PI / 2))
 			else:
 				displacement = (dir.normalized() * (RADIUS + i.shape.radius - dir.length()))
+			if area.get_parent().is_in_group("lightweight"):
+				displacement /= 2
 			if displacement.length() < 0.5:
 				position += displacement
 			break

@@ -390,11 +390,6 @@ func _on_hit_timer_timeout():
 	else:
 		ribbon.scale.z = HIT_RANGE
 	if ray.is_colliding() and ray.get_collider() == target:
-		var dmg
-		if dist_from_target < PB_RANGE:
-			dmg = HIT_DAMAGE
-		else:
-			dmg = HIT_DAMAGE / (FALLOFF * (dist_from_target - PB_RANGE) + 1)
 		if target == player:
 			player.pain("You were killed by a chaingunner", HIT_DAMAGE)
 		else:

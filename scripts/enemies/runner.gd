@@ -29,7 +29,7 @@ const ATTENTION_SPAN : float = 10
 
 const ACTIVE_RADIUS = 64
 const TARGET_RADIUS = 0.5
-const PHANTOM_RADIUS = 7.5
+const PHANTOM_RADIUS = 6.5
 
 
 var rising = 0
@@ -190,7 +190,7 @@ func add_particles(edmg):
 		return
 	var new_blood = blood.instantiate()
 	if edmg < health:
-		new_blood.dir = velocity.rotated(Vector3.UP, (randi_range(0, 2) - 1) * (PI / 2 + randf_range(-PI/10, PI/10))) + Vector3(0, 0.5, 0)
+		new_blood.dir = velocity.rotated(Vector3.UP, ((randi() % 2) * 2 - 1) * (PI / 2 + randf_range(-PI/3, PI/3))) + Vector3(0, 0.5, 0)
 	else:
 		new_blood.spread = 180
 	new_blood.speed = clamp(edmg / 10, 1, 10)
@@ -214,8 +214,8 @@ func add_gibs(dmg):
 	get_tree().current_scene.add_child(new_gibs)
 
 
-func pain(dmg, noblood=false, heal_player = false, player_inflicted = false):
-	if rising or not alive or health <= 0 or (is_phantom and dist_from_player > PHANTOM_RADIUS):
+func pain(dmg, noblood=false, heal_player = false):
+	if rising or not alive or health <= 0 or (is_phantom and dist_from_target > PHANTOM_RADIUS):
 		return
 	
 	if dmg >= health:
@@ -303,7 +303,6 @@ func ai(delta):
 		hypno_health_drain_timer -= delta
 		hypno_timer += delta
 	
-	var prev_dist_from_target = dist_from_target
 	if target != null:
 		dist_from_target = Vector2(target.position.x, target.position.z).distance_to(Vector2(position.x, position.z))
 	else:
@@ -322,7 +321,6 @@ func ai(delta):
 	var player_dir = player.cam.transform.basis.z
 	var player_dir2D = Vector2(player_dir.x, player_dir.z).normalized()
 	raycast_hitbox.disabled = rising or not alive or dir2player2D.dot(player_dir2D) < player.MIN_HIT_DOT_PROD
-	
 	collision_area_hitbox.disabled = not alive
 	
 	if rising and rising_timer < RISE_TIME:
@@ -364,6 +362,8 @@ func ai(delta):
 				displacement = (dir.normalized() * (RADIUS + i.shape.radius - dir.length())).project(velocity.rotated(Vector3.UP, PI / 2))
 			else:
 				displacement = (dir.normalized() * (RADIUS + i.shape.radius - dir.length()))
+			if area.get_parent().is_in_group("lightweight"):
+				displacement /= 2
 			if displacement.length() < 0.5:
 				position += displacement
 			break
@@ -564,11 +564,11 @@ func _process(delta):
 	else:
 		hypno_col = max(0.0, hypno_col - delta)
 		body.set_instance_shader_parameter("hypno", hypno_col)
-	if is_phantom and dist_from_player < PHANTOM_RADIUS:
-		const T = 0.5
+	if is_phantom and dist_from_target < PHANTOM_RADIUS:
+		const T = 1.0
 		const OPAC_MIN = 0.2
-		const OPAC_MAX = 0.8
-		body.set_instance_shader_parameter("opacity", clamp(OPAC_MIN + (dist_from_player - PHANTOM_RADIUS) * (OPAC_MIN - OPAC_MAX) / T, OPAC_MIN, OPAC_MAX))
+		const OPAC_MAX = 0.9
+		body.set_instance_shader_parameter("opacity", clamp(OPAC_MIN + (dist_from_target - PHANTOM_RADIUS) * (OPAC_MIN - OPAC_MAX) / T, OPAC_MIN, OPAC_MAX))
 	
 	if rising:
 		mesh_body.anim_timer = 0.0

@@ -39,9 +39,19 @@ func is_player_in_zone():
 
 
 func _process(delta):
+	if not is_player_in_zone():
+		sees_player = 0
+	else:
+		ray.position = init_ray_pos.rotated(Vector3.UP, orb.global_rotation.y)
+		ray.target_position = ray.to_local(player.position + Vector3(0, 1.2, 0))
+		ray.force_raycast_update()
+		sees_player = (ray.is_colliding() and ray.get_collider() == player)
+		if hit_timer >= HIT_TIME:
+			player.pain("You were killed by an Eye of Anubis", 9001)
+	
 	bob_timer += delta
-	orb.position.y = (sin(bob_timer * 1.2) + 1) * 0.3 + init_orb_pos
-	death_ray.position.y = (sin(bob_timer * 1.2) + 1) * 0.3 + init_death_ray_pos
+	orb.position.y = (sin(bob_timer * 1.2) + 1) * 0.2 + init_orb_pos
+	death_ray.position.y = (sin(bob_timer * 1.2) + 1) * 0.2 + init_death_ray_pos
 	var dir = player_cam.global_position - orb.global_position
 	orb.global_rotation.y = -atan2(dir.z, dir.x)
 	orb.global_rotation.z = atan2(dir.y, Vector2(dir.z, dir.x).length())
@@ -58,13 +68,3 @@ func _process(delta):
 	death_ray.global_rotation.z = atan2(dir.y, Vector2(dir.z, dir.x).length())
 	death_ray_mat.albedo_color.a = opac
 	death_ray.scale.x = dir.length()
-	
-	if not is_player_in_zone():
-		sees_player = 0
-		return
-	ray.position = init_ray_pos.rotated(Vector3.UP, orb.global_rotation.y)
-	ray.target_position = ray.to_local(player.position + Vector3(0, 1.2, 0))
-	ray.force_raycast_update()
-	sees_player = (ray.is_colliding() and ray.get_collider() == player)
-	if hit_timer >= HIT_TIME:
-		player.pain("You were killed by an Eye of Anubis", 9001)

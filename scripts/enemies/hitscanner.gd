@@ -406,6 +406,8 @@ func ai(delta):
 				displacement = (dir.normalized() * (RADIUS + i.shape.radius - dir.length())).project(velocity.rotated(Vector3.UP, PI / 2))
 			else:
 				displacement = (dir.normalized() * (RADIUS + i.shape.radius - dir.length()))
+			if area.get_parent().is_in_group("lightweight"):
+				displacement /= 2
 			if displacement.length() < 0.5:
 				position += displacement
 			break

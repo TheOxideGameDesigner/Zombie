@@ -34,7 +34,6 @@ radius = 0.375313
 [node name="cannonball" type="StaticBody3D" groups=["cannonball"]]
 top_level = true
 collision_layer = 0
-collision_mask = 3
 collision_priority = 3.0
 script = ExtResource("1_iuoqa")
 

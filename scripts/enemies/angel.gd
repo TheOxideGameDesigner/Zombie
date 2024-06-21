@@ -2,8 +2,8 @@ extends Node3D
 
 
 const RADIUS = 1
-const FLOAT = 3
-const GRAVE_DEPTH = 7
+const FLOAT = 4.5
+const GRAVE_DEPTH = 8.5
 const RISE_TIME = 3.7664
 const RISE_FLICKER = 0.25
 const HP : int = 500
@@ -16,6 +16,7 @@ var pain_col = 0.0
 var hypnotizable = false
 var rising_timer = 0.0
 var active_zone : Area3D
+var has_died = false
 
 const gibs = preload("res://scenes/environment/gibs/angel.tscn")
 const blood = preload("res://scenes/environment/blood_particles.tscn")
@@ -23,6 +24,7 @@ const angel_mat = preload("res://resources/materials/specific_mats/angel_explosi
 @onready var player = get_tree().get_first_node_in_group("player")
 @onready var mesh = $mesh
 @onready var health_label = $mesh/health
+@onready var key = $mesh/key
 @onready var ray = $ray
 @onready var home = $home
 @onready var body = $mesh/body/Armature/Skeleton3D/runner_body
@@ -41,6 +43,7 @@ var disable_gibs : bool = false
 
 var zombies = []
 var beams = []
+var drops = []
 
 
 func update_beam(i):
@@ -66,12 +69,15 @@ func add_particles(edmg):
 	if disable_particles:
 		return
 	var new_blood = blood.instantiate()
-	new_blood.spread = 180
+	if edmg < health:
+		new_blood.dir = (position - player.position).rotated(Vector3.UP, (2 * (randi() % 2) - 1) * (PI / 2 + randf_range(-PI/3, PI/3))) + Vector3(0, 0.5, 0)
+	else:
+		new_blood.spread = 180
 	new_blood.speed = clamp(edmg / 8, 1, 10)
 	new_blood.color = Color(1, 1, 0)
 	new_blood.size = 0.15
 	add_child(new_blood)
-	new_blood.position = position + Vector3(0, 2, 0) + new_blood.dir.normalized() * 0.25
+	new_blood.position = position + Vector3(0, 0.25, 0) + new_blood.dir.normalized() * 0.25
 	new_blood.amount = clamp(edmg / 1.5, 5, 75)
 
 
@@ -166,6 +172,11 @@ func _ready():
 			c.set_collision_mask_value(9, 1)
 			active_zone = c
 			break
+	for c in get_children():
+		if c.is_in_group("drop"):
+			drops.push_back(c)
+			remove_child(c)
+			key.visible = 1
 	
 	active_zone.set_collision_layer_value(1, false)
 	active_zone.set_collision_mask_value(1, false)
@@ -178,6 +189,13 @@ func ai(delta):
 	if health <= 0 and alive:
 		home.time_left = respawn_time
 		alive = 0
+		if not has_died:
+			has_died = 1
+			key.visible = 0
+			for c in drops:
+				add_child(c)
+				c.top_level = 1
+				c.global_position = global_position + Vector3(0, -FLOAT + 1, 0)
 		respawn.start()
 		position = home.position
 		position.y -= GRAVE_DEPTH

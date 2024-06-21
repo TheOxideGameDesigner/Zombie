@@ -87,7 +87,7 @@ func _process(delta):
 
 
 func _on_area_body_entered(body):
-	if exploding or body == self:
+	if exploding or body == self or (body.is_in_group("phantom") and body.dist_from_target > body.PHANTOM_RADIUS):
 		return
 	if body.is_in_group("enemy"):
 		explode(body)
