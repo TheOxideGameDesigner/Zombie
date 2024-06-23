@@ -14,4 +14,5 @@ visibility_range_end = 175.0
 mesh = ExtResource("2_f83f6")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+visible = false
 shape = SubResource("ConcavePolygonShape3D_2i6di")

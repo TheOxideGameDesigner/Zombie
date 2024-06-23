@@ -9,10 +9,10 @@ size = Vector3(1.81768, 2.85469, 0.803162)
 [node name="wardrobe" type="StaticBody3D"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.968937, 0.18832)
+transform = Transform3D(1.35, 0, 0, 0, 1.35, 0, 0, 0, 1.35, 0, 1.31493, 0.18832)
 material_override = ExtResource("1_mb1jv")
 mesh = ExtResource("2_cf01k")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00505453, 1.42773, -0.0118713)
+transform = Transform3D(1.35, 0, 0, 0, 1.35, 0, 0, 0, 1.35, 0.00505453, 1.92191, -0.0118713)
 shape = SubResource("BoxShape3D_jfb16")

@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://cnnfw8ly7hsfv"]
+[gd_scene load_steps=10 format=3 uid="uid://cnnfw8ly7hsfv"]
 
 [ext_resource type="Script" path="res://scripts/enemies/gunner_rocket.gd" id="1_oj5qd"]
+[ext_resource type="Script" path="res://scripts/physics_lerp.gd" id="2_rcc4g"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mcbti"]
 shading_mode = 0
@@ -43,9 +44,13 @@ script = ExtResource("1_oj5qd")
 
 [node name="sprite" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+top_level = true
 cast_shadow = 0
 visibility_range_end = 175.0
 mesh = SubResource("SphereMesh_3v3hu")
+script = ExtResource("2_rcc4g")
+global = true
+of_parent = true
 
 [node name="sprite_interior" type="MeshInstance3D" parent="sprite"]
 transform = Transform3D(0.635, 0, 0, 0, 0.635, 0, 0, 0, 0.635, 0, 0, 0)

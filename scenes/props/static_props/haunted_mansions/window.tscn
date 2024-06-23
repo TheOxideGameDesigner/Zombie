@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://bi1q4klr2bhr2"]
+
+[ext_resource type="Material" uid="uid://uxn8fucitgfr" path="res://resources/materials/level_mat.tres" id="1_1njl2"]
+[ext_resource type="ArrayMesh" uid="uid://dmm23uypuajtw" path="res://models/static_props/haunted_mansions/window.obj" id="1_onwdk"]
+[ext_resource type="Material" uid="uid://ctc1jrcarvuc6" path="res://resources/materials/level_unshaded_mat.tres" id="3_4nx5w"]
+
+[node name="window" type="MeshInstance3D"]
+cast_shadow = 0
+mesh = ExtResource("1_onwdk")
+surface_material_override/0 = ExtResource("1_1njl2")
+surface_material_override/1 = ExtResource("3_4nx5w")

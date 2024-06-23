@@ -7,7 +7,6 @@ const GRAVE_DEPTH = 8.5
 const RISE_TIME = 3.7664
 const RISE_FLICKER = 0.25
 const HP : int = 500
-const HEAL_RATE = 1  # health gained per tick
 const REVOLVER_HEAL = 3
 var alive = true
 var rising = false
@@ -27,7 +26,7 @@ const angel_mat = preload("res://resources/materials/specific_mats/angel_explosi
 @onready var key = $mesh/key
 @onready var ray = $ray
 @onready var home = $home
-@onready var body = $mesh/body/Armature/Skeleton3D/runner_body
+@onready var mesh_body = $mesh/body/Armature/Skeleton3D/runner_body
 @onready var left_wing = $mesh/left_wing
 @onready var right_wing = $mesh/right_wing
 @onready var halo = $mesh/halo
@@ -51,7 +50,7 @@ func update_beam(i):
 	if not alive or rising or zombies[i].rising or zombies[i].hypno or not zombies[i].alive:
 		beam_mesh.visible = 0
 		return
-	var from = body.global_position
+	var from = mesh_body.global_position
 	var to = zombies[i].mesh.global_position + Vector3(0, 0.25, 0)
 	beam_mesh.visible = 1
 	beam_mesh.position = (from + to) / 2
@@ -81,7 +80,7 @@ func add_particles(edmg):
 	new_blood.amount = clamp(edmg / 1.5, 5, 75)
 
 
-func add_gibs(dmg):
+func add_gibs():
 	if disable_gibs or get_tree().current_scene == null:
 		return
 	var new_gibs = gibs.instantiate()
@@ -93,12 +92,12 @@ func rising_func(t):
 	return (1 - 1 / (10 * t + 1)) * 1.1
 
 
-func pain(dmg, noblood=false, heal_player = false, source = player):
+func pain(dmg, noblood=false, heal_player = false):
 	if rising or not alive or health <= 0:
 		return
 	
 	if dmg >= health:
-		add_gibs(dmg)
+		add_gibs()
 	
 	if not noblood:
 		add_particles(dmg)
@@ -143,13 +142,19 @@ func _ready():
 	disable_gibs = config.get_value("video", "disable_gibs", false)
 	var diff = config.get_value("gameplay", "difficulty", 2)
 	
-	if diff < min_dif:
+	for c in get_children():
+		if c.is_in_group("drop"):
+			drops.push_back(c)
+			remove_child(c)
+			key.visible = 1
+	
+	if diff < min_dif and drops.is_empty():
 		queue_free()
 	
 	visible = true
 	
 	#determine at what height to put the enemy home
-	ray.target_position = Vector3(0, -10, 0)
+	ray.target_position = Vector3(0, -100, 0)
 	var max_height = -1000000
 	const CHECKS = 4
 	for i in range(CHECKS):
@@ -172,11 +177,6 @@ func _ready():
 			c.set_collision_mask_value(9, 1)
 			active_zone = c
 			break
-	for c in get_children():
-		if c.is_in_group("drop"):
-			drops.push_back(c)
-			remove_child(c)
-			key.visible = 1
 	
 	active_zone.set_collision_layer_value(1, false)
 	active_zone.set_collision_mask_value(1, false)
@@ -204,7 +204,9 @@ func ai(delta):
 	
 	if not alive or rising:
 		return
-	
+
+
+func _physics_process(_delta):
 	for i in zombies:
 		if not i.hypno and i.health > 0 and i.health < i.HP:
 			i.health = i.health + 1
@@ -222,7 +224,7 @@ func _process(delta):
 		const FADE_RANGE = 1
 		var pb_col = clamp(lerp(0.0, 1.0, (player.SHOTGUN_PB_RANGE - dist_from_player) / FADE_RANGE) ,0.0, 1.0)
 		var col = max(pain_col, pb_col) * 0.5
-		body.set_instance_shader_parameter("pain", col)
+		mesh_body.set_instance_shader_parameter("pain", col)
 		left_wing.set_instance_shader_parameter("pain", col)
 		right_wing.set_instance_shader_parameter("pain", col)
 		halo.set_instance_shader_parameter("pain", col)

@@ -6,7 +6,7 @@
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_nfumk"]
 
-[node name="painting1x1" type="MeshInstance3D"]
+[node name="painting1x1" type="MeshInstance3D" groups=["painting_s1"]]
 material_override = ExtResource("1_3ctam")
 cast_shadow = 0
 mesh = ExtResource("2_xax6w")

@@ -19,6 +19,7 @@ var active_zone : Area3D
 @export var chaingunner_scene : PackedScene
 @export var mage_scene : PackedScene
 @export var bomber_scene : PackedScene
+@export var phantom_scene : PackedScene
 @export var aura_col : Color = Color(1, 0, 0.64)
 var aura_mat = preload("res://resources/materials/aura_mat.tres").duplicate()
 @export var gibs : PackedScene
@@ -92,6 +93,8 @@ func spawn(type_f, ang, dist):
 			new_zombie = mage_scene.instantiate()
 		6:
 			new_zombie = bomber_scene.instantiate()
+		7:
+			new_zombie = phantom_scene.instantiate()
 	new_zombie.hypnotizable = false
 	new_zombie.respawn_time = 1
 	new_zombie.position = Vector3.MODEL_FRONT.rotated(Vector3.UP, ang - PI / 2) * dist

@@ -129,6 +129,7 @@ metadata/_edit_group_ = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -480, 0, -216)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("13_5uxgk")
 skeleton = NodePath("../..")
 
@@ -136,6 +137,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -456, 0, -213)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("13_5uxgk")
 skeleton = NodePath("../..")
 
@@ -143,6 +145,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -207, 0, -276)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("13_5uxgk")
 skeleton = NodePath("../..")
 
@@ -150,6 +153,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -185, 0, -167)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("13_5uxgk")
 skeleton = NodePath("../..")
 
@@ -157,6 +161,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, -230, 0, -128)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("13_5uxgk")
 skeleton = NodePath("../..")
 
@@ -164,6 +169,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(-2.18557e-07, 0, -1, 0, 1, 0, 1, 0, -2.18557e-07, -230, 0, -84)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("13_5uxgk")
 skeleton = NodePath("../..")
 
@@ -171,6 +177,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(-1, 0, 2.62268e-07, 0, 1, 0, -2.62268e-07, 0, -1, -161, 0, -78)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("13_5uxgk")
 skeleton = NodePath("../..")
 
@@ -178,6 +185,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(3.0598e-07, 0, 1, 0, 1, 0, -1, 0, 3.0598e-07, -137, 0, -33)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("13_5uxgk")
 skeleton = NodePath("../..")
 
@@ -185,6 +193,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, -3.49691e-07, 0, 1, 0, 3.49691e-07, 0, 1, -110, 0, -63)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("13_5uxgk")
 skeleton = NodePath("../..")
 
@@ -192,6 +201,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(-3.93403e-07, 0, -1, 0, 1, 0, 1, 0, -3.93403e-07, -26, 0, -45)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("13_5uxgk")
 skeleton = NodePath("../..")
 
@@ -199,6 +209,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(-1, 0, 4.37114e-07, 0, 1, 0, -4.37114e-07, 0, -1, -29, 0, 3)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("13_5uxgk")
 skeleton = NodePath("../..")
 
@@ -206,6 +217,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(4.80825e-07, 0, 1, 0, 1, 0, -1, 0, 4.80825e-07, 41, 0, 39)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("13_5uxgk")
 skeleton = NodePath("../..")
 
@@ -213,6 +225,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, -5.24537e-07, 0, 1, 0, 5.24537e-07, 0, 1, 20, 0, -24)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("13_5uxgk")
 skeleton = NodePath("../..")
 
@@ -220,6 +233,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, -5.24537e-07, 0, 1, 0, 5.24537e-07, 0, 1, -271, 0, -111)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("13_5uxgk")
 skeleton = NodePath("../..")
 
@@ -227,6 +241,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(-5.68248e-07, 0, -1, 0, 1, 0, 1, 0, -5.68248e-07, -319, 0, -147)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("13_5uxgk")
 skeleton = NodePath("../..")
 
@@ -234,6 +249,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(-1, 0, 6.11959e-07, 0, 1, 0, -6.11959e-07, 0, -1, -361, 0, -171)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("13_5uxgk")
 skeleton = NodePath("../..")
 
@@ -241,6 +257,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(6.55671e-07, 0, 1, 0, 1, 0, -1, 0, 6.55671e-07, -409, 0, -126)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("13_5uxgk")
 skeleton = NodePath("../..")
 
@@ -248,6 +265,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, -6.99382e-07, 0, 1, 0, 6.99382e-07, 0, 1, -454, 0, -150)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("13_5uxgk")
 skeleton = NodePath("../..")
 
@@ -255,6 +273,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(-7.43094e-07, 0, -1, 0, 1, 0, 1, 0, -7.43094e-07, -478, 0, -147)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("13_5uxgk")
 skeleton = NodePath("../..")
 
@@ -262,6 +281,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -231, 0, -279)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("13_5uxgk")
 skeleton = NodePath("../..")
 
@@ -269,6 +289,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, -165, 0, -269)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("13_5uxgk")
 skeleton = NodePath("../..")
 
@@ -276,6 +297,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(-2.18557e-07, 0, -1, 0, 1, 0, 1, 0, -2.18557e-07, -141, 0, -242)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("13_5uxgk")
 skeleton = NodePath("../..")
 
@@ -283,6 +305,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, -165, 0, -245)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("13_5uxgk")
 skeleton = NodePath("../..")
 
@@ -290,6 +313,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(-1, 0, 2.62268e-07, 0, 1, 0, -2.62268e-07, 0, -1, -81, 0, -173)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("13_5uxgk")
 skeleton = NodePath("../..")
 
@@ -297,6 +321,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(3.0598e-07, 0, 1, 0, 1, 0, -1, 0, 3.0598e-07, 0, 0, -137)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("13_5uxgk")
 skeleton = NodePath("../..")
 
@@ -304,6 +329,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, -3.49691e-07, 0, 1, 0, 3.49691e-07, 0, 1, 42, 0, -193)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("13_5uxgk")
 skeleton = NodePath("../..")
 
@@ -311,6 +337,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(-3.93403e-07, 0, -1, 0, 1, 0, 1, 0, -3.93403e-07, -45, 0, -110)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("13_5uxgk")
 skeleton = NodePath("../..")
 
@@ -318,6 +345,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(-1, 0, 4.37114e-07, 0, 1, 0, -4.37114e-07, 0, -1, 0, 0, -86)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("13_5uxgk")
 skeleton = NodePath("../..")
 
@@ -325,6 +353,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(4.80825e-07, 0, 1, 0, 1, 0, -1, 0, 4.80825e-07, 65, 0, -104)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("13_5uxgk")
 skeleton = NodePath("../..")
 
@@ -332,6 +361,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, -5.24537e-07, 0, 1, 0, 5.24537e-07, 0, 1, 97, 0, -170)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("13_5uxgk")
 skeleton = NodePath("../..")
 
@@ -339,6 +369,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(-5.68248e-07, 0, -1, 0, 1, 0, 1, 0, -5.68248e-07, 121, 0, -143)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("13_5uxgk")
 skeleton = NodePath("../..")
 
@@ -346,6 +377,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(-1, 0, 6.11959e-07, 0, 1, 0, -6.11959e-07, 0, -1, 142, 0, -80)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("13_5uxgk")
 skeleton = NodePath("../..")
 
@@ -353,6 +385,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(6.55671e-07, 0, 1, 0, 1, 0, -1, 0, 6.55671e-07, 118, 0, 4)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("13_5uxgk")
 skeleton = NodePath("../..")
 
@@ -360,6 +393,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -407, 0, -226)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("16_3g5xi")
 skeleton = NodePath("../..")
 
@@ -367,6 +401,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -358, 0, -247)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("16_3g5xi")
 skeleton = NodePath("../..")
 
@@ -374,6 +409,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -382, 0, -226)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("15_7oye0")
 skeleton = NodePath("../..")
 
@@ -381,6 +417,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -274, 0, -226)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("15_7oye0")
 skeleton = NodePath("../..")
 
@@ -388,6 +425,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -334, 0, -226)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("19_lusiy")
 skeleton = NodePath("../..")
 
@@ -395,6 +433,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -411, 0, -192)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("19_lusiy")
 skeleton = NodePath("../..")
 
@@ -402,6 +441,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -271, 0, -228)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("18_3fsyb")
 skeleton = NodePath("../..")
 
@@ -409,6 +449,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -430, 0, -150)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("14_hkdjm")
 skeleton = NodePath("../..")
 
@@ -416,6 +457,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -367, 0, -147)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("14_hkdjm")
 skeleton = NodePath("../..")
 
@@ -423,6 +465,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -298, 0, -171)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("14_hkdjm")
 skeleton = NodePath("../..")
 
@@ -430,6 +473,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -209, 0, -87)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("14_hkdjm")
 skeleton = NodePath("../..")
 
@@ -437,6 +481,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, -206, 0, -48)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("14_hkdjm")
 skeleton = NodePath("../..")
 
@@ -444,6 +489,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(-2.18557e-07, 0, -1, 0, 1, 0, 1, 0, -2.18557e-07, -134, 0, -78)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("14_hkdjm")
 skeleton = NodePath("../..")
 
@@ -451,6 +497,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(-1, 0, 2.62268e-07, 0, 1, 0, -2.62268e-07, 0, -1, -68, 0, -45)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("14_hkdjm")
 skeleton = NodePath("../..")
 
@@ -458,6 +505,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(3.0598e-07, 0, 1, 0, 1, 0, -1, 0, 3.0598e-07, -5, 0, 0)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("14_hkdjm")
 skeleton = NodePath("../..")
 
@@ -465,6 +513,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, -3.49691e-07, 0, 1, 0, 3.49691e-07, 0, 1, 44, 0, 15)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("14_hkdjm")
 skeleton = NodePath("../..")
 
@@ -472,6 +521,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(-3.93403e-07, 0, -1, 0, 1, 0, 1, 0, -3.93403e-07, 97, 0, -41)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("14_hkdjm")
 skeleton = NodePath("../..")
 
@@ -479,6 +529,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(-1, 0, 4.37114e-07, 0, 1, 0, -4.37114e-07, 0, -1, 118, 0, -104)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("14_hkdjm")
 skeleton = NodePath("../..")
 
@@ -486,6 +537,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(4.80825e-07, 0, 1, 0, 1, 0, -1, 0, 4.80825e-07, 142, 0, -146)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("14_hkdjm")
 skeleton = NodePath("../..")
 
@@ -493,6 +545,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, -5.24537e-07, 0, 1, 0, 5.24537e-07, 0, 1, 97, 0, -194)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("14_hkdjm")
 skeleton = NodePath("../..")
 
@@ -500,6 +553,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(-5.68248e-07, 0, -1, 0, 1, 0, 1, 0, -5.68248e-07, 3, 0, -190)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("14_hkdjm")
 skeleton = NodePath("../..")
 
@@ -507,6 +561,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(-1, 0, 6.11959e-07, 0, 1, 0, -6.11959e-07, 0, -1, -47, 0, -149)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("14_hkdjm")
 skeleton = NodePath("../..")
 
@@ -514,6 +569,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(6.55671e-07, 0, 1, 0, 1, 0, -1, 0, 6.55671e-07, 0, 0, -113)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("14_hkdjm")
 skeleton = NodePath("../..")
 
@@ -521,6 +577,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, -6.99382e-07, 0, 1, 0, 6.99382e-07, 0, 1, -45, 0, -65)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("14_hkdjm")
 skeleton = NodePath("../..")
 
@@ -528,6 +585,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(-7.43094e-07, 0, -1, 0, 1, 0, 1, 0, -7.43094e-07, -182, 0, -54)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("14_hkdjm")
 skeleton = NodePath("../..")
 
@@ -535,6 +593,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(-1, 0, 7.86805e-07, 0, 1, 0, -7.86805e-07, 0, -1, -209, 0, -173)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("14_hkdjm")
 skeleton = NodePath("../..")
 
@@ -542,6 +601,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(8.30516e-07, 0, 1, 0, 1, 0, -1, 0, 8.30516e-07, -185, 0, -191)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("14_hkdjm")
 skeleton = NodePath("../..")
 
@@ -549,6 +609,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, -8.74228e-07, 0, 1, 0, 8.74228e-07, 0, 1, -230, 0, -215)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("14_hkdjm")
 skeleton = NodePath("../..")
 
@@ -556,6 +617,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -478, 0, -150)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("15_7oye0")
 skeleton = NodePath("../..")
 
@@ -563,6 +625,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -406, 0, -171)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("15_7oye0")
 skeleton = NodePath("../..")
 
@@ -570,6 +633,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -274, 0, -147)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("15_7oye0")
 skeleton = NodePath("../..")
 
@@ -577,6 +641,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -233, 0, -63)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("15_7oye0")
 skeleton = NodePath("../..")
 
@@ -584,6 +649,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -113, 0, -33)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("15_7oye0")
 skeleton = NodePath("../..")
 
@@ -591,6 +657,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, -86, 0, -48)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("15_7oye0")
 skeleton = NodePath("../..")
 
@@ -598,6 +665,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(-2.18557e-07, 0, -1, 0, 1, 0, 1, 0, -2.18557e-07, 20, 0, -86)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("15_7oye0")
 skeleton = NodePath("../..")
 
@@ -605,6 +673,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(-1, 0, 2.62268e-07, 0, 1, 0, -2.62268e-07, 0, -1, -24, 0, -158)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("15_7oye0")
 skeleton = NodePath("../..")
 
@@ -612,6 +681,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(3.0598e-07, 0, 1, 0, 1, 0, -1, 0, 3.0598e-07, 0, 0, -89)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("15_7oye0")
 skeleton = NodePath("../..")
 
@@ -619,6 +689,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(-3.72529e-07, 0, -1, 0, 1, 0, 1, 0, -3.72529e-07, -44, 0, -134)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("15_7oye0")
 skeleton = NodePath("../..")
 
@@ -626,6 +697,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, -3.49691e-07, 0, 1, 0, 3.49691e-07, 0, 1, 42, 0, -145)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("15_7oye0")
 skeleton = NodePath("../..")
 
@@ -633,6 +705,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(-3.93403e-07, 0, -1, 0, 1, 0, 1, 0, -3.93403e-07, -165, 0, -203)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("15_7oye0")
 skeleton = NodePath("../..")
 
@@ -640,6 +713,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(-1, 0, 4.37114e-07, 0, 1, 0, -4.37114e-07, 0, -1, -120, 0, -266)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("15_7oye0")
 skeleton = NodePath("../..")
 
@@ -647,6 +721,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(4.80825e-07, 0, 1, 0, 1, 0, -1, 0, 4.80825e-07, -168, 0, -279)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("15_7oye0")
 skeleton = NodePath("../..")
 
@@ -654,6 +729,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(4.80825e-07, 0, 1, 0, 1, 0, -1, 0, 4.80825e-07, -250, 0, -231)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("15_7oye0")
 skeleton = NodePath("../..")
 
@@ -661,6 +737,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(4.80825e-07, 0, 1, 0, 1, 0, -1, 0, 4.80825e-07, 142, 0, -35)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("15_7oye0")
 skeleton = NodePath("../..")
 
@@ -668,6 +745,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(-1, 0, 4.37114e-07, 0, 1, 0, -4.37114e-07, 0, -1, 142, 0, -191)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("15_7oye0")
 skeleton = NodePath("../..")
 
@@ -675,6 +753,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(-1, 0, 4.37114e-07, 0, 1, 0, -4.37114e-07, 0, -1, 142, 0, 7)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("15_7oye0")
 skeleton = NodePath("../..")
 
@@ -682,6 +761,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(4.80825e-07, 0, 1, 0, 1, 0, -1, 0, 4.80825e-07, -29, 0, 48)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("15_7oye0")
 skeleton = NodePath("../..")
 
@@ -689,6 +769,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -480, 0, -213)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("16_3g5xi")
 skeleton = NodePath("../..")
 
@@ -696,6 +777,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -435, 0, -237)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("16_3g5xi")
 skeleton = NodePath("../..")
 
@@ -703,6 +785,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -433, 0, -126)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("16_3g5xi")
 skeleton = NodePath("../..")
 
@@ -710,6 +793,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, -343, 0, -126)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("16_3g5xi")
 skeleton = NodePath("../..")
 
@@ -717,6 +801,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(-2.18557e-07, 0, -1, 0, 1, 0, 1, 0, -2.18557e-07, -295, 0, -171)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("16_3g5xi")
 skeleton = NodePath("../..")
 
@@ -724,6 +809,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(-1, 0, 2.62268e-07, 0, 1, 0, -2.62268e-07, 0, -1, -137, 0, -78)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("16_3g5xi")
 skeleton = NodePath("../..")
 
@@ -731,6 +817,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(3.0598e-07, 0, 1, 0, 1, 0, -1, 0, 3.0598e-07, -89, 0, -87)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("16_3g5xi")
 skeleton = NodePath("../..")
 
@@ -738,6 +825,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, -3.49691e-07, 0, 1, 0, 3.49691e-07, 0, 1, -50, 0, 0)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("16_3g5xi")
 skeleton = NodePath("../..")
 
@@ -745,6 +833,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(-3.93403e-07, 0, -1, 0, 1, 0, 1, 0, -3.93403e-07, 44, 0, 18)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("16_3g5xi")
 skeleton = NodePath("../..")
 
@@ -752,6 +841,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(-1, 0, 4.37114e-07, 0, 1, 0, -4.37114e-07, 0, -1, 118, 0, 7)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("16_3g5xi")
 skeleton = NodePath("../..")
 
@@ -759,6 +849,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(4.80825e-07, 0, 1, 0, 1, 0, -1, 0, 4.80825e-07, 118, 0, -107)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("16_3g5xi")
 skeleton = NodePath("../..")
 
@@ -766,6 +857,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, -5.24537e-07, 0, 1, 0, 5.24537e-07, 0, 1, 121, 0, -194)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("16_3g5xi")
 skeleton = NodePath("../..")
 
@@ -773,6 +865,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, -5.24537e-07, 0, 1, 0, 5.24537e-07, 0, 1, -126, 0, -158)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("16_3g5xi")
 skeleton = NodePath("../..")
 
@@ -780,6 +873,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(-5.68248e-07, 0, -1, 0, 1, 0, 1, 0, -5.68248e-07, -206, 0, -236)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("16_3g5xi")
 skeleton = NodePath("../..")
 
@@ -787,6 +881,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -406, 0, -126)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("17_1tg76")
 skeleton = NodePath("../..")
 
@@ -794,6 +889,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -269, 0, -87)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("17_1tg76")
 skeleton = NodePath("../..")
 
@@ -801,6 +897,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -185, 0, -128)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("17_1tg76")
 skeleton = NodePath("../..")
 
@@ -808,6 +905,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -165, 0, -242)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("17_1tg76")
 skeleton = NodePath("../..")
 
@@ -815,6 +913,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -230, 0, -212)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("17_1tg76")
 skeleton = NodePath("../..")
 
@@ -822,6 +921,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -228, 0, -279)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("17_1tg76")
 skeleton = NodePath("../..")
 
@@ -829,6 +929,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -107, 0, -128)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("17_1tg76")
 skeleton = NodePath("../..")
 
@@ -836,6 +937,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(-1, 0, -2.62268e-07, 0, 1, 0, 2.62268e-07, 0, -1, 39, 0, -166)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("17_1tg76")
 skeleton = NodePath("../..")
 
@@ -843,6 +945,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(2.83122e-07, 0, -1, 0, 1, 0, 1, 0, 2.83122e-07, 97, 0, -167)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("17_1tg76")
 skeleton = NodePath("../..")
 
@@ -850,6 +953,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(-3.70545e-07, 0, 1, 0, 1, 0, -1, 0, -3.70545e-07, 142, 0, 4)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("17_1tg76")
 skeleton = NodePath("../..")
 
@@ -857,6 +961,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(2.83122e-07, 0, -1, 0, 1, 0, 1, 0, 2.83122e-07, -26, 0, 3)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("17_1tg76")
 skeleton = NodePath("../..")
 
@@ -864,6 +969,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(-3.70545e-07, 0, 1, 0, 1, 0, -1, 0, -3.70545e-07, -185, 0, -72)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("17_1tg76")
 skeleton = NodePath("../..")
 
@@ -871,6 +977,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(2.83122e-07, 0, -1, 0, 1, 0, 1, 0, 2.83122e-07, -141, 0, -218)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("17_1tg76")
 skeleton = NodePath("../..")
 
@@ -878,6 +985,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -358, 0, -150)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("18_3fsyb")
 skeleton = NodePath("../..")
 
@@ -885,6 +993,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -168, 0, -276)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("18_3fsyb")
 skeleton = NodePath("../..")
 
@@ -892,6 +1001,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36, 0, -161)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("18_3fsyb")
 skeleton = NodePath("../..")
 
@@ -899,6 +1009,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -86, 0, -108)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("18_3fsyb")
 skeleton = NodePath("../..")
 
@@ -906,6 +1017,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 41, 0, -89)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("18_3fsyb")
 skeleton = NodePath("../..")
 
@@ -913,6 +1025,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 121, 0, -119)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("18_3fsyb")
 skeleton = NodePath("../..")
 
@@ -920,6 +1033,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 20, 0, -21)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("18_3fsyb")
 skeleton = NodePath("../..")
 
@@ -927,6 +1041,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -271, 0, -171)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("19_lusiy")
 skeleton = NodePath("../..")
 
@@ -934,6 +1049,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 1, -267, 0, -255)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("19_lusiy")
 skeleton = NodePath("../..")
 
@@ -941,6 +1057,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(-1, 0, 1.47027e-07, 0, 1, 0, -1.47027e-07, 0, -1, -129, 0, -179)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("19_lusiy")
 skeleton = NodePath("../..")
 
@@ -948,6 +1065,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -65, 0, -24)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("19_lusiy")
 skeleton = NodePath("../..")
 
@@ -955,6 +1073,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 44, 0, -45)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("19_lusiy")
 skeleton = NodePath("../..")
 
@@ -962,6 +1081,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 65, 0, -65)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("19_lusiy")
 skeleton = NodePath("../..")
 
@@ -969,6 +1089,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 97, 0, -80)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("19_lusiy")
 skeleton = NodePath("../..")
 
@@ -976,6 +1097,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 63, 0, -190)
 material_override = ExtResource("6_m23vn")
 ignore_occlusion_culling = true
+visibility_range_end = 175.0
 mesh = ExtResource("19_lusiy")
 skeleton = NodePath("../..")
 
@@ -4225,7 +4347,7 @@ min_dif = 2
 
 [node name="hitscanner7" parent="enemies" instance=ExtResource("40_aalv1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -238.714, 7.62939e-06, -246.223)
-min_dif = 1
+min_dif = 2
 
 [node name="mage11" parent="enemies" instance=ExtResource("39_2qmds")]
 transform = Transform3D(-0.0126359, 0, -0.99992, 0, 1, 0, 0.99992, 0, -0.0126359, -217.247, 7.62939e-06, -244.186)

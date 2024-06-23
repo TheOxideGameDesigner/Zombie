@@ -32,6 +32,14 @@ var hit_target = 0
 @onready var shaded_material = preload("res://resources/materials/level_mat.tres")
 @onready var unshaded_material = preload("res://resources/materials/level_unshaded_mat.tres")
 
+
+func physics():
+	for obj in get_tree().get_nodes_in_group("physics"):
+		var dist = obj.global_position.distance_to(global_position)
+		if dist < 7.5:
+			obj.apply_central_impulse(15 * (obj.global_position - position).normalized() / (1 + dist / 3))
+
+
 func _ready():
 	var tf = Vector3(target_pos.x - start_pos.x, 0, target_pos.z - start_pos.z).length() / HVEL
 	vvel = (target_pos.y - start_pos.y + tf * tf * GR_ACCEL / 2) / tf
@@ -68,6 +76,7 @@ func _on_body_entered(body):
 		return
 	if body.is_in_group("player") or body.is_in_group("enemy"):
 		hit_target = 1
+		physics()
 		explosion.queue_free()
 		sprite.queue_free()
 		$hitbox.queue_free()
@@ -96,6 +105,7 @@ func _on_death_timer_timeout():
 	if exploded or hit_target:
 		return
 	exploded = 1
+	physics()
 	explosion.visible = 1
 	sprite.queue_free()
 	$hitbox.queue_free()

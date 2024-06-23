@@ -18,6 +18,7 @@ script = ExtResource("3_fyvcc")
 
 [node name="arrow" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.365, 3.19093e-08, 0, 1.3948e-15, 1.59547e-08, -0.365, -3.19093e-08, -0.365, -1.59547e-08, 0, 0, 0.537061)
+cast_shadow = 0
 mesh = SubResource("CylinderMesh_mit3v")
 
 [node name="collision" type="StaticBody3D" parent="."]

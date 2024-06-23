@@ -20,3 +20,12 @@ func _ready():
 	if config_file.get_value("video", "disable_particles"):
 		for j in get_tree().get_nodes_in_group("particles"):
 			j.queue_free()
+	var id : int = 1
+	for p in get_tree().get_nodes_in_group("painting_s1"):
+		p.set_image(id)
+		id = (id + 1) % 4 + 1
+	id = 5
+	for p in get_tree().get_nodes_in_group("painting_s2"):
+		p.set_image(id)
+		id = (id + 1) % 5 + 5
+

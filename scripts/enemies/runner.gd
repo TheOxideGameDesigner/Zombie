@@ -29,7 +29,7 @@ const ATTENTION_SPAN : float = 10
 
 const ACTIVE_RADIUS = 64
 const TARGET_RADIUS = 0.5
-const PHANTOM_RADIUS = 6.5
+const PHANTOM_RADIUS = 7
 
 
 var rising = 0
@@ -540,6 +540,8 @@ func _process(delta):
 	if health <= 0 and alive:
 		home.time_left = respawn_time
 		alive = 0
+		if is_phantom:
+			body.set_instance_shader_parameter("opacity", 0.3)
 		if hypno:
 			unhypnotize()
 		respawn.start()
@@ -565,8 +567,8 @@ func _process(delta):
 		hypno_col = max(0.0, hypno_col - delta)
 		body.set_instance_shader_parameter("hypno", hypno_col)
 	if is_phantom and dist_from_target < PHANTOM_RADIUS:
-		const T = 1.0
-		const OPAC_MIN = 0.2
+		const T = 0.75
+		const OPAC_MIN = 0.3
 		const OPAC_MAX = 0.9
 		body.set_instance_shader_parameter("opacity", clamp(OPAC_MIN + (dist_from_target - PHANTOM_RADIUS) * (OPAC_MIN - OPAC_MAX) / T, OPAC_MIN, OPAC_MAX))
 	

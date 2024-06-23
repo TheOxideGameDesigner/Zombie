@@ -8,7 +8,7 @@ var fov_max : float = 110
 var fov_max_spd : float = 2
 const SENS_CONSTANT = 0.022
 const SPEED = 10
-const RADIUS = 0.475
+const RADIUS = 0.45
 const ACCEL = 90
 const TURN_CONTROL = 95
 const AIR_TURN_CONTROL = 30
@@ -38,7 +38,7 @@ const REVOLVER_MAX_HEAT = 10
 const REVOLVER_HEAT_REGEN_TIME = 3
 const SHOTGUN_DAMAGE = 100
 const SHOTGUN_PB_RANGE = 4
-const SHOTGUN_RANGE = 20
+const SHOTGUN_RANGE = 12
 const SHOTGUN_FORCE_MIN = 6.0
 const SHOTGUN_FORCE_MAX = 9.0
 const SHOTGUN_FALLOFF = 0.25
@@ -61,6 +61,7 @@ const HYPNOTIZER_DRAIN = 2.5 / HYPNOTIZER_BUFF
 const HYPNOTIZER_RECHARGE = 15
 const HYPNOTIZER_RECHARGE_START = 0.5
 const DEATH_FADE_TIME = 1.0
+const COYOTE_TIME = 0.2
 
 var damage_mul = 1.0
 var speed_mul = 1.0
@@ -88,6 +89,8 @@ var shotgun_heat = 0.0
 var god_mode : bool = false
 var max_health : int = 100
 var health : int = max_health
+var coyote_timer : float = COYOTE_TIME
+var time = 0.0
 
 @onready var healthbar = $healthbar/health
 @onready var healthbar_width = healthbar.size.x
@@ -157,7 +160,6 @@ var viewmodel_y_bump = 0.0
 var viewmodel_y_bump_lerped = 0.0
 
 
-var time = 0
 var damage_taken : int = 0
 
 @onready var charge_rect = $charge/charge_rect
@@ -239,16 +241,78 @@ func hurt(collider):
 			collider.pain(BLASTER_DAMAGE * damage_mul)
 
 
+func find_collider(dist, pb_range = 0.0):
+	#raycast.target_position = Vector3(0, 0, -dist)
+	#raycast.force_raycast_update()
+	#var collider = raycast.get_collider()
+	#if collider != null and collider.is_in_group("enemy_raycast_collision"):
+		#collider = collider.get_parent()
+	#print("\nregular collider = " + str(collider))
+	
+	var dist_left = dist
+	var colliders = []
+	var forward = raycast.global_basis * Vector3(0, 0, -1)
+	var requires_pb_range = false
+	while true:
+		raycast.target_position = Vector3(0, 0, -dist_left)
+		raycast.force_raycast_update()
+		#print("step begin: " + str(raycast.global_position) + " " + str(dist_left) + " " + str(raycast.hit_from_inside))
+		raycast.hit_from_inside = false
+		var collider = raycast.get_collider()
+		if collider == null:
+			#print("hit nothing")
+			break
+		if collider.is_in_group("enemy_raycast_collision"):
+			collider = collider.get_parent()
+		if not collider.is_in_group("enemy"):
+			if colliders.is_empty():
+				#print("hit wall and stopped")
+				raycast.hit_from_inside = true
+				raycast.position = Vector3.ZERO
+				return collider
+			#print("hit wall")
+			break
+		#print("hit enemy " + str(collider))
+		var dir = collider.position - position
+		var dir2d = Vector2(dir.x, dir.z)
+		var m = collider.RADIUS * 0.7 / dir2d.length()
+		if dir2d.length() < pb_range:
+			requires_pb_range = true
+		elif requires_pb_range:
+			#print("enemy was not in pb dist")
+			break
+		if dir2d.normalized().dot(Vector2(forward.x, forward.z).normalized()) > 1 / sqrt(m * m + 1):
+			#print("enemy was pointed at")
+			raycast.hit_from_inside = true
+			raycast.position = Vector3.ZERO
+			return collider
+		colliders.push_back(collider)
+		dist_left -= raycast.global_position.distance_to(raycast.get_collision_point()) + 0.1
+		raycast.global_position = raycast.get_collision_point() + forward * 0.1
+	raycast.hit_from_inside = true
+	raycast.position = Vector3.ZERO
+	if colliders.is_empty():
+		#print("no zombies?")
+		return null
+	else:
+		#print(colliders)
+		var max_dot = -2
+		var max_c
+		for c in colliders:
+			var dir = c.position - position
+			var dot = Vector2(dir.x, dir.z).normalized().dot(Vector2(forward.x, forward.z).normalized())
+			if dot > max_dot:
+				max_dot = dot
+				max_c = c
+		return max_c
+
 func shoot(delta):
 	match wpn:
 		1:
 			camera.add_tilt(0.5, Vector3(1, 0, 0), 1)
-			raycast.target_position = Vector3(0, 0, -REVOLVER_RANGE)
-			raycast.force_raycast_update()
-			var collider = raycast.get_collider()
+			var collider = find_collider(REVOLVER_RANGE)
 			if collider != null:
-				if collider.is_in_group("enemy_raycast_collision"):
-					collider = collider.get_parent()
+				if collider.is_in_group("enemy"):
 					if not collider.rising:
 						hurt(collider)
 				else:
@@ -276,13 +340,10 @@ func shoot(delta):
 			gun_cam.add_child(bullet)
 		2:
 			camera.add_tilt(3, Vector3(1, 0, 0), 3)
-			raycast.target_position = Vector3(0, 0, -SHOTGUN_RANGE)
-			raycast.force_raycast_update()
-			var collider = raycast.get_collider()
+			var collider = find_collider(SHOTGUN_RANGE, SHOTGUN_PB_RANGE)
 			
 			if collider != null:
-				if collider.is_in_group("enemy_raycast_collision"):
-					collider = collider.get_parent()
+				if collider.is_in_group("enemy"):
 					hurt(collider)
 					if not collider.rising:
 						var dist = Vector2(position.x, position.z).distance_to(Vector2(collider.position.x, collider.position.z))
@@ -338,12 +399,9 @@ func shoot(delta):
 		4:
 			camera.add_tilt(0.5, Vector3(1, 0, 0), 2)
 			pain("You killed yourself with the blaster", BLASTER_SELF_DAMAGE_LOW, true, true, true)
-			raycast.target_position = Vector3(0, 0, -BLASTER_RANGE)
-			raycast.force_raycast_update()
-			var collider = raycast.get_collider()
+			var collider = find_collider(BLASTER_RANGE)
 			if collider != null:
-				if collider.is_in_group("enemy_raycast_collision"):
-					collider = collider.get_parent()
+				if collider.is_in_group("enemy"):
 					if not collider.rising:
 						hurt(collider)
 				else:
@@ -368,27 +426,23 @@ func shoot(delta):
 		5:
 			if hypnotizer_charge == 0.0:
 				return
-			raycast.target_position = Vector3(0, 0, -REVOLVER_RANGE)
-			raycast.force_raycast_update()
-			var collider = raycast.get_collider()
+			var collider = find_collider(REVOLVER_RANGE)
 			hypnotizer_last_shot_hit = false
-			if collider != null:
-				if collider.is_in_group("enemy_raycast_collision"):
-					collider = collider.get_parent()
-					if collider.hypnotizable and not collider.rising and not collider.hypno:
-						hypnotizer_last_shot_hit = true
-						hypnotizer_charge_timer = HYPNOTIZER_RECHARGE_START
-						hypnotizer_charge = max(0.0, hypnotizer_charge - delta / HYPNOTIZER_DRAIN)
-						collider.hypno_health -= HYPNOTIZER_BUFF * damage_mul * (float(collider.HP) / collider.health) * delta / collider.HYPNO_RESISTANCE
-						collider.update_healthbar()
-						if not disable_particles:
-							var new_particles = particles_scene.instantiate()
-							new_particles.dir = raycast.get_collision_normal()
-							new_particles.color = Color(1.0, 0.0, 1.0)
-							new_particles.amount = 1
-							new_particles.size = 0.05
-							add_child(new_particles)
-							new_particles.global_position = raycast.get_collision_point()
+			if collider != null and collider.is_in_group("enemy"):
+				if collider.hypnotizable and not collider.rising and not collider.hypno:
+					hypnotizer_last_shot_hit = true
+					hypnotizer_charge_timer = HYPNOTIZER_RECHARGE_START
+					hypnotizer_charge = max(0.0, hypnotizer_charge - delta / HYPNOTIZER_DRAIN)
+					collider.hypno_health -= HYPNOTIZER_BUFF * damage_mul * (float(collider.HP) / collider.health) * delta / collider.HYPNO_RESISTANCE
+					collider.update_healthbar()
+					if not disable_particles:
+						var new_particles = particles_scene.instantiate()
+						new_particles.dir = raycast.get_collision_normal()
+						new_particles.color = Color(1.0, 0.0, 1.0)
+						new_particles.amount = 1
+						new_particles.size = 0.05
+						add_child(new_particles)
+						new_particles.global_position = raycast.get_collision_point()
 
 
 func shoot_alt():
@@ -416,12 +470,9 @@ func shoot_alt():
 		dir.y = min(dir.y, 0.25)
 		knockback(dir)
 		
-		raycast.target_position = Vector3(0, 0, -BLASTER_RANGE)
-		raycast.force_raycast_update()
-		var collider = raycast.get_collider()
+		var collider = find_collider(BLASTER_RANGE)
 		if collider != null:
-			if collider.is_in_group("enemy_raycast_collision"):
-				collider = collider.get_parent()
+			if collider.is_in_group("enemy"):
 				if not collider.rising:
 					hurt(collider)
 			else:
@@ -472,7 +523,8 @@ func movement(wishdir, delta):
 				velocity.y = JUMP_SPEED + clamp(0.0, ramp_vel, 2.0)
 				viewmodel_y_bump = 1.0
 		elif Input.is_action_just_pressed("g_jump"):
-			can_jump = 0
+			if coyote_timer == 0.0:
+				can_jump = 0
 			velocity.y = max(velocity.y, JUMP_SPEED)
 			viewmodel_y_bump = 1.0
 			if wishdir != Vector2.ZERO:
@@ -482,6 +534,9 @@ func movement(wishdir, delta):
 	
 	if is_on_floor():
 		can_jump = 1
+		coyote_timer = COYOTE_TIME
+	else:
+		coyote_timer = max(0.0, coyote_timer - delta)
 	var moving_on_floor = is_on_floor() and (not can_jump or not Input.is_action_pressed("g_jump"))
 	
 	if Vector2(velocity.x, velocity.z).length() > SPEED * speed_mul:
@@ -738,6 +793,8 @@ func _process(delta):
 	shotgun_mf.visible = (shotgun_mf_timer != 0 and not holstering)
 	
 	color_overlay.color.a -= delta
+	
+	time += delta
 
 
 func viewmodel_rot_func(t, dt, g):
@@ -745,10 +802,11 @@ func viewmodel_rot_func(t, dt, g):
 
 
 func _physics_process(delta):
-	time += delta
-	
 	viewmodel_pos.x -= viewmodel_pos.x * delta * SWAY_RETURN
 	viewmodel_pos.y -= viewmodel_pos.y * delta * SWAY_RETURN
+	
+	if health <= 0:
+		return
 	
 	for i in range(5):
 		cooldown_timers[i] = max(0, cooldown_timers[i] - delta)
@@ -771,8 +829,6 @@ func _physics_process(delta):
 	gun_cam.rotation = cam.global_rotation
 	gun_cam.rotation.x = clamp(gun_cam.rotation.x, -PI / 3, PI / 3)
 	
-	if health <= 0:
-		return
 	var wishdir = Input.get_vector("g_left", "g_right", "g_forward", "g_backward").rotated(-cam.rotation.y)
 	
 	var prev_h = position.y

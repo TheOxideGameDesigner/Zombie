@@ -8,10 +8,12 @@
 
 [node name="chandelier" type="MeshInstance3D"]
 material_override = ExtResource("1_le5ud")
+cast_shadow = 0
 mesh = ExtResource("2_lwd70")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 material_override = ExtResource("3_upkif")
+cast_shadow = 0
 mesh = ExtResource("4_lrs1t")
 
 [node name="light_particles" parent="." instance=ExtResource("5_7oahk")]
@@ -33,6 +35,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.338389, -0.622951, 0.56544
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.666268, -0.622951, 0.00149655)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.71596, 0)
 light_color = Color(1, 1, 0.835294, 1)
-omni_range = 41.8491
-omni_attenuation = 0.0769468
+omni_range = 34.6499
+omni_attenuation = 0.732046

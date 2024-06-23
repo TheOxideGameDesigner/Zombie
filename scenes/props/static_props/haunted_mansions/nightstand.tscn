@@ -6,7 +6,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_jfb16"]
 size = Vector3(0.836151, 0.905396, 0.690186)
 
-[node name="bedside" type="StaticBody3D"]
+[node name="nightstand" type="StaticBody3D"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.355689, 0.18832)

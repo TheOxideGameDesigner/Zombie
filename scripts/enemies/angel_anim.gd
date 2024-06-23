@@ -20,10 +20,10 @@ func anim(c):
 	position.y = 0.4 * c
 	left_wing.rotation.z = 0.2 * c
 	right_wing.rotation.z = -left_wing.rotation.z
-	skel.set_bone_pose_rotation(left_th, Quaternion.from_euler(init_left_thigh_rot + Vector3(0, 0, (c - 2) * 0.05)))
-	skel.set_bone_pose_rotation(left_cf, Quaternion.from_euler(init_left_calf_rot + Vector3(0, 0, (c - 2) * 0.05)))
-	skel.set_bone_pose_rotation(right_th, Quaternion.from_euler(init_right_thigh_rot + Vector3(0, 0, (c - 2) * 0.1)))
-	skel.set_bone_pose_rotation(right_cf, Quaternion.from_euler(init_right_calf_rot + Vector3(0, 0, (c - 2) * 0.1)))
+	skel.set_bone_pose_rotation(left_th, Quaternion.from_euler(init_left_thigh_rot + Vector3(0, 0, (c - 2) * 0.1)))
+	skel.set_bone_pose_rotation(left_cf, Quaternion.from_euler(init_left_calf_rot + Vector3(0, 0, (c - 2) * 0.1)))
+	skel.set_bone_pose_rotation(right_th, Quaternion.from_euler(init_right_thigh_rot + Vector3(0, 0, (c - 2) * 0.15)))
+	skel.set_bone_pose_rotation(right_cf, Quaternion.from_euler(init_right_calf_rot + Vector3(0, 0, (c - 2) * 0.15)))
 
 
 func _ready():

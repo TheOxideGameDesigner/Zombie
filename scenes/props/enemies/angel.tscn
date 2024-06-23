@@ -20,12 +20,11 @@ radius = 0.591089
 height = 3.40052
 radius = 1.48798
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d3s60"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_udgf3"]
 transparency = 1
 shading_mode = 0
-albedo_color = Color(1, 1, 1, 0.1)
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_sjmhj"]
+[sub_resource type="CylinderMesh" id="CylinderMesh_a468s"]
 top_radius = 1.5
 bottom_radius = 1.5
 height = 3.0
@@ -96,8 +95,8 @@ shape = SubResource("CylinderShape3D_258bd")
 
 [node name="difficulty_visualiser" parent="." instance=ExtResource("9_2jhd6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
-material_override = SubResource("StandardMaterial3D_d3s60")
-mesh = SubResource("CylinderMesh_sjmhj")
+material_override = SubResource("StandardMaterial3D_udgf3")
+mesh = SubResource("CylinderMesh_a468s")
 radius = 1.5
 height = 3.0
 

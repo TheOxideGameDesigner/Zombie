@@ -6,12 +6,11 @@
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_nfumk"]
 
-[node name="painting3x2" type="MeshInstance3D"]
+[node name="painting3x2" type="MeshInstance3D" groups=["painting_s2"]]
 material_override = ExtResource("1_a410i")
 cast_shadow = 0
 mesh = ExtResource("2_4tp3d")
 script = ExtResource("3_co1yl")
-type = 1
 
 [node name="image" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.3, 0, 0, 0, -1.31134e-08, -0.2, 0, 0.3, -8.74228e-09, -0.028228, -0.0139609, 0.0320146)
