@@ -15,7 +15,7 @@
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_qg53b"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jb1n0"]
-size = Vector3(2, 2.39, 0.05)
+size = Vector3(2, 2.39, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_irllb"]
 material = ExtResource("7_c364q")

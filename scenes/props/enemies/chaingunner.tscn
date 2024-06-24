@@ -29,7 +29,7 @@ rings = 1
 radius = 1.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xjme4"]
-size = Vector3(2.58032, 2.60934, 0.05)
+size = Vector3(2.58, 2.609, 2)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cbwhe"]
 transparency = 1
