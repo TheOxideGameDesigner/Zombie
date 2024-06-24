@@ -46,6 +46,7 @@ var disable_gibs : bool = false
 @onready var respawn = $respawn
 @onready var aura = $mesh/aura
 @onready var raycast_hitbox = $raycast_collision/raycast_hitbox
+@onready var raycast_area = $raycast_collision
 @onready var hit_timer = $hit_timer
 
 var mesh_material = preload("res://resources/materials/enemy_mat.tres")
@@ -222,9 +223,8 @@ func ai(delta):
 	
 	var dir2player = player.global_position - global_position
 	var dir2player2D = Vector2(dir2player.x, dir2player.z).normalized()
-	var player_dir = player.cam.transform.basis.z
-	var player_dir2D = Vector2(player_dir.x, player_dir.z).normalized()
-	raycast_hitbox.disabled = rising or not alive or dir2player2D.dot(player_dir2D) < player.MIN_HIT_DOT_PROD
+	raycast_area.rotation.y = -atan2(dir2player2D.y, dir2player2D.x) + PI / 2
+	raycast_hitbox.disabled = rising or not alive
 	
 	if rising and rising_timer < RISE_TIME:
 		mesh.rotation.y = spawn_ang

@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://cukp76ukblbym"]
+[gd_scene load_steps=42 format=3 uid="uid://cukp76ukblbym"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_altuv"]
 [ext_resource type="Material" uid="uid://uxn8fucitgfr" path="res://resources/materials/level_mat.tres" id="2_1w5tr"]
@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://e23khqsdhse1" path="res://scenes/props/static_props/haunted_mansions/table.tscn" id="22_nirar"]
 [ext_resource type="PackedScene" uid="uid://cglhug1lafnqo" path="res://scenes/props/static_props/haunted_mansions/chair.tscn" id="23_a2jpt"]
 [ext_resource type="PackedScene" uid="uid://cn2daom6rjal1" path="res://scenes/props/static_props/haunted_mansions/plate.tscn" id="24_hyme1"]
+[ext_resource type="ArrayMesh" uid="uid://hx04wydtgdhq" path="res://models/static_props/haunted_mansions/plate.obj" id="25_000i6"]
 [ext_resource type="PackedScene" uid="uid://08lee70ia54" path="res://scenes/props/static_props/haunted_mansions/painting1x1.tscn" id="25_0wg57"]
 [ext_resource type="PackedScene" uid="uid://us2eg1jhjkd8" path="res://scenes/props/static_props/haunted_mansions/painting3x2.tscn" id="26_viyy3"]
 [ext_resource type="PackedScene" uid="uid://d1mlqso4uxqad" path="res://scenes/props/static_props/haunted_mansions/sofa.tscn" id="27_luwko"]
@@ -666,6 +667,9 @@ transform = Transform3D(-2.18557e-07, 0, -1, 0, 1, 0, 1, 0, -2.18557e-07, -1.897
 [node name="sofa8" parent="props" instance=ExtResource("27_luwko")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.66064, 1.90735e-06, -35.1278)
 
+[node name="sofa11" parent="props" instance=ExtResource("27_luwko")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 40.7963, 1.90735e-06, -35.1278)
+
 [node name="window6" parent="props" instance=ExtResource("29_ib712")]
 transform = Transform3D(-1.5, 0, -2.26494e-07, 0, 1.5, 0, 2.26494e-07, 0, -1.5, 43.5, 2.32051, 17)
 skeleton = NodePath("../..")
@@ -714,60 +718,6 @@ transform = Transform3D(2.98023e-08, 0, -1, 0, 1, 0, 1, 0, 2.98023e-08, 12.0542,
 [node name="wardrobe4" parent="props" instance=ExtResource("37_57pgq")]
 transform = Transform3D(2.98023e-08, 0, -1, 0, 1, 0, 1, 0, 2.98023e-08, 12.0542, 2.38419e-06, -14.6475)
 
-[node name="plate3" parent="props" instance=ExtResource("24_hyme1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4715, 0.632654, 7.50833)
-
-[node name="plate4" parent="props" instance=ExtResource("24_hyme1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4715, 0.632654, 6.00538)
-
-[node name="plate5" parent="props" instance=ExtResource("24_hyme1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4715, 1.64272, 7.69337)
-
-[node name="plate6" parent="props" instance=ExtResource("24_hyme1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4715, 1.15144, 6.97978)
-
-[node name="plate9" parent="props" instance=ExtResource("24_hyme1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4715, 0.124022, 6.57478)
-
-[node name="plate7" parent="props" instance=ExtResource("24_hyme1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4715, 2.13472, 6.97978)
-
-[node name="plate8" parent="props" instance=ExtResource("24_hyme1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4715, 2.64448, 7.70323)
-
-[node name="plate10" parent="props" instance=ExtResource("24_hyme1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4715, 2.64448, 6.20362)
-
-[node name="plate11" parent="props" instance=ExtResource("24_hyme1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4715, 1.64272, 6.19043)
-
-[node name="plate12" parent="props" instance=ExtResource("24_hyme1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4715, 0.632654, -12.2951)
-
-[node name="plate13" parent="props" instance=ExtResource("24_hyme1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4715, 0.632654, -14.0407)
-
-[node name="plate14" parent="props" instance=ExtResource("24_hyme1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4715, 1.64272, -12.3527)
-
-[node name="plate15" parent="props" instance=ExtResource("24_hyme1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4715, 1.15144, -13.0663)
-
-[node name="plate16" parent="props" instance=ExtResource("24_hyme1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4715, 0.124022, -13.2225)
-
-[node name="plate17" parent="props" instance=ExtResource("24_hyme1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4715, 2.13472, -13.2024)
-
-[node name="plate18" parent="props" instance=ExtResource("24_hyme1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4715, 2.64448, -12.4331)
-
-[node name="plate19" parent="props" instance=ExtResource("24_hyme1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4715, 2.64448, -13.8424)
-
-[node name="plate20" parent="props" instance=ExtResource("24_hyme1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4715, 1.64272, -13.708)
-
 [node name="painting3x7" parent="props" instance=ExtResource("26_viyy3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.5, 3, -23.5)
 skeleton = NodePath("../..")
@@ -775,6 +725,96 @@ skeleton = NodePath("../..")
 [node name="painting1x7" parent="props" instance=ExtResource("25_0wg57")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.75, 3, -23.5)
 skeleton = NodePath("../..")
+
+[node name="plate3" type="MeshInstance3D" parent="props"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4388, 0.124186, 7.17703)
+material_override = ExtResource("2_1w5tr")
+mesh = ExtResource("25_000i6")
+
+[node name="plate4" type="MeshInstance3D" parent="props"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4388, 0.617871, 7.63772)
+material_override = ExtResource("2_1w5tr")
+mesh = ExtResource("25_000i6")
+
+[node name="plate5" type="MeshInstance3D" parent="props"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4388, 0.617871, 6.42896)
+material_override = ExtResource("2_1w5tr")
+mesh = ExtResource("25_000i6")
+
+[node name="plate6" type="MeshInstance3D" parent="props"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4388, 1.12387, 6.95403)
+material_override = ExtResource("2_1w5tr")
+mesh = ExtResource("25_000i6")
+
+[node name="plate7" type="MeshInstance3D" parent="props"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4388, 1.61755, 7.52089)
+material_override = ExtResource("2_1w5tr")
+mesh = ExtResource("25_000i6")
+
+[node name="plate8" type="MeshInstance3D" parent="props"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4388, 1.61755, 6.16963)
+material_override = ExtResource("2_1w5tr")
+mesh = ExtResource("25_000i6")
+
+[node name="plate9" type="MeshInstance3D" parent="props"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4388, 2.12769, 7.17703)
+material_override = ExtResource("2_1w5tr")
+mesh = ExtResource("25_000i6")
+
+[node name="plate10" type="MeshInstance3D" parent="props"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4388, 2.62138, 7.72818)
+material_override = ExtResource("2_1w5tr")
+mesh = ExtResource("25_000i6")
+
+[node name="plate11" type="MeshInstance3D" parent="props"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4388, 2.62138, 6.42896)
+material_override = ExtResource("2_1w5tr")
+mesh = ExtResource("25_000i6")
+
+[node name="plate12" type="MeshInstance3D" parent="props"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4388, 0.124186, -13.2309)
+material_override = ExtResource("2_1w5tr")
+mesh = ExtResource("25_000i6")
+
+[node name="plate13" type="MeshInstance3D" parent="props"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4388, 0.617871, -12.3169)
+material_override = ExtResource("2_1w5tr")
+mesh = ExtResource("25_000i6")
+
+[node name="plate14" type="MeshInstance3D" parent="props"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4388, 0.617871, -13.673)
+material_override = ExtResource("2_1w5tr")
+mesh = ExtResource("25_000i6")
+
+[node name="plate15" type="MeshInstance3D" parent="props"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4388, 1.12387, -13.0058)
+material_override = ExtResource("2_1w5tr")
+mesh = ExtResource("25_000i6")
+
+[node name="plate16" type="MeshInstance3D" parent="props"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4388, 1.61755, -12.5811)
+material_override = ExtResource("2_1w5tr")
+mesh = ExtResource("25_000i6")
+
+[node name="plate17" type="MeshInstance3D" parent="props"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4388, 1.61755, -13.8415)
+material_override = ExtResource("2_1w5tr")
+mesh = ExtResource("25_000i6")
+
+[node name="plate18" type="MeshInstance3D" parent="props"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4388, 2.12769, -13.1257)
+material_override = ExtResource("2_1w5tr")
+mesh = ExtResource("25_000i6")
+
+[node name="plate19" type="MeshInstance3D" parent="props"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4388, 2.62138, -12.4498)
+material_override = ExtResource("2_1w5tr")
+mesh = ExtResource("25_000i6")
+
+[node name="plate20" type="MeshInstance3D" parent="props"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4388, 2.62138, -13.673)
+material_override = ExtResource("2_1w5tr")
+mesh = ExtResource("25_000i6")
 
 [node name="garlic" parent="." instance=ExtResource("11_anl3v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31, 1, -3)
@@ -871,11 +911,11 @@ min_dif = 4
 transform = Transform3D(0.194234, 0, -0.980955, 0, 1, 0, 0.980955, 0, 0.194234, 68.3297, 6.6, -81.9695)
 
 [node name="runner8" parent="enemies" instance=ExtResource("30_gi4dv")]
-transform = Transform3D(-0.980955, 0, -0.194234, 0, 1, 0, 0.194234, 0, -0.980955, 81.1548, 6.6, -61.0058)
+transform = Transform3D(-0.980955, 0, -0.194234, 0, 1, 0, 0.194234, 0, -0.980955, 81.1548, 6.6, -61.6622)
 min_dif = 2
 
 [node name="runner10" parent="enemies" instance=ExtResource("30_gi4dv")]
-transform = Transform3D(-0.901915, 0, 0.431913, 0, 1, 0, -0.431913, 0, -0.901915, 73.0127, 6.6, -61.0058)
+transform = Transform3D(-0.901915, 0, 0.431913, 0, 1, 0, -0.431913, 0, -0.901915, 73.0127, 6.6, -59.2272)
 min_dif = 1
 
 [node name="runner18" parent="enemies" instance=ExtResource("30_gi4dv")]
@@ -884,7 +924,7 @@ min_dif = 3
 
 [node name="runner19" parent="enemies" instance=ExtResource("30_gi4dv")]
 transform = Transform3D(-0.901915, 0, 0.431913, 0, 1, 0, -0.431913, 0, -0.901915, 72.9009, 6.6, -71.4678)
-min_dif = 3
+min_dif = 4
 
 [node name="runner9" parent="enemies" instance=ExtResource("30_gi4dv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70.1002, 1.90735e-06, -28.4936)
@@ -1025,10 +1065,10 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 20.263
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 26.9288, 1.90735e-06, -18.9491)
 min_dif = 4
 
-[node name="hitscanner" parent="." instance=ExtResource("32_nsk1j")]
+[node name="hitscanner7" parent="enemies" instance=ExtResource("32_nsk1j")]
 transform = Transform3D(-0.0420849, 0, 0.999114, 0, 1, 0, -0.999114, 0, -0.0420849, 24.8905, 0, 11.4077)
 min_dif = 4
 
-[node name="mage" parent="." instance=ExtResource("31_7ji5r")]
+[node name="mage8" parent="enemies" instance=ExtResource("31_7ji5r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.9099, 6.94693, -107.548)
 min_dif = 3

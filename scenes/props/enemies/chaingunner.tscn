@@ -26,24 +26,23 @@ radial_segments = 4
 rings = 1
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_3gd1o"]
-height = 2.02041
 radius = 1.0
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_ttbnl"]
-height = 3.7148
-radius = 1.75
+[sub_resource type="BoxShape3D" id="BoxShape3D_xjme4"]
+size = Vector3(2.58032, 2.60934, 0.05)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bypi7"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cbwhe"]
 transparency = 1
 shading_mode = 0
+albedo_color = Color(1, 1, 1, 0.1)
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_m6y4s"]
+[sub_resource type="CylinderMesh" id="CylinderMesh_d1wpy"]
 top_radius = 1.0
 bottom_radius = 1.0
 radial_segments = 12
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_c1f0i"]
-radius = 1.14581
+radius = 1.0
 
 [node name="chaingunner" type="StaticBody3D" groups=["activatable", "enemy"]]
 top_level = true
@@ -130,20 +129,21 @@ collision_mask = 769
 hit_from_inside = true
 
 [node name="raycast_collision" type="Area3D" parent="." groups=["enemy_raycast_collision"]]
+visible = false
 collision_layer = 4
 collision_mask = 0
 
 [node name="raycast_hitbox" type="CollisionShape3D" parent="raycast_collision"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.79109, 0)
-shape = SubResource("CylinderShape3D_ttbnl")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.23828, 0)
+shape = SubResource("BoxShape3D_xjme4")
 
 [node name="hit_timer" type="Timer" parent="."]
 wait_time = 0.1
 one_shot = true
 
 [node name="difficulty_visualiser" parent="." instance=ExtResource("12_2wrjj")]
-material_override = SubResource("StandardMaterial3D_bypi7")
-mesh = SubResource("CylinderMesh_m6y4s")
+material_override = SubResource("StandardMaterial3D_cbwhe")
+mesh = SubResource("CylinderMesh_d1wpy")
 radius = 1.0
 
 [node name="collision_area" type="Area3D" parent="." groups=["enemy_area"]]

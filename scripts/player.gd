@@ -257,7 +257,6 @@ func find_collider(dist, pb_range = 0.0):
 		raycast.target_position = Vector3(0, 0, -dist_left)
 		raycast.force_raycast_update()
 		#print("step begin: " + str(raycast.global_position) + " " + str(dist_left) + " " + str(raycast.hit_from_inside))
-		raycast.hit_from_inside = false
 		var collider = raycast.get_collider()
 		if collider == null:
 			#print("hit nothing")
@@ -267,7 +266,6 @@ func find_collider(dist, pb_range = 0.0):
 		if not collider.is_in_group("enemy"):
 			if colliders.is_empty():
 				#print("hit wall and stopped")
-				raycast.hit_from_inside = true
 				raycast.position = Vector3.ZERO
 				return collider
 			#print("hit wall")
@@ -283,13 +281,11 @@ func find_collider(dist, pb_range = 0.0):
 			break
 		if dir2d.normalized().dot(Vector2(forward.x, forward.z).normalized()) > 1 / sqrt(m * m + 1):
 			#print("enemy was pointed at")
-			raycast.hit_from_inside = true
 			raycast.position = Vector3.ZERO
 			return collider
 		colliders.push_back(collider)
 		dist_left -= raycast.global_position.distance_to(raycast.get_collision_point()) + 0.1
 		raycast.global_position = raycast.get_collision_point() + forward * 0.1
-	raycast.hit_from_inside = true
 	raycast.position = Vector3.ZERO
 	if colliders.is_empty():
 		#print("no zombies?")

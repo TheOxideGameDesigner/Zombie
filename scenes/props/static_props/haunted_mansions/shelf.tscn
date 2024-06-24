@@ -6,7 +6,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_jfb16"]
 size = Vector3(2.96522, 3.09795, 0.605332)
 
-[node name="wardrobe" type="StaticBody3D"]
+[node name="shelf" type="StaticBody3D"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 material_override = ExtResource("1_hyvxp")

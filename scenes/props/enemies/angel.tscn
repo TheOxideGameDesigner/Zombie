@@ -16,15 +16,15 @@
 height = 3.0
 radius = 0.591089
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_258bd"]
-height = 3.40052
-radius = 1.48798
+[sub_resource type="BoxShape3D" id="BoxShape3D_8gl1c"]
+size = Vector3(3, 3.5, 0.05)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_udgf3"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4km67"]
 transparency = 1
 shading_mode = 0
+albedo_color = Color(1, 1, 1, 0.1)
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_a468s"]
+[sub_resource type="CylinderMesh" id="CylinderMesh_pcah7"]
 top_radius = 1.5
 bottom_radius = 1.5
 height = 3.0
@@ -86,17 +86,18 @@ texture = ExtResource("9_0fec6")
 
 [node name="raycast_collision" type="CharacterBody3D" parent="." groups=["enemy_raycast_collision"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.44691, 0)
+visible = false
 collision_layer = 4
 collision_mask = 0
 
 [node name="raycast_hitbox" type="CollisionShape3D" parent="raycast_collision"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.430418, 0)
-shape = SubResource("CylinderShape3D_258bd")
+shape = SubResource("BoxShape3D_8gl1c")
 
 [node name="difficulty_visualiser" parent="." instance=ExtResource("9_2jhd6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
-material_override = SubResource("StandardMaterial3D_udgf3")
-mesh = SubResource("CylinderMesh_a468s")
+material_override = SubResource("StandardMaterial3D_4km67")
+mesh = SubResource("CylinderMesh_pcah7")
 radius = 1.5
 height = 3.0
 

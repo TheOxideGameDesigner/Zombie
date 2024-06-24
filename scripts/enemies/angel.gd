@@ -32,6 +32,9 @@ const angel_mat = preload("res://resources/materials/specific_mats/angel_explosi
 @onready var halo = $mesh/halo
 @onready var dist_from_player = Vector2(player.position.x, player.position.z).distance_to(Vector2(position.x, position.z))
 @onready var respawn = $respawn
+@onready var raycast_area = $raycast_collision
+@onready var raycast_hitbox = $raycast_collision/raycast_hitbox
+
 
 @export_range(0, 4) var min_dif : int = 0
 @export var respawn_time = 10
@@ -204,6 +207,11 @@ func ai(delta):
 	
 	if not alive or rising:
 		return
+	
+	var dir2player = player.global_position - global_position
+	var dir2player2D = Vector2(dir2player.x, dir2player.z).normalized()
+	raycast_area.rotation.y = -atan2(dir2player2D.y, dir2player2D.x) + PI / 2
+	raycast_hitbox.disabled = rising or not alive
 
 
 func _physics_process(_delta):

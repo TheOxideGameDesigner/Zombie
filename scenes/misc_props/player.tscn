@@ -98,7 +98,6 @@ enabled = false
 exclude_parent = false
 target_position = Vector3(0, 0, -1)
 collision_mask = 5
-hit_from_inside = true
 hit_back_faces = false
 collide_with_areas = true
 
