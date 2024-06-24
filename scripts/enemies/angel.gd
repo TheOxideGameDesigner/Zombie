@@ -215,6 +215,8 @@ func ai(delta):
 
 
 func _physics_process(_delta):
+	if not alive or rising:
+		return
 	for i in zombies:
 		if not i.hypno and i.health > 0 and i.health < i.HP:
 			i.health = i.health + 1
