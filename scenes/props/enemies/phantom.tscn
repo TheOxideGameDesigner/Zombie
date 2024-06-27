@@ -14,9 +14,8 @@
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_54mrs"]
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_dm706"]
-height = 2.38921
-radius = 1.0
+[sub_resource type="BoxShape3D" id="BoxShape3D_0m3as"]
+size = Vector3(2, 2.39, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_xuhii"]
 material = ExtResource("6_a3l6a")
@@ -25,11 +24,11 @@ height = 5.915
 radial_segments = 10
 rings = 10
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pbutl"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6pfu6"]
 transparency = 1
 shading_mode = 0
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_ub6la"]
+[sub_resource type="CylinderMesh" id="CylinderMesh_8q7fc"]
 radial_segments = 12
 
 [node name="phantom" type="CharacterBody3D" groups=["activatable", "enemy", "lightweight", "phantom"]]
@@ -75,7 +74,7 @@ collision_mask = 0
 
 [node name="raycast_hitbox" type="CollisionShape3D" parent="raycast_collision"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.025442, 0)
-shape = SubResource("CylinderShape3D_dm706")
+shape = SubResource("BoxShape3D_0m3as")
 
 [node name="is_visible" type="VisibleOnScreenNotifier3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.03491, 0)
@@ -116,7 +115,7 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 
 script = ExtResource("9_4688s")
 
 [node name="difficulty_visualiser" parent="." instance=ExtResource("10_dld0m")]
-material_override = SubResource("StandardMaterial3D_pbutl")
-mesh = SubResource("CylinderMesh_ub6la")
+material_override = SubResource("StandardMaterial3D_6pfu6")
+mesh = SubResource("CylinderMesh_8q7fc")
 
 [connection signal="timeout" from="respawn" to="." method="_on_respawn_timeout"]

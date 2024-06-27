@@ -61,9 +61,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 115.605, 6.27093, -26.3164)
 [node name="light12" parent="." instance=ExtResource("7_l8xl7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.8747, 6.35696, -23.803)
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.357262, 0.795883, -0.488809, 0.00296106, 0.52431, 0.851522, 0.933999, 0.302769, -0.189673, 0, 80.2176, 0)
-light_color = Color(0.941176, 1, 1, 1)
+[node name="light" type="DirectionalLight3D" parent="." groups=["light"]]
+transform = Transform3D(0.891167, 0.345171, 0.294413, -0.333815, 0.0594237, 0.940764, 0.307229, -0.936657, 0.168179, 253.533, 245.179, -96.0863)
+light_bake_mode = 0
+shadow_enabled = true
+shadow_bias = 0.01
+shadow_opacity = 0.7
+directional_shadow_blend_splits = true
 
 [node name="gate1" type="StaticBody3D" parent="." groups=["5"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 204, 0, -14)
@@ -71,6 +75,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 204, 0, -14)
 [node name="TutorialGate" type="MeshInstance3D" parent="gate1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00139999, -0.500202)
 material_override = ExtResource("2_mj6bf")
+cast_shadow = 0
 mesh = ExtResource("8_kyx0b")
 skeleton = NodePath("../../light1")
 
@@ -84,6 +89,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 160, 0, -5)
 [node name="TutorialGate" type="MeshInstance3D" parent="gate2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00139999, -0.500202)
 material_override = ExtResource("2_mj6bf")
+cast_shadow = 0
 mesh = ExtResource("8_kyx0b")
 skeleton = NodePath("../../light1")
 
@@ -97,6 +103,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73, 0, -17)
 [node name="TutorialGate" type="MeshInstance3D" parent="gate3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00139999, -0.500202)
 material_override = ExtResource("2_mj6bf")
+cast_shadow = 0
 mesh = ExtResource("8_kyx0b")
 skeleton = NodePath("../../light1")
 
@@ -110,6 +117,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31, 0, -7)
 [node name="TutorialGate" type="MeshInstance3D" parent="gate4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00139999, -0.500202)
 material_override = ExtResource("2_mj6bf")
+cast_shadow = 0
 mesh = ExtResource("8_kyx0b")
 skeleton = NodePath("../../light1")
 
@@ -123,11 +131,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 218, 3, -21)
 [node name="MeshInstance3D" type="MeshInstance3D" parent="switch1"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.114902, -1.8, 0)
 material_override = ExtResource("2_mj6bf")
+cast_shadow = 0
 mesh = ExtResource("9_hts7x")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="switch1" groups=["1"]]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.114899, -1.8, 0)
 material_override = ExtResource("2_mj6bf")
+cast_shadow = 0
 mesh = ExtResource("10_00o4g")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="switch1"]
@@ -158,11 +168,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 174, 3, -12)
 [node name="MeshInstance3D" type="MeshInstance3D" parent="switch2"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.114902, -1.8, 0)
 material_override = ExtResource("2_mj6bf")
+cast_shadow = 0
 mesh = ExtResource("9_hts7x")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="switch2" groups=["2"]]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.114899, -1.8, 0)
 material_override = ExtResource("2_mj6bf")
+cast_shadow = 0
 mesh = ExtResource("10_00o4g")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="switch2"]
@@ -193,11 +205,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86, 3, -25)
 [node name="MeshInstance3D" type="MeshInstance3D" parent="switch3"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.114902, -1.8, 0)
 material_override = ExtResource("2_mj6bf")
+cast_shadow = 0
 mesh = ExtResource("9_hts7x")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="switch3" groups=["3"]]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.114899, -1.8, 0)
 material_override = ExtResource("2_mj6bf")
+cast_shadow = 0
 mesh = ExtResource("10_00o4g")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="switch3"]
@@ -228,11 +242,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45, 3, -15)
 [node name="MeshInstance3D" type="MeshInstance3D" parent="switch4"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.114902, -1.8, 0)
 material_override = ExtResource("2_mj6bf")
+cast_shadow = 0
 mesh = ExtResource("9_hts7x")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="switch4" groups=["4"]]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.114899, -1.8, 0)
 material_override = ExtResource("2_mj6bf")
+cast_shadow = 0
 mesh = ExtResource("10_00o4g")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="switch4"]
@@ -385,7 +401,7 @@ try using this to cross the gap"
 transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 159.307, 9.53674e-07, -16.4605)
 message = "press {g_wpn2} to equip your shotgun
 
-the shotgun is very powerful at close ranges
+the shotgun is very powerful at close range
 
 zombies turn red when they are in the point blank range of your shotgun"
 
@@ -395,7 +411,7 @@ message = "press {g_wpn3} to equip the cannon
 
 {g_attack} fires a plasma ball that deals splash damage and knockback
 
-{g_attack2} fires a bomb that deals higher damage but can hurt you if you are too close to it"
+{g_attack2} fires a bomb that deals higher damage but can hurt you if you are too close to it and has higher recharge time"
 
 [node name="tutorial_text5" parent="." instance=ExtResource("15_cle5m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.9321, 9.53674e-07, -22.4096)
@@ -408,12 +424,6 @@ message = "press {g_wpn4} to equip the blaster
 [node name="tutorial_text6" parent="." instance=ExtResource("15_cle5m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8274, 9.53674e-07, -13.6023)
 message = "you can also jump on lightweight zombies to kill them"
-
-[node name="tutorial_text7" parent="." instance=ExtResource("15_cle5m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.06368, -3.02284, 8.91932)
-message = "you are now ready to complete your mission
-
-good luck"
 
 [node name="death_zone" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 114.47, -10.0076, -28.779)

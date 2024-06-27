@@ -1,8 +1,8 @@
 extends CharacterBody3D
 
 var HP : int = 100
-const HYPNO_RESISTANCE = 1.5
-const HYPNO_HEALTH_DRAIN = 1
+const HYPNO_RESISTANCE = 12
+const HYPNO_HEALTH_DRAIN = 2
 var hypno_health_drain_timer = 0.0
 var SPEED = 8
 const WALK_SPEED = 1
@@ -34,7 +34,6 @@ const PHANTOM_RADIUS = 7
 
 var rising = 0
 var health : int
-var hypno_health = 1.0
 var hypno_timer = 0.0
 var hypnotizable : bool = true
 var alive = 1
@@ -107,7 +106,6 @@ func hypnotize():
 	ray.set_collision_mask_value(2, true)
 	ray.set_collision_mask_value(9, false)
 	alerted.visible = false
-	hypno_health = 1.0
 	update_healthbar()
 
 
@@ -239,8 +237,7 @@ func pain(dmg, noblood=false, heal_player = false):
 
 
 func update_healthbar():
-	health_label.modulate = Color(1, hypno_health, 1)
-	health_label.text = str(max(0, floor(health * hypno_health)))
+	health_label.text = str(max(0, health))
 
 
 
@@ -292,11 +289,6 @@ func process_bumps(delta : float):
 
 
 func ai(delta):
-	if is_phantom:
-		hypnotizable = dist_from_player < PHANTOM_RADIUS
-	
-	if hypno_health <= 0:
-		hypnotize()
 	if hypno:
 		if hypno_health_drain_timer <= 0:
 			hypno_health_drain_timer = 0.2
@@ -322,7 +314,7 @@ func ai(delta):
 	var player_dir = player.cam.transform.basis.z
 	var player_dir2D = Vector2(player_dir.x, player_dir.z).normalized()
 	raycast_area.rotation.y = -atan2(dir2player2D.y, dir2player2D.x) + PI / 2
-	raycast_hitbox.disabled = rising or not alive
+	raycast_hitbox.disabled = rising or not alive or (is_phantom and dist_from_target > PHANTOM_RADIUS)
 	collision_area_hitbox.disabled = not alive
 	
 	if rising and rising_timer < RISE_TIME:
@@ -590,7 +582,6 @@ func _process(delta):
 
 func _on_respawn_timeout():
 	health = HP
-	hypno_health = 1.0
 	update_healthbar()
 	alive = 1
 	target_pos = home.position

@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://viftmmvf2cr2"]
+
+[ext_resource type="Material" uid="uid://ukbtaevn34m0" path="res://resources/materials/hypno_ribbon_mat.tres" id="1_dcmnj"]
+[ext_resource type="Script" path="res://scripts/hypno_ribbon.gd" id="1_m2fij"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_e3n0p"]
+top_radius = 0.05
+bottom_radius = 0.05
+height = 10.0
+radial_segments = 4
+rings = 10
+
+[node name="ribbon" type="Node3D"]
+top_level = true
+script = ExtResource("1_m2fij")
+
+[node name="mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1, 8.74228e-08, 3.82137e-15, 0, -4.37114e-08, 1, 8.74228e-08, 1, 4.37114e-08, 0, 0, 0)
+material_override = ExtResource("1_dcmnj")
+cast_shadow = 0
+extra_cull_margin = 1.0
+mesh = SubResource("CylinderMesh_e3n0p")

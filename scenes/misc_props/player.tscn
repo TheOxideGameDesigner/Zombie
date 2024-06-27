@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://4px2n2dg363l"]
+[gd_scene load_steps=31 format=3 uid="uid://4px2n2dg363l"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_p5l8k"]
 [ext_resource type="Script" path="res://scripts/physics_lerp.gd" id="2_21672"]
@@ -11,7 +11,6 @@
 [ext_resource type="ArrayMesh" uid="uid://dtwtdvsosy57b" path="res://models/viewmodels/revolver_cylinder.obj" id="8_d566w"]
 [ext_resource type="ArrayMesh" uid="uid://dcxqa2njv6fcb" path="res://models/viewmodels/shotgun_viewmodel.obj" id="9_1tk0r"]
 [ext_resource type="ArrayMesh" uid="uid://dg870m75a2l54" path="res://models/viewmodels/shotgun_left_hand.obj" id="10_i1brf"]
-[ext_resource type="ArrayMesh" uid="uid://by46uquh4lma0" path="res://models/viewmodels/hypnotizer_ribbon.obj" id="12_a65se"]
 [ext_resource type="Texture2D" uid="uid://4nlk2rxaovw3" path="res://textures/ui/crosshair.png" id="15_xhimj"]
 [ext_resource type="Texture2D" uid="uid://ctxqma1bunmio" path="res://textures/ui/health_outline.png" id="19_q01t5"]
 [ext_resource type="Texture2D" uid="uid://caulkv7fkkwgb" path="res://textures/ui/charge.png" id="19_t0p4e"]
@@ -61,12 +60,6 @@ size = Vector3(0.145, 0.32, 0.935)
 
 [sub_resource type="PrismMesh" id="PrismMesh_281or"]
 size = Vector3(0.3, 0.3, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_as4cf"]
-transparency = 1
-shading_mode = 0
-disable_fog = true
-albedo_color = Color(1, 0, 1, 0.501961)
 
 [sub_resource type="LabelSettings" id="LabelSettings_0q5dt"]
 font = ExtResource("22_be58p")
@@ -126,9 +119,6 @@ enable_rot = true
 global = true
 
 [node name="viewmodel" type="Node3D" parent="cam/camera/vp_cont/vp/gun_cam"]
-script = ExtResource("2_21672")
-enable_rot = true
-global = true
 
 [node name="revolver_viewmodel" type="MeshInstance3D" parent="cam/camera/vp_cont/vp/gun_cam/viewmodel"]
 transform = Transform3D(-0.25, 0, -3.7749e-08, 0, 0.25, 0, 3.7749e-08, 0, -0.25, 0.683767, -0.382463, -0.578)
@@ -203,12 +193,6 @@ transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0.6091
 visible = false
 layers = 32
 mesh = SubResource("PrismMesh_281or")
-
-[node name="hypnotizer_ribbon" type="MeshInstance3D" parent="cam/camera/vp_cont/vp/gun_cam/viewmodel/hypnotizer_viewmodel"]
-transform = Transform3D(0.744932, 1.62618e-11, -0.0100898, 6.16346e-05, 0.744986, 0.0045505, 0.0100896, -0.00455092, 0.744918, 0, -0.0679568, -0.472686)
-layers = 32
-material_override = SubResource("StandardMaterial3D_as4cf")
-mesh = ExtResource("12_a65se")
 
 [node name="blood" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0)

@@ -19,12 +19,11 @@ radius = 1.0
 [sub_resource type="BoxShape3D" id="BoxShape3D_8gl1c"]
 size = Vector3(3, 3.5, 2)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4km67"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vy7g1"]
 transparency = 1
 shading_mode = 0
-albedo_color = Color(1, 1, 1, 0.1)
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_pcah7"]
+[sub_resource type="CylinderMesh" id="CylinderMesh_ebdli"]
 top_radius = 1.5
 bottom_radius = 1.5
 height = 3.0
@@ -32,6 +31,8 @@ radial_segments = 12
 
 [node name="angel" type="StaticBody3D" groups=["enemy", "unhealable"]]
 top_level = true
+collision_layer = 2
+collision_mask = 0
 script = ExtResource("1_muwug")
 
 [node name="mesh" type="CollisionShape3D" parent="."]
@@ -96,8 +97,8 @@ shape = SubResource("BoxShape3D_8gl1c")
 
 [node name="difficulty_visualiser" parent="." instance=ExtResource("9_2jhd6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
-material_override = SubResource("StandardMaterial3D_4km67")
-mesh = SubResource("CylinderMesh_pcah7")
+material_override = SubResource("StandardMaterial3D_vy7g1")
+mesh = SubResource("CylinderMesh_ebdli")
 radius = 1.5
 height = 3.0
 

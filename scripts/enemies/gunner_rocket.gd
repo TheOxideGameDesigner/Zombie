@@ -42,7 +42,7 @@ func _process(delta):
 func _physics_process(delta):
 	if exploded:
 		return
-	if target.is_in_group("enemy"):
+	if target != null and target.is_in_group("enemy"):
 		vel = target.position + Vector3(0, 1, 0) - position
 	vel = vel.normalized()
 	global_position += vel * delta * SPEED
@@ -61,6 +61,10 @@ func physics(body = null):
 
 func _on_body_entered(body):
 	if body == get_parent() or exploded:
+		return
+	if body.is_in_group("phantom") and body.dist_from_target > body.PHANTOM_RADIUS:
+		if target == body:
+			target = null
 		return
 	exploded = 1
 	physics(body)

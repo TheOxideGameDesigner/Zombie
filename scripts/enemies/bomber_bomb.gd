@@ -72,7 +72,7 @@ func _physics_process(delta):
 
 
 func _on_body_entered(body):
-	if exploded or hit_target:
+	if exploded or hit_target or (body.is_in_group("phantom") and body.dist_from_target > body.PHANTOM_RADIUS):
 		return
 	if body.is_in_group("player") or body.is_in_group("enemy"):
 		hit_target = 1
@@ -82,19 +82,26 @@ func _on_body_entered(body):
 		$hitbox.queue_free()
 		death_timer.queue_free()
 		$touch_area.queue_free()
-		if body.is_in_group("player"):
-			body.pain(death_message, DAMAGE)
-		else:
-			body.pain(DAMAGE)
 		var kb
 		if touched_surface:
 			kb = (body.position - position).normalized() * 10
 		else:
 			kb = hdir * 10 + Vector3(0, 0.2, 0)
 		if body.is_in_group("player"):
+			body.pain(death_message, DAMAGE)
 			body.knockback(kb)
-		elif body.is_in_group("lightweight"):
-			body.add_vel = kb
+		else:
+			body.pain(DAMAGE)
+			if body.is_in_group("lightweight"):
+				body.add_vel = kb
+			for e in get_tree().get_nodes_in_group("enemy"):
+				if e.position.distance_to(global_position) > SPLASH_RADIUS or (e.is_in_group("phantom") and e.dist_from_target > e.PHANTOM_RADIUS):
+					continue
+				var dist = (target.position + Vector3(0, 0.5, 0)).distance_to(global_position)
+				var effect = lerp(1.0, 0.0, dist / SPLASH_RADIUS)
+				e.pain(DAMAGE * effect)
+				if e.is_in_group("lightweight"):
+					e.add_vel = (target.position - position).normalized() * 10 * effect
 	if body.is_in_group("enemy") or body.is_in_group("player") or touched_surface:
 		return
 	touched_surface = 1
@@ -118,6 +125,11 @@ func _on_death_timer_timeout():
 			target.knockback((target.position - position).normalized() * 10 * effect)
 			target.pain(death_message, DAMAGE * effect)
 		else:
-			target.pain(DAMAGE * effect)
-			if target.is_in_group("lightweight"):
-				target.add_vel = (target.position - position).normalized() * 10 * effect
+			for e in get_tree().get_nodes_in_group("enemy"):
+				if e.position.distance_to(global_position) > SPLASH_RADIUS or (e.is_in_group("phantom") and e.dist_from_target > e.PHANTOM_RADIUS):
+					continue
+				dist = (target.position + Vector3(0, 0.5, 0)).distance_to(global_position)
+				effect = lerp(1.0, 0.0, dist / SPLASH_RADIUS)
+				e.pain(DAMAGE * effect)
+				if e.is_in_group("lightweight"):
+					e.add_vel = (target.position - position).normalized() * 10 * effect

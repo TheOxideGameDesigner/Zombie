@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b5xajssdj178t"
+path="res://.godot/imported/level2_collision.obj-260d7638825d864b0ce844ddb980461c.mesh"
+
+[deps]
+
+files=["res://.godot/imported/level2_collision.obj-260d7638825d864b0ce844ddb980461c.mesh"]
+
+source_file="res://models/levels/haunted_mansions/level2/level2_collision.obj"
+dest_files=["res://.godot/imported/level2_collision.obj-260d7638825d864b0ce844ddb980461c.mesh", "res://.godot/imported/level2_collision.obj-260d7638825d864b0ce844ddb980461c.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

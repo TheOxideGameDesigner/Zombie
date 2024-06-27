@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://tub7ejog7vp6"]
+
+[ext_resource type="Material" uid="uid://uxn8fucitgfr" path="res://resources/materials/level_mat.tres" id="1_utfs0"]
+[ext_resource type="ArrayMesh" uid="uid://7a0kor20hbxk" path="res://models/static_props/haunted_mansions/barrel_giant.obj" id="2_6aq5l"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vucil"]
+size = Vector3(3.22601, 3.86871, 4.55811)
+
+[node name="barrel" type="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = ExtResource("1_utfs0")
+mesh = ExtResource("2_6aq5l")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000152588, 1.90184, 0.000244141)
+shape = SubResource("BoxShape3D_vucil")

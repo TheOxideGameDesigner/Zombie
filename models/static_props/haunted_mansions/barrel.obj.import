@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dphk05y314aug"
+path="res://.godot/imported/barrel.obj-f5afcc824d21be5a8ae6d8bbec87b63b.mesh"
+
+[deps]
+
+files=["res://.godot/imported/barrel.obj-f5afcc824d21be5a8ae6d8bbec87b63b.mesh"]
+
+source_file="res://models/static_props/haunted_mansions/barrel.obj"
+dest_files=["res://.godot/imported/barrel.obj-f5afcc824d21be5a8ae6d8bbec87b63b.mesh", "res://.godot/imported/barrel.obj-f5afcc824d21be5a8ae6d8bbec87b63b.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

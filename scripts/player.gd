@@ -28,7 +28,6 @@ const SWAY = 0.0015
 const SWAY_MAX = 3
 const SWAY_VERICAL = 0.7
 const SWAY_RETURN = 6
-const HOLSTER_SPEED = 8
 
 const REVOLVER_RANGE = 42
 const REVOLVER_DAMAGE = 23
@@ -56,12 +55,11 @@ const BLASTER_FORCE = 1.2
 const BLASTER_COOLDOWN = 0.15
 const BLASTER_COOLDOWN_SHORT = 0.075
 const BLASTER_RANGE = 42
-const HYPNOTIZER_BUFF = 1.75
-const HYPNOTIZER_DRAIN = 2.5 / HYPNOTIZER_BUFF
-const HYPNOTIZER_RECHARGE = 15
-const HYPNOTIZER_RECHARGE_START = 0.5
 const DEATH_FADE_TIME = 1.0
 const COYOTE_TIME = 0.2
+const WPN_DRAW_TIME = 0.5
+var wpn_draw_timer = 0.0
+var bobbing = false
 
 var damage_mul = 1.0
 var speed_mul = 1.0
@@ -71,10 +69,7 @@ const MIN_HIT_DOT_PROD = 0.2
 var can_jump = 1
 var ramp_vel = 0.0
 
-var holstering = 0
 var cooldown_timers = [0, 0, 0, 0, 0]
-var hypnotizer_charge = 1.0
-var hypnotizer_charge_timer = 0.0
 var unlocked_hypno : bool = false
 var mf_lifespans = [0.2, 0.2, 0, 0, 0]
 
@@ -82,7 +77,6 @@ var can_float = 1
 
 var wpn : int = 1
 var prev_wpn = 2
-var wpn_vis = wpn
 var revolver_heat = 0.0
 var shotgun_heat = 0.0
 
@@ -104,11 +98,12 @@ var is_opengl = ProjectSettings.get_setting("rendering/renderer/rendering_method
 @onready var eye_of_anubis = $eye_of_anubis
 
 @onready var raycast = $cam/camera/raycast
-var cannonball_scene = preload("res://scenes/cannonball.tscn")
-var cannonbomb_scene = preload("res://scenes/cannonbomb.tscn")
-var bullet_scene = preload("res://scenes/bullet.tscn")
-var key_texture = preload("res://textures/key.png")
-var particles_scene = preload("res://scenes/environment/blood_particles.tscn")
+const cannonball_scene = preload("res://scenes/cannonball.tscn")
+const cannonbomb_scene = preload("res://scenes/cannonbomb.tscn")
+const bullet_scene = preload("res://scenes/bullet.tscn")
+const key_texture = preload("res://textures/key.png")
+const particles_scene = preload("res://scenes/environment/blood_particles.tscn")
+const hypno_ribbon_scene = preload("res://scenes/hypno_ribbon.tscn")
 
 @onready var viewmodel = $cam/camera/vp_cont/vp/gun_cam/viewmodel
 @onready var revolver_viewmodel = $cam/camera/vp_cont/vp/gun_cam/viewmodel/revolver_viewmodel
@@ -116,7 +111,6 @@ var particles_scene = preload("res://scenes/environment/blood_particles.tscn")
 @onready var cannon_viewmodel = $cam/camera/vp_cont/vp/gun_cam/viewmodel/cannon_viewmodel
 @onready var blaster_viewmodel = $cam/camera/vp_cont/vp/gun_cam/viewmodel/blaster_viewmodel
 @onready var hypnotizer_viewmodel = $cam/camera/vp_cont/vp/gun_cam/viewmodel/hypnotizer_viewmodel
-@onready var hypnotizer_ribbon = $cam/camera/vp_cont/vp/gun_cam/viewmodel/hypnotizer_viewmodel/hypnotizer_ribbon
 
 
 @onready var cam = $cam
@@ -139,7 +133,6 @@ var particles_scene = preload("res://scenes/environment/blood_particles.tscn")
 
 var revolver_mf_timer = 0
 var shotgun_mf_timer = 0
-var hypnotizer_last_shot_hit = 0
 var time_after_death = 0
 var has_garlic = 0
 const KEYS_MAX = 32
@@ -165,6 +158,7 @@ var damage_taken : int = 0
 @onready var charge_rect = $charge/charge_rect
 @onready var hypno_charge_rect = $hypno_charge/charge_rect
 var charge_rect_time = 5
+var hypno_charge_rect_time = 1.0
 
 
 func get_garlic():
@@ -204,7 +198,6 @@ func add_key(col):
 
 
 func update_wpn():
-	wpn_vis = wpn
 	revolver_viewmodel.visible = 0
 	shotgun_viewmodel.visible = 0
 	cannon_viewmodel.visible = 0
@@ -271,6 +264,8 @@ func find_collider(dist, pb_range = 0.0):
 			#print("hit wall")
 			break
 		#print("hit enemy " + str(collider))
+		dist_left -= raycast.global_position.distance_to(raycast.get_collision_point()) + 0.1
+		raycast.global_position = raycast.get_collision_point() + forward * 0.1
 		var dir = collider.position - position
 		var dir2d = Vector2(dir.x, dir.z)
 		var m = collider.RADIUS * 0.7 / dir2d.length()
@@ -284,8 +279,6 @@ func find_collider(dist, pb_range = 0.0):
 			raycast.position = Vector3.ZERO
 			return collider
 		colliders.push_back(collider)
-		dist_left -= raycast.global_position.distance_to(raycast.get_collision_point()) + 0.1
-		raycast.global_position = raycast.get_collision_point() + forward * 0.1
 	raycast.position = Vector3.ZERO
 	if colliders.is_empty():
 		#print("no zombies?")
@@ -302,7 +295,7 @@ func find_collider(dist, pb_range = 0.0):
 				max_c = c
 		return max_c
 
-func shoot(delta):
+func shoot():
 	match wpn:
 		1:
 			camera.add_tilt(0.5, Vector3(1, 0, 0), 1)
@@ -420,25 +413,19 @@ func shoot(delta):
 			bullet.lifespan = 0.08
 			gun_cam.add_child(bullet)
 		5:
-			if hypnotizer_charge == 0.0:
-				return
 			var collider = find_collider(REVOLVER_RANGE)
-			hypnotizer_last_shot_hit = false
-			if collider != null and collider.is_in_group("enemy"):
-				if collider.hypnotizable and not collider.rising and not collider.hypno:
-					hypnotizer_last_shot_hit = true
-					hypnotizer_charge_timer = HYPNOTIZER_RECHARGE_START
-					hypnotizer_charge = max(0.0, hypnotizer_charge - delta / HYPNOTIZER_DRAIN)
-					collider.hypno_health -= HYPNOTIZER_BUFF * damage_mul * (float(collider.HP) / collider.health) * delta / collider.HYPNO_RESISTANCE
-					collider.update_healthbar()
-					if not disable_particles:
-						var new_particles = particles_scene.instantiate()
-						new_particles.dir = raycast.get_collision_normal()
-						new_particles.color = Color(1.0, 0.0, 1.0)
-						new_particles.amount = 1
-						new_particles.size = 0.05
-						add_child(new_particles)
-						new_particles.global_position = raycast.get_collision_point()
+			
+			if collider == null or not collider.is_in_group("enemy") or not collider.hypnotizable or collider.hypno:
+				return
+			
+			var ribbon = hypno_ribbon_scene.instantiate()
+			ribbon.begin = camera.global_position + camera.global_basis * (Vector3(0.6, -0.3, 0) * tan(deg_to_rad(camera.fov / 2)) + Vector3(0, 0, -1))
+			ribbon.end = collider.global_position + Vector3(0, 1, 0)
+			add_child(ribbon)
+			camera.add_tilt(3, Vector3(1, 0, 0), 4)
+			hypno_charge_rect_time = collider.HYPNO_RESISTANCE / damage_mul
+			cooldown_timers[4] = collider.HYPNO_RESISTANCE / damage_mul
+			collider.hypnotize()
 
 
 func shoot_alt():
@@ -680,39 +667,47 @@ func _unhandled_input(event):
 		var aux = prev_wpn
 		prev_wpn = wpn
 		wpn = aux
-		holstering = 1
+		wpn_draw_timer = WPN_DRAW_TIME
+		update_wpn()
 	elif event.is_action_pressed("g_wpn1") and wpn != 1:
 		prev_wpn = wpn
 		wpn = 1
-		holstering = 1
+		wpn_draw_timer = WPN_DRAW_TIME
+		update_wpn()
 	elif event.is_action_pressed("g_wpn2") and wpn != 2:
 		prev_wpn = wpn
 		wpn = 2
-		holstering = 1
+		wpn_draw_timer = WPN_DRAW_TIME
+		update_wpn()
 	elif event.is_action_pressed("g_wpn3") and wpn != 3:
 		prev_wpn = wpn
 		wpn = 3
-		holstering = 1
+		wpn_draw_timer = WPN_DRAW_TIME
+		update_wpn()
 	elif event.is_action_pressed("g_wpn4") and wpn != 4:
 		prev_wpn = wpn
 		wpn = 4
-		holstering = 1
+		wpn_draw_timer = WPN_DRAW_TIME
+		update_wpn()
 	elif event.is_action_pressed("g_wpn5") and wpn != 5 and unlocked_hypno:
 		prev_wpn = wpn
 		wpn = 5
-		holstering = 1
+		wpn_draw_timer = WPN_DRAW_TIME
+		update_wpn()
 	elif event.is_action_pressed("g_next"):
 		prev_wpn = wpn
 		wpn += 1
 		if wpn > 4:
 			wpn = 1
-		holstering = 1
+		wpn_draw_timer = WPN_DRAW_TIME
+		update_wpn()
 	elif event.is_action_pressed("g_prev"):
 		prev_wpn = wpn
 		wpn -= 1
 		if wpn <= 0:
 			wpn = 4
-		holstering = 1
+		wpn_draw_timer = WPN_DRAW_TIME
+		update_wpn()
 
 
 func _process(delta):
@@ -740,16 +735,6 @@ func _process(delta):
 	else:
 		left_hand.position.z = 0
 	
-	if wpn_vis == 5 and holstering == 0 and Input.is_action_pressed("g_attack") and hypnotizer_last_shot_hit and hypnotizer_charge > 0.0:
-		hypnotizer_ribbon.visible = 1
-		hypnotizer_ribbon.rotation.z += 9 * delta
-	else:
-		hypnotizer_ribbon.visible = 0
-		if hypnotizer_charge_timer == 0.0:
-			hypnotizer_charge = min(1.0, hypnotizer_charge + delta / HYPNOTIZER_RECHARGE)
-		elif not Input.is_action_pressed("g_attack"):
-			hypnotizer_charge_timer = max(0.0, hypnotizer_charge_timer - delta)
-	
 	
 	warning.modulate.a -= delta
 	fps_label.text = str(Engine.get_frames_per_second())
@@ -765,7 +750,7 @@ func _process(delta):
 	health_text.text = str(health)
 	
 	charge_rect.scale.y = 1 - cooldown_timers[2] / charge_rect_time
-	hypno_charge_rect.scale.y = hypnotizer_charge
+	hypno_charge_rect.scale.y = 1 - cooldown_timers[4] / hypno_charge_rect_time
 	
 	if health <= 0:
 		health = -1000
@@ -785,57 +770,14 @@ func _process(delta):
 	
 	revolver_mf_timer = max(0, revolver_mf_timer - delta)
 	shotgun_mf_timer = max(0, shotgun_mf_timer - delta)
-	revolver_mf.visible = (revolver_mf_timer != 0 and not holstering)
-	shotgun_mf.visible = (shotgun_mf_timer != 0 and not holstering)
+	revolver_mf.visible = (revolver_mf_timer != 0 and wpn_draw_timer < 0.2)
+	shotgun_mf.visible = (shotgun_mf_timer != 0 and wpn_draw_timer < 0.2)
 	
 	color_overlay.color.a -= delta
 	
-	time += delta
-
-
-func viewmodel_rot_func(t, dt, g):
-	return (dt - t) * g * t / 2
-
-
-func _physics_process(delta):
 	viewmodel_pos.x -= viewmodel_pos.x * delta * SWAY_RETURN
 	viewmodel_pos.y -= viewmodel_pos.y * delta * SWAY_RETURN
 	
-	if health <= 0:
-		return
-	
-	for i in range(5):
-		cooldown_timers[i] = max(0, cooldown_timers[i] - delta)
-	
-	if not holstering and cooldown_timers[wpn - 1] == 0:
-		if Input.is_action_pressed("g_attack"):
-			shoot(delta)
-		elif Input.is_action_pressed("g_attack2"):
-			shoot_alt()
-
-	if holstering:
-		viewmodel_pos.y -= HOLSTER_SPEED * delta
-		if viewmodel_pos.y < -1.2:
-			holstering = 0
-			update_wpn()
-	
-	viewmodel.position = viewmodel_pos + 0.05 * Vector3(cos(viewmodel_offset + PI / 2), 1 - sin(viewmodel_offset + PI / 2) - viewmodel_y_bump_lerped, 0)
-	
-	gun_cam.position = position
-	gun_cam.rotation = cam.global_rotation
-	gun_cam.rotation.x = clamp(gun_cam.rotation.x, -PI / 3, PI / 3)
-	
-	var wishdir = Input.get_vector("g_left", "g_right", "g_forward", "g_backward").rotated(-cam.rotation.y)
-	
-	var prev_h = position.y
-	var prev_y_vel = velocity.y
-	var prev_on_floor = is_on_floor()
-	movement(wishdir, delta)
-	if not prev_on_floor and is_on_floor() and prev_y_vel < -20:
-		camera.shake(0.4, 0.75, 0.025)
-	ramp_vel = (position.y - prev_h) / delta
-	
-	var bobbing = is_on_floor() and velocity.length_squared() > 0.1 and wishdir != Vector2.ZERO
 	if abs(viewmodel_offset) > 0.1 or bobbing:
 		var mul = 1.0
 		if not bobbing:
@@ -848,6 +790,44 @@ func _physics_process(delta):
 	viewmodel_y_bump_lerped = lerp(viewmodel_y_bump_lerped, viewmodel_y_bump * 1.5, min(delta * 15, 0.1))
 	if viewmodel_y_bump > 0.0:
 		viewmodel_y_bump -= delta * 3
+	
+	wpn_draw_timer = max(0.0, wpn_draw_timer - delta)
+	viewmodel.position = viewmodel_pos + 0.05 * Vector3(cos(viewmodel_offset + PI / 2), 1 - sin(viewmodel_offset + PI / 2) - viewmodel_y_bump_lerped, 0) + Vector3(0, -1.5, 0) * pow(wpn_draw_timer / WPN_DRAW_TIME, 3)
+	
+	time += delta
+
+
+func viewmodel_rot_func(t, dt, g):
+	return (dt - t) * g * t / 2
+
+
+func _physics_process(delta):
+	if health <= 0:
+		return
+	
+	for i in range(5):
+		cooldown_timers[i] = max(0, cooldown_timers[i] - delta)
+	
+	if wpn_draw_timer < 0.2 and cooldown_timers[wpn - 1] == 0:
+		if Input.is_action_pressed("g_attack"):
+			shoot()
+		elif Input.is_action_pressed("g_attack2"):
+			shoot_alt()
+	
+	gun_cam.position = position
+	gun_cam.rotation = cam.global_rotation
+	gun_cam.rotation.x = clamp(gun_cam.rotation.x, -PI / 3, PI / 3)
+	
+	var wishdir = Input.get_vector("g_left", "g_right", "g_forward", "g_backward").rotated(-cam.rotation.y)
+	bobbing = is_on_floor() and velocity.length_squared() > 0.1 and wishdir != Vector2.ZERO
+	
+	var prev_h = position.y
+	var prev_y_vel = velocity.y
+	var prev_on_floor = is_on_floor()
+	movement(wishdir, delta)
+	if not prev_on_floor and is_on_floor() and prev_y_vel < -20:
+		camera.shake(0.4, 0.75, 0.025)
+	ramp_vel = (position.y - prev_h) / delta
 	
 	cam.position = global_position + Vector3(0, 1.2, 0)
 	

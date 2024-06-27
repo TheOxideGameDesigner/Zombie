@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://cjlqf7r8mbj5o"]
+
+[ext_resource type="Material" uid="uid://uxn8fucitgfr" path="res://resources/materials/level_mat.tres" id="1_p1j2x"]
+[ext_resource type="ArrayMesh" uid="uid://dphk05y314aug" path="res://models/static_props/haunted_mansions/barrel.obj" id="2_swtgo"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_o2kg5"]
+points = PackedVector3Array(-0.425983, 0.386381, -8.33869e-05, -0.228086, -0.001966, -0.228086, -0.32249, -0.001966, -8.33869e-05, -0.228086, -0.001966, 0.227919, -0.301224, 0.386381, 0.30114, -0.425983, 0.77929, -8.33869e-05, -0.301224, 0.386381, -0.301224, -8.33869e-05, 0.386381, -0.425983, -8.33869e-05, -0.001966, -0.32249, -8.33869e-05, -0.001966, 0.322406, -8.33869e-05, 0.386381, 0.425983, -0.301224, 0.77929, 0.30114, -0.301224, 0.77929, -0.301224, -0.228086, 1.16319, 0.227919, -0.32249, 1.16319, -8.33869e-05, -0.228086, 1.16319, -0.228086, -8.33869e-05, 0.77929, -0.425983, 0.30114, 0.386381, -0.301224, 0.227919, -0.001966, -0.228086, 0.227919, -0.001966, 0.227919, 0.30114, 0.386381, 0.30114, -8.33869e-05, 0.77929, 0.425983, -8.33869e-05, 1.16319, 0.322406, -8.33869e-05, 1.16319, -0.32249, 0.227919, 1.16319, -0.228086, 0.30114, 0.77929, -0.301224, 0.425983, 0.386381, -8.33869e-05, 0.322406, -0.001966, -8.33869e-05, 0.30114, 0.77929, 0.30114, 0.227919, 1.16319, 0.227919, 0.322406, 1.16319, -8.33869e-05, 0.425983, 0.77929, -8.33869e-05)
+
+[node name="barrel" type="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = ExtResource("1_p1j2x")
+mesh = ExtResource("2_swtgo")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+visible = false
+shape = SubResource("ConvexPolygonShape3D_o2kg5")

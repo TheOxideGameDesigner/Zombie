@@ -1,10 +1,9 @@
 extends CharacterBody3D
 
 var HP : int = 100
-const HYPNO_RESISTANCE = 1.25
+const HYPNO_RESISTANCE = 9
 const HYPNO_HEALTH_DRAIN = 1
 var hypno_health_drain_timer = 0.0
-var hypno_health = 1.0
 var hypnotizable : bool = true
 var hypno_timer = 0.0
 const SPEED = 5
@@ -101,7 +100,6 @@ func hypnotize():
 	ray.set_collision_mask_value(2, true)
 	ray.set_collision_mask_value(9, false)
 	alerted.visible = false
-	hypno_health = 1.0
 	update_healthbar()
 
 
@@ -225,8 +223,7 @@ func pain(dmg, noblood=false, heal_player = false):
 
 
 func update_healthbar():
-	health_label.modulate = Color(1, hypno_health, 1)
-	health_label.text = str(max(0, floor(health * hypno_health)))
+	health_label.text = str(max(0, health))
 
 
 
@@ -249,8 +246,6 @@ func process_bumps(delta : float):
 
 
 func ai(delta):
-	if hypno_health <= 0:
-		hypnotize()
 	if hypno:
 		if hypno_health_drain_timer <= 0:
 			hypno_health_drain_timer = 0.2
@@ -493,7 +488,6 @@ func fire():
 	new_bomb.top_level = 1
 
 func _on_respawn_timeout():
-	hypno_health = 1.0
 	hit_timer = HIT_TIME
 	health = HP
 	update_healthbar()

@@ -22,12 +22,12 @@ radius = 1.0
 [sub_resource type="BoxShape3D" id="BoxShape3D_3vbsd"]
 size = Vector3(2.58, 2.538, 2)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vn7o8"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2gpt4"]
 transparency = 1
 shading_mode = 0
 albedo_color = Color(1, 1, 1, 0.1)
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_4bryn"]
+[sub_resource type="CylinderMesh" id="CylinderMesh_ekvxh"]
 top_radius = 1.0
 bottom_radius = 1.0
 radial_segments = 12
@@ -38,6 +38,7 @@ radius = 1.0
 [node name="gunner" type="StaticBody3D" groups=["activatable", "enemy"]]
 top_level = true
 collision_layer = 2
+collision_mask = 0
 script = ExtResource("1_v3qu8")
 gibs = ExtResource("2_d5sbe")
 
@@ -116,8 +117,8 @@ wait_time = 1.5
 one_shot = true
 
 [node name="difficulty_visualiser" parent="." instance=ExtResource("11_dpxc4")]
-material_override = SubResource("StandardMaterial3D_vn7o8")
-mesh = SubResource("CylinderMesh_4bryn")
+material_override = SubResource("StandardMaterial3D_2gpt4")
+mesh = SubResource("CylinderMesh_ekvxh")
 radius = 1.0
 
 [node name="collision_area" type="Area3D" parent="." groups=["enemy_area"]]

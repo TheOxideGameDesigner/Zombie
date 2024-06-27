@@ -261,6 +261,7 @@ func ai():
 		if is_player_in_zone():
 			fight_started = 1
 			spawn_wave()
+		fire_timer.start()
 		return
 	if health <= 0 and alive:
 		fight_started = 0

@@ -2,10 +2,9 @@ extends StaticBody3D
 
 
 var HP : int = 300
-const HYPNO_RESISTANCE = 2.5
-const HYPNO_HEALTH_DRAIN = 2
+const HYPNO_RESISTANCE = 20
+const HYPNO_HEALTH_DRAIN = 7
 var hypno_health_drain_timer = 0.0
-var hypno_health = 1.0
 var hypnotizable : bool = true
 var hypno_timer = 0.0
 const REVOLVER_HEAL : int = 3
@@ -84,7 +83,6 @@ func hypnotize():
 	ray.set_collision_mask_value(2, true)
 	ray.set_collision_mask_value(9, false)
 	alerted.visible = false
-	hypno_health = 1.0
 	update_healthbar()
 
 
@@ -204,8 +202,7 @@ func pain(dmg, noblood=false, heal_player = false):
 
 
 func update_healthbar():
-	health_label.modulate = Color(1, hypno_health, 1)
-	health_label.text = str(max(0, ceil(health * hypno_health)))
+	health_label.text = str(max(0, health))
 
 
 func rising_func(t):
@@ -213,8 +210,6 @@ func rising_func(t):
 
 
 func ai(delta):
-	if hypno_health <= 0:
-		hypnotize()
 	if hypno:
 		if hypno_health_drain_timer <= 0:
 			hypno_health_drain_timer = 0.2
@@ -397,7 +392,6 @@ func _on_hit_timer_timeout():
 
 
 func _on_respawn_timeout():
-	hypno_health = 1.0
 	health = HP
 	update_healthbar()
 	alive = 1

@@ -231,6 +231,13 @@ cast_shadow = 0
 mesh = ExtResource("17_ysdeb")
 skeleton = NodePath("../..")
 
+[node name="DoorFake32" type="MeshInstance3D" parent="props"]
+transform = Transform3D(4.37114e-08, 0, -1, 0, 1, 0, -1, 0, -4.37114e-08, 98, 6.6, -110)
+material_override = ExtResource("2_1w5tr")
+cast_shadow = 0
+mesh = ExtResource("17_ysdeb")
+skeleton = NodePath("../..")
+
 [node name="DoorFake15" type="MeshInstance3D" parent="props"]
 transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 71, 6.6, -67.5)
 material_override = ExtResource("2_1w5tr")
@@ -853,10 +860,6 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1, 
 
 [node name="enemies" type="Node3D" parent="."]
 metadata/_edit_lock_ = true
-
-[node name="runner" parent="enemies" instance=ExtResource("30_gi4dv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, -31)
-min_dif = 1
 
 [node name="mage" parent="enemies" instance=ExtResource("31_7ji5r")]
 transform = Transform3D(-0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, 17.5, 0, -27.5)
