@@ -2,11 +2,6 @@ extends StaticBody3D
 
 
 var HP : int = 300
-const HYPNO_RESISTANCE = 20
-const HYPNO_HEALTH_DRAIN = 7
-var hypno_health_drain_timer = 0.0
-var hypnotizable : bool = true
-var hypno_timer = 0.0
 const REVOLVER_HEAL : int = 3
 const HIT_RANGE : float = 25
 var HIT_DAMAGE : int = 4
@@ -27,8 +22,6 @@ var rising_timer = 0.0
 var has_died = 0
 var drops = []
 var reaction_timer = 0.0
-var hypno : bool = 0
-var hypno_col = 0.0
 
 var pain_col = 0.0
 
@@ -37,7 +30,6 @@ var disable_gibs : bool = false
 
 @onready var player = get_tree().get_first_node_in_group("player")
 @onready var player_cam = player.get_node("cam")
-@onready var target = player
 @onready var home = $home
 @onready var cross = $home/cross
 @onready var health_label = $mesh/health
@@ -64,35 +56,14 @@ var ribbon_opac : float = 0.0
 
 @onready var init_mesh_pos = $mesh.global_position - position
 @onready var dist_from_player = Vector2(player.position.x, player.position.z).distance_to(Vector2(position.x, position.z))
-@onready var dist_from_target = dist_from_player
 
 @export var respawn_time = 10.0
-@export var spawn_ang = 0.0
+var spawn_ang = 0.0
 @export_range(0, 4) var min_dif : int = 0
 @onready var rot = mesh.rotation.y
 
-var sees_target = 0
+var sees_player = 0
 var prev_pos = Vector3.ZERO
-
-
-func hypnotize():
-	target = null
-	hypno = true
-	add_to_group("hypno")
-	set_collision_layer_value(10, true)
-	ray.set_collision_mask_value(2, true)
-	ray.set_collision_mask_value(9, false)
-	alerted.visible = false
-	update_healthbar()
-
-
-func unhypnotize():
-	hypno_timer = 0.0
-	hypno = false
-	remove_from_group("hypno")
-	set_collision_layer_value(10, false)
-	ray.set_collision_mask_value(2, false)
-	ray.set_collision_mask_value(9, true)
 
 
 func _ready():
@@ -210,17 +181,6 @@ func rising_func(t):
 
 
 func ai(delta):
-	if hypno:
-		if hypno_health_drain_timer <= 0:
-			hypno_health_drain_timer = 0.2
-			pain(HYPNO_HEALTH_DRAIN, true)
-		hypno_health_drain_timer -= delta
-		hypno_timer += delta
-	
-	if target == null:
-		dist_from_target = 10000
-	else:
-		dist_from_target = Vector2(target.position.x, target.position.z).distance_to(Vector2(position.x, position.z))
 	mesh.global_position = position + init_mesh_pos
 	if not alive:
 		return
@@ -252,24 +212,18 @@ func ai(delta):
 		respawn.start()
 		position = home.position
 		position.y -= GRAVE_DEPTH
-		if hypno:
-			unhypnotize()
 	
-	var max_turn_speed
-	if hypno:
-		max_turn_speed = MAX_TURN_SPEED * 8
-	else:
-		max_turn_speed = MAX_TURN_SPEED
+	
 	rot = fposmod(rot, 2 * PI)
 	mesh.rotation.y = fposmod(mesh.rotation.y, 2 * PI)
 	var dif = fposmod(rot - mesh.rotation.y, 2 * PI)
-	if dif < max_turn_speed * delta or 2 * PI - dif < max_turn_speed * delta:
+	if dif < MAX_TURN_SPEED * delta or 2 * PI - dif < MAX_TURN_SPEED * delta:
 		mesh.rotation.y = rot
 	else:
 		if dif < PI:
-			mesh.rotation.y += max_turn_speed * delta
+			mesh.rotation.y += MAX_TURN_SPEED * delta
 		else:
-			mesh.rotation.y -= max_turn_speed * delta
+			mesh.rotation.y -= MAX_TURN_SPEED * delta
 	
 	if prev_pos != position:
 		prev_pos = position
@@ -281,47 +235,15 @@ func ai(delta):
 		else:
 			position.y = ray.get_collision_point().y
 	
-	#determine target
-	if not hypno:
-		var min_dist = HIT_RANGE
-		ray.target_position = ray.to_local(player.position + Vector3(0, 1.5, 0)).normalized() * HIT_RANGE
-		ray.force_raycast_update()
-		if ray.get_collider() == player:
-			min_dist = dist_from_player
-			target = player
-		for hombie in get_tree().get_nodes_in_group("hypno"):
-			var dist_from_hombie = Vector2(hombie.position.x, hombie.position.z).distance_to(Vector2(position.x, position.z))
-			if dist_from_hombie < HIT_RANGE:
-				ray.target_position = ray.to_local(hombie.position + Vector3(0, 1.5, 0)).normalized() * HIT_RANGE
-				ray.force_raycast_update()
-				if ray.get_collider() == hombie:
-					if dist_from_hombie < min_dist and hombie.hypno_timer > 1:
-						target = hombie
-						min_dist = dist_from_hombie
-					if hombie.dist_from_target >= dist_from_hombie:
-						hombie.target = self
-						hombie.dist_from_target = dist_from_hombie
-	
-	if target != player and target != null and (not target.alive or target.hypno == hypno):
-		target = null
-		alerted.visible = false
-	
-	if target == null:
-		sees_target = false
-	else:
-		ray.position = Vector3(0.068, 1.13, 0.9).rotated(Vector3.UP, mesh.rotation.y)
-		ray.target_position = ray.to_local(target.position + Vector3(0, 1.5, 0)).normalized() * HIT_RANGE
-		ray.force_raycast_update()
-		sees_target = ray.is_colliding() and ray.get_collider() == target
-	if sees_target:
-		var dir
-		if target == player:
-			dir = player_cam.position - position
-		else:
-			dir = target.position - position
+	ray.position = Vector3(0.068, 1.13, 0.9).rotated(Vector3.UP, mesh.rotation.y)
+	ray.target_position = ray.to_local(player.position + Vector3(0, 1.5, 0)).normalized() * HIT_RANGE
+	ray.force_raycast_update()
+	sees_player = ray.is_colliding() and ray.get_collider() == player
+	if sees_player:
+		var dir = player_cam.position - position
 		rot = -atan2(dir.z, dir.x) + PI / 2
 		chaingun.rotation.z += delta * 3
-		if reaction_timer < (1.5 - int(hypno)):
+		if reaction_timer < 1.5:
 			reaction_timer += delta
 			return
 		if hit_timer.is_stopped():
@@ -343,7 +265,7 @@ func _process(delta):
 	
 	mesh.visible = (alive and not rising) or (rising and int(rising_timer / RISE_FLICKER) % 2 == 1)
 	health_label.visible = alive
-	alerted.visible = not hit_timer.is_stopped() or sees_target
+	alerted.visible = not hit_timer.is_stopped() or sees_player
 	alerted.position = Vector3(0, 1.862, 0) + Vector3(0, 0.5, 0) * int(key.visible)
 	
 	if not alive:
@@ -358,37 +280,23 @@ func _process(delta):
 		var col = max(pain_col, pb_col) * 0.5
 		body.set_instance_shader_parameter("pain", col)
 		chaingun.set_instance_shader_parameter("pain", col)
-	if hypno:
-		hypno_col = min(0.35, hypno_col + delta)
-		body.set_instance_shader_parameter("hypno", hypno_col)
-		chaingun.set_instance_shader_parameter("hypno", hypno_col)
-	else:
-		hypno_col = max(0.0, hypno_col - delta)
-		body.set_instance_shader_parameter("hypno", hypno_col)
-		chaingun.set_instance_shader_parameter("hypno", hypno_col)
 
 
 func _on_hit_timer_timeout():
-	if target == null:
-		return
-	
 	ribbon_opac = 0.5
 	var dir = Vector3(0, 0, 1).rotated(Vector3.UP, mesh.rotation.y)
 	ray.position = Vector3(0.068, 1.13, 0.9).rotated(Vector3.UP, mesh.rotation.y)
-	ray.target_position = dir * (dist_from_target - 1.232) + Vector3(0, target.position.y - ray.global_position.y + 1.13, 0) + Vector3(-0.068, 0, 0).rotated(Vector3.UP, mesh.rotation.y)
+	ray.target_position = dir * (dist_from_player - 1.232) + Vector3(0, player.position.y - ray.global_position.y + 1.13, 0) + Vector3(-0.068, 0, 0).rotated(Vector3.UP, mesh.rotation.y)
 	ray.force_raycast_update()
 	ribbon.position = mesh.to_global(init_ribbon_pos)
 	ribbon.rotation.y = mesh.rotation.y + randf_range(-0.04, 0.04)
-	ribbon.rotation.x = -atan2(ray.to_local(target.position).y + 1.13, dist_from_target) + randf_range(-0.04, 0.04)
+	ribbon.rotation.x = -atan2(ray.to_local(player.position).y + 1.13, dist_from_player) + randf_range(-0.04, 0.04)
 	if ray.is_colliding():
 		ribbon.scale.z = ribbon.global_position.distance_to(ray.get_collision_point())
 	else:
 		ribbon.scale.z = HIT_RANGE
-	if ray.is_colliding() and ray.get_collider() == target:
-		if target == player:
-			player.pain("You were killed by a chaingunner", HIT_DAMAGE)
-		else:
-			target.pain(HIT_DAMAGE)
+	if ray.is_colliding() and ray.get_collider() == player:
+		player.pain("You were killed by a chaingunner", HIT_DAMAGE)
 
 
 func _on_respawn_timeout():

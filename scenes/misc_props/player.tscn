@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://4px2n2dg363l"]
+[gd_scene load_steps=29 format=3 uid="uid://4px2n2dg363l"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_p5l8k"]
 [ext_resource type="Script" path="res://scripts/physics_lerp.gd" id="2_21672"]
@@ -18,7 +18,6 @@
 [ext_resource type="Texture2D" uid="uid://cnspjfwwl8a76" path="res://textures/ui/health_fill.png" id="20_cnb0c"]
 [ext_resource type="Texture2D" uid="uid://kbl17hc73d27" path="res://textures/ui/eye_of_anubis.png" id="20_iuo0h"]
 [ext_resource type="FontVariation" uid="uid://cr4vqwh16ob78" path="res://resources/default_font.tres" id="22_be58p"]
-[ext_resource type="Texture2D" uid="uid://cwlblem1hbnvc" path="res://textures/ui/hypno_charge.png" id="22_ffurm"]
 [ext_resource type="Texture2D" uid="uid://djgvvwcp47wmi" path="res://textures/ui/garlic.png" id="24_xt1wq"]
 [ext_resource type="Theme" uid="uid://3b0iarraglqs" path="res://resources/ui_theme.tres" id="26_g80bx"]
 [ext_resource type="Script" path="res://scripts/pause.gd" id="27_56fgp"]
@@ -57,9 +56,6 @@ height = 1.0
 
 [sub_resource type="BoxMesh" id="BoxMesh_s6exb"]
 size = Vector3(0.145, 0.32, 0.935)
-
-[sub_resource type="PrismMesh" id="PrismMesh_281or"]
-size = Vector3(0.3, 0.3, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_0q5dt"]
 font = ExtResource("22_be58p")
@@ -187,12 +183,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.615999, -0.243835, -0.53342
 visible = false
 layers = 32
 mesh = SubResource("BoxMesh_s6exb")
-
-[node name="hypnotizer_viewmodel" type="MeshInstance3D" parent="cam/camera/vp_cont/vp/gun_cam/viewmodel"]
-transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0.609179, -0.324325, -0.491977)
-visible = false
-layers = 32
-mesh = SubResource("PrismMesh_281or")
 
 [node name="blood" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0)
@@ -438,36 +428,6 @@ offset_bottom = -79.0001
 grow_vertical = 0
 pivot_offset = Vector2(0, 90)
 color = Color(0, 0.470588, 1, 1)
-metadata/_edit_use_anchors_ = true
-
-[node name="hypno_charge" type="Sprite2D" parent="."]
-position = Vector2(968, 958)
-texture = ExtResource("22_ffurm")
-
-[node name="charge_rect_outline" type="ColorRect" parent="hypno_charge"]
-offset_left = 63.0
-offset_top = -47.0
-offset_right = 105.0
-offset_bottom = 55.0
-
-[node name="charge_rect_outline2" type="ColorRect" parent="hypno_charge"]
-offset_left = 66.0
-offset_top = -44.0
-offset_right = 102.0
-offset_bottom = 52.0
-color = Color(0, 0, 0, 1)
-
-[node name="charge_rect" type="ColorRect" parent="hypno_charge"]
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 69.0
-offset_top = -169.0
-offset_right = 99.0
-offset_bottom = -79.0001
-grow_vertical = 0
-pivot_offset = Vector2(0, 90)
-color = Color(1, 0, 1, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="eye_of_anubis" type="Sprite2D" parent="."]

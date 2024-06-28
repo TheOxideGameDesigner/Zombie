@@ -1,9 +1,6 @@
 extends CharacterBody3D
 
 var HP : int = 100
-const HYPNO_RESISTANCE = 12
-const HYPNO_HEALTH_DRAIN = 2
-var hypno_health_drain_timer = 0.0
 var SPEED = 8
 const WALK_SPEED = 1
 const JUMP_SPEED = 4
@@ -34,8 +31,6 @@ const PHANTOM_RADIUS = 7
 
 var rising = 0
 var health : int
-var hypno_timer = 0.0
-var hypnotizable : bool = true
 var alive = 1
 var target_pos = Vector3.ZERO
 var sees_target
@@ -55,7 +50,6 @@ var bump_timers : Array[float] = []
 @onready var mesh_body = $mesh/mountainside_runner
 @onready var player = get_tree().get_first_node_in_group("player")
 @onready var player_cam = player.get_node("cam")
-@onready var target = player
 @onready var home = $home
 @onready var health_label = $mesh/health
 @onready var mesh = $mesh
@@ -76,13 +70,12 @@ var blood = preload("res://scenes/environment/blood_particles.tscn")
 
 @onready var init_mesh_pos = $mesh.global_position - position
 @onready var dist_from_player = Vector2(player.position.x, player.position.z).distance_to(Vector2(position.x, position.z))
-@onready var dist_from_target = dist_from_player
 
 @onready var rot = mesh.rotation.y
 var y_vel = 0.0
 
 @export var respawn_time = 10.0
-@export var spawn_ang = 0.0
+var spawn_ang = 0.0
 @export var sedated = false
 @export var is_phantom = false
 @export_range(0, 4) var min_dif = 0
@@ -92,30 +85,8 @@ var disable_particles : bool = false
 var disable_gibs : bool = false
 
 var add_vel = Vector3.ZERO
-var hypno_col = 0.0
-var hypno : bool = false
 
 var is_opengl
-
-
-func hypnotize():
-	target = null
-	hypno = true
-	add_to_group("hypno")
-	set_collision_layer_value(10, true)
-	ray.set_collision_mask_value(2, true)
-	ray.set_collision_mask_value(9, false)
-	alerted.visible = false
-	update_healthbar()
-
-
-func unhypnotize():
-	hypno_timer = 0.0
-	hypno = false
-	remove_from_group("hypno")
-	set_collision_layer_value(10, false)
-	ray.set_collision_mask_value(2, false)
-	ray.set_collision_mask_value(9, true)
 
 
 func is_asleep():
@@ -214,7 +185,7 @@ func add_gibs(dmg):
 
 
 func pain(dmg, noblood=false, heal_player = false):
-	if rising or not alive or health <= 0 or (is_phantom and dist_from_target > PHANTOM_RADIUS):
+	if rising or not alive or health <= 0 or (is_phantom and dist_from_player > PHANTOM_RADIUS):
 		return
 	
 	if dmg >= health:
@@ -229,7 +200,7 @@ func pain(dmg, noblood=false, heal_player = false):
 	if heal_player:
 		player.health = player.health + REVOLVER_HEAL
 	
-	if sedated or hypno or sees_target:
+	if sedated or sees_target:
 		return
 	
 	alerted.visible = 1
@@ -289,17 +260,6 @@ func process_bumps(delta : float):
 
 
 func ai(delta):
-	if hypno:
-		if hypno_health_drain_timer <= 0:
-			hypno_health_drain_timer = 0.2
-			pain(HYPNO_HEALTH_DRAIN, true)
-		hypno_health_drain_timer -= delta
-		hypno_timer += delta
-	
-	if target != null:
-		dist_from_target = Vector2(target.position.x, target.position.z).distance_to(Vector2(position.x, position.z))
-	else:
-		dist_from_target = 10000
 	mesh.position = position + init_mesh_pos
 	
 	if not alive:
@@ -314,7 +274,7 @@ func ai(delta):
 	var player_dir = player.cam.transform.basis.z
 	var player_dir2D = Vector2(player_dir.x, player_dir.z).normalized()
 	raycast_area.rotation.y = -atan2(dir2player2D.y, dir2player2D.x) + PI / 2
-	raycast_hitbox.disabled = rising or not alive or (is_phantom and dist_from_target > PHANTOM_RADIUS)
+	raycast_hitbox.disabled = rising or not alive or (is_phantom and dist_from_player > PHANTOM_RADIUS)
 	collision_area_hitbox.disabled = not alive
 	
 	if rising and rising_timer < RISE_TIME:
@@ -375,42 +335,11 @@ func ai(delta):
 		add_vel = Vector3.ZERO
 	
 	#zombie logic
-	
-	#determine target
-	if not hypno:
-		var min_dist = VIS_RANGE
-		ray.target_position = ray.to_local(player.position + Vector3(0, 1.5, 0)).normalized() * VIS_RANGE
-		ray.force_raycast_update()
-		if ray.get_collider() == player:
-			min_dist = dist_from_player
-			target = player
-		for hombie in get_tree().get_nodes_in_group("hypno"):
-			var dist_from_hombie = Vector2(hombie.position.x, hombie.position.z).distance_to(Vector2(position.x, position.z))
-			if dist_from_hombie < VIS_RANGE:
-				ray.target_position = ray.to_local(hombie.position + Vector3(0, 1.5, 0)).normalized() * VIS_RANGE
-				ray.force_raycast_update()
-				if ray.get_collider() == hombie:
-					if dist_from_hombie < min_dist and hombie.hypno_timer > 1:
-						target = hombie
-						min_dist = dist_from_hombie
-					if hombie.dist_from_target >= dist_from_hombie:
-						hitbox.disabled = false
-						hombie.target = self
-						hombie.dist_from_target = dist_from_hombie
-	
-	
-	if target != player and target != null and (not target.alive or target.hypno == hypno):
-		target = null
-		alerted.visible = false
-	
-	if target == null:
-		sees_target = false
-	else:
-		ray.target_position = ray.to_local(target.position + Vector3(0, 1.5, 0)).normalized() * VIS_RANGE
-		ray.force_raycast_update()
-		sees_target = not sedated and ray.get_collider() == target
+	ray.target_position = ray.to_local(player.position + Vector3(0, 1.5, 0)).normalized() * VIS_RANGE
+	ray.force_raycast_update()
+	sees_target = not sedated and ray.get_collider() == player
 	if sees_target:
-		target_pos = target.position
+		target_pos = player.position
 		attention_span_timer = 0
 		alerted.visible = 1
 	else:
@@ -448,39 +377,27 @@ func ai(delta):
 			position.y - player.position.y > 1.5 and position.y - player.position.y < 2.0:
 				pain(100)
 		
-		var nextpos
-		if target == player:
-			nextpos = player_cam.position - position
-		else:
-			nextpos = target_pos - position
+		var nextpos = player_cam.position - position
 		
-		if target != null and dist_from_target <= HIT_RANGE and alive and not rising \
-		   and target.position.y - position.y > -2.1 and target.position.y - position.y < 1.2:
-			if not on_screen and target == player:
+		if dist_from_player <= HIT_RANGE and alive and not rising \
+		   and player.position.y - position.y > -2.1 and player.position.y - position.y < 1.2:
+			if not on_screen:
 				player.warning.modulate.a = 1.0
 			hit_timer -= delta
 			if hit_timer <= 0.35 and not mesh_body.is_playing():
 				mesh_body.play("hitting", 0.4)
 			if hit_timer <= 0:
-				if target == player:
-					if is_phantom:
-						player.pain("You were killed by a phantom", HIT_DAMAGE)
-					else:
-						player.pain("You were killed by a runner", HIT_DAMAGE)
+				if is_phantom:
+					player.pain("You were killed by a phantom", HIT_DAMAGE)
 				else:
-					target.pain(HIT_DAMAGE)
+					player.pain("You were killed by a runner", HIT_DAMAGE)
 				hit_timer = HIT_TIME
 		else:
 			hit_timer = HIT_TIME
 		
 		rot = -atan2(nextpos.z, nextpos.x) + PI / 2
 		var vel_dir = Vector3.MODEL_FRONT.rotated(Vector3.UP, mesh.rotation.y)
-		if target == player:
-			velocity = SPEED * clamp(dist_from_target, 0, 1) * vel_dir
-		elif target != null and dist_from_target > target.RADIUS + RADIUS + 0.1:
-			velocity = SPEED * vel_dir
-		else:
-			velocity = Vector3.ZERO
+		velocity = SPEED * clamp(dist_from_player, 0, 1) * vel_dir
 		
 		if climbing:
 			y_vel = CLIMB_SPEED
@@ -496,7 +413,7 @@ func ai(delta):
 		elif is_on_wall() and is_on_floor():
 			for i in range(get_slide_collision_count()):
 				var col : KinematicCollision3D = get_slide_collision(i)
-				if col.get_collider() == target:
+				if col.get_collider() == player:
 					continue
 				var normal = col.get_normal()
 				normal.y = 0
@@ -536,8 +453,6 @@ func _process(delta):
 		alive = 0
 		if is_phantom:
 			body.set_instance_shader_parameter("opacity", 0.3)
-		if hypno:
-			unhypnotize()
 		respawn.start()
 		position = home.position
 		position.y -= GRAVE_DEPTH
@@ -554,17 +469,11 @@ func _process(delta):
 		var pb_col = clamp(lerp(0.0, 1.0, (player.SHOTGUN_PB_RANGE - dist_from_player) / FADE_RANGE) ,0.0, 1.0)
 		var col = max(pain_col, pb_col) * 0.5
 		body.set_instance_shader_parameter("pain", col)
-	if hypno:
-		hypno_col = min(0.35, hypno_col + delta)
-		body.set_instance_shader_parameter("hypno", hypno_col)
-	else:
-		hypno_col = max(0.0, hypno_col - delta)
-		body.set_instance_shader_parameter("hypno", hypno_col)
-	if is_phantom and dist_from_target < PHANTOM_RADIUS:
+	if is_phantom and dist_from_player < PHANTOM_RADIUS:
 		const T = 0.75
 		const OPAC_MIN = 0.3
 		const OPAC_MAX = 0.9
-		body.set_instance_shader_parameter("opacity", clamp(OPAC_MIN + (dist_from_target - PHANTOM_RADIUS) * (OPAC_MIN - OPAC_MAX) / T, OPAC_MIN, OPAC_MAX))
+		body.set_instance_shader_parameter("opacity", clamp(OPAC_MIN + (dist_from_player - PHANTOM_RADIUS) * (OPAC_MIN - OPAC_MAX) / T, OPAC_MIN, OPAC_MAX))
 	
 	if rising:
 		mesh_body.anim_timer = 0.0

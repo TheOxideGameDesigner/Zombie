@@ -12,7 +12,6 @@ var alive = true
 var rising = false
 var health : int = HP
 var pain_col = 0.0
-var hypnotizable = false
 var rising_timer = 0.0
 var active_zone : Area3D
 var has_died = false
@@ -50,7 +49,7 @@ var drops = []
 
 func update_beam(i):
 	var beam_mesh = beams[i]
-	if not alive or rising or zombies[i].rising or zombies[i].hypno or not zombies[i].alive:
+	if not alive or rising or zombies[i].rising or not zombies[i].alive:
 		beam_mesh.visible = 0
 		return
 	var from = mesh_body.global_position
@@ -218,7 +217,7 @@ func _physics_process(_delta):
 	if not alive or rising:
 		return
 	for i in zombies:
-		if not i.hypno and i.health > 0 and i.health < i.HP:
+		if i.health > 0 and i.health < i.HP:
 			i.health = i.health + 1
 			i.update_healthbar()
 

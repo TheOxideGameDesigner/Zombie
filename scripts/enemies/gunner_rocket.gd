@@ -8,7 +8,7 @@ const DAMAGE = 30
 const EXPLOSION_TIME = 1
 const EXPLOSION_RADIUS = 6
 
-var target
+@onready var player = get_tree().get_first_node_in_group("player")
 var death_message = "You were killed by a fireball"
 var vel = Vector3.ZERO
 var velv = 0
@@ -42,8 +42,6 @@ func _process(delta):
 func _physics_process(delta):
 	if exploded:
 		return
-	if target != null and target.is_in_group("enemy"):
-		vel = target.position + Vector3(0, 1, 0) - position
 	vel = vel.normalized()
 	global_position += vel * delta * SPEED
 
@@ -62,27 +60,17 @@ func physics(body = null):
 func _on_body_entered(body):
 	if body == get_parent() or exploded:
 		return
-	if body.is_in_group("phantom") and body.dist_from_target > body.PHANTOM_RADIUS:
-		if target == body:
-			target = null
-		return
 	exploded = 1
 	physics(body)
 	explosion.visible = 1
 	sprite.queue_free()
 	$hitbox.queue_free()
-	if !body.is_in_group("player") and !body.is_in_group("enemy"):
-		return
 	hit_target = 1
 	explosion.queue_free()
 	$death_timer.queue_free()
 	if body.is_in_group("player"):
 		body.pain(death_message, DAMAGE)
 		body.knockback(vel.normalized() * 10 + Vector3(0, 0.2, 0))
-	else:
-		body.pain(DAMAGE)
-		if body.is_in_group("lightweight"):
-			body.add_vel += vel.normalized() * 10
 
 
 

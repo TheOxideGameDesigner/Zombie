@@ -34,7 +34,7 @@ func explode(body):
 		if obj != body and obj != self:
 			var dist = obj.global_position.distance_to(global_position)
 			if dist < SPLASH_RADIUS:
-				if obj.is_in_group("lightweight"):
+				if obj.is_in_group("lightweight") and not (obj.is_in_group("phantom") and obj.dist_from_player > obj.PHANTOM_RADIUS):
 					var expl_dir = (obj.global_position - position).normalized()
 					expl_dir.y = 0
 					obj.add_vel = expl_dir.normalized() * 10
@@ -87,7 +87,7 @@ func _process(delta):
 
 
 func _on_area_body_entered(body):
-	if exploding or body == self or (body.is_in_group("phantom") and body.dist_from_target > body.PHANTOM_RADIUS):
+	if exploding or body == self or (body.is_in_group("phantom") and body.dist_from_player > body.PHANTOM_RADIUS):
 		return
 	if body.is_in_group("enemy"):
 		explode(body)

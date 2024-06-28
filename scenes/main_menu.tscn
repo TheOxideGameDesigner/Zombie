@@ -180,10 +180,9 @@ flat = true
 [node name="controls" type="ScrollContainer" parent="options_control/options"]
 visible = false
 layout_mode = 2
-scroll_vertical = 100
 
 [node name="controls_panel" type="Panel" parent="options_control/options/controls"]
-custom_minimum_size = Vector2(0, 3000)
+custom_minimum_size = Vector2(0, 2800)
 layout_mode = 2
 
 [node name="sensitivity" type="HSlider" parent="options_control/options/controls/controls_panel"]
@@ -478,30 +477,12 @@ offset_right = 1784.0
 offset_bottom = 87.0
 text = "WEAPON 4"
 
-[node name="g_wpn5" type="Button" parent="options_control/options/controls/controls_panel"]
-layout_mode = 2
-offset_left = 145.0
-offset_top = 2566.0
-offset_right = 247.0
-offset_bottom = 2663.0
-text = "5"
-script = ExtResource("5_8msgh")
-default_value = 53
-
-[node name="Label" type="Label" parent="options_control/options/controls/controls_panel/g_wpn5"]
-layout_mode = 0
-offset_left = 1132.0
-offset_top = 20.0
-offset_right = 1784.0
-offset_bottom = 87.0
-text = "WEAPON 5"
-
 [node name="g_pause" type="Button" parent="options_control/options/controls/controls_panel"]
 layout_mode = 2
-offset_left = 145.0
-offset_top = 2748.0
-offset_right = 388.0
-offset_bottom = 2845.0
+offset_left = 140.0
+offset_top = 2551.0
+offset_right = 383.0
+offset_bottom = 2648.0
 text = "esc"
 script = ExtResource("5_8msgh")
 default_value = 4194305
@@ -649,7 +630,6 @@ text = "cancel"
 [connection signal="pressed" from="options_control/options/controls/controls_panel/g_wpn2" to="options_control/options/controls/controls_panel/g_wpn2" method="_on_pressed"]
 [connection signal="pressed" from="options_control/options/controls/controls_panel/g_wpn3" to="options_control/options/controls/controls_panel/g_wpn3" method="_on_pressed"]
 [connection signal="pressed" from="options_control/options/controls/controls_panel/g_wpn4" to="options_control/options/controls/controls_panel/g_wpn4" method="_on_pressed"]
-[connection signal="pressed" from="options_control/options/controls/controls_panel/g_wpn5" to="options_control/options/controls/controls_panel/g_wpn5" method="_on_pressed"]
 [connection signal="pressed" from="options_control/options/controls/controls_panel/g_pause" to="options_control/options/controls/controls_panel/g_pause" method="_on_pressed"]
 [connection signal="value_changed" from="options_control/options/video/fov" to="options_control" method="_on_fov_value_changed"]
 [connection signal="toggled" from="options_control/options/video/dynamic_fov" to="options_control" method="_on_dynamic_fov_toggled"]

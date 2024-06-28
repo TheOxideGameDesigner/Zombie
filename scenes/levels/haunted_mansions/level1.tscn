@@ -954,17 +954,30 @@ min_dif = 4
 
 [node name="phantom" parent="enemies" instance=ExtResource("35_p6cng")]
 transform = Transform3D(-0.989163, 0, -0.146826, 0, 1, 0, 0.146826, 0, -0.989163, 91.6967, 1.90735e-06, 17.9817)
+respawn_time = 10.0
+spawn_ang = 0.0
+sedated = false
+min_dif = 0
 
 [node name="phantom2" parent="enemies" instance=ExtResource("35_p6cng")]
 transform = Transform3D(-0.989163, 0, -0.146826, 0, 1, 0, 0.146826, 0, -0.989163, 83.626, 1.90735e-06, -2.76783)
+respawn_time = 10.0
+spawn_ang = 0.0
+sedated = false
 min_dif = 3
 
 [node name="phantom8" parent="enemies" instance=ExtResource("35_p6cng")]
 transform = Transform3D(-0.989163, 0, -0.146826, 0, 1, 0, 0.146826, 0, -0.989163, 92.8684, 1.90735e-06, 38.4083)
+respawn_time = 10.0
+spawn_ang = 0.0
+sedated = false
 min_dif = 3
 
 [node name="phantom7" parent="enemies" instance=ExtResource("35_p6cng")]
 transform = Transform3D(-0.989163, 0, -0.146826, 0, 1, 0, 0.146826, 0, -0.989163, 95.6479, 1.90735e-06, 11.4935)
+respawn_time = 10.0
+spawn_ang = 0.0
+sedated = false
 min_dif = 4
 
 [node name="bomber2" parent="enemies" instance=ExtResource("34_6t2hx")]
@@ -985,6 +998,10 @@ min_dif = 4
 
 [node name="phantom4" parent="enemies" instance=ExtResource("35_p6cng")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 131.513, 1.66893e-06, 40.6248)
+respawn_time = 10.0
+spawn_ang = 0.0
+sedated = false
+min_dif = 0
 
 [node name="runner11" parent="enemies" instance=ExtResource("30_gi4dv")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 121.996, 1.90735e-06, 42.3568)
@@ -1028,10 +1045,16 @@ min_dif = 4
 
 [node name="phantom3" parent="enemies" instance=ExtResource("35_p6cng")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 115.334, 9.53674e-07, 1.342)
+respawn_time = 10.0
+spawn_ang = 0.0
+sedated = false
 min_dif = 1
 
 [node name="phantom9" parent="enemies" instance=ExtResource("35_p6cng")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 132.683, 9.53674e-07, 16.417)
+respawn_time = 10.0
+spawn_ang = 0.0
+sedated = false
 min_dif = 3
 
 [node name="hitscanner3" parent="enemies" instance=ExtResource("32_nsk1j")]
@@ -1048,10 +1071,17 @@ min_dif = 1
 
 [node name="phantom5" parent="enemies" instance=ExtResource("35_p6cng")]
 transform = Transform3D(-0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, -0.258819, 30.861, 1.66893e-06, 6.24703)
+respawn_time = 10.0
+spawn_ang = 0.0
+sedated = false
 min_dif = 1
 
 [node name="phantom6" parent="enemies" instance=ExtResource("35_p6cng")]
 transform = Transform3D(-0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, -0.258819, 30.861, 1.66893e-06, -13.0647)
+respawn_time = 10.0
+spawn_ang = 0.0
+sedated = false
+min_dif = 0
 
 [node name="bomber4" parent="enemies" instance=ExtResource("34_6t2hx")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 20.3136, 1.90735e-06, -15.5503)

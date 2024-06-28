@@ -28,6 +28,8 @@ func _ready():
 func _process(_delta):
 	if not get_parent().is_in_group("enemy"):
 		return
+	if get_parent().min_dif == null:
+		get_parent().min_dif = 0
 	material_override.albedo_color = COLORS[get_parent().min_dif]
 	if not Input.is_key_pressed(KEY_SHIFT):
 		return

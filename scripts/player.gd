@@ -67,10 +67,8 @@ var speed_mul = 1.0
 const MIN_HIT_DOT_PROD = 0.2
 
 var can_jump = 1
-var ramp_vel = 0.0
 
-var cooldown_timers = [0, 0, 0, 0, 0]
-var unlocked_hypno : bool = false
+var cooldown_timers = [0, 0, 0, 0]
 var mf_lifespans = [0.2, 0.2, 0, 0, 0]
 
 var can_float = 1
@@ -103,14 +101,12 @@ const cannonbomb_scene = preload("res://scenes/cannonbomb.tscn")
 const bullet_scene = preload("res://scenes/bullet.tscn")
 const key_texture = preload("res://textures/key.png")
 const particles_scene = preload("res://scenes/environment/blood_particles.tscn")
-const hypno_ribbon_scene = preload("res://scenes/hypno_ribbon.tscn")
 
 @onready var viewmodel = $cam/camera/vp_cont/vp/gun_cam/viewmodel
 @onready var revolver_viewmodel = $cam/camera/vp_cont/vp/gun_cam/viewmodel/revolver_viewmodel
 @onready var shotgun_viewmodel = $cam/camera/vp_cont/vp/gun_cam/viewmodel/shotgun_viewmodel
 @onready var cannon_viewmodel = $cam/camera/vp_cont/vp/gun_cam/viewmodel/cannon_viewmodel
 @onready var blaster_viewmodel = $cam/camera/vp_cont/vp/gun_cam/viewmodel/blaster_viewmodel
-@onready var hypnotizer_viewmodel = $cam/camera/vp_cont/vp/gun_cam/viewmodel/hypnotizer_viewmodel
 
 
 @onready var cam = $cam
@@ -156,9 +152,7 @@ var viewmodel_y_bump_lerped = 0.0
 var damage_taken : int = 0
 
 @onready var charge_rect = $charge/charge_rect
-@onready var hypno_charge_rect = $hypno_charge/charge_rect
 var charge_rect_time = 5
-var hypno_charge_rect_time = 1.0
 
 
 func get_garlic():
@@ -202,7 +196,6 @@ func update_wpn():
 	shotgun_viewmodel.visible = 0
 	cannon_viewmodel.visible = 0
 	blaster_viewmodel.visible = 0
-	hypnotizer_viewmodel.visible = 0
 	match wpn:
 		1:
 			revolver_viewmodel.visible = 1
@@ -212,8 +205,6 @@ func update_wpn():
 			cannon_viewmodel.visible = 1
 		4:
 			blaster_viewmodel.visible = 1
-		5:
-			hypnotizer_viewmodel.visible = 1
 
 
 func hurt(collider):
@@ -412,20 +403,6 @@ func shoot():
 			bullet.rotation.x = 0.04 + randf_range(-0.01, 0.01)
 			bullet.lifespan = 0.08
 			gun_cam.add_child(bullet)
-		5:
-			var collider = find_collider(REVOLVER_RANGE)
-			
-			if collider == null or not collider.is_in_group("enemy") or not collider.hypnotizable or collider.hypno:
-				return
-			
-			var ribbon = hypno_ribbon_scene.instantiate()
-			ribbon.begin = camera.global_position + camera.global_basis * (Vector3(0.6, -0.3, 0) * tan(deg_to_rad(camera.fov / 2)) + Vector3(0, 0, -1))
-			ribbon.end = collider.global_position + Vector3(0, 1, 0)
-			add_child(ribbon)
-			camera.add_tilt(3, Vector3(1, 0, 0), 4)
-			hypno_charge_rect_time = collider.HYPNO_RESISTANCE / damage_mul
-			cooldown_timers[4] = collider.HYPNO_RESISTANCE / damage_mul
-			collider.hypnotize()
 
 
 func shoot_alt():
@@ -503,7 +480,7 @@ func movement(wishdir, delta):
 	if can_jump:
 		if is_on_floor():
 			if Input.is_action_pressed("g_jump"):
-				velocity.y = JUMP_SPEED + clamp(0.0, ramp_vel, 2.0)
+				velocity.y = JUMP_SPEED
 				viewmodel_y_bump = 1.0
 		elif Input.is_action_just_pressed("g_jump"):
 			if coyote_timer == 0.0:
@@ -624,10 +601,6 @@ func _ready():
 	if config.get_value("video", "disable_shake", false):
 		camera.disable_shake = 1
 	
-	config.load("user://unlocked.cfg")
-	unlocked_hypno = config.get_value("weapons", "unlocked_hypno", false)
-	$hypno_charge.visible = unlocked_hypno
-	
 	var respawn_event = InputMap.action_get_events("g_respawn")[0]
 	var respawn_event_text
 	if respawn_event is InputEventKey:
@@ -654,7 +627,6 @@ func _ready():
 		shotgun_viewmodel.material_override = preload("res://resources/materials/level_mat.tres").duplicate()
 		cannon_viewmodel.material_override = preload("res://resources/materials/level_mat.tres").duplicate()
 		blaster_viewmodel.material_override = preload("res://resources/materials/level_mat.tres").duplicate()
-		hypnotizer_viewmodel.material_override = preload("res://resources/materials/level_mat.tres").duplicate()
 
 
 func _unhandled_input(event):
@@ -687,11 +659,6 @@ func _unhandled_input(event):
 	elif event.is_action_pressed("g_wpn4") and wpn != 4:
 		prev_wpn = wpn
 		wpn = 4
-		wpn_draw_timer = WPN_DRAW_TIME
-		update_wpn()
-	elif event.is_action_pressed("g_wpn5") and wpn != 5 and unlocked_hypno:
-		prev_wpn = wpn
-		wpn = 5
 		wpn_draw_timer = WPN_DRAW_TIME
 		update_wpn()
 	elif event.is_action_pressed("g_next"):
@@ -750,7 +717,6 @@ func _process(delta):
 	health_text.text = str(health)
 	
 	charge_rect.scale.y = 1 - cooldown_timers[2] / charge_rect_time
-	hypno_charge_rect.scale.y = 1 - cooldown_timers[4] / hypno_charge_rect_time
 	
 	if health <= 0:
 		health = -1000
@@ -805,7 +771,7 @@ func _physics_process(delta):
 	if health <= 0:
 		return
 	
-	for i in range(5):
+	for i in range(4):
 		cooldown_timers[i] = max(0, cooldown_timers[i] - delta)
 	
 	if wpn_draw_timer < 0.2 and cooldown_timers[wpn - 1] == 0:
@@ -821,13 +787,11 @@ func _physics_process(delta):
 	var wishdir = Input.get_vector("g_left", "g_right", "g_forward", "g_backward").rotated(-cam.rotation.y)
 	bobbing = is_on_floor() and velocity.length_squared() > 0.1 and wishdir != Vector2.ZERO
 	
-	var prev_h = position.y
 	var prev_y_vel = velocity.y
 	var prev_on_floor = is_on_floor()
 	movement(wishdir, delta)
 	if not prev_on_floor and is_on_floor() and prev_y_vel < -20:
 		camera.shake(0.4, 0.75, 0.025)
-	ramp_vel = (position.y - prev_h) / delta
 	
 	cam.position = global_position + Vector3(0, 1.2, 0)
 	
