@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://iciur0kqtqht"
+path="res://.godot/imported/level3_visual.obj-d1ee3dc1dc8aeb031d6d0687c7bbb9df.mesh"
+
+[deps]
+
+files=["res://.godot/imported/level3_visual.obj-d1ee3dc1dc8aeb031d6d0687c7bbb9df.mesh"]
+
+source_file="res://models/levels/haunted_mansions/level3/level3_visual.obj"
+dest_files=["res://.godot/imported/level3_visual.obj-d1ee3dc1dc8aeb031d6d0687c7bbb9df.mesh", "res://.godot/imported/level3_visual.obj-d1ee3dc1dc8aeb031d6d0687c7bbb9df.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

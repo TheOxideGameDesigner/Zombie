@@ -15,10 +15,10 @@ var velv = 0
 
 var timer = 0.0
 var exploded : bool = 0
+var hit_player : bool = 0
 
 var time_since_birth = 0
 
-var hit_target = 0
 @onready var sprite = $sprite
 @onready var explosion = $explosion
 
@@ -27,7 +27,7 @@ func set_vel(new_vel):
 
 
 func _process(delta):
-	if exploded and not hit_target:
+	if exploded and not hit_player:
 		if timer > EXPLOSION_TIME:
 			queue_free()
 		timer += delta
@@ -65,12 +65,12 @@ func _on_body_entered(body):
 	explosion.visible = 1
 	sprite.queue_free()
 	$hitbox.queue_free()
-	hit_target = 1
-	explosion.queue_free()
 	$death_timer.queue_free()
 	if body.is_in_group("player"):
 		body.pain(death_message, DAMAGE)
 		body.knockback(vel.normalized() * 10 + Vector3(0, 0.2, 0))
+		$explosion.queue_free()
+		hit_player = 1
 
 
 

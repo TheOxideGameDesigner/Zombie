@@ -29,13 +29,14 @@ rings = 1
 radius = 1.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xjme4"]
-size = Vector3(2.58, 2.609, 2)
+size = Vector3(2.58, 2.32208, 2)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8iocc"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b62d8"]
 transparency = 1
 shading_mode = 0
+albedo_color = Color(1, 1, 1, 0.1)
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_dyto8"]
+[sub_resource type="CylinderMesh" id="CylinderMesh_43rp2"]
 top_radius = 1.0
 bottom_radius = 1.0
 radial_segments = 12
@@ -129,12 +130,11 @@ collision_mask = 769
 hit_from_inside = true
 
 [node name="raycast_collision" type="Area3D" parent="." groups=["enemy_raycast_collision"]]
-visible = false
 collision_layer = 4
 collision_mask = 0
 
 [node name="raycast_hitbox" type="CollisionShape3D" parent="raycast_collision"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.23828, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.09482, 0)
 shape = SubResource("BoxShape3D_xjme4")
 
 [node name="hit_timer" type="Timer" parent="."]
@@ -142,8 +142,8 @@ wait_time = 0.1
 one_shot = true
 
 [node name="difficulty_visualiser" parent="." instance=ExtResource("12_2wrjj")]
-material_override = SubResource("StandardMaterial3D_8iocc")
-mesh = SubResource("CylinderMesh_dyto8")
+material_override = SubResource("StandardMaterial3D_b62d8")
+mesh = SubResource("CylinderMesh_43rp2")
 radius = 1.0
 
 [node name="collision_area" type="Area3D" parent="." groups=["enemy_area"]]

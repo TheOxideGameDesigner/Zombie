@@ -15,4 +15,5 @@ mesh = ExtResource("2_eikv5")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.553121, 0)
+visible = false
 shape = SubResource("ConcavePolygonShape3D_na8ma")

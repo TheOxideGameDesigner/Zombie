@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://cy1c2f7x4ffpe"]
+
+[ext_resource type="ArrayMesh" uid="uid://2ledjd5hhd0r" path="res://models/static_props/haunted_mansions/long_window.obj" id="1_iyu7r"]
+[ext_resource type="Material" uid="uid://uxn8fucitgfr" path="res://resources/materials/level_mat.tres" id="2_nmg11"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jdmv4"]
+shading_mode = 0
+albedo_color = Color(0.73, 0.73, 0.1314, 1)
+
+[node name="long_window" type="MeshInstance3D"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+cast_shadow = 0
+mesh = ExtResource("1_iyu7r")
+surface_material_override/0 = ExtResource("2_nmg11")
+surface_material_override/1 = SubResource("StandardMaterial3D_jdmv4")

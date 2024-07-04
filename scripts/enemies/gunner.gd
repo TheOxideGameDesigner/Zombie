@@ -221,7 +221,7 @@ func ai(delta):
 		ray.force_raycast_update()
 		if not ray.is_colliding():
 			position.y -= 9.8 * delta
-		else:
+		elif ray.get_collider().is_in_group("physics"):
 			position.y = ray.get_collision_point().y
 	
 	ray.target_position = ray.to_local(player.position + Vector3(0, 1.5, 0)).normalized() * HIT_RANGE

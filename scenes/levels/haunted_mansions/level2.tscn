@@ -681,116 +681,116 @@ transform = Transform3D(-2.18557e-07, 0, -1, 0, 1, 0, 1, 0, -2.18557e-07, -1.897
 [node name="wardrobe3" parent="props" instance=ExtResource("29_5q78j")]
 transform = Transform3D(-1, 0, 1.39091e-08, 0, 1, 0, -1.39091e-08, 0, -1, 72.1217, 2.38419e-06, -89.9808)
 
-[node name="plate7" type="MeshInstance3D" parent="props"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 70.3756, 0.124186, -89.5962)
+[node name="plate7" type="MeshInstance3D" parent="props/wardrobe3"]
+transform = Transform3D(2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, 1.74609, 0.124184, -0.384598)
 material_override = ExtResource("2_m7cgn")
 mesh = ExtResource("30_ekx17")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="plate8" type="MeshInstance3D" parent="props"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 69.9149, 0.617871, -89.5962)
+[node name="plate8" type="MeshInstance3D" parent="props/wardrobe3"]
+transform = Transform3D(2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, 2.20679, 0.617869, -0.384598)
 material_override = ExtResource("2_m7cgn")
 mesh = ExtResource("30_ekx17")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="plate9" type="MeshInstance3D" parent="props"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 71.1237, 0.617871, -89.5962)
+[node name="plate9" type="MeshInstance3D" parent="props/wardrobe3"]
+transform = Transform3D(2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, 0.997993, 0.617869, -0.384598)
 material_override = ExtResource("2_m7cgn")
 mesh = ExtResource("30_ekx17")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="plate10" type="MeshInstance3D" parent="props"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 70.5986, 1.12387, -89.5962)
+[node name="plate10" type="MeshInstance3D" parent="props/wardrobe3"]
+transform = Transform3D(2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, 1.52309, 1.12387, -0.384598)
 material_override = ExtResource("2_m7cgn")
 mesh = ExtResource("30_ekx17")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="plate11" type="MeshInstance3D" parent="props"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 70.0317, 1.61755, -89.5962)
+[node name="plate11" type="MeshInstance3D" parent="props/wardrobe3"]
+transform = Transform3D(2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, 2.09, 1.61755, -0.384598)
 material_override = ExtResource("2_m7cgn")
 mesh = ExtResource("30_ekx17")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="plate12" type="MeshInstance3D" parent="props"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 71.383, 1.61755, -89.5962)
+[node name="plate12" type="MeshInstance3D" parent="props/wardrobe3"]
+transform = Transform3D(2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, 0.738693, 1.61755, -0.384598)
 material_override = ExtResource("2_m7cgn")
 mesh = ExtResource("30_ekx17")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="plate13" type="MeshInstance3D" parent="props"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 70.3756, 2.12769, -89.5962)
+[node name="plate13" type="MeshInstance3D" parent="props/wardrobe3"]
+transform = Transform3D(2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, 1.74609, 2.12769, -0.384598)
 material_override = ExtResource("2_m7cgn")
 mesh = ExtResource("30_ekx17")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="plate14" type="MeshInstance3D" parent="props"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 69.8244, 2.62138, -89.5962)
+[node name="plate14" type="MeshInstance3D" parent="props/wardrobe3"]
+transform = Transform3D(2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, 2.29729, 2.62138, -0.384598)
 material_override = ExtResource("2_m7cgn")
 mesh = ExtResource("30_ekx17")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="plate15" type="MeshInstance3D" parent="props"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 71.1237, 2.62138, -89.5962)
+[node name="plate15" type="MeshInstance3D" parent="props/wardrobe3"]
+transform = Transform3D(2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, 0.997993, 2.62138, -0.384598)
 material_override = ExtResource("2_m7cgn")
 mesh = ExtResource("30_ekx17")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
 [node name="wardrobe4" parent="props" instance=ExtResource("29_5q78j")]
 transform = Transform3D(-1, 0, 1.39091e-08, 0, 1, 0, -1.39091e-08, 0, -1, 88.5848, 2.38419e-06, -89.9808)
 
-[node name="plate16" type="MeshInstance3D" parent="props"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 87.3721, 0.124186, -89.5962)
+[node name="plate16" type="MeshInstance3D" parent="props/wardrobe4"]
+transform = Transform3D(2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, 1.2127, 0.124184, -0.384598)
 material_override = ExtResource("2_m7cgn")
 mesh = ExtResource("30_ekx17")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="plate17" type="MeshInstance3D" parent="props"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 86.4575, 0.617871, -89.5962)
+[node name="plate17" type="MeshInstance3D" parent="props/wardrobe4"]
+transform = Transform3D(2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, 2.1273, 0.617869, -0.384598)
 material_override = ExtResource("2_m7cgn")
 mesh = ExtResource("30_ekx17")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="plate18" type="MeshInstance3D" parent="props"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 87.8286, 0.617871, -89.5962)
+[node name="plate18" type="MeshInstance3D" parent="props/wardrobe4"]
+transform = Transform3D(2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, 0.756203, 0.617869, -0.384598)
 material_override = ExtResource("2_m7cgn")
 mesh = ExtResource("30_ekx17")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="plate19" type="MeshInstance3D" parent="props"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 86.9101, 1.12387, -89.5962)
+[node name="plate19" type="MeshInstance3D" parent="props/wardrobe4"]
+transform = Transform3D(2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, 1.6747, 1.12387, -0.384598)
 material_override = ExtResource("2_m7cgn")
 mesh = ExtResource("30_ekx17")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="plate20" type="MeshInstance3D" parent="props"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 86.4948, 1.61755, -89.5962)
+[node name="plate20" type="MeshInstance3D" parent="props/wardrobe4"]
+transform = Transform3D(2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, 2.09, 1.61755, -0.384598)
 material_override = ExtResource("2_m7cgn")
 mesh = ExtResource("30_ekx17")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="plate21" type="MeshInstance3D" parent="props"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 87.8195, 1.61755, -89.5962)
+[node name="plate21" type="MeshInstance3D" parent="props/wardrobe4"]
+transform = Transform3D(2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, 0.765297, 1.61755, -0.384598)
 material_override = ExtResource("2_m7cgn")
 mesh = ExtResource("30_ekx17")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="plate22" type="MeshInstance3D" parent="props"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 86.9456, 2.12769, -89.5962)
+[node name="plate22" type="MeshInstance3D" parent="props/wardrobe4"]
+transform = Transform3D(2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, 1.6392, 2.12769, -0.384598)
 material_override = ExtResource("2_m7cgn")
 mesh = ExtResource("30_ekx17")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="plate23" type="MeshInstance3D" parent="props"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 86.4011, 2.62138, -89.5962)
+[node name="plate23" type="MeshInstance3D" parent="props/wardrobe4"]
+transform = Transform3D(2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, 2.1837, 2.62138, -0.384598)
 material_override = ExtResource("2_m7cgn")
 mesh = ExtResource("30_ekx17")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="plate24" type="MeshInstance3D" parent="props"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 87.6962, 2.62138, -89.5962)
+[node name="plate24" type="MeshInstance3D" parent="props/wardrobe4"]
+transform = Transform3D(2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, 0.888603, 2.62138, -0.384598)
 material_override = ExtResource("2_m7cgn")
 mesh = ExtResource("30_ekx17")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
 [node name="sofa6" parent="props" instance=ExtResource("23_lukrg")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 87.2805, 2.86102e-06, -56.9323)
@@ -825,12 +825,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -34)
 
 [node name="runner3" parent="enemies" instance=ExtResource("34_pemww")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 50.2646, 9.53674e-07, -33.2814)
-visible = false
 min_dif = 3
 
 [node name="runner9" parent="enemies" instance=ExtResource("34_pemww")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 78.662, 4.76837e-07, -18.8338)
-visible = false
 min_dif = 3
 
 [node name="mage" parent="enemies" instance=ExtResource("37_yt2dn")]
@@ -859,12 +857,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 12, -89)
 
 [node name="gunner5" parent="enemies" instance=ExtResource("38_4i2nf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.13268, 12, -94.3542)
-visible = false
 min_dif = 4
 
 [node name="gunner6" parent="enemies" instance=ExtResource("38_4i2nf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.88512, 12, -94.3542)
-visible = false
 min_dif = 4
 
 [node name="hitscanner2" parent="enemies" instance=ExtResource("35_6kfqn")]
@@ -880,12 +876,10 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 54.877
 
 [node name="runner7" parent="enemies" instance=ExtResource("34_pemww")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 60.6794, 6.55551, -46.482)
-visible = false
 min_dif = 3
 
 [node name="runner8" parent="enemies" instance=ExtResource("34_pemww")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 64.0809, 6.55551, -60.7096)
-visible = false
 min_dif = 4
 
 [node name="gunner3" parent="enemies" instance=ExtResource("38_4i2nf")]
@@ -894,7 +888,6 @@ min_dif = 1
 
 [node name="gunner4" parent="enemies" instance=ExtResource("38_4i2nf")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 79, 0, -68.2748)
-visible = false
 min_dif = 4
 
 [node name="phantom5" parent="enemies" instance=ExtResource("36_tqld7")]
@@ -903,7 +896,6 @@ sedated = false
 
 [node name="phantom8" parent="enemies" instance=ExtResource("36_tqld7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71.6752, 0, -69.1069)
-visible = false
 sedated = false
 min_dif = 3
 
@@ -928,7 +920,6 @@ min_dif = 2
 
 [node name="chaingunner3" parent="enemies" instance=ExtResource("37_ntohx")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.65333, -6, 9.28859)
-visible = false
 min_dif = 3
 
 [node name="phantom7" parent="enemies" instance=ExtResource("36_tqld7")]
@@ -937,25 +928,21 @@ sedated = false
 
 [node name="phantom14" parent="enemies" instance=ExtResource("36_tqld7")]
 transform = Transform3D(-1, 0, -4.37114e-08, 0, 1, 0, 4.37114e-08, 0, -1, -16.5538, -6, 58.6104)
-visible = false
 sedated = false
 min_dif = 4
 
 [node name="phantom15" parent="enemies" instance=ExtResource("36_tqld7")]
 transform = Transform3D(-1, 0, -4.37114e-08, 0, 1, 0, 4.37114e-08, 0, -1, 1.54029, -6, 58.6104)
-visible = false
 sedated = false
 min_dif = 4
 
 [node name="phantom12" parent="enemies" instance=ExtResource("36_tqld7")]
 transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 4.7874, -6, 4.8911)
-visible = false
 sedated = false
 min_dif = 4
 
 [node name="phantom13" parent="enemies" instance=ExtResource("36_tqld7")]
 transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 19.5247, -6, 4.8911)
-visible = false
 sedated = false
 min_dif = 3
 
@@ -965,7 +952,6 @@ min_dif = 1
 
 [node name="mage4" parent="enemies" instance=ExtResource("37_yt2dn")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -8.73346, -6, 22.9705)
-visible = false
 min_dif = 4
 
 [node name="statue" parent="enemies" instance=ExtResource("38_rc31h")]
@@ -1010,69 +996,56 @@ sedated = false
 
 [node name="phantom9" parent="enemies" instance=ExtResource("36_tqld7")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.4231, 12, -67.6241)
-visible = false
 sedated = false
 min_dif = 3
 
 [node name="phantom10" parent="enemies" instance=ExtResource("36_tqld7")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.5536, 12, -80.3567)
-visible = false
 sedated = false
 min_dif = 3
 
 [node name="phantom11" parent="enemies" instance=ExtResource("36_tqld7")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.5536, 12, -94.7128)
-visible = false
 sedated = false
 min_dif = 3
 
 [node name="hitscanner" parent="enemies" instance=ExtResource("35_6kfqn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80.9228, 0.834799, -80)
-visible = false
 min_dif = 3
 
 [node name="runner2" parent="enemies" instance=ExtResource("34_pemww")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 85.9526, 1.90735e-06, -69.0418)
-visible = false
 min_dif = 4
 
 [node name="chaingunner2" parent="enemies" instance=ExtResource("37_ntohx")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 12.5355, 3.8147e-06, -30.3996)
-visible = false
 min_dif = 4
 
 [node name="hitscanner3" parent="enemies" instance=ExtResource("35_6kfqn")]
 transform = Transform3D(-0.962649, 0, 0.270752, 0, 1, 0, -0.270752, 0, -0.962649, 55.0454, 2.38419e-06, 0.331343)
-visible = false
 min_dif = 4
 
 [node name="mage3" parent="enemies" instance=ExtResource("37_yt2dn")]
 transform = Transform3D(-0.361722, 0, -0.932286, 0, 1, 0, 0.932286, 0, -0.361722, 74.5784, 0.128735, -6.14964)
-visible = false
 min_dif = 4
 
 [node name="phantom2" parent="enemies" instance=ExtResource("36_tqld7")]
 transform = Transform3D(-0.129453, 0, -0.991585, 0, 1, 0, 0.991585, 0, -0.129453, 70.418, 2.14577e-06, -14.0681)
-visible = false
 sedated = false
 min_dif = 3
 
 [node name="bomber3" parent="enemies" instance=ExtResource("39_1ly15")]
 transform = Transform3D(-0.0340971, 0, -0.999418, 0, 1, 0, 0.999418, 0, -0.0340971, 85.2136, 0.427013, -7.00634)
-visible = false
 min_dif = 4
 
 [node name="gunner7" parent="enemies" instance=ExtResource("38_4i2nf")]
 transform = Transform3D(-0.0318643, 0, 0.999492, 0, 1, 0, -0.999492, 0, -0.0318643, -5.73134, -6, 14.3492)
-visible = false
 min_dif = 4
 
 [node name="hitscanner4" parent="enemies" instance=ExtResource("35_6kfqn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.44121, 12, -77.6656)
-visible = false
 min_dif = 4
 
 [node name="chaingunner4" parent="enemies" instance=ExtResource("37_ntohx")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 74.4434, 0, -10.8317)
-visible = false
 min_dif = 4

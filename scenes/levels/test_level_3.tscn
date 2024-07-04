@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://bajqqqjylfrys"]
+[gd_scene load_steps=32 format=3 uid="uid://bajqqqjylfrys"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_n6eeb"]
 [ext_resource type="PackedScene" uid="uid://4px2n2dg363l" path="res://scenes/misc_props/player.tscn" id="2_26vq5"]
@@ -20,16 +20,12 @@
 [ext_resource type="PackedScene" uid="uid://ddiw8ybfcdmjb" path="res://scenes/misc_props/spring.tscn" id="20_kphxb"]
 [ext_resource type="PackedScene" uid="uid://bb7tdsitsm6ea" path="res://scenes/props/static_props/abandoned_city/chair.tscn" id="20_q66nc"]
 [ext_resource type="PackedScene" uid="uid://tsfreyaa84jf" path="res://scenes/props/static_props/mountainside/pumpkin.tscn" id="21_2nsty"]
-[ext_resource type="PackedScene" uid="uid://ct4dtw3ijmehk" path="res://scenes/props/enemies/runner.tscn" id="22_aps20"]
-[ext_resource type="PackedScene" uid="uid://dsklmuink3naj" path="res://scenes/props/enemies/bomber.tscn" id="22_qwn7j"]
 [ext_resource type="PackedScene" uid="uid://bi1q4klr2bhr2" path="res://scenes/props/static_props/haunted_mansions/window.tscn" id="23_js0h6"]
 [ext_resource type="PackedScene" uid="uid://bfuck1d2dtogj" path="res://scenes/props/enemies/gunner.tscn" id="24_3to2i"]
 [ext_resource type="PackedScene" uid="uid://cjlqf7r8mbj5o" path="res://scenes/props/static_props/haunted_mansions/barrel.tscn" id="25_7yx75"]
 [ext_resource type="PackedScene" uid="uid://d2oh8oq4wds0h" path="res://scenes/props/enemies/angel.tscn" id="25_pvjoi"]
-[ext_resource type="PackedScene" uid="uid://26x6x0du3c7k" path="res://scenes/props/enemies/chaingunner.tscn" id="25_thtr1"]
-[ext_resource type="PackedScene" uid="uid://cn0h8ppoq8uq8" path="res://scenes/props/enemies/mage.tscn" id="26_5q5fw"]
+[ext_resource type="PackedScene" uid="uid://cdshg7bk5i645" path="res://scenes/misc_props/garlic.tscn" id="26_3dsj6"]
 [ext_resource type="PackedScene" uid="uid://tub7ejog7vp6" path="res://scenes/props/static_props/haunted_mansions/barrel_giant.tscn" id="26_28h6m"]
-[ext_resource type="PackedScene" uid="uid://tqdbcqx2hoti" path="res://scenes/props/enemies/phantom.tscn" id="31_w0g0a"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ctp2d"]
 
@@ -41,7 +37,10 @@ albedo_color = Color(0.290196, 0.254902, 0.188235, 1)
 data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_upuya"]
-size = Vector3(73.1239, 28.5814, 65.8561)
+size = Vector3(73.1239, 28.5814, 76.3348)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tnqtg"]
+size = Vector3(59.7175, 31.0898, 68.7872)
 
 [node name="test_level_3" type="Node3D"]
 script = ExtResource("1_n6eeb")
@@ -183,26 +182,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.19806, 0.198839, -11.1512)
 [node name="gunner" parent="." instance=ExtResource("24_3to2i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.68754, 0.19884, -11.8562)
 
-[node name="chaingunner" parent="." instance=ExtResource("25_thtr1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.9239, 0.19884, -12.3211)
-
-[node name="mage" parent="." instance=ExtResource("26_5q5fw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.2727, 0.19884, -12.8898)
-
-[node name="bomber" parent="." instance=ExtResource("22_qwn7j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.3653, 0.19884, -10.941)
-
 [node name="angel" parent="." instance=ExtResource("25_pvjoi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.4094, 4.43846, -14.0002)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.59152, 1.25554, 5.47938)
+
+[node name="garlic" parent="angel" instance=ExtResource("26_3dsj6")]
 
 [node name="Area3D" type="Area3D" parent="angel"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="angel/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.3225, 5.88934, 10.5684)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.3225, 5.88934, 5.32905)
 shape = SubResource("BoxShape3D_upuya")
 
-[node name="runner" parent="." instance=ExtResource("22_aps20")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.6393, 0.19884, -14.3956)
+[node name="angel2" parent="." instance=ExtResource("25_pvjoi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.84519, 4.38948, -1.45299)
 
-[node name="phantom" parent="." instance=ExtResource("31_w0g0a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.8602, 0.19884, -14.4902)
+[node name="Area3D" type="Area3D" parent="angel2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="angel2/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.67859, -5.65927, -0.0848689)
+shape = SubResource("BoxShape3D_tnqtg")

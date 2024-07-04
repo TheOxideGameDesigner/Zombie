@@ -114,6 +114,7 @@ func pain(dmg, noblood=false, heal_player = false):
 func _body_entered(body):
 	if body == self or not body.is_in_group("enemy") or body.is_in_group("unhealable") or body.get_parent().is_in_group("enemy"):
 		return
+	print("body entered")
 	zombies.push_back(body)
 	var beam = MeshInstance3D.new()
 	beam.mesh = CylinderMesh.new()
@@ -132,6 +133,7 @@ func _body_entered(body):
 func _body_exited(body):
 	if body == self or not body.is_in_group("enemy") or body.is_in_group("unhealable") or body.get_parent().is_in_group("enemy"):
 		return
+	print("body exited")
 	zombies.erase(body)
 	beams[beams.size() - 1].queue_free()
 	beams.pop_back()
@@ -175,7 +177,7 @@ func _ready():
 	
 	#determine active zone
 	for c in get_children():
-		if c is Area3D:
+		if c is Area3D and not c.is_in_group("drop"):
 			c.set_collision_mask_value(9, 1)
 			active_zone = c
 			break
@@ -187,7 +189,7 @@ func _ready():
 	active_zone.connect("body_exited", _body_exited)
 
 
-func ai(delta):
+func ai():
 	if health <= 0 and alive:
 		home.time_left = respawn_time
 		alive = 0
@@ -223,7 +225,7 @@ func _physics_process(_delta):
 
 
 func _process(delta):
-	ai(delta)
+	ai()
 	
 	dist_from_player = Vector2(player.position.x, player.position.z).distance_to(Vector2(position.x, position.z))
 	home.cross.visible = not alive

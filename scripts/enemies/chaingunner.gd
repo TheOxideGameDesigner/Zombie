@@ -232,7 +232,7 @@ func ai(delta):
 		ray.force_raycast_update()
 		if not ray.is_colliding():
 			position.y -= 9.8 * delta
-		else:
+		elif ray.get_collider().is_in_group("physics"):
 			position.y = ray.get_collision_point().y
 	
 	ray.position = Vector3(0.068, 1.13, 0.9).rotated(Vector3.UP, mesh.rotation.y)
