@@ -1,0 +1,133 @@
+[gd_scene load_steps=15 format=3 uid="uid://yg70pjln08od"]
+
+[ext_resource type="Script" path="res://scripts/enemies/runner.gd" id="1_xf43w"]
+[ext_resource type="PackedScene" uid="uid://ds0hboxkrxt7x" path="res://scenes/environment/gibs/phantom.tscn" id="2_mtium"]
+[ext_resource type="PackedScene" uid="uid://d4k7qjsc8bglc" path="res://scenes/enemy_home.tscn" id="3_13a8f"]
+[ext_resource type="PackedScene" uid="uid://bhy12lwmsjpek" path="res://models/dynamic_props/enemies/phantom_goliath.glb" id="4_r2fh3"]
+[ext_resource type="Script" path="res://scripts/enemies/anim.gd" id="5_wnan1"]
+[ext_resource type="Texture2D" uid="uid://dsi7k27hhox0v" path="res://textures/alerted.png" id="6_yn7cu"]
+[ext_resource type="Material" uid="uid://c0vwp18rc74ju" path="res://resources/materials/aura_mat.tres" id="7_ndsgq"]
+[ext_resource type="FontVariation" uid="uid://cr4vqwh16ob78" path="res://resources/default_font.tres" id="8_g4sd2"]
+[ext_resource type="PackedScene" uid="uid://cd6bos2i6d23v" path="res://scenes/editor_tools/difficulty_visualiser.tscn" id="9_e3bl2"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_k038f"]
+height = 2.22698
+radius = 0.55
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_eolic"]
+size = Vector3(2.19623, 2.44842, 1.09009)
+
+[sub_resource type="SphereMesh" id="SphereMesh_xuhii"]
+material = ExtResource("7_ndsgq")
+radius = 1.03
+height = 5.915
+radial_segments = 10
+rings = 10
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xgqd4"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(1, 1, 1, 0.1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_pm1cd"]
+top_radius = 0.75
+bottom_radius = 0.75
+height = 2.2
+radial_segments = 12
+
+[node name="goliath" type="CharacterBody3D" groups=["activatable", "enemy", "lightweight"]]
+top_level = true
+collision_layer = 2
+collision_mask = 257
+floor_snap_length = 0.5
+script = ExtResource("1_xf43w")
+HP = 200
+death_msg = "You were killed by a phantom goliath"
+RADIUS = 0.55
+REVOLVER_HEAL = 4
+gibs = ExtResource("2_mtium")
+is_phantom = true
+
+[node name="hitbox" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.11044, 0)
+shape = SubResource("CylinderShape3D_k038f")
+
+[node name="collision_area" type="Area3D" parent="." groups=["enemy_area"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+collision_layer = 65536
+collision_mask = 65536
+input_ray_pickable = false
+
+[node name="collision_area_hitbox" type="CollisionShape3D" parent="collision_area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.107925, 0)
+shape = SubResource("CylinderShape3D_k038f")
+
+[node name="home" parent="." instance=ExtResource("3_13a8f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1e+06, 0)
+color = Color(0.286275, 0.431373, 1, 0.858824)
+
+[node name="respawn" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[node name="ray" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+enabled = false
+target_position = Vector3(0, -10, 0)
+collision_mask = 769
+
+[node name="raycast_collision" type="Area3D" parent="." groups=["enemy_raycast_collision"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05309, 0)
+collision_layer = 4
+collision_mask = 0
+
+[node name="raycast_hitbox" type="CollisionShape3D" parent="raycast_collision"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.053, 0)
+shape = SubResource("BoxShape3D_eolic")
+
+[node name="is_visible" type="VisibleOnScreenNotifier3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.10305, 0)
+aabb = AABB(-0.450294, -1.12047, -0.4535, 0.900584, 2.24094, 0.907001)
+
+[node name="mesh" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.14041, 0)
+
+[node name="mountainside_runner" parent="mesh" instance=ExtResource("4_r2fh3")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+script = ExtResource("5_wnan1")
+
+[node name="alerted" type="Sprite3D" parent="mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.855, 0)
+visible = false
+visibility_range_end = 175.0
+modulate = Color(1, 0.227451, 0.243137, 0.709804)
+pixel_size = 0.0195
+billboard = 1
+texture_filter = 0
+texture = ExtResource("6_yn7cu")
+
+[node name="aura" type="MeshInstance3D" parent="mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.00643, 0)
+visible = false
+visibility_range_end = 175.0
+mesh = SubResource("SphereMesh_xuhii")
+
+[node name="health" type="Label3D" parent="mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.17772, 0)
+visible = false
+visibility_range_end = 42.0
+visibility_range_end_margin = 0.1
+billboard = 1
+texture_filter = 0
+text = "100"
+font = ExtResource("8_g4sd2")
+font_size = 64
+
+[node name="difficulty_visualiser" parent="." instance=ExtResource("9_e3bl2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, 0)
+material_override = SubResource("StandardMaterial3D_xgqd4")
+mesh = SubResource("CylinderMesh_pm1cd")
+radius = 0.75
+height = 2.2
+
+[connection signal="timeout" from="respawn" to="." method="_on_respawn_timeout"]

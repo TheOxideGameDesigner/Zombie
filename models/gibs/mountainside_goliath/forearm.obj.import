@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cnvdohog2gthc"
+path="res://.godot/imported/forearm.obj-0f49615f67215e8f9208cb1baa0f20fa.mesh"
+
+[deps]
+
+files=["res://.godot/imported/forearm.obj-0f49615f67215e8f9208cb1baa0f20fa.mesh"]
+
+source_file="res://models/gibs/mountainside_goliath/forearm.obj"
+dest_files=["res://.godot/imported/forearm.obj-0f49615f67215e8f9208cb1baa0f20fa.mesh", "res://.godot/imported/forearm.obj-0f49615f67215e8f9208cb1baa0f20fa.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

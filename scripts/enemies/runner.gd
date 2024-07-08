@@ -1,6 +1,7 @@
 extends CharacterBody3D
 
-var HP : int = 100
+@export var HP : int = 100
+@export var death_msg = "You were killed by a runner"
 var SPEED = 8
 const WALK_SPEED = 1
 const JUMP_SPEED = 4
@@ -11,7 +12,7 @@ const MAX_TURN_SPEED = 5 * PI
 const PUSH_FORCE = 2.5
 
 const GR_ACCEL = 9.8
-const RADIUS = 0.5
+@export var RADIUS = 0.5
 
 const VIS_RANGE = 25
 const GRAVE_DEPTH = 4
@@ -21,7 +22,7 @@ const RISE_FLICKER = 0.25
 const HIT_RANGE : float = 3
 const HIT_TIME : float = 1
 const HIT_DAMAGE : int = 25
-const REVOLVER_HEAL : int = 5
+@export var REVOLVER_HEAL : int = 5
 const ATTENTION_SPAN : float = 10
 
 const ACTIVE_RADIUS = 64
@@ -33,7 +34,7 @@ var rising = 0
 var health : int
 var alive = 1
 var target_pos = Vector3.ZERO
-var sees_target
+var sees_player = false
 var climbing = 0
 var prev_on_floor = 0
 var rising_timer = 0.0
@@ -200,7 +201,7 @@ func pain(dmg, noblood=false, heal_player = false):
 	if heal_player:
 		player.health = player.health + REVOLVER_HEAL
 	
-	if sedated or sees_target:
+	if sedated or sees_player:
 		return
 	
 	alerted.visible = 1
@@ -337,8 +338,8 @@ func ai(delta):
 	#zombie logic
 	ray.target_position = ray.to_local(player.position + Vector3(0, 1.5, 0)).normalized() * VIS_RANGE
 	ray.force_raycast_update()
-	sees_target = not sedated and ray.get_collider() == player
-	if sees_target:
+	sees_player = not sedated and ray.get_collider() == player
+	if sees_player:
 		target_pos = player.position
 		attention_span_timer = 0
 		alerted.visible = 1
@@ -379,7 +380,7 @@ func ai(delta):
 		
 		var nextpos = player_cam.position - position
 		
-		if dist_from_player <= HIT_RANGE and alive and not rising \
+		if sees_player and dist_from_player <= HIT_RANGE and alive and not rising \
 		   and player.position.y - position.y > -2.1 and player.position.y - position.y < 1.2:
 			if not on_screen:
 				player.warning.modulate.a = 1.0
@@ -387,10 +388,7 @@ func ai(delta):
 			if hit_timer <= 0.35 and not mesh_body.is_playing():
 				mesh_body.play("hitting", 0.4)
 			if hit_timer <= 0:
-				if is_phantom:
-					player.pain("You were killed by a phantom", HIT_DAMAGE)
-				else:
-					player.pain("You were killed by a runner", HIT_DAMAGE)
+				player.pain(death_msg, HIT_DAMAGE)
 				hit_timer = HIT_TIME
 		else:
 			hit_timer = HIT_TIME

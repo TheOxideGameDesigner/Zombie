@@ -1,0 +1,276 @@
+[gd_scene load_steps=18 format=3 uid="uid://dysxoavki8hg8"]
+
+[ext_resource type="Script" path="res://scripts/environment/gibs.gd" id="1_1slap"]
+[ext_resource type="Material" uid="uid://uxn8fucitgfr" path="res://resources/materials/level_mat.tres" id="2_i3tvv"]
+[ext_resource type="ArrayMesh" uid="uid://5gpvempqg4dr" path="res://models/gibs/mountainside_goliath/torso.obj" id="3_anugv"]
+[ext_resource type="Script" path="res://scripts/physics_lerp.gd" id="4_dhtpl"]
+[ext_resource type="ArrayMesh" uid="uid://dkudy51aco8os" path="res://models/gibs/mountainside_goliath/thigh.obj" id="5_ecxtr"]
+[ext_resource type="ArrayMesh" uid="uid://caq45jd1k2tja" path="res://models/gibs/mountainside_goliath/calf.obj" id="6_os43n"]
+[ext_resource type="ArrayMesh" uid="uid://dc7e2esne542l" path="res://models/gibs/mountainside_goliath/upper_arm.obj" id="7_u3knt"]
+[ext_resource type="ArrayMesh" uid="uid://cnvdohog2gthc" path="res://models/gibs/mountainside_goliath/forearm.obj" id="8_hn1ol"]
+[ext_resource type="ArrayMesh" uid="uid://8oyl6n4frh8r" path="res://models/gibs/mountainside_goliath/head.obj" id="9_euvm6"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_j7bta"]
+friction = 10.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qca70"]
+size = Vector3(0.513731, 0.800695, 0.217806)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ocy1n"]
+radius = 0.089676
+height = 0.572258
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_a2giw"]
+radius = 0.0846206
+height = 0.595634
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_npxxc"]
+radius = 0.0778896
+height = 0.351402
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_04dy3"]
+radius = 0.0754664
+height = 0.468633
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4kcti"]
+radius = 0.0805129
+height = 0.523859
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rldci"]
+radius = 0.14405
+height = 0.442724
+
+[node name="moutainside_runner" type="Node3D"]
+top_level = true
+script = ExtResource("1_1slap")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="." groups=["rigid_body"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00364029, 1.57901, 0.0534205)
+collision_layer = 16
+collision_mask = 17
+physics_material_override = SubResource("PhysicsMaterial_j7bta")
+freeze = true
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00247081, -0.02025, 0.00444362)
+shape = SubResource("BoxShape3D_qca70")
+
+[node name="Torso" type="MeshInstance3D" parent="RigidBody3D"]
+material_override = ExtResource("2_i3tvv")
+mesh = ExtResource("3_anugv")
+skeleton = NodePath("../..")
+script = ExtResource("4_dhtpl")
+enable_rot = true
+global = true
+of_parent = true
+
+[node name="RigidBody3D2" type="RigidBody3D" parent="." groups=["rigid_body"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.224126, 0.849631, 0.0600371)
+collision_layer = 16
+collision_mask = 17
+physics_material_override = SubResource("PhysicsMaterial_j7bta")
+freeze = true
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00745279, 0.00370431, 0)
+shape = SubResource("CapsuleShape3D_ocy1n")
+
+[node name="Thigh" type="MeshInstance3D" parent="RigidBody3D2"]
+material_override = ExtResource("2_i3tvv")
+mesh = ExtResource("5_ecxtr")
+skeleton = NodePath("../..")
+script = ExtResource("4_dhtpl")
+enable_rot = true
+global = true
+of_parent = true
+
+[node name="RigidBody3D3" type="RigidBody3D" parent="." groups=["rigid_body"]]
+transform = Transform3D(-0.999846, 0, 0.0175397, 0, 1, 0, -0.0175397, 0, -0.999846, 0.166166, 0.280912, -0.00299543)
+collision_layer = 16
+collision_mask = 17
+physics_material_override = SubResource("PhysicsMaterial_j7bta")
+freeze = true
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D3"]
+transform = Transform3D(1, 0, 1.86265e-09, 0, 1, 0, -1.86265e-09, 0, 1, 0, 0.0178407, 0)
+shape = SubResource("CapsuleShape3D_a2giw")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="RigidBody3D3"]
+transform = Transform3D(0.999852, -0.0174523, 3.57186e-08, -3.52734e-08, 2.58162e-08, 1, -0.0174523, -0.99985, 2.51967e-08, -0.000850216, -0.204406, -0.0484625)
+shape = SubResource("CapsuleShape3D_npxxc")
+
+[node name="Calf" type="MeshInstance3D" parent="RigidBody3D3"]
+material_override = ExtResource("2_i3tvv")
+mesh = ExtResource("6_os43n")
+skeleton = NodePath("../..")
+script = ExtResource("4_dhtpl")
+enable_rot = true
+global = true
+of_parent = true
+
+[node name="RigidBody3D4" type="RigidBody3D" parent="." groups=["rigid_body"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14455, 0.863924, 0.0717372)
+collision_layer = 16
+collision_mask = 17
+physics_material_override = SubResource("PhysicsMaterial_j7bta")
+freeze = true
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0131565, 0.00370431, 0)
+shape = SubResource("CapsuleShape3D_ocy1n")
+
+[node name="Thigh2" type="MeshInstance3D" parent="RigidBody3D4"]
+material_override = ExtResource("2_i3tvv")
+mesh = ExtResource("5_ecxtr")
+skeleton = NodePath("../..")
+script = ExtResource("4_dhtpl")
+enable_rot = true
+global = true
+of_parent = true
+
+[node name="RigidBody3D5" type="RigidBody3D" parent="." groups=["rigid_body"]]
+transform = Transform3D(-0.999846, 0, 0.0175397, 0, 1, 0, -0.0175397, 0, -0.999846, -0.201292, 0.286273, -0.00299543)
+collision_layer = 16
+collision_mask = 17
+physics_material_override = SubResource("PhysicsMaterial_j7bta")
+freeze = true
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D5"]
+transform = Transform3D(1, 0, 1.86265e-09, 0, 1, 0, -1.86265e-09, 0, 1, 0, 0.0178407, 0)
+shape = SubResource("CapsuleShape3D_a2giw")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="RigidBody3D5"]
+transform = Transform3D(0.999852, -0.0174523, 3.57186e-08, -3.52734e-08, 2.58162e-08, 1, -0.0174523, -0.99985, 2.51967e-08, -0.000850201, -0.204406, -0.0484625)
+shape = SubResource("CapsuleShape3D_npxxc")
+
+[node name="Calf2" type="MeshInstance3D" parent="RigidBody3D5"]
+material_override = ExtResource("2_i3tvv")
+mesh = ExtResource("6_os43n")
+skeleton = NodePath("../..")
+script = ExtResource("4_dhtpl")
+enable_rot = true
+global = true
+of_parent = true
+
+[node name="RigidBody3D6" type="RigidBody3D" parent="." groups=["rigid_body"]]
+transform = Transform3D(0.0959073, -0.0128453, 0.995308, 0.00123206, 0.999918, 0.0127861, -0.99539, 0, 0.0959152, 0.358182, 1.86786, 0.304944)
+collision_layer = 16
+collision_mask = 17
+physics_material_override = SubResource("PhysicsMaterial_j7bta")
+freeze = true
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D6"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0.00370431, 0)
+shape = SubResource("CapsuleShape3D_04dy3")
+
+[node name="UpperArm" type="MeshInstance3D" parent="RigidBody3D6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 9.31323e-10, 1, 0, 0, 0)
+material_override = ExtResource("2_i3tvv")
+mesh = ExtResource("7_u3knt")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("2_i3tvv")
+script = ExtResource("4_dhtpl")
+enable_rot = true
+global = true
+of_parent = true
+
+[node name="RigidBody3D7" type="RigidBody3D" parent="." groups=["rigid_body"]]
+transform = Transform3D(0.036103, 0, 0.999348, 0, 1, 0, -0.999348, 0, 0.036103, 0.425665, 1.86905, 0.769487)
+collision_layer = 16
+collision_mask = 17
+physics_material_override = SubResource("PhysicsMaterial_j7bta")
+freeze = true
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D7"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -3.33067e-16, 0, 1, -0.0233167, 0.0179348, -0.0179687)
+shape = SubResource("CapsuleShape3D_4kcti")
+
+[node name="Forearm" type="MeshInstance3D" parent="RigidBody3D7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000709355, 0, -0.0196357)
+material_override = ExtResource("2_i3tvv")
+mesh = ExtResource("8_hn1ol")
+skeleton = NodePath("../..")
+script = ExtResource("4_dhtpl")
+enable_rot = true
+global = true
+of_parent = true
+
+[node name="RigidBody3D8" type="RigidBody3D" parent="." groups=["rigid_body"]]
+transform = Transform3D(-0.0141717, 0, 0.9999, 0, 1, 0, -0.9999, 0, -0.0141717, -0.361047, 1.87876, 0.348674)
+collision_layer = 16
+collision_mask = 17
+physics_material_override = SubResource("PhysicsMaterial_j7bta")
+freeze = true
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D8"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.0393869, 0.00370431, -0.00379527)
+shape = SubResource("CapsuleShape3D_04dy3")
+
+[node name="UpperArm2" type="MeshInstance3D" parent="RigidBody3D8"]
+transform = Transform3D(1, 0, -7.45058e-09, 0, 1, 0, 7.45058e-09, 0, 1, 0, 0, 0)
+material_override = ExtResource("2_i3tvv")
+mesh = ExtResource("7_u3knt")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("2_i3tvv")
+script = ExtResource("4_dhtpl")
+enable_rot = true
+global = true
+of_parent = true
+
+[node name="RigidBody3D9" type="RigidBody3D" parent="." groups=["rigid_body"]]
+transform = Transform3D(-0.0803789, 0.0181659, 0.996599, -0.000660325, 0.999833, -0.0182781, -0.996764, -0.00212725, -0.0803535, -0.283322, 1.81914, 0.804934)
+collision_layer = 16
+collision_mask = 17
+physics_material_override = SubResource("PhysicsMaterial_j7bta")
+freeze = true
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D9"]
+transform = Transform3D(-4.36221e-08, -1, 0, 1, -4.39471e-08, 7.46529e-09, -5.88307e-09, 0, 1, -0.0226544, 0.0179353, -0.0179926)
+shape = SubResource("CapsuleShape3D_4kcti")
+
+[node name="Forearm2" type="MeshInstance3D" parent="RigidBody3D9"]
+transform = Transform3D(1, 1.21404e-10, 0, 4.65927e-10, 1, 7.46529e-09, 3.72529e-09, -5.59863e-09, 1, -0.000657022, -0.000332713, -0.018186)
+material_override = ExtResource("2_i3tvv")
+mesh = ExtResource("8_hn1ol")
+skeleton = NodePath("../..")
+script = ExtResource("4_dhtpl")
+enable_rot = true
+global = true
+of_parent = true
+
+[node name="RigidBody3D10" type="RigidBody3D" parent="." groups=["rigid_body"]]
+transform = Transform3D(-0.999893, 0, 0.0146602, 0, 1, 0, -0.0146602, 0, -0.999893, -0.00274289, 2.22531, 0.02)
+collision_layer = 16
+collision_mask = 17
+physics_material_override = SubResource("PhysicsMaterial_j7bta")
+freeze = true
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.000735521, 0)
+shape = SubResource("CapsuleShape3D_rldci")
+
+[node name="Head" type="MeshInstance3D" parent="RigidBody3D10"]
+material_override = ExtResource("2_i3tvv")
+mesh = ExtResource("9_euvm6")
+skeleton = NodePath("../..")
+script = ExtResource("4_dhtpl")
+enable_rot = true
+global = true
+of_parent = true
+
+[node name="freeze_timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="freeze_timer" to="." method="_on_freeze_timer_timeout"]
