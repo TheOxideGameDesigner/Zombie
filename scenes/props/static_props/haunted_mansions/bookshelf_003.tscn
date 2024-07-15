@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://ds7lbufkebypb"]
+
+[ext_resource type="Material" uid="uid://uxn8fucitgfr" path="res://resources/materials/level_mat.tres" id="1_quys2"]
+[ext_resource type="ArrayMesh" uid="uid://c3g8ce18ik525" path="res://models/static_props/haunted_mansions/bookshelf_003.obj" id="2_2u0tq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jfb16"]
+size = Vector3(2.96522, 3.09795, 0.605332)
+
+[node name="bookshelf" type="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = ExtResource("1_quys2")
+mesh = ExtResource("2_2u0tq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.48936, 1.54901, -0.288795)
+shape = SubResource("BoxShape3D_jfb16")

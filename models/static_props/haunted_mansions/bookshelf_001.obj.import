@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://3m17ctuik6ak"
+path="res://.godot/imported/bookshelf_001.obj-8bd83f017809a5065f92993e5db35727.mesh"
+
+[deps]
+
+files=["res://.godot/imported/bookshelf_001.obj-8bd83f017809a5065f92993e5db35727.mesh"]
+
+source_file="res://models/static_props/haunted_mansions/bookshelf_001.obj"
+dest_files=["res://.godot/imported/bookshelf_001.obj-8bd83f017809a5065f92993e5db35727.mesh", "res://.godot/imported/bookshelf_001.obj-8bd83f017809a5065f92993e5db35727.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

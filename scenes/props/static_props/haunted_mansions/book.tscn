@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://c264mk1xquinx"]
+
+[ext_resource type="Material" uid="uid://uxn8fucitgfr" path="res://resources/materials/level_mat.tres" id="1_jbhsy"]
+[ext_resource type="ArrayMesh" uid="uid://dvg3s4pr7q012" path="res://models/static_props/haunted_mansions/book.obj" id="2_qo4jn"]
+[ext_resource type="Script" path="res://scripts/physics_lerp.gd" id="3_6cuec"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7e3ew"]
+size = Vector3(0.319366, 0.0698242, 0.231934)
+
+[node name="book" type="RigidBody3D"]
+collision_layer = 32768
+collision_mask = 32769
+mass = 0.05
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = ExtResource("1_jbhsy")
+mesh = ExtResource("2_qo4jn")
+script = ExtResource("3_6cuec")
+enable_rot = true
+global = true
+of_parent = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000442505, 0.000803217, 0.000244141)
+shape = SubResource("BoxShape3D_7e3ew")
