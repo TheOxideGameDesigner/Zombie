@@ -49,7 +49,6 @@ var bump_timers : Array[float] = []
 
 @onready var mesh_body = $mesh/mountainside_hitscanner
 @onready var player = get_tree().get_first_node_in_group("player")
-@onready var player_cam = player.get_node("cam")
 @onready var home = $home
 @onready var health_label = $mesh/health
 @onready var mesh = $mesh
@@ -391,7 +390,7 @@ func ai(delta):
 		move_and_slide()
 	
 	if not asleep:
-		var nextpos = player_cam.position - position
+		var nextpos = target_pos - position
 		
 		if sees_target and dist_from_player < HIT_RANGE and alive and not rising:
 			if aim_timer <= 0.0:

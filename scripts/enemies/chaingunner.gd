@@ -29,7 +29,6 @@ var disable_particles : bool = false
 var disable_gibs : bool = false
 
 @onready var player = get_tree().get_first_node_in_group("player")
-@onready var player_cam = player.get_node("cam")
 @onready var home = $home
 @onready var cross = $home/cross
 @onready var health_label = $mesh/health
@@ -240,7 +239,7 @@ func ai(delta):
 	ray.force_raycast_update()
 	sees_player = ray.is_colliding() and ray.get_collider() == player
 	if sees_player:
-		var dir = player_cam.position - position
+		var dir = player.position - position
 		rot = -atan2(dir.z, dir.x) + PI / 2
 		chaingun.rotation.z += delta * 3
 		if reaction_timer < 1.5:

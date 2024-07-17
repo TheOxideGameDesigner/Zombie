@@ -2,11 +2,14 @@
 
 [ext_resource type="ArrayMesh" uid="uid://2ledjd5hhd0r" path="res://models/static_props/haunted_mansions/long_window.obj" id="1_n6qn1"]
 [ext_resource type="Material" uid="uid://uxn8fucitgfr" path="res://resources/materials/level_mat.tres" id="2_iou15"]
-[ext_resource type="Material" uid="uid://ctc1jrcarvuc6" path="res://resources/materials/level_unshaded_mat.tres" id="3_tk5qv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m2m4t"]
+shading_mode = 0
+albedo_color = Color(0, 0, 0.211765, 1)
 
 [node name="long_window" type="MeshInstance3D"]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
 cast_shadow = 0
 mesh = ExtResource("1_n6qn1")
 surface_material_override/0 = ExtResource("2_iou15")
-surface_material_override/1 = ExtResource("3_tk5qv")
+surface_material_override/1 = SubResource("StandardMaterial3D_m2m4t")

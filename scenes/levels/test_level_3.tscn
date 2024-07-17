@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bajqqqjylfrys"]
+[gd_scene load_steps=28 format=3 uid="uid://bajqqqjylfrys"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_n6eeb"]
 [ext_resource type="PackedScene" uid="uid://4px2n2dg363l" path="res://scenes/misc_props/player.tscn" id="2_26vq5"]
@@ -21,10 +21,9 @@
 [ext_resource type="PackedScene" uid="uid://bb7tdsitsm6ea" path="res://scenes/props/static_props/abandoned_city/chair.tscn" id="20_q66nc"]
 [ext_resource type="PackedScene" uid="uid://tsfreyaa84jf" path="res://scenes/props/static_props/mountainside/pumpkin.tscn" id="21_2nsty"]
 [ext_resource type="PackedScene" uid="uid://bi1q4klr2bhr2" path="res://scenes/props/static_props/haunted_mansions/window.tscn" id="23_js0h6"]
-[ext_resource type="PackedScene" uid="uid://bfuck1d2dtogj" path="res://scenes/props/enemies/gunner.tscn" id="24_3to2i"]
 [ext_resource type="PackedScene" uid="uid://cjlqf7r8mbj5o" path="res://scenes/props/static_props/haunted_mansions/barrel.tscn" id="25_7yx75"]
 [ext_resource type="PackedScene" uid="uid://tub7ejog7vp6" path="res://scenes/props/static_props/haunted_mansions/barrel_giant.tscn" id="26_28h6m"]
-[ext_resource type="PackedScene" uid="uid://dcxgxo1xr85fe" path="res://scenes/props/enemies/goliath.tscn" id="27_3csjt"]
+[ext_resource type="PackedScene" uid="uid://tqdbcqx2hoti" path="res://scenes/props/enemies/phantom.tscn" id="26_j33nm"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ctp2d"]
 
@@ -58,7 +57,6 @@ environment = ExtResource("3_umtsh")
 [node name="light" type="DirectionalLight3D" parent="." groups=["light"]]
 transform = Transform3D(-0.270371, 0.958996, -0.085009, -0.539281, -0.0777097, 0.838533, 0.797543, 0.272559, 0.538179, 34.4022, 23.7255, -146.613)
 light_bake_mode = 0
-shadow_enabled = true
 shadow_bias = 0.01
 shadow_opacity = 0.7
 directional_shadow_blend_splits = true
@@ -172,8 +170,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.94682, 0.198839, -13.9152)
 [node name="barrel3" parent="." instance=ExtResource("26_28h6m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.19806, 0.198839, -11.1512)
 
-[node name="gunner" parent="." instance=ExtResource("24_3to2i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.68754, 0.19884, -11.8562)
-
-[node name="goliath" parent="." instance=ExtResource("27_3csjt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.209384, 0.19884, -17.7803)
+[node name="phantom" parent="." instance=ExtResource("26_j33nm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.63064, 0.198839, 0.211046)

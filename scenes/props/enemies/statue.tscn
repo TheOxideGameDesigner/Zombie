@@ -1,17 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://cq4mvdbpk0wiq"]
+[gd_scene load_steps=10 format=3 uid="uid://cq4mvdbpk0wiq"]
 
 [ext_resource type="Script" path="res://scripts/enemies/common_statue.gd" id="1_dwkq0"]
-[ext_resource type="PackedScene" uid="uid://ct4dtw3ijmehk" path="res://scenes/props/enemies/runner.tscn" id="2_fleaf"]
-[ext_resource type="PackedScene" uid="uid://bfuck1d2dtogj" path="res://scenes/props/enemies/gunner.tscn" id="3_btnaf"]
-[ext_resource type="PackedScene" uid="uid://d2ya5fu74vom0" path="res://scenes/props/enemies/hitscanner.tscn" id="4_61gkh"]
 [ext_resource type="PackedScene" uid="uid://bkg86l56h5q44" path="res://scenes/environment/gibs/statue.tscn" id="5_0s1y1"]
 [ext_resource type="PackedScene" uid="uid://d4k7qjsc8bglc" path="res://scenes/enemy_home.tscn" id="5_10vyx"]
-[ext_resource type="PackedScene" uid="uid://26x6x0du3c7k" path="res://scenes/props/enemies/chaingunner.tscn" id="5_utmb6"]
-[ext_resource type="PackedScene" uid="uid://cn0h8ppoq8uq8" path="res://scenes/props/enemies/mage.tscn" id="6_0qa5r"]
 [ext_resource type="FontVariation" uid="uid://cr4vqwh16ob78" path="res://resources/default_font.tres" id="6_r5eeh"]
-[ext_resource type="PackedScene" uid="uid://dsklmuink3naj" path="res://scenes/props/enemies/bomber.tscn" id="7_78tyd"]
 [ext_resource type="ArrayMesh" uid="uid://dgtk6gn7qrai6" path="res://models/dynamic_props/enemies/statue.obj" id="7_wk2ad"]
-[ext_resource type="PackedScene" uid="uid://tqdbcqx2hoti" path="res://scenes/props/enemies/phantom.tscn" id="8_qpve1"]
 [ext_resource type="Texture2D" uid="uid://vu75j7stwa2m" path="res://textures/key.png" id="8_wm3n0"]
 [ext_resource type="Material" uid="uid://dwn0f7w4jgfyf" path="res://resources/materials/enemy_mat_gamma_corrected.tres" id="12_av7li"]
 
@@ -27,13 +20,6 @@ radius = 1.44347
 top_level = true
 collision_layer = 2
 script = ExtResource("1_dwkq0")
-runner_scene = ExtResource("2_fleaf")
-gunner_scene = ExtResource("3_btnaf")
-hitscanner_scene = ExtResource("4_61gkh")
-chaingunner_scene = ExtResource("5_utmb6")
-mage_scene = ExtResource("6_0qa5r")
-bomber_scene = ExtResource("7_78tyd")
-phantom_scene = ExtResource("8_qpve1")
 gibs = ExtResource("5_0s1y1")
 
 [node name="hitbox" type="CollisionShape3D" parent="."]

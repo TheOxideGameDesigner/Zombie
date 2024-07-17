@@ -47,6 +47,7 @@ func _process(delta):
 		ray.force_raycast_update()
 		sees_player = (ray.is_colliding() and ray.get_collider() == player)
 		if hit_timer >= HIT_TIME:
+			hit_timer = 0.0
 			player.pain("You were killed by an Eye of Anubis", 9001)
 	
 	bob_timer += delta

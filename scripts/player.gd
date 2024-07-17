@@ -618,7 +618,6 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	Input.use_accumulated_input = false
 	raycast.add_exception(self)
-	cam.top_level = 1
 	cam.rotation.y = rotation.y
 	rotation.y = 0
 	
@@ -760,17 +759,6 @@ func _process(delta):
 	wpn_draw_timer = max(0.0, wpn_draw_timer - delta)
 	viewmodel.position = viewmodel_pos + 0.05 * Vector3(cos(viewmodel_offset + PI / 2), 1 - sin(viewmodel_offset + PI / 2) - viewmodel_y_bump_lerped, 0) + Vector3(0, -1.5, 0) * pow(wpn_draw_timer / WPN_DRAW_TIME, 3)
 	
-	time += delta
-
-
-func viewmodel_rot_func(t, dt, g):
-	return (dt - t) * g * t / 2
-
-
-func _physics_process(delta):
-	if health <= 0:
-		return
-	
 	for i in range(4):
 		cooldown_timers[i] = max(0, cooldown_timers[i] - delta)
 	
@@ -783,7 +771,6 @@ func _physics_process(delta):
 	gun_cam.position = position
 	gun_cam.rotation = cam.global_rotation
 	gun_cam.rotation.x = clamp(gun_cam.rotation.x, -PI / 3, PI / 3)
-	
 	var wishdir = Input.get_vector("g_left", "g_right", "g_forward", "g_backward").rotated(-cam.rotation.y)
 	bobbing = is_on_floor() and velocity.length_squared() > 0.1 and wishdir != Vector2.ZERO
 	
@@ -792,10 +779,13 @@ func _physics_process(delta):
 	movement(wishdir, delta)
 	if not prev_on_floor and is_on_floor() and prev_y_vel < -20:
 		camera.shake(0.4, 0.75, 0.025)
-	
-	cam.position = global_position + Vector3(0, 1.2, 0)
-	
 	if cooldown_timers[0] <= 0.01:
 		revolver_heat = max(0, revolver_heat - delta / REVOLVER_HEAT_REGEN_TIME)
 	if cooldown_timers[1] <= 0.01:
 		shotgun_heat = max(0, shotgun_heat - delta / SHOTGUN_HEAT_REGEN_TIME)
+	
+	time += delta
+
+
+func viewmodel_rot_func(t, dt, g):
+	return (dt - t) * g * t / 2

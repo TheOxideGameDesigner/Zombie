@@ -47,7 +47,6 @@ var bump_timers : Array[float] = []
 
 @onready var mesh_body = $mesh/mountainside_mage
 @onready var player = get_tree().get_first_node_in_group("player")
-@onready var player_cam = player.get_node("cam")
 @onready var home = $home
 @onready var health_label = $mesh/health
 @onready var mesh = $mesh

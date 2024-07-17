@@ -114,7 +114,6 @@ func pain(dmg, noblood=false, heal_player = false):
 func _body_entered(body):
 	if body == self or not body.is_in_group("enemy") or body.is_in_group("unhealable") or body.get_parent().is_in_group("enemy"):
 		return
-	print("body entered")
 	zombies.push_back(body)
 	var beam = MeshInstance3D.new()
 	beam.mesh = CylinderMesh.new()
@@ -133,7 +132,6 @@ func _body_entered(body):
 func _body_exited(body):
 	if body == self or not body.is_in_group("enemy") or body.is_in_group("unhealable") or body.get_parent().is_in_group("enemy"):
 		return
-	print("body exited")
 	zombies.erase(body)
 	beams[beams.size() - 1].queue_free()
 	beams.pop_back()

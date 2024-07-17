@@ -84,7 +84,6 @@ metadata/_edit_lock_ = true
 [node name="light" type="DirectionalLight3D" parent="." groups=["light"]]
 transform = Transform3D(0.891167, 0.345171, 0.294413, -0.333815, 0.0594236, 0.940764, 0.307229, -0.936657, 0.168179, 253.533, 245.179, -96.0863)
 light_bake_mode = 0
-shadow_enabled = true
 shadow_bias = 0.01
 shadow_opacity = 0.7
 directional_shadow_blend_splits = true
@@ -844,12 +843,10 @@ key_index = 1
 
 [node name="phantom3" parent="enemies" instance=ExtResource("36_tqld7")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 87.6582, 0.783897, -19.9356)
-sedated = false
 min_dif = 2
 
 [node name="phantom4" parent="enemies" instance=ExtResource("36_tqld7")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 87.855, 0.741281, -1.98126)
-sedated = false
 min_dif = 1
 
 [node name="gunner2" parent="enemies" instance=ExtResource("38_4i2nf")]
@@ -892,16 +889,13 @@ min_dif = 4
 
 [node name="phantom5" parent="enemies" instance=ExtResource("36_tqld7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72.5, 0, -80)
-sedated = false
 
 [node name="phantom8" parent="enemies" instance=ExtResource("36_tqld7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71.6752, 0, -69.1069)
-sedated = false
 min_dif = 3
 
 [node name="phantom6" parent="enemies" instance=ExtResource("36_tqld7")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 80, 0, -59.5)
-sedated = false
 
 [node name="bomber2" parent="enemies" instance=ExtResource("39_1ly15")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 88.0687, 0, -72.3546)
@@ -924,26 +918,21 @@ min_dif = 3
 
 [node name="phantom7" parent="enemies" instance=ExtResource("36_tqld7")]
 transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 1.35236, -6, 6.5)
-sedated = false
 
 [node name="phantom14" parent="enemies" instance=ExtResource("36_tqld7")]
 transform = Transform3D(-1, 0, -4.37114e-08, 0, 1, 0, 4.37114e-08, 0, -1, -16.5538, -6, 58.6104)
-sedated = false
 min_dif = 4
 
 [node name="phantom15" parent="enemies" instance=ExtResource("36_tqld7")]
 transform = Transform3D(-1, 0, -4.37114e-08, 0, 1, 0, 4.37114e-08, 0, -1, 1.54029, -6, 58.6104)
-sedated = false
 min_dif = 4
 
 [node name="phantom12" parent="enemies" instance=ExtResource("36_tqld7")]
 transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 4.7874, -6, 4.8911)
-sedated = false
 min_dif = 4
 
 [node name="phantom13" parent="enemies" instance=ExtResource("36_tqld7")]
 transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 19.5247, -6, 4.8911)
-sedated = false
 min_dif = 3
 
 [node name="mage2" parent="enemies" instance=ExtResource("37_yt2dn")]
@@ -992,21 +981,17 @@ min_dif = 2
 
 [node name="phantom" parent="enemies" instance=ExtResource("36_tqld7")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.45111, 12, -62.1698)
-sedated = false
 
 [node name="phantom9" parent="enemies" instance=ExtResource("36_tqld7")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.4231, 12, -67.6241)
-sedated = false
 min_dif = 3
 
 [node name="phantom10" parent="enemies" instance=ExtResource("36_tqld7")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.5536, 12, -80.3567)
-sedated = false
 min_dif = 3
 
 [node name="phantom11" parent="enemies" instance=ExtResource("36_tqld7")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.5536, 12, -94.7128)
-sedated = false
 min_dif = 3
 
 [node name="hitscanner" parent="enemies" instance=ExtResource("35_6kfqn")]
@@ -1031,7 +1016,6 @@ min_dif = 4
 
 [node name="phantom2" parent="enemies" instance=ExtResource("36_tqld7")]
 transform = Transform3D(-0.129453, 0, -0.991585, 0, 1, 0, 0.991585, 0, -0.129453, 70.418, 2.14577e-06, -14.0681)
-sedated = false
 min_dif = 3
 
 [node name="bomber3" parent="enemies" instance=ExtResource("39_1ly15")]

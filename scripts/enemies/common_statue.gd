@@ -13,14 +13,16 @@ var active_zone : Area3D
 @onready var hitbox = $hitbox
 @onready var ray = $ray
 
-@export var runner_scene : PackedScene
-@export var gunner_scene : PackedScene
-@export var hitscanner_scene : PackedScene
-@export var chaingunner_scene : PackedScene
-@export var mage_scene : PackedScene
-@export var bomber_scene : PackedScene
-@export var phantom_scene : PackedScene
-@export var aura_col : Color = Color(1, 0, 0.64)
+var runner_scene = preload("res://scenes/props/enemies/runner.tscn")
+var gunner_scene = preload("res://scenes/props/enemies/gunner.tscn")
+var hitscanner_scene = preload("res://scenes/props/enemies/hitscanner.tscn")
+var chaingunner_scene = preload("res://scenes/props/enemies/chaingunner.tscn")
+var mage_scene = preload("res://scenes/props/enemies/mage.tscn")
+var bomber_scene = preload("res://scenes/props/enemies/bomber.tscn")
+var phantom_scene = preload("res://scenes/props/enemies/phantom.tscn")
+var goliath_scene = preload("res://scenes/props/enemies/goliath.tscn")
+var phantom_goliath_scene = preload("res://scenes/props/enemies/phantom_goliath.tscn")
+var aura_col : Color = Color(1, 0, 0.64)
 var aura_mat = preload("res://resources/materials/aura_mat.tres").duplicate()
 @export var gibs : PackedScene
 
@@ -95,6 +97,10 @@ func spawn(type_f, ang, dist):
 			new_zombie = bomber_scene.instantiate()
 		7:
 			new_zombie = phantom_scene.instantiate()
+		8:
+			new_zombie = goliath_scene.instantiate()
+		9:
+			new_zombie = phantom_goliath_scene.instantiate()
 	new_zombie.respawn_time = 1
 	new_zombie.position = Vector3.MODEL_FRONT.rotated(Vector3.UP, ang - PI / 2) * dist
 	new_zombie.position.y += spawn_height

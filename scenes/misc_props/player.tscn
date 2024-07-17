@@ -75,7 +75,6 @@ shape = SubResource("CylinderShape3D_d36f1")
 
 [node name="cam" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
-script = ExtResource("2_21672")
 
 [node name="camera" type="Camera3D" parent="cam"]
 cull_mask = 1048543

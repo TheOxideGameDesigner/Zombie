@@ -50,7 +50,6 @@ var bump_timers : Array[float] = []
 
 @onready var mesh_body = $mesh/mountainside_runner
 @onready var player = get_tree().get_first_node_in_group("player")
-@onready var player_cam = player.get_node("cam")
 @onready var home = $home
 @onready var health_label = $mesh/health
 @onready var mesh = $mesh
@@ -99,8 +98,11 @@ func _ready():
 	
 	is_opengl = ProjectSettings.get_setting("rendering/renderer/rendering_method") == "gl_compatibility"
 	if is_phantom:
-		mesh_material = preload("res://resources/materials/specific_mats/phantom_mat.tres")
-	if is_opengl:
+		if is_opengl:
+			mesh_material = preload("res://resources/materials/opengl/phantom_mat_opengl.tres").duplicate()
+		else:
+			mesh_material = preload("res://resources/materials/specific_mats/phantom_mat.tres")
+	elif is_opengl:
 		mesh_material = preload("res://resources/materials/opengl/enemy_mat_opengl.tres")
 	
 	var config = ConfigFile.new()
@@ -378,7 +380,7 @@ func ai(delta):
 			position.y - player.position.y > 1.5 and position.y - player.position.y < 2.0:
 				pain(100)
 		
-		var nextpos = player_cam.position - position
+		var nextpos = player.position - position
 		
 		if sees_player and dist_from_player <= HIT_RANGE and alive and not rising \
 		   and player.position.y - position.y > -2.1 and player.position.y - position.y < 1.2:
@@ -450,7 +452,10 @@ func _process(delta):
 		home.time_left = respawn_time
 		alive = 0
 		if is_phantom:
-			body.set_instance_shader_parameter("opacity", 0.3)
+			if is_opengl:
+				mesh_material.albedo_color.a = 0.3
+			else:
+				body.set_instance_shader_parameter("opacity", 0.3)
 		respawn.start()
 		position = home.position
 		position.y -= GRAVE_DEPTH
@@ -471,7 +476,11 @@ func _process(delta):
 		const T = 0.75
 		const OPAC_MIN = 0.3
 		const OPAC_MAX = 0.9
-		body.set_instance_shader_parameter("opacity", clamp(OPAC_MIN + (dist_from_player - PHANTOM_RADIUS) * (OPAC_MIN - OPAC_MAX) / T, OPAC_MIN, OPAC_MAX))
+		var opac = clamp(OPAC_MIN + (dist_from_player - PHANTOM_RADIUS) * (OPAC_MIN - OPAC_MAX) / T, OPAC_MIN, OPAC_MAX)
+		if is_opengl:
+			mesh_material.albedo_color.a = opac
+		else:
+			body.set_instance_shader_parameter("opacity", opac)
 	
 	if rising:
 		mesh_body.anim_timer = 0.0

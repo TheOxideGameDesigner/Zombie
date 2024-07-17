@@ -26,7 +26,6 @@ var disable_particles : bool = false
 var disable_gibs : bool = false
 
 @onready var player = get_tree().get_first_node_in_group("player")
-@onready var player_cam = player.get_node("cam")
 @onready var home = $home
 @onready var cross = $home/cross
 @onready var health_label = $mesh/health
@@ -231,7 +230,7 @@ func ai(delta):
 	if sees_target:
 		if hit_timer.is_stopped():
 			hit_timer.start()
-		var dir = player_cam.position - position
+		var dir = player.position - position
 		rot = -atan2(dir.z, dir.x) + PI / 2
 
 
