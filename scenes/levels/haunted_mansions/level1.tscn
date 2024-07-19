@@ -856,7 +856,7 @@ target = Vector3(0, 180, 0)
 
 [node name="exit" parent="." instance=ExtResource("16_815pc")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1, 1.25)
-chapter = 3
+chapter = 4
 level = 1
 
 [node name="enemies" type="Node3D" parent="."]

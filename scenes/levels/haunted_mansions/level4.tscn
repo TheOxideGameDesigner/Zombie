@@ -137,7 +137,7 @@ directional_shadow_blend_splits = true
 
 [node name="exit" parent="." instance=ExtResource("8_jhh2g")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 1, 2.5)
-chapter = 3
+chapter = 4
 level = 4
 
 [node name="yellow_key" parent="." instance=ExtResource("9_l863n")]
@@ -1074,6 +1074,13 @@ cast_shadow = 0
 mesh = ExtResource("19_p0i0e")
 skeleton = NodePath("../../..")
 
+[node name="DoorFake28" type="MeshInstance3D" parent="props"]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, -1, 0, -1.31134e-07, 101, 0, -14)
+material_override = ExtResource("2_m25n1")
+cast_shadow = 0
+mesh = ExtResource("19_p0i0e")
+skeleton = NodePath("../../..")
+
 [node name="DoorFake21" type="MeshInstance3D" parent="props"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, 1, 0, 4.37114e-08, 139, 0, -73)
 material_override = ExtResource("2_m25n1")
@@ -1104,6 +1111,20 @@ skeleton = NodePath("../../..")
 
 [node name="DoorFake19" type="MeshInstance3D" parent="props"]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 145, 0, -31)
+material_override = ExtResource("2_m25n1")
+cast_shadow = 0
+mesh = ExtResource("19_p0i0e")
+skeleton = NodePath("../../..")
+
+[node name="DoorFake26" type="MeshInstance3D" parent="props"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 96, 0, 13)
+material_override = ExtResource("2_m25n1")
+cast_shadow = 0
+mesh = ExtResource("19_p0i0e")
+skeleton = NodePath("../../..")
+
+[node name="DoorFake27" type="MeshInstance3D" parent="props"]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 89, 0, -14)
 material_override = ExtResource("2_m25n1")
 cast_shadow = 0
 mesh = ExtResource("19_p0i0e")
@@ -1470,7 +1491,7 @@ transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 99.2563,
 transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 121.736, -4.29153e-06, -31.891)
 
 [node name="sofa10" parent="props" instance=ExtResource("26_t4gba")]
-transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 89.747, -4.29153e-06, -12.0752)
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 89.747, -4.29153e-06, -4.0752)
 
 [node name="sofa11" parent="props" instance=ExtResource("26_t4gba")]
 transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 112.634, -4.29153e-06, 12.2064)
@@ -1883,3 +1904,12 @@ min_dif = 4
 [node name="goliath7" parent="." instance=ExtResource("44_pcwbr")]
 transform = Transform3D(0.119548, 0, 0.992828, 0, 1, 0, -0.992828, 0, 0.119548, 1.32057, -12, 16.1773)
 min_dif = 4
+
+[node name="painting1x1" parent="." instance=ExtResource("27_p6fu8")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 101, 3, -6)
+
+[node name="painting3x2" parent="." instance=ExtResource("28_35qll")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 89, 3, 6)
+
+[node name="painting3x3" parent="." instance=ExtResource("28_35qll")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 112.6, 3, 13)

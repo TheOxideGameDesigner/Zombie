@@ -242,7 +242,6 @@ func _process(delta):
 	if not alive:
 		return
 	
-	hurt_timer = max(0, hurt_timer - delta)
 	if hurt_timer > 0.0:
 		hurt_timer = max(0, hurt_timer - delta)
 		mesh.set_instance_shader_parameter("pain", hurt_timer)
@@ -286,6 +285,7 @@ func ai():
 
 
 func _on_respawn_timeout():
+	hurt_timer = 0.0
 	alive = 1
 	rising = 1
 	rising_timer = 0

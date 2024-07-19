@@ -299,6 +299,7 @@ func ai():
 
 
 func _on_respawn_timeout():
+	hurt_timer = 0.0
 	alive = 1
 	rising = 1
 	rising_timer = 0

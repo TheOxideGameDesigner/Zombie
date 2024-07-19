@@ -22,8 +22,8 @@
 [ext_resource type="PackedScene" uid="uid://tsfreyaa84jf" path="res://scenes/props/static_props/mountainside/pumpkin.tscn" id="21_2nsty"]
 [ext_resource type="PackedScene" uid="uid://bi1q4klr2bhr2" path="res://scenes/props/static_props/haunted_mansions/window.tscn" id="23_js0h6"]
 [ext_resource type="PackedScene" uid="uid://cjlqf7r8mbj5o" path="res://scenes/props/static_props/haunted_mansions/barrel.tscn" id="25_7yx75"]
+[ext_resource type="PackedScene" uid="uid://ct4dtw3ijmehk" path="res://scenes/props/enemies/runner.tscn" id="25_ij2rx"]
 [ext_resource type="PackedScene" uid="uid://tub7ejog7vp6" path="res://scenes/props/static_props/haunted_mansions/barrel_giant.tscn" id="26_28h6m"]
-[ext_resource type="PackedScene" uid="uid://tqdbcqx2hoti" path="res://scenes/props/enemies/phantom.tscn" id="26_j33nm"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ctp2d"]
 
@@ -150,7 +150,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.7093, 0.19884, -21.5986)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.9647, 0.19884, -21.2872)
 
 [node name="spring" parent="." instance=ExtResource("20_kphxb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5437, 0.198837, 4.68848)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.04603, 0.198837, -13.7808)
 
 [node name="Cone4" parent="." instance=ExtResource("20_q66nc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.98775, 0.615919, -20.9923)
@@ -170,5 +170,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.94682, 0.198839, -13.9152)
 [node name="barrel3" parent="." instance=ExtResource("26_28h6m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.19806, 0.198839, -11.1512)
 
-[node name="phantom" parent="." instance=ExtResource("26_j33nm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.63064, 0.198839, 0.211046)
+[node name="runner" parent="." instance=ExtResource("25_ij2rx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.08844, 0.19884, 0.226407)

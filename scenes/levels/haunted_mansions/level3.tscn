@@ -97,7 +97,7 @@ environment = ExtResource("8_tnx1t")
 
 [node name="exit" parent="." instance=ExtResource("6_sn3so")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1, 1.5)
-chapter = 3
+chapter = 4
 level = 3
 
 [node name="blue_key" parent="." instance=ExtResource("9_iuyke")]

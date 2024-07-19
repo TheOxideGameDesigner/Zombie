@@ -424,7 +424,7 @@ func ai(delta):
 					ray.force_raycast_update()
 					if not ray.is_colliding():
 						y_vel = JUMP_SPEED
-					elif vel_dir.dot(-normal) > 0.8:
+					elif not col.get_collider().is_in_group("unclimbable") and vel_dir.dot(-normal) > 0.8:
 						climbing = 1
 					ray.position.y = 1.751
 					break
