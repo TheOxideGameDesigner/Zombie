@@ -3,6 +3,7 @@ extends StaticBody3D
 
 @export var key_id : int = -1
 @export var key_col = Color(0, 0.5, 1)
+@export var door_id : int = 0
 
 
 func _ready():
@@ -14,3 +15,5 @@ func _ready():
 		$door_moving/Area3D/rotate_trigger.keys_required.push_back(key_id)
 		$door_moving/lock.color = key_col
 		$door_moving/lock.update_color()
+	if door_id > 0:
+		$door_moving.add_to_group(str(door_id))

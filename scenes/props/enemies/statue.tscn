@@ -55,6 +55,7 @@ font_size = 64
 
 [node name="key" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.13751, 0)
+visible = false
 modulate = Color(1, 1, 0, 1)
 pixel_size = 0.0195
 billboard = 1

@@ -138,6 +138,14 @@ func _body_exited(body):
 
 
 func _ready():
+	if ProjectSettings.get_setting("rendering/renderer/rendering_method") == "gl_compatibility":
+		mesh_body.material_override = preload("res://resources/materials/level_unshaded_mat.tres")
+		left_wing.material_override = preload("res://resources/materials/level_unshaded_mat.tres")
+		right_wing.material_override = preload("res://resources/materials/level_unshaded_mat.tres")
+		halo.material_override = preload("res://resources/materials/level_unshaded_mat.tres")
+	
+	rotation = Vector3.ZERO
+	
 	var config = ConfigFile.new()
 	config.load("user://settings.cfg")
 	disable_particles = config.get_value("video", "disable_particles", false)

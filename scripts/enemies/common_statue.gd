@@ -22,7 +22,7 @@ var bomber_scene = preload("res://scenes/props/enemies/bomber.tscn")
 var phantom_scene = preload("res://scenes/props/enemies/phantom.tscn")
 var goliath_scene = preload("res://scenes/props/enemies/goliath.tscn")
 var phantom_goliath_scene = preload("res://scenes/props/enemies/phantom_goliath.tscn")
-var aura_col : Color = Color(1, 0, 0.64)
+@export var aura_col : Color = Color(1, 0, 0.64)
 var aura_mat = preload("res://resources/materials/aura_mat.tres").duplicate()
 @export var gibs : PackedScene
 

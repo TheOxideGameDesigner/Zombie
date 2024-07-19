@@ -14,13 +14,15 @@ var active_zone : Area3D
 @onready var ray = $ray
 @onready var fire_timer = $fire_timer
 
-@export var runner_scene : PackedScene
-@export var gunner_scene : PackedScene
-@export var hitscanner_scene : PackedScene
-@export var chaingunner_scene : PackedScene
-@export var mage_scene : PackedScene
-@export var bomber_scene : PackedScene
-@export var phantom_scene : PackedScene
+var runner_scene = preload("res://scenes/props/enemies/runner.tscn")
+var gunner_scene = preload("res://scenes/props/enemies/gunner.tscn")
+var hitscanner_scene = preload("res://scenes/props/enemies/hitscanner.tscn")
+var chaingunner_scene = preload("res://scenes/props/enemies/chaingunner.tscn")
+var mage_scene = preload("res://scenes/props/enemies/mage.tscn")
+var bomber_scene = preload("res://scenes/props/enemies/bomber.tscn")
+var phantom_scene = preload("res://scenes/props/enemies/phantom.tscn")
+var goliath_scene = preload("res://scenes/props/enemies/goliath.tscn")
+var phantom_goliath_scene = preload("res://scenes/props/enemies/phantom_goliath.tscn")
 @export var aura_col : Color = Color(1, 0, 0.64)
 var aura_mat = preload("res://resources/materials/aura_mat.tres").duplicate()
 var bomb_scene = preload("res://scenes/props/enemies/bomber_bomb.tscn")
@@ -98,6 +100,10 @@ func spawn(type_f, ang, dist):
 			new_zombie = bomber_scene.instantiate()
 		7:
 			new_zombie = phantom_scene.instantiate()
+		8:
+			new_zombie = goliath_scene.instantiate()
+		9:
+			new_zombie = phantom_goliath_scene.instantiate()
 	new_zombie.respawn_time = 1
 	new_zombie.position = Vector3.MODEL_FRONT.rotated(Vector3.UP, ang - PI / 2) * dist
 	new_zombie.position.y += spawn_height
@@ -181,6 +187,10 @@ func rising_func(t):
 
 
 func _ready():
+	if is_opengl:
+		body.material_override = preload("res://resources/materials/level_mat.tres")
+		head.material_override = preload("res://resources/materials/level_mat.tres")
+	
 	aura_mat.albedo_color = aura_col
 	aura_mat.albedo_color.a = 0.11
 	
@@ -306,7 +316,7 @@ func _on_fire_timer_timeout():
 		new_bomb.position = Vector3(0, 3.45, 0)
 		new_bomb.position += dir * 4.1
 		new_bomb.target_pos = Vector3(position.x, player.position.y, position.z)
-		new_bomb.target_pos -= dir.rotated(Vector3.UP, -PI/2) * Vector3(position.x, 0, position.z).distance_to(Vector3(player.position.x, 0, player.position.z))
+		new_bomb.target_pos -= dir.rotated(Vector3.UP, PI/2) * Vector3(position.x, 0, position.z).distance_to(Vector3(player.position.x, 0, player.position.z))
 		new_bomb.scale = Vector3.ONE * 1.5
 		new_bomb.HVEL = 25.0
 		add_child(new_bomb)
