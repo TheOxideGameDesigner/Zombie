@@ -28,11 +28,12 @@ height = 5.915
 radial_segments = 10
 rings = 10
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ynys2"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6m82i"]
 transparency = 1
 shading_mode = 0
+albedo_color = Color(1, 1, 1, 0.1)
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_64ym0"]
+[sub_resource type="CylinderMesh" id="CylinderMesh_pkf07"]
 top_radius = 0.75
 bottom_radius = 0.75
 height = 2.2
@@ -127,8 +128,8 @@ font_size = 64
 
 [node name="difficulty_visualiser" parent="." instance=ExtResource("9_0o2mh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, 0)
-material_override = SubResource("StandardMaterial3D_ynys2")
-mesh = SubResource("CylinderMesh_64ym0")
+material_override = SubResource("StandardMaterial3D_6m82i")
+mesh = SubResource("CylinderMesh_pkf07")
 radius = 0.75
 height = 2.2
 

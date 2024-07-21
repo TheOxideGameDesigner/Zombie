@@ -285,7 +285,7 @@ func _on_hit_timer_timeout():
 	ribbon_opac = 0.5
 	var dir = Vector3(0, 0, 1).rotated(Vector3.UP, mesh.rotation.y)
 	ray.position = Vector3(0.068, 1.13, 0.9).rotated(Vector3.UP, mesh.rotation.y)
-	ray.target_position = dir * (dist_from_player - 1.232) + Vector3(0, player.position.y - ray.global_position.y + 1.13, 0) + Vector3(-0.068, 0, 0).rotated(Vector3.UP, mesh.rotation.y)
+	ray.target_position = dir * dist_from_player + Vector3(0, player.position.y - ray.global_position.y + 1.13, 0) + Vector3(-0.068, 0, 0).rotated(Vector3.UP, mesh.rotation.y)
 	ray.force_raycast_update()
 	ribbon.position = mesh.to_global(init_ribbon_pos)
 	ribbon.rotation.y = mesh.rotation.y + randf_range(-0.04, 0.04)

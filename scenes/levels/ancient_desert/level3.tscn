@@ -84,7 +84,6 @@ script = ExtResource("9_uksvs")
 [node name="light" type="DirectionalLight3D" parent="." groups=["light"]]
 transform = Transform3D(-0.549704, 0.804719, -0.22417, 0.114268, 0.338265, 0.934087, 0.827507, 0.487856, -0.2779, 12.5, 42.9725, -8.34864)
 light_bake_mode = 0
-shadow_enabled = true
 shadow_bias = 0.01
 shadow_opacity = 0.7
 directional_shadow_blend_splits = true

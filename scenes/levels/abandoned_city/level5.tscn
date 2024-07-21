@@ -75,7 +75,6 @@ script = ExtResource("1_hatn3")
 [node name="light" type="DirectionalLight3D" parent="." groups=["light"]]
 transform = Transform3D(0.711456, 0.490704, 0.50303, -0.539281, -0.0777098, 0.838533, 0.450562, -0.867854, 0.209341, 253.533, 245.179, -96.0863)
 light_bake_mode = 0
-shadow_enabled = true
 shadow_bias = 0.01
 shadow_opacity = 0.7
 directional_shadow_blend_splits = true
@@ -3733,11 +3732,17 @@ transform = Transform3D(-0.309913, 0, -0.950765, 0, 1, 0, 0.950765, 0, -0.309913
 [node name="Car020" parent="road_props" instance=ExtResource("31_i2byl")]
 transform = Transform3D(-0.753621, 0, -0.65731, 0, 1, 0, 0.65731, 0, -0.753621, -56.601, 5.72205e-06, -84.9649)
 
+[node name="Car028" parent="road_props" instance=ExtResource("31_i2byl")]
+transform = Transform3D(-0.963878, 0, -0.266347, 0, 1, 0, 0.266347, 0, -0.963878, -178.397, 9.53675e-06, -152.821)
+
 [node name="Car021" parent="road_props" instance=ExtResource("33_yhved")]
 transform = Transform3D(0.934018, 0, 0.357227, 0, 1, 0, -0.357227, 0, 0.934018, -51.8586, 3.8147e-06, -99.1743)
 
 [node name="Car026" parent="road_props" instance=ExtResource("33_yhved")]
-transform = Transform3D(-0.94468, 0, -0.327993, 0, 1, 0, 0.327993, 0, -0.94468, -120.317, 3.8147e-06, -102.904)
+transform = Transform3D(0.934018, 0, 0.357227, 0, 1, 0, -0.357227, 0, 0.934018, -116.042, 3.8147e-06, -147.543)
+
+[node name="Car027" parent="road_props" instance=ExtResource("33_yhved")]
+transform = Transform3D(-0.425606, 0, -0.904909, 0, 1, 0, 0.904909, 0, -0.425606, -176.441, 3.8147e-06, -85.821)
 
 [node name="Car022" parent="road_props" instance=ExtResource("31_i2byl")]
 transform = Transform3D(-0.219863, 0, -0.975531, 0, 1, 0, 0.975531, 0, -0.219863, -55.6761, 7.62939e-06, -100.639)
@@ -3751,11 +3756,17 @@ transform = Transform3D(-0.255598, 0, -0.966783, 0, 1, 0, 0.966783, 0, -0.255598
 [node name="Car025" parent="road_props" instance=ExtResource("31_i2byl")]
 transform = Transform3D(-0.987198, 0, 0.159502, 0, 1, 0, -0.159502, 0, -0.987198, -118.355, 7.62939e-06, -131.309)
 
-[node name="Car027" parent="road_props" instance=ExtResource("32_42jmx")]
-transform = Transform3D(0.423694, 0, -0.905806, 0, 1, 0, 0.905806, 0, 0.423694, -128.544, 1.14441e-05, -87.616)
-
 [node name="Truck5" parent="road_props" instance=ExtResource("34_8lipt")]
-transform = Transform3D(-0.276895, 0, -0.9609, 0, 1, 0, 0.9609, 0, -0.276895, -127.112, 7.62939e-06, -150.444)
+transform = Transform3D(-0.276895, 0, -0.9609, 0, 1, 0, 0.9609, 0, -0.276895, -127.157, 7.62939e-06, -147.754)
+
+[node name="Truck12" parent="road_props" instance=ExtResource("34_8lipt")]
+transform = Transform3D(0.225988, 0, 0.97413, 0, 1, 0, -0.97413, 0, 0.225988, -153.775, 9.53674e-06, -148.791)
+
+[node name="Truck13" parent="road_props" instance=ExtResource("34_8lipt")]
+transform = Transform3D(0.959619, 0, 0.281304, 0, 1, 0, -0.281304, 0, 0.959619, -172.15, 9.53674e-06, -135.169)
+
+[node name="Truck14" parent="road_props" instance=ExtResource("34_8lipt")]
+transform = Transform3D(-0.919307, 0, -0.393541, 0, 1, 0, 0.393541, 0, -0.919307, -172.365, 9.53674e-06, -94.8147)
 
 [node name="Truck6" parent="road_props" instance=ExtResource("34_8lipt")]
 transform = Transform3D(-0.0812775, 0, -0.996691, 0, 1, 0, 0.996691, 0, -0.0812775, -147.041, 3.8147e-06, -87.3144)
@@ -3763,26 +3774,14 @@ transform = Transform3D(-0.0812775, 0, -0.996691, 0, 1, 0, 0.996691, 0, -0.08127
 [node name="Truck7" parent="road_props" instance=ExtResource("34_8lipt")]
 transform = Transform3D(-0.915445, 0, 0.402443, 0, 1, 0, -0.402443, 0, -0.915445, -120.279, 3.8147e-06, -118.179)
 
-[node name="Car028" parent="road_props" instance=ExtResource("32_42jmx")]
-transform = Transform3D(0.560711, 0, -0.828011, 0, 1, 0, 0.828011, 0, 0.560711, -165.519, 7.62939e-06, -87.1051)
-
-[node name="Car029" parent="road_props" instance=ExtResource("31_i2byl")]
-transform = Transform3D(-0.921084, 0, -0.389365, 0, 1, 0, 0.389365, 0, -0.921084, -175.038, 7.62939e-06, -103.324)
+[node name="Truck9" parent="road_props" instance=ExtResource("34_8lipt")]
+transform = Transform3D(-0.786892, 0, 0.617091, 0, 1, 0, -0.617091, 0, -0.786892, -123.745, 3.8147e-06, -94.0052)
 
 [node name="Car033" parent="road_props" instance=ExtResource("31_i2byl")]
 transform = Transform3D(-0.161328, 0, 0.986901, 0, 1, 0, -0.986901, 0, -0.161328, -200.109, 1.14441e-05, -120.669)
 
-[node name="Car030" parent="road_props" instance=ExtResource("33_yhved")]
-transform = Transform3D(-0.963518, 0, -0.267642, 0, 1, 0, 0.267642, 0, -0.963518, -172.25, 7.62939e-06, -135.551)
-
 [node name="Car034" parent="road_props" instance=ExtResource("33_yhved")]
 transform = Transform3D(-0.318082, 0, -0.948063, 0, 1, 0, 0.948063, 0, -0.318082, -219.262, 7.62939e-06, -114.937)
-
-[node name="Car031" parent="road_props" instance=ExtResource("32_42jmx")]
-transform = Transform3D(0.25038, 0, 0.968148, 0, 1, 0, -0.968148, 0, 0.25038, -143.807, 3.8147e-06, -147.654)
-
-[node name="Car032" parent="road_props" instance=ExtResource("31_i2byl")]
-transform = Transform3D(0.198068, 0, -0.980188, 0, 1, 0, 0.980188, 0, 0.198068, -160.79, 7.62939e-06, -147.859)
 
 [node name="Car035" parent="road_props" instance=ExtResource("32_42jmx")]
 transform = Transform3D(0.604655, 0, 0.796488, 0, 1, 0, -0.796488, 0, 0.604655, -239.561, 7.62939e-06, -117.901)
@@ -4046,7 +4045,7 @@ min_dif = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -78.4171, 0.249969, -124.949)
 
 [node name="eye_of_anubis" parent="enemies" instance=ExtResource("42_honqu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -147.531, -0.267773, -118.018)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -147.531, 0, -118.018)
 
 [node name="Area3D" type="Area3D" parent="enemies/eye_of_anubis"]
 

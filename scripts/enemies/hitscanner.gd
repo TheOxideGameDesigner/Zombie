@@ -207,13 +207,13 @@ func fire():
 	ribbon_opac = 0.5
 	var dir = Vector3(0, 0, 1).rotated(Vector3.UP, mesh.rotation.y)
 	ray.position = Vector3(0.079, 1.642, 0.4).rotated(Vector3.UP, mesh.rotation.y)
-	ray.target_position = dir * (dist_from_player - 0.847) + Vector3(0, player.position.y - ray.global_position.y + 1.5, 0) + Vector3(-0.079, 0, 0).rotated(Vector3.UP, mesh.rotation.y)
+	ray.target_position = dir * dist_from_player + Vector3(0, player.position.y - ray.global_position.y + 1.5, 0) + Vector3(-0.079, 0, 0).rotated(Vector3.UP, mesh.rotation.y)
 	ray.force_raycast_update()
 	ribbon.position = mesh.to_global(init_ribbon_pos)
 	ribbon.rotation.y = mesh.rotation.y
 	ribbon.rotation.x = -atan2(ray.to_local(player.position).y + 1.5, dist_from_player)
 	if ray.is_colliding():
-		ribbon.scale. z = ribbon.global_position.distance_to(ray.get_collision_point())
+		ribbon.scale.z = ribbon.global_position.distance_to(ray.get_collision_point())
 	else:
 		ribbon.scale.z = HIT_RANGE
 	if ray.is_colliding() and ray.get_collider() == player:

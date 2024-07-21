@@ -377,13 +377,13 @@ func ai(delta):
 	else:
 		#kill the zombie if it is standing on the player
 		if dist_from_player < RADIUS + player.RADIUS - 0.05 and \
-			position.y - player.position.y > 1.5 and position.y - player.position.y < 2.0:
-				pain(100)
+			position.y - player.position.y > 1.5 and position.y - player.position.y < 2.3:
+				pain(9001)
 		
 		var nextpos = player.position - position
 		
 		if sees_player and dist_from_player <= HIT_RANGE and alive and not rising \
-		   and player.position.y - position.y > -2.1 and player.position.y - position.y < 1.2:
+		   and player.position.y - position.y > -2.1 and player.position.y - position.y < 1.5:
 			if not on_screen:
 				player.warning.modulate.a = 1.0
 			hit_timer -= delta

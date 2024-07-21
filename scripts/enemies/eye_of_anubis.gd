@@ -43,7 +43,7 @@ func _process(delta):
 		sees_player = 0
 	else:
 		ray.position = init_ray_pos.rotated(Vector3.UP, orb.global_rotation.y)
-		ray.target_position = ray.to_local(player.position + Vector3(0, 1.2, 0))
+		ray.target_position = ray.to_local(player.position + Vector3(0, 1.5, 0))
 		ray.force_raycast_update()
 		sees_player = (ray.is_colliding() and ray.get_collider() == player)
 		if hit_timer >= HIT_TIME:

@@ -32,11 +32,12 @@ height = 1.0
 radial_segments = 4
 rings = 1
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i286y"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q750o"]
 transparency = 1
 shading_mode = 0
+albedo_color = Color(1, 1, 1, 0.1)
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_g6jx5"]
+[sub_resource type="CylinderMesh" id="CylinderMesh_o5w44"]
 radial_segments = 12
 
 [node name="hitscanner" type="CharacterBody3D" groups=["activatable", "enemy", "lightweight"]]
@@ -124,7 +125,7 @@ wait_time = 5.0
 one_shot = true
 
 [node name="difficulty_visualiser" parent="." instance=ExtResource("11_ksbdk")]
-material_override = SubResource("StandardMaterial3D_i286y")
-mesh = SubResource("CylinderMesh_g6jx5")
+material_override = SubResource("StandardMaterial3D_q750o")
+mesh = SubResource("CylinderMesh_o5w44")
 
 [connection signal="timeout" from="respawn" to="." method="_on_respawn_timeout"]

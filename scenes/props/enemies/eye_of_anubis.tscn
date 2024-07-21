@@ -25,20 +25,22 @@ data = PackedVector3Array(0, -0.5993, -0.5993, 0, -0.8475, 0, 0.4238, -0.5993, -
 script = ExtResource("1_tcjb3")
 
 [node name="hitbox" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, 0)
 shape = SubResource("ConcavePolygonShape3D_iebyc")
 
 [node name="ray" type="RayCast3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.783391, 2.0775, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.783391, 1.7775, 0)
 enabled = false
 collision_mask = 257
 
 [node name="pedestal" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, 0)
 visibility_range_end = 175.0
 mesh = ExtResource("1_nyixf")
 surface_material_override/0 = ExtResource("2_osr26")
 
 [node name="death_ray" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.052, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.752, 0)
 metadata/_edit_group_ = true
 
 [node name="death_ray_mesh" type="MeshInstance3D" parent="death_ray"]
@@ -48,7 +50,7 @@ mesh = SubResource("CylinderMesh_6odb5")
 skeleton = NodePath("../..")
 
 [node name="orb" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.94169, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.64169, 0)
 shape = SubResource("ConcavePolygonShape3D_cf3x8")
 
 [node name="orb" type="MeshInstance3D" parent="orb"]
