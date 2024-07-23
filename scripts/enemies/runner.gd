@@ -68,7 +68,6 @@ var blood = preload("res://scenes/environment/blood_particles.tscn")
 @onready var visibility = $is_visible
 @onready var body = $mesh/mountainside_runner/Armature/Skeleton3D/runner_body
 
-@onready var init_mesh_pos = $mesh.global_position - position
 @onready var dist_from_player = Vector2(player.position.x, player.position.z).distance_to(Vector2(position.x, position.z))
 
 @onready var rot = mesh.rotation.y
@@ -136,7 +135,6 @@ func _ready():
 	if ray.is_colliding():
 		global_position.y = ray.get_collision_point().y
 	
-	mesh.top_level = 1
 	if rotation.y != 0:
 		spawn_ang += rotation.y
 		rotation.y = 0
@@ -262,9 +260,7 @@ func process_bumps(delta : float):
 			bump_timers.remove_at(i)
 
 
-func ai(delta):
-	mesh.position = position + init_mesh_pos
-	
+func ai(delta):	
 	if not alive:
 		return
 	
@@ -294,17 +290,6 @@ func ai(delta):
 		mesh_body.legs_playing = 0
 	else:
 		mesh_body.legs_playing = 1
-	
-	rot = fposmod(rot, 2 * PI)
-	mesh.rotation.y = fposmod(mesh.rotation.y, 2 * PI)
-	var dif = fposmod(rot - mesh.rotation.y, 2 * PI)
-	if dif < MAX_TURN_SPEED * delta or 2 * PI - dif < MAX_TURN_SPEED * delta:
-		mesh.rotation.y = rot
-	else:
-		if dif < PI:
-			mesh.rotation.y += MAX_TURN_SPEED * delta
-		else:
-			mesh.rotation.y -= MAX_TURN_SPEED * delta
 	
 	for area in collision_area.get_overlapping_areas():
 		var dir = Vector3(position.x, 0, position.z) - \
@@ -396,6 +381,16 @@ func ai(delta):
 			hit_timer = HIT_TIME
 		
 		rot = -atan2(nextpos.z, nextpos.x) + PI / 2
+		rot = fposmod(rot, 2 * PI)
+		mesh.rotation.y = fposmod(mesh.rotation.y, 2 * PI)
+		var dif = fposmod(rot - mesh.rotation.y, 2 * PI)
+		if dif < MAX_TURN_SPEED * delta or 2 * PI - dif < MAX_TURN_SPEED * delta:
+			mesh.rotation.y = rot
+		else:
+			if dif < PI:
+				mesh.rotation.y += MAX_TURN_SPEED * delta
+			else:
+				mesh.rotation.y -= MAX_TURN_SPEED * delta
 		var vel_dir = Vector3.MODEL_FRONT.rotated(Vector3.UP, mesh.rotation.y)
 		velocity = SPEED * clamp(dist_from_player, 0, 1) * vel_dir
 		

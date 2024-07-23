@@ -134,6 +134,7 @@ renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
 lights_and_shadows/directional_shadow/size=8192
 shading/overrides/force_lambert_over_burley=true
+anti_aliasing/screen_space_roughness_limiter/enabled=false
 lights_and_shadows/positional_shadow/atlas_size=8192
 environment/defaults/default_environment="res://resources/level_enviroments/mountainside_environment.tres"
 shading/opengl/max_renderable_lights=32

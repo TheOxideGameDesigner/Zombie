@@ -15,13 +15,13 @@ const GRAVE_DEPTH = 4
 const RISE_TIME = 3.7664
 const RISE_HEIGHT = 0.25
 const RISE_FLICKER = 0.25
+const AIM_TIME : float = 0.25
 const HIT_RANGE : float = 20
-var ROCKET_SPEED = 20
-const HIT_TIME : float = 1.75
+const HIT_TIME : float = 3.5
 const HIT_RANGE_MARGIN = 1.0
 const PB_RANGE : float = 2
 const FALLOFF : float = 0.1
-const HIT_DAMAGE : int = 30
+const HIT_DAMAGE : int = 60
 const REVOLVER_HEAL : int = 5
 const ATTENTION_SPAN : float = 10
 
@@ -34,6 +34,7 @@ var health : int
 var alive = 1
 var target_pos = Vector3.ZERO
 var sees_target = false
+var aim_timer = AIM_TIME
 var rising_timer = 0.0
 var attention_span_timer = 0
 
@@ -43,7 +44,7 @@ var bumps : Array[Vector3] = []
 var bump_timers : Array[float] = []
 
 
-@onready var mesh_body = $mesh/mountainside_bomber
+@onready var mesh_body = $mesh/mountainside_disciple
 @onready var player = get_tree().get_first_node_in_group("player")
 @onready var home = $home
 @onready var health_label = $mesh/health
@@ -58,11 +59,11 @@ var bump_timers : Array[float] = []
 @onready var raycast_area = $raycast_collision
 @onready var collision_area_hitbox = $collision_area/collision_area_hitbox
 
-var bomb = preload("res://scenes/props/enemies/bomber_bomb.tscn")
+var rocket = preload("res://scenes/props/enemies/gunner_rocket.tscn")
 var mesh_material = preload("res://resources/materials/enemy_mat.tres")
 var blood = preload("res://scenes/environment/blood_particles.tscn")
 @export var gibs : PackedScene
-@onready var body = $mesh/mountainside_bomber/Armature/Skeleton3D/runner_body
+@onready var body = $mesh/mountainside_disciple/Armature/Skeleton3D/runner_body
 
 @onready var dist_from_player = Vector2(player.position.x, player.position.z).distance_to(Vector2(position.x, position.z))
 
@@ -78,7 +79,7 @@ var disable_gibs : bool = false
 
 var add_vel = Vector3.ZERO
 
-var hit_timer = 0.0
+var hit_timer = HIT_TIME
 
 
 func is_asleep():
@@ -167,7 +168,7 @@ func add_gibs(dmg):
 	new_gibs.dir = (position - player.position).normalized() * clamp(dmg / 10, 1, 10)
 
 
-func pain(dmg, noblood=false, heal_player = false):
+func pain(dmg, noblood=false, heal_player = false, source = player):
 	if rising or not alive or health <= 0:
 		return
 	
@@ -187,12 +188,11 @@ func pain(dmg, noblood=false, heal_player = false):
 		return
 	
 	alerted.visible = 1
-	target_pos = player.position
+	target_pos = source.position
 
 
 func update_healthbar():
 	health_label.text = str(max(0, health))
-
 
 
 func rising_func(t):
@@ -296,17 +296,22 @@ func ai(delta):
 		velocity = add_vel + Vector3(0, y_vel, 0)
 		move_and_slide()
 	
+	hit_timer = max(0.0, hit_timer - delta)
+	
 	if not asleep:
 		var nextpos = target_pos - position
 		if sees_target and dist_from_player < HIT_RANGE and alive and not rising:
-			hit_timer = max(0.0, hit_timer - delta)
+			if aim_timer <= 0.0 and hit_timer == 0.0:
+				hit_timer = HIT_TIME
+				player.pain("You were killed by a disciple", 60)
+			else:
+				if aim_timer == AIM_TIME:
+					mesh_body.play("aiming", 0.3)
+				aim_timer -= delta
 		else:
-			hit_timer = HIT_TIME
-		
-		if hit_timer == 0:
-			mesh_body.play("hitting", 0.48)
-			fire()
-			hit_timer = HIT_TIME
+			if aim_timer < AIM_TIME:
+				mesh_body.play("aiming", -0.3)
+			aim_timer = AIM_TIME
 		
 		rot = -atan2(nextpos.z, nextpos.x) + PI / 2
 		rot = fposmod(rot, 2 * PI)
@@ -319,8 +324,9 @@ func ai(delta):
 				mesh.rotation.y += MAX_TURN_SPEED * delta
 			else:
 				mesh.rotation.y -= MAX_TURN_SPEED * delta
+	
+	
 		var vel_dir = Vector3.MODEL_FRONT.rotated(Vector3.UP, mesh.rotation.y)
-		
 		ray.position = vel_dir * 0.25 + Vector3(0, ray.position.y, 0)
 		ray.target_position = Vector3(0, -5, 0)
 		ray.force_raycast_update()
@@ -385,16 +391,8 @@ func _process(delta):
 		mesh_body.legs_playing = 1
 
 
-func fire():
-	var new_bomb = bomb.instantiate()
-	new_bomb.death_message = "You were killed by a bomber"
-	new_bomb.position = Vector3(0, 1.25, 1).rotated(Vector3.UP, mesh.rotation.y)
-	new_bomb.target_pos = player.global_position + Vector3(0, 0.5, 0)
-	add_child(new_bomb)
-	new_bomb.top_level = 1
-
 func _on_respawn_timeout():
-	hit_timer = HIT_TIME
+	hit_timer = 0.0
 	health = HP
 	update_healthbar()
 	alive = 1

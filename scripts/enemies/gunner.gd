@@ -92,7 +92,6 @@ func _ready():
 	if ray.is_colliding():
 		global_position.y = ray.get_collision_point().y
 	
-	mesh.top_level = 1
 	if rotation.y != 0:
 		spawn_ang += rotation.y
 		rotation.y = 0
@@ -203,17 +202,6 @@ func ai(delta):
 		position = home.position
 		position.y -= GRAVE_DEPTH
 	
-	rot = fposmod(rot, 2 * PI)
-	mesh.rotation.y = fposmod(mesh.rotation.y, 2 * PI)
-	var dif = fposmod(rot - mesh.rotation.y, 2 * PI)
-	if dif < MAX_TURN_SPEED * delta or 2 * PI - dif < MAX_TURN_SPEED * delta:
-		mesh.rotation.y = rot
-	else:
-		if dif < PI:
-			mesh.rotation.y += MAX_TURN_SPEED * delta
-		else:
-			mesh.rotation.y -= MAX_TURN_SPEED * delta
-	
 	if prev_pos != position:
 		prev_pos = position
 		ray.target_position = Vector3(0, -1.7, 0)
@@ -232,6 +220,16 @@ func ai(delta):
 			hit_timer.start()
 		var dir = player.position - position
 		rot = -atan2(dir.z, dir.x) + PI / 2
+		rot = fposmod(rot, 2 * PI)
+		mesh.rotation.y = fposmod(mesh.rotation.y, 2 * PI)
+		var dif = fposmod(rot - mesh.rotation.y, 2 * PI)
+		if dif < MAX_TURN_SPEED * delta or 2 * PI - dif < MAX_TURN_SPEED * delta:
+			mesh.rotation.y = rot
+		else:
+			if dif < PI:
+				mesh.rotation.y += MAX_TURN_SPEED * delta
+			else:
+				mesh.rotation.y -= MAX_TURN_SPEED * delta
 
 
 func _process(delta):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bajqqqjylfrys"]
+[gd_scene load_steps=28 format=3 uid="uid://bajqqqjylfrys"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_n6eeb"]
 [ext_resource type="PackedScene" uid="uid://4px2n2dg363l" path="res://scenes/misc_props/player.tscn" id="2_26vq5"]
@@ -21,9 +21,8 @@
 [ext_resource type="PackedScene" uid="uid://bb7tdsitsm6ea" path="res://scenes/props/static_props/abandoned_city/chair.tscn" id="20_q66nc"]
 [ext_resource type="PackedScene" uid="uid://tsfreyaa84jf" path="res://scenes/props/static_props/mountainside/pumpkin.tscn" id="21_2nsty"]
 [ext_resource type="PackedScene" uid="uid://bi1q4klr2bhr2" path="res://scenes/props/static_props/haunted_mansions/window.tscn" id="23_js0h6"]
-[ext_resource type="PackedScene" uid="uid://26x6x0du3c7k" path="res://scenes/props/enemies/chaingunner.tscn" id="25_0uytp"]
+[ext_resource type="PackedScene" uid="uid://ct4dtw3ijmehk" path="res://scenes/props/enemies/runner.tscn" id="24_hd85l"]
 [ext_resource type="PackedScene" uid="uid://cjlqf7r8mbj5o" path="res://scenes/props/static_props/haunted_mansions/barrel.tscn" id="25_7yx75"]
-[ext_resource type="PackedScene" uid="uid://d2ya5fu74vom0" path="res://scenes/props/enemies/hitscanner.tscn" id="25_msomr"]
 [ext_resource type="PackedScene" uid="uid://tub7ejog7vp6" path="res://scenes/props/static_props/haunted_mansions/barrel_giant.tscn" id="26_28h6m"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ctp2d"]
@@ -171,8 +170,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.94682, 0.198839, -13.9152)
 [node name="barrel3" parent="." instance=ExtResource("26_28h6m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.19806, 0.198839, -11.1512)
 
-[node name="hitscanner" parent="." instance=ExtResource("25_msomr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.95673, 0.198841, -19.6188)
-
-[node name="chaingunner" parent="." instance=ExtResource("25_0uytp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.7425, 0.198841, -13.5031)
+[node name="runner" parent="." instance=ExtResource("24_hd85l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.9873, 0.19884, -15.366)

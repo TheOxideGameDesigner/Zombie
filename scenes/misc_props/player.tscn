@@ -1,7 +1,6 @@
-[gd_scene load_steps=29 format=3 uid="uid://4px2n2dg363l"]
+[gd_scene load_steps=28 format=3 uid="uid://4px2n2dg363l"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_p5l8k"]
-[ext_resource type="Script" path="res://scripts/physics_lerp.gd" id="2_21672"]
 [ext_resource type="Script" path="res://scripts/camera.gd" id="3_3kmoi"]
 [ext_resource type="ArrayMesh" uid="uid://ppcmkttyghki" path="res://models/viewmodels/revolver_viewmodel.obj" id="3_5qgrc"]
 [ext_resource type="Material" uid="uid://dwn0f7w4jgfyf" path="res://resources/materials/enemy_mat_gamma_corrected.tres" id="4_1ep7i"]
@@ -108,9 +107,6 @@ environment = SubResource("Environment_uym8g")
 fov = 90.0
 near = 0.01
 far = 100.0
-script = ExtResource("2_21672")
-enable_rot = true
-global = true
 
 [node name="viewmodel" type="Node3D" parent="cam/camera/vp_cont/vp/gun_cam"]
 

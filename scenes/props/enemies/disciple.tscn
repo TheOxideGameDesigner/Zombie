@@ -1,0 +1,139 @@
+[gd_scene load_steps=20 format=3 uid="uid://8i02pg3itrcs"]
+
+[ext_resource type="Script" path="res://scripts/enemies/disciple.gd" id="1_gis3u"]
+[ext_resource type="PackedScene" uid="uid://b2mr8f4r6fqb5" path="res://scenes/environment/gibs/mage.tscn" id="2_iampe"]
+[ext_resource type="PackedScene" uid="uid://d4k7qjsc8bglc" path="res://scenes/enemy_home.tscn" id="3_o4w7j"]
+[ext_resource type="Texture2D" uid="uid://dsi7k27hhox0v" path="res://textures/alerted.png" id="4_killt"]
+[ext_resource type="Material" uid="uid://c0vwp18rc74ju" path="res://resources/materials/aura_mat.tres" id="5_jjurw"]
+[ext_resource type="FontVariation" uid="uid://cr4vqwh16ob78" path="res://resources/default_font.tres" id="6_irldl"]
+[ext_resource type="Material" uid="uid://71wrnh23pt12" path="res://resources/materials/specific_mats/eye_of_anubis_orb_mat.tres" id="7_fnihp"]
+[ext_resource type="ArrayMesh" uid="uid://bh7hgeb0a4t3t" path="res://models/dynamic_props/enemies/disciple_mask.obj" id="8_udeft"]
+[ext_resource type="PackedScene" uid="uid://d23lvbv48dsow" path="res://models/dynamic_props/enemies/mountainside_disciple.glb" id="9_38wlg"]
+[ext_resource type="Script" path="res://scripts/enemies/anim.gd" id="9_ejmby"]
+[ext_resource type="PackedScene" uid="uid://cd6bos2i6d23v" path="res://scenes/editor_tools/difficulty_visualiser.tscn" id="9_xdve0"]
+[ext_resource type="Material" uid="uid://idpe3qdehuom" path="res://resources/materials/specific_mats/disciple_helix_mat.tres" id="11_i6lag"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_2lsg5"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_qg53b"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jb1n0"]
+size = Vector3(2, 2.39, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_irllb"]
+material = ExtResource("5_jjurw")
+radius = 1.03
+height = 5.915
+radial_segments = 10
+rings = 10
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_1oikw"]
+top_radius = 0.05
+bottom_radius = 0.05
+radial_segments = 4
+rings = 20
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eoh24"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(1, 1, 1, 0.1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_2gaa4"]
+radial_segments = 12
+
+[node name="disciple" type="CharacterBody3D" groups=["activatable", "enemy", "lightweight"]]
+top_level = true
+collision_layer = 2
+collision_mask = 257
+script = ExtResource("1_gis3u")
+gibs = ExtResource("2_iampe")
+
+[node name="hitbox" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CylinderShape3D_2lsg5")
+
+[node name="collision_area" type="Area3D" parent="." groups=["enemy_area"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+collision_layer = 65536
+collision_mask = 65536
+input_ray_pickable = false
+
+[node name="collision_area_hitbox" type="CollisionShape3D" parent="collision_area"]
+shape = SubResource("CylinderShape3D_qg53b")
+
+[node name="home" parent="." instance=ExtResource("3_o4w7j")]
+color = Color(0.0156863, 0.733333, 0.247059, 0.858824)
+
+[node name="ray" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+enabled = false
+collision_mask = 769
+hit_from_inside = true
+
+[node name="raycast_collision" type="Area3D" parent="." groups=["enemy_raycast_collision"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05309, 0)
+visible = false
+collision_layer = 4
+collision_mask = 0
+
+[node name="raycast_hitbox" type="CollisionShape3D" parent="raycast_collision"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0563563, 0)
+shape = SubResource("BoxShape3D_jb1n0")
+
+[node name="mesh" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="alerted" type="Sprite3D" parent="mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.855, 0)
+visible = false
+visibility_range_end = 175.0
+modulate = Color(1, 0.227451, 0.243137, 0.709804)
+pixel_size = 0.0195
+billboard = 1
+texture_filter = 0
+texture = ExtResource("4_killt")
+
+[node name="aura" type="MeshInstance3D" parent="mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.00643, 0)
+visible = false
+visibility_range_end = 175.0
+mesh = SubResource("SphereMesh_irllb")
+
+[node name="health" type="Label3D" parent="mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.17772, 0)
+visible = false
+visibility_range_end = 42.0
+visibility_range_end_margin = 0.1
+billboard = 1
+texture_filter = 0
+text = "100"
+font = ExtResource("6_irldl")
+font_size = 64
+
+[node name="mask" type="MeshInstance3D" parent="mesh"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+material_override = ExtResource("7_fnihp")
+mesh = ExtResource("8_udeft")
+skeleton = NodePath("../mountainside_disciple")
+
+[node name="mountainside_disciple" parent="mesh" instance=ExtResource("9_38wlg")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+script = ExtResource("9_ejmby")
+
+[node name="helix_node" type="Node3D" parent="mesh"]
+
+[node name="helix" type="MeshInstance3D" parent="mesh/helix_node"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.112697, 1.31056)
+material_override = ExtResource("11_i6lag")
+mesh = SubResource("CylinderMesh_1oikw")
+skeleton = NodePath("../..")
+
+[node name="respawn" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="difficulty_visualiser" parent="." instance=ExtResource("9_xdve0")]
+material_override = SubResource("StandardMaterial3D_eoh24")
+mesh = SubResource("CylinderMesh_2gaa4")
+
+[connection signal="timeout" from="respawn" to="." method="_on_respawn_timeout"]

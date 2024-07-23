@@ -31,12 +31,12 @@ radius = 1.0
 [sub_resource type="BoxShape3D" id="BoxShape3D_xjme4"]
 size = Vector3(2.58, 2.32208, 2)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7crux"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1qqom"]
 transparency = 1
 shading_mode = 0
 albedo_color = Color(1, 1, 1, 0.1)
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_fbrxg"]
+[sub_resource type="CylinderMesh" id="CylinderMesh_dogs3"]
 top_radius = 1.0
 bottom_radius = 1.0
 radial_segments = 12
@@ -142,8 +142,8 @@ wait_time = 0.1
 one_shot = true
 
 [node name="difficulty_visualiser" parent="." instance=ExtResource("12_2wrjj")]
-material_override = SubResource("StandardMaterial3D_7crux")
-mesh = SubResource("CylinderMesh_fbrxg")
+material_override = SubResource("StandardMaterial3D_1qqom")
+mesh = SubResource("CylinderMesh_dogs3")
 radius = 1.0
 
 [node name="collision_area" type="Area3D" parent="." groups=["enemy_area"]]

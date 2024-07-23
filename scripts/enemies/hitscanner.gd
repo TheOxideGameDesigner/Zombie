@@ -70,7 +70,6 @@ var blood = preload("res://scenes/environment/blood_particles.tscn")
 @export var gibs_standing : PackedScene
 @onready var body = $mesh/mountainside_hitscanner/Armature/Skeleton3D/runner_body
 
-@onready var init_mesh_pos = $mesh.global_position - position
 @onready var init_ribbon_pos = ribbon.position
 @onready var dist_from_player = Vector2(player.position.x, player.position.z).distance_to(Vector2(position.x, position.z))
 
@@ -128,7 +127,6 @@ func _ready():
 	if ray.is_colliding():
 		global_position.y = ray.get_collision_point().y
 	
-	mesh.top_level = 1
 	if rotation.y != 0:
 		spawn_ang += rotation.y
 		rotation.y = 0
@@ -287,8 +285,6 @@ func process_bumps(delta : float):
 
 
 func ai(delta):
-	mesh.position = position + init_mesh_pos
-	
 	if not alive:
 		return
 	
@@ -318,24 +314,6 @@ func ai(delta):
 		respawn.start()
 		position = home.position
 		position.y -= GRAVE_DEPTH
-	
-	
-	
-	rot = fposmod(rot, 2 * PI)
-	mesh.rotation.y = fposmod(mesh.rotation.y, 2 * PI)
-	var dif = fposmod(rot - mesh.rotation.y, 2 * PI)
-	var max_turn_speed
-	if dist_from_player < HIT_RANGE:
-		max_turn_speed = MAX_TURN_SPEED_AIMING
-	else:
-		max_turn_speed = MAX_TURN_SPEED
-	if dif < max_turn_speed * delta or 2 * PI - dif < max_turn_speed * delta:
-		mesh.rotation.y = rot
-	else:
-		if dif < PI:
-			mesh.rotation.y += max_turn_speed * delta
-		else:
-			mesh.rotation.y -= max_turn_speed * delta
 	
 	for area in collision_area.get_overlapping_areas():
 		var dir = Vector3(position.x, 0, position.z) - \
@@ -410,6 +388,22 @@ func ai(delta):
 			hit_timer = HIT_TIME
 		
 		rot = -atan2(nextpos.z, nextpos.x) + PI / 2
+		rot = fposmod(rot, 2 * PI)
+		mesh.rotation.y = fposmod(mesh.rotation.y, 2 * PI)
+		var dif = fposmod(rot - mesh.rotation.y, 2 * PI)
+		var max_turn_speed
+		if dist_from_player < HIT_RANGE:
+			max_turn_speed = MAX_TURN_SPEED_AIMING
+		else:
+			max_turn_speed = MAX_TURN_SPEED
+		if dif < max_turn_speed * delta or 2 * PI - dif < max_turn_speed * delta:
+			mesh.rotation.y = rot
+		else:
+			if dif < PI:
+				mesh.rotation.y += max_turn_speed * delta
+			else:
+				mesh.rotation.y -= max_turn_speed * delta
+		
 		var vel_dir = Vector3.MODEL_FRONT.rotated(Vector3.UP, mesh.rotation.y)
 		
 		ray.position = vel_dir * 0.25 + Vector3(0, ray.position.y, 0)

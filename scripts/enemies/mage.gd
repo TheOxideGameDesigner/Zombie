@@ -66,7 +66,6 @@ var blood = preload("res://scenes/environment/blood_particles.tscn")
 @export var gibs : PackedScene
 @onready var body = $mesh/mountainside_mage/Armature/Skeleton3D/runner_body
 
-@onready var init_mesh_pos = $mesh.global_position - position
 @onready var dist_from_player = Vector2(player.position.x, player.position.z).distance_to(Vector2(position.x, position.z))
 
 @onready var rot = mesh.rotation.y
@@ -130,7 +129,6 @@ func _ready():
 	if ray.is_colliding():
 		global_position.y = ray.get_collision_point().y
 	
-	mesh.top_level = 1
 	if rotation.y != 0:
 		spawn_ang += rotation.y
 		rotation.y = 0
@@ -222,8 +220,6 @@ func process_bumps(delta : float):
 
 
 func ai(delta):
-	mesh.position = position + init_mesh_pos
-	
 	if not alive:
 		return
 	
@@ -253,19 +249,6 @@ func ai(delta):
 		respawn.start()
 		position = home.position
 		position.y -= GRAVE_DEPTH
-	
-	
-	
-	rot = fposmod(rot, 2 * PI)
-	mesh.rotation.y = fposmod(mesh.rotation.y, 2 * PI)
-	var dif = fposmod(rot - mesh.rotation.y, 2 * PI)
-	if dif < MAX_TURN_SPEED * delta or 2 * PI - dif < MAX_TURN_SPEED * delta:
-		mesh.rotation.y = rot
-	else:
-		if dif < PI:
-			mesh.rotation.y += MAX_TURN_SPEED * delta
-		else:
-			mesh.rotation.y -= MAX_TURN_SPEED * delta
 	
 	for area in collision_area.get_overlapping_areas():
 		var dir = Vector3(position.x, 0, position.z) - \
@@ -326,12 +309,10 @@ func ai(delta):
 		if sees_target and dist_from_player < HIT_RANGE and alive and not rising:
 			if aim_timer <= 0.0 and hit_timer == 0.0:
 				hit_timer = HIT_TIME
-				fireball.visible = true
 				fired = false
 				fb_timer = FB_TIME
 				mesh_body.play("hitting", 0.5)
 			else:
-				fireball.visible = false
 				if aim_timer == AIM_TIME:
 					mesh_body.play("aiming", 0.3)
 				aim_timer -= delta
@@ -340,11 +321,24 @@ func ai(delta):
 				mesh_body.play("aiming", -0.3)
 			aim_timer = AIM_TIME
 		
+		fireball.visible = fb_timer > 0.0
+		
 		if not fired and fb_timer == 0.0 and hit_timer > 0.0:
 			fire()
 			fired = true
 		
 		rot = -atan2(nextpos.z, nextpos.x) + PI / 2
+		rot = fposmod(rot, 2 * PI)
+		mesh.rotation.y = fposmod(mesh.rotation.y, 2 * PI)
+		var dif = fposmod(rot - mesh.rotation.y, 2 * PI)
+		if dif < MAX_TURN_SPEED * delta or 2 * PI - dif < MAX_TURN_SPEED * delta:
+			mesh.rotation.y = rot
+		else:
+			if dif < PI:
+				mesh.rotation.y += MAX_TURN_SPEED * delta
+			else:
+				mesh.rotation.y -= MAX_TURN_SPEED * delta
+		
 		var vel_dir = Vector3.MODEL_FRONT.rotated(Vector3.UP, mesh.rotation.y)
 		ray.position = vel_dir * 0.25 + Vector3(0, ray.position.y, 0)
 		ray.target_position = Vector3(0, -5, 0)

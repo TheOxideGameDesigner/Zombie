@@ -677,6 +677,10 @@ func _unhandled_input(event):
 
 
 func _process(delta):
+	if Input.is_action_pressed("g_respawn"):
+		cam.rotation.y += delta * PI
+	
+	
 	if is_opengl:
 		revolver_viewmodel.material_override.albedo_color = Color(1, 1 - revolver_heat * 0.2, 1 - revolver_heat * 0.2)
 		shotgun_viewmodel.material_override.albedo_color = Color(1, 1 - shotgun_heat * 0.4, 1 - shotgun_heat * 0.4)
