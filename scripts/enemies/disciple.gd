@@ -413,7 +413,7 @@ func _process(delta):
 
 
 func _on_respawn_timeout():
-	hit_timer = 0.0
+	hit_timer = HIT_TIME
 	health = HP
 	update_healthbar()
 	alive = 1

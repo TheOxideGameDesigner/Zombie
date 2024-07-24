@@ -64,7 +64,7 @@ input_ray_pickable = false
 shape = SubResource("CylinderShape3D_qg53b")
 
 [node name="home" parent="." instance=ExtResource("3_o4w7j")]
-color = Color(0.0156863, 0.733333, 0.247059, 0.858824)
+color = Color(1, 0, 0, 0.858824)
 
 [node name="ray" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
@@ -122,6 +122,7 @@ mesh = ExtResource("8_udeft")
 
 [node name="helix" type="MeshInstance3D" parent="mesh"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.0549999, 0.371)
+visible = false
 material_override = ExtResource("11_i6lag")
 mesh = SubResource("CylinderMesh_1oikw")
 
