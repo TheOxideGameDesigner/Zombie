@@ -1,4 +1,4 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://idpe3qdehuom"]
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://b6shyko6aurhy"]
 
 [ext_resource type="Shader" path="res://resources/materials/specific_mats/disciple_helix_mat.gdshader" id="1_qrm0h"]
 

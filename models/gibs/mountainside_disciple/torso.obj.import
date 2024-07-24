@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://brely4pvr3fhm"
+path="res://.godot/imported/torso.obj-6da38a0f92a23a016158e2a2e2b919db.mesh"
+
+[deps]
+
+files=["res://.godot/imported/torso.obj-6da38a0f92a23a016158e2a2e2b919db.mesh"]
+
+source_file="res://models/gibs/mountainside_disciple/torso.obj"
+dest_files=["res://.godot/imported/torso.obj-6da38a0f92a23a016158e2a2e2b919db.mesh", "res://.godot/imported/torso.obj-6da38a0f92a23a016158e2a2e2b919db.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

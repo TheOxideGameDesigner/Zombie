@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://idpe3qdehuom"]
+
+[ext_resource type="Shader" path="res://resources/materials/opengl/disciple_helix_mat_opengl.gdshader" id="1_h3vuv"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_h3vuv")
+shader_parameter/opac = 1.0
+shader_parameter/size = 20.0

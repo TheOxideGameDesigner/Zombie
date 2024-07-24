@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://4px2n2dg363l"]
+[gd_scene load_steps=29 format=3 uid="uid://4px2n2dg363l"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_p5l8k"]
 [ext_resource type="Script" path="res://scripts/camera.gd" id="3_3kmoi"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://bl7mrxo6ch0f0" path="res://textures/ui/blood.png" id="19_u01oi"]
 [ext_resource type="Texture2D" uid="uid://cnspjfwwl8a76" path="res://textures/ui/health_fill.png" id="20_cnb0c"]
 [ext_resource type="Texture2D" uid="uid://kbl17hc73d27" path="res://textures/ui/eye_of_anubis.png" id="20_iuo0h"]
+[ext_resource type="Texture2D" uid="uid://us1y0vfpbl7t" path="res://textures/ui/disciple_eyes.png" id="21_50tx2"]
 [ext_resource type="FontVariation" uid="uid://cr4vqwh16ob78" path="res://resources/default_font.tres" id="22_be58p"]
 [ext_resource type="Texture2D" uid="uid://djgvvwcp47wmi" path="res://textures/ui/garlic.png" id="24_xt1wq"]
 [ext_resource type="Theme" uid="uid://3b0iarraglqs" path="res://resources/ui_theme.tres" id="26_g80bx"]
@@ -190,6 +191,7 @@ position = Vector2(960, 540)
 texture = ExtResource("15_xhimj")
 
 [node name="healthbar" type="Control" parent="."]
+z_index = 1
 texture_filter = 1
 layout_mode = 3
 anchors_preset = 0
@@ -200,12 +202,14 @@ offset_bottom = 1015.0
 metadata/_edit_use_anchors_ = true
 
 [node name="white_outline" type="ColorRect" parent="healthbar"]
+z_index = 1
 layout_mode = 0
 offset_right = 466.0
 offset_bottom = 85.0
 metadata/_edit_use_anchors_ = true
 
 [node name="black_outline" type="ColorRect" parent="healthbar"]
+z_index = 1
 layout_mode = 0
 offset_left = 3.0
 offset_top = 3.0
@@ -215,6 +219,7 @@ color = Color(0, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="health" type="ColorRect" parent="healthbar" groups=["player"]]
+z_index = 1
 layout_mode = 0
 offset_left = 6.0
 offset_top = 6.0
@@ -224,17 +229,20 @@ color = Color(0, 1, 0, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="health_icon_outline" type="Sprite2D" parent="healthbar"]
+z_index = 1
 texture_filter = 1
 position = Vector2(-47.5, 42.5)
 texture = ExtResource("19_q01t5")
 
 [node name="health_icon_fill" type="Sprite2D" parent="healthbar"]
 modulate = Color(0, 1, 0, 1)
+z_index = 1
 texture_filter = 1
 position = Vector2(-47.5, 42.5)
 texture = ExtResource("20_cnb0c")
 
 [node name="health_text" type="Label" parent="healthbar"]
+z_index = 1
 texture_filter = 1
 layout_mode = 1
 anchors_preset = -1
@@ -395,23 +403,29 @@ horizontal_alignment = 1
 autowrap_mode = 3
 
 [node name="charge" type="Sprite2D" parent="."]
+z_index = 1
 position = Vector2(792, 958)
 texture = ExtResource("19_t0p4e")
 
 [node name="charge_rect_outline_2" type="ColorRect" parent="charge"]
+z_index = 1
 offset_left = 63.0
 offset_top = -47.0
 offset_right = 105.0
 offset_bottom = 55.0
+metadata/_edit_use_anchors_ = true
 
 [node name="charge_rect_outline_1" type="ColorRect" parent="charge"]
+z_index = 1
 offset_left = 66.0
 offset_top = -44.0
 offset_right = 102.0
 offset_bottom = 52.0
 color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="charge_rect" type="ColorRect" parent="charge"]
+z_index = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -427,6 +441,11 @@ metadata/_edit_use_anchors_ = true
 [node name="eye_of_anubis" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0)
 texture = ExtResource("20_iuo0h")
+centered = false
+
+[node name="disciple_eyes" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+texture = ExtResource("21_50tx2")
 centered = false
 
 [node name="color_overlay" type="ColorRect" parent="."]

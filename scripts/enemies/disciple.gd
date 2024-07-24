@@ -3,12 +3,13 @@ extends CharacterBody3D
 var HP : int = 100
 const SPEED = 5
 const WALK_FREQ = 1
-const MAX_TURN_SPEED = 3 * PI
 
 const PUSH_FORCE = 2.5
 
 const GR_ACCEL = 9.8
 const RADIUS = 0.5
+
+const MAX_TURN_SPEED = 3 * PI
 
 const VIS_RANGE = 30
 const GRAVE_DEPTH = 4
@@ -17,7 +18,7 @@ const RISE_HEIGHT = 0.25
 const RISE_FLICKER = 0.25
 const AIM_TIME : float = 0.25
 const HIT_RANGE : float = 20
-const HIT_TIME : float = 3.5
+const HIT_TIME : float = 4
 const HIT_RANGE_MARGIN = 1.0
 const PB_RANGE : float = 2
 const FALLOFF : float = 0.1
@@ -58,6 +59,8 @@ var bump_timers : Array[float] = []
 @onready var raycast_hitbox = $raycast_collision/raycast_hitbox
 @onready var raycast_area = $raycast_collision
 @onready var collision_area_hitbox = $collision_area/collision_area_hitbox
+@onready var helix = $mesh/helix
+
 
 var rocket = preload("res://scenes/props/enemies/gunner_rocket.tscn")
 var mesh_material = preload("res://resources/materials/enemy_mat.tres")
@@ -67,7 +70,6 @@ var blood = preload("res://scenes/environment/blood_particles.tscn")
 
 @onready var dist_from_player = Vector2(player.position.x, player.position.z).distance_to(Vector2(position.x, position.z))
 
-@onready var rot = mesh.rotation.y
 var y_vel = 0.0
 
 @export var respawn_time = 10.0
@@ -81,6 +83,8 @@ var add_vel = Vector3.ZERO
 
 var hit_timer = HIT_TIME
 
+@onready var is_opengl = ProjectSettings.get_setting("rendering/renderer/rendering_method") == "gl_compatibility"
+
 
 func is_asleep():
 	return not alerted.visible
@@ -89,9 +93,9 @@ func is_asleep():
 func _ready():
 	visible = true
 	
-	var is_opengl = ProjectSettings.get_setting("rendering/renderer/rendering_method") == "gl_compatibility"
 	if is_opengl:
 		mesh_material = preload("res://resources/materials/opengl/enemy_mat_opengl.tres")
+		helix.material_override = preload("res://resources/materials/opengl/disciple_helix_mat_opengl.tres").duplicate()
 	
 	var config = ConfigFile.new()
 	config.load("user://settings.cfg")
@@ -127,7 +131,6 @@ func _ready():
 		spawn_ang += rotation.y
 		rotation.y = 0
 	mesh.rotation.y = spawn_ang
-	rot = mesh.rotation.y
 	
 	var node = self
 	while node != get_tree().root:
@@ -272,7 +275,7 @@ func ai(delta):
 		add_vel = Vector3.ZERO
 	
 	#zombie logic
-	ray.position = Vector3(0, 1.5, 0)
+	ray.position = Vector3(0, 1, 0)
 	ray.target_position = ray.to_local(player.position + Vector3(0, 1, 0)).normalized() * VIS_RANGE
 	ray.force_raycast_update()
 	sees_target = ray.is_colliding() and ray.get_collider() == player
@@ -289,6 +292,7 @@ func ai(delta):
 	if attention_span_timer > ATTENTION_SPAN:
 		attention_span_timer = 0
 		alerted.visible = 0
+	
 	#end of zombie logic
 	
 	#zombie movement
@@ -296,24 +300,41 @@ func ai(delta):
 		velocity = add_vel + Vector3(0, y_vel, 0)
 		move_and_slide()
 	
-	hit_timer = max(0.0, hit_timer - delta)
 	
 	if not asleep:
 		var nextpos = target_pos - position
 		if sees_target and dist_from_player < HIT_RANGE and alive and not rising:
+			hit_timer = max(0.0, hit_timer - delta)
+			player.disciple_eyes.modulate.a = max(1 - hit_timer / HIT_TIME, player.disciple_eyes.modulate.a)
 			if aim_timer <= 0.0 and hit_timer == 0.0:
 				hit_timer = HIT_TIME
 				player.pain("You were killed by a disciple", 60)
+				player.eye_of_anubis.modulate.a = 0.5
 			else:
 				if aim_timer == AIM_TIME:
 					mesh_body.play("aiming", 0.3)
 				aim_timer -= delta
 		else:
+			hit_timer = HIT_TIME
 			if aim_timer < AIM_TIME:
 				mesh_body.play("aiming", -0.3)
 			aim_timer = AIM_TIME
 		
-		rot = -atan2(nextpos.z, nextpos.x) + PI / 2
+		if hit_timer < HIT_TIME:
+			helix.visible = true
+			var hdif = player.position.y - position.y
+			helix.rotation.x = -atan2(hdif, dist_from_player) + PI / 2
+			var dist = sqrt((dist_from_player - 0.3) * (dist_from_player - 0.3) + hdif * hdif)
+			if is_opengl:
+				helix.material_override.set_shader_parameter("opac", 1.0 - hit_timer / HIT_TIME)
+				helix.material_override.set_shader_parameter("size", dist)
+			else:
+				helix.set_instance_shader_parameter("opac", 1.0 - hit_timer / HIT_TIME)
+				helix.set_instance_shader_parameter("size", dist)
+		else:
+			helix.visible = false
+		
+		var rot = -atan2(nextpos.z, nextpos.x) + PI / 2
 		rot = fposmod(rot, 2 * PI)
 		mesh.rotation.y = fposmod(mesh.rotation.y, 2 * PI)
 		var dif = fposmod(rot - mesh.rotation.y, 2 * PI)

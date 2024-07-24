@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dc2dnbqx6uov6"
+path="res://.godot/imported/thigh.obj-e0fb04fa05199bedee22fc995e37072c.mesh"
+
+[deps]
+
+files=["res://.godot/imported/thigh.obj-e0fb04fa05199bedee22fc995e37072c.mesh"]
+
+source_file="res://models/gibs/mountainside_disciple/thigh.obj"
+dest_files=["res://.godot/imported/thigh.obj-e0fb04fa05199bedee22fc995e37072c.mesh", "res://.godot/imported/thigh.obj-e0fb04fa05199bedee22fc995e37072c.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

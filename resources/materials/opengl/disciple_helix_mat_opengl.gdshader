@@ -1,8 +1,8 @@
 shader_type spatial;
 render_mode unshaded;
 
-instance uniform float opac = 1.0f;
-instance uniform float size = 20.0f;
+uniform float opac = 1.0f;
+uniform float size = 20.0f;
 
 void fragment() {
 	ALBEDO = vec3(1.0f, 0, 0);

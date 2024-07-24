@@ -94,6 +94,7 @@ var time = 0.0
 var is_opengl = ProjectSettings.get_setting("rendering/renderer/rendering_method") == "gl_compatibility"
 
 @onready var eye_of_anubis = $eye_of_anubis
+@onready var disciple_eyes = $disciple_eyes
 
 @onready var raycast = $cam/camera/raycast
 const cannonball_scene = preload("res://scenes/cannonball.tscn")
@@ -711,6 +712,7 @@ func _process(delta):
 	blood.modulate.a = max(0, blood.modulate.a - delta)
 	
 	eye_of_anubis.modulate.a = max(0, eye_of_anubis.modulate.a - delta)
+	disciple_eyes.modulate.a = max(0, disciple_eyes.modulate.a - 3 * delta)
 	
 	health = clamp(health, 0, max_health)
 	healthbar.size.x = healthbar_width * (health / float(max_health))
