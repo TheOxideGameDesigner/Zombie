@@ -2,10 +2,10 @@ extends Node3D
 
 var player_inside : bool = false
 @onready var player = get_tree().get_first_node_in_group("player")
-@onready var boost_dir = -transform.basis.z
-@export var boost = 10.0
+@onready var boost_dir : Vector3 = -transform.basis.z
+@export var boost : float = 10.0
 
-func _ready():
+func _ready() -> void:
 	if ProjectSettings.get_setting("rendering/renderer/rendering_method") == "gl_compatibility":
 		$visual.material_override = preload("res://resources/materials/opengl/booster_mat_opengl.tres")
 	$editor_guide.queue_free()
@@ -18,9 +18,9 @@ func _ready():
 	boost_dir = boost_dir.normalized()
 
 
-func _physics_process(delta):
+func _physics_process(delta : float) -> void:
 	if player_inside and player.is_on_floor():
-		var vn = player.velocity.project(boost_dir)
+		var vn : Vector3 = player.velocity.project(boost_dir)
 		if vn.is_zero_approx():
 			player.velocity = boost_dir * (boost + player.SPEED * player.speed_mul)
 			return
@@ -33,11 +33,11 @@ func _physics_process(delta):
 		player.velocity += vn.normalized() * (boost + player.SPEED * player.speed_mul)
 
 
-func _on_area_body_entered(body):
+func _on_area_body_entered(body : PhysicsBody3D) -> void:
 	if body.is_in_group("player"):
 		player_inside = true
 
 
-func _on_area_body_exited(body):
+func _on_area_body_exited(body : PhysicsBody3D) -> void:
 	if body.is_in_group("player"):
 		player_inside = false

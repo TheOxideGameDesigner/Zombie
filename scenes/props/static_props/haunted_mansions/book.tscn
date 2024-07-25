@@ -16,9 +16,6 @@ mass = 0.05
 material_override = ExtResource("1_jbhsy")
 mesh = ExtResource("2_qo4jn")
 script = ExtResource("3_6cuec")
-enable_rot = true
-global = true
-of_parent = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000442505, 0.000803217, 0.000244141)

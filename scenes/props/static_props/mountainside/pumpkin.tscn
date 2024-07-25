@@ -15,9 +15,6 @@ material_override = ExtResource("1_gigq4")
 visibility_range_end = 175.0
 mesh = ExtResource("2_kq5mc")
 script = ExtResource("3_xq4h0")
-enable_rot = true
-global = true
-of_parent = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 visible = false

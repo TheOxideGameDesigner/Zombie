@@ -19,12 +19,12 @@ radius = 1.0
 [sub_resource type="BoxShape3D" id="BoxShape3D_8gl1c"]
 size = Vector3(3, 3.5, 2)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dih8c"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bxmyb"]
 transparency = 1
 shading_mode = 0
 albedo_color = Color(1, 1, 1, 0.1)
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_jxwd7"]
+[sub_resource type="CylinderMesh" id="CylinderMesh_4v4gy"]
 top_radius = 1.5
 bottom_radius = 1.5
 height = 3.0
@@ -99,8 +99,8 @@ shape = SubResource("BoxShape3D_8gl1c")
 
 [node name="difficulty_visualiser" parent="." instance=ExtResource("9_2jhd6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
-material_override = SubResource("StandardMaterial3D_dih8c")
-mesh = SubResource("CylinderMesh_jxwd7")
+material_override = SubResource("StandardMaterial3D_bxmyb")
+mesh = SubResource("CylinderMesh_4v4gy")
 radius = 1.5
 height = 3.0
 

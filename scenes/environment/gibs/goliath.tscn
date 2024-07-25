@@ -61,9 +61,6 @@ material_override = ExtResource("2_i3tvv")
 mesh = ExtResource("3_anugv")
 skeleton = NodePath("../..")
 script = ExtResource("4_dhtpl")
-enable_rot = true
-global = true
-of_parent = true
 
 [node name="RigidBody3D2" type="RigidBody3D" parent="." groups=["rigid_body"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.224126, 0.849631, 0.0600371)
@@ -82,9 +79,6 @@ material_override = ExtResource("2_i3tvv")
 mesh = ExtResource("5_ecxtr")
 skeleton = NodePath("../..")
 script = ExtResource("4_dhtpl")
-enable_rot = true
-global = true
-of_parent = true
 
 [node name="RigidBody3D3" type="RigidBody3D" parent="." groups=["rigid_body"]]
 transform = Transform3D(-0.999846, 0, 0.0175397, 0, 1, 0, -0.0175397, 0, -0.999846, 0.166166, 0.280912, -0.00299543)
@@ -107,9 +101,6 @@ material_override = ExtResource("2_i3tvv")
 mesh = ExtResource("6_os43n")
 skeleton = NodePath("../..")
 script = ExtResource("4_dhtpl")
-enable_rot = true
-global = true
-of_parent = true
 
 [node name="RigidBody3D4" type="RigidBody3D" parent="." groups=["rigid_body"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14455, 0.863924, 0.0717372)
@@ -128,9 +119,6 @@ material_override = ExtResource("2_i3tvv")
 mesh = ExtResource("5_ecxtr")
 skeleton = NodePath("../..")
 script = ExtResource("4_dhtpl")
-enable_rot = true
-global = true
-of_parent = true
 
 [node name="RigidBody3D5" type="RigidBody3D" parent="." groups=["rigid_body"]]
 transform = Transform3D(-0.999846, 0, 0.0175397, 0, 1, 0, -0.0175397, 0, -0.999846, -0.201292, 0.286273, -0.00299543)
@@ -153,9 +141,6 @@ material_override = ExtResource("2_i3tvv")
 mesh = ExtResource("6_os43n")
 skeleton = NodePath("../..")
 script = ExtResource("4_dhtpl")
-enable_rot = true
-global = true
-of_parent = true
 
 [node name="RigidBody3D6" type="RigidBody3D" parent="." groups=["rigid_body"]]
 transform = Transform3D(0.0959073, -0.0128453, 0.995308, 0.00123206, 0.999918, 0.0127861, -0.99539, 0, 0.0959152, 0.358182, 1.86786, 0.304944)
@@ -176,9 +161,6 @@ mesh = ExtResource("7_u3knt")
 skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("2_i3tvv")
 script = ExtResource("4_dhtpl")
-enable_rot = true
-global = true
-of_parent = true
 
 [node name="RigidBody3D7" type="RigidBody3D" parent="." groups=["rigid_body"]]
 transform = Transform3D(0.036103, 0, 0.999348, 0, 1, 0, -0.999348, 0, 0.036103, 0.425665, 1.86905, 0.769487)
@@ -198,9 +180,6 @@ material_override = ExtResource("2_i3tvv")
 mesh = ExtResource("8_hn1ol")
 skeleton = NodePath("../..")
 script = ExtResource("4_dhtpl")
-enable_rot = true
-global = true
-of_parent = true
 
 [node name="RigidBody3D8" type="RigidBody3D" parent="." groups=["rigid_body"]]
 transform = Transform3D(-0.0141717, 0, 0.9999, 0, 1, 0, -0.9999, 0, -0.0141717, -0.361047, 1.87876, 0.348674)
@@ -221,9 +200,6 @@ mesh = ExtResource("7_u3knt")
 skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("2_i3tvv")
 script = ExtResource("4_dhtpl")
-enable_rot = true
-global = true
-of_parent = true
 
 [node name="RigidBody3D9" type="RigidBody3D" parent="." groups=["rigid_body"]]
 transform = Transform3D(-0.0803789, 0.0181659, 0.996599, -0.000660325, 0.999833, -0.0182781, -0.996764, -0.00212725, -0.0803535, -0.283322, 1.81914, 0.804934)
@@ -243,9 +219,6 @@ material_override = ExtResource("2_i3tvv")
 mesh = ExtResource("8_hn1ol")
 skeleton = NodePath("../..")
 script = ExtResource("4_dhtpl")
-enable_rot = true
-global = true
-of_parent = true
 
 [node name="RigidBody3D10" type="RigidBody3D" parent="." groups=["rigid_body"]]
 transform = Transform3D(-0.999893, 0, 0.0146602, 0, 1, 0, -0.0146602, 0, -0.999893, -0.00274289, 2.22531, 0.02)
@@ -264,9 +237,6 @@ material_override = ExtResource("2_i3tvv")
 mesh = ExtResource("9_euvm6")
 skeleton = NodePath("../..")
 script = ExtResource("4_dhtpl")
-enable_rot = true
-global = true
-of_parent = true
 
 [node name="freeze_timer" type="Timer" parent="."]
 wait_time = 5.0

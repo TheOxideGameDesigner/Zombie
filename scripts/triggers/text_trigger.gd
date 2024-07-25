@@ -7,22 +7,22 @@ const DECAY = 2
 
 @export_multiline var text : String = ""
 @export var time_on_screen : float = 5
-@export var size = 1.0
-@export var delay = 0.0
+@export var size : float = 1.0
+@export var delay : float = 0.0
 @export var low_priority : bool = 0
 
-@export var col = Color(1, 1, 1, 0.8)
+@export var col : Color = Color(1, 1, 1, 0.8)
 
 
-var timer = 0
-var delay_timer = 0.0
-var inside = 0
-var entered = 0
-var just_entered = 0
+var timer : float = 0
+var delay_timer : float = 0.0
+var inside : bool = 0
+var entered : bool = 0
+var just_entered : bool = 0
 
 var target_objs = []
 
-func update_text():
+func update_text() -> void:
 	label.text = text
 	var format_dict = {}
 	for i in InputMap.get_actions():
@@ -40,13 +40,13 @@ func update_text():
 	label.scale = Vector2.ONE * size
 	label.modulate = col
 
-func _ready():
+func _ready() -> void:
 	update_text()
 
 
-func _process(delta):
+func _process(delta : float) -> void:
 	if inside and not entered:
-		var ok = 1
+		var ok : bool = 1
 		if low_priority:
 			for n in get_tree().get_nodes_in_group("text_trigger"):
 				if n.label.visible and n != self:

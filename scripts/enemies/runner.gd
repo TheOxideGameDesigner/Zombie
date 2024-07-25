@@ -1,48 +1,46 @@
 extends CharacterBody3D
 
 @export var HP : int = 100
-@export var death_msg = "You were killed by a runner"
-var SPEED = 8
-const WALK_SPEED = 1
-const JUMP_SPEED = 4
-const CLIMB_SPEED = 2
-const WALK_FREQ = 1
-const MAX_TURN_SPEED = 5 * PI
+@export var death_msg : String = "You were killed by a runner"
+var SPEED : float = 8
+const WALK_SPEED : float = 1
+const JUMP_SPEED : float = 4
+const CLIMB_SPEED : float = 2
+const WALK_FREQ : float = 1
+const MAX_TURN_SPEED : float = 5 * PI
 
-const PUSH_FORCE = 2.5
+const GR_ACCEL : float = 9.8
+@export var RADIUS : float = 0.5
 
-const GR_ACCEL = 9.8
-@export var RADIUS = 0.5
-
-const VIS_RANGE = 25
-const GRAVE_DEPTH = 4
-const RISE_TIME = 3.7664
-const RISE_HEIGHT = 0.25
-const RISE_FLICKER = 0.25
+const VIS_RANGE : float = 25
+const GRAVE_DEPTH : float = 4
+const RISE_TIME : float = 3.7664
+const RISE_HEIGHT : float = 0.25
+const RISE_FLICKER : float= 0.25
 const HIT_RANGE : float = 3
 const HIT_TIME : float = 1
 const HIT_DAMAGE : int = 25
 @export var REVOLVER_HEAL : int = 5
 const ATTENTION_SPAN : float = 10
 
-const ACTIVE_RADIUS = 64
-const TARGET_RADIUS = 0.5
-const PHANTOM_RADIUS = 7
+const ACTIVE_RADIUS : float = 64
+const TARGET_RADIUS : float = 0.5
+const PHANTOM_RADIUS : float = 7
 
 
-var rising = 0
+var rising : bool = 0
 var health : int
-var alive = 1
-var target_pos = Vector3.ZERO
-var sees_player = false
-var climbing = 0
-var prev_on_floor = 0
-var rising_timer = 0.0
-var hit_timer = HIT_TIME
-var attention_span_timer = 0
+var alive : bool = 1
+var target_pos : Vector3 = Vector3.ZERO
+var sees_player : bool = false
+var climbing : bool = 0
+var prev_on_floor : bool = 0
+var rising_timer : float= 0.0
+var hit_timer : float = HIT_TIME
+var attention_span_timer : float = 0
 
-var roaming_timer = 0.0
-var pain_col = 0.0
+var roaming_timer : float = 0.0
+var pain_col : float = 0.0
 
 var bumps : Array[Vector3] = []
 var bump_timers : Array[float] = []
@@ -68,31 +66,31 @@ var blood = preload("res://scenes/environment/blood_particles.tscn")
 @onready var visibility = $is_visible
 @onready var body = $mesh/mountainside_runner/Armature/Skeleton3D/runner_body
 
-@onready var dist_from_player = Vector2(player.position.x, player.position.z).distance_to(Vector2(position.x, position.z))
+@onready var dist_from_player : float = Vector2(player.position.x, player.position.z).distance_to(Vector2(position.x, position.z))
 
-@onready var rot = mesh.rotation.y
-var y_vel = 0.0
+@onready var rot : float = mesh.rotation.y
+var y_vel : float = 0.0
 
-@export var respawn_time = 10.0
-var spawn_ang = 0.0
-@export var sedated = false
-@export var is_phantom = false
-@export_range(0, 4) var min_dif = 0
-var rand_roam_off
+@export var respawn_time : float = 10.0
+var spawn_ang : float = 0.0
+@export var sedated : bool = false
+@export var is_phantom : bool = false
+@export_range(0, 4) var min_dif : int = 0
+var rand_roam_off : float
 
 var disable_particles : bool = false
 var disable_gibs : bool = false
 
 var add_vel = Vector3.ZERO
 
-var is_opengl
+var is_opengl : bool
 
 
-func is_asleep():
+func is_asleep() -> bool:
 	return not alerted.visible
 
 
-func _ready():
+func _ready() -> void:
 	visible = true
 	
 	is_opengl = ProjectSettings.get_setting("rendering/renderer/rendering_method") == "gl_compatibility"
@@ -109,7 +107,7 @@ func _ready():
 	disable_particles = config.get_value("video", "disable_particles", false)
 	disable_gibs = config.get_value("video", "disable_gibs", false)
 	
-	var diff = config.get_value("gameplay", "difficulty", 2)
+	var diff : int = config.get_value("gameplay", "difficulty", 2)
 	if diff < min_dif:
 		queue_free()
 	
@@ -119,14 +117,14 @@ func _ready():
 	
 	#determine at what height to put the enemy home
 	ray.target_position = Vector3(0, -10, 0)
-	var max_height = -1000000
+	var max_height : float = -1000000
 	const CHECKS = 4
 	for i in range(CHECKS):
-		var pos = Vector2.RIGHT.rotated(2 * PI * i / CHECKS) * RADIUS
+		var pos : Vector2 = Vector2.RIGHT.rotated(2 * PI * i / CHECKS) * RADIUS
 		ray.position = Vector3(pos.x, ray.position.y, pos.y)
 		ray.force_raycast_update()
 		if ray.is_colliding():
-			var col = ray.get_collision_point().y
+			var col : float = ray.get_collision_point().y
 			if col > max_height:
 				max_height = col
 	home.global_position.y = max_height
@@ -156,7 +154,7 @@ func _ready():
 	
 	body.set_surface_override_material(0, mesh_material)
 
-func add_particles(edmg):
+func add_particles(edmg : int) -> void:
 	if disable_particles:
 		return
 	var new_blood = blood.instantiate()
@@ -172,7 +170,7 @@ func add_particles(edmg):
 	new_blood.amount = clamp(edmg / 2, 5, 50)
 
 
-func add_gibs(dmg):
+func add_gibs(dmg : int) -> void:
 	if disable_gibs or get_tree().current_scene == null:
 		return
 	var new_gibs = gibs.instantiate()
@@ -185,7 +183,7 @@ func add_gibs(dmg):
 	get_tree().current_scene.add_child(new_gibs)
 
 
-func pain(dmg, noblood=false, heal_player = false):
+func pain(dmg : int, noblood : bool = false, heal_player : bool = false) -> void:
 	if rising or not alive or health <= 0 or (is_phantom and dist_from_player > PHANTOM_RADIUS):
 		return
 	
@@ -208,20 +206,19 @@ func pain(dmg, noblood=false, heal_player = false):
 	target_pos = player.position
 
 
-func update_healthbar():
+func update_healthbar() -> void:
 	health_label.text = str(max(0, health))
 
 
-
-func roaming_ang_func(t):
+func roaming_ang_func(t : float) -> float:
 	t = t * WALK_FREQ
 	return fposmod((2 * t + sin(2 * t)) / 2, 2 * PI)
 
-func rising_func(t):
+func rising_func(t : float) -> float:
 	return (1 - 1 / (10 * t + 1)) * 1.1
 
-var wall_check_angle = 0
-func roam_physics(delta):
+var wall_check_angle : float = 0
+func roam_physics(delta : float) -> void:
 	if not add_vel.is_zero_approx():
 		move_and_slide()
 		return
@@ -235,8 +232,8 @@ func roam_physics(delta):
 	ray.target_position = Vector3(0, -2, 0)
 	ray.force_raycast_update()
 	if ray.is_colliding():
-		var col = ray.get_collision_point().y
-		var norm = ray.get_collision_normal()
+		var col : float = ray.get_collision_point().y
+		var norm : Vector3 = ray.get_collision_normal()
 		if norm.angle_to(Vector3.UP) > PI / 4:
 			position += Vector3(norm.x, 0, norm.z).normalized() * delta * WALK_SPEED
 		else:
@@ -246,12 +243,12 @@ func roam_physics(delta):
 		position.y -= GR_ACCEL * delta
 
 
-func process_bumps(delta : float):
+func process_bumps(delta : float) -> void:
 	for i in range(bumps.size()):
 		position += bumps[i] * delta * 5
 		bump_timers[i] -= delta
 	
-	var i = 0
+	var i : int = 0
 	while i < bumps.size():
 		if bump_timers[i] > 0:
 			i += 1
@@ -260,18 +257,18 @@ func process_bumps(delta : float):
 			bump_timers.remove_at(i)
 
 
-func ai(delta):	
+func ai(delta : float) -> void:
 	if not alive:
 		return
 	
 	
-	var asleep = is_asleep()
+	var asleep : bool = is_asleep()
 	hitbox.disabled = not alive
 	
-	var dir2player = player.global_position - global_position
-	var dir2player2D = Vector2(dir2player.x, dir2player.z).normalized()
-	var player_dir = player.cam.transform.basis.z
-	var player_dir2D = Vector2(player_dir.x, player_dir.z).normalized()
+	var dir2player : Vector3 = player.global_position - global_position
+	var dir2player2D : Vector2 = Vector2(dir2player.x, dir2player.z).normalized()
+	var player_dir : Vector3 = player.cam.transform.basis.z
+	var player_dir2D : Vector2 = Vector2(player_dir.x, player_dir.z).normalized()
 	raycast_area.rotation.y = -atan2(dir2player2D.y, dir2player2D.x) + PI / 2
 	raycast_hitbox.disabled = rising or not alive or (is_phantom and dist_from_player > PHANTOM_RADIUS)
 	collision_area_hitbox.disabled = not alive
@@ -292,14 +289,14 @@ func ai(delta):
 		mesh_body.legs_playing = 1
 	
 	for area in collision_area.get_overlapping_areas():
-		var dir = Vector3(position.x, 0, position.z) - \
+		var dir : Vector3 = Vector3(position.x, 0, position.z) - \
 			  Vector3(area.global_position.x, 0, area.global_position.z)
 		for i in area.get_children():
 			if not i is CollisionShape3D:
 				continue
 			if not i.shape is CylinderShape3D:
 				continue
-			var displacement
+			var displacement : Vector3
 			if dir.dot(velocity) > 0:
 				displacement = (dir.normalized() * (RADIUS + i.shape.radius - dir.length())).project(velocity.rotated(Vector3.UP, PI / 2))
 			else:
@@ -341,7 +338,7 @@ func ai(delta):
 		alerted.visible = 0
 	#end of zombie logic
 	
-	var on_screen
+	var on_screen : bool
 	if is_opengl:
 		on_screen = dir2player2D.dot(player_dir2D) > 0
 	else:
@@ -356,7 +353,7 @@ func ai(delta):
 			prev_on_floor = 0
 			
 			roaming_timer += delta
-			rot = roaming_ang_func(roaming_timer * WALK_FREQ) + rand_roam_off
+			mesh.rotation.y = roaming_ang_func(roaming_timer * WALK_FREQ) + rand_roam_off
 			velocity = WALK_SPEED * Vector3.MODEL_FRONT.rotated(Vector3.UP, mesh.rotation.y)
 			roam_physics(delta)
 	else:
@@ -365,7 +362,7 @@ func ai(delta):
 			position.y - player.position.y > 1.5 and position.y - player.position.y < 2.3:
 				pain(9001)
 		
-		var nextpos = player.position - position
+		var nextpos : Vector3 = player.position - position
 		
 		if sees_player and dist_from_player <= HIT_RANGE and alive and not rising \
 		   and player.position.y - position.y > -2.1 and player.position.y - position.y < 1.5:
@@ -383,7 +380,7 @@ func ai(delta):
 		rot = -atan2(nextpos.z, nextpos.x) + PI / 2
 		rot = fposmod(rot, 2 * PI)
 		mesh.rotation.y = fposmod(mesh.rotation.y, 2 * PI)
-		var dif = fposmod(rot - mesh.rotation.y, 2 * PI)
+		var dif : float = fposmod(rot - mesh.rotation.y, 2 * PI)
 		if dif < MAX_TURN_SPEED * delta or 2 * PI - dif < MAX_TURN_SPEED * delta:
 			mesh.rotation.y = rot
 		else:
@@ -391,7 +388,7 @@ func ai(delta):
 				mesh.rotation.y += MAX_TURN_SPEED * delta
 			else:
 				mesh.rotation.y -= MAX_TURN_SPEED * delta
-		var vel_dir = Vector3.MODEL_FRONT.rotated(Vector3.UP, mesh.rotation.y)
+		var vel_dir : Vector3 = Vector3.MODEL_FRONT.rotated(Vector3.UP, mesh.rotation.y)
 		velocity = SPEED * clamp(dist_from_player, 0, 1) * vel_dir
 		
 		if climbing:
@@ -410,7 +407,7 @@ func ai(delta):
 				var col : KinematicCollision3D = get_slide_collision(i)
 				if col.get_collider() == player:
 					continue
-				var normal = col.get_normal()
+				var normal : Vector3 = col.get_normal()
 				normal.y = 0
 				normal = normal.normalized()
 				if col.get_angle() > PI / 4:
@@ -433,7 +430,7 @@ func ai(delta):
 	#end of zombie movement
 
 
-func _process(delta):
+func _process(delta : float) -> void:
 	dist_from_player = Vector2(player.position.x, player.position.z).distance_to(Vector2(position.x, position.z))
 	if dist_from_player > ACTIVE_RADIUS:
 		mesh_body.process_mode = Node.PROCESS_MODE_DISABLED
@@ -464,14 +461,14 @@ func _process(delta):
 	if pain_col > 0.0 or dist_from_player < player.SHOTGUN_PB_RANGE:
 		pain_col = max(0, pain_col - delta * 2)
 		const FADE_RANGE = 1
-		var pb_col = clamp(lerp(0.0, 1.0, (player.SHOTGUN_PB_RANGE - dist_from_player) / FADE_RANGE) ,0.0, 1.0)
-		var col = max(pain_col, pb_col) * 0.5
+		var pb_col : float = clamp(lerp(0.0, 1.0, (player.SHOTGUN_PB_RANGE - dist_from_player) / FADE_RANGE) ,0.0, 1.0)
+		var col : float = max(pain_col, pb_col) * 0.5
 		body.set_instance_shader_parameter("pain", col)
 	if is_phantom and dist_from_player < PHANTOM_RADIUS:
-		const T = 0.75
-		const OPAC_MIN = 0.3
-		const OPAC_MAX = 0.9
-		var opac = clamp(OPAC_MIN + (dist_from_player - PHANTOM_RADIUS) * (OPAC_MIN - OPAC_MAX) / T, OPAC_MIN, OPAC_MAX)
+		const T : float = 0.75
+		const OPAC_MIN : float = 0.3
+		const OPAC_MAX : float = 0.9
+		var opac : float = clamp(OPAC_MIN + (dist_from_player - PHANTOM_RADIUS) * (OPAC_MIN - OPAC_MAX) / T, OPAC_MIN, OPAC_MAX)
 		if is_opengl:
 			mesh_material.albedo_color.a = opac
 		else:
@@ -491,7 +488,7 @@ func _process(delta):
 		else:
 			mesh_body.bob_amplitude = 0.0
 
-func _on_respawn_timeout():
+func _on_respawn_timeout() -> void:
 	health = HP
 	update_healthbar()
 	alive = 1

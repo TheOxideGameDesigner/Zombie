@@ -2,96 +2,94 @@ extends CharacterBody3D
 
 @export var spectator : bool = 0
 
-var sens = 5
+var sens : float = 5
 var fov_min : float = 90
 var fov_max : float = 110
 var fov_max_spd : float = 2
-const SENS_CONSTANT = 0.022
-const SPEED = 10
-const RADIUS = 0.45
-const ACCEL = 90
-const TURN_CONTROL = 95
-const AIR_TURN_CONTROL = 30
-const BRAKE_FACTOR = 1.5
-const AIR_BRAKE_FACTOR = 3
-const FRICTION = 46
-const AIR_FRICTION = 12
-const BOOST_LOSS = 8
-const AIR_BOOST_LOSS = 6
-const AIR_ACCEL = 17
-const JUMP_SPEED = 4
-const GR_ACCEL = 9.8
-const TERMINAL_VEL = 30
-const MAX_STEP_HEIGHT = 0.3
+const SENS_CONSTANT : float = 0.022
+const SPEED : float = 10
+const RADIUS : float = 0.45
+const ACCEL : float = 90
+const TURN_CONTROL : float = 95
+const AIR_TURN_CONTROL : float = 30
+const BRAKE_FACTOR : float = 1.5
+const AIR_BRAKE_FACTOR : float = 3
+const FRICTION : float = 46
+const AIR_FRICTION : float = 12
+const BOOST_LOSS : float = 8
+const AIR_BOOST_LOSS : float = 6
+const AIR_ACCEL : float = 17
+const JUMP_SPEED : float = 4
+const GR_ACCEL : float = 9.8
+const TERMINAL_VEL : float = 30
+const MAX_STEP_HEIGHT : float = 0.3
 
-const SWAY = 0.0015
-const SWAY_MAX = 3
-const SWAY_VERICAL = 0.7
-const SWAY_RETURN = 6
+const SWAY : float = 0.0015
+const SWAY_MAX : float = 3
+const SWAY_VERICAL : float = 0.7
+const SWAY_RETURN : float = 6
+ 
+const REVOLVER_RANGE : float = 42
+const REVOLVER_DAMAGE : int = 23
+const REVOLVER_COOLDOWN : float = 0.5235
+const REVOLVER_COOLDOWN_VARIATION : float = 0.2
+const REVOLVER_MAX_HEAT : float = 10
+const REVOLVER_HEAT_REGEN_TIME : float = 3
+const SHOTGUN_DAMAGE : int = 100
+const SHOTGUN_PB_RANGE : float = 4
+const SHOTGUN_RANGE : float = 12
+const SHOTGUN_FORCE_MIN : float = 6.0
+const SHOTGUN_FORCE_MAX : float = 9.0
+const SHOTGUN_FALLOFF : float = 0.25
+const SHOTGUN_COOLDOWN : float = 2.1
+const SHOTGUN_COOLDOWN_VARIATION : float = 0.6
+const SHOTGUN_MAX_HEAT : float = 4
+const SHOTGUN_HEAT_REGEN_TIME : float = 10
+const CANNONBOMB_FORCE : float = 15
+const CANNONBALL_CHARGE_TIME : float = 3
+const CANNONBOMB_CHARGE_TIME : float = 6
+const BLASTER_DAMAGE : int = 20
+const BLASTER_SELF_DAMAGE_LOW : int = 1
+const BLASTER_SELF_DAMAGE_HIGH : int = 2
+const BLASTER_FORCE : float = 1.2
+const BLASTER_COOLDOWN : float = 0.15
+const BLASTER_COOLDOWN_SHORT : float = 0.075
+const BLASTER_RANGE : float = 42
+const DEATH_FADE_TIME : float = 1.0
+const COYOTE_TIME : float = 0.2
+const WPN_DRAW_TIME : float = 0.5
+var wpn_draw_timer : float = 0.0
+var bobbing : bool = false
 
-const REVOLVER_RANGE = 42
-const REVOLVER_DAMAGE = 23
-const REVOLVER_COOLDOWN = 0.5235
-const REVOLVER_COOLDOWN_VARIATION = 0.2
-const REVOLVER_MAX_HEAT = 10
-const REVOLVER_HEAT_REGEN_TIME = 3
-const SHOTGUN_DAMAGE = 100
-const SHOTGUN_PB_RANGE = 4
-const SHOTGUN_RANGE = 12
-const SHOTGUN_FORCE_MIN = 6.0
-const SHOTGUN_FORCE_MAX = 9.0
-const SHOTGUN_FALLOFF = 0.25
-const SHOTGUN_COOLDOWN = 2.1
-const SHOTGUN_COOLDOWN_VARIATION = 0.6
-const SHOTGUN_MAX_HEAT = 4
-const SHOTGUN_HEAT_REGEN_TIME = 10
-const CANNONBOMB_FORCE = 15
-const CANNONBALL_CHARGE_TIME = 3
-const CANNONBOMB_CHARGE_TIME = 6
-const BLASTER_DAMAGE = 20
-const BLASTER_SELF_DAMAGE_LOW = 1
-const BLASTER_SELF_DAMAGE_HIGH = 2
-const BLASTER_FORCE = 1.2
-const BLASTER_COOLDOWN = 0.15
-const BLASTER_COOLDOWN_SHORT = 0.075
-const BLASTER_RANGE = 42
-const DEATH_FADE_TIME = 1.0
-const COYOTE_TIME = 0.2
-const WPN_DRAW_TIME = 0.5
-var wpn_draw_timer = 0.0
-var bobbing = false
+var damage_mul : float = 1.0
+var speed_mul : float = 1.0
 
-var damage_mul = 1.0
-var speed_mul = 1.0
+var can_jump : bool = 1
 
-const MIN_HIT_DOT_PROD = 0.2
+var cooldown_timers : Array[float] = [0, 0, 0, 0]
+var mf_lifespans : Array[float] = [0.2, 0.2, 0, 0, 0]
 
-var can_jump = 1
-
-var cooldown_timers = [0, 0, 0, 0]
-var mf_lifespans = [0.2, 0.2, 0, 0, 0]
-
-var can_float = 1
+var can_float : bool = 1
 
 var wpn : int = 1
-var prev_wpn = 2
-var revolver_heat = 0.0
-var shotgun_heat = 0.0
+var prev_wpn : int = 2
+var revolver_heat : float = 0.0
+var shotgun_heat : float = 0.0
 
 var god_mode : bool = false
 var max_health : int = 100
 var health : int = max_health
 var coyote_timer : float = COYOTE_TIME
-var time = 0.0
+var time : float = 0.0
 
 @onready var healthbar = $healthbar/health
-@onready var healthbar_width = healthbar.size.x
+@onready var healthbar_width : float = healthbar.size.x
 @onready var health_icon = $healthbar/health_icon_fill
 @onready var health_text = $healthbar/health_text
 @onready var death_message = $death_screen/death_message
 @onready var blood = $blood
 @onready var fps_label = $fps_label
-var is_opengl = ProjectSettings.get_setting("rendering/renderer/rendering_method") == "gl_compatibility"
+var is_opengl : bool = ProjectSettings.get_setting("rendering/renderer/rendering_method") == "gl_compatibility"
 
 @onready var eye_of_anubis = $eye_of_anubis
 @onready var disciple_eyes = $disciple_eyes
@@ -117,7 +115,7 @@ const particles_scene = preload("res://scenes/environment/blood_particles.tscn")
 @onready var shotgun_mf = $cam/camera/vp_cont/vp/gun_cam/viewmodel/shotgun_viewmodel/shotgun_mf
 @onready var color_overlay = $color_overlay
 
-@onready var viewmodel_pos = Vector3.ZERO
+@onready var viewmodel_pos : Vector3 = Vector3.ZERO
 
 @onready var enemies = get_tree().get_nodes_in_group("enemy")
 
@@ -128,11 +126,11 @@ const particles_scene = preload("res://scenes/environment/blood_particles.tscn")
 @export var init_health : int = -1
 
 
-var revolver_mf_timer = 0
-var shotgun_mf_timer = 0
-var time_after_death = 0
-var has_garlic = 0
-const KEYS_MAX = 32
+var revolver_mf_timer : float = 0
+var shotgun_mf_timer : float = 0
+var time_after_death : float = 0
+var has_garlic : bool = 0
+const KEYS_MAX : int = 32
 var collected_keys : Array[bool] = []
 var number_of_keys : int = 0
 
@@ -140,33 +138,33 @@ var config : ConfigFile = ConfigFile.new()
 var disable_particles : bool = false
 
 #anim stuff
-var revolver_anim_timer = 0.0
+var revolver_anim_timer : float = 0.0
 @onready var revolver_cylinder = $cam/camera/vp_cont/vp/gun_cam/viewmodel/revolver_viewmodel/revolver_cylinder
-var shotgun_anim_timer = 0.0
+var shotgun_anim_timer : float = 0.0
 @onready var left_hand = $cam/camera/vp_cont/vp/gun_cam/viewmodel/shotgun_viewmodel/left_hand
-var viewmodel_offset = 0.0
-var viewmodel_offset_sign = 1
-var viewmodel_y_bump = 0.0
-var viewmodel_y_bump_lerped = 0.0
+var viewmodel_offset : float = 0.0
+var viewmodel_offset_sign : float = 1
+var viewmodel_y_bump : float = 0.0
+var viewmodel_y_bump_lerped : float = 0.0
 
 
 var damage_taken : int = 0
 
 @onready var charge_rect = $charge/charge_rect
-var charge_rect_time = 5
+var charge_rect_time : float = 5
 
 
-func get_garlic():
+func get_garlic() -> void:
 	has_garlic = 1
 	$garlic.visible = 1
 
 
-func knockback(dir):
+func knockback(dir : Vector3) -> void:
 	if health > 0:
 		velocity += dir
 
 
-func pain(msg : String, dmg, is_self_dmg = 0, no_tilt = 0, no_blood = 0):
+func pain(msg : String, dmg : int, is_self_dmg : bool = 0, no_tilt : bool = 0, no_blood : bool = 0):
 	if health <= 0:
 		return
 	if not is_self_dmg:
@@ -181,7 +179,7 @@ func pain(msg : String, dmg, is_self_dmg = 0, no_tilt = 0, no_blood = 0):
 			death_message.text = msg
 
 
-func add_key(col):
+func add_key(col : Color) -> void:
 	var sprite : Sprite2D = Sprite2D.new()
 	sprite.texture = key_texture
 	sprite.scale = Vector2.ONE * 2
@@ -192,7 +190,7 @@ func add_key(col):
 	number_of_keys += 1
 
 
-func update_wpn():
+func update_wpn() -> void:
 	revolver_viewmodel.visible = 0
 	shotgun_viewmodel.visible = 0
 	cannon_viewmodel.visible = 0
@@ -208,13 +206,13 @@ func update_wpn():
 			blaster_viewmodel.visible = 1
 
 
-func hurt(collider):
+func hurt(collider : PhysicsBody3D) -> void:
 	match wpn:
 		1:
 			collider.pain(REVOLVER_DAMAGE * damage_mul, false, true)
 		2:
-			var dmg
-			var dist = Vector2(position.x, position.z).distance_to(Vector2(collider.position.x, collider.position.z))
+			var dmg : int
+			var dist : float = Vector2(position.x, position.z).distance_to(Vector2(collider.position.x, collider.position.z))
 			if dist < SHOTGUN_PB_RANGE:
 				dmg = SHOTGUN_DAMAGE
 			else:
@@ -226,7 +224,7 @@ func hurt(collider):
 			collider.pain(BLASTER_DAMAGE * damage_mul)
 
 
-func find_collider(dist, pb_range = 0.0):
+func find_collider(dist : float, pb_range : float = 0.0) -> PhysicsBody3D:
 	#raycast.target_position = Vector3(0, 0, -dist)
 	#raycast.force_raycast_update()
 	#var collider = raycast.get_collider()
@@ -258,9 +256,9 @@ func find_collider(dist, pb_range = 0.0):
 		#print("hit enemy " + str(collider))
 		dist_left -= raycast.global_position.distance_to(raycast.get_collision_point()) + 0.1
 		raycast.global_position = raycast.get_collision_point() + forward * 0.1
-		var dir = collider.position - position
-		var dir2d = Vector2(dir.x, dir.z)
-		var m = collider.RADIUS * 0.7 / dir2d.length()
+		var dir : Vector3 = collider.position - position
+		var dir2d : Vector2 = Vector2(dir.x, dir.z)
+		var m : float = collider.RADIUS * 0.7 / dir2d.length()
 		if dir2d.length() < pb_range:
 			requires_pb_range = true
 		elif requires_pb_range:
@@ -277,17 +275,17 @@ func find_collider(dist, pb_range = 0.0):
 		return null
 	else:
 		#print(colliders)
-		var max_dot = -2
+		var max_dot : float = -2
 		var max_c
 		for c in colliders:
-			var dir = c.position - position
-			var dot = Vector2(dir.x, dir.z).normalized().dot(Vector2(forward.x, forward.z).normalized())
+			var dir : Vector3 = c.position - position
+			var dot : float = Vector2(dir.x, dir.z).normalized().dot(Vector2(forward.x, forward.z).normalized())
 			if dot > max_dot:
 				max_dot = dot
 				max_c = c
 		return max_c
 
-func shoot():
+func shoot() -> void:
 	match wpn:
 		1:
 			camera.add_tilt(0.5, Vector3(1, 0, 0), 1)
@@ -327,9 +325,9 @@ func shoot():
 				if collider.is_in_group("enemy"):
 					hurt(collider)
 					if not collider.rising:
-						var dist = Vector2(position.x, position.z).distance_to(Vector2(collider.position.x, collider.position.z))
+						var dist : float = Vector2(position.x, position.z).distance_to(Vector2(collider.position.x, collider.position.z))
 						if dist < SHOTGUN_PB_RANGE:
-							var dir = cam.transform.basis.z
+							var dir : Vector3 = cam.transform.basis.z
 							knockback(Vector3(dir.x, 0.0, dir.z).normalized() * lerp(SHOTGUN_FORCE_MAX, SHOTGUN_FORCE_MIN, shotgun_heat) + Vector3(0, 2, 0))
 							camera.shake(0.4, 0.75, 0.025)
 				else:
@@ -344,7 +342,7 @@ func shoot():
 						new_particles.top_level = 1
 			
 			shotgun_heat = min(1.0, shotgun_heat + 1.0 / SHOTGUN_MAX_HEAT)
-			var cooldown_var = lerp(-SHOTGUN_COOLDOWN_VARIATION, SHOTGUN_COOLDOWN_VARIATION, shotgun_heat)
+			var cooldown_var : float = lerp(-SHOTGUN_COOLDOWN_VARIATION, SHOTGUN_COOLDOWN_VARIATION, shotgun_heat)
 			cooldown_timers[1] = SHOTGUN_COOLDOWN + cooldown_var
 			shotgun_mf_timer = mf_lifespans[1]
 			shotgun_anim_timer = SHOTGUN_COOLDOWN + cooldown_var
@@ -352,8 +350,8 @@ func shoot():
 			const BULLETS = 6
 			const SPREAD_RADIUS = 0.035
 			for i in range(BULLETS):
-				var ang = 2 * PI * i / BULLETS
-				var dir_off = Vector3(cos(ang), sin(ang), 0) * SPREAD_RADIUS
+				var ang : float = 2 * PI * i / BULLETS
+				var dir_off : Vector3 = Vector3(cos(ang), sin(ang), 0) * SPREAD_RADIUS
 				var bullet = bullet_scene.instantiate()
 				bullet.position = Vector3(0.645, -0.23, -1.111) + viewmodel_pos
 				bullet.rotation.y = 0.1 + dir_off.y
@@ -369,7 +367,7 @@ func shoot():
 			new_ball.dir = -cam.transform.basis.z 
 			raycast.target_position = Vector3(0, 0, -1)
 			raycast.force_raycast_update()
-			var cannonball_pos
+			var cannonball_pos : Vector3
 			if raycast.is_colliding():
 				cannonball_pos = cam.to_local(raycast.get_collision_point()) + Vector3(0, 0, 0.375)
 			else:
@@ -406,7 +404,7 @@ func shoot():
 			gun_cam.add_child(bullet)
 
 
-func shoot_alt():
+func shoot_alt() -> void:
 	if wpn == 3:
 		camera.add_tilt(3, Vector3(1, 0, 0), 4)
 		cooldown_timers[2] = CANNONBOMB_CHARGE_TIME
@@ -414,7 +412,7 @@ func shoot_alt():
 		var new_bomb = cannonbomb_scene.instantiate()
 		raycast.target_position = Vector3(0, 0, -1)
 		raycast.force_raycast_update()
-		var cannonbomb_pos
+		var cannonbomb_pos : Vector3
 		if raycast.is_colliding():
 			cannonbomb_pos = cam.to_local(raycast.get_collision_point()) + Vector3(0, 0, 0.3)
 		else:
@@ -457,7 +455,7 @@ func shoot_alt():
 		gun_cam.add_child(bullet)
 
 
-func movement(wishdir, delta):
+func movement(wishdir : Vector2, delta : float) -> void:
 	for i in range(get_slide_collision_count()):
 		var col = get_slide_collision(i)
 		var collider = col.get_collider()
@@ -477,7 +475,7 @@ func movement(wishdir, delta):
 			position.y += SPEED * delta
 		return
 	
-	var incr
+	var incr : float
 	if can_jump:
 		if is_on_floor():
 			if Input.is_action_pressed("g_jump"):
@@ -498,17 +496,17 @@ func movement(wishdir, delta):
 		coyote_timer = COYOTE_TIME
 	else:
 		coyote_timer = max(0.0, coyote_timer - delta)
-	var moving_on_floor = is_on_floor() and (not can_jump or not Input.is_action_pressed("g_jump"))
+	var moving_on_floor : bool = is_on_floor() and (not can_jump or not Input.is_action_pressed("g_jump"))
 	
 	if Vector2(velocity.x, velocity.z).length() > SPEED * speed_mul:
-		var boost_loss
+		var boost_loss : float
 		if moving_on_floor:
 			boost_loss = BOOST_LOSS
 		else:
 			boost_loss = AIR_BOOST_LOSS
 		velocity -= Vector3(velocity.x, 0, velocity.z).normalized() * boost_loss * delta
 	
-	var friction
+	var friction : float
 	if moving_on_floor:
 		friction = FRICTION * speed_mul
 		incr = ACCEL * delta * speed_mul
@@ -522,12 +520,12 @@ func movement(wishdir, delta):
 		else:
 			velocity = Vector3(0, velocity.y, 0)
 	
-	var vel2d = Vector2(velocity.x, velocity.z)
+	var vel2d : Vector2 = Vector2(velocity.x, velocity.z)
 	if vel2d.length() == 0:
 		vel2d += wishdir * incr
 	else:
-		var wdt = wishdir.project(vel2d)
-		var wdn = wishdir.project(Vector2(-vel2d.y, vel2d.x))
+		var wdt : Vector2 = wishdir.project(vel2d)
+		var wdn : Vector2 = wishdir.project(Vector2(-vel2d.y, vel2d.x))
 		if wdt.x * vel2d.x > 0 or wdt.y * vel2d.y > 0:
 			if vel2d.length() <= SPEED * speed_mul - wdt.length() * incr:
 				vel2d += wdt * incr
@@ -535,7 +533,7 @@ func movement(wishdir, delta):
 				vel2d = vel2d.normalized() * SPEED * speed_mul
 		else:
 			if vel2d.length() >= wdt.length() * incr:
-				var brake_factor
+				var brake_factor : float
 				if is_on_floor():
 					brake_factor = BRAKE_FACTOR
 				else:
@@ -543,7 +541,7 @@ func movement(wishdir, delta):
 				vel2d += wdt * incr * brake_factor
 			else:
 				vel2d = Vector2.ZERO
-		var turn_control
+		var turn_control : float
 		if is_on_floor():
 			turn_control = TURN_CONTROL * speed_mul
 		else:
@@ -552,7 +550,7 @@ func movement(wishdir, delta):
 	
 	velocity = Vector3(vel2d.x, velocity.y, vel2d.y)
 	
-	var prev_vel = velocity
+	var prev_vel : Vector3 = velocity
 	move_and_slide()
 	
 	#now check to see if the player can climb up a step
@@ -571,7 +569,7 @@ func movement(wishdir, delta):
 			return
 
 
-func _ready():
+func _ready() -> void:
 	if environment != null:
 		camera.environment = environment
 	
@@ -629,14 +627,14 @@ func _ready():
 		blaster_viewmodel.material_override = preload("res://resources/materials/level_mat.tres").duplicate()
 
 
-func _unhandled_input(event):
+func _unhandled_input(event) -> void:
 	if event is InputEventMouseMotion:
 		var r = event.relative * sens * SENS_CONSTANT
 		viewmodel_pos += Vector3(clamp(-r.x, -SWAY_MAX, SWAY_MAX) * SWAY, clamp(r.y, -SWAY_MAX, SWAY_MAX) * SWAY * SWAY_VERICAL, 0);
 		cam.rotation_degrees.x = clamp(cam.rotation_degrees.x - r.y, -90, 90)
 		cam.rotation_degrees.y = cam.rotation_degrees.y - r.x
 	elif event.is_action_pressed("g_switch"):
-		var aux = prev_wpn
+		var aux : int = prev_wpn
 		prev_wpn = wpn
 		wpn = aux
 		wpn_draw_timer = WPN_DRAW_TIME
@@ -677,11 +675,7 @@ func _unhandled_input(event):
 		update_wpn()
 
 
-func _process(delta):
-	if Input.is_action_pressed("g_respawn"):
-		cam.rotation.y += delta * PI
-	
-	
+func _process(delta : float) -> void:
 	if is_opengl:
 		revolver_viewmodel.material_override.albedo_color = Color(1, 1 - revolver_heat * 0.2, 1 - revolver_heat * 0.2)
 		shotgun_viewmodel.material_override.albedo_color = Color(1, 1 - shotgun_heat * 0.4, 1 - shotgun_heat * 0.4)
@@ -692,10 +686,10 @@ func _process(delta):
 	revolver_anim_timer = max(0, revolver_anim_timer - delta)
 	revolver_cylinder.rotation.z = revolver_anim_timer * PI / (4 * REVOLVER_COOLDOWN)
 	shotgun_anim_timer = max(0, shotgun_anim_timer - delta)
-	var shotgun_anim_frac = 1 - shotgun_anim_timer / SHOTGUN_COOLDOWN
-	const ANIM_PARAM1 = 0.2
-	const ANIM_PARAM2 = 0.4
-	const ANIM_PARAM3 = -0.8
+	var shotgun_anim_frac : float = 1 - shotgun_anim_timer / SHOTGUN_COOLDOWN
+	const ANIM_PARAM1 : float = 0.2
+	const ANIM_PARAM2 : float = 0.4
+	const ANIM_PARAM3 : float = -0.8
 	if shotgun_anim_frac > ANIM_PARAM1:
 		if shotgun_anim_frac < ANIM_PARAM1 + ANIM_PARAM2:
 			left_hand.position.z = (shotgun_anim_frac - ANIM_PARAM1) * ANIM_PARAM3 / ANIM_PARAM2
@@ -791,7 +785,3 @@ func _process(delta):
 		shotgun_heat = max(0, shotgun_heat - delta / SHOTGUN_HEAT_REGEN_TIME)
 	
 	time += delta
-
-
-func viewmodel_rot_func(t, dt, g):
-	return (dt - t) * g * t / 2

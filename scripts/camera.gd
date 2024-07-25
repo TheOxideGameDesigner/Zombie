@@ -1,18 +1,18 @@
 extends Camera3D
 
-const FALLOFF_EXP = 2
+const FALLOFF_EXP : float = 2
 
 var time : float = 0.5
 var amplitude : float = 0.65
 var wavelength : float = 0.025
-const ANGLES = [0, 150, 330, 210, 30, 180]
-const NR_ANGLES = 6
-var i = 0
-var timer = -1.0
-var change_timer = 0.0
+const ANGLES : Array[float] = [0, 150, 330, 210, 30, 180]
+const NR_ANGLES : int = 6
+var i : int = 0
+var timer : float = -1.0
+var change_timer : float = 0.0
 var first_ang : bool = 1
 
-var disable_shake = 0
+var disable_shake : bool = 0
 
 class Tilt:
 	var tilt_time : float
@@ -26,7 +26,7 @@ class Tilt:
 		tilt_axis = axis
 var tilts : Array[Tilt] = []
 
-func shake(atime : float, aamplitude : float, awavelength : float):
+func shake(atime : float, aamplitude : float, awavelength : float) -> void:
 	time = atime
 	amplitude = aamplitude
 	wavelength = awavelength
@@ -34,20 +34,20 @@ func shake(atime : float, aamplitude : float, awavelength : float):
 	first_ang = 1
 
 
-func tilt_func(x):
+func tilt_func(x : float) -> float:
 	if x < 0.125:
 		return 8 * x
 	return -0.68 + 1 / (x + 0.47)
  
 
-func add_tilt(ang : float, axis : Vector3, speed : float):
+func add_tilt(ang : float, axis : Vector3, speed : float) -> void:
 	var tilt : Tilt = Tilt.new(ang, axis, speed)
 	tilts.push_back(tilt)
 
-func _process(delta):
+func _process(delta : float) -> void:
 	if disable_shake:
 		return
-	var j = 0
+	var j : int = 0
 	while j < tilts.size():
 		var tilt : Tilt = tilts[j]
 		if tilt.tilt_timer <= 0.0:
@@ -58,7 +58,7 @@ func _process(delta):
 	
 	rotation = Vector3.ZERO
 	for t in tilts:
-		var ang = tilt_func(1 - t.tilt_timer / t.tilt_time) * t.max_ang
+		var ang : float = tilt_func(1 - t.tilt_timer / t.tilt_time) * t.max_ang
 		rotation += t.tilt_axis * ang
 	rotation.x = clamp(rotation.x, -PI/4, PI/4)
 	rotation.y = clamp(rotation.y, -PI/4, PI/4)
@@ -72,15 +72,15 @@ func _process(delta):
 			i = (i + 1) % NR_ANGLES
 			change_timer = 0.0
 			first_ang = 0
-		var frac_amplitude = pow((timer / time) * amplitude, FALLOFF_EXP)
+		var frac_amplitude : float = pow((timer / time) * amplitude, FALLOFF_EXP)
 		
-		var prev_pos_x = 0.0
-		var prev_pos_y = 0.0
+		var prev_pos_x : float = 0.0
+		var prev_pos_y : float = 0.0
 		if not first_ang:
-			var prev_ang = deg_to_rad(ANGLES[posmod(i - 1, NR_ANGLES)])
+			var prev_ang : float= deg_to_rad(ANGLES[posmod(i - 1, NR_ANGLES)])
 			prev_pos_x = cos(prev_ang) * frac_amplitude
 			prev_pos_y = sin(prev_ang) * frac_amplitude
-		var lerp_frac = change_timer / wavelength
+		var lerp_frac : float = change_timer / wavelength
 		position.x = lerp(prev_pos_x, cos(deg_to_rad(ANGLES[i])) * frac_amplitude, lerp_frac)
 		position.y = lerp(prev_pos_y, sin(deg_to_rad(ANGLES[i])) * frac_amplitude, lerp_frac)
 		timer -= delta

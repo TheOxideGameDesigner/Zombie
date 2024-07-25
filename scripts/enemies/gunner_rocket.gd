@@ -1,32 +1,31 @@
 extends Area3D
 
 
-var SPEED = 30.0
-const V_HOMING_FORCE = 50
-const DAMAGE = 30
+var SPEED : float = 30.0
+const DAMAGE : int = 30
 
-const EXPLOSION_TIME = 1
-const EXPLOSION_RADIUS = 6
+const EXPLOSION_TIME : float = 1
+const EXPLOSION_RADIUS : float = 6
 
 @onready var player = get_tree().get_first_node_in_group("player")
-var death_message = "You were killed by a fireball"
-var vel = Vector3.ZERO
-var velv = 0
+var death_message : String = "You were killed by a fireball"
+var vel : Vector3 = Vector3.ZERO
+var velv : float = 0
 
-var timer = 0.0
+var timer : float = 0.0
 var exploded : bool = 0
 var hit_player : bool = 0
 
-var time_since_birth = 0
+var time_since_birth : float = 0
 
 @onready var sprite = $sprite
 @onready var explosion = $explosion
 
-func set_vel(new_vel):
+func set_vel(new_vel : Vector3) -> void:
 	vel = new_vel.normalized() * SPEED
 
 
-func _process(delta):
+func _process(delta : float) -> void:
 	if exploded and not hit_player:
 		if timer > EXPLOSION_TIME:
 			queue_free()
@@ -39,25 +38,25 @@ func _process(delta):
 	time_since_birth += delta
 
 
-func _physics_process(delta):
+func _physics_process(delta : float) -> void:
 	if exploded:
 		return
 	vel = vel.normalized()
 	global_position += vel * delta * SPEED
 
 
-func physics(body = null):
+func physics(body : PhysicsBody3D = null) -> void:
 	if body != null and body.is_in_group("physics"):
 		body.apply_central_impulse(5 * vel)
 	for obj in get_tree().get_nodes_in_group("physics"):
 		if obj == body:
 			continue
-		var dist = obj.global_position.distance_to(global_position)
+		var dist : float = obj.global_position.distance_to(global_position)
 		if dist < 7.5:
 			obj.apply_central_impulse(10 * (obj.global_position - global_position).normalized() / (1 + dist / 3))
 
 
-func _on_body_entered(body):
+func _on_body_entered(body : PhysicsBody3D) -> void:
 	if body == get_parent() or exploded:
 		return
 	exploded = 1
@@ -74,7 +73,7 @@ func _on_body_entered(body):
 
 
 
-func _on_death_timer_timeout():
+func _on_death_timer_timeout() -> void:
 	if exploded:
 		return
 	exploded = 1

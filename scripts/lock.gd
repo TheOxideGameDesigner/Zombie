@@ -10,11 +10,11 @@ extends MeshInstance3D
 @onready var dir = Vector3.MODEL_FRONT.rotated(Vector3.UP, global_rotation.y)
 
 
-func update_color():
+func update_color() -> void:
 	material_override.albedo_color = color
 
 
-func _ready():
+func _ready() -> void:
 	material_override = preload("res://resources/materials/lock_mat.tres").duplicate()
 	update_color()
 	$arrow.visible = 0
@@ -22,6 +22,6 @@ func _ready():
 		$collision.queue_free()
 
 
-func _process(_delta):
+func _process(_delta : float) -> void:
 	if one_sided:
 		visible = dir.dot(Vector3(player.global_position - global_position).normalized()) > vis_threshold

@@ -6,25 +6,25 @@ var material = preload("res://resources/materials/cannonbomb_mat.tres").duplicat
 @onready var explosion = $explosion
 @onready var player = get_tree().get_first_node_in_group("player")
 @onready var player_camera = player.get_node("cam/camera")
-var exploding = 0
+var exploding : bool = 0
 
-var explosion_timer = 0
-var explosion_time = 0.4
+var explosion_timer : float = 0
+var explosion_time : float = 0.4
 const EXPLOSION_SIZE : float = 5
 
-const SPEED = 30.0
-const LIFESPAN = 3.0
-const FLICKER_TIME = 1.0
-const FLICKER_FREQ = 10
-const DAMAGE = 150.0
-const FALLOFF = 0.25
-const SPLASH_RADIUS = 6
-const SELF_DAMAGE_RADIUS = 5
-var time = 0.0
+const SPEED : float = 30.0
+const LIFESPAN : float = 3.0
+const FLICKER_TIME : float = 1.0
+const FLICKER_FREQ : float = 10
+const DAMAGE : float = 150.0
+const FALLOFF : float = 0.25
+const SPLASH_RADIUS : float = 6
+const SELF_DAMAGE_RADIUS : float = 5
+var time : float = 0.0
 
-var damage_mul = 1.0
+var damage_mul : float = 1.0
 
-func explode(body):
+func explode(body : PhysicsBody3D) -> void:
 	exploding = 1
 	$bomb_sphere.visible = 0
 	$explosion.visible = 1
@@ -32,18 +32,18 @@ func explode(body):
 	freeze = 1
 	for obj in get_tree().get_nodes_in_group("enemy"):
 		if obj != body and obj != self:
-			var dist = obj.global_position.distance_to(global_position)
+			var dist : float = obj.global_position.distance_to(global_position)
 			if dist < SPLASH_RADIUS:
 				if obj.is_in_group("lightweight") and not (obj.is_in_group("phantom") and obj.dist_from_player > obj.PHANTOM_RADIUS):
-					var expl_dir = (obj.global_position - position).normalized()
+					var expl_dir : Vector3 = (obj.global_position - position).normalized()
 					expl_dir.y = 0
 					obj.add_vel = expl_dir.normalized() * 10
 				obj.pain(lerp(0.0, DAMAGE, sqrt(1.0 - dist / SPLASH_RADIUS)) * damage_mul)
 	for obj in get_tree().get_nodes_in_group("physics"):
-		var dist = obj.global_position.distance_to(global_position)
+		var dist : float = obj.global_position.distance_to(global_position)
 		if dist < SPLASH_RADIUS:
 			obj.apply_central_impulse(20 * (obj.global_position - position).normalized() / (1 + dist / 3))
-	var dist = (player.position + Vector3(0, 0.85, 0)).distance_to(position)
+	var dist : float = (player.position + Vector3(0, 0.85, 0)).distance_to(position)
 	if dist < SELF_DAMAGE_RADIUS:
 		player.knockback((player.cam.global_position - position) * 12 / (dist * dist))
 		player.velocity.y *= 0.2
@@ -56,23 +56,23 @@ func explode(body):
 	if body.is_in_group("enemy"):
 		body.pain(DAMAGE * damage_mul)
 		if body.is_in_group("lightweight"):
-			var expl_dir = (body.global_position - position).normalized()
+			var expl_dir : Vector3 = (body.global_position - position).normalized()
 			expl_dir.y = 0
 			body.add_vel = expl_dir.normalized() * 10
 
 
-func _ready():
+func _ready() -> void:
 	explosion.set_surface_override_material(0, explosion_material)
 	$bomb_sphere.set_surface_override_material(0, material)
 	$bomb_sphere/bomb_cylinder.set_surface_override_material(0, material)
 
-func _process(delta):
+func _process(delta : float) -> void:
 	time += delta
 	visible = time > 0.05
 	if time > LIFESPAN and not exploding:
 		explode(null)
 	elif time > LIFESPAN - FLICKER_TIME:
-		var flicker = int(FLICKER_FREQ * (LIFESPAN - time) / FLICKER_TIME) % 2
+		var flicker : bool = int(FLICKER_FREQ * (LIFESPAN - time) / FLICKER_TIME) % 2
 		if flicker:
 			material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
 		else:
@@ -86,7 +86,7 @@ func _process(delta):
 		return
 
 
-func _on_area_body_entered(body):
+func _on_area_body_entered(body : PhysicsBody3D) -> void:
 	if exploding or body == self or (body.is_in_group("phantom") and body.dist_from_player > body.PHANTOM_RADIUS):
 		return
 	if body.is_in_group("enemy"):

@@ -1,7 +1,7 @@
 extends Node
 
 
-var paused = false
+var paused : bool = false
 
 func update():
 	get_tree().paused = paused

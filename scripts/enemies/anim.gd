@@ -11,16 +11,16 @@ extends Node3D
 @onready var init_right_thigh_rot = skel.get_bone_pose_rotation(right_th).get_euler().x
 @onready var init_left_thigh_rot = skel.get_bone_pose_rotation(left_th).get_euler().x
 
-var anim_timer = 0.0
-var anim_speed = 0.0
-var anim_amplitude = PI / 6
-var bob_amplitude = 0.1
+var anim_timer : float = 0.0
+var anim_speed : float = 0.0
+var anim_amplitude : float = PI / 6
+var bob_amplitude : float = 0.1
 
-var legs_playing = 0
+var legs_playing : bool = false
 
-var actually_legs_playing = 0.0
+var actually_legs_playing : bool = false
 
-func _ready():
+func _ready() -> void:
 	for i in skel.get_children():
 		if i is MeshInstance3D:
 			i.visibility_range_end = 175
@@ -32,27 +32,27 @@ func bob_func(t: float) -> float:
 func ang_func(t : float) -> float:
 	return sin(t * 2 * PI) * anim_amplitude
 
-func is_playing():
+func is_playing() -> bool:
 	return anim_player.is_playing()
 
 
-func play(anim_name = "hitting", speed = 1.0):
+func play(anim_name : String = "hitting", speed : float = 1.0) -> void:
 	if speed > 0:
 		anim_player.play(anim_name, -1, speed)
 	else:
 		anim_player.play(anim_name, -1, speed, true)
 
-func _process(delta):
+func _process(delta : float) -> void:
 	position.y = bob_func(anim_timer) * bob_amplitude
 	
-	var prev_anim_timer = anim_timer
+	var prev_anim_timer : float = anim_timer
 	anim_timer = fmod(anim_timer + anim_speed * delta, 1.0)
 	if legs_playing:
 		actually_legs_playing = 1
 	elif prev_anim_timer > anim_timer or (prev_anim_timer < 0.5 and anim_timer > 0.5):
 		actually_legs_playing = 0
 	
-	var ang = ang_func(anim_timer)
+	var ang : float = ang_func(anim_timer)
 	if not actually_legs_playing:
 		position.y = 0.0
 		ang = 0.0

@@ -16,7 +16,7 @@ extends CollisionShape3D
 var anim_timer = 0.0
 
 
-func anim(c):
+func anim(c : float) -> void:
 	position.y = 0.4 * c
 	left_wing.rotation.z = 0.2 * c
 	right_wing.rotation.z = -left_wing.rotation.z
@@ -26,12 +26,12 @@ func anim(c):
 	skel.set_bone_pose_rotation(right_cf, Quaternion.from_euler(init_right_calf_rot + Vector3(0, 0, (c - 2) * 0.15)))
 
 
-func _ready():
+func _ready() -> void:
 	angel_body.material_override = preload("res://resources/materials/specific_mats/angel_mat.tres")
 	angel_body.cast_shadow = false
 
 
-func _process(delta):
+func _process(delta : float) -> void:
 	rotation.y = -atan2(player_cam.global_position.z - global_position.z, player_cam.global_position.x - global_position.x) + PI / 2
 	anim_timer = fmod(anim_timer + 2 * delta, PI * 2)
 	anim(sin(anim_timer))

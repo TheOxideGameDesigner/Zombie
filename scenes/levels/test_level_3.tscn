@@ -22,8 +22,8 @@
 [ext_resource type="PackedScene" uid="uid://tsfreyaa84jf" path="res://scenes/props/static_props/mountainside/pumpkin.tscn" id="21_2nsty"]
 [ext_resource type="PackedScene" uid="uid://bi1q4klr2bhr2" path="res://scenes/props/static_props/haunted_mansions/window.tscn" id="23_js0h6"]
 [ext_resource type="PackedScene" uid="uid://cjlqf7r8mbj5o" path="res://scenes/props/static_props/haunted_mansions/barrel.tscn" id="25_7yx75"]
-[ext_resource type="PackedScene" uid="uid://8i02pg3itrcs" path="res://scenes/props/enemies/disciple.tscn" id="25_hdbof"]
 [ext_resource type="PackedScene" uid="uid://tub7ejog7vp6" path="res://scenes/props/static_props/haunted_mansions/barrel_giant.tscn" id="26_28h6m"]
+[ext_resource type="PackedScene" uid="uid://ct4dtw3ijmehk" path="res://scenes/props/enemies/runner.tscn" id="27_d2cc5"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ctp2d"]
 
@@ -57,6 +57,7 @@ environment = ExtResource("3_umtsh")
 [node name="light" type="DirectionalLight3D" parent="." groups=["light"]]
 transform = Transform3D(-0.270371, 0.958996, -0.085009, -0.539281, -0.0777097, 0.838533, 0.797543, 0.272559, 0.538179, 34.4022, 23.7255, -146.613)
 light_bake_mode = 0
+shadow_enabled = true
 shadow_bias = 0.01
 shadow_opacity = 0.7
 directional_shadow_blend_splits = true
@@ -170,5 +171,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.94682, 0.198839, -13.9152)
 [node name="barrel3" parent="." instance=ExtResource("26_28h6m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.19806, 0.198839, -11.1512)
 
-[node name="disciple" parent="." instance=ExtResource("25_hdbof")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.8774, 0.198839, -19.2304)
+[node name="runner" parent="." instance=ExtResource("27_d2cc5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.90431, 0.198839, 17.3168)

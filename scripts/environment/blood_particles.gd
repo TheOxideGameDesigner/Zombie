@@ -1,14 +1,14 @@
 extends GPUParticles3D
 
 
-@export var dir = Vector3.ZERO
-@export var speed = 2
-@export var size = 0.1
-@export var color = Color(1, 0, 0)
-@export var spread = 27.75
+@export var dir : Vector3 = Vector3.ZERO
+@export var speed : float = 2
+@export var size : float = 0.1
+@export var color : Color = Color(1, 0, 0)
+@export var spread : float = 27.75
 
 
-func _ready():
+func _ready() -> void:
 	process_material = ParticleProcessMaterial.new()
 	emitting = true
 	process_material.direction = dir
@@ -22,5 +22,5 @@ func _ready():
 	draw_pass_1.size = Vector3(size, size, size)
 
 
-func _on_finished():
+func _on_finished() -> void:
 	queue_free()

@@ -13,11 +13,11 @@ const CONFIG_PATH = "user://unlocked.cfg"
 var levels = JSON.parse_string(FileAccess.get_file_as_string("res://data/levels.json"))
 
 
-func _physics_process(_delta):
+func _physics_process(_delta : float) -> void:
 	$block/block_hitbox.disabled = player.has_garlic or not requires_garlic
 	$warning/warning_hitbox.disabled = player.has_garlic or not requires_garlic
 
-func _on_body_entered(body):
+func _on_body_entered(body : PhysicsBody3D) -> void:
 	if body.is_in_group("player") and (player.has_garlic or not requires_garlic):
 		var config = ConfigFile.new()
 		config.load(CONFIG_PATH)

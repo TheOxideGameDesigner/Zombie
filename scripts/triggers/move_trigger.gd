@@ -1,12 +1,12 @@
 extends Node3D
 
-const INSTA_MOVE_THRESHOLD = 0.1
+const INSTA_MOVE_THRESHOLD : float = 0.1
 
-var will_activate = 0
-var inside = 0
-var prev_inside = 0
-var triggered = 0
-var timer = 0
+var will_activate : bool = 0
+var inside : bool = 0
+var prev_inside : bool = 0
+var triggered : bool = 0
+var timer : float = 0
 @export var group : int = 0
 @export var target : Vector3 = Vector3.ZERO
 @export var time : float = 0.0
@@ -20,19 +20,19 @@ var timer = 0
 
 var in_group = []
 
-func player_has_keys():
+func player_has_keys() -> bool:
 	for i in range(keys_required.size()):
 		if not player.collected_keys[keys_required[i]]:
 			return 0
 	return 1
 
-func _process(delta):
+func _process(delta : float) -> void:
 	if in_group.is_empty():
 		return
 	
-	var has_keys = player_has_keys()
+	var has_keys : bool = player_has_keys()
 	
-	var can_activate = inside and not prev_inside and has_keys
+	var can_activate : bool = inside and not prev_inside and has_keys
 	prev_inside = inside
 	
 	if on_exit and can_activate:
@@ -70,7 +70,7 @@ func _process(delta):
 			queue_free()
 
 
-func _on_ready_timer_timeout():
+func _on_ready_timer_timeout() -> void:
 	if group >= 0:
 		in_group = get_tree().get_nodes_in_group(str(group))
 	else:

@@ -1,20 +1,20 @@
 extends Node3D
 
 
-const RADIUS = 1
-const FLOAT = 4.5
-const GRAVE_DEPTH = 8.5
-const RISE_TIME = 3.7664
-const RISE_FLICKER = 0.25
+const RADIUS : float = 1
+const FLOAT : float = 4.5
+const GRAVE_DEPTH : float = 8.5
+const RISE_TIME : float = 3.7664
+const RISE_FLICKER : float = 0.25
 const HP : int = 500
-const REVOLVER_HEAL = 3
-var alive = true
-var rising = false
+const REVOLVER_HEAL : int = 3
+var alive : bool = true
+var rising : bool = false
 var health : int = HP
-var pain_col = 0.0
-var rising_timer = 0.0
+var pain_col : float = 0.0
+var rising_timer : float = 0.0
 var active_zone : Area3D
-var has_died = false
+var has_died : bool = false
 
 const gibs = preload("res://scenes/environment/gibs/angel.tscn")
 const blood = preload("res://scenes/environment/blood_particles.tscn")
@@ -29,14 +29,14 @@ const angel_mat = preload("res://resources/materials/specific_mats/angel_explosi
 @onready var left_wing = $mesh/left_wing
 @onready var right_wing = $mesh/right_wing
 @onready var halo = $mesh/halo
-@onready var dist_from_player = Vector2(player.position.x, player.position.z).distance_to(Vector2(position.x, position.z))
+@onready var dist_from_player : float = Vector2(player.position.x, player.position.z).distance_to(Vector2(position.x, position.z))
 @onready var respawn = $respawn
 @onready var raycast_area = $raycast_collision
 @onready var raycast_hitbox = $raycast_collision/raycast_hitbox
 
 
 @export_range(0, 4) var min_dif : int = 0
-@export var respawn_time = 10
+@export var respawn_time : float = 10
 
 var disable_particles : bool = false
 var disable_gibs : bool = false
@@ -47,26 +47,26 @@ var beams = []
 var drops = []
 
 
-func update_beam(i):
+func update_beam(i : int) -> void:
 	var beam_mesh = beams[i]
 	if not alive or rising or zombies[i].rising or not zombies[i].alive:
 		beam_mesh.visible = 0
 		return
-	var from = mesh_body.global_position
-	var to = zombies[i].mesh.global_position + Vector3(0, 0.25, 0)
+	var from : Vector3 = mesh_body.global_position
+	var to : Vector3 = zombies[i].mesh.global_position + Vector3(0, 0.25, 0)
 	beam_mesh.visible = 1
 	beam_mesh.position = (from + to) / 2
-	var dir = to - from
+	var dir : Vector3 = to - from
 	beam_mesh.global_rotation.y = -atan2(dir.z, dir.x) + PI / 2
 	beam_mesh.global_rotation.x = -atan2(dir.y, Vector2(dir.z, dir.x).length()) + PI / 2
 	beam_mesh.scale.y = from.distance_to(to)
 
 
-func update_healthbar():
+func update_healthbar() -> void:
 	health_label.text = str(health)
 
 
-func add_particles(edmg):
+func add_particles(edmg : int) -> void:
 	if disable_particles:
 		return
 	var new_blood = blood.instantiate()
@@ -82,7 +82,7 @@ func add_particles(edmg):
 	new_blood.amount = clamp(edmg / 1.5, 5, 75)
 
 
-func add_gibs():
+func add_gibs() -> void:
 	if disable_gibs or get_tree().current_scene == null:
 		return
 	var new_gibs = gibs.instantiate()
@@ -90,11 +90,11 @@ func add_gibs():
 	get_tree().current_scene.add_child(new_gibs)
 
 
-func rising_func(t):
+func rising_func(t : float) -> float:
 	return (1 - 1 / (10 * t + 1)) * 1.1
 
 
-func pain(dmg, noblood=false, heal_player = false):
+func pain(dmg : int, noblood : bool = false, heal_player : bool = false) -> void:
 	if rising or not alive or health <= 0:
 		return
 	
@@ -111,7 +111,7 @@ func pain(dmg, noblood=false, heal_player = false):
 		player.health = player.health + REVOLVER_HEAL
 
 
-func _body_entered(body):
+func _body_entered(body : PhysicsBody3D) -> void:
 	if body == self or not body.is_in_group("enemy") or body.is_in_group("unhealable") or body.get_parent().is_in_group("enemy"):
 		return
 	zombies.push_back(body)
@@ -129,7 +129,7 @@ func _body_entered(body):
 	update_beam(beams.size() - 1)
 
 
-func _body_exited(body):
+func _body_exited(body : PhysicsBody3D) -> void:
 	if body == self or not body.is_in_group("enemy") or body.is_in_group("unhealable") or body.get_parent().is_in_group("enemy"):
 		return
 	zombies.erase(body)
@@ -137,7 +137,7 @@ func _body_exited(body):
 	beams.pop_back()
 
 
-func _ready():
+func _ready() -> void:
 	if ProjectSettings.get_setting("rendering/renderer/rendering_method") == "gl_compatibility":
 		mesh_body.material_override = preload("res://resources/materials/level_unshaded_mat.tres")
 		left_wing.material_override = preload("res://resources/materials/level_unshaded_mat.tres")
@@ -150,7 +150,7 @@ func _ready():
 	config.load("user://settings.cfg")
 	disable_particles = config.get_value("video", "disable_particles", false)
 	disable_gibs = config.get_value("video", "disable_gibs", false)
-	var diff = config.get_value("gameplay", "difficulty", 2)
+	var diff : int = config.get_value("gameplay", "difficulty", 2)
 	
 	for c in get_children():
 		if c.is_in_group("drop"):
@@ -165,10 +165,10 @@ func _ready():
 	
 	#determine at what height to put the enemy home
 	ray.target_position = Vector3(0, -100, 0)
-	var max_height = -1000000
-	const CHECKS = 4
+	var max_height : float = -1000000
+	const CHECKS : int = 4
 	for i in range(CHECKS):
-		var pos = Vector2.RIGHT.rotated(2 * PI * i / CHECKS) * RADIUS
+		var pos : Vector2 = Vector2.RIGHT.rotated(2 * PI * i / CHECKS) * RADIUS
 		ray.position = Vector3(pos.x, ray.position.y, pos.y)
 		ray.force_raycast_update()
 		if ray.is_colliding():
@@ -195,7 +195,7 @@ func _ready():
 	active_zone.connect("body_exited", _body_exited)
 
 
-func ai():
+func ai() -> void:
 	if health <= 0 and alive:
 		home.time_left = respawn_time
 		alive = 0
@@ -215,13 +215,13 @@ func ai():
 	if not alive or rising:
 		return
 	
-	var dir2player = player.global_position - global_position
-	var dir2player2D = Vector2(dir2player.x, dir2player.z).normalized()
+	var dir2player : Vector3 = player.global_position - global_position
+	var dir2player2D : Vector2 = Vector2(dir2player.x, dir2player.z).normalized()
 	raycast_area.rotation.y = -atan2(dir2player2D.y, dir2player2D.x) + PI / 2
 	raycast_hitbox.disabled = rising or not alive
 
 
-func _physics_process(_delta):
+func _physics_process(_delta : float) -> void:
 	if not alive or rising:
 		return
 	for i in zombies:
@@ -230,7 +230,7 @@ func _physics_process(_delta):
 			i.update_healthbar()
 
 
-func _process(delta):
+func _process(delta : float) -> void:
 	ai()
 	
 	dist_from_player = Vector2(player.position.x, player.position.z).distance_to(Vector2(position.x, position.z))
@@ -239,8 +239,8 @@ func _process(delta):
 	if pain_col > 0.0 or dist_from_player < player.SHOTGUN_PB_RANGE:
 		pain_col = max(0, pain_col - delta * 2)
 		const FADE_RANGE = 1
-		var pb_col = clamp(lerp(0.0, 1.0, (player.SHOTGUN_PB_RANGE - dist_from_player) / FADE_RANGE) ,0.0, 1.0)
-		var col = max(pain_col, pb_col) * 0.5
+		var pb_col : float = clamp(lerp(0.0, 1.0, (player.SHOTGUN_PB_RANGE - dist_from_player) / FADE_RANGE) ,0.0, 1.0)
+		var col : float = max(pain_col, pb_col) * 0.5
 		mesh_body.set_instance_shader_parameter("pain", col)
 		left_wing.set_instance_shader_parameter("pain", col)
 		right_wing.set_instance_shader_parameter("pain", col)
@@ -263,7 +263,7 @@ func _process(delta):
 	
 
 
-func _on_respawn_timeout():
+func _on_respawn_timeout() -> void:
 	health = HP
 	update_healthbar()
 	alive = 1

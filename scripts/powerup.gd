@@ -5,7 +5,7 @@ var player_inside : bool = false
 
 @export var powerup_type : int
 @export var color : Color
-@onready var good_dir = transform.basis.z
+@onready var good_dir : Vector3 = transform.basis.z
 @onready var player = get_tree().get_first_node_in_group("player")
 
 

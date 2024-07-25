@@ -1,25 +1,25 @@
 extends Node3D
 
 
-const BOB_AMPLITUDE = 0.1
-const BOB_FREQ = 2
+const BOB_AMPLITUDE : float = 0.1
+const BOB_FREQ : float = 2
 
 
 @export var color : Color
 @onready var cross = $cross
-@onready var init_height = cross.position.y
+@onready var init_height : float = cross.position.y
 @onready var time_left_label = $cross/time_left_label
-var time = 0.0
-var time_left = 0.0
+var time : float = 0.0
+var time_left : float = 0.0
 
 
-func _ready():
+func _ready() -> void:
 	cross.modulate = color
 	$cross_base.modulate = color
 	time_left_label.modulate = color
 
 
-func _process(delta):
+func _process(delta : float) -> void:
 	time_left -= delta
 	if int(time_left) != int(time_left + delta):
 		if time_left > 0:

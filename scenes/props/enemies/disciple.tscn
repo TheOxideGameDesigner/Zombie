@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://d23lvbv48dsow" path="res://models/dynamic_props/enemies/mountainside_disciple.glb" id="9_38wlg"]
 [ext_resource type="Script" path="res://scripts/enemies/anim.gd" id="9_ejmby"]
 [ext_resource type="PackedScene" uid="uid://cd6bos2i6d23v" path="res://scenes/editor_tools/difficulty_visualiser.tscn" id="9_xdve0"]
-[ext_resource type="Material" uid="uid://idpe3qdehuom" path="res://resources/materials/opengl/disciple_helix_mat_opengl.tres" id="11_i6lag"]
+[ext_resource type="Material" uid="uid://b6shyko6aurhy" path="res://resources/materials/specific_mats/disciple_helix_mat.tres" id="11_dfnem"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_2lsg5"]
 
@@ -35,12 +35,12 @@ height = 1.0
 radial_segments = 4
 rings = 60
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c32yb"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eectb"]
 transparency = 1
 shading_mode = 0
 albedo_color = Color(1, 1, 1, 0.1)
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_5no0d"]
+[sub_resource type="CylinderMesh" id="CylinderMesh_yq4yg"]
 radial_segments = 12
 
 [node name="disciple" type="CharacterBody3D" groups=["activatable", "enemy", "lightweight"]]
@@ -123,7 +123,7 @@ mesh = ExtResource("8_udeft")
 [node name="helix" type="MeshInstance3D" parent="mesh"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.0549999, 0.371)
 visible = false
-material_override = ExtResource("11_i6lag")
+material_override = ExtResource("11_dfnem")
 mesh = SubResource("CylinderMesh_1oikw")
 
 [node name="respawn" type="Timer" parent="."]
@@ -131,7 +131,7 @@ wait_time = 5.0
 one_shot = true
 
 [node name="difficulty_visualiser" parent="." instance=ExtResource("9_xdve0")]
-material_override = SubResource("StandardMaterial3D_c32yb")
-mesh = SubResource("CylinderMesh_5no0d")
+material_override = SubResource("StandardMaterial3D_eectb")
+mesh = SubResource("CylinderMesh_yq4yg")
 
 [connection signal="timeout" from="respawn" to="." method="_on_respawn_timeout"]
