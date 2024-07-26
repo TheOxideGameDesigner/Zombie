@@ -468,10 +468,13 @@ func movement(wishdir : Vector2, delta : float) -> void:
 				break
 	
 	if spectator:
-		position += SPEED * 5 * Vector3(wishdir.x, 0, wishdir.y) * delta
-		if Input.is_action_pressed("g_attack"):
+		if Input.is_key_pressed(KEY_SHIFT):
+			position += SPEED * Vector3(wishdir.x, 0, wishdir.y) * delta
+		else:
+			position += SPEED * 5 * Vector3(wishdir.x, 0, wishdir.y) * delta
+		if Input.is_key_pressed(KEY_Q):
 			position.y -= SPEED * delta
-		if Input.is_action_pressed("g_attack2"):
+		if Input.is_key_pressed(KEY_E):
 			position.y += SPEED * delta
 		return
 	
@@ -578,6 +581,7 @@ func _ready() -> void:
 		$crosshair.visible = 0
 		$healthbar.visible = 0
 		$fps_label.visible = 0
+		$charge.visible = 0
 		for e in enemies:
 			e.queue_free()
 	
