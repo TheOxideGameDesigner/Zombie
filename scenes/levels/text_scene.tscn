@@ -1,0 +1,45 @@
+[gd_scene load_steps=3 format=3 uid="uid://c073gcvt764r3"]
+
+[ext_resource type="Theme" uid="uid://3b0iarraglqs" path="res://resources/ui_theme.tres" id="1_175dp"]
+[ext_resource type="Script" path="res://scripts/ui/text_scene.gd" id="2_dwkqc"]
+
+[node name="text_scene" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+theme = ExtResource("1_175dp")
+script = ExtResource("2_dwkqc")
+text = ""
+
+[node name="panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = -48.0
+offset_top = -28.0
+offset_right = 1966.0
+offset_bottom = 1108.0
+
+[node name="story" type="Label" parent="panel"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 76.0
+offset_top = 53.0
+offset_right = 1961.0
+offset_bottom = 1092.0
+autowrap_mode = 3
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="guide" type="Label" parent="panel"]
+visible = false
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -161.0
+offset_bottom = -45.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "press any key to continue"
+horizontal_alignment = 1
+vertical_alignment = 1

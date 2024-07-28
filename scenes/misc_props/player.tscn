@@ -67,7 +67,6 @@ floor_constant_speed = true
 floor_snap_length = 0.2
 platform_on_leave = 2
 script = ExtResource("1_p5l8k")
-spectator = true
 
 [node name="hitbox" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
