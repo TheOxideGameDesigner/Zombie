@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=3 uid="uid://cv42hksvnlut7"]
+[gd_scene load_steps=70 format=3 uid="uid://cv42hksvnlut7"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_1tbg6"]
 [ext_resource type="Material" uid="uid://uxn8fucitgfr" path="res://resources/materials/level_mat.tres" id="2_m25n1"]
@@ -47,6 +47,7 @@
 [ext_resource type="PackedScene" uid="uid://cdshg7bk5i645" path="res://scenes/misc_props/garlic.tscn" id="45_4dh7k"]
 [ext_resource type="PackedScene" uid="uid://cq4mvdbpk0wiq" path="res://scenes/props/enemies/statue.tscn" id="46_noxjn"]
 [ext_resource type="PackedScene" uid="uid://d2oh8oq4wds0h" path="res://scenes/props/enemies/angel.tscn" id="47_ypciu"]
+[ext_resource type="PackedScene" uid="uid://cjlqf7r8mbj5o" path="res://scenes/props/static_props/haunted_mansions/barrel.tscn" id="48_w21ia"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vtd5g"]
 size = Vector3(103.371, 33.9999, 79.246)
@@ -131,7 +132,6 @@ metadata/_edit_lock_ = true
 [node name="light" type="DirectionalLight3D" parent="." groups=["light"]]
 transform = Transform3D(-0.726416, 0.619811, -0.296908, -0.333815, 0.0594236, 0.940764, 0.600739, 0.782498, 0.163736, 253.533, 245.179, -96.0863)
 light_bake_mode = 0
-shadow_enabled = true
 shadow_bias = 0.01
 shadow_opacity = 0.7
 directional_shadow_blend_splits = true
@@ -1914,3 +1914,15 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 89, 3,
 
 [node name="painting3x3" parent="." instance=ExtResource("28_35qll")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 112.6, 3, 13)
+
+[node name="barrel" parent="." instance=ExtResource("48_w21ia")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.4086, -12, -5.97235)
+
+[node name="barrel2" parent="." instance=ExtResource("48_w21ia")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.5974, -12, 6.4358)
+
+[node name="barrel3" parent="." instance=ExtResource("48_w21ia")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.35, -12, 21.8803)
+
+[node name="barrel4" parent="." instance=ExtResource("48_w21ia")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.1727, -12, 22.5655)

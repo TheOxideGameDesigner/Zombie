@@ -83,7 +83,7 @@ const FB_TIME : float = 0.4666
 var hit_timer : float = HIT_TIME
 var fb_timer : float = 0.0
 const FB_POS : Array[Vector3] = [Vector3(0, 0, 0.4), Vector3(0, 0, 0.3)]
-var fired : bool = false
+var fired : bool = true
 
 
 func is_asleep() -> bool:
@@ -419,7 +419,7 @@ func fire() -> void:
 	new_rocket.top_level = 1
 
 func _on_respawn_timeout() -> void:
-	fired = false
+	fired = true
 	fireball.visible = false
 	fb_timer = 0.0
 	health = HP

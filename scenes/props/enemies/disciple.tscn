@@ -35,11 +35,11 @@ height = 1.0
 radial_segments = 4
 rings = 60
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rueac"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fdhj0"]
 transparency = 1
 shading_mode = 0
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_a8dhg"]
+[sub_resource type="CylinderMesh" id="CylinderMesh_wufob"]
 radial_segments = 12
 
 [node name="disciple" type="CharacterBody3D" groups=["activatable", "enemy", "lightweight"]]
@@ -130,7 +130,7 @@ wait_time = 5.0
 one_shot = true
 
 [node name="difficulty_visualiser" parent="." instance=ExtResource("9_xdve0")]
-material_override = SubResource("StandardMaterial3D_rueac")
-mesh = SubResource("CylinderMesh_a8dhg")
+material_override = SubResource("StandardMaterial3D_fdhj0")
+mesh = SubResource("CylinderMesh_wufob")
 
 [connection signal="timeout" from="respawn" to="." method="_on_respawn_timeout"]

@@ -84,7 +84,6 @@ metadata/_edit_lock_ = true
 [node name="light" type="DirectionalLight3D" parent="." groups=["light"]]
 transform = Transform3D(0.891167, 0.345171, 0.294413, -0.333815, 0.0594236, 0.940764, 0.307229, -0.936657, 0.168179, 253.533, 245.179, -96.0863)
 light_bake_mode = 0
-shadow_enabled = true
 shadow_bias = 0.01
 shadow_opacity = 0.7
 directional_shadow_blend_splits = true
