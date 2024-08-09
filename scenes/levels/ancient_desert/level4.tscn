@@ -68,7 +68,7 @@ albedo_color = Color(0.627451, 0.478431, 0.239216, 1)
 metallic_specular = 0.0
 
 [sub_resource type="BoxMesh" id="BoxMesh_g5xc8"]
-size = Vector3(30, 2, 2)
+size = Vector3(30.02, 2, 2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8g17t"]
 size = Vector3(30, 2, 2)
@@ -132,7 +132,6 @@ environment = ExtResource("7_kumh6")
 [node name="light" type="DirectionalLight3D" parent="." groups=["light"]]
 transform = Transform3D(-0.640711, 0.748239, -0.172128, 0.0826588, 0.290108, 0.953417, 0.76332, 0.596637, -0.247724, 226.237, 42.9725, -191.389)
 light_bake_mode = 0
-shadow_enabled = true
 shadow_bias = 0.01
 shadow_opacity = 0.7
 directional_shadow_blend_splits = true
@@ -146,7 +145,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -24.7062)
 shape = SubResource("BoxShape3D_vtej7")
 
 [node name="omnilight4" type="OmniLight3D" parent="light_area1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.788139, -3.94154, -8.25504)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.788139, -4.21918, -7.96067)
 light_color = Color(1, 0.945098, 0.905882, 1)
 light_energy = 0.364
 omni_range = 17.5466
@@ -173,7 +172,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -24.7062)
 shape = SubResource("BoxShape3D_vtej7")
 
 [node name="omnilight" type="OmniLight3D" parent="light_area2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2288, -3.52455, -9.22256)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2288, -4.71062, -7.86472)
 light_color = Color(1, 0.945098, 0.905882, 1)
 light_energy = 0.364
 omni_range = 17.5466
@@ -807,7 +806,7 @@ delay = 1.0
 keys_required = Array[int]([3])
 
 [node name="get_deceived_lol1" type="StaticBody3D" parent="props" groups=["4"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.079, 0)
 metadata/_edit_group_ = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="props/get_deceived_lol1"]
@@ -820,7 +819,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41, 194, -117)
 shape = SubResource("BoxShape3D_8g17t")
 
 [node name="get_deceived_lol2" type="StaticBody3D" parent="props" groups=["5"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08, -2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.079, -2)
 metadata/_edit_group_ = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="props/get_deceived_lol2"]

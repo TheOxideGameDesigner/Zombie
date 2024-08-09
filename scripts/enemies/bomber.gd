@@ -16,6 +16,7 @@ const RISE_FLICKER : float = 0.25
 const HIT_RANGE : float = 20
 var ROCKET_SPEED : float = 20
 const HIT_TIME : float = 1.75
+const INIT_HIT_TIME : float = 1.25
 const HIT_RANGE_MARGIN : float = 1.0
 const PB_RANGE : float = 2
 const FALLOFF : float = 0.1
@@ -76,7 +77,7 @@ var disable_gibs : bool = false
 
 var add_vel : Vector3 = Vector3.ZERO
 
-var hit_timer : float = HIT_TIME
+var hit_timer : float = INIT_HIT_TIME
 
 
 func is_asleep() -> bool:
@@ -299,7 +300,7 @@ func ai(delta : float) -> void:
 		if sees_target and dist_from_player < HIT_RANGE and alive and not rising:
 			hit_timer = max(0.0, hit_timer - delta)
 		else:
-			hit_timer = HIT_TIME
+			hit_timer = INIT_HIT_TIME
 		
 		if hit_timer == 0:
 			mesh_body.play("hitting", 0.48)
@@ -392,7 +393,7 @@ func fire() -> void:
 	new_bomb.top_level = 1
 
 func _on_respawn_timeout() -> void:
-	hit_timer = HIT_TIME
+	hit_timer = INIT_HIT_TIME
 	health = HP
 	update_healthbar()
 	alive = 1

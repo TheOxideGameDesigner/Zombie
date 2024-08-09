@@ -2,17 +2,13 @@ extends Node3D
 
 const INSTA_MOVE_THRESHOLD : float = 0.1
 
-var will_activate : bool = 0
 var inside : bool = 0
-var prev_inside : bool = 0
 var triggered : bool = 0
 var timer : float = 0
 @export var group : int = 0
 @export var target : Vector3 = Vector3.ZERO
 @export var time : float = 0.0
 @export var delay : float = 0.0
-@export var multi_activate : bool = false
-@export var on_exit : bool = false
 @export var global_target : bool = false
 @export var keys_required : Array[int] = []
 
@@ -20,12 +16,10 @@ var timer : float = 0
 
 var in_group = []
 
-
 func _ready() -> void:
 	target.x = deg_to_rad(target.x)
 	target.y = deg_to_rad(target.y)
 	target.z = deg_to_rad(target.z)
-
 
 func player_has_keys() -> bool:
 	for i in range(keys_required.size()):
@@ -37,18 +31,9 @@ func _process(delta : float) -> void:
 	if in_group.is_empty():
 		return
 	
-	var has_keys : bool = player_has_keys()
-	
-	var can_activate : bool = inside and not prev_inside and has_keys
-	prev_inside = inside
-	
-	if on_exit and can_activate:
-		will_activate = 1
-	
-	if (on_exit and will_activate and not inside) or (not on_exit and can_activate):
-		timer = 0
-		triggered = 1
-		will_activate = 0
+	if not triggered:
+		if inside and player_has_keys():
+			triggered = 1
 	if not triggered:
 		return
 	timer += delta
@@ -60,10 +45,7 @@ func _process(delta : float) -> void:
 				n.global_rotation = target
 			else:
 				n.rotation += target
-		if multi_activate:
-			triggered = 0
-		else:
-			queue_free()
+		queue_free()
 		return
 	for n in in_group:
 		if global_target:
@@ -71,10 +53,7 @@ func _process(delta : float) -> void:
 		else:
 			n.rotation += target * delta / time
 	if timer > time + delay:
-		if multi_activate:
-			triggered = 0
-		else:
-			queue_free()
+		queue_free()
 
 
 func _on_ready_timer_timeout() -> void:

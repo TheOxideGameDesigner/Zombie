@@ -2,3 +2,4 @@
 
 [resource]
 shading_mode = 0
+specular_mode = 2
